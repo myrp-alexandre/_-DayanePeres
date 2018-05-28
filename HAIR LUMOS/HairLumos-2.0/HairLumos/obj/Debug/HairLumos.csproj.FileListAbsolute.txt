@@ -1,0 +1,162 @@
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\HairLumos.exe.config
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\HairLumos.exe
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\HairLumos.pdb
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\Microsoft.Win32.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\netstandard.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.AppContext.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Collections.Concurrent.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Collections.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Collections.NonGeneric.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Collections.Specialized.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.ComponentModel.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.ComponentModel.TypeConverter.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Console.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Data.Common.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.Contracts.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.Debug.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.Process.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.StackTrace.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.Tools.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.TraceSource.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Diagnostics.Tracing.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Drawing.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Dynamic.Runtime.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Globalization.Calendars.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Globalization.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Globalization.Extensions.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.Compression.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.Compression.ZipFile.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.FileSystem.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.FileSystem.Watcher.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.IsolatedStorage.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.MemoryMappedFiles.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.Pipes.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Linq.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Linq.Expressions.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Linq.Parallel.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Linq.Queryable.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.Http.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.NameResolution.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.NetworkInformation.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.Ping.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.Requests.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.Security.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.Sockets.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.WebHeaderCollection.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.WebSockets.Client.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Net.WebSockets.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.ObjectModel.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Reflection.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Reflection.Extensions.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Reflection.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Resources.Reader.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Resources.ResourceManager.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Resources.Writer.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.Extensions.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.Handles.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.InteropServices.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.Numerics.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.Serialization.Formatters.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.Serialization.Json.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.Serialization.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Runtime.Serialization.Xml.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.Claims.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.Cryptography.Csp.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.Principal.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Security.SecureString.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Text.Encoding.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Text.Encoding.Extensions.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Text.RegularExpressions.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Threading.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Threading.Overlapped.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Threading.Tasks.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Threading.Tasks.Parallel.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Threading.Thread.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Threading.ThreadPool.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Threading.Timer.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.ValueTuple.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Xml.ReaderWriter.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Xml.XDocument.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Xml.XmlDocument.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Xml.XmlSerializer.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Xml.XPath.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\System.Xml.XPath.XDocument.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\Npgsql.dll
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\bin\Debug\Npgsql.xml
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.csprojAssemblyReference.cache
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.exe.config
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.Form1.resources
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.Properties.Resources.resources
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.csproj.GenerateResource.cache
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.csproj.CoreCompileInputs.cache
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.csproj.CopyComplete
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.exe
+C:\Users\dayane.peres\Desktop\BSI\Estágio I\HairLumos\HairLumos\obj\Debug\HairLumos.pdb
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.csprojAssemblyReference.cache
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.InterfacePadrão.frmCadastro.resources
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.frmMenu.resources
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.Properties.Resources.resources
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.csproj.GenerateResource.cache
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.csproj.CoreCompileInputs.cache
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.exe
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.pdb
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.exe.config
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\HairLumos.exe.config
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\HairLumos.exe
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\HairLumos.pdb
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.12.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\EnvDTE.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\VSLangProj.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\EnvDTE80.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Shell.Design.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Shell.15.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\stdole.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Shell.Framework.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Telemetry.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\System.Threading.Tasks.Dataflow.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.RemoteControl.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.VisualStudio.Utilities.Internal.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.MSXML.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\Npgsql.xml
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.Shell.Design.resources.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.Shell.15.0.resources.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.GraphModel.resources.dll
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.csproj.CopyComplete
+C:\Users\dayane.peres\Desktop\BSI\ESTÁGIO I\HAIR LUMOS - Systema\HairLumos\HairLumos\obj\Debug\HairLumos.Views.Cadastro_CategoriaProduto.resources
