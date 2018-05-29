@@ -13,6 +13,8 @@ namespace HairLumos.Views
 {
     public partial class Cadastro_MarcaProduto : Form
     {
+        private int intCodigoMarca = 0;
+
         public Cadastro_MarcaProduto()
         {
             InitializeComponent();
@@ -27,13 +29,13 @@ namespace HairLumos.Views
             // ttb
             ttbCodigo.Enabled = false;
             ttbMarca.Enabled = false;
-            dgvMarca.Enabled = false;
+            dgvMarca.Enabled = true;
 
             //btn
             btnNovo.Enabled = true;
             btnGravar.Enabled = false;
             btnAlterar.Enabled = false;
-            btnExcluir.Enabled = true;
+            btnExcluir.Enabled = false;
             btnSair.Enabled = true;
 
             pesquisaMarca();
@@ -65,27 +67,26 @@ namespace HairLumos.Views
         public void _btnAlterar()
         {
             ttbCodigo.Enabled = false;
-
             ttbMarca.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
             btnGravar.Enabled = true;
+            btnAlterar.Enabled = false;
             btnExcluir.Enabled = true;
             btnSair.Enabled = true;
 
             ttbMarca.Focus();
 
-            pesquisaMarca();
-            _limpaCampos();
+            
         }
 
-        /*public void carregaMarcaTela(string strCod, string StrMarca)
+        public void carregaMarcaTela(string strCod, string StrMarca)
         {
             ttbCodigo.Text = strCod;
             ttbMarca.Text = StrMarca;
         }
-        */
+        
         public void carregaGrid()
         {
             Controller.ProdutoController _ctlProd = new ProdutoController();
@@ -93,11 +94,11 @@ namespace HairLumos.Views
 
             if (dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                /*DataRow dr = dtRetorno.Rows[0];
+                DataRow dr = dtRetorno.Rows[intCodigoMarca-1];
                 this.carregaMarcaTela(
                     dr["codmarca"].ToString(),
                     dr["marc_nome"].ToString());
-                    */
+                    
             }
         }
 
@@ -115,22 +116,24 @@ namespace HairLumos.Views
             else
                 dgvMarca.Rows.Clear();
 
-            carregaGrid();
+            //carregaGrid();
 
         }
 
-        public void selecinaCategoria()
+        public void selecinaMarca()
         {
 
             if (dgvMarca.Rows.Count > 0)
             {
                 int intCod = 0;
-                int.TryParse(dgvMarca.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
+                
+                intCod = dgvMarca.CurrentRow.Index;
+                
 
                 if (intCod > 0)
                 {
-                    //this.intCodigoCategoria = intCod;
-                    this.Close();
+                    this.intCodigoMarca = intCod;
+                    
                 }
             }
         }
@@ -150,8 +153,12 @@ namespace HairLumos.Views
             {
                 //validações
                 int intCodigo = 0;
-                if (!int.TryParse(ttbCodigo.Text, out intCodigo))
-                    strMensagem += $"Código inválido{Environment.NewLine}";
+                if (intCodigoMarca != 0)
+                {
+                    if (!int.TryParse(ttbCodigo.Text, out intCodigo))
+                        strMensagem += $"Código inválido{Environment.NewLine}";
+                }
+                
 
                 if (string.IsNullOrWhiteSpace(ttbMarca.Text))
                     strMensagem += $"Informe a Marca do Produto.";
@@ -179,6 +186,7 @@ namespace HairLumos.Views
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             _btnAlterar();
+            
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -198,6 +206,7 @@ namespace HairLumos.Views
                     {
                         MessageBox.Show("Marca Excluída");
                         _limpaCampos();
+                        pesquisaMarca();
                         _btnNovo();
                     }
                     else
@@ -213,6 +222,26 @@ namespace HairLumos.Views
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void dgvMarca_DoubleClick(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void dgvMarca_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecinaMarca();
+            carregaGrid();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            _limpaCampos();
+            pesquisaMarca();
         }
     }
 }

@@ -61,8 +61,8 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
             this.splitContainer1.Panel1.Controls.Add(this.dgvCatProduto);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
@@ -90,7 +90,6 @@
             this.btnSelecionar.TabIndex = 12;
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
-            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // dgvCatProduto
             // 
@@ -107,9 +106,6 @@
             this.dgvCatProduto.ReadOnly = true;
             this.dgvCatProduto.Size = new System.Drawing.Size(468, 150);
             this.dgvCatProduto.TabIndex = 12;
-            this.dgvCatProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCatProduto_CellDoubleClick);
-            this.dgvCatProduto.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCatProduto_CellEnter);
-            this.dgvCatProduto.DoubleClick += new System.EventHandler(this.dgvCatProduto_DoubleClick);
             // 
             // codCategoria
             // 

@@ -134,11 +134,12 @@ namespace HairLumos.DAO
                 else
                 {
                     _sql = "UPDATE tbmarca" +
-                            "SET marc_nome = @marca" +
-                        "WHERE codmarca = @marca";
+                            " SET marc_nome = @marca" +
+                        " WHERE codmarca = @cod";
                 }
 
                 cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", _marca.Codigo);
                 cmd.Parameters.AddWithValue("@marca", _marca.MarcaProduto);
                 
 

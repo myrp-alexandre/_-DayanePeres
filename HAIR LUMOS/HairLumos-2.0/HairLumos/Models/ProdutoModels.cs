@@ -12,10 +12,6 @@ namespace HairLumos.Models
     {
         // validar informações para enviar/receber do Banco 
 
-        
-        
-
-
         DAO.ProdutoDAO _DAOProd = new DAO.ProdutoDAO();
 
 
@@ -58,11 +54,11 @@ namespace HairLumos.Models
          */
 
 
-        public bool validaCadastromARCA()
+        public bool validaCadastroMarca()
         {
             Entidades.Marca _entMarca = new Entidades.Marca();
             if (string.IsNullOrEmpty(_entMarca.MarcaProduto))
-                _entMarca.Erro += "Informa a Categoria.";
+                _entMarca.Erro += "Informe a Marca.";
 
             return string.IsNullOrEmpty(_entMarca.Erro);
         }

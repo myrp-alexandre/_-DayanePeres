@@ -31,6 +31,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.dgvMarca = new System.Windows.Forms.DataGridView();
+            this.codmarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marc_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbMarca = new System.Windows.Forms.TextBox();
@@ -40,8 +42,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codmarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marc_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,6 +68,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
             this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
@@ -101,6 +103,24 @@
             this.dgvMarca.ReadOnly = true;
             this.dgvMarca.Size = new System.Drawing.Size(468, 125);
             this.dgvMarca.TabIndex = 12;
+            this.dgvMarca.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellDoubleClick);
+            this.dgvMarca.DoubleClick += new System.EventHandler(this.dgvMarca_DoubleClick);
+            // 
+            // codmarca
+            // 
+            this.codmarca.DataPropertyName = "codmarca";
+            this.codmarca.HeaderText = "Cód";
+            this.codmarca.Name = "codmarca";
+            this.codmarca.ReadOnly = true;
+            this.codmarca.Width = 80;
+            // 
+            // marc_nome
+            // 
+            this.marc_nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.marc_nome.DataPropertyName = "marc_nome";
+            this.marc_nome.HeaderText = "Marca";
+            this.marc_nome.Name = "marc_nome";
+            this.marc_nome.ReadOnly = true;
             // 
             // Código
             // 
@@ -140,7 +160,7 @@
             this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSair.Location = new System.Drawing.Point(491, 12);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(77, 38);
+            this.btnSair.Size = new System.Drawing.Size(75, 38);
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
@@ -149,9 +169,9 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(339, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(264, 12);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(100, 38);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 38);
             this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -160,9 +180,9 @@
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(233, 12);
+            this.btnAlterar.Location = new System.Drawing.Point(183, 12);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(100, 38);
+            this.btnAlterar.Size = new System.Drawing.Size(75, 38);
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
@@ -171,9 +191,9 @@
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(127, 12);
+            this.btnGravar.Location = new System.Drawing.Point(102, 12);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(100, 38);
+            this.btnGravar.Size = new System.Drawing.Size(75, 38);
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
@@ -184,27 +204,22 @@
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNovo.Location = new System.Drawing.Point(21, 12);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(100, 38);
+            this.btnNovo.Size = new System.Drawing.Size(75, 38);
             this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // codmarca
+            // btnCancelar
             // 
-            this.codmarca.DataPropertyName = "codmarca";
-            this.codmarca.HeaderText = "Cód";
-            this.codmarca.Name = "codmarca";
-            this.codmarca.ReadOnly = true;
-            this.codmarca.Width = 80;
-            // 
-            // marc_nome
-            // 
-            this.marc_nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.marc_nome.DataPropertyName = "marc_nome";
-            this.marc_nome.HeaderText = "Marca";
-            this.marc_nome.Name = "marc_nome";
-            this.marc_nome.ReadOnly = true;
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Cadastro_MarcaProduto
             // 
@@ -244,5 +259,6 @@
         public System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridViewTextBoxColumn codmarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn marc_nome;
+        public System.Windows.Forms.Button btnCancelar;
     }
 }

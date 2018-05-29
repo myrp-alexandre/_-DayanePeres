@@ -29,7 +29,7 @@ namespace HairLumos.Views
             ttbCodigo.Enabled = false;
             ttbCategoria.Enabled = false;
             ttbObservacao.Enabled = false;
-            dgvCatProduto.Enabled = false;
+            dgvCatProduto.Enabled = true;
 
             //btn
             btnNovo.Enabled = true;
@@ -38,7 +38,7 @@ namespace HairLumos.Views
             btnExcluir.Enabled = true;
             btnSair.Enabled = true;
 
-            //pesquisaCategoria();
+            pesquisaCategoria();
             _limpaCampos();
 
         }
@@ -141,21 +141,21 @@ namespace HairLumos.Views
 
             if(dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                DataRow dr = dtRetorno.Rows[0];
-                this.carregaCategoriaTela(
-                    dr["codcategoria"].ToString(),
-                    dr["cat_categoria"].ToString(),
-                    dr["cat_obscategoria"].ToString());
+                //DataRow dr = dtRetorno.Rows[0];
+                //this.carregaCategoriaTela(
+                //    dr["codcategoria"].ToString(),
+                //    dr["cat_categoria"].ToString(),
+                //    dr["cat_obscategoria"].ToString());
 
             }
         }
 
-        public void carregaCategoriaTela(string strCod, string strNomeCateg, string strObs)
-        {
-            ttbCodigo.Text = strCod;
-            ttbCategoria.Text = strNomeCateg;
-            ttbObservacao.Text = strObs;
-        }
+        //public void carregaCategoriaTela(string strCod, string strNomeCateg, string strObs)
+        //{
+        //    //ttbCodigo.Text = strCod;
+        //    //ttbCategoria.Text = strNomeCateg;
+        //    //ttbObservacao.Text = strObs;
+        //}
 
         public void pesquisaCategoria()
         {
@@ -230,24 +230,5 @@ namespace HairLumos.Views
             }
         }
 
-        private void btnSelecionar_Click(object sender, EventArgs e)
-        {
-            this.selecinaCategoria();
-        }
-
-        private void dgvCatProduto_DoubleClick(object sender, EventArgs e)
-        {
-            this.selecinaCategoria();
-        }
-
-        private void dgvCatProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.selecinaCategoria();
-        }
-
-        private void dgvCatProduto_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            this.selecinaCategoria();
-        }
     }
 }
