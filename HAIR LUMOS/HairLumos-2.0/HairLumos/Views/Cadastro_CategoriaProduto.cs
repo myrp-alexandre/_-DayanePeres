@@ -200,7 +200,7 @@ namespace HairLumos.Views
                     bool blnExcluiu = _ctlProd.excluirCategoria(intCod);
                     if (blnExcluiu)
                     {
-                        MessageBox.Show("Funcionário Excluído");
+                        MessageBox.Show("Categoria Excluída");
                         _limpaCampos();
                         _btnNovo();
                     }

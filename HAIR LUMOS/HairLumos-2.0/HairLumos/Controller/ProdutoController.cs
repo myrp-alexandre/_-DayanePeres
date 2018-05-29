@@ -11,6 +11,10 @@ namespace HairLumos.Controller
     {
         private Models.ProdutoModels _MdlProd = new Models.ProdutoModels();
 
+
+        /*
+         * ********** C A T E G O R I A  *********************************** 
+         */
         public int gravaCategoria (int cod, string categoria, string obs)
         {
             return _MdlProd.gravarCategoria(cod, categoria, obs);
@@ -24,6 +28,25 @@ namespace HairLumos.Controller
         public bool excluirCategoria(int intCod)
         {
             return _MdlProd.excluirCategoria(intCod);
+        }
+
+        /*
+         * ********** M A R C A  *********************************** 
+         */
+
+        public int gravarMarca(int cod, string marca)
+        {
+            return _MdlProd.gravarMarca(cod, marca);
+        }
+
+        public DataTable retornaMarca()
+        {
+            return _MdlProd.retornaMarca();
+        }
+
+        public bool excluirMarca(int intCod)
+        {
+            return _MdlProd.excluirMarca(intCod);
         }
     }
 }

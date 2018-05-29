@@ -19,13 +19,14 @@ namespace HairLumos.DAO
             this._sql = "";
         }
 
+        // ************************** CADASTRO DE CATEGORIA *******************************************
+       
         public int GravarCategoria(Entidades.Categoria _categoria)
         {
-            bool blnRetorno = false;
-
+            
             NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
-            int _controle = 0;
+            //int _controle = 0;
             try
             {
                 if(_categoria.Codigo == 0)
@@ -50,13 +51,13 @@ namespace HairLumos.DAO
 
                 return 1;
             }
-            catch(Exception ex)
+            catch(Exception )
             {
-
+                return 0;
             }
-            if (_controle > 0)
-                return 1;
-            return 0;
+            //if (_controle > 0)
+                //return 1;
+            //return 0;
         }
 
         public DataTable retornaCategoria()
@@ -66,7 +67,7 @@ namespace HairLumos.DAO
             _sql = "SELECT codcategoria, cat_categoria, cat_obscategoria"+
                         " FROM tbcategoria; ";
 
-            int intCodigo = 0;
+           // int intCodigo = 0;
             
             
             //_sql += $"OR codcategoria = @cod";
@@ -104,7 +105,103 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@cod", intCod);
                 _controle = cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception )
+            {
+
+            }
+            return (_controle > 0);
+        }
+
+        // ************************** FIM DE CATEGORIA *******************************************
+
+
+        // ************************** M A R C A *******************************************
+        public int GravarMarca(Entidades.Marca _marca)
+        {
+
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+            //int _controle = 0;
+            try
+            {
+                if (_marca.Codigo == 0)
+                {
+                    _sql = "INSERT INTO tbmarca" +
+                        "(marc_nome)" +
+                        "VALUES(@marca)";
+
+                }
+                else
+                {
+                    _sql = "UPDATE tbmarca" +
+                            "SET marc_nome = @marca" +
+                        "WHERE codmarca = @marca";
+                }
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@marca", _marca.MarcaProduto);
+                
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            //if (_controle > 0)
+            //return 1;
+            //return 0;
+        }
+
+        public DataTable RetornaMarca()
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codmarca, marc_nome" +
+                        " FROM tbmarca; ";
+
+            // int intCodigo = 0;
+
+
+            //_sql += $"OR codcategoria = @cod";
+            //_sql += $"OR cat_categoria = @categoria";
+            //_sql += $"OR cat_obscategoria = @obs";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codmarca");
+                cmd.Parameters.AddWithValue("@marc_nome");
+                
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public bool ExcluirMarca(int intCod)
+        {
+            _sql = "DELETE FROM tbmarca WHERE codmarca= @cod";
+
+            int _controle = 0;
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.Parameters.AddWithValue("@cod", intCod);
+                _controle = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
             {
 
             }

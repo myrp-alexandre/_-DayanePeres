@@ -24,11 +24,26 @@ namespace HairLumos
             CategoProd.Show();
         }
 
-        private void pessoaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
         }
 
-       
+        private void cadastroMarcaProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_MarcaProduto cadastro_MarcaProduto = new Views.Cadastro_MarcaProduto();
+            cadastro_MarcaProduto.Show();
+        }
+
+        private void cadastroProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_Produto cadastro_Produto = new Views.Cadastro_Produto();
+            cadastro_Produto.Show();
+        }
+
+        private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

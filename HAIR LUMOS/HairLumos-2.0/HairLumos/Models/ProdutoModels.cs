@@ -12,11 +12,20 @@ namespace HairLumos.Models
     {
         // validar informações para enviar/receber do Banco 
 
-        Entidades.Categoria _entCategoria = new Entidades.Categoria();
+        
+        
+
+
         DAO.ProdutoDAO _DAOProd = new DAO.ProdutoDAO();
 
+
+        /*  
+         *************** CATEGORIA *************************************  
+         *  
+         */
         public bool validaCadastro()
         {
+            Entidades.Categoria _entCategoria = new Entidades.Categoria();
             if (string.IsNullOrEmpty(_entCategoria.CategoriaNome))
                 _entCategoria.Erro += "Informa a Categoria.";
 
@@ -25,7 +34,7 @@ namespace HairLumos.Models
 
         public int gravarCategoria(int cod, string categoria, string obs)
         {
-
+            Entidades.Categoria _entCategoria = new Entidades.Categoria();
             _entCategoria.carregaCategoria(cod, categoria, obs);
             
             return _DAOProd.GravarCategoria(_entCategoria);
@@ -33,12 +42,50 @@ namespace HairLumos.Models
 
         public DataTable retornaCategoria()
         {
+            Entidades.Categoria _entCategoria = new Entidades.Categoria();
             return _DAOProd.retornaCategoria();
         }
 
         public bool excluirCategoria(int intCod)
         {
+            Entidades.Categoria _entCategoria = new Entidades.Categoria();
             return _DAOProd.excluirCategoria(intCod);
         }
+
+        /*  
+         *************** M A R C A *************************************  
+         *  
+         */
+
+
+        public bool validaCadastromARCA()
+        {
+            Entidades.Marca _entMarca = new Entidades.Marca();
+            if (string.IsNullOrEmpty(_entMarca.MarcaProduto))
+                _entMarca.Erro += "Informa a Categoria.";
+
+            return string.IsNullOrEmpty(_entMarca.Erro);
+        }
+
+        public int gravarMarca(int cod, string marca)
+        {
+            Entidades.Marca _entMarca = new Entidades.Marca();
+            _entMarca.carregaMarca(cod, marca);
+
+            return _DAOProd.GravarMarca(_entMarca);
+        }
+
+        public DataTable retornaMarca()
+        {
+            Entidades.Marca _entMarca = new Entidades.Marca();
+            return _DAOProd.RetornaMarca();
+        }
+
+        public bool excluirMarca(int intCod)
+        {
+            Entidades.Marca _entMarca = new Entidades.Marca();
+            return _DAOProd.ExcluirMarca(intCod);
+        }
+
     }
 }

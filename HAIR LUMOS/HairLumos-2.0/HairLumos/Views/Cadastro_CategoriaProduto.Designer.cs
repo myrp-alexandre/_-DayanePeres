@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnSelecionar = new System.Windows.Forms.Button();
             this.dgvCatProduto = new System.Windows.Forms.DataGridView();
+            this.codCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cat_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cat_obsCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
@@ -41,10 +45,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cat_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cat_obsCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSelecionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +81,17 @@
             this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSelecionar.Location = new System.Drawing.Point(496, 284);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(72, 27);
+            this.btnSelecionar.TabIndex = 12;
+            this.btnSelecionar.Text = "Seleciona";
+            this.btnSelecionar.UseVisualStyleBackColor = false;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
+            // 
             // dgvCatProduto
             // 
             this.dgvCatProduto.AllowUserToAddRows = false;
@@ -99,6 +110,29 @@
             this.dgvCatProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCatProduto_CellDoubleClick);
             this.dgvCatProduto.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCatProduto_CellEnter);
             this.dgvCatProduto.DoubleClick += new System.EventHandler(this.dgvCatProduto_DoubleClick);
+            // 
+            // codCategoria
+            // 
+            this.codCategoria.DataPropertyName = "codCategoria";
+            this.codCategoria.HeaderText = "Cód";
+            this.codCategoria.Name = "codCategoria";
+            this.codCategoria.ReadOnly = true;
+            // 
+            // cat_categoria
+            // 
+            this.cat_categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cat_categoria.DataPropertyName = "cat_categoria";
+            this.cat_categoria.HeaderText = "Categoria";
+            this.cat_categoria.Name = "cat_categoria";
+            this.cat_categoria.ReadOnly = true;
+            // 
+            // cat_obsCategoria
+            // 
+            this.cat_obsCategoria.DataPropertyName = "cat_obsCategoria";
+            this.cat_obsCategoria.HeaderText = "Observação";
+            this.cat_obsCategoria.Name = "cat_obsCategoria";
+            this.cat_obsCategoria.ReadOnly = true;
+            this.cat_obsCategoria.Width = 150;
             // 
             // Código
             // 
@@ -203,45 +237,11 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // codCategoria
-            // 
-            this.codCategoria.DataPropertyName = "codCategoria";
-            this.codCategoria.HeaderText = "Cód";
-            this.codCategoria.Name = "codCategoria";
-            this.codCategoria.ReadOnly = true;
-            // 
-            // cat_categoria
-            // 
-            this.cat_categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cat_categoria.DataPropertyName = "cat_categoria";
-            this.cat_categoria.HeaderText = "Categoria";
-            this.cat_categoria.Name = "cat_categoria";
-            this.cat_categoria.ReadOnly = true;
-            // 
-            // cat_obsCategoria
-            // 
-            this.cat_obsCategoria.DataPropertyName = "cat_obsCategoria";
-            this.cat_obsCategoria.HeaderText = "Observação";
-            this.cat_obsCategoria.Name = "cat_obsCategoria";
-            this.cat_obsCategoria.ReadOnly = true;
-            this.cat_obsCategoria.Width = 150;
-            // 
-            // btnSelecionar
-            // 
-            this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSelecionar.Location = new System.Drawing.Point(496, 284);
-            this.btnSelecionar.Name = "btnSelecionar";
-            this.btnSelecionar.Size = new System.Drawing.Size(72, 27);
-            this.btnSelecionar.TabIndex = 12;
-            this.btnSelecionar.Text = "Seleciona";
-            this.btnSelecionar.UseVisualStyleBackColor = false;
-            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
-            // 
             // Cadastro_CategoriaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gold;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(607, 491);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
