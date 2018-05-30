@@ -42,11 +42,11 @@
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bACKUPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.trocarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.trocarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,12 +80,14 @@
             // 
             // pessoaToolStripMenuItem
             // 
+            this.pessoaToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.pessoaToolStripMenuItem.Name = "pessoaToolStripMenuItem";
             this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.pessoaToolStripMenuItem.Text = "Cadastro de Pessoa";
             // 
             // usuárioToolStripMenuItem
             // 
+            this.usuárioToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.usuárioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroCategoriaProdutoToolStripMenuItem,
             this.cadastroMarcaProdutoToolStripMenuItem,
@@ -96,6 +98,7 @@
             // 
             // cadastroCategoriaProdutoToolStripMenuItem
             // 
+            this.cadastroCategoriaProdutoToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.cadastroCategoriaProdutoToolStripMenuItem.Name = "cadastroCategoriaProdutoToolStripMenuItem";
             this.cadastroCategoriaProdutoToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.cadastroCategoriaProdutoToolStripMenuItem.Text = "Cadastro Categoria Produto";
@@ -103,6 +106,7 @@
             // 
             // cadastroMarcaProdutoToolStripMenuItem
             // 
+            this.cadastroMarcaProdutoToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.cadastroMarcaProdutoToolStripMenuItem.Name = "cadastroMarcaProdutoToolStripMenuItem";
             this.cadastroMarcaProdutoToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.cadastroMarcaProdutoToolStripMenuItem.Text = "Cadastro Marca Produto";
@@ -110,6 +114,7 @@
             // 
             // cadastroProdutoToolStripMenuItem
             // 
+            this.cadastroProdutoToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.cadastroProdutoToolStripMenuItem.Name = "cadastroProdutoToolStripMenuItem";
             this.cadastroProdutoToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.cadastroProdutoToolStripMenuItem.Text = "Cadastro Produto";
@@ -117,12 +122,14 @@
             // 
             // cadastroDeFuncionárioToolStripMenuItem
             // 
+            this.cadastroDeFuncionárioToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.cadastroDeFuncionárioToolStripMenuItem.Name = "cadastroDeFuncionárioToolStripMenuItem";
             this.cadastroDeFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.cadastroDeFuncionárioToolStripMenuItem.Text = "Cadastro de Funcionário";
             // 
             // cadastroUsuárioToolStripMenuItem
             // 
+            this.cadastroUsuárioToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.cadastroUsuárioToolStripMenuItem.Name = "cadastroUsuárioToolStripMenuItem";
             this.cadastroUsuárioToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.cadastroUsuárioToolStripMenuItem.Text = "Cadastro de Usuário";
@@ -154,6 +161,19 @@
             this.sAIRToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.sAIRToolStripMenuItem.Text = "SAIR";
             // 
+            // sairToolStripMenuItem1
+            // 
+            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.sairToolStripMenuItem1.Text = "Sair";
+            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
+            // 
+            // trocarUsuárioToolStripMenuItem
+            // 
+            this.trocarUsuárioToolStripMenuItem.Name = "trocarUsuárioToolStripMenuItem";
+            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.trocarUsuárioToolStripMenuItem.Text = "Trocar Usuário";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.Goldenrod;
@@ -182,19 +202,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
-            // 
-            // sairToolStripMenuItem1
-            // 
-            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.sairToolStripMenuItem1.Text = "Sair";
-            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
-            // 
-            // trocarUsuárioToolStripMenuItem
-            // 
-            this.trocarUsuárioToolStripMenuItem.Name = "trocarUsuárioToolStripMenuItem";
-            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.trocarUsuárioToolStripMenuItem.Text = "Trocar Usuário";
             // 
             // frmMenu
             // 

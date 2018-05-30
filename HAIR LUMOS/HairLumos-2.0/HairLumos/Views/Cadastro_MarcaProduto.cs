@@ -77,8 +77,7 @@ namespace HairLumos.Views
             btnSair.Enabled = true;
 
             ttbMarca.Focus();
-
-            
+                       
         }
 
         public void carregaMarcaTela(string strCod, string StrMarca)

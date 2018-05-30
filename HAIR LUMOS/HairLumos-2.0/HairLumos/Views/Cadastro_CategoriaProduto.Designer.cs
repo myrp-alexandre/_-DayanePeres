@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnSelecionar = new System.Windows.Forms.Button();
             this.dgvCatProduto = new System.Windows.Forms.DataGridView();
             this.codCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cat_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cat_obsCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSelecionar = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
@@ -45,6 +45,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
             this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
@@ -80,16 +82,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(584, 467);
             this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // btnSelecionar
-            // 
-            this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSelecionar.Location = new System.Drawing.Point(496, 284);
-            this.btnSelecionar.Name = "btnSelecionar";
-            this.btnSelecionar.Size = new System.Drawing.Size(72, 27);
-            this.btnSelecionar.TabIndex = 12;
-            this.btnSelecionar.Text = "Seleciona";
-            this.btnSelecionar.UseVisualStyleBackColor = false;
             // 
             // dgvCatProduto
             // 
@@ -106,6 +98,7 @@
             this.dgvCatProduto.ReadOnly = true;
             this.dgvCatProduto.Size = new System.Drawing.Size(468, 150);
             this.dgvCatProduto.TabIndex = 12;
+            this.dgvCatProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCatProduto_CellDoubleClick);
             // 
             // codCategoria
             // 
@@ -129,6 +122,16 @@
             this.cat_obsCategoria.Name = "cat_obsCategoria";
             this.cat_obsCategoria.ReadOnly = true;
             this.cat_obsCategoria.Width = 150;
+            // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSelecionar.Location = new System.Drawing.Point(496, 284);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(72, 27);
+            this.btnSelecionar.TabIndex = 12;
+            this.btnSelecionar.Text = "Seleciona";
+            this.btnSelecionar.UseVisualStyleBackColor = false;
             // 
             // Código
             // 
@@ -183,7 +186,7 @@
             this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSair.Location = new System.Drawing.Point(491, 12);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(77, 38);
+            this.btnSair.Size = new System.Drawing.Size(75, 38);
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
@@ -192,9 +195,9 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(339, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(264, 12);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(100, 38);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 38);
             this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -203,9 +206,9 @@
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(233, 12);
+            this.btnAlterar.Location = new System.Drawing.Point(183, 12);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(100, 38);
+            this.btnAlterar.Size = new System.Drawing.Size(75, 38);
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
@@ -214,9 +217,9 @@
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(127, 12);
+            this.btnGravar.Location = new System.Drawing.Point(102, 12);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(100, 38);
+            this.btnGravar.Size = new System.Drawing.Size(75, 38);
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
@@ -227,11 +230,22 @@
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNovo.Location = new System.Drawing.Point(21, 12);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(100, 38);
+            this.btnNovo.Size = new System.Drawing.Size(75, 38);
             this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Cadastro_CategoriaProduto
             // 
@@ -275,5 +289,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_obsCategoria;
         public System.Windows.Forms.Button btnSelecionar;
+        public System.Windows.Forms.Button btnCancelar;
     }
 }

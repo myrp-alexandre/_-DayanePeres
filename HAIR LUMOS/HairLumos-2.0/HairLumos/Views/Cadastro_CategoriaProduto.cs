@@ -14,6 +14,8 @@ namespace HairLumos.Views
 {
     public partial class Cadastro_CategoriaProduto : Form
     {
+        private int intCodigoCategoria = 0;
+
         public Cadastro_CategoriaProduto()
         {
             InitializeComponent();
@@ -76,13 +78,12 @@ namespace HairLumos.Views
             //botões
             btnNovo.Enabled = false;
             btnGravar.Enabled = true;
+            btnAlterar.Enabled = false;
             btnExcluir.Enabled = true;
             btnSair.Enabled = true;
 
             ttbCategoria.Focus();
-
-            pesquisaCategoria();
-            _limpaCampos();
+            
         }
 
 
@@ -141,21 +142,21 @@ namespace HairLumos.Views
 
             if(dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                //DataRow dr = dtRetorno.Rows[0];
-                //this.carregaCategoriaTela(
-                //    dr["codcategoria"].ToString(),
-                //    dr["cat_categoria"].ToString(),
-                //    dr["cat_obscategoria"].ToString());
+                DataRow dr = dtRetorno.Rows[0];
+                this.carregaCategoriaTela(
+                    dr["codcategoria"].ToString(),
+                    dr["cat_categoria"].ToString(),
+                    dr["cat_obscategoria"].ToString());
 
             }
         }
 
-        //public void carregaCategoriaTela(string strCod, string strNomeCateg, string strObs)
-        //{
-        //    //ttbCodigo.Text = strCod;
-        //    //ttbCategoria.Text = strNomeCateg;
-        //    //ttbObservacao.Text = strObs;
-        //}
+        public void carregaCategoriaTela(string strCod, string strNomeCateg, string strObs)
+        {
+            ttbCodigo.Text = strCod;
+            ttbCategoria.Text = strNomeCateg;
+            ttbObservacao.Text = strObs;
+        }
 
         public void pesquisaCategoria()
         {
@@ -171,7 +172,7 @@ namespace HairLumos.Views
             else
                 dgvCatProduto.Rows.Clear();
 
-            carregaGrid();
+            //carregaGrid();
 
         }
 
@@ -220,15 +221,28 @@ namespace HairLumos.Views
             if (dgvCatProduto.Rows.Count > 0)
             {
                 int intCod = 0;
-                int.TryParse(dgvCatProduto.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
+                //int.TryParse(dgvCatProduto.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
+                intCod = dgvCatProduto.CurrentRow.Index;
 
                 if(intCod > 0)
                 {
-                    //this.intCodigoCategoria = intCod;
-                    this.Close();
+                    this.intCodigoCategoria = intCod;                    
                 }
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            _limpaCampos();
+            pesquisaCategoria();
+        }
+
+        private void dgvCatProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecinaCategoria();
+            carregaGrid();
+        }
     }
 }
