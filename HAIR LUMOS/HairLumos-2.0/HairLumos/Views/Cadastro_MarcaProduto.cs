@@ -36,6 +36,7 @@ namespace HairLumos.Views
             btnGravar.Enabled = false;
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
+            btnCancelar.Enabled = false;
             btnSair.Enabled = true;
 
             pesquisaMarca();
@@ -56,9 +57,10 @@ namespace HairLumos.Views
             ttbMarca.Enabled = true;
 
             //botões
-            btnNovo.Enabled = true;
+            btnNovo.Enabled = false;
             btnGravar.Enabled = true;
             btnExcluir.Enabled = false;
+            btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
             ttbMarca.Focus();
@@ -74,6 +76,7 @@ namespace HairLumos.Views
             btnGravar.Enabled = true;
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = true;
+            btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
             ttbMarca.Focus();

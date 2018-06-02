@@ -25,6 +25,11 @@ namespace HairLumos.Controller
             return _MdlProd.retornaCategoria();
         }
 
+        public DataTable retornaObjCategoria(int cod)
+        {
+            return _MdlProd.retornaObjCategoria(cod);
+        }
+
         public bool excluirCategoria(int intCod)
         {
             return _MdlProd.excluirCategoria(intCod);
@@ -44,9 +49,33 @@ namespace HairLumos.Controller
             return _MdlProd.retornaMarca();
         }
 
+        public DataTable retornaObjMarca(int cod)
+        {
+            return _MdlProd.retornaObjMarca(cod);
+        }
+
         public bool excluirMarca(int intCod)
         {
             return _MdlProd.excluirMarca(intCod);
+        }
+
+        /*
+         * ********** P R O D U T O *********************************** 
+         */
+        public int gravaProduto (int codProd, int codCategoria , int codMarca, string nomeProd,
+            double custo, double venda, string descricao, int qtde, string obs)
+        {
+            return _MdlProd.gravaProduto(codProd, codCategoria, codMarca, nomeProd, custo, venda, descricao, qtde, obs);
+        }
+
+        public DataTable retornaProduto()
+        {
+            return _MdlProd.retornaProduto();
+        }
+
+        public bool excluirProduto(int intCod)
+        {
+            return _MdlProd.excluirProduto(intCod);
         }
     }
 }

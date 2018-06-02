@@ -42,6 +42,12 @@ namespace HairLumos.Models
             return _DAOProd.retornaCategoria();
         }
 
+        public DataTable retornaObjCategoria(int cod)
+        {
+            Entidades.Categoria _entCategoria = new Entidades.Categoria();
+            return _DAOProd.retornaObjCateria(cod);
+        }
+
         public bool excluirCategoria(int intCod)
         {
             Entidades.Categoria _entCategoria = new Entidades.Categoria();
@@ -52,7 +58,6 @@ namespace HairLumos.Models
          *************** M A R C A *************************************  
          *  
          */
-
 
         public bool validaCadastroMarca()
         {
@@ -77,10 +82,65 @@ namespace HairLumos.Models
             return _DAOProd.RetornaMarca();
         }
 
+        public DataTable retornaObjMarca(int cod)
+        {
+            Entidades.Marca _entMarca = new Entidades.Marca();
+            return _DAOProd.retornaObjMarca(cod);
+        }
+
         public bool excluirMarca(int intCod)
         {
             Entidades.Marca _entMarca = new Entidades.Marca();
             return _DAOProd.ExcluirMarca(intCod);
+        }
+
+        /*  
+         *************** P R O D U T O *************************************  
+         *  
+         */
+
+        public int gravaProduto(int codProd, int codCategoria, int codMarca, string nomeProd, 
+            double custo, double venda, string descricao, int qtde, string obs)
+        {
+            Entidades.Produto _entProduto = new Entidades.Produto();
+            Entidades.Categoria _entCategoria = new Entidades.Categoria();
+            Entidades.Marca _entMarca = new Entidades.Marca();
+
+            DataTable dtCategoria = _DAOProd.retornaObjCateria(codCategoria);            
+            if (dtCategoria != null && dtCategoria.Rows.Count > 0)
+            {
+                DataRow dr = dtCategoria.Rows[0];
+
+                _entCategoria.Codigo = Convert.ToInt32(dr["codcategoria"].ToString());
+                _entCategoria.CategoriaNome = dr["cat_categoria"].ToString();
+                _entCategoria.Observacao = dr["cat_obscategoria"].ToString();
+            }
+
+            DataTable dtMarca = _DAOProd.retornaObjMarca(codMarca);
+            if (dtMarca != null && dtMarca.Rows.Count > 0)
+            {
+                DataRow dr = dtMarca.Rows[0];
+
+                _entMarca.Codigo = Convert.ToInt32(dr["codmarca"].ToString());
+                _entMarca.MarcaProduto = dr["marc_nome"].ToString();
+            }
+
+
+            _entProduto.carregaProduto(codProd, _entCategoria, _entMarca, nomeProd, custo, venda, descricao, qtde, obs); // 
+
+            return _DAOProd.GravarProduto(_entProduto);
+        }
+  
+        public DataTable retornaProduto()
+        {
+            Entidades.Produto _entProduto = new Entidades.Produto();
+            return _DAOProd.RetornaProduto();
+        }
+            
+        public bool excluirProduto(int intCod)
+        {
+            Entidades.Produto _entProd = new Entidades.Produto();
+            return _DAOProd.ExcluirProduto(intCod);
         }
 
     }

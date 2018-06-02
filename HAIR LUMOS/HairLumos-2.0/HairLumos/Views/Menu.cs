@@ -45,5 +45,16 @@ namespace HairLumos
         {
             Close();
         }
+
+        private void cadastrodePessoa_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_Pessoa cadastro_Pessoa = new Views.Cadastro_Pessoa();
+            cadastro_Pessoa.Show();
+        }
+
+        private void cadastroDeFormaDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,12 +40,12 @@
             this.ttbCategoria = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -152,6 +152,7 @@
             // ttbObservacao
             // 
             this.ttbObservacao.Location = new System.Drawing.Point(21, 147);
+            this.ttbObservacao.MaxLength = 200;
             this.ttbObservacao.Name = "ttbObservacao";
             this.ttbObservacao.Size = new System.Drawing.Size(547, 20);
             this.ttbObservacao.TabIndex = 11;
@@ -159,6 +160,7 @@
             // ttbCategoria
             // 
             this.ttbCategoria.Location = new System.Drawing.Point(21, 81);
+            this.ttbCategoria.MaxLength = 100;
             this.ttbCategoria.Name = "ttbCategoria";
             this.ttbCategoria.Size = new System.Drawing.Size(468, 20);
             this.ttbCategoria.TabIndex = 9;
@@ -180,6 +182,17 @@
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Categoria";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -235,17 +248,6 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
-            this.btnCancelar.TabIndex = 13;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Cadastro_CategoriaProduto
             // 

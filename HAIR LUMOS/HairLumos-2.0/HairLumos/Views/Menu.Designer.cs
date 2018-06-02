@@ -32,12 +32,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrodePessoa = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeParceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroCategoriaProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroMarcaProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroDeFuncionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bACKUPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +48,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cadastroDeFormaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,18 +74,43 @@
             this.cADASTROToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pessoaToolStripMenuItem,
             this.usuárioToolStripMenuItem,
-            this.cadastroDeFuncionárioToolStripMenuItem,
-            this.cadastroUsuárioToolStripMenuItem});
+            this.cadastroDeFormaDePagamentoToolStripMenuItem});
             this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
             this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.cADASTROToolStripMenuItem.Text = "CADASTROS";
             // 
             // pessoaToolStripMenuItem
             // 
-            this.pessoaToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
+            this.pessoaToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.pessoaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrodePessoa,
+            this.cadastroDeParceiroToolStripMenuItem,
+            this.cadastroDeUsuárioToolStripMenuItem});
             this.pessoaToolStripMenuItem.Name = "pessoaToolStripMenuItem";
-            this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.pessoaToolStripMenuItem.Text = "Cadastro de Pessoa";
+            // 
+            // cadastrodePessoa
+            // 
+            this.cadastrodePessoa.BackColor = System.Drawing.Color.Goldenrod;
+            this.cadastrodePessoa.Name = "cadastrodePessoa";
+            this.cadastrodePessoa.Size = new System.Drawing.Size(188, 22);
+            this.cadastrodePessoa.Text = "Cadastro de Pessoa";
+            this.cadastrodePessoa.Click += new System.EventHandler(this.cadastrodePessoa_Click);
+            // 
+            // cadastroDeParceiroToolStripMenuItem
+            // 
+            this.cadastroDeParceiroToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.cadastroDeParceiroToolStripMenuItem.Name = "cadastroDeParceiroToolStripMenuItem";
+            this.cadastroDeParceiroToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cadastroDeParceiroToolStripMenuItem.Text = "Cadastro de Parceiro";
+            // 
+            // cadastroDeUsuárioToolStripMenuItem
+            // 
+            this.cadastroDeUsuárioToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
+            this.cadastroDeUsuárioToolStripMenuItem.Name = "cadastroDeUsuárioToolStripMenuItem";
+            this.cadastroDeUsuárioToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cadastroDeUsuárioToolStripMenuItem.Text = "Cadastro de Usuário";
             // 
             // usuárioToolStripMenuItem
             // 
@@ -93,12 +120,12 @@
             this.cadastroMarcaProdutoToolStripMenuItem,
             this.cadastroProdutoToolStripMenuItem});
             this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.usuárioToolStripMenuItem.Text = "Cadastro de Produto";
             // 
             // cadastroCategoriaProdutoToolStripMenuItem
             // 
-            this.cadastroCategoriaProdutoToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
+            this.cadastroCategoriaProdutoToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.cadastroCategoriaProdutoToolStripMenuItem.Name = "cadastroCategoriaProdutoToolStripMenuItem";
             this.cadastroCategoriaProdutoToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.cadastroCategoriaProdutoToolStripMenuItem.Text = "Cadastro Categoria Produto";
@@ -114,25 +141,11 @@
             // 
             // cadastroProdutoToolStripMenuItem
             // 
-            this.cadastroProdutoToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
+            this.cadastroProdutoToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.cadastroProdutoToolStripMenuItem.Name = "cadastroProdutoToolStripMenuItem";
             this.cadastroProdutoToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.cadastroProdutoToolStripMenuItem.Text = "Cadastro Produto";
             this.cadastroProdutoToolStripMenuItem.Click += new System.EventHandler(this.cadastroProdutoToolStripMenuItem_Click);
-            // 
-            // cadastroDeFuncionárioToolStripMenuItem
-            // 
-            this.cadastroDeFuncionárioToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
-            this.cadastroDeFuncionárioToolStripMenuItem.Name = "cadastroDeFuncionárioToolStripMenuItem";
-            this.cadastroDeFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.cadastroDeFuncionárioToolStripMenuItem.Text = "Cadastro de Funcionário";
-            // 
-            // cadastroUsuárioToolStripMenuItem
-            // 
-            this.cadastroUsuárioToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
-            this.cadastroUsuárioToolStripMenuItem.Name = "cadastroUsuárioToolStripMenuItem";
-            this.cadastroUsuárioToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.cadastroUsuárioToolStripMenuItem.Text = "Cadastro de Usuário";
             // 
             // rELATÓRIOSToolStripMenuItem
             // 
@@ -203,6 +216,14 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
+            // cadastroDeFormaDePagamentoToolStripMenuItem
+            // 
+            this.cadastroDeFormaDePagamentoToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.cadastroDeFormaDePagamentoToolStripMenuItem.Name = "cadastroDeFormaDePagamentoToolStripMenuItem";
+            this.cadastroDeFormaDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.cadastroDeFormaDePagamentoToolStripMenuItem.Text = "Cadastro Forma de Pagamento";
+            this.cadastroDeFormaDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFormaDePagamentoToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,8 +255,6 @@
         private System.Windows.Forms.ToolStripMenuItem cADASTROToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pessoaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuárioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastroDeFuncionárioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastroUsuárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroCategoriaProdutoToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -248,6 +267,10 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroProdutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem trocarUsuárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrodePessoa;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeParceiroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeUsuárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeFormaDePagamentoToolStripMenuItem;
     }
 }
 
