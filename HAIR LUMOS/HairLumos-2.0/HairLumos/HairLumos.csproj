@@ -57,20 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\Conexao.cs" />
+    <Compile Include="Controller\PagamentoController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
+    <Compile Include="Controller\ServicoController.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
+    <Compile Include="DAO\ServicoDAO.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
     <Compile Include="Entidades\Marca.cs" />
     <Compile Include="Entidades\Produto.cs" />
-    <Compile Include="InterfacePadrão\frmCadastro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InterfacePadrão\frmCadastro.Designer.cs">
-      <DependentUpon>frmCadastro.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Entidades\Servico.cs" />
+    <Compile Include="Models\PagamentoModels.cs" />
     <Compile Include="Models\ProdutoModels.cs" />
+    <Compile Include="Models\ServicoModel.cs" />
     <Compile Include="Views\Cadastro_CategoriaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +89,12 @@
     <Compile Include="Views\Cadastro_MarcaProduto.Designer.cs">
       <DependentUpon>Cadastro_MarcaProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cadastro_Pacotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastro_Pacotes.Designer.cs">
+      <DependentUpon>Cadastro_Pacotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cadastro_Pessoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     <Compile Include="Views\Cadastro_Produto.Designer.cs">
       <DependentUpon>Cadastro_Produto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cadastro_Servico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastro_Servico.Designer.cs">
+      <DependentUpon>Cadastro_Servico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,9 +121,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="InterfacePadrão\frmCadastro.resx">
-      <DependentUpon>frmCadastro.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Cadastro_CategoriaProduto.resx">
       <DependentUpon>Cadastro_CategoriaProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Cadastro_Produto.resx">
       <DependentUpon>Cadastro_Produto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastro_Servico.resx">
+      <DependentUpon>Cadastro_Servico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

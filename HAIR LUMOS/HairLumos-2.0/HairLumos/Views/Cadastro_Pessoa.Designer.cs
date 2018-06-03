@@ -78,11 +78,14 @@
             this.Financeiro = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Observações = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlObservacao = new System.Windows.Forms.Panel();
+            this.btnFormaPagamento = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.ttbRg = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ttbRazao = new System.Windows.Forms.TextBox();
@@ -98,9 +101,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnFormaPagamento = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -317,10 +317,10 @@
             this.tabcInformaçõesPessoa.Controls.Add(this.Contato);
             this.tabcInformaçõesPessoa.Controls.Add(this.Financeiro);
             this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
-            this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(12, 188);
+            this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(12, 209);
             this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
             this.tabcInformaçõesPessoa.SelectedIndex = 0;
-            this.tabcInformaçõesPessoa.Size = new System.Drawing.Size(875, 232);
+            this.tabcInformaçõesPessoa.Size = new System.Drawing.Size(875, 211);
             this.tabcInformaçõesPessoa.TabIndex = 46;
             // 
             // Endereço
@@ -330,7 +330,7 @@
             this.Endereço.Controls.Add(this.btnIncluirEndereco);
             this.Endereço.Location = new System.Drawing.Point(4, 22);
             this.Endereço.Name = "Endereço";
-            this.Endereço.Size = new System.Drawing.Size(867, 206);
+            this.Endereço.Size = new System.Drawing.Size(867, 185);
             this.Endereço.TabIndex = 4;
             this.Endereço.Text = "Endereço";
             this.Endereço.UseVisualStyleBackColor = true;
@@ -492,7 +492,7 @@
             this.dgvEndereço.Location = new System.Drawing.Point(41, 117);
             this.dgvEndereço.Name = "dgvEndereço";
             this.dgvEndereço.ReadOnly = true;
-            this.dgvEndereço.Size = new System.Drawing.Size(818, 76);
+            this.dgvEndereço.Size = new System.Drawing.Size(818, 65);
             this.dgvEndereço.TabIndex = 8;
             this.dgvEndereço.Visible = false;
             // 
@@ -516,7 +516,7 @@
             this.Contato.Location = new System.Drawing.Point(4, 22);
             this.Contato.Name = "Contato";
             this.Contato.Padding = new System.Windows.Forms.Padding(3);
-            this.Contato.Size = new System.Drawing.Size(867, 196);
+            this.Contato.Size = new System.Drawing.Size(867, 185);
             this.Contato.TabIndex = 1;
             this.Contato.Text = "Contato";
             this.Contato.UseVisualStyleBackColor = true;
@@ -606,7 +606,7 @@
             this.dgvContato.Location = new System.Drawing.Point(42, 90);
             this.dgvContato.Name = "dgvContato";
             this.dgvContato.ReadOnly = true;
-            this.dgvContato.Size = new System.Drawing.Size(642, 103);
+            this.dgvContato.Size = new System.Drawing.Size(642, 89);
             this.dgvContato.TabIndex = 11;
             this.dgvContato.Visible = false;
             // 
@@ -627,7 +627,7 @@
             this.Financeiro.Controls.Add(this.dataGridView1);
             this.Financeiro.Location = new System.Drawing.Point(4, 22);
             this.Financeiro.Name = "Financeiro";
-            this.Financeiro.Size = new System.Drawing.Size(867, 196);
+            this.Financeiro.Size = new System.Drawing.Size(867, 185);
             this.Financeiro.TabIndex = 3;
             this.Financeiro.Text = "Financeiro";
             this.Financeiro.UseVisualStyleBackColor = true;
@@ -639,7 +639,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(840, 170);
+            this.dataGridView1.Size = new System.Drawing.Size(840, 159);
             this.dataGridView1.TabIndex = 0;
             // 
             // Observações
@@ -650,10 +650,27 @@
             this.Observações.Controls.Add(this.button1);
             this.Observações.Location = new System.Drawing.Point(4, 22);
             this.Observações.Name = "Observações";
-            this.Observações.Size = new System.Drawing.Size(867, 196);
+            this.Observações.Size = new System.Drawing.Size(867, 185);
             this.Observações.TabIndex = 5;
             this.Observações.Text = "Observações";
             this.Observações.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(53, 76);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 13);
+            this.label17.TabIndex = 68;
+            this.label17.Text = "Observação Cliente";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(56, 92);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(473, 62);
+            this.textBox1.TabIndex = 67;
             // 
             // pnlObservacao
             // 
@@ -667,6 +684,17 @@
             this.pnlObservacao.TabIndex = 13;
             this.pnlObservacao.Visible = false;
             // 
+            // btnFormaPagamento
+            // 
+            this.btnFormaPagamento.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormaPagamento.Location = new System.Drawing.Point(275, 7);
+            this.btnFormaPagamento.Name = "btnFormaPagamento";
+            this.btnFormaPagamento.Size = new System.Drawing.Size(206, 27);
+            this.btnFormaPagamento.TabIndex = 67;
+            this.btnFormaPagamento.Text = "Forma Pagamento";
+            this.btnFormaPagamento.UseVisualStyleBackColor = false;
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -676,17 +704,6 @@
             this.radioButton1.TabIndex = 62;
             this.radioButton1.Text = "Não";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(548, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 34);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // radioButton2
             // 
@@ -706,6 +723,17 @@
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 60;
             this.label1.Text = "Fiado?";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(548, 105);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(62, 34);
+            this.button1.TabIndex = 66;
+            this.button1.Text = "Salvar";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // ttbRg
             // 
@@ -843,34 +871,6 @@
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
-            // 
-            // btnFormaPagamento
-            // 
-            this.btnFormaPagamento.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormaPagamento.Location = new System.Drawing.Point(275, 7);
-            this.btnFormaPagamento.Name = "btnFormaPagamento";
-            this.btnFormaPagamento.Size = new System.Drawing.Size(206, 27);
-            this.btnFormaPagamento.TabIndex = 67;
-            this.btnFormaPagamento.Text = "Forma Pagamento";
-            this.btnFormaPagamento.UseVisualStyleBackColor = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(53, 76);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 13);
-            this.label17.TabIndex = 68;
-            this.label17.Text = "Observação Cliente";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(56, 92);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(473, 62);
-            this.textBox1.TabIndex = 67;
             // 
             // Cadastro_Pessoa
             // 

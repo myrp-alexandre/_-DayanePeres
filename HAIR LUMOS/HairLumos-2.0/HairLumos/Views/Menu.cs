@@ -54,7 +54,14 @@ namespace HairLumos
 
         private void cadastroDeFormaDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Views.Cadastro_FormaPagamento cadastro_FormaPagamento = new Views.Cadastro_FormaPagamento();
+            cadastro_FormaPagamento.Show();
+        }
 
+        private void cadastroServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_Servico cadastro_Servico = new Views.Cadastro_Servico();
+            cadastro_Servico.Show();
         }
     }
 }

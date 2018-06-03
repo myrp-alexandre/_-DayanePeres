@@ -9,18 +9,17 @@ using System.Threading.Tasks;
 
 namespace HairLumos.DAO
 {
-    class PagamentoDAO
+    class ServicoDAO
     {
         private string _sql;
 
-        public PagamentoDAO()
+        public ServicoDAO()
         {
             this._sql = string.Empty;
         }
 
-        // ************************** CADASTRO DE CATEGORIA *******************************************
-
-        public int GravarFormaPagamento(Entidades.FormaPagamento _formaPagamento)
+      
+        public int GravarServico(Entidades.Servico _servico)
         {
 
             NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
@@ -28,40 +27,46 @@ namespace HairLumos.DAO
             //int _controle = 0;
             try
             {
-                if (_formaPagamento.Codigo == 0)
+                if (_servico.Codigo == 0)
                 {
-                    _sql = "INSERT INTO tbformapagamento" +
-                        "(forpag_descricaoformapagamento)" +
-                        "VALUES(@forma)";
+                    _sql = "INSERT INTO tbservico" +
+                        "(serv_servico, serv_valorservico, serv_temposervico, serv_obsservico)" +
+                        " VALUES(@servico, @valor, @tempo, @obs)";
 
                 }
                 else
                 {
-                    _sql = "UPDATE tbformapagamento" +
-                            " SET forpag_descricaoformapagamento = @forma" +
-                        " WHERE codformapagamento = @codigo";
+                    _sql = "UPDATE tbservico" +
+                            " SET serv_servico = @servico, serv_valorservico = @valor, serv_temposervico = @tempo, serv_obsservico = @obs" +
+                        " WHERE codservico = @codigo";
                 }
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codigo", _formaPagamento.Codigo);
-                cmd.Parameters.AddWithValue("@forma", _formaPagamento.Forma);
+                cmd.Parameters.AddWithValue("@codigo", _servico.Codigo);
+                cmd.Parameters.AddWithValue("@servico", _servico.ServicoNome);
+                cmd.Parameters.AddWithValue("@valor", _servico.Valor);
+                cmd.Parameters.AddWithValue("@tempo", _servico.Tempo);
+                cmd.Parameters.AddWithValue("@obs", _servico.Observacao);
 
                 cmd.ExecuteNonQuery();
 
                 return 1;
             }
-            catch (Exception)
+            catch (Exception E)
             {
                 return 0;
             }
+            //if (_controle > 0)
+            //return 1;
+            //return 0;
         }
 
-        public DataTable retornaFormaPagamento()
+        public DataTable RetornaServico()
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codformapagamento, forpag_descricaoformapagamento" +
-                        " FROM tbformapagamento; ";
+            _sql = "SELECT codservico, serv_servico, serv_valorservico, serv_temposervico, serv_obsservico" +
+                        " FROM tbservico; ";
 
             // int intCodigo = 0;
 
@@ -75,8 +80,11 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codformapagamento");
-                cmd.Parameters.AddWithValue("@forpag_descricaoformapagamento");
+                cmd.Parameters.AddWithValue("@codservico");
+                cmd.Parameters.AddWithValue("@serv_servico");
+                cmd.Parameters.AddWithValue("@serv_valorservico");
+                cmd.Parameters.AddWithValue("@serv_temposervico");
+                cmd.Parameters.AddWithValue("@serv_temposervico");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
@@ -89,22 +97,25 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable retornaObjFormaPagamento(int cod)
+        public DataTable RetornaObjServico(int cod)
         {
 
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codformapagamento, forpag_descricaoformapagamento " +
-                    "FROM tbformapagamento " +
-                    "WHERE codformapagamento = " + cod;
+            _sql = "SELECT codservico, serv_servico, serv_valorservico, serv_temposervico, serv_obsservico" +
+                    "FROM tbservico " +
+                    "WHERE codservico = " + cod;
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codformapagamento");
-                cmd.Parameters.AddWithValue("@forpag_descricaoformapagamento");
+                cmd.Parameters.AddWithValue("@codservico");
+                cmd.Parameters.AddWithValue("@serv_servico");
+                cmd.Parameters.AddWithValue("@serv_valorservico");
+                cmd.Parameters.AddWithValue("@serv_temposervico");
+                cmd.Parameters.AddWithValue("@serv_temposervico");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -118,9 +129,9 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public bool excluirFormaPagamento(int intCod)
+        public bool ExcluirServico(int intCod)
         {
-            _sql = "DELETE FROM tbformapagamento WHERE codformapagamento = @cod";
+            _sql = "DELETE FROM tbservico WHERE codservico = @cod";
 
             int _controle = 0;
             try
@@ -135,7 +146,5 @@ namespace HairLumos.DAO
             }
             return (_controle > 0);
         }
-
-        // ************************** FIM DE CATEGORIA *******************************************
     }
 }

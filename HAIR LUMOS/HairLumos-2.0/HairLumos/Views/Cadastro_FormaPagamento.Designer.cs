@@ -30,7 +30,9 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnSelecionar = new System.Windows.Forms.Button();
-            this.dgvMarca = new System.Windows.Forms.DataGridView();
+            this.dgvFormaPagamento = new System.Windows.Forms.DataGridView();
+            this.codformapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.forpag_descricaoformapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbForma = new System.Windows.Forms.TextBox();
@@ -41,13 +43,11 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codformapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.forpag_descricaoformapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaPagamento)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -60,7 +60,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvMarca);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvFormaPagamento);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.ttbForma);
@@ -88,21 +88,40 @@
             this.btnSelecionar.TabIndex = 12;
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
-            // dgvMarca
+            // dgvFormaPagamento
             // 
-            this.dgvMarca.AllowUserToAddRows = false;
-            this.dgvMarca.AllowUserToDeleteRows = false;
-            this.dgvMarca.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMarca.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFormaPagamento.AllowUserToAddRows = false;
+            this.dgvFormaPagamento.AllowUserToDeleteRows = false;
+            this.dgvFormaPagamento.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFormaPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFormaPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codformapagamento,
             this.forpag_descricaoformapagamento});
-            this.dgvMarca.Location = new System.Drawing.Point(21, 139);
-            this.dgvMarca.Name = "dgvMarca";
-            this.dgvMarca.ReadOnly = true;
-            this.dgvMarca.Size = new System.Drawing.Size(468, 125);
-            this.dgvMarca.TabIndex = 12;
+            this.dgvFormaPagamento.Location = new System.Drawing.Point(21, 139);
+            this.dgvFormaPagamento.Name = "dgvFormaPagamento";
+            this.dgvFormaPagamento.ReadOnly = true;
+            this.dgvFormaPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFormaPagamento.Size = new System.Drawing.Size(468, 125);
+            this.dgvFormaPagamento.TabIndex = 12;
+            this.dgvFormaPagamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormaPagamento_CellDoubleClick);
+            // 
+            // codformapagamento
+            // 
+            this.codformapagamento.DataPropertyName = "codformapagamento";
+            this.codformapagamento.HeaderText = "Cód";
+            this.codformapagamento.Name = "codformapagamento";
+            this.codformapagamento.ReadOnly = true;
+            this.codformapagamento.Width = 80;
+            // 
+            // forpag_descricaoformapagamento
+            // 
+            this.forpag_descricaoformapagamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.forpag_descricaoformapagamento.DataPropertyName = "forpag_descricaoformapagamento";
+            this.forpag_descricaoformapagamento.HeaderText = "Forma Pagamento";
+            this.forpag_descricaoformapagamento.Name = "forpag_descricaoformapagamento";
+            this.forpag_descricaoformapagamento.ReadOnly = true;
             // 
             // Código
             // 
@@ -146,6 +165,7 @@
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -156,6 +176,7 @@
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnExcluir
             // 
@@ -166,6 +187,7 @@
             this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -176,6 +198,7 @@
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnGravar
             // 
@@ -186,6 +209,7 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -197,22 +221,6 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // codformapagamento
-            // 
-            this.codformapagamento.DataPropertyName = "codformapagamento";
-            this.codformapagamento.HeaderText = "Cód";
-            this.codformapagamento.Name = "codformapagamento";
-            this.codformapagamento.ReadOnly = true;
-            this.codformapagamento.Width = 80;
-            // 
-            // forpag_descricaoformapagamento
-            // 
-            this.forpag_descricaoformapagamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.forpag_descricaoformapagamento.DataPropertyName = "forpag_descricaoformapagamento";
-            this.forpag_descricaoformapagamento.HeaderText = "Forma Pagamento";
-            this.forpag_descricaoformapagamento.Name = "forpag_descricaoformapagamento";
-            this.forpag_descricaoformapagamento.ReadOnly = true;
             // 
             // Cadastro_FormaPagamento
             // 
@@ -230,7 +238,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaPagamento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,7 +247,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         public System.Windows.Forms.Button btnSelecionar;
-        private System.Windows.Forms.DataGridView dgvMarca;
+        private System.Windows.Forms.DataGridView dgvFormaPagamento;
         public System.Windows.Forms.Label Código;
         public System.Windows.Forms.TextBox ttbCodigo;
         public System.Windows.Forms.TextBox ttbForma;

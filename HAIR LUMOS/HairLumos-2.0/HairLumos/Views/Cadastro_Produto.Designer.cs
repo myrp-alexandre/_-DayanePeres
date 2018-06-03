@@ -59,7 +59,7 @@
             this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_precocustoproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_precovendaproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prod_qtdeproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_qtdproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -231,10 +231,11 @@
             this.prod_produto,
             this.prod_precocustoproduto,
             this.prod_precovendaproduto,
-            this.prod_qtdeproduto});
+            this.prod_qtdproduto});
             this.dgvProduto.Location = new System.Drawing.Point(21, 263);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
+            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(679, 146);
             this.dgvProduto.TabIndex = 12;
             this.dgvProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellDoubleClick);
@@ -386,12 +387,12 @@
             this.prod_precovendaproduto.Name = "prod_precovendaproduto";
             this.prod_precovendaproduto.ReadOnly = true;
             // 
-            // prod_qtdeproduto
+            // prod_qtdproduto
             // 
-            this.prod_qtdeproduto.DataPropertyName = "prod_qtdeproduto";
-            this.prod_qtdeproduto.HeaderText = "Qtde Produto";
-            this.prod_qtdeproduto.Name = "prod_qtdeproduto";
-            this.prod_qtdeproduto.ReadOnly = true;
+            this.prod_qtdproduto.DataPropertyName = "prod_qtdproduto";
+            this.prod_qtdproduto.HeaderText = "Qtde Produto";
+            this.prod_qtdproduto.Name = "prod_qtdproduto";
+            this.prod_qtdproduto.ReadOnly = true;
             // 
             // Cadastro_Produto
             // 
@@ -447,6 +448,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_precocustoproduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_precovendaproduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prod_qtdeproduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prod_qtdproduto;
     }
 }

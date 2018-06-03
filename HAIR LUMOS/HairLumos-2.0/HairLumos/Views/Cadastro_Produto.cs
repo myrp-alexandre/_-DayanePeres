@@ -111,6 +111,7 @@ namespace HairLumos.Views
 
             //botões
             btnNovo.Enabled = false;
+            btnAlterar.Enabled = false;
             btnGravar.Enabled = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = true;
@@ -208,10 +209,10 @@ namespace HairLumos.Views
 
         }
 
-        public void carregaProdutoTela(string strCod, string strcodCategoria, string strcodMarca, string strproduto, 
-            string strcusto, string strvenda, string strdescricao, string strobs, string strqtde)
+        public void carregaProdutoTela(string strCod, string strproduto, string strcodCategoria, string strcodMarca, string strdescricao, string strobs,
+            string strcusto, string strvenda,  string strqtde)
         {
-            
+            //string strcodCategoria, string strcodMarca, string strdescricao, string strobs,
 
             ttbCodigo.Text = strCod;
             cbbCategoria.Text = strcodCategoria;
@@ -244,15 +245,16 @@ namespace HairLumos.Views
                     dr["prod_precovendaproduto"].ToString(),
                     dr["prod_descricao"].ToString(),
                     dr["prod_obsproduto"].ToString(),
-                    dr["prod_qtdeproduto"].ToString());
+                    dr["prod_qtdproduto"].ToString());
 
             }
         }
 
+
+
         public void pesquisaProduto()
         {
-            //Inicializo meu índice de linha todas vez que clicar em pesquisar, pois a minha pesquisar pode não retornar linhas
-            _indiceLinha = -1;
+           
             Controller.ProdutoController _ctlProd = new ProdutoController();
 
             DataTable dtRetorno = _ctlProd.retornaProduto();
@@ -260,27 +262,38 @@ namespace HairLumos.Views
             if (dtRetorno != null)
             {
                 dgvProduto.DataSource = dtRetorno;
+                dgvProduto.Columns["codcategoria"].Visible = false;
+                dgvProduto.Columns["codmarca"].Visible = false;
+                dgvProduto.Columns["prod_descricao"].Visible = false;
+                dgvProduto.Columns["prod_obsproduto"].Visible = false;
                 dgvProduto.ClearSelection();
             }
             else
                 dgvProduto.Rows.Clear();
-
-            carregaGrid();
-
         }
 
-        public void selecinaProduto()
+        public void selecionaProduto()
         {
 
             if (dgvProduto.Rows.Count > 0)
             {
                 int intCod = 0;
-                int.TryParse(dgvProduto.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
 
+                intCod = dgvProduto.CurrentRow.Index + 1;
                 if (intCod > 0)
                 {
                     this.intCodigoProduto = intCod;
-                    
+
+                    ttbCodigo.Text = dgvProduto.CurrentRow.Cells[0].Value.ToString();
+                    ttbNome.Text = dgvProduto.CurrentRow.Cells[3].Value.ToString();
+                    carregaComboMarcaTela(dgvProduto.CurrentRow.Cells[2].Value.ToString());
+                    carregaComboCategoriaTela(dgvProduto.CurrentRow.Cells[1].Value.ToString());
+                    ttbDescricao.Text = dgvProduto.CurrentRow.Cells[6].Value.ToString();
+                    ttbObservacao.Text = dgvProduto.CurrentRow.Cells[7].Value.ToString();
+                    mskPrecoCompra.Text = dgvProduto.CurrentRow.Cells[4].Value.ToString();
+                    mskPrecoVenda.Text = dgvProduto.CurrentRow.Cells[5].Value.ToString();
+                    mskQtdeProd.Text = dgvProduto.CurrentRow.Cells[8].Value.ToString();
+
                 }
             }
         }
@@ -332,18 +345,15 @@ namespace HairLumos.Views
                 int qtde = 0; // Convert.ToInt32(mskQtdeProd.Text);
                 int.TryParse(mskQtdeProd.Text, out qtde);
 
-
-
                 int categoria = Convert.ToInt32(cbbCategoria.SelectedValue.ToString());
                 int marca = Convert.ToInt32(cbbMarca.SelectedValue.ToString());
-
 
                 if (string.IsNullOrEmpty(strMensagem))
                 {
 
                     int intRetorno = _ctrlProd.gravaProduto(intCodigo,categoria , marca, 
                         ttbNome.Text, custo, venda, ttbDescricao.Text, qtde, ttbObservacao.Text);
-                    if( intRetorno > 0)
+                    if (intRetorno > 0)
                     {
                         MessageBox.Show("Gravado com Sucesso!");
                         _limpaCampos();
@@ -352,9 +362,7 @@ namespace HairLumos.Views
                     else
                     {
                         MessageBox.Show("Erro ao Gravar.");
-                    }
-
-                    
+                    }                    
                 }
                 else
                     MessageBox.Show(strMensagem, "Aviso!!");
@@ -421,27 +429,15 @@ namespace HairLumos.Views
             _indiceLinha = e.RowIndex; //Pega o índice da linha que está selecionada
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
-            selecinaProduto();         
-
-            carregaGrid();
+            selecionaProduto();         
             
         }
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
-            if (_indiceLinha != -1)//Se selecionou algo no DataGridView
-            {
-                int intLinha = dgvProduto.CurrentRow.Index;
-                if (intLinha >= 0)
-                {
-                    _selecionou = true;
-                    this.Close();
-                }
-            }
-            else//Se não selecionou nada no DataGridView
-            {
-                MessageBox.Show("Clique em alguma linha e depois em Selecionar ou clique duas vezes em cima da linha");
-            }
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecionaProduto();
         }
     }
 }

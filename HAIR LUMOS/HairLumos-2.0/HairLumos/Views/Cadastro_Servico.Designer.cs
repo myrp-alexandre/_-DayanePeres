@@ -1,6 +1,6 @@
 ﻿namespace HairLumos.Views
 {
-    partial class Cadastro_CategoriaProduto
+    partial class Cadastro_Servico
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,20 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dgvCatProduto = new System.Windows.Forms.DataGridView();
-            this.codCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cat_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cat_obsCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mskValor = new System.Windows.Forms.MaskedTextBox();
+            this.mskTempoServiço = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvServico = new System.Windows.Forms.DataGridView();
+            this.codservico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serv_servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serv_valorservico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serv_temposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
-            this.ttbCategoria = new System.Windows.Forms.TextBox();
+            this.ttbServico = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -50,24 +55,28 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(11, 12);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dgvCatProduto);
+            this.splitContainer1.Panel1.Controls.Add(this.mskValor);
+            this.splitContainer1.Panel1.Controls.Add(this.mskTempoServiço);
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbCategoria);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbServico);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
@@ -81,48 +90,89 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
             this.splitContainer1.Size = new System.Drawing.Size(584, 467);
             this.splitContainer1.SplitterDistance = 400;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabIndex = 1;
             // 
-            // dgvCatProduto
+            // mskValor
             // 
-            this.dgvCatProduto.AllowUserToAddRows = false;
-            this.dgvCatProduto.AllowUserToDeleteRows = false;
-            this.dgvCatProduto.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCatProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCatProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codCategoria,
-            this.cat_categoria,
-            this.cat_obsCategoria});
-            this.dgvCatProduto.Location = new System.Drawing.Point(21, 231);
-            this.dgvCatProduto.Name = "dgvCatProduto";
-            this.dgvCatProduto.ReadOnly = true;
-            this.dgvCatProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCatProduto.Size = new System.Drawing.Size(468, 150);
-            this.dgvCatProduto.TabIndex = 12;
-            this.dgvCatProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCatProduto_CellDoubleClick);
+            this.mskValor.Location = new System.Drawing.Point(466, 76);
+            this.mskValor.Name = "mskValor";
+            this.mskValor.Size = new System.Drawing.Size(100, 20);
+            this.mskValor.TabIndex = 17;
             // 
-            // codCategoria
+            // mskTempoServiço
             // 
-            this.codCategoria.DataPropertyName = "codCategoria";
-            this.codCategoria.HeaderText = "Cód";
-            this.codCategoria.Name = "codCategoria";
-            this.codCategoria.ReadOnly = true;
+            this.mskTempoServiço.Location = new System.Drawing.Point(466, 147);
+            this.mskTempoServiço.Name = "mskTempoServiço";
+            this.mskTempoServiço.Size = new System.Drawing.Size(100, 20);
+            this.mskTempoServiço.TabIndex = 16;
+            this.mskTempoServiço.ValidatingType = typeof(System.DateTime);
             // 
-            // cat_categoria
+            // label4
             // 
-            this.cat_categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cat_categoria.DataPropertyName = "cat_categoria";
-            this.cat_categoria.HeaderText = "Categoria";
-            this.cat_categoria.Name = "cat_categoria";
-            this.cat_categoria.ReadOnly = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(381, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Tempo Serviço*";
             // 
-            // cat_obsCategoria
+            // label3
             // 
-            this.cat_obsCategoria.DataPropertyName = "cat_obsCategoria";
-            this.cat_obsCategoria.HeaderText = "Observação";
-            this.cat_obsCategoria.Name = "cat_obsCategoria";
-            this.cat_obsCategoria.ReadOnly = true;
-            this.cat_obsCategoria.Width = 150;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(402, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Valor (R$)*";
+            // 
+            // dgvServico
+            // 
+            this.dgvServico.AllowUserToAddRows = false;
+            this.dgvServico.AllowUserToDeleteRows = false;
+            this.dgvServico.BackgroundColor = System.Drawing.Color.White;
+            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codservico,
+            this.serv_servico,
+            this.serv_valorservico,
+            this.serv_temposervico});
+            this.dgvServico.Location = new System.Drawing.Point(21, 231);
+            this.dgvServico.Name = "dgvServico";
+            this.dgvServico.ReadOnly = true;
+            this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvServico.Size = new System.Drawing.Size(468, 150);
+            this.dgvServico.TabIndex = 12;
+            this.dgvServico.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellDoubleClick);
+            // 
+            // codservico
+            // 
+            this.codservico.DataPropertyName = "codservico";
+            this.codservico.HeaderText = "Cód";
+            this.codservico.Name = "codservico";
+            this.codservico.ReadOnly = true;
+            this.codservico.Width = 50;
+            // 
+            // serv_servico
+            // 
+            this.serv_servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.serv_servico.DataPropertyName = "serv_servico";
+            this.serv_servico.HeaderText = "Serviço";
+            this.serv_servico.Name = "serv_servico";
+            this.serv_servico.ReadOnly = true;
+            // 
+            // serv_valorservico
+            // 
+            this.serv_valorservico.DataPropertyName = "serv_valorservico";
+            this.serv_valorservico.HeaderText = "Valor Serviço (R$)";
+            this.serv_valorservico.Name = "serv_valorservico";
+            this.serv_valorservico.ReadOnly = true;
+            // 
+            // serv_temposervico
+            // 
+            this.serv_temposervico.DataPropertyName = "serv_temposervico";
+            this.serv_temposervico.HeaderText = "Tempo Estimado";
+            this.serv_temposervico.Name = "serv_temposervico";
+            this.serv_temposervico.ReadOnly = true;
             // 
             // btnSelecionar
             // 
@@ -155,22 +205,23 @@
             // 
             this.ttbObservacao.Location = new System.Drawing.Point(21, 147);
             this.ttbObservacao.MaxLength = 200;
+            this.ttbObservacao.Multiline = true;
             this.ttbObservacao.Name = "ttbObservacao";
-            this.ttbObservacao.Size = new System.Drawing.Size(547, 20);
+            this.ttbObservacao.Size = new System.Drawing.Size(349, 42);
             this.ttbObservacao.TabIndex = 11;
             // 
-            // ttbCategoria
+            // ttbServico
             // 
-            this.ttbCategoria.Location = new System.Drawing.Point(21, 81);
-            this.ttbCategoria.MaxLength = 100;
-            this.ttbCategoria.Name = "ttbCategoria";
-            this.ttbCategoria.Size = new System.Drawing.Size(468, 20);
-            this.ttbCategoria.TabIndex = 9;
+            this.ttbServico.Location = new System.Drawing.Point(21, 81);
+            this.ttbServico.MaxLength = 100;
+            this.ttbServico.Name = "ttbServico";
+            this.ttbServico.Size = new System.Drawing.Size(349, 20);
+            this.ttbServico.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 117);
+            this.label2.Location = new System.Drawing.Point(18, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 10;
@@ -181,9 +232,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Categoria";
+            this.label1.Text = "Serviço*";
             // 
             // btnCancelar
             // 
@@ -251,7 +302,7 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // Cadastro_CategoriaProduto
+            // Cadastro_Servico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -259,17 +310,15 @@
             this.ClientSize = new System.Drawing.Size(607, 491);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.MinimizeBox = false;
-            this.Name = "Cadastro_CategoriaProduto";
+            this.Name = "Cadastro_Servico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CADASTRO DE CATEGORIA";
-            this.Load += new System.EventHandler(this.Cadastro_CategoriaProduto_Load);
+            this.Text = "CADASTRO SERVIÇO ";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCatProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,22 +326,27 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
+        public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgvServico;
+        public System.Windows.Forms.Button btnSelecionar;
+        public System.Windows.Forms.Label Código;
+        public System.Windows.Forms.TextBox ttbCodigo;
+        public System.Windows.Forms.TextBox ttbObservacao;
+        public System.Windows.Forms.TextBox ttbServico;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
         public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.DataGridView dgvCatProduto;
-        public System.Windows.Forms.Label Código;
-        public System.Windows.Forms.TextBox ttbCodigo;
-        public System.Windows.Forms.TextBox ttbObservacao;
-        public System.Windows.Forms.TextBox ttbCategoria;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cat_categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cat_obsCategoria;
-        public System.Windows.Forms.Button btnSelecionar;
-        public System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.MaskedTextBox mskTempoServiço;
+        public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codservico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serv_servico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serv_valorservico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serv_temposervico;
+        private System.Windows.Forms.MaskedTextBox mskValor;
     }
 }

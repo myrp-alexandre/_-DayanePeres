@@ -96,7 +96,7 @@ namespace HairLumos.Views
 
             if (dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                DataRow dr = dtRetorno.Rows[intCodigoMarca-1];
+                DataRow dr = dtRetorno.Rows[intCodigoMarca];
                 this.carregaMarcaTela(
                     dr["codmarca"].ToString(),
                     dr["marc_nome"].ToString());
@@ -129,13 +129,14 @@ namespace HairLumos.Views
             {
                 int intCod = 0;
                 
-                intCod = dgvMarca.CurrentRow.Index;
+                intCod = dgvMarca.CurrentRow.Index + 1;
                 
 
                 if (intCod > 0)
                 {
                     this.intCodigoMarca = intCod;
-                    
+                    ttbCodigo.Text = dgvMarca.CurrentRow.Cells[0].Value.ToString();
+                    ttbMarca.Text = dgvMarca.CurrentRow.Cells[1].Value.ToString();
                 }
             }
         }
@@ -170,7 +171,16 @@ namespace HairLumos.Views
                 {
                     
                     int intRetorno = _ctrlProd.gravarMarca(intCodigo, ttbMarca.Text);
-                    MessageBox.Show("Gravado com sucesso!");
+                    
+
+                    if(intRetorno == 1)
+                    {
+                        MessageBox.Show("Gravado com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao Gravar.");
+                    }
                     _limpaCampos();
                     _inicializa();
                 }
@@ -237,13 +247,19 @@ namespace HairLumos.Views
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
             selecinaMarca();
-            carregaGrid();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             _limpaCampos();
             pesquisaMarca();
+        }
+
+        private void btnSelecionar_Click(object sender, EventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecinaMarca();
         }
     }
 }

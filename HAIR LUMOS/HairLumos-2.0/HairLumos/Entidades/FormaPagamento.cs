@@ -49,4 +49,4 @@ namespace HairLumos.Entidades
         }
     }
 }
-}
+

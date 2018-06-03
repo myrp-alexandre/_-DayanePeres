@@ -120,9 +120,18 @@ namespace HairLumos.Views
                 {
                     //_mdlProd
                     int intRetorno = _ctrlProd.gravaCategoria(intCodigo, ttbCategoria.Text, ttbObservacao.Text);//intCodigo, ttbCategoria.Text, ttbObservacao.Text
-                    MessageBox.Show("Gravado com sucesso!");
-                    _limpaCampos();
-                    _inicializa();
+
+                    if(intRetorno == 1)
+                    {
+                        MessageBox.Show("Gravado com sucesso!");
+                        _limpaCampos();
+                        _inicializa();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao gravar.");
+                    }
+                    
                 }
                 else
                     MessageBox.Show(strMensagem, "Aviso!!");
@@ -142,7 +151,7 @@ namespace HairLumos.Views
 
             if(dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                DataRow dr = dtRetorno.Rows[0];
+                DataRow dr = dtRetorno.Rows[intCodigoCategoria];
                 this.carregaCategoriaTela(
                     dr["codcategoria"].ToString(),
                     dr["cat_categoria"].ToString(),
@@ -171,8 +180,6 @@ namespace HairLumos.Views
             }
             else
                 dgvCatProduto.Rows.Clear();
-
-            //carregaGrid();
 
         }
 
@@ -203,7 +210,8 @@ namespace HairLumos.Views
                     {
                         MessageBox.Show("Categoria Excluída");
                         _limpaCampos();
-                        _btnNovo();
+                        pesquisaCategoria();
+                        _inicializa();
                     }
                     else
                         MessageBox.Show("Erro ao excluir!");
@@ -221,12 +229,14 @@ namespace HairLumos.Views
             if (dgvCatProduto.Rows.Count > 0)
             {
                 int intCod = 0;
-                //int.TryParse(dgvCatProduto.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
-                intCod = dgvCatProduto.CurrentRow.Index;
+                intCod = dgvCatProduto.CurrentRow.Index +1;
 
                 if(intCod > 0)
                 {
-                    this.intCodigoCategoria = intCod;                    
+                    this.intCodigoCategoria = intCod;
+                    ttbCodigo.Text = dgvCatProduto.CurrentRow.Cells[0].Value.ToString();
+                    ttbCategoria.Text = dgvCatProduto.CurrentRow.Cells[1].Value.ToString();
+                    ttbObservacao.Text = dgvCatProduto.CurrentRow.Cells[2].Value.ToString();
                 }
             }
         }
@@ -242,7 +252,13 @@ namespace HairLumos.Views
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
             selecinaCategoria();
-            carregaGrid();
+        }
+
+        private void btnSelecionar_Click(object sender, EventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecinaCategoria();
         }
     }
 }

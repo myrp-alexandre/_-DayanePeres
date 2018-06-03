@@ -37,12 +37,12 @@
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbMarca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -88,6 +88,7 @@
             this.btnSelecionar.TabIndex = 12;
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // dgvMarca
             // 
@@ -101,6 +102,7 @@
             this.dgvMarca.Location = new System.Drawing.Point(21, 139);
             this.dgvMarca.Name = "dgvMarca";
             this.dgvMarca.ReadOnly = true;
+            this.dgvMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMarca.Size = new System.Drawing.Size(468, 125);
             this.dgvMarca.TabIndex = 12;
             this.dgvMarca.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellDoubleClick);
@@ -154,6 +156,17 @@
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Marca*";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -209,17 +222,6 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Cadastro_MarcaProduto
             // 

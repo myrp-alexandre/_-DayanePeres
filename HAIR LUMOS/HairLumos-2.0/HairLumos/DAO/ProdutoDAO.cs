@@ -39,11 +39,12 @@ namespace HairLumos.DAO
                 else
                 {
                     _sql = "UPDATE tbcategoria" +
-                            "SET cat_categoria = @categoria, cat_obscategoria = @obs" +
-                        "WHERE codCategoria = @codigo";
+                            " SET cat_categoria = @categoria, cat_obscategoria = @obs" +
+                        " WHERE codCategoria = @codigo";
                 }
 
                 cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codigo", _categoria.Codigo);
                 cmd.Parameters.AddWithValue("@categoria", _categoria.CategoriaNome);
                 cmd.Parameters.AddWithValue("@obs", _categoria.Observacao);
 
@@ -282,7 +283,7 @@ namespace HairLumos.DAO
                 {
                     _sql = "INSERT INTO tbproduto" +
                                 "(codcategoria, codmarca, prod_produto, prod_precocustoproduto," +
-                                " prod_precovendaproduto, prod_descricao, prod_obsproduto, prod_qtdeproduto)" +
+                                " prod_precovendaproduto, prod_descricao, prod_obsproduto, prod_qtdproduto)" +
                         " VALUES(@codCateria, @codMarca, @nomeProd, @custoProd, @vendaProd, @descricaoProd, @obsProd, @qtdeProd)";
 
                 }
@@ -297,8 +298,8 @@ namespace HairLumos.DAO
                                 "prod_precocustoproduto = @custoProd," +
                                 "prod_precovendaproduto = @vendaProd," +
                                 "prod_descricao = @descricaoProd," +
-                                "prod_qtdeproduto = @qtdeProd," +
-                                "prod_obsproduto = @obsProd" +
+                                "prod_obsproduto = @obsProd," +
+                                "prod_qtdproduto = @qtdeProd" +
                         " WHERE codproduto = @codProduto";
     }
 
@@ -333,7 +334,7 @@ namespace HairLumos.DAO
 
             
             _sql = "SELECT codproduto, codcategoria, codmarca, prod_produto, prod_precocustoproduto," +
-                "prod_precovendaproduto, prod_descricao,  prod_obsproduto, prod_qtdeproduto" +
+                "prod_precovendaproduto, prod_descricao,  prod_obsproduto, prod_qtdproduto" +
                 " FROM tbproduto";
 
             // int intCodigo = 0;
@@ -355,8 +356,8 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@custo");
                 cmd.Parameters.AddWithValue("@venda");
                 cmd.Parameters.AddWithValue("@descricao");
-                cmd.Parameters.AddWithValue("@qtde");
                 cmd.Parameters.AddWithValue("@obs");
+                cmd.Parameters.AddWithValue("@qtde");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
@@ -371,7 +372,7 @@ namespace HairLumos.DAO
 
         public bool ExcluirProduto(int intCod)
         {
-            _sql = "DELETE FROM tbproduto WHERE codproduto= @cod";
+            _sql = "DELETE FROM tbproduto WHERE codproduto = @cod";
 
             int _controle = 0;
             try

@@ -10,25 +10,28 @@ using System.Windows.Forms;
 
 namespace HairLumos.Views
 {
-    public partial class Cadastro_FormaPagamento : Form
+    public partial class Cadastro_Servico : Form
     {
-        int intcodForma = 0;
+        int intCodServico = 0;
 
-        public Cadastro_FormaPagamento()
+        public Cadastro_Servico()
         {
             InitializeComponent();
             _inicializa();
             _limpaCampos();
-            dgvFormaPagamento.AutoGenerateColumns = false;
-            pesquisaFormaPagamento();
+            dgvServico.AutoGenerateColumns = false;
+            pesquisaServico();
         }
 
         public void _inicializa()
         {
             // ttb
             ttbCodigo.Enabled = false;
-            ttbForma.Enabled = false;
-            dgvFormaPagamento.Enabled = true;
+            ttbServico.Enabled = false;
+            ttbObservacao.Enabled = false;
+            mskTempoServiço.Enabled = false;
+            mskValor.Enabled = false;
+            dgvServico.Enabled = true;
 
             //btn
             btnNovo.Enabled = true;
@@ -38,7 +41,7 @@ namespace HairLumos.Views
             btnCancelar.Enabled = false;
             btnSair.Enabled = true;
 
-            pesquisaFormaPagamento();
+            pesquisaServico();
             _limpaCampos();
 
         }
@@ -46,14 +49,21 @@ namespace HairLumos.Views
         public void _limpaCampos()
         {
             ttbCodigo.Text = "";
-            ttbForma.Text = "";
+            ttbServico.Text = "";
+            ttbObservacao.Text = "";
+            mskTempoServiço.Text = "";
+            mskValor.Text = "";
         }
 
         public void _btnNovo()
         {
             ttbCodigo.Text = "0";
             ttbCodigo.Enabled = false;
-            ttbForma.Enabled = true;
+            ttbServico.Enabled = true;
+            ttbObservacao.Enabled = true;
+            mskTempoServiço.Enabled = true;
+            mskValor.Enabled = true;
+            dgvServico.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
@@ -62,13 +72,17 @@ namespace HairLumos.Views
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
-            ttbForma.Focus();
+            ttbServico.Focus();
         }
 
         public void _btnAlterar()
         {
             ttbCodigo.Enabled = false;
-            ttbForma.Enabled = true;
+            ttbServico.Enabled = true;
+            ttbObservacao.Enabled = true;
+            mskTempoServiço.Enabled = true;
+            mskValor.Enabled = true;
+            dgvServico.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
@@ -78,14 +92,17 @@ namespace HairLumos.Views
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
-            ttbForma.Focus();
+            ttbServico.Focus();
 
         }
 
-        public void carregaFormaPagamento(string strCod, string StrMarca)
+        public void carregaServico(string strCod, string strServico, string strobs, string strvalor, string strtempo)
         {
             ttbCodigo.Text = strCod;
-            ttbForma.Text = StrMarca;
+            ttbServico.Text = strServico;
+            ttbObservacao.Text = strobs;
+            mskTempoServiço.Text = strtempo;
+            mskValor.Text = strvalor;
         }
 
         public void carregaGrid()
@@ -95,46 +112,54 @@ namespace HairLumos.Views
 
             if (dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                DataRow dr = dtRetorno.Rows[intcodForma];
-                this.carregaFormaPagamento(
-                    dr["codformapagamento"].ToString(),
-                    dr["forpag_descricaoformapagamento"].ToString());
+                DataRow dr = dtRetorno.Rows[intCodServico];
+                this.carregaServico(
+                    dr["codservico"].ToString(),
+                    dr["serv_servico"].ToString(),
+                    dr["serv_valorservico"].ToString(),
+                    dr["serv_temposervico"].ToString(),
+                    dr["serv_obsservico"].ToString());
 
             }
         }
 
-       
-        public void pesquisaFormaPagamento()
-        {
-            Controller.PagamentoController _ctrlFormaPag= new Controller.PagamentoController();
 
-            DataTable dtRetorno = _ctrlFormaPag.retornaFormaPagamento();
+        public void pesquisaServico()
+        {
+            Controller.ServicoController _ctrlServ= new Controller.ServicoController();
+
+            DataTable dtRetorno = _ctrlServ.retornaServico();
 
             if (dtRetorno != null)
             {
-                dgvFormaPagamento.DataSource = dtRetorno;
-                dgvFormaPagamento.ClearSelection();
+                dgvServico.DataSource = dtRetorno;
+                dgvServico.Columns["serv_obsservico"].Visible = false;
+                dgvServico.ClearSelection();
+                
             }
             else
-                dgvFormaPagamento.Rows.Clear();
+                dgvServico.Rows.Clear();
 
         }
 
-        public void selecionaFormaPagamento()
+        public void selecionaServico()
         {
 
-            if (dgvFormaPagamento.Rows.Count > 0)
+            if (dgvServico.Rows.Count > 0)
             {
                 int intCod = 0;
 
-                intCod = dgvFormaPagamento.CurrentRow.Index + 1;
+                intCod = dgvServico.CurrentRow.Index + 1;
                 if (intCod > 0)
                 {
-                    this.intcodForma = intCod;
-                    ttbCodigo.Text = dgvFormaPagamento.CurrentRow.Cells[0].Value.ToString();
-                    ttbForma.Text = dgvFormaPagamento.CurrentRow.Cells[1].Value.ToString();
+                    this.intCodServico = intCod;
+                    ttbCodigo.Text = dgvServico.CurrentRow.Cells[0].Value.ToString();
+                    ttbServico.Text = dgvServico.CurrentRow.Cells[1].Value.ToString();
+                    mskValor.Text = dgvServico.CurrentRow.Cells[2].Value.ToString();
+                    mskTempoServiço.Text = dgvServico.CurrentRow.Cells[3].Value.ToString();
+                    ttbObservacao.Text = dgvServico.CurrentRow.Cells[4].Value.ToString();
 
-                    
+
                 }
             }
         }
@@ -146,7 +171,7 @@ namespace HairLumos.Views
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Controller.PagamentoController _ctrlFormaPag = new Controller.PagamentoController();
+            Controller.ServicoController _ctrlServ = new Controller.ServicoController();
 
             string strMensagem = string.Empty;
 
@@ -154,21 +179,25 @@ namespace HairLumos.Views
             {
                 //validações
                 int intCodigo = 0;
-                if (intcodForma != 0)
+                if (intCodServico != 0)
                 {
                     if (!int.TryParse(ttbCodigo.Text, out intCodigo))
                         strMensagem += $"Código inválido{Environment.NewLine}";
                 }
 
 
-                if (string.IsNullOrWhiteSpace(ttbForma.Text))
-                    strMensagem += $"Informe a Forma de Pagamento.";
+                if (string.IsNullOrWhiteSpace(ttbServico.Text))
+                    strMensagem += $"Informe o nome do serviço!.";
+
+                if (string.IsNullOrWhiteSpace(mskValor.Text))
+                    strMensagem += $"Informe o tempo estimado do serviço!.";
 
                 //verificar se houve alguma anormalidade no cadastro
                 if (string.IsNullOrEmpty(strMensagem))
                 {
-
-                    int intRetorno = _ctrlFormaPag.gravaFormaPagamento(intCodigo, ttbForma.Text);
+                    double valorServico = 0;
+                    double.TryParse(mskValor.Text, out valorServico);
+                    int intRetorno = _ctrlServ.gravaServico(intCodigo, ttbServico.Text, valorServico, mskTempoServiço.Text, ttbObservacao.Text);
 
                     if (intRetorno == 1)
                     {
@@ -191,6 +220,20 @@ namespace HairLumos.Views
             }
         }
 
+        private void dgvServico_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecionaServico();
+        }
+
+        private void btnSelecionar_Click(object sender, EventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecionaServico();
+        }
+
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             _btnAlterar();
@@ -198,7 +241,7 @@ namespace HairLumos.Views
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Controller.PagamentoController _ctlFormaPag = new Controller.PagamentoController();
+            Controller.ServicoController _ctlServ = new Controller.ServicoController();
 
             int intCod = 0;
 
@@ -208,13 +251,13 @@ namespace HairLumos.Views
             {
                 if (MessageBox.Show("Confirma exclusão da Marca?", "Categoria", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    bool blnExcluiu = _ctlFormaPag.excluirFormaPagamento(intCod);
+                    bool blnExcluiu = _ctlServ.excluirServico(intCod);
                     if (blnExcluiu)
                     {
-                        MessageBox.Show("Forma de Pagamento Excluída");
+                        MessageBox.Show("Servico Excluído.");
                         _limpaCampos();
-                        pesquisaFormaPagamento();
-                        _btnNovo();
+                        pesquisaServico();
+                        _inicializa();
                     }
                     else
                         MessageBox.Show("Erro ao excluir!");
@@ -229,27 +272,12 @@ namespace HairLumos.Views
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             _limpaCampos();
-            pesquisaFormaPagamento();
+            pesquisaServico();
         }
 
-       
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void btnSelecionar_Click(object sender, EventArgs e)
-        {
-            btnAlterar.Enabled = true;
-            btnExcluir.Enabled = true;
-            selecionaFormaPagamento();
-        }
-
-        private void dgvFormaPagamento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnAlterar.Enabled = true;
-            btnExcluir.Enabled = true;
-            selecionaFormaPagamento();
         }
     }
 }
