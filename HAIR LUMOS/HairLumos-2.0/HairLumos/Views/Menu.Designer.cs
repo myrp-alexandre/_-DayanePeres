@@ -40,6 +40,8 @@
             this.cadastroMarcaProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFormaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroPacoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bACKUPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +51,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cadastroServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +78,8 @@
             this.pessoaToolStripMenuItem,
             this.usuárioToolStripMenuItem,
             this.cadastroDeFormaDePagamentoToolStripMenuItem,
-            this.cadastroServiçoToolStripMenuItem});
+            this.cadastroServiçoToolStripMenuItem,
+            this.cadastroPacoteToolStripMenuItem});
             this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
             this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.cADASTROToolStripMenuItem.Text = "CADASTROS";
@@ -157,6 +160,22 @@
             this.cadastroDeFormaDePagamentoToolStripMenuItem.Text = "Cadastro Forma de Pagamento";
             this.cadastroDeFormaDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFormaDePagamentoToolStripMenuItem_Click);
             // 
+            // cadastroServiçoToolStripMenuItem
+            // 
+            this.cadastroServiçoToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
+            this.cadastroServiçoToolStripMenuItem.Name = "cadastroServiçoToolStripMenuItem";
+            this.cadastroServiçoToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.cadastroServiçoToolStripMenuItem.Text = "Cadastro Serviço";
+            this.cadastroServiçoToolStripMenuItem.Click += new System.EventHandler(this.cadastroServiçoToolStripMenuItem_Click);
+            // 
+            // cadastroPacoteToolStripMenuItem
+            // 
+            this.cadastroPacoteToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.cadastroPacoteToolStripMenuItem.Name = "cadastroPacoteToolStripMenuItem";
+            this.cadastroPacoteToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.cadastroPacoteToolStripMenuItem.Text = "Cadastro Pacote";
+            this.cadastroPacoteToolStripMenuItem.Click += new System.EventHandler(this.cadastroPacoteToolStripMenuItem_Click);
+            // 
             // rELATÓRIOSToolStripMenuItem
             // 
             this.rELATÓRIOSToolStripMenuItem.Name = "rELATÓRIOSToolStripMenuItem";
@@ -165,6 +184,8 @@
             // 
             // iNFORMAÇÕESToolStripMenuItem
             // 
+            this.iNFORMAÇÕESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parametrizaçãoDoSistemaToolStripMenuItem});
             this.iNFORMAÇÕESToolStripMenuItem.Name = "iNFORMAÇÕESToolStripMenuItem";
             this.iNFORMAÇÕESToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.iNFORMAÇÕESToolStripMenuItem.Text = "INFORMAÇÕES";
@@ -226,13 +247,13 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // cadastroServiçoToolStripMenuItem
+            // parametrizaçãoDoSistemaToolStripMenuItem
             // 
-            this.cadastroServiçoToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
-            this.cadastroServiçoToolStripMenuItem.Name = "cadastroServiçoToolStripMenuItem";
-            this.cadastroServiçoToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.cadastroServiçoToolStripMenuItem.Text = "Cadastro Serviço";
-            this.cadastroServiçoToolStripMenuItem.Click += new System.EventHandler(this.cadastroServiçoToolStripMenuItem_Click);
+            this.parametrizaçãoDoSistemaToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Name = "parametrizaçãoDoSistemaToolStripMenuItem";
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Text = "Parametrização do Sistema";
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Click += new System.EventHandler(this.parametrizaçãoDoSistemaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -282,6 +303,8 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeUsuárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeFormaDePagamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroServiçoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroPacoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parametrizaçãoDoSistemaToolStripMenuItem;
     }
 }
 

@@ -279,5 +279,10 @@ namespace HairLumos.Views
         {
             Close();
         }
+
+        private void Cadastro_Servico_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

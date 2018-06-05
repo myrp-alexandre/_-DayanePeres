@@ -313,6 +313,7 @@
             this.Name = "Cadastro_Servico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CADASTRO SERVIÇO ";
+            this.Load += new System.EventHandler(this.Cadastro_Servico_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

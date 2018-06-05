@@ -15,7 +15,6 @@ namespace HairLumos.Views
     {
         private int intCodigoProduto = 0;
         private int _indiceLinha = -1; //Indice da linha do DataGridView(começa de 0)
-        private bool _selecionou = false; //Para verificar se clicou em selecionar
 
         public Cadastro_Produto()
         {
@@ -376,10 +375,7 @@ namespace HairLumos.Views
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int codCategoria = 0;
-            int codMarca = 0;
-                       
-
+            
             _btnAlterar();
         }
 

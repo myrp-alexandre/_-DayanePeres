@@ -6,25 +6,24 @@ using System.Threading.Tasks;
 
 namespace HairLumos.Entidades
 {
-    class Servico
+    class Pacote
     {
-        
         private int _cod;
-        private string _servico;
+        private string _pacote;
         private double _valor;
-        private string _tempo;
         private string _obs;
+        private string _periodicidadde;
 
         public string _erro;
 
-        public Servico(int cod, string servico, double valor, string tempo, string obs)
+        public Pacote(int cod, string pacote, double valor, string obs, string periodo)
         {
-            this.carregaServico(cod, servico, valor, tempo, obs);
+            this.carregaPacote(cod, pacote, valor, obs, periodo);
         }
 
-        public Servico()
+        public Pacote()
         {
-            this.carregaServico(0, string.Empty, 0, string.Empty, string.Empty);
+            this.carregaPacote(0, string.Empty, 0, string.Empty, string.Empty);
         }
 
         public string Erro
@@ -39,10 +38,10 @@ namespace HairLumos.Entidades
             set { _cod = value; }
         }
 
-        public string ServicoNome
+        public string PaccoteNome
         {
-            get { return _servico; }
-            set { _servico = value; }
+            get { return _pacote; }
+            set { _pacote= value; }
         }
 
         public double Valor
@@ -51,11 +50,6 @@ namespace HairLumos.Entidades
             set { _valor = value; }
         }
 
-        public string Tempo
-        {
-            get { return _tempo; }
-            set { _tempo = value; }
-        }
 
         public string Observacao
         {
@@ -63,13 +57,19 @@ namespace HairLumos.Entidades
             set { _obs = value; }
         }
 
-        public void carregaServico(int cod, string servico, double valor, string tempo, string obs)
+        public string Periodo
+        {
+            get { return _periodicidadde; }
+            set { _periodicidadde = value; }
+        }
+
+        public void carregaPacote(int cod, string pacote, double valor, string obs, string periodo)
         {
             this.Codigo = cod;
-            this.ServicoNome = servico;
+            this.PaccoteNome = pacote;
             this.Valor = valor;
-            this.Tempo = tempo;
             this.Observacao = obs;
+            this.Periodo = periodo;
         }
     }
 }

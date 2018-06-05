@@ -57,18 +57,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\Conexao.cs" />
+    <Compile Include="Controller\PacoteController.cs" />
     <Compile Include="Controller\PagamentoController.cs" />
+    <Compile Include="Controller\ParametrizacaoController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\ServicoController.cs" />
+    <Compile Include="DAO\PacoteDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
+    <Compile Include="DAO\ParametrizaçãoDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\ServicoDAO.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
     <Compile Include="Entidades\Marca.cs" />
+    <Compile Include="Entidades\Pacote.cs" />
+    <Compile Include="Entidades\Parametrizacao.cs" />
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Servico.cs" />
+    <Compile Include="Models\PacoteModels.cs" />
     <Compile Include="Models\PagamentoModels.cs" />
+    <Compile Include="Models\ParametrizacaoModels.cs" />
     <Compile Include="Models\ProdutoModels.cs" />
     <Compile Include="Models\ServicoModel.cs" />
     <Compile Include="Views\Cadastro_CategoriaProduto.cs">
@@ -121,6 +129,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Parametro_Sistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Parametro_Sistema.Designer.cs">
+      <DependentUpon>Parametro_Sistema.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\Cadastro_CategoriaProduto.resx">
       <DependentUpon>Cadastro_CategoriaProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Cadastro_MarcaProduto.resx">
       <DependentUpon>Cadastro_MarcaProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastro_Pacotes.resx">
+      <DependentUpon>Cadastro_Pacotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Cadastro_Pessoa.resx">
       <DependentUpon>Cadastro_Pessoa.cs</DependentUpon>
@@ -151,6 +168,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Parametro_Sistema.resx">
+      <DependentUpon>Parametro_Sistema.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

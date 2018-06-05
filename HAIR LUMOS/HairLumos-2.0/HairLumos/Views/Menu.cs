@@ -63,5 +63,17 @@ namespace HairLumos
             Views.Cadastro_Servico cadastro_Servico = new Views.Cadastro_Servico();
             cadastro_Servico.Show();
         }
+
+        private void cadastroPacoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_Pacotes cadastro_Pacotes = new Views.Cadastro_Pacotes();
+            cadastro_Pacotes.Show();
+        }
+
+        private void parametrizaçãoDoSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Parametro_Sistema parametro_Sistema = new Views.Parametro_Sistema();
+            parametro_Sistema.Show();
+        }
     }
 }
