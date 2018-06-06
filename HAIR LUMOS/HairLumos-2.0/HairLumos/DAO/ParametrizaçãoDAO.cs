@@ -18,6 +18,40 @@ namespace HairLumos.DAO
             this._sql = string.Empty;
         }
 
+        public DataTable SelecionaRazao()
+        {
+            DataTable dt = new DataTable();
+            _sql = "select * from tbparametro;";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codparametro");
+                cmd.Parameters.AddWithValue("@param_razaosocial");
+                cmd.Parameters.AddWithValue("@param_nomefantasia");
+                cmd.Parameters.AddWithValue("@param_email");
+                cmd.Parameters.AddWithValue("@param_endereco");
+                cmd.Parameters.AddWithValue("@param_complemento");
+                cmd.Parameters.AddWithValue("@param_numero");
+                cmd.Parameters.AddWithValue("@param_telefone");
+                cmd.Parameters.AddWithValue("@param_celular");
+                cmd.Parameters.AddWithValue("@param_logo");
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+            
+        }
+        
+
         public DataTable VerificaParametro()
         {
             DataTable dt = new DataTable();
@@ -106,6 +140,24 @@ namespace HairLumos.DAO
             {
                 return 0;
             }
+        }
+
+        public bool ExcluirParametrização(int intCod)
+        {
+            _sql = "DELETE FROM tbparametro WHERE codparametro = @cod";
+
+            int _controle = 0;
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+                cmd.Parameters.AddWithValue("@cod", intCod);
+                _controle = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+            }
+            return (_controle > 0);
         }
     }
 }

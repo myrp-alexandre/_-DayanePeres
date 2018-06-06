@@ -47,13 +47,13 @@
             this.tabcInformaçõesPessoa = new System.Windows.Forms.TabControl();
             this.Endereço = new System.Windows.Forms.TabPage();
             this.pnlEndereco = new System.Windows.Forms.Panel();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.btnSalvarEndereco = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.cbbCidade = new System.Windows.Forms.ComboBox();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.ttbCep = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ttbComplemento = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,9 +62,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ttbNumero = new System.Windows.Forms.TextBox();
             this.ttbLogradouro = new System.Windows.Forms.TextBox();
-            this.dgvEndereço = new System.Windows.Forms.DataGridView();
             this.btnIncluirEndereco = new System.Windows.Forms.Button();
+            this.dgvEndereco = new System.Windows.Forms.DataGridView();
+            this.Logradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contato = new System.Windows.Forms.TabPage();
+            this.dgvContato = new System.Windows.Forms.DataGridView();
+            this._telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContato = new System.Windows.Forms.Panel();
             this.btnSalvarContato = new System.Windows.Forms.Button();
             this.mskCelular = new System.Windows.Forms.MaskedTextBox();
@@ -72,20 +79,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dgvContato = new System.Windows.Forms.DataGridView();
+            this.ttbEmail = new System.Windows.Forms.TextBox();
             this.btnIncluirContato = new System.Windows.Forms.Button();
-            this.Financeiro = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Observações = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pnlObservacao = new System.Windows.Forms.Panel();
-            this.btnFormaPagamento = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ttbObservação = new System.Windows.Forms.TextBox();
             this.ttbRg = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ttbRazao = new System.Windows.Forms.TextBox();
@@ -110,14 +108,11 @@
             this.tabcInformaçõesPessoa.SuspendLayout();
             this.Endereço.SuspendLayout();
             this.pnlEndereco.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereço)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
             this.Contato.SuspendLayout();
-            this.pnlContato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).BeginInit();
-            this.Financeiro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pnlContato.SuspendLayout();
             this.Observações.SuspendLayout();
-            this.pnlObservacao.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -178,6 +173,7 @@
             // rbPagaNao
             // 
             this.rbPagaNao.AutoSize = true;
+            this.rbPagaNao.Checked = true;
             this.rbPagaNao.Location = new System.Drawing.Point(7, 32);
             this.rbPagaNao.Name = "rbPagaNao";
             this.rbPagaNao.Size = new System.Drawing.Size(45, 17);
@@ -193,10 +189,8 @@
             this.rbPagaSim.Name = "rbPagaSim";
             this.rbPagaSim.Size = new System.Drawing.Size(42, 17);
             this.rbPagaSim.TabIndex = 1;
-            this.rbPagaSim.TabStop = true;
             this.rbPagaSim.Text = "Sim";
             this.rbPagaSim.UseVisualStyleBackColor = true;
-            this.rbPagaSim.Click += new System.EventHandler(this.rbPagaSim_Click);
             // 
             // groupBox1
             // 
@@ -212,6 +206,7 @@
             // rbFisica
             // 
             this.rbFisica.AutoSize = true;
+            this.rbFisica.Checked = true;
             this.rbFisica.Location = new System.Drawing.Point(7, 21);
             this.rbFisica.Name = "rbFisica";
             this.rbFisica.Size = new System.Drawing.Size(54, 17);
@@ -227,7 +222,6 @@
             this.rbJuridica.Name = "rbJuridica";
             this.rbJuridica.Size = new System.Drawing.Size(63, 17);
             this.rbJuridica.TabIndex = 1;
-            this.rbJuridica.TabStop = true;
             this.rbJuridica.Text = "Jurídica";
             this.rbJuridica.UseVisualStyleBackColor = true;
             // 
@@ -315,7 +309,6 @@
             // 
             this.tabcInformaçõesPessoa.Controls.Add(this.Endereço);
             this.tabcInformaçõesPessoa.Controls.Add(this.Contato);
-            this.tabcInformaçõesPessoa.Controls.Add(this.Financeiro);
             this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
             this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(12, 209);
             this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
@@ -326,8 +319,8 @@
             // Endereço
             // 
             this.Endereço.Controls.Add(this.pnlEndereco);
-            this.Endereço.Controls.Add(this.dgvEndereço);
             this.Endereço.Controls.Add(this.btnIncluirEndereco);
+            this.Endereço.Controls.Add(this.dgvEndereco);
             this.Endereço.Location = new System.Drawing.Point(4, 22);
             this.Endereço.Name = "Endereço";
             this.Endereço.Size = new System.Drawing.Size(867, 185);
@@ -337,13 +330,13 @@
             // 
             // pnlEndereco
             // 
+            this.pnlEndereco.Controls.Add(this.maskedTextBox1);
             this.pnlEndereco.Controls.Add(this.btnSalvarEndereco);
             this.pnlEndereco.Controls.Add(this.label15);
             this.pnlEndereco.Controls.Add(this.label14);
             this.pnlEndereco.Controls.Add(this.cbbCidade);
             this.pnlEndereco.Controls.Add(this.cbbEstado);
             this.pnlEndereco.Controls.Add(this.label13);
-            this.pnlEndereco.Controls.Add(this.ttbCep);
             this.pnlEndereco.Controls.Add(this.label12);
             this.pnlEndereco.Controls.Add(this.ttbComplemento);
             this.pnlEndereco.Controls.Add(this.label11);
@@ -352,11 +345,19 @@
             this.pnlEndereco.Controls.Add(this.label3);
             this.pnlEndereco.Controls.Add(this.ttbNumero);
             this.pnlEndereco.Controls.Add(this.ttbLogradouro);
-            this.pnlEndereco.Location = new System.Drawing.Point(41, 4);
+            this.pnlEndereco.Location = new System.Drawing.Point(29, 75);
             this.pnlEndereco.Name = "pnlEndereco";
             this.pnlEndereco.Size = new System.Drawing.Size(818, 107);
             this.pnlEndereco.TabIndex = 9;
             this.pnlEndereco.Visible = false;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(70, 75);
+            this.maskedTextBox1.Mask = "00000-000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(79, 20);
+            this.maskedTextBox1.TabIndex = 71;
             // 
             // btnSalvarEndereco
             // 
@@ -368,6 +369,7 @@
             this.btnSalvarEndereco.TabIndex = 7;
             this.btnSalvarEndereco.Text = "Salvar";
             this.btnSalvarEndereco.UseVisualStyleBackColor = false;
+            this.btnSalvarEndereco.Click += new System.EventHandler(this.btnSalvarEndereco_Click);
             // 
             // label15
             // 
@@ -381,7 +383,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(148, 74);
+            this.label14.Location = new System.Drawing.Point(155, 73);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 13);
             this.label14.TabIndex = 69;
@@ -390,7 +392,7 @@
             // cbbCidade
             // 
             this.cbbCidade.FormattingEnabled = true;
-            this.cbbCidade.Location = new System.Drawing.Point(470, 70);
+            this.cbbCidade.Location = new System.Drawing.Point(474, 74);
             this.cbbCidade.Name = "cbbCidade";
             this.cbbCidade.Size = new System.Drawing.Size(286, 21);
             this.cbbCidade.TabIndex = 6;
@@ -398,7 +400,7 @@
             // cbbEstado
             // 
             this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(203, 70);
+            this.cbbEstado.Location = new System.Drawing.Point(201, 74);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(215, 21);
             this.cbbEstado.TabIndex = 5;
@@ -412,13 +414,6 @@
             this.label13.TabIndex = 65;
             this.label13.Text = "CEP";
             // 
-            // ttbCep
-            // 
-            this.ttbCep.Location = new System.Drawing.Point(70, 71);
-            this.ttbCep.Name = "ttbCep";
-            this.ttbCep.Size = new System.Drawing.Size(69, 20);
-            this.ttbCep.TabIndex = 4;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -430,7 +425,7 @@
             // 
             // ttbComplemento
             // 
-            this.ttbComplemento.Location = new System.Drawing.Point(431, 41);
+            this.ttbComplemento.Location = new System.Drawing.Point(431, 44);
             this.ttbComplemento.Name = "ttbComplemento";
             this.ttbComplemento.Size = new System.Drawing.Size(325, 20);
             this.ttbComplemento.TabIndex = 3;
@@ -471,47 +466,73 @@
             // 
             // ttbNumero
             // 
-            this.ttbNumero.Location = new System.Drawing.Point(656, 6);
+            this.ttbNumero.Location = new System.Drawing.Point(656, 15);
             this.ttbNumero.Name = "ttbNumero";
             this.ttbNumero.Size = new System.Drawing.Size(100, 20);
             this.ttbNumero.TabIndex = 1;
             // 
             // ttbLogradouro
             // 
-            this.ttbLogradouro.Location = new System.Drawing.Point(70, 6);
+            this.ttbLogradouro.Location = new System.Drawing.Point(70, 15);
             this.ttbLogradouro.Name = "ttbLogradouro";
-            this.ttbLogradouro.Size = new System.Drawing.Size(553, 20);
+            this.ttbLogradouro.Size = new System.Drawing.Size(555, 20);
             this.ttbLogradouro.TabIndex = 0;
-            // 
-            // dgvEndereço
-            // 
-            this.dgvEndereço.AllowUserToAddRows = false;
-            this.dgvEndereço.AllowUserToDeleteRows = false;
-            this.dgvEndereço.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEndereço.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEndereço.Location = new System.Drawing.Point(41, 117);
-            this.dgvEndereço.Name = "dgvEndereço";
-            this.dgvEndereço.ReadOnly = true;
-            this.dgvEndereço.Size = new System.Drawing.Size(818, 65);
-            this.dgvEndereço.TabIndex = 8;
-            this.dgvEndereço.Visible = false;
             // 
             // btnIncluirEndereco
             // 
             this.btnIncluirEndereco.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIncluirEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncluirEndereco.Location = new System.Drawing.Point(5, 4);
+            this.btnIncluirEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncluirEndereco.Location = new System.Drawing.Point(29, 3);
             this.btnIncluirEndereco.Name = "btnIncluirEndereco";
-            this.btnIncluirEndereco.Size = new System.Drawing.Size(29, 32);
+            this.btnIncluirEndereco.Size = new System.Drawing.Size(45, 22);
             this.btnIncluirEndereco.TabIndex = 0;
             this.btnIncluirEndereco.Text = "+";
             this.btnIncluirEndereco.UseVisualStyleBackColor = false;
             this.btnIncluirEndereco.Click += new System.EventHandler(this.btnIncluirEndereco_Click);
             // 
+            // dgvEndereco
+            // 
+            this.dgvEndereco.AllowUserToAddRows = false;
+            this.dgvEndereco.AllowUserToDeleteRows = false;
+            this.dgvEndereco.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEndereco.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Logradouro,
+            this.Numero,
+            this.Bairro});
+            this.dgvEndereco.Location = new System.Drawing.Point(29, 4);
+            this.dgvEndereco.Name = "dgvEndereco";
+            this.dgvEndereco.ReadOnly = true;
+            this.dgvEndereco.Size = new System.Drawing.Size(815, 65);
+            this.dgvEndereco.TabIndex = 10;
+            // 
+            // Logradouro
+            // 
+            this.Logradouro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Logradouro.DataPropertyName = "_logradouro";
+            this.Logradouro.HeaderText = "Logradouro";
+            this.Logradouro.Name = "Logradouro";
+            this.Logradouro.ReadOnly = true;
+            // 
+            // Numero
+            // 
+            this.Numero.DataPropertyName = "_numero";
+            this.Numero.HeaderText = "Número";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            // 
+            // Bairro
+            // 
+            this.Bairro.DataPropertyName = "_bairro";
+            this.Bairro.HeaderText = "Bairro";
+            this.Bairro.Name = "Bairro";
+            this.Bairro.ReadOnly = true;
+            this.Bairro.Width = 300;
+            // 
             // Contato
             // 
-            this.Contato.Controls.Add(this.pnlContato);
             this.Contato.Controls.Add(this.dgvContato);
+            this.Contato.Controls.Add(this.pnlContato);
             this.Contato.Controls.Add(this.btnIncluirContato);
             this.Contato.Location = new System.Drawing.Point(4, 22);
             this.Contato.Name = "Contato";
@@ -521,6 +542,46 @@
             this.Contato.Text = "Contato";
             this.Contato.UseVisualStyleBackColor = true;
             // 
+            // dgvContato
+            // 
+            this.dgvContato.AllowUserToAddRows = false;
+            this.dgvContato.AllowUserToDeleteRows = false;
+            this.dgvContato.BackgroundColor = System.Drawing.Color.White;
+            this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContato.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._telefone,
+            this._celular,
+            this._email});
+            this.dgvContato.Location = new System.Drawing.Point(48, 6);
+            this.dgvContato.Name = "dgvContato";
+            this.dgvContato.ReadOnly = true;
+            this.dgvContato.Size = new System.Drawing.Size(642, 89);
+            this.dgvContato.TabIndex = 13;
+            // 
+            // _telefone
+            // 
+            this._telefone.DataPropertyName = "_telefone";
+            this._telefone.HeaderText = "Telefone";
+            this._telefone.Name = "_telefone";
+            this._telefone.ReadOnly = true;
+            this._telefone.Width = 120;
+            // 
+            // _celular
+            // 
+            this._celular.DataPropertyName = "_celular";
+            this._celular.HeaderText = "Celular";
+            this._celular.Name = "_celular";
+            this._celular.ReadOnly = true;
+            this._celular.Width = 120;
+            // 
+            // _email
+            // 
+            this._email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._email.DataPropertyName = "_email";
+            this._email.HeaderText = "E-mail";
+            this._email.Name = "_email";
+            this._email.ReadOnly = true;
+            // 
             // pnlContato
             // 
             this.pnlContato.Controls.Add(this.btnSalvarContato);
@@ -529,8 +590,8 @@
             this.pnlContato.Controls.Add(this.label18);
             this.pnlContato.Controls.Add(this.label19);
             this.pnlContato.Controls.Add(this.label21);
-            this.pnlContato.Controls.Add(this.textBox5);
-            this.pnlContato.Location = new System.Drawing.Point(42, 4);
+            this.pnlContato.Controls.Add(this.ttbEmail);
+            this.pnlContato.Location = new System.Drawing.Point(48, 99);
             this.pnlContato.Name = "pnlContato";
             this.pnlContato.Size = new System.Drawing.Size(642, 80);
             this.pnlContato.TabIndex = 12;
@@ -546,6 +607,7 @@
             this.btnSalvarContato.TabIndex = 66;
             this.btnSalvarContato.Text = "Salvar";
             this.btnSalvarContato.UseVisualStyleBackColor = false;
+            this.btnSalvarContato.Click += new System.EventHandler(this.btnSalvarContato_Click);
             // 
             // mskCelular
             // 
@@ -577,9 +639,9 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(5, 44);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(49, 13);
+            this.label19.Size = new System.Drawing.Size(53, 13);
             this.label19.TabIndex = 61;
-            this.label19.Text = "Telefone";
+            this.label19.Text = "Telefone*";
             // 
             // label21
             // 
@@ -590,25 +652,12 @@
             this.label21.TabIndex = 59;
             this.label21.Text = "E-mail";
             // 
-            // textBox5
+            // ttbEmail
             // 
-            this.textBox5.Location = new System.Drawing.Point(70, 6);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(553, 20);
-            this.textBox5.TabIndex = 0;
-            // 
-            // dgvContato
-            // 
-            this.dgvContato.AllowUserToAddRows = false;
-            this.dgvContato.AllowUserToDeleteRows = false;
-            this.dgvContato.BackgroundColor = System.Drawing.Color.White;
-            this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContato.Location = new System.Drawing.Point(42, 90);
-            this.dgvContato.Name = "dgvContato";
-            this.dgvContato.ReadOnly = true;
-            this.dgvContato.Size = new System.Drawing.Size(642, 89);
-            this.dgvContato.TabIndex = 11;
-            this.dgvContato.Visible = false;
+            this.ttbEmail.Location = new System.Drawing.Point(70, 6);
+            this.ttbEmail.Name = "ttbEmail";
+            this.ttbEmail.Size = new System.Drawing.Size(553, 20);
+            this.ttbEmail.TabIndex = 0;
             // 
             // btnIncluirContato
             // 
@@ -622,32 +671,10 @@
             this.btnIncluirContato.UseVisualStyleBackColor = false;
             this.btnIncluirContato.Click += new System.EventHandler(this.btnIncluirContato_Click);
             // 
-            // Financeiro
-            // 
-            this.Financeiro.Controls.Add(this.dataGridView1);
-            this.Financeiro.Location = new System.Drawing.Point(4, 22);
-            this.Financeiro.Name = "Financeiro";
-            this.Financeiro.Size = new System.Drawing.Size(867, 185);
-            this.Financeiro.TabIndex = 3;
-            this.Financeiro.Text = "Financeiro";
-            this.Financeiro.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 15);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(840, 159);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // Observações
             // 
             this.Observações.Controls.Add(this.label17);
-            this.Observações.Controls.Add(this.textBox1);
-            this.Observações.Controls.Add(this.pnlObservacao);
-            this.Observações.Controls.Add(this.button1);
+            this.Observações.Controls.Add(this.ttbObservação);
             this.Observações.Location = new System.Drawing.Point(4, 22);
             this.Observações.Name = "Observações";
             this.Observações.Size = new System.Drawing.Size(867, 185);
@@ -658,82 +685,19 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(53, 76);
+            this.label17.Location = new System.Drawing.Point(18, 18);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(100, 13);
             this.label17.TabIndex = 68;
             this.label17.Text = "Observação Cliente";
             // 
-            // textBox1
+            // ttbObservação
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 92);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(473, 62);
-            this.textBox1.TabIndex = 67;
-            // 
-            // pnlObservacao
-            // 
-            this.pnlObservacao.Controls.Add(this.btnFormaPagamento);
-            this.pnlObservacao.Controls.Add(this.radioButton1);
-            this.pnlObservacao.Controls.Add(this.radioButton2);
-            this.pnlObservacao.Controls.Add(this.label1);
-            this.pnlObservacao.Location = new System.Drawing.Point(48, 24);
-            this.pnlObservacao.Name = "pnlObservacao";
-            this.pnlObservacao.Size = new System.Drawing.Size(587, 42);
-            this.pnlObservacao.TabIndex = 13;
-            this.pnlObservacao.Visible = false;
-            // 
-            // btnFormaPagamento
-            // 
-            this.btnFormaPagamento.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormaPagamento.Location = new System.Drawing.Point(275, 7);
-            this.btnFormaPagamento.Name = "btnFormaPagamento";
-            this.btnFormaPagamento.Size = new System.Drawing.Size(206, 27);
-            this.btnFormaPagamento.TabIndex = 67;
-            this.btnFormaPagamento.Text = "Forma Pagamento";
-            this.btnFormaPagamento.UseVisualStyleBackColor = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(98, 7);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 17);
-            this.radioButton1.TabIndex = 62;
-            this.radioButton1.Text = "Não";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(50, 7);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(42, 17);
-            this.radioButton2.TabIndex = 61;
-            this.radioButton2.Text = "Sim";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 60;
-            this.label1.Text = "Fiado?";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(548, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 34);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ttbObservação.Location = new System.Drawing.Point(21, 49);
+            this.ttbObservação.Multiline = true;
+            this.ttbObservação.Name = "ttbObservação";
+            this.ttbObservação.Size = new System.Drawing.Size(812, 62);
+            this.ttbObservação.TabIndex = 67;
             // 
             // ttbRg
             // 
@@ -763,9 +727,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(219, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 42;
-            this.label4.Text = "Razão Social";
+            this.label4.Text = "Razão Social*";
             // 
             // ttbNome
             // 
@@ -861,6 +825,7 @@
             this.btnGravar.TabIndex = 1;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -896,17 +861,13 @@
             this.Endereço.ResumeLayout(false);
             this.pnlEndereco.ResumeLayout(false);
             this.pnlEndereco.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereço)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).EndInit();
             this.Contato.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).EndInit();
             this.pnlContato.ResumeLayout(false);
             this.pnlContato.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).EndInit();
-            this.Financeiro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Observações.ResumeLayout(false);
             this.Observações.PerformLayout();
-            this.pnlObservacao.ResumeLayout(false);
-            this.pnlObservacao.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -931,11 +892,6 @@
         private System.Windows.Forms.RadioButton rbInativo;
         private System.Windows.Forms.RadioButton rbAtivo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TabControl tabcInformaçõesPessoa;
-        private System.Windows.Forms.TabPage Endereço;
-        private System.Windows.Forms.TabPage Contato;
-        private System.Windows.Forms.TabPage Financeiro;
-        private System.Windows.Forms.TabPage Observações;
         private System.Windows.Forms.TextBox ttbRg;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox ttbRazao;
@@ -944,15 +900,21 @@
         private System.Windows.Forms.RadioButton rbFisica;
         private System.Windows.Forms.TextBox ttbNome;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbPagaNao;
+        private System.Windows.Forms.RadioButton rbPagaSim;
+        private System.Windows.Forms.TabControl tabcInformaçõesPessoa;
+        private System.Windows.Forms.TabPage Endereço;
         private System.Windows.Forms.Panel pnlEndereco;
-        private System.Windows.Forms.DataGridView dgvEndereço;
-        public System.Windows.Forms.Button btnIncluirEndereco;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        public System.Windows.Forms.Button btnSalvarEndereco;
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cbbCidade;
         private System.Windows.Forms.ComboBox cbbEstado;
         public System.Windows.Forms.Label label13;
-        public System.Windows.Forms.TextBox ttbCep;
         public System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox ttbComplemento;
         public System.Windows.Forms.Label label11;
@@ -961,9 +923,16 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox ttbNumero;
         public System.Windows.Forms.TextBox ttbLogradouro;
-        private System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.Button btnSalvarEndereco;
-        public System.Windows.Forms.Button btnPesquisar;
+        public System.Windows.Forms.Button btnIncluirEndereco;
+        private System.Windows.Forms.DataGridView dgvEndereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Logradouro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bairro;
+        private System.Windows.Forms.TabPage Contato;
+        private System.Windows.Forms.DataGridView dgvContato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _celular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _email;
         private System.Windows.Forms.Panel pnlContato;
         public System.Windows.Forms.Button btnSalvarContato;
         private System.Windows.Forms.MaskedTextBox mskCelular;
@@ -971,20 +940,10 @@
         public System.Windows.Forms.Label label18;
         public System.Windows.Forms.Label label19;
         public System.Windows.Forms.Label label21;
-        public System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DataGridView dgvContato;
+        public System.Windows.Forms.TextBox ttbEmail;
         public System.Windows.Forms.Button btnIncluirContato;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel pnlObservacao;
-        public System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rbPagaNao;
-        private System.Windows.Forms.RadioButton rbPagaSim;
-        public System.Windows.Forms.Button btnFormaPagamento;
+        private System.Windows.Forms.TabPage Observações;
         public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox ttbObservação;
     }
 }

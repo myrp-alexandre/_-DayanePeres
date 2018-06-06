@@ -57,26 +57,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\Conexao.cs" />
+    <Compile Include="Banco\TesteConexao.cs" />
     <Compile Include="Controller\PacoteController.cs" />
     <Compile Include="Controller\PagamentoController.cs" />
     <Compile Include="Controller\ParametrizacaoController.cs" />
+    <Compile Include="Controller\PessoaController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\ServicoController.cs" />
     <Compile Include="DAO\PacoteDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
     <Compile Include="DAO\ParametrizaçãoDAO.cs" />
+    <Compile Include="DAO\PessoaDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\ServicoDAO.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
+    <Compile Include="Entidades\Interface_Pessoa.cs" />
     <Compile Include="Entidades\Marca.cs" />
     <Compile Include="Entidades\Pacote.cs" />
     <Compile Include="Entidades\Parametrizacao.cs" />
+    <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\PessoaFisica.cs" />
+    <Compile Include="Entidades\PessoaJuridica.cs" />
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Servico.cs" />
     <Compile Include="Models\PacoteModels.cs" />
     <Compile Include="Models\PagamentoModels.cs" />
     <Compile Include="Models\ParametrizacaoModels.cs" />
+    <Compile Include="Models\PessoaModels.cs" />
     <Compile Include="Models\ProdutoModels.cs" />
     <Compile Include="Models\ServicoModel.cs" />
     <Compile Include="Views\Cadastro_CategoriaProduto.cs">

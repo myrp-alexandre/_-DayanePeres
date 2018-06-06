@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HairLumos.Banco
 {
-    class Conexao
+    public class Conexao
     {
         //sealed impede que outras classes façam herança dessa
          //Crinado instancia interna da classe
@@ -19,11 +19,11 @@ namespace HairLumos.Banco
             private NpgsqlConnection _conn;
 
             private NpgsqlTransaction sqlTrans = null;
-            private NpgsqlCommand _sqlCmd = null;
+            private NpgsqlCommand _sqlCmd = null; //seria isso ? sim, so  que, olha
             private bool _autoConexao = true;
 
             //Contrutor privado da classe
-            private Conexao()
+            public Conexao()
             {
                 string _strConexao = "Server = 127.0.0.1; Port = 5432; User Id = postgres; Password = postgres123; Database = banco_HL_novo; ";
                 _conn = new NpgsqlConnection(_strConexao);
@@ -168,7 +168,7 @@ namespace HairLumos.Banco
                 if (_autoConexao)
                 {
                     SqlCmd.Parameters.Clear();
-                    fecharConexao();
+                    fecharConexao();//se tiver com transação ativa, não pode fechar a conexao
                 }
 
                 return ret;

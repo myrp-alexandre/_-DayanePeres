@@ -25,5 +25,11 @@ namespace HairLumos.Models
             Entidades.Parametrizacao _entParam = new Entidades.Parametrizacao();
             return _DAOParam.VerificaParametro();
         }
+
+        public bool excluirParametro(int intCod)
+        {
+
+            return _DAOParam.ExcluirParametrização(intCod);
+        }
     }
 }

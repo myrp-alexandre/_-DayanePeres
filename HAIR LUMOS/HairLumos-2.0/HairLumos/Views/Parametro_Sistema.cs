@@ -13,10 +13,12 @@ namespace HairLumos.Views
 {
     public partial class Parametro_Sistema : Form
     {
+        int intCodParametro = 0;
 
         public Parametro_Sistema()
         {
             InitializeComponent();
+            selecionaParametro();
         }
 
        
@@ -110,6 +112,66 @@ namespace HairLumos.Views
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex + "");
+            }
+        }
+
+        public void selecionaParametro()
+        {
+            Controller.ParametrizacaoController _ctrlParametro = new Controller.ParametrizacaoController();
+
+
+            DataTable dt = new DataTable();
+            dt = _ctrlParametro.retornaParametrização();
+            if (dt != null)
+            {
+                ttbRazaoSocial.DataBindings.Add(new Binding("Text", dt, "param_razaosocial", true));
+                ttbNomeFantasia.DataBindings.Add(new Binding("Text", dt, "param_nomefantasia", true));
+                ttbEmail.DataBindings.Add(new Binding("Text", dt, "param_email", true));
+                ttbEndereco.DataBindings.Add(new Binding("Text", dt, "param_endereco", true));
+                ttbComplemento.DataBindings.Add(new Binding("Text", dt, "param_complemento", true));
+                ttbNum.DataBindings.Add(new Binding("Text", dt, "param_numero", true));
+                mskTelefone.DataBindings.Add(new Binding("Text", dt, "param_telefone", true));
+                mskCelular.DataBindings.Add(new Binding("Text", dt, "param_celular", true));
+              //  pcbLogo.DataBindings.Add(new Binding("Imagem", dt, "param_logo", true));
+
+            }
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Controller.ParametrizacaoController _ctrlParametro = new Controller.ParametrizacaoController();
+            //selecionaParametro();
+
+            if (intCodParametro > 0)
+            {
+                if (MessageBox.Show("Confirma exclusão da Marca?", "Categoria", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    bool blnExcluiu = _ctrlParametro.excluirParametro(intCodParametro);
+                    if (blnExcluiu)
+                    {
+                        MessageBox.Show("Parametrização excluída.");
+                        
+                    }
+                    else
+                        MessageBox.Show("Erro ao excluir!");
+                }
+                else
+                {
+                    MessageBox.Show("Cancela ?");
+                }
+            }
+        }
+
+        private void Parametro_Sistema_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Controller.ParametrizacaoController _ctrlParam = new Controller.ParametrizacaoController();
+            //Quando fechar atualizar o menu principal com a RazaoSocial atualizada
+            //Esse if garante que o MenuPrincipalView existe para poder atualizar
+            if (Application.OpenForms.OfType<Parametro_Sistema>().Count() > 0)
+            {
+                var instancia = Application.OpenForms.OfType<Parametro_Sistema>().First();
+                instancia.Text = "Smart System 1.0 - " + _ctrlParam.retornaParametrização();
             }
         }
     }

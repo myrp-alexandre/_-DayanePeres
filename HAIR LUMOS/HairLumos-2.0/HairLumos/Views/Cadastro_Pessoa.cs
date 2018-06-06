@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HairLumos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace HairLumos.Views
 {
     public partial class Cadastro_Pessoa : Form
     {
+        List<Endereco> arrEndreco = null;
+        List<Contato> arrContato = null;
+
+        int intCodPessoa = 0;
+
         public Cadastro_Pessoa()
         {
             InitializeComponent();
+            this.arrEndreco = new List<Endereco>();
+            this.arrContato = new List<Contato>();
+            dgvEndereco.AutoGenerateColumns = false;
         }
 
         public void _inicializa()
@@ -33,7 +42,7 @@ namespace HairLumos.Views
             rbFisica.Enabled = false;
             rbJuridica.Enabled = false;
 
-            dgvEndereço.Enabled = true;
+            dgvEndereco.Enabled = true;
 
             //btn
             btnNovo.Enabled = true;
@@ -83,7 +92,7 @@ namespace HairLumos.Views
             rbFisica.Checked = true;
             rbJuridica.Enabled = true;
 
-            dgvEndereço.Enabled = true;
+            dgvEndereco.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
@@ -146,20 +155,10 @@ namespace HairLumos.Views
         private void btnIncluirEndereco_Click(object sender, EventArgs e)
         {
             pnlEndereco.Visible = true;
-            dgvEndereço.Visible = true;
+   
             
         }
-
-        private void rbFisica_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbJuridica_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
@@ -171,9 +170,111 @@ namespace HairLumos.Views
             dgvContato.Visible = true;
         }
 
-        private void rbPagaSim_Click(object sender, EventArgs e)
+        private void btnGravar_Click(object sender, EventArgs e)
         {
-            pnlObservacao.Visible = true;
+            //Validar os dados
+            Controller.PessoaController _ctrlPes = new Controller.PessoaController();
+            
+            string strMensagem = string.Empty;
+
+            try
+            {
+                //validações
+                string tipoPes = "";
+                DateTime dataCadastro = new DateTime();
+                dataCadastro = DateTime.Now;
+                int intCodigo = 0;
+                if (intCodPessoa != 0)
+                {
+                    if (!int.TryParse(ttbCodigo.Text, out intCodigo))
+                        strMensagem += $"Código inválido{Environment.NewLine}";
+                }
+                if(rbFisica.Checked == true)
+                {
+                    tipoPes = "F";
+                    if (string.IsNullOrWhiteSpace(ttbNome.Text))
+                        strMensagem += $"Informe Nome da Pessoa.";
+
+                    if (string.IsNullOrWhiteSpace(mskTelefone.Text) || string.IsNullOrWhiteSpace(mskCelular.Text))
+                        strMensagem += $"Informe um contato.";
+
+                }
+               
+                if(rbJuridica.Checked == true)
+                {
+                    tipoPes = "J";
+                    if (string.IsNullOrWhiteSpace(ttbNome.Text))
+                        strMensagem += $"Informe Nome Fantasia da Empresa.";
+
+                    if (string.IsNullOrWhiteSpace(ttbRazao.Text))
+                        strMensagem += $"Informe a Razão Social da Empresa.";
+                }
+                
+                bool pagamento = false;
+
+                if(rbPagaNao.Enabled == true)
+                {
+                    pagamento = true;
+                }
+                if(rbPagaSim.Enabled == true)
+                {
+                    pagamento = true;
+                }
+
+                
+                int intRetorno = _ctrlPes.gravarPessoa(intCodigo, ttbNome.Text.Trim(), dataCadastro, ttbRazao.Text.Trim(), ttbRg.Text.Trim(), mskCPF.Text.Trim(),
+                    mskCNPJ.Text.Trim(), dtpDataNascimento.Value, pagamento, arrEndreco, arrContato, ttbObservação.Text.Trim(), tipoPes);
+                
+
+                if (intRetorno == 1)
+                {
+                    MessageBox.Show("Gravado com sucesso!");
+                    _limpaCampos();
+                    _inicializa();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao gravar.");
+                }
+                if (strMensagem.Equals(""))
+                {
+                    MessageBox.Show(strMensagem + "Aviso!!!");
+                }
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex + "");
+            }
+
+        }
+
+        private void btnSalvarEndereco_Click(object sender, EventArgs e)
+        {
+            //Valida se as informaçoes foram digitadas
+            
+            Endereco obj = new Endereco();
+            obj._logradouro = ttbLogradouro.Text.Trim();
+            obj._numero = ttbNumero.Text.Trim();
+            obj._bairro = ttbBairro.Text.Trim();
+            obj._complemento = ttbComplemento.Text.Trim();
+            //obj._codUf = cbb
+
+            this.arrEndreco.Add(obj);
+            dgvEndereco.DataSource = arrEndreco;
+            dgvEndereco.ClearSelection();
+        }
+
+        private void btnSalvarContato_Click(object sender, EventArgs e)
+        {
+            Entidades.Contato obj = new Entidades.Contato();
+            obj._telefone = mskTelefone.Text.Trim();
+            obj._celular = mskCelular.Text.Trim();
+            obj._email = ttbEmail.Text.Trim();
+            
+            this.arrContato.Add(obj);
+            dgvContato.DataSource = arrContato;
+            dgvContato.ClearSelection();
         }
     }
 }

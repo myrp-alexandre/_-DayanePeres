@@ -23,5 +23,10 @@ namespace HairLumos.Controller
             Entidades.Parametrizacao _entParam = new Entidades.Parametrizacao();
             return _MdlParam.retornoParametrizacao();
         }
+
+        public bool excluirParametro(int intCod)
+        {
+            return _MdlParam.excluirParametro(intCod);
+        }
     }
 }
