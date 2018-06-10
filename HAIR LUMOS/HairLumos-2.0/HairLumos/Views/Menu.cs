@@ -60,7 +60,7 @@ namespace HairLumos
 
         private void cadastroServiçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Views.Cadastro_Servico cadastro_Servico = new Views.Cadastro_Servico();
+            Views.Cadastro_TipoServico cadastro_Servico = new Views.Cadastro_TipoServico();
             cadastro_Servico.Show();
         }
 
@@ -74,6 +74,12 @@ namespace HairLumos
         {
             Views.Parametro_Sistema parametro_Sistema = new Views.Parametro_Sistema();
             parametro_Sistema.Show();
+        }
+
+        private void tipoDeDespesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_TipoDespesa cadastro_TipoDespesa = new Views.Cadastro_TipoDespesa();
+            cadastro_TipoDespesa.Show();
         }
     }
 }

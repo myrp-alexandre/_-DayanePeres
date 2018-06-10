@@ -17,14 +17,14 @@ namespace HairLumos.Entidades
 
         public string _erro;
 
-        public Servico(int cod, string servico, double valor, string tempo, string obs)
+        public Servico(int cod, string servico, string obs, double valor, string tempo )
         {
-            this.carregaServico(cod, servico, valor, tempo, obs);
+            this.carregaServico(cod, servico, obs, valor, tempo);
         }
 
         public Servico()
         {
-            this.carregaServico(0, string.Empty, 0, string.Empty, string.Empty);
+            this.carregaServico(0, string.Empty, string.Empty,  0, string.Empty );
         }
 
         public string Erro
@@ -63,7 +63,7 @@ namespace HairLumos.Entidades
             set { _obs = value; }
         }
 
-        public void carregaServico(int cod, string servico, double valor, string tempo, string obs)
+        public void carregaServico(int cod, string servico, string obs, double valor, string tempo)
         {
             this.Codigo = cod;
             this.ServicoNome = servico;

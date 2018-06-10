@@ -97,8 +97,8 @@ namespace HairLumos.Views
             {
                 DataRow dr = dtRetorno.Rows[intcodForma];
                 this.carregaFormaPagamento(
-                    dr["codformapagamento"].ToString(),
-                    dr["forpag_descricaoformapagamento"].ToString());
+                    dr["codformapag"].ToString(),
+                    dr["formpag_descricao"].ToString());
 
             }
         }

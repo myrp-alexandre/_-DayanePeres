@@ -18,7 +18,7 @@ namespace HairLumos.Models
         public int gravaServico(int cod, string servico, double valor,string tempo,  string obs)
         {
             Entidades.Servico _entServico = new Entidades.Servico();
-            _entServico.carregaServico(cod, servico, valor, tempo, obs);
+            _entServico.carregaServico(cod, servico, obs, valor, tempo);
 
             return _DAOServ.GravarServico(_entServico);
         }

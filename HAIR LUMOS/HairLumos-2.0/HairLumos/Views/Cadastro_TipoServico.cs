@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace HairLumos.Views
 {
-    public partial class Cadastro_Servico : Form
+    public partial class Cadastro_TipoServico : Form
     {
         int intCodServico = 0;
 
-        public Cadastro_Servico()
+        public Cadastro_TipoServico()
         {
             InitializeComponent();
             _inicializa();
@@ -96,10 +96,10 @@ namespace HairLumos.Views
 
         }
 
-        public void carregaServico(string strCod, string strServico, string strobs, string strvalor, string strtempo)
+        public void carregaServico(string strCod, string strDescricao, string strobs, string strvalor, string strtempo)
         {
             ttbCodigo.Text = strCod;
-            ttbServico.Text = strServico;
+            ttbServico.Text = strDescricao;
             ttbObservacao.Text = strobs;
             mskTempoServiço.Text = strtempo;
             mskValor.Text = strvalor;
@@ -114,11 +114,11 @@ namespace HairLumos.Views
             {
                 DataRow dr = dtRetorno.Rows[intCodServico];
                 this.carregaServico(
-                    dr["codservico"].ToString(),
-                    dr["serv_servico"].ToString(),
-                    dr["serv_valorservico"].ToString(),
-                    dr["serv_temposervico"].ToString(),
-                    dr["serv_obsservico"].ToString());
+                    dr["codtiposervico"].ToString(),
+                    dr["tiposerv_descricao"].ToString(),
+                    dr["tiposerv_obs"].ToString(),
+                    dr["tiposerv_velor"].ToString(),
+                    dr["tiposerv_temposervico"].ToString());
 
             }
         }
@@ -133,7 +133,7 @@ namespace HairLumos.Views
             if (dtRetorno != null)
             {
                 dgvServico.DataSource = dtRetorno;
-                dgvServico.Columns["serv_obsservico"].Visible = false;
+                dgvServico.Columns["tiposerv_obs"].Visible = false;
                 dgvServico.ClearSelection();
                 
             }
@@ -155,9 +155,10 @@ namespace HairLumos.Views
                     this.intCodServico = intCod;
                     ttbCodigo.Text = dgvServico.CurrentRow.Cells[0].Value.ToString();
                     ttbServico.Text = dgvServico.CurrentRow.Cells[1].Value.ToString();
-                    mskValor.Text = dgvServico.CurrentRow.Cells[2].Value.ToString();
-                    mskTempoServiço.Text = dgvServico.CurrentRow.Cells[3].Value.ToString();
-                    ttbObservacao.Text = dgvServico.CurrentRow.Cells[4].Value.ToString();
+                    ttbObservacao.Text = dgvServico.CurrentRow.Cells[2].Value.ToString();
+                    mskValor.Text = dgvServico.CurrentRow.Cells[3].Value.ToString();
+                    mskTempoServiço.Text = dgvServico.CurrentRow.Cells[4].Value.ToString();
+                    
 
 
                 }
@@ -190,6 +191,9 @@ namespace HairLumos.Views
                     strMensagem += $"Informe o nome do serviço!.";
 
                 if (string.IsNullOrWhiteSpace(mskValor.Text))
+                    strMensagem += $"Informe o valor do serviço!.";
+
+                if (string.IsNullOrWhiteSpace(mskTempoServiço.Text))
                     strMensagem += $"Informe o tempo estimado do serviço!.";
 
                 //verificar se houve alguma anormalidade no cadastro
@@ -197,6 +201,8 @@ namespace HairLumos.Views
                 {
                     double valorServico = 0;
                     double.TryParse(mskValor.Text, out valorServico);
+                    
+
                     int intRetorno = _ctrlServ.gravaServico(intCodigo, ttbServico.Text, valorServico, mskTempoServiço.Text, ttbObservacao.Text);
 
                     if (intRetorno == 1)

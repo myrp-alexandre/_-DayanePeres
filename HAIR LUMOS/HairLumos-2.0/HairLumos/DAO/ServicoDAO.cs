@@ -29,24 +29,24 @@ namespace HairLumos.DAO
             {
                 if (_servico.Codigo == 0)
                 {
-                    _sql = "INSERT INTO tbservico" +
-                        "(serv_servico, serv_valorservico, serv_temposervico, serv_obsservico)" +
-                        " VALUES(@servico, @valor, @tempo, @obs)";
+                    _sql = "INSERT INTO tbtiposervico" +
+                        "(tiposerv_descricao, tiposerv_obs, tiposerv_velor, tiposerv_temposervico)" +
+                        " VALUES(@descricao, @obs, @valor, @tempo)";
 
                 }
                 else
                 {
-                    _sql = "UPDATE tbservico" +
-                            " SET serv_servico = @servico, serv_valorservico = @valor, serv_temposervico = @tempo, serv_obsservico = @obs" +
-                        " WHERE codservico = @codigo";
+                    _sql = "UPDATE tbtiposervico" +
+                            " SET tiposerv_descricao = @descricao, tiposerv_obs = @obs, tiposerv_velor = @valor, tiposerv_temposervico = @tempo" +
+                        " WHERE codtiposervico = @codigo";
                 }
 
                 cmd.CommandText = _sql;
                 cmd.Parameters.AddWithValue("@codigo", _servico.Codigo);
-                cmd.Parameters.AddWithValue("@servico", _servico.ServicoNome);
+                cmd.Parameters.AddWithValue("@descricao", _servico.ServicoNome);
+                cmd.Parameters.AddWithValue("@obs", _servico.Observacao);
                 cmd.Parameters.AddWithValue("@valor", _servico.Valor);
                 cmd.Parameters.AddWithValue("@tempo", _servico.Tempo);
-                cmd.Parameters.AddWithValue("@obs", _servico.Observacao);
 
                 cmd.ExecuteNonQuery();
 
@@ -65,8 +65,8 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codservico, serv_servico, serv_valorservico, serv_temposervico, serv_obsservico" +
-                        " FROM tbservico; ";
+            _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_velor, tiposerv_temposervico" +
+                        " FROM tbtiposervico; ";
 
             // int intCodigo = 0;
 
@@ -80,11 +80,11 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codservico");
-                cmd.Parameters.AddWithValue("@serv_servico");
-                cmd.Parameters.AddWithValue("@serv_valorservico");
-                cmd.Parameters.AddWithValue("@serv_temposervico");
-                cmd.Parameters.AddWithValue("@serv_temposervico");
+                cmd.Parameters.AddWithValue("@codtiposervico");
+                cmd.Parameters.AddWithValue("@tiposerv_descricao");
+                cmd.Parameters.AddWithValue("@tiposerv_obs");
+                cmd.Parameters.AddWithValue("@tiposerv_velor");
+                cmd.Parameters.AddWithValue("@tiposerv_temposervico");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
@@ -102,20 +102,20 @@ namespace HairLumos.DAO
 
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codservico, serv_servico, serv_valorservico, serv_temposervico, serv_obsservico" +
-                    "FROM tbservico " +
-                    "WHERE codservico = " + cod;
+            _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_velor, tiposerv_temposervico" +
+                        " FROM tbtiposervico " +
+                    "WHERE codtiposervico = " + cod;
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codservico");
-                cmd.Parameters.AddWithValue("@serv_servico");
-                cmd.Parameters.AddWithValue("@serv_valorservico");
-                cmd.Parameters.AddWithValue("@serv_temposervico");
-                cmd.Parameters.AddWithValue("@serv_temposervico");
+                cmd.Parameters.AddWithValue("@codtiposervico");
+                cmd.Parameters.AddWithValue("@tiposerv_descricao");
+                cmd.Parameters.AddWithValue("@tiposerv_obs");
+                cmd.Parameters.AddWithValue("@tiposerv_velor");
+                cmd.Parameters.AddWithValue("@tiposerv_temposervico");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -131,7 +131,7 @@ namespace HairLumos.DAO
 
         public bool ExcluirServico(int intCod)
         {
-            _sql = "DELETE FROM tbservico WHERE codservico = @cod";
+            _sql = "DELETE FROM tbtiposervico WHERE codtiposervico = @cod";
 
             int _controle = 0;
             try

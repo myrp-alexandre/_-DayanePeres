@@ -1,5 +1,4 @@
-﻿using HairLumos.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,25 +10,26 @@ using System.Windows.Forms;
 
 namespace HairLumos.Views
 {
-    public partial class Cadastro_MarcaProduto : Form
+    public partial class Cadastro_TipoDespesa : Form
     {
-        private int intCodigoMarca = 0;
+        private int intCodDespesa = 0;
 
-        public Cadastro_MarcaProduto()
+        public Cadastro_TipoDespesa()
         {
             InitializeComponent();
+
             _inicializa();
             _limpaCampos();
-            dgvMarca.AutoGenerateColumns = false;
-            pesquisaMarca();
+            dgvDespesa.AutoGenerateColumns = false;
+            pesquisaDespesa();
         }
 
         public void _inicializa()
         {
             // ttb
             ttbCodigo.Enabled = false;
-            ttbMarca.Enabled = false;
-            dgvMarca.Enabled = true;
+            ttbDescricao.Enabled = false;
+            dgvDespesa.Enabled = true;
 
             //btn
             btnNovo.Enabled = true;
@@ -39,7 +39,7 @@ namespace HairLumos.Views
             btnCancelar.Enabled = false;
             btnSair.Enabled = true;
 
-            pesquisaMarca();
+            pesquisaDespesa();
             _limpaCampos();
 
         }
@@ -47,14 +47,15 @@ namespace HairLumos.Views
         public void _limpaCampos()
         {
             ttbCodigo.Text = "";
-            ttbMarca.Text = "";
+            ttbDescricao.Text = "";
+            rbFixa.Checked = true;
         }
 
         public void _btnNovo()
         {
             ttbCodigo.Text = "0";
             ttbCodigo.Enabled = false;
-            ttbMarca.Enabled = true;
+            ttbDescricao.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
@@ -63,13 +64,13 @@ namespace HairLumos.Views
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
-            ttbMarca.Focus();
+            ttbDescricao.Focus();
         }
 
         public void _btnAlterar()
         {
             ttbCodigo.Enabled = false;
-            ttbMarca.Enabled = true;
+            ttbDescricao.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
@@ -79,65 +80,90 @@ namespace HairLumos.Views
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
-            ttbMarca.Focus();
-                       
+            ttbDescricao.Focus();
+
         }
 
-        public void carregaMarcaTela(string strCod, string StrMarca)
+        public void carregaDespesaTela(string strCod, string Strdescricao, string strStatus)
         {
             ttbCodigo.Text = strCod;
-            ttbMarca.Text = StrMarca;
+            ttbDescricao.Text = Strdescricao;
+
+            if (strStatus.Equals("FIXA"))
+            {
+                rbFixa.Checked = true;
+            }
+            if (strStatus.Equals("VARIAVEL"))
+            {
+                rbVariavel.Checked = true;
+            }
         }
-        
-        public void carregaGrid()
+
+        public void carregaGrid(string texto)
         {
-            Controller.ProdutoController _ctlProd = new ProdutoController();
-            DataTable dtRetorno = _ctlProd.retornaMarca();
+            Controller.DespesaController _ctrlDesp = new Controller.DespesaController();
+            DataTable dtRetorno = _ctrlDesp.retronaDespesa();
 
             if (dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                DataRow dr = dtRetorno.Rows[intCodigoMarca];
-                this.carregaMarcaTela(
-                    dr["codmarca"].ToString(),
-                    dr["marc_nome"].ToString());
-                    
+                DataRow dr = dtRetorno.Rows[intCodDespesa];
+                this.carregaDespesaTela(
+                    dr["coddespesa"].ToString(),
+                    dr["desp_descricao"].ToString(),
+                    dr["desp_status"].ToString());
             }
         }
 
-        public void pesquisaMarca()
+        public void pesquisaDespesa()
         {
-            Controller.ProdutoController _ctlProd = new ProdutoController();
+            Controller.DespesaController _ctrlDespesa = new Controller.DespesaController();
 
-            DataTable dtRetorno = _ctlProd.retornaMarca();
+            DataTable dtRetorno = _ctrlDespesa.retronaDespesa();
 
             if (dtRetorno != null)
             {
-                dgvMarca.DataSource = dtRetorno;
-                dgvMarca.ClearSelection();
+                dgvDespesa.DataSource = dtRetorno;
+                dgvDespesa.ClearSelection();
             }
             else
-                dgvMarca.Rows.Clear();
+                dgvDespesa.Rows.Clear();
 
-
+           
         }
 
-        public void selecinaMarca()
+        public void selecionaDespesa()
         {
 
-            if (dgvMarca.Rows.Count > 0)
+            if (dgvDespesa.Rows.Count > 0)
             {
                 int intCod = 0;
-                
-                intCod = dgvMarca.CurrentRow.Index + 1;
-                
+                string status = "";
+                intCod = dgvDespesa.CurrentRow.Index + 1;
+
 
                 if (intCod > 0)
                 {
-                    this.intCodigoMarca = intCod;
-                    ttbCodigo.Text = dgvMarca.CurrentRow.Cells[0].Value.ToString();
-                    ttbMarca.Text = dgvMarca.CurrentRow.Cells[1].Value.ToString();
+                    this.intCodDespesa = intCod;
+                    ttbCodigo.Text = dgvDespesa.CurrentRow.Cells[0].Value.ToString();
+                    ttbDescricao.Text = dgvDespesa.CurrentRow.Cells[1].Value.ToString();
+
+                    status = dgvDespesa.CurrentRow.Cells[2].Value.ToString();
+                    if (status.Equals("FIXA"))
+                    {
+                        rbFixa.Checked = true;
+                    }
+                    if (status.Equals("VARIAVEL"))
+                    {
+                        rbVariavel.Checked = true;
+                    }
                 }
             }
+        }
+
+
+        private void dgvDespesa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -147,7 +173,7 @@ namespace HairLumos.Views
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Controller.ProdutoController _ctrlProd = new ProdutoController();
+            Controller.DespesaController _ctrlDespesa = new Controller.DespesaController();
 
             string strMensagem = string.Empty;
 
@@ -155,24 +181,35 @@ namespace HairLumos.Views
             {
                 //validações
                 int intCodigo = 0;
-                if (intCodigoMarca != 0)
+                if (intCodDespesa != 0)
                 {
                     if (!int.TryParse(ttbCodigo.Text, out intCodigo))
                         strMensagem += $"Código inválido{Environment.NewLine}";
                 }
-                
 
-                if (string.IsNullOrWhiteSpace(ttbMarca.Text))
-                    strMensagem += $"Informe a Marca do Produto.";
 
+                if (string.IsNullOrWhiteSpace(ttbDescricao.Text))
+                    strMensagem += $"Informe a despesa.";
+
+                string status = "";
+
+                if(rbFixa.Checked == true)
+                {
+                    status = "FIXA";
+                }
+
+                if (rbVariavel.Checked == true)
+                {
+                    status = "VARIAVEL";
+                }
                 //verificar se houve alguma anormalidade no cadastro
                 if (string.IsNullOrEmpty(strMensagem))
                 {
-                    
-                    int intRetorno = _ctrlProd.gravarMarca(intCodigo, ttbMarca.Text);
-                    
 
-                    if(intRetorno == 1)
+                    int intRetorno = _ctrlDespesa.gravaDespesa(intCodigo, ttbDescricao.Text, status);
+
+
+                    if (intRetorno == 1)
                     {
                         MessageBox.Show("Gravado com sucesso!");
                     }
@@ -197,12 +234,11 @@ namespace HairLumos.Views
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             _btnAlterar();
-            
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Controller.ProdutoController _ctlProd = new ProdutoController();
+            Controller.DespesaController _ctlDesp= new Controller.DespesaController();
 
             int intCod = 0;
 
@@ -210,14 +246,14 @@ namespace HairLumos.Views
 
             if (intCod > 0)
             {
-                if (MessageBox.Show("Confirma exclusão da Marca?", "Categoria", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Confirma exclusão da Despesa?", "Despesa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    bool blnExcluiu = _ctlProd.excluirMarca(intCod);
+                    bool blnExcluiu = _ctlDesp.excluirDespesa(intCod);
                     if (blnExcluiu)
                     {
-                        MessageBox.Show("Marca Excluída");
+                        MessageBox.Show("Despesa Excluída");
                         _limpaCampos();
-                        pesquisaMarca();
+                        pesquisaDespesa();
                         _btnNovo();
                     }
                     else
@@ -230,35 +266,22 @@ namespace HairLumos.Views
             }
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void dgvMarca_DoubleClick(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void dgvMarca_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnAlterar.Enabled = true;
-            btnExcluir.Enabled = true;
-            selecinaMarca();
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             _limpaCampos();
-            pesquisaMarca();
+            pesquisaDespesa();
         }
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
-            selecinaMarca();
+            selecionaDespesa();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

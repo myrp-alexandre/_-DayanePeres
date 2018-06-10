@@ -23,14 +23,10 @@ namespace HairLumos.DAO
                 {
                     objConexao = new Conexao();
 
-                    int cod = (int)objConexao.executarScalar();
-                    if (cod <= 0)
-                    {
-                        return -1;
-                    }
+                    
                     //Fazer o Insert da pessoa
                     strSQL = "INSERT INTO tbPessoa(pes_nomepessoa, pes_datacadastro, pes_tipopessoa, pes_statuspessoa, pes_obspessoa, pes_fiado)";
-                    strSQL += " VALUES(@nomePessoa, @dataCadastro, @tipoPessoa, @statusPessoa, @obsPessoa, @fiado); RETURNING codPessoa";
+                    strSQL += " VALUES(@nomePessoa, @dataCadastro, @tipoPessoa, @statusPessoa, @obsPessoa, @fiado); RETURNING codpessoa";
                     objConexao.SqlCmd = new NpgsqlCommand(strSQL);
        
                     objConexao.SqlCmd.Parameters.AddWithValue("@nomePessoa", objPessoa.PessoaFisica.Nome);
@@ -41,6 +37,11 @@ namespace HairLumos.DAO
                     objConexao.SqlCmd.Parameters.AddWithValue("@fiado", objPessoa.PessoaFisica.Fiado);
 
                     
+                    int cod = (int)objConexao.SqlCmd.ExecuteScalar();
+                    if (cod <= 0)
+                    {
+                        return -1;
+                    }
 
                     objConexao.iniciarTransacao();
                     //Fazer o insert da Fisica ou Juridica

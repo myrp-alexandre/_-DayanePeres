@@ -1,6 +1,6 @@
 ﻿namespace HairLumos.Views
 {
-    partial class Cadastro_FormaPagamento
+    partial class Cadastro_TipoServico
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mskValor = new System.Windows.Forms.MaskedTextBox();
+            this.mskTempoServiço = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvServico = new System.Windows.Forms.DataGridView();
             this.btnSelecionar = new System.Windows.Forms.Button();
-            this.dgvFormaPagamento = new System.Windows.Forms.DataGridView();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
-            this.ttbForma = new System.Windows.Forms.TextBox();
+            this.ttbObservacao = new System.Windows.Forms.TextBox();
+            this.ttbServico = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -41,29 +47,37 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codformapag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formpag_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codtiposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiposerv_velor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiposerv_temposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaPagamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(11, 12);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.mskValor);
+            this.splitContainer1.Panel1.Controls.Add(this.mskTempoServiço);
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvFormaPagamento);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbForma);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbServico);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
@@ -74,38 +88,73 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
-            this.splitContainer1.Size = new System.Drawing.Size(584, 350);
-            this.splitContainer1.SplitterDistance = 282;
-            this.splitContainer1.SplitterWidth = 1;
-            this.splitContainer1.TabIndex = 2;
+            this.splitContainer1.Size = new System.Drawing.Size(584, 467);
+            this.splitContainer1.SplitterDistance = 400;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // mskValor
+            // 
+            this.mskValor.Location = new System.Drawing.Point(466, 76);
+            this.mskValor.Name = "mskValor";
+            this.mskValor.Size = new System.Drawing.Size(100, 20);
+            this.mskValor.TabIndex = 17;
+            // 
+            // mskTempoServiço
+            // 
+            this.mskTempoServiço.Location = new System.Drawing.Point(466, 147);
+            this.mskTempoServiço.Mask = "00:00";
+            this.mskTempoServiço.Name = "mskTempoServiço";
+            this.mskTempoServiço.Size = new System.Drawing.Size(100, 20);
+            this.mskTempoServiço.TabIndex = 16;
+            this.mskTempoServiço.ValidatingType = typeof(System.DateTime);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(381, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Tempo Serviço*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(402, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Valor (R$)*";
+            // 
+            // dgvServico
+            // 
+            this.dgvServico.AllowUserToAddRows = false;
+            this.dgvServico.AllowUserToDeleteRows = false;
+            this.dgvServico.BackgroundColor = System.Drawing.Color.White;
+            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codtiposervico,
+            this.tiposerv_descricao,
+            this.tiposerv_velor,
+            this.tiposerv_temposervico});
+            this.dgvServico.Location = new System.Drawing.Point(21, 231);
+            this.dgvServico.Name = "dgvServico";
+            this.dgvServico.ReadOnly = true;
+            this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvServico.Size = new System.Drawing.Size(468, 150);
+            this.dgvServico.TabIndex = 12;
+            this.dgvServico.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellDoubleClick);
             // 
             // btnSelecionar
             // 
             this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSelecionar.Location = new System.Drawing.Point(496, 175);
+            this.btnSelecionar.Location = new System.Drawing.Point(496, 284);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(72, 27);
             this.btnSelecionar.TabIndex = 12;
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
             this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
-            // 
-            // dgvFormaPagamento
-            // 
-            this.dgvFormaPagamento.AllowUserToAddRows = false;
-            this.dgvFormaPagamento.AllowUserToDeleteRows = false;
-            this.dgvFormaPagamento.BackgroundColor = System.Drawing.Color.White;
-            this.dgvFormaPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFormaPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codformapag,
-            this.formpag_descricao});
-            this.dgvFormaPagamento.Location = new System.Drawing.Point(21, 139);
-            this.dgvFormaPagamento.Name = "dgvFormaPagamento";
-            this.dgvFormaPagamento.ReadOnly = true;
-            this.dgvFormaPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFormaPagamento.Size = new System.Drawing.Size(468, 125);
-            this.dgvFormaPagamento.TabIndex = 12;
-            this.dgvFormaPagamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormaPagamento_CellDoubleClick);
             // 
             // Código
             // 
@@ -123,22 +172,40 @@
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 7;
             // 
-            // ttbForma
+            // ttbObservacao
             // 
-            this.ttbForma.BackColor = System.Drawing.SystemColors.Window;
-            this.ttbForma.Location = new System.Drawing.Point(21, 81);
-            this.ttbForma.Name = "ttbForma";
-            this.ttbForma.Size = new System.Drawing.Size(468, 20);
-            this.ttbForma.TabIndex = 9;
+            this.ttbObservacao.Location = new System.Drawing.Point(21, 147);
+            this.ttbObservacao.MaxLength = 200;
+            this.ttbObservacao.Multiline = true;
+            this.ttbObservacao.Name = "ttbObservacao";
+            this.ttbObservacao.Size = new System.Drawing.Size(349, 42);
+            this.ttbObservacao.TabIndex = 11;
+            // 
+            // ttbServico
+            // 
+            this.ttbServico.Location = new System.Drawing.Point(21, 81);
+            this.ttbServico.MaxLength = 100;
+            this.ttbServico.Name = "ttbServico";
+            this.ttbServico.Size = new System.Drawing.Size(349, 20);
+            this.ttbServico.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Observação";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Forma de Pagamento";
+            this.label1.Text = "Serviço*";
             // 
             // btnCancelar
             // 
@@ -146,7 +213,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(345, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 38);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -206,39 +273,54 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // codformapag
+            // codtiposervico
             // 
-            this.codformapag.DataPropertyName = "codformapag";
-            this.codformapag.HeaderText = "Cód";
-            this.codformapag.Name = "codformapag";
-            this.codformapag.ReadOnly = true;
-            this.codformapag.Width = 80;
+            this.codtiposervico.DataPropertyName = "codtiposervico";
+            this.codtiposervico.HeaderText = "Cód";
+            this.codtiposervico.Name = "codtiposervico";
+            this.codtiposervico.ReadOnly = true;
+            this.codtiposervico.Width = 50;
             // 
-            // formpag_descricao
+            // tiposerv_descricao
             // 
-            this.formpag_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.formpag_descricao.DataPropertyName = "formpag_descricao";
-            this.formpag_descricao.HeaderText = "Forma Pagamento";
-            this.formpag_descricao.Name = "formpag_descricao";
-            this.formpag_descricao.ReadOnly = true;
+            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
+            this.tiposerv_descricao.HeaderText = "Tipo Serviço";
+            this.tiposerv_descricao.Name = "tiposerv_descricao";
+            this.tiposerv_descricao.ReadOnly = true;
             // 
-            // Cadastro_FormaPagamento
+            // tiposerv_velor
+            // 
+            this.tiposerv_velor.DataPropertyName = "tiposerv_velor";
+            this.tiposerv_velor.HeaderText = "Valor Serviço (R$)";
+            this.tiposerv_velor.Name = "tiposerv_velor";
+            this.tiposerv_velor.ReadOnly = true;
+            // 
+            // tiposerv_temposervico
+            // 
+            this.tiposerv_temposervico.DataPropertyName = "tiposerv_temposervico";
+            this.tiposerv_temposervico.HeaderText = "Tempo Estimado";
+            this.tiposerv_temposervico.Name = "tiposerv_temposervico";
+            this.tiposerv_temposervico.ReadOnly = true;
+            // 
+            // Cadastro_TipoServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(609, 374);
+            this.ClientSize = new System.Drawing.Size(607, 491);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Cadastro_FormaPagamento";
+            this.Name = "Cadastro_TipoServico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CADASTRO FORMA DE PAGAMENTO";
+            this.Text = "CADASTRO TIPO SERVIÇO ";
+            this.Load += new System.EventHandler(this.Cadastro_Servico_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaPagamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,11 +328,14 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
+        public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgvServico;
         public System.Windows.Forms.Button btnSelecionar;
-        private System.Windows.Forms.DataGridView dgvFormaPagamento;
         public System.Windows.Forms.Label Código;
         public System.Windows.Forms.TextBox ttbCodigo;
-        public System.Windows.Forms.TextBox ttbForma;
+        public System.Windows.Forms.TextBox ttbObservacao;
+        public System.Windows.Forms.TextBox ttbServico;
+        public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
@@ -258,7 +343,12 @@
         public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codformapag;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formpag_descricao;
+        private System.Windows.Forms.MaskedTextBox mskTempoServiço;
+        public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox mskValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codtiposervico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_velor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_temposervico;
     }
 }

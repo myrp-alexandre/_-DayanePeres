@@ -1,6 +1,6 @@
 ﻿namespace HairLumos.Views
 {
-    partial class Cadastro_Servico
+    partial class Cadastro_TipoDespesa
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,17 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.mskValor = new System.Windows.Forms.MaskedTextBox();
-            this.mskTempoServiço = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dgvServico = new System.Windows.Forms.DataGridView();
-            this.codservico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serv_servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serv_valorservico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serv_temposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbVariavel = new System.Windows.Forms.RadioButton();
+            this.rbFixa = new System.Windows.Forms.RadioButton();
             this.btnSelecionar = new System.Windows.Forms.Button();
+            this.dgvDespesa = new System.Windows.Forms.DataGridView();
+            this.coddespesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desp_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desp_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
-            this.ttbObservacao = new System.Windows.Forms.TextBox();
-            this.ttbServico = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ttbDescricao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -55,29 +51,25 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesa)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Location = new System.Drawing.Point(11, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.mskValor);
-            this.splitContainer1.Panel1.Controls.Add(this.mskTempoServiço);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvDespesa);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbServico);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbDescricao);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
@@ -88,102 +80,94 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
-            this.splitContainer1.Size = new System.Drawing.Size(584, 467);
-            this.splitContainer1.SplitterDistance = 400;
-            this.splitContainer1.TabIndex = 1;
+            this.splitContainer1.Size = new System.Drawing.Size(584, 350);
+            this.splitContainer1.SplitterDistance = 282;
+            this.splitContainer1.SplitterWidth = 1;
+            this.splitContainer1.TabIndex = 2;
             // 
-            // mskValor
+            // groupBox1
             // 
-            this.mskValor.Location = new System.Drawing.Point(466, 76);
-            this.mskValor.Name = "mskValor";
-            this.mskValor.Size = new System.Drawing.Size(100, 20);
-            this.mskValor.TabIndex = 17;
+            this.groupBox1.Controls.Add(this.rbVariavel);
+            this.groupBox1.Controls.Add(this.rbFixa);
+            this.groupBox1.Location = new System.Drawing.Point(456, 18);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(110, 59);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tipo de Despesa*";
             // 
-            // mskTempoServiço
+            // rbVariavel
             // 
-            this.mskTempoServiço.Location = new System.Drawing.Point(466, 147);
-            this.mskTempoServiço.Name = "mskTempoServiço";
-            this.mskTempoServiço.Size = new System.Drawing.Size(100, 20);
-            this.mskTempoServiço.TabIndex = 16;
-            this.mskTempoServiço.ValidatingType = typeof(System.DateTime);
+            this.rbVariavel.AutoSize = true;
+            this.rbVariavel.Location = new System.Drawing.Point(6, 36);
+            this.rbVariavel.Name = "rbVariavel";
+            this.rbVariavel.Size = new System.Drawing.Size(65, 17);
+            this.rbVariavel.TabIndex = 14;
+            this.rbVariavel.TabStop = true;
+            this.rbVariavel.Text = "Variáveil";
+            this.rbVariavel.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // rbFixa
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(381, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Tempo Serviço*";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(402, 84);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Valor (R$)*";
-            // 
-            // dgvServico
-            // 
-            this.dgvServico.AllowUserToAddRows = false;
-            this.dgvServico.AllowUserToDeleteRows = false;
-            this.dgvServico.BackgroundColor = System.Drawing.Color.White;
-            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codservico,
-            this.serv_servico,
-            this.serv_valorservico,
-            this.serv_temposervico});
-            this.dgvServico.Location = new System.Drawing.Point(21, 231);
-            this.dgvServico.Name = "dgvServico";
-            this.dgvServico.ReadOnly = true;
-            this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServico.Size = new System.Drawing.Size(468, 150);
-            this.dgvServico.TabIndex = 12;
-            this.dgvServico.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellDoubleClick);
-            // 
-            // codservico
-            // 
-            this.codservico.DataPropertyName = "codservico";
-            this.codservico.HeaderText = "Cód";
-            this.codservico.Name = "codservico";
-            this.codservico.ReadOnly = true;
-            this.codservico.Width = 50;
-            // 
-            // serv_servico
-            // 
-            this.serv_servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.serv_servico.DataPropertyName = "serv_servico";
-            this.serv_servico.HeaderText = "Serviço";
-            this.serv_servico.Name = "serv_servico";
-            this.serv_servico.ReadOnly = true;
-            // 
-            // serv_valorservico
-            // 
-            this.serv_valorservico.DataPropertyName = "serv_valorservico";
-            this.serv_valorservico.HeaderText = "Valor Serviço (R$)";
-            this.serv_valorservico.Name = "serv_valorservico";
-            this.serv_valorservico.ReadOnly = true;
-            // 
-            // serv_temposervico
-            // 
-            this.serv_temposervico.DataPropertyName = "serv_temposervico";
-            this.serv_temposervico.HeaderText = "Tempo Estimado";
-            this.serv_temposervico.Name = "serv_temposervico";
-            this.serv_temposervico.ReadOnly = true;
+            this.rbFixa.AutoSize = true;
+            this.rbFixa.Location = new System.Drawing.Point(6, 19);
+            this.rbFixa.Name = "rbFixa";
+            this.rbFixa.Size = new System.Drawing.Size(44, 17);
+            this.rbFixa.TabIndex = 13;
+            this.rbFixa.TabStop = true;
+            this.rbFixa.Text = "Fixa";
+            this.rbFixa.UseVisualStyleBackColor = true;
             // 
             // btnSelecionar
             // 
             this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSelecionar.Location = new System.Drawing.Point(496, 284);
+            this.btnSelecionar.Location = new System.Drawing.Point(496, 175);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(72, 27);
             this.btnSelecionar.TabIndex = 12;
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
             this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
+            // 
+            // dgvDespesa
+            // 
+            this.dgvDespesa.AllowUserToAddRows = false;
+            this.dgvDespesa.AllowUserToOrderColumns = true;
+            this.dgvDespesa.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDespesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDespesa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.coddespesa,
+            this.desp_descricao,
+            this.desp_status});
+            this.dgvDespesa.Location = new System.Drawing.Point(21, 139);
+            this.dgvDespesa.Name = "dgvDespesa";
+            this.dgvDespesa.ReadOnly = true;
+            this.dgvDespesa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDespesa.Size = new System.Drawing.Size(468, 125);
+            this.dgvDespesa.TabIndex = 12;
+            // 
+            // coddespesa
+            // 
+            this.coddespesa.DataPropertyName = "coddespesa";
+            this.coddespesa.HeaderText = "Cód";
+            this.coddespesa.Name = "coddespesa";
+            this.coddespesa.ReadOnly = true;
+            this.coddespesa.Width = 80;
+            // 
+            // desp_descricao
+            // 
+            this.desp_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desp_descricao.DataPropertyName = "desp_descricao";
+            this.desp_descricao.HeaderText = "Despesa";
+            this.desp_descricao.Name = "desp_descricao";
+            this.desp_descricao.ReadOnly = true;
+            // 
+            // desp_status
+            // 
+            this.desp_status.DataPropertyName = "desp_status";
+            this.desp_status.HeaderText = "Tipo Despesa";
+            this.desp_status.Name = "desp_status";
+            this.desp_status.ReadOnly = true;
             // 
             // Código
             // 
@@ -201,40 +185,22 @@
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 7;
             // 
-            // ttbObservacao
+            // ttbDescricao
             // 
-            this.ttbObservacao.Location = new System.Drawing.Point(21, 147);
-            this.ttbObservacao.MaxLength = 200;
-            this.ttbObservacao.Multiline = true;
-            this.ttbObservacao.Name = "ttbObservacao";
-            this.ttbObservacao.Size = new System.Drawing.Size(349, 42);
-            this.ttbObservacao.TabIndex = 11;
-            // 
-            // ttbServico
-            // 
-            this.ttbServico.Location = new System.Drawing.Point(21, 81);
-            this.ttbServico.MaxLength = 100;
-            this.ttbServico.Name = "ttbServico";
-            this.ttbServico.Size = new System.Drawing.Size(349, 20);
-            this.ttbServico.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 131);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Observação";
+            this.ttbDescricao.BackColor = System.Drawing.SystemColors.Window;
+            this.ttbDescricao.Location = new System.Drawing.Point(21, 86);
+            this.ttbDescricao.Name = "ttbDescricao";
+            this.ttbDescricao.Size = new System.Drawing.Size(468, 20);
+            this.ttbDescricao.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 65);
+            this.label1.Location = new System.Drawing.Point(18, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Serviço*";
+            this.label1.Text = "Despesa*";
             // 
             // btnCancelar
             // 
@@ -242,7 +208,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(345, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 38);
-            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -302,24 +268,25 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // Cadastro_Servico
+            // Cadastro_TipoDespesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(607, 491);
+            this.ClientSize = new System.Drawing.Size(609, 374);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Cadastro_Servico";
+            this.Name = "Cadastro_TipoDespesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CADASTRO SERVIÇO ";
-            this.Load += new System.EventHandler(this.Cadastro_Servico_Load);
+            this.Text = "CADASTRO TIPO DE DESPESA";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesa)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,14 +294,17 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvServico;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbVariavel;
+        private System.Windows.Forms.RadioButton rbFixa;
         public System.Windows.Forms.Button btnSelecionar;
+        private System.Windows.Forms.DataGridView dgvDespesa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coddespesa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desp_descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desp_status;
         public System.Windows.Forms.Label Código;
         public System.Windows.Forms.TextBox ttbCodigo;
-        public System.Windows.Forms.TextBox ttbObservacao;
-        public System.Windows.Forms.TextBox ttbServico;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox ttbDescricao;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
@@ -342,12 +312,5 @@
         public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.MaskedTextBox mskTempoServiço;
-        public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codservico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serv_servico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serv_valorservico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn serv_temposervico;
-        private System.Windows.Forms.MaskedTextBox mskValor;
     }
 }

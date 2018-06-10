@@ -31,15 +31,15 @@ namespace HairLumos.DAO
                 if (_formaPagamento.Codigo == 0)
                 {
                     _sql = "INSERT INTO tbformapagamento" +
-                        "(forpag_descricaoformapagamento)" +
+                        "(formpag_descricao)" +
                         "VALUES(@forma)";
 
                 }
                 else
                 {
                     _sql = "UPDATE tbformapagamento" +
-                            " SET forpag_descricaoformapagamento = @forma" +
-                        " WHERE codformapagamento = @codigo";
+                            " SET formpag_descricao = @forma" +
+                        " WHERE codformapag = @codigo";
                 }
 
                 cmd.CommandText = _sql;
@@ -60,7 +60,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codformapagamento, forpag_descricaoformapagamento" +
+            _sql = "SELECT codformapag, formpag_descricao" +
                         " FROM tbformapagamento; ";
 
             // int intCodigo = 0;
@@ -75,8 +75,8 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codformapagamento");
-                cmd.Parameters.AddWithValue("@forpag_descricaoformapagamento");
+                cmd.Parameters.AddWithValue("@codformapag");
+                cmd.Parameters.AddWithValue("@formpag_descricao");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
@@ -94,17 +94,17 @@ namespace HairLumos.DAO
 
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codformapagamento, forpag_descricaoformapagamento " +
+            _sql = "SELECT codformapag, formpag_descricao " +
                     "FROM tbformapagamento " +
-                    "WHERE codformapagamento = " + cod;
+                    "WHERE codformapag = " + cod;
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codformapagamento");
-                cmd.Parameters.AddWithValue("@forpag_descricaoformapagamento");
+                cmd.Parameters.AddWithValue("@codformapag");
+                cmd.Parameters.AddWithValue("@formpag_descricao");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -120,7 +120,7 @@ namespace HairLumos.DAO
 
         public bool excluirFormaPagamento(int intCod)
         {
-            _sql = "DELETE FROM tbformapagamento WHERE codformapagamento = @cod";
+            _sql = "DELETE FROM tbformapagamento WHERE codformapag = @cod";
 
             int _controle = 0;
             try

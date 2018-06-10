@@ -282,37 +282,34 @@ namespace HairLumos.DAO
                 if (_produto.CodigoProduto == 0)
                 {
                     _sql = "INSERT INTO tbproduto" +
-                                "(codcategoria, codmarca, prod_produto, prod_precocustoproduto," +
-                                " prod_precovendaproduto, prod_descricao, prod_obsproduto, prod_qtdproduto)" +
-                        " VALUES(@codCateria, @codMarca, @nomeProd, @custoProd, @vendaProd, @descricaoProd, @obsProd, @qtdeProd)";
+                                "(prod_produto, prod_precocusto, prod_precovenda, prod_qtde, prod_obs, codcategoria, codmarca )" +
+                        " VALUES( @nomeProd, @custoProd, @vendaProd, @qtdeProd, @obsProd,  @codCateria, @codMarca)";
 
                 }
                 else
                 {
                     
                     _sql = "UPDATE tbproduto" +
-                        " SET codproduto = @codProduto," +
+                        " SET codproduto = @codproduto," +
+                                "prod_produto = @nomeProd," +
+                                "prod_precocusto = @custoProd," +
+                                "prod_precovenda = @vendaProd," +
+                                "prod_qtde = @qtdeProd" +
+                                "prod_obs = @obsProd," +
                                 "codcategoria = @codCateria," +
                                 "codmarca = @codMarca," +
-                                "prod_produto = @nomeProd," +
-                                "prod_precocustoproduto = @custoProd," +
-                                "prod_precovendaproduto = @vendaProd," +
-                                "prod_descricao = @descricaoProd," +
-                                "prod_obsproduto = @obsProd," +
-                                "prod_qtdproduto = @qtdeProd" +
-                        " WHERE codproduto = @codProduto";
+                        " WHERE codproduto = @codproduto";
     }
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codProduto", _produto.CodigoProduto);
-                cmd.Parameters.AddWithValue("@codCateria", _produto.Categoria.Codigo);
-                cmd.Parameters.AddWithValue("@codMarca", _produto.Marca.Codigo);
+                cmd.Parameters.AddWithValue("@codproduto", _produto.CodigoProduto);
                 cmd.Parameters.AddWithValue("@nomeProd", _produto.NomeProduto);
                 cmd.Parameters.AddWithValue("@custoProd", _produto.Custo);
-                cmd.Parameters.AddWithValue("@vendaProd", _produto.Venda);
-                cmd.Parameters.AddWithValue("@descricaoProd", _produto.Descricao);
-                cmd.Parameters.AddWithValue("@obsProd", _produto.Observacao);
+                cmd.Parameters.AddWithValue("@vendaProd", _produto.Venda);                
                 cmd.Parameters.AddWithValue("@qtdeProd", _produto.Quantidade);
+                cmd.Parameters.AddWithValue("@obsProd", _produto.Observacao);
+                cmd.Parameters.AddWithValue("@codCateria", _produto.Categoria.Codigo);
+                cmd.Parameters.AddWithValue("@codMarca", _produto.Marca.Codigo);
 
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
@@ -328,7 +325,7 @@ namespace HairLumos.DAO
             //return 0;
         }
 
-        public DataTable RetornaProduto()
+        public DataTable RetornaProduto() //string Texto
         {
             DataTable dt = new DataTable();
 
@@ -337,12 +334,17 @@ namespace HairLumos.DAO
                 "prod_precovendaproduto, prod_descricao,  prod_obsproduto, prod_qtdproduto" +
                 " FROM tbproduto";
 
-            // int intCodigo = 0;
+            
+            //int intCodigo = 0;
+            //int.TryParse(Texto, out intCodigo);
 
+            //if (intCodigo > 0)
+            //    _sql += $"OR codproduto = @codigo ";
 
-            //_sql += $"OR codcategoria = @cod";
-            //_sql += $"OR cat_categoria = @categoria";
-            //_sql += $"OR cat_obscategoria = @obs";
+            //_sql += $"OR codproduto = @codigo ";
+            //_sql += $"OR UPPER (prod_produto) LIKE @produto";
+
+            // _sql += $"OR UPPER(pes_nome) LIKE @nome ";
 
             try
             {

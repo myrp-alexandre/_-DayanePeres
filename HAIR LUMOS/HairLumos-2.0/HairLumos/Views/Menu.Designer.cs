@@ -41,9 +41,9 @@
             this.cadastroProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFormaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroPacoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bACKUPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +80,7 @@
             this.usuárioToolStripMenuItem,
             this.cadastroDeFormaDePagamentoToolStripMenuItem,
             this.cadastroServiçoToolStripMenuItem,
-            this.cadastroPacoteToolStripMenuItem});
+            this.cadastroDeDespesaToolStripMenuItem});
             this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
             this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.cADASTROToolStripMenuItem.Text = "CADASTROS";
@@ -168,14 +169,6 @@
             this.cadastroServiçoToolStripMenuItem.Text = "Cadastro Serviço";
             this.cadastroServiçoToolStripMenuItem.Click += new System.EventHandler(this.cadastroServiçoToolStripMenuItem_Click);
             // 
-            // cadastroPacoteToolStripMenuItem
-            // 
-            this.cadastroPacoteToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.cadastroPacoteToolStripMenuItem.Name = "cadastroPacoteToolStripMenuItem";
-            this.cadastroPacoteToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.cadastroPacoteToolStripMenuItem.Text = "Cadastro Pacote";
-            this.cadastroPacoteToolStripMenuItem.Click += new System.EventHandler(this.cadastroPacoteToolStripMenuItem_Click);
-            // 
             // rELATÓRIOSToolStripMenuItem
             // 
             this.rELATÓRIOSToolStripMenuItem.Name = "rELATÓRIOSToolStripMenuItem";
@@ -189,6 +182,14 @@
             this.iNFORMAÇÕESToolStripMenuItem.Name = "iNFORMAÇÕESToolStripMenuItem";
             this.iNFORMAÇÕESToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.iNFORMAÇÕESToolStripMenuItem.Text = "INFORMAÇÕES";
+            // 
+            // parametrizaçãoDoSistemaToolStripMenuItem
+            // 
+            this.parametrizaçãoDoSistemaToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Name = "parametrizaçãoDoSistemaToolStripMenuItem";
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Text = "Parametrização do Sistema";
+            this.parametrizaçãoDoSistemaToolStripMenuItem.Click += new System.EventHandler(this.parametrizaçãoDoSistemaToolStripMenuItem_Click);
             // 
             // bACKUPToolStripMenuItem
             // 
@@ -247,13 +248,22 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // parametrizaçãoDoSistemaToolStripMenuItem
+            // cadastroDeDespesaToolStripMenuItem
             // 
-            this.parametrizaçãoDoSistemaToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.parametrizaçãoDoSistemaToolStripMenuItem.Name = "parametrizaçãoDoSistemaToolStripMenuItem";
-            this.parametrizaçãoDoSistemaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.parametrizaçãoDoSistemaToolStripMenuItem.Text = "Parametrização do Sistema";
-            this.parametrizaçãoDoSistemaToolStripMenuItem.Click += new System.EventHandler(this.parametrizaçãoDoSistemaToolStripMenuItem_Click);
+            this.cadastroDeDespesaToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.cadastroDeDespesaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tipoDeDespesaToolStripMenuItem});
+            this.cadastroDeDespesaToolStripMenuItem.Name = "cadastroDeDespesaToolStripMenuItem";
+            this.cadastroDeDespesaToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.cadastroDeDespesaToolStripMenuItem.Text = "Cadastro de Despesa";
+            // 
+            // tipoDeDespesaToolStripMenuItem
+            // 
+            this.tipoDeDespesaToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
+            this.tipoDeDespesaToolStripMenuItem.Name = "tipoDeDespesaToolStripMenuItem";
+            this.tipoDeDespesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tipoDeDespesaToolStripMenuItem.Text = "Tipo de Despesa";
+            this.tipoDeDespesaToolStripMenuItem.Click += new System.EventHandler(this.tipoDeDespesaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -303,8 +313,9 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeUsuárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeFormaDePagamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroServiçoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastroPacoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parametrizaçãoDoSistemaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeDespesaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDeDespesaToolStripMenuItem;
     }
 }
 
