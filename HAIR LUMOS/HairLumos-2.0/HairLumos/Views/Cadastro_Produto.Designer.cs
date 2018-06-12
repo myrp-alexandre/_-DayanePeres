@@ -43,11 +43,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.dgvProduto = new System.Windows.Forms.DataGridView();
+            this.codproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_precocusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_precovenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
-            this.ttbDescricao = new System.Windows.Forms.TextBox();
             this.ttbNome = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -55,11 +58,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prod_precocustoproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prod_precovendaproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prod_qtdproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,9 +90,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.dgvProduto);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbDescricao);
             this.splitContainer1.Panel1.Controls.Add(this.ttbNome);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
@@ -112,7 +108,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(389, 194);
+            this.label8.Location = new System.Drawing.Point(407, 109);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
             this.label8.TabIndex = 28;
@@ -121,9 +117,9 @@
             // cbbMarca
             // 
             this.cbbMarca.FormattingEnabled = true;
-            this.cbbMarca.Location = new System.Drawing.Point(459, 194);
+            this.cbbMarca.Location = new System.Drawing.Point(410, 125);
             this.cbbMarca.Name = "cbbMarca";
-            this.cbbMarca.Size = new System.Drawing.Size(311, 21);
+            this.cbbMarca.Size = new System.Drawing.Size(360, 21);
             this.cbbMarca.TabIndex = 7;
             // 
             // mskQtdeProd
@@ -145,7 +141,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(389, 125);
+            this.label7.Location = new System.Drawing.Point(18, 109);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 24;
@@ -164,7 +160,7 @@
             this.ttbObservacao.MaxLength = 200;
             this.ttbObservacao.Multiline = true;
             this.ttbObservacao.Name = "ttbObservacao";
-            this.ttbObservacao.Size = new System.Drawing.Size(354, 31);
+            this.ttbObservacao.Size = new System.Drawing.Size(749, 31);
             this.ttbObservacao.TabIndex = 6;
             // 
             // label6
@@ -179,9 +175,9 @@
             // cbbCategoria
             // 
             this.cbbCategoria.FormattingEnabled = true;
-            this.cbbCategoria.Location = new System.Drawing.Point(459, 125);
+            this.cbbCategoria.Location = new System.Drawing.Point(21, 128);
             this.cbbCategoria.Name = "cbbCategoria";
-            this.cbbCategoria.Size = new System.Drawing.Size(311, 21);
+            this.cbbCategoria.Size = new System.Drawing.Size(354, 21);
             this.cbbCategoria.TabIndex = 5;
             // 
             // mskPrecoVenda
@@ -229,9 +225,9 @@
             this.dgvProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codproduto,
             this.prod_produto,
-            this.prod_precocustoproduto,
-            this.prod_precovendaproduto,
-            this.prod_qtdproduto});
+            this.prod_precocusto,
+            this.prod_precovenda,
+            this.prod_qtde});
             this.dgvProduto.Location = new System.Drawing.Point(21, 263);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
@@ -239,6 +235,43 @@
             this.dgvProduto.Size = new System.Drawing.Size(679, 146);
             this.dgvProduto.TabIndex = 12;
             this.dgvProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellDoubleClick);
+            // 
+            // codproduto
+            // 
+            this.codproduto.DataPropertyName = "codproduto";
+            this.codproduto.HeaderText = "Cód";
+            this.codproduto.Name = "codproduto";
+            this.codproduto.ReadOnly = true;
+            this.codproduto.Width = 50;
+            // 
+            // prod_produto
+            // 
+            this.prod_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prod_produto.DataPropertyName = "prod_produto";
+            this.prod_produto.HeaderText = "Produto";
+            this.prod_produto.Name = "prod_produto";
+            this.prod_produto.ReadOnly = true;
+            // 
+            // prod_precocusto
+            // 
+            this.prod_precocusto.DataPropertyName = "prod_precocusto";
+            this.prod_precocusto.HeaderText = "Preço Custo (R$)";
+            this.prod_precocusto.Name = "prod_precocusto";
+            this.prod_precocusto.ReadOnly = true;
+            // 
+            // prod_precovenda
+            // 
+            this.prod_precovenda.DataPropertyName = "prod_precovenda";
+            this.prod_precovenda.HeaderText = "Preço Venda (R$)";
+            this.prod_precovenda.Name = "prod_precovenda";
+            this.prod_precovenda.ReadOnly = true;
+            // 
+            // prod_qtde
+            // 
+            this.prod_qtde.DataPropertyName = "prod_qtde";
+            this.prod_qtde.HeaderText = "Qtde Produto";
+            this.prod_qtde.Name = "prod_qtde";
+            this.prod_qtde.ReadOnly = true;
             // 
             // Código
             // 
@@ -256,15 +289,6 @@
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 7;
             // 
-            // ttbDescricao
-            // 
-            this.ttbDescricao.Location = new System.Drawing.Point(21, 125);
-            this.ttbDescricao.MaxLength = 200;
-            this.ttbDescricao.Multiline = true;
-            this.ttbDescricao.Name = "ttbDescricao";
-            this.ttbDescricao.Size = new System.Drawing.Size(354, 36);
-            this.ttbDescricao.TabIndex = 4;
-            // 
             // ttbNome
             // 
             this.ttbNome.Location = new System.Drawing.Point(21, 72);
@@ -272,15 +296,6 @@
             this.ttbNome.Name = "ttbNome";
             this.ttbNome.Size = new System.Drawing.Size(354, 20);
             this.ttbNome.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Descrição";
             // 
             // label1
             // 
@@ -357,43 +372,6 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // codproduto
-            // 
-            this.codproduto.DataPropertyName = "codproduto";
-            this.codproduto.HeaderText = "Cód";
-            this.codproduto.Name = "codproduto";
-            this.codproduto.ReadOnly = true;
-            this.codproduto.Width = 50;
-            // 
-            // prod_produto
-            // 
-            this.prod_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.prod_produto.DataPropertyName = "prod_produto";
-            this.prod_produto.HeaderText = "Produto";
-            this.prod_produto.Name = "prod_produto";
-            this.prod_produto.ReadOnly = true;
-            // 
-            // prod_precocustoproduto
-            // 
-            this.prod_precocustoproduto.DataPropertyName = "prod_precocustoproduto";
-            this.prod_precocustoproduto.HeaderText = "Preço Custo (R$)";
-            this.prod_precocustoproduto.Name = "prod_precocustoproduto";
-            this.prod_precocustoproduto.ReadOnly = true;
-            // 
-            // prod_precovendaproduto
-            // 
-            this.prod_precovendaproduto.DataPropertyName = "prod_precovendaproduto";
-            this.prod_precovendaproduto.HeaderText = "Preço Venda (R$)";
-            this.prod_precovendaproduto.Name = "prod_precovendaproduto";
-            this.prod_precovendaproduto.ReadOnly = true;
-            // 
-            // prod_qtdproduto
-            // 
-            this.prod_qtdproduto.DataPropertyName = "prod_qtdproduto";
-            this.prod_qtdproduto.HeaderText = "Qtde Produto";
-            this.prod_qtdproduto.Name = "prod_qtdproduto";
-            this.prod_qtdproduto.ReadOnly = true;
-            // 
             // Cadastro_Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,9 +400,7 @@
         private System.Windows.Forms.DataGridView dgvProduto;
         public System.Windows.Forms.Label Código;
         public System.Windows.Forms.TextBox ttbCodigo;
-        public System.Windows.Forms.TextBox ttbDescricao;
         public System.Windows.Forms.TextBox ttbNome;
-        public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
@@ -446,8 +422,8 @@
         public System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codproduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prod_precocustoproduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prod_precovendaproduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prod_qtdproduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prod_precocusto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prod_precovenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prod_qtde;
     }
 }

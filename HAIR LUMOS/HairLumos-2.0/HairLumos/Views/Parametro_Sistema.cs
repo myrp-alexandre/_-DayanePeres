@@ -87,6 +87,22 @@ namespace HairLumos.Views
                     dt = _ctrParam.retornaParametrização();
                     byte[] byteimg = ImageParaByteArray(pcbLogo.Image);//ImageToByteArray(pcbLogo.Image);
 
+                    if(dt.Rows.Count > 0)
+                    {
+                        btnLogo.Enabled = true;
+                        intCodParametro = 1;
+                        int intRetorno = _ctrParam.gravarParametrizacao(intCodParametro, ttbRazaoSocial.Text, ttbNomeFantasia.Text, ttbEmail.Text, ttbEndereco.Text,
+                            ttbComplemento.Text, ttbNum.Text, mskTelefone.Text, mskCelular.Text, byteimg);
+
+                        if (intRetorno == 1)
+                        {
+                            MessageBox.Show("Gravado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao Gravar.");
+                        }
+                    }
                     if (dt.Rows.Count == 0) // Não existe aparametrizãção cadastrada, então grava
                     {
                         btnLogo.Enabled = true;
@@ -124,15 +140,15 @@ namespace HairLumos.Views
             dt = _ctrlParametro.retornaParametrização();
             if (dt != null)
             {
-                ttbRazaoSocial.DataBindings.Add(new Binding("Text", dt, "param_razaosocial", true));
-                ttbNomeFantasia.DataBindings.Add(new Binding("Text", dt, "param_nomefantasia", true));
+                ttbRazaoSocial.DataBindings.Add(new Binding("Text", dt, "param_razao", true));
+                ttbNomeFantasia.DataBindings.Add(new Binding("Text", dt, "param_fantasia", true));
                 ttbEmail.DataBindings.Add(new Binding("Text", dt, "param_email", true));
-                ttbEndereco.DataBindings.Add(new Binding("Text", dt, "param_endereco", true));
+                ttbEndereco.DataBindings.Add(new Binding("Text", dt, "param_logradouro", true));
                 ttbComplemento.DataBindings.Add(new Binding("Text", dt, "param_complemento", true));
                 ttbNum.DataBindings.Add(new Binding("Text", dt, "param_numero", true));
-                mskTelefone.DataBindings.Add(new Binding("Text", dt, "param_telefone", true));
-                mskCelular.DataBindings.Add(new Binding("Text", dt, "param_celular", true));
-              //  pcbLogo.DataBindings.Add(new Binding("Imagem", dt, "param_logo", true));
+                mskTelefone.DataBindings.Add(new Binding("Text", dt, "param_fone", true));
+                mskCelular.DataBindings.Add(new Binding("Text", dt, "param_cel", true));
+                //pcbLogo.DataBindings.Add(new Binding("Imagem", dt, "param_logo", true));
 
             }
 

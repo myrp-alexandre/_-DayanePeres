@@ -14,25 +14,25 @@ namespace HairLumos.Entidades
         public String _nome;
         public double _custo;
         public double _venda;
-        public String _descricao;
+        
         public int _qtde;
         public String _obs;
 
         public String _erro;
 
         public Produto(int _codProduto, Categoria _categoria, Marca _marca, String _nome, double _custo,
-            double _venda, String _descricao, int _qtde, String _obs)
+            double _venda, int _qtde, String _obs)
         {
-            this.carregaProduto(_codProduto, _categoria, _marca, _nome, _custo, _venda, _descricao, _qtde, _obs); //
+            this.carregaProduto(_codProduto, _categoria, _marca, _nome, _custo, _venda, _qtde, _obs); //
         }
 
         public Produto()
         {
-            this.carregaProduto(0, null, null, string.Empty, 0, 0, string.Empty, 0, string.Empty); //
+            this.carregaProduto(0, null, null, string.Empty, 0, 0,  0, string.Empty); //
         }
 
         public void carregaProduto(int strCodProd, Categoria strcategoria, Marca strMarca, string strNome,
-            double strCusto, double strVenda, string strDescricao, int strQtde, string strObs) // 
+            double strCusto, double strVenda, int strQtde, string strObs) // 
         {
             this.CodigoProduto = strCodProd;
             this.Categoria = strcategoria;
@@ -40,7 +40,7 @@ namespace HairLumos.Entidades
             this.NomeProduto = strNome;
             this.Custo = strCusto;
             this.Venda = strVenda;
-            this.Descricao = strDescricao;
+            
             this.Quantidade = strQtde;
             this.Observacao = strObs;
         }
@@ -81,11 +81,7 @@ namespace HairLumos.Entidades
             set { _venda = value; }
         }
 
-        public string Descricao
-        {
-            get { return _descricao; }
-            set { _descricao = value; }
-        }
+        
 
         public int Quantidade
         {

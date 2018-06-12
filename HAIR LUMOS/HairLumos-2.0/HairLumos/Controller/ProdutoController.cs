@@ -63,9 +63,9 @@ namespace HairLumos.Controller
          * ********** P R O D U T O *********************************** 
          */
         public int gravaProduto (int codProd, int codCategoria , int codMarca, string nomeProd,
-            double custo, double venda, string descricao, int qtde, string obs)
+            double custo, double venda, int qtde, string obs)
         {
-            return _MdlProd.gravaProduto(codProd, codCategoria, codMarca, nomeProd, custo, venda, descricao, qtde, obs);
+            return _MdlProd.gravaProduto(codProd, codCategoria, codMarca, nomeProd, custo, venda,  qtde, obs);
         }
 
         public DataTable retornaProduto()

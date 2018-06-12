@@ -100,7 +100,7 @@ namespace HairLumos.Models
          */
 
         public int gravaProduto(int codProd, int codCategoria, int codMarca, string nomeProd, 
-            double custo, double venda, string descricao, int qtde, string obs)
+            double custo, double venda,  int qtde, string obs)
         {
             Entidades.Produto _entProduto = new Entidades.Produto();
             Entidades.Categoria _entCategoria = new Entidades.Categoria();
@@ -126,7 +126,7 @@ namespace HairLumos.Models
             }
 
 
-            _entProduto.carregaProduto(codProd, _entCategoria, _entMarca, nomeProd, custo, venda, descricao, qtde, obs); // 
+            _entProduto.carregaProduto(codProd, _entCategoria, _entMarca, nomeProd, custo, venda, qtde, obs); // 
 
             return _DAOProd.GravarProduto(_entProduto);
         }

@@ -117,8 +117,7 @@ namespace HairLumos.Views
             }
             else
                 dgvMarca.Rows.Clear();
-
-
+            
         }
 
         public void selecinaMarca()

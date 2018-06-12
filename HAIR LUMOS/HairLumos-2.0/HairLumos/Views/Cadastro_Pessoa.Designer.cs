@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label21 = new System.Windows.Forms.Label();
+            this.ttbEmail = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbPagaNao = new System.Windows.Forms.RadioButton();
             this.rbPagaSim = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpPessoa = new System.Windows.Forms.GroupBox();
             this.rbFisica = new System.Windows.Forms.RadioButton();
             this.rbJuridica = new System.Windows.Forms.RadioButton();
             this.mskCNPJ = new System.Windows.Forms.MaskedTextBox();
@@ -69,17 +71,16 @@
             this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contato = new System.Windows.Forms.TabPage();
             this.dgvContato = new System.Windows.Forms.DataGridView();
-            this._telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_tipofone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContato = new System.Windows.Forms.Panel();
+            this.rbComercial = new System.Windows.Forms.RadioButton();
+            this.rbCelular = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rbTelefone = new System.Windows.Forms.RadioButton();
             this.btnSalvarContato = new System.Windows.Forms.Button();
-            this.mskCelular = new System.Windows.Forms.MaskedTextBox();
             this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.ttbEmail = new System.Windows.Forms.TextBox();
             this.btnIncluirContato = new System.Windows.Forms.Button();
             this.Observações = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
@@ -104,7 +105,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpPessoa.SuspendLayout();
             this.tabcInformaçõesPessoa.SuspendLayout();
             this.Endereço.SuspendLayout();
             this.pnlEndereco.SuspendLayout();
@@ -124,8 +125,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label21);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbEmail);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.grpPessoa);
             this.splitContainer1.Panel1.Controls.Add(this.mskCNPJ);
             this.splitContainer1.Panel1.Controls.Add(this.mskCPF);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
@@ -158,6 +161,22 @@
             this.splitContainer1.Size = new System.Drawing.Size(890, 495);
             this.splitContainer1.SplitterDistance = 423;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(61, 186);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(35, 13);
+            this.label21.TabIndex = 62;
+            this.label21.Text = "E-mail";
+            // 
+            // ttbEmail
+            // 
+            this.ttbEmail.Location = new System.Drawing.Point(102, 183);
+            this.ttbEmail.Name = "ttbEmail";
+            this.ttbEmail.Size = new System.Drawing.Size(640, 20);
+            this.ttbEmail.TabIndex = 61;
             // 
             // groupBox2
             // 
@@ -192,16 +211,16 @@
             this.rbPagaSim.Text = "Sim";
             this.rbPagaSim.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // grpPessoa
             // 
-            this.groupBox1.Controls.Add(this.rbFisica);
-            this.groupBox1.Controls.Add(this.rbJuridica);
-            this.groupBox1.Location = new System.Drawing.Point(64, 54);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(100, 81);
-            this.groupBox1.TabIndex = 59;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tipo*";
+            this.grpPessoa.Controls.Add(this.rbFisica);
+            this.grpPessoa.Controls.Add(this.rbJuridica);
+            this.grpPessoa.Location = new System.Drawing.Point(64, 54);
+            this.grpPessoa.Name = "grpPessoa";
+            this.grpPessoa.Size = new System.Drawing.Size(100, 81);
+            this.grpPessoa.TabIndex = 59;
+            this.grpPessoa.TabStop = false;
+            this.grpPessoa.Text = "Tipo*";
             // 
             // rbFisica
             // 
@@ -214,6 +233,7 @@
             this.rbFisica.TabStop = true;
             this.rbFisica.Text = "Física";
             this.rbFisica.UseVisualStyleBackColor = true;
+            this.rbFisica.CheckedChanged += new System.EventHandler(this.rbFisica_CheckedChanged);
             // 
             // rbJuridica
             // 
@@ -224,6 +244,7 @@
             this.rbJuridica.TabIndex = 1;
             this.rbJuridica.Text = "Jurídica";
             this.rbJuridica.UseVisualStyleBackColor = true;
+            this.rbJuridica.CheckedChanged += new System.EventHandler(this.rbJuridica_CheckedChanged);
             // 
             // mskCNPJ
             // 
@@ -549,115 +570,116 @@
             this.dgvContato.BackgroundColor = System.Drawing.Color.White;
             this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContato.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._telefone,
-            this._celular,
-            this._email});
+            this.cont_telefone,
+            this.cont_tipofone});
             this.dgvContato.Location = new System.Drawing.Point(48, 6);
             this.dgvContato.Name = "dgvContato";
             this.dgvContato.ReadOnly = true;
             this.dgvContato.Size = new System.Drawing.Size(642, 89);
             this.dgvContato.TabIndex = 13;
             // 
-            // _telefone
+            // cont_telefone
             // 
-            this._telefone.DataPropertyName = "_telefone";
-            this._telefone.HeaderText = "Telefone";
-            this._telefone.Name = "_telefone";
-            this._telefone.ReadOnly = true;
-            this._telefone.Width = 120;
+            this.cont_telefone.DataPropertyName = "cont_telefone";
+            this.cont_telefone.HeaderText = "Telefone";
+            this.cont_telefone.Name = "cont_telefone";
+            this.cont_telefone.ReadOnly = true;
+            this.cont_telefone.Width = 120;
             // 
-            // _celular
+            // cont_tipofone
             // 
-            this._celular.DataPropertyName = "_celular";
-            this._celular.HeaderText = "Celular";
-            this._celular.Name = "_celular";
-            this._celular.ReadOnly = true;
-            this._celular.Width = 120;
-            // 
-            // _email
-            // 
-            this._email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._email.DataPropertyName = "_email";
-            this._email.HeaderText = "E-mail";
-            this._email.Name = "_email";
-            this._email.ReadOnly = true;
+            this.cont_tipofone.DataPropertyName = "cont_tipofone";
+            this.cont_tipofone.HeaderText = "Tipo Contato";
+            this.cont_tipofone.Name = "cont_tipofone";
+            this.cont_tipofone.ReadOnly = true;
+            this.cont_tipofone.Width = 120;
             // 
             // pnlContato
             // 
+            this.pnlContato.Controls.Add(this.rbComercial);
+            this.pnlContato.Controls.Add(this.rbCelular);
+            this.pnlContato.Controls.Add(this.label1);
+            this.pnlContato.Controls.Add(this.rbTelefone);
             this.pnlContato.Controls.Add(this.btnSalvarContato);
-            this.pnlContato.Controls.Add(this.mskCelular);
             this.pnlContato.Controls.Add(this.mskTelefone);
-            this.pnlContato.Controls.Add(this.label18);
             this.pnlContato.Controls.Add(this.label19);
-            this.pnlContato.Controls.Add(this.label21);
-            this.pnlContato.Controls.Add(this.ttbEmail);
-            this.pnlContato.Location = new System.Drawing.Point(48, 99);
+            this.pnlContato.Location = new System.Drawing.Point(48, 101);
             this.pnlContato.Name = "pnlContato";
-            this.pnlContato.Size = new System.Drawing.Size(642, 80);
+            this.pnlContato.Size = new System.Drawing.Size(642, 78);
             this.pnlContato.TabIndex = 12;
             this.pnlContato.Visible = false;
+            // 
+            // rbComercial
+            // 
+            this.rbComercial.AutoSize = true;
+            this.rbComercial.Location = new System.Drawing.Point(93, 58);
+            this.rbComercial.Name = "rbComercial";
+            this.rbComercial.Size = new System.Drawing.Size(71, 17);
+            this.rbComercial.TabIndex = 69;
+            this.rbComercial.TabStop = true;
+            this.rbComercial.Text = "Comercial";
+            this.rbComercial.UseVisualStyleBackColor = true;
+            // 
+            // rbCelular
+            // 
+            this.rbCelular.AutoSize = true;
+            this.rbCelular.Location = new System.Drawing.Point(93, 34);
+            this.rbCelular.Name = "rbCelular";
+            this.rbCelular.Size = new System.Drawing.Size(57, 17);
+            this.rbCelular.TabIndex = 68;
+            this.rbCelular.TabStop = true;
+            this.rbCelular.Tag = "";
+            this.rbCelular.Text = "Celular";
+            this.rbCelular.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Tipo Contato";
+            // 
+            // rbTelefone
+            // 
+            this.rbTelefone.AutoSize = true;
+            this.rbTelefone.Location = new System.Drawing.Point(93, 11);
+            this.rbTelefone.Name = "rbTelefone";
+            this.rbTelefone.Size = new System.Drawing.Size(67, 17);
+            this.rbTelefone.TabIndex = 67;
+            this.rbTelefone.TabStop = true;
+            this.rbTelefone.Text = "Telefone";
+            this.rbTelefone.UseVisualStyleBackColor = true;
             // 
             // btnSalvarContato
             // 
             this.btnSalvarContato.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSalvarContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarContato.Location = new System.Drawing.Point(570, 36);
+            this.btnSalvarContato.Location = new System.Drawing.Point(467, 18);
             this.btnSalvarContato.Name = "btnSalvarContato";
-            this.btnSalvarContato.Size = new System.Drawing.Size(53, 28);
+            this.btnSalvarContato.Size = new System.Drawing.Size(73, 49);
             this.btnSalvarContato.TabIndex = 66;
             this.btnSalvarContato.Text = "Salvar";
             this.btnSalvarContato.UseVisualStyleBackColor = false;
             this.btnSalvarContato.Click += new System.EventHandler(this.btnSalvarContato_Click);
             // 
-            // mskCelular
-            // 
-            this.mskCelular.Location = new System.Drawing.Point(256, 41);
-            this.mskCelular.Mask = "(99) 0 0000-0000";
-            this.mskCelular.Name = "mskCelular";
-            this.mskCelular.Size = new System.Drawing.Size(104, 20);
-            this.mskCelular.TabIndex = 65;
-            // 
             // mskTelefone
             // 
-            this.mskTelefone.Location = new System.Drawing.Point(69, 41);
-            this.mskTelefone.Mask = "(99) 0000-0000";
+            this.mskTelefone.Location = new System.Drawing.Point(327, 23);
+            this.mskTelefone.Mask = "(99) 0 0000-0000";
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(100, 20);
             this.mskTelefone.TabIndex = 64;
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(211, 44);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(39, 13);
-            this.label18.TabIndex = 63;
-            this.label18.Text = "Celular";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(5, 44);
+            this.label19.Location = new System.Drawing.Point(263, 26);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 13);
+            this.label19.Size = new System.Drawing.Size(48, 13);
             this.label19.TabIndex = 61;
-            this.label19.Text = "Telefone*";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(5, 9);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(35, 13);
-            this.label21.TabIndex = 59;
-            this.label21.Text = "E-mail";
-            // 
-            // ttbEmail
-            // 
-            this.ttbEmail.Location = new System.Drawing.Point(70, 6);
-            this.ttbEmail.Name = "ttbEmail";
-            this.ttbEmail.Size = new System.Drawing.Size(553, 20);
-            this.ttbEmail.TabIndex = 0;
+            this.label19.Text = "Contato*";
             // 
             // btnIncluirContato
             // 
@@ -772,6 +794,7 @@
             this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnCancelar
             // 
@@ -815,6 +838,7 @@
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnGravar
             // 
@@ -836,6 +860,7 @@
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // Cadastro_Pessoa
             // 
@@ -855,8 +880,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpPessoa.ResumeLayout(false);
+            this.grpPessoa.PerformLayout();
             this.tabcInformaçõesPessoa.ResumeLayout(false);
             this.Endereço.ResumeLayout(false);
             this.pnlEndereco.ResumeLayout(false);
@@ -900,7 +925,7 @@
         private System.Windows.Forms.RadioButton rbFisica;
         private System.Windows.Forms.TextBox ttbNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpPessoa;
         public System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbPagaNao;
@@ -930,20 +955,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Bairro;
         private System.Windows.Forms.TabPage Contato;
         private System.Windows.Forms.DataGridView dgvContato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _telefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _celular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _email;
         private System.Windows.Forms.Panel pnlContato;
         public System.Windows.Forms.Button btnSalvarContato;
-        private System.Windows.Forms.MaskedTextBox mskCelular;
         private System.Windows.Forms.MaskedTextBox mskTelefone;
-        public System.Windows.Forms.Label label18;
         public System.Windows.Forms.Label label19;
-        public System.Windows.Forms.Label label21;
-        public System.Windows.Forms.TextBox ttbEmail;
         public System.Windows.Forms.Button btnIncluirContato;
         private System.Windows.Forms.TabPage Observações;
         public System.Windows.Forms.Label label17;
         public System.Windows.Forms.TextBox ttbObservação;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.TextBox ttbEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cont_telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cont_tipofone;
+        private System.Windows.Forms.RadioButton rbComercial;
+        private System.Windows.Forms.RadioButton rbCelular;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbTelefone;
     }
 }

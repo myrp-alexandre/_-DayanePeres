@@ -283,5 +283,12 @@ namespace HairLumos.Views
         {
             Close();
         }
+
+        private void dgvDespesa_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            selecionaDespesa();
+        }
     }
 }

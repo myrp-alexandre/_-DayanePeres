@@ -28,7 +28,9 @@ namespace HairLumos.Banco
                 string _strConexao = "Server = 127.0.0.1; Port = 5432; User Id = postgres; Password = postgres123; Database = banco_HL_novo; ";
                 _conn = new NpgsqlConnection(_strConexao);
                 _conn.Open();
-            }
+                _sqlCmd = new NpgsqlCommand();
+                _sqlCmd.Connection = _conn;
+        }
 
             public static Conexao getIntancia()
             {

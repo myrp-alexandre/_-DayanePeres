@@ -9,27 +9,28 @@ namespace HairLumos.Entidades
     public class PessoaJuridica : Pessoa
     {
         //private Pessoa _Pessoa;
+        private string _cnpj;
         private string _razaoSocial;
         private string _fantasia;
         
 
         private string _erro;
 
-        public PessoaJuridica (string razao, string fantasia, int codP, string nome, DateTime dataCadastro, string tipoPes, bool status,
-            string obs, bool fiado) : base(codP, nome, dataCadastro, tipoPes, status, obs, fiado)
+        public PessoaJuridica (string cnpj, string razao, string fantasia)//, int codP, string nome, DateTime dataCadastro,
+            //string tipoPes, bool status,string obs, bool fiado) 
         {
 
-            this.carregaPessoaJuridica(razao, fantasia);
+            this.carregaPessoaJuridica(cnpj, razao, fantasia);
         }
 
-        public PessoaJuridica(string razao, string fantasia)
-        {
-            this.carregaPessoaJuridica(razao, fantasia);
-        }
+        //public PessoaJuridica(string cnpj, string razao, string fantasia)
+        //{
+        //    this.carregaPessoaJuridica(cnpj, razao, fantasia);
+        //}
 
         public PessoaJuridica()
         {
-            this.carregaPessoaJuridica(string.Empty, string.Empty);
+            this.carregaPessoaJuridica(string.Empty, string.Empty, string.Empty);
         }
 
         public string Erro
@@ -43,6 +44,11 @@ namespace HairLumos.Entidades
         //    get { return _Pessoa; }
         //    set { _Pessoa = value; }
         //}
+        public string CNPJ
+        {
+            get { return _cnpj; }
+            set { _cnpj = value; }
+        }
 
         public string RazaoSocial
         {
@@ -62,9 +68,10 @@ namespace HairLumos.Entidades
         //    set { _inscricaoEstadual = value; }
         //}
 
-        public void carregaPessoaJuridica(string razao, string fantasia)
+        public void carregaPessoaJuridica(string cnpj, string razao, string fantasia)
         {
             //this.Pessoa = pes;
+            this.CNPJ = cnpj;
             this.RazaoSocial = razao;
             this.NomeFantasia = fantasia;
             

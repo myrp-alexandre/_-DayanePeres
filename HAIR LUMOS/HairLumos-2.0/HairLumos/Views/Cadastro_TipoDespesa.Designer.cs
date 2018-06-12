@@ -145,6 +145,7 @@
             this.dgvDespesa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDespesa.Size = new System.Drawing.Size(468, 125);
             this.dgvDespesa.TabIndex = 12;
+            this.dgvDespesa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDespesa_CellDoubleClick_1);
             // 
             // coddespesa
             // 

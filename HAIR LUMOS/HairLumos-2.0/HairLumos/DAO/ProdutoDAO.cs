@@ -282,7 +282,7 @@ namespace HairLumos.DAO
                 if (_produto.CodigoProduto == 0)
                 {
                     _sql = "INSERT INTO tbproduto" +
-                                "(prod_produto, prod_precocusto, prod_precovenda, prod_qtde, prod_obs, codcategoria, codmarca )" +
+                                " (prod_produto, prod_precocusto, prod_precovenda, prod_qtde, prod_obs, codcategoria, codmarca )" +
                         " VALUES( @nomeProd, @custoProd, @vendaProd, @qtdeProd, @obsProd,  @codCateria, @codMarca)";
 
                 }
@@ -294,10 +294,10 @@ namespace HairLumos.DAO
                                 "prod_produto = @nomeProd," +
                                 "prod_precocusto = @custoProd," +
                                 "prod_precovenda = @vendaProd," +
-                                "prod_qtde = @qtdeProd" +
+                                "prod_qtde = @qtdeProd," +
                                 "prod_obs = @obsProd," +
                                 "codcategoria = @codCateria," +
-                                "codmarca = @codMarca," +
+                                "codmarca = @codMarca" +
                         " WHERE codproduto = @codproduto";
     }
 
@@ -329,15 +329,15 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            
-            _sql = "SELECT codproduto, codcategoria, codmarca, prod_produto, prod_precocustoproduto," +
-                "prod_precovendaproduto, prod_descricao,  prod_obsproduto, prod_qtdproduto" +
-                " FROM tbproduto";
+
+            _sql = "SELECT codproduto, prod_produto, prod_precocusto, prod_precovenda, prod_qtde," +
+                        "prod_obs, codcategoria, codmarca" +
+                    " FROM tbproduto;";   
 
             
             //int intCodigo = 0;
             //int.TryParse(Texto, out intCodigo);
-
+            
             //if (intCodigo > 0)
             //    _sql += $"OR codproduto = @codigo ";
 
@@ -351,15 +351,15 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codProduto");
-                cmd.Parameters.AddWithValue("@codCategoria");
+                cmd.Parameters.AddWithValue("@codproduto");
+                cmd.Parameters.AddWithValue("@nomeProd");
+                cmd.Parameters.AddWithValue("@custoProd");
+                cmd.Parameters.AddWithValue("@vendaProd");
+                cmd.Parameters.AddWithValue("@qtdeProd");
+                cmd.Parameters.AddWithValue("@obsProd");
+                cmd.Parameters.AddWithValue("@codCateria");
                 cmd.Parameters.AddWithValue("@codMarca");
-                cmd.Parameters.AddWithValue("@produto");
-                cmd.Parameters.AddWithValue("@custo");
-                cmd.Parameters.AddWithValue("@venda");
-                cmd.Parameters.AddWithValue("@descricao");
-                cmd.Parameters.AddWithValue("@obs");
-                cmd.Parameters.AddWithValue("@qtde");
+
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader

@@ -126,6 +126,7 @@ namespace HairLumos.Views
                         MessageBox.Show("Gravado com sucesso!");
                         _limpaCampos();
                         _inicializa();
+                        _btnNovo();
                     }
                     else
                     {

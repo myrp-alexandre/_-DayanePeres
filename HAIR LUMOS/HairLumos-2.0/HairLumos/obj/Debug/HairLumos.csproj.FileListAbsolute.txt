@@ -211,6 +211,22 @@ C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\Ha
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.CopyComplete
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.exe
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.pdb
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.exe.config
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_CategoriaProduto.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_FormaPagamento.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_MarcaProduto.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Pacotes.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Pessoa.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Produto.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_TipoDespesa.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_TipoServico.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Usuario.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.frmMenu.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Properties.Resources.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Parametro_Sistema.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Pesquisa_Pessoa.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.GenerateResource.cache
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.CoreCompileInputs.cache
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\HairLumos.exe.config
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\HairLumos.exe
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\HairLumos.pdb
@@ -274,21 +290,7 @@ D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microso
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.Shell.Design.resources.dll
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.Shell.15.0.resources.dll
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.GraphModel.resources.dll
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csprojAssemblyReference.cache
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.exe.config
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_CategoriaProduto.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_FormaPagamento.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_MarcaProduto.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Pacotes.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Pessoa.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Produto.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.frmMenu.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Properties.Resources.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Parametro_Sistema.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.GenerateResource.cache
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.CoreCompileInputs.cache
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.CopyComplete
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.exe
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.pdb
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_TipoServico.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_TipoDespesa.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csprojAssemblyReference.cache

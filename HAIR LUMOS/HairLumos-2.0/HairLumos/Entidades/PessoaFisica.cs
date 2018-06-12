@@ -14,14 +14,23 @@ namespace HairLumos.Entidades
 
         private string _erro;
 
-        public PessoaFisica(string cpf, string rg, DateTime nascimento,  int codP, string nome, DateTime dataCadastro, string tipoPes, bool status,
-            string obs, bool fiado) //:base(codP, nome, dataCadastro, tipoPes, status, obs, fiado)
+        
+
+        public PessoaFisica(string cpf, string rg, DateTime nascimento)//,  int codP, string nome, DateTime dataCadastro, string tipoPes, bool status,
+           // string obs, bool fiado) //:base(codP, nome, dataCadastro, tipoPes, status, obs, fiado)
         {
 
-            this.carregaPessoaFisica(cpf, rg, nascimento, codP, nome, dataCadastro, tipoPes, status, obs, fiado);
+            //this.carregaPessoaFisica(cpf, rg, nascimento);//, codP, nome, dataCadastro, tipoPes, status, obs, fiado);
             //this.CPF = cpf;
             //this.RG = rg;
             //this.Nascimento = nascimento;
+        }
+
+        public PessoaFisica()
+        {
+            //this.carregaPessoaFisica(string.Empty, string.Empty, DateTime.Now);
+            //, 0, string.Empty, DateTime.Now,
+            //    string.Empty, false, string.Empty, false);
         }
 
         //public PessoaFisica(int cod, string nome, DateTime dataCadastro, string tipoPes, string obs, bool fiado,
@@ -35,11 +44,10 @@ namespace HairLumos.Entidades
         //    this.carregaPessoaFisica(cpf, rg, nascimento);
         //}
 
-        //public PessoaFisica()
-        //{
-        //    this.carregaPessoaFisica(string.Empty, string.Empty, DateTime.Now);
-        //}
+        
 
+        
+        
         public string Erro
         {
             get { return _erro; }
@@ -65,7 +73,8 @@ namespace HairLumos.Entidades
             set { _nascimento = value; }
         }
         
-        public void carregaPessoaFisica(string cpf, string rg, DateTime nascimento, int codP, string nome, DateTime dataCadastro, string tipoPes, bool status,
+        public void carregaPessoaFisica(string cpf, string rg, DateTime nascimento,
+            int codP, string nome, DateTime dataCadastro, string tipoPes, bool status,
             string obs, bool fiado)
         {
             this.CPF = cpf;

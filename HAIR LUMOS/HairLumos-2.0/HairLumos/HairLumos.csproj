@@ -64,6 +64,7 @@
     <Compile Include="Controller\PessoaController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\ServicoController.cs" />
+    <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="DAO\DespesaDAO.cs" />
     <Compile Include="DAO\PacoteDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
@@ -71,10 +72,12 @@
     <Compile Include="DAO\PessoaDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\ServicoDAO.cs" />
+    <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Cidade.cs" />
     <Compile Include="Entidades\Despesa.cs" />
+    <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
-    <Compile Include="Entidades\Interface_Pessoa.cs" />
     <Compile Include="Entidades\Marca.cs" />
     <Compile Include="Entidades\Pacote.cs" />
     <Compile Include="Entidades\Parametrizacao.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="Entidades\PessoaJuridica.cs" />
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Servico.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Models\DespesaModels.cs" />
     <Compile Include="Models\PacoteModels.cs" />
     <Compile Include="Models\PagamentoModels.cs" />
@@ -90,6 +94,7 @@
     <Compile Include="Models\PessoaModels.cs" />
     <Compile Include="Models\ProdutoModels.cs" />
     <Compile Include="Models\ServicoModel.cs" />
+    <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Views\Cadastro_CategoriaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +143,12 @@
     <Compile Include="Views\Cadastro_TipoServico.Designer.cs">
       <DependentUpon>Cadastro_TipoServico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cadastro_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastro_Usuario.Designer.cs">
+      <DependentUpon>Cadastro_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +162,12 @@
     </Compile>
     <Compile Include="Views\Parametro_Sistema.Designer.cs">
       <DependentUpon>Parametro_Sistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisa_Pessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisa_Pessoa.Designer.cs">
+      <DependentUpon>Pesquisa_Pessoa.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Cadastro_CategoriaProduto.resx">
       <DependentUpon>Cadastro_CategoriaProduto.cs</DependentUpon>
@@ -176,6 +193,9 @@
     <EmbeddedResource Include="Views\Cadastro_TipoServico.resx">
       <DependentUpon>Cadastro_TipoServico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastro_Usuario.resx">
+      <DependentUpon>Cadastro_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +210,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Parametro_Sistema.resx">
       <DependentUpon>Parametro_Sistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisa_Pessoa.resx">
+      <DependentUpon>Pesquisa_Pessoa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

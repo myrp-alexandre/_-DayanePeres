@@ -11,7 +11,6 @@ namespace HairLumos.Models
     {
         DAO.PacoteDAO _DAOPac = new DAO.PacoteDAO();
 
-
         public int gravaPacote(int cod, string pacote, double valor, string obs, string periodo)
         {
             Entidades.Pacote _entPacote = new Entidades.Pacote();

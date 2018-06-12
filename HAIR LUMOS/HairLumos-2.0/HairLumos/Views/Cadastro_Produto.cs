@@ -37,7 +37,7 @@ namespace HairLumos.Views
             mskPrecoCompra.Enabled = false;
             mskPrecoVenda.Enabled = false;
             mskQtdeProd.Enabled = false;
-            ttbDescricao.Enabled = false;
+            
             cbbCategoria.Enabled = false;
             cbbMarca.Enabled = false;
             dgvProduto.Enabled = true;
@@ -59,7 +59,7 @@ namespace HairLumos.Views
         {
             ttbCodigo.Text = "";
             ttbNome.Text = "";
-            ttbDescricao.Text = "";
+            
             ttbObservacao.Text = "";
             mskPrecoCompra.Text = "";
             mskPrecoVenda.Text = "";
@@ -77,7 +77,7 @@ namespace HairLumos.Views
             mskPrecoCompra.Enabled = true;
             mskPrecoVenda.Enabled = true;
             mskQtdeProd.Enabled = true;
-            ttbDescricao.Enabled = true;
+            
             cbbCategoria.Enabled = true;
             cbbMarca.Enabled = true;
             dgvProduto.Enabled = true;
@@ -103,7 +103,7 @@ namespace HairLumos.Views
             mskPrecoCompra.Enabled = true;
             mskPrecoVenda.Enabled = true;
             mskQtdeProd.Enabled = true;
-            ttbDescricao.Enabled = true;
+            
             cbbCategoria.Enabled = true;
             cbbMarca.Enabled = true;
             dgvProduto.Enabled = true;
@@ -208,20 +208,17 @@ namespace HairLumos.Views
 
         }
 
-        public void carregaProdutoTela(string strCod, string strproduto, string strcodCategoria, string strcodMarca, string strdescricao, string strobs,
-            string strcusto, string strvenda,  string strqtde)
+        public void carregaProdutoTela(string codProd, string produto, string custo, string venda,
+            string qtde, string obs, string categoria, string marca)
         {
-            //string strcodCategoria, string strcodMarca, string strdescricao, string strobs,
 
-            ttbCodigo.Text = strCod;
-            cbbCategoria.Text = strcodCategoria;
-            cbbMarca.Text = strcodMarca;
-            ttbNome.Text = strproduto;
-            mskPrecoCompra.Text = strcusto;
-            mskPrecoVenda.Text = strvenda;
-            ttbDescricao.Text = strdescricao;
-            ttbObservacao.Text = strobs;
-            mskQtdeProd.Text = strqtde;
+            ttbCodigo.Text = codProd;
+            ttbNome.Text = produto;
+            mskPrecoCompra.Text = custo;
+            mskPrecoVenda.Text = venda;
+            mskQtdeProd.Text = qtde;
+            ttbObservacao.Text = obs;
+
 
             //carregaComboCategoriaTela(strcodCategoria);
             //carregaComboMarcaTela(strcodMarca);
@@ -237,14 +234,13 @@ namespace HairLumos.Views
                 DataRow dr = dtRetorno.Rows[0];
                 this.carregaProdutoTela(
                     dr["codproduto"].ToString(),
-                    dr["codcategoria"].ToString(),
-                    dr["codmarca"].ToString(),
                     dr["prod_produto"].ToString(),
-                    dr["prod_precocustoproduto"].ToString(),
-                    dr["prod_precovendaproduto"].ToString(),
-                    dr["prod_descricao"].ToString(),
-                    dr["prod_obsproduto"].ToString(),
-                    dr["prod_qtdproduto"].ToString());
+                    dr["prod_precocusto"].ToString(),
+                    dr["prod_precovenda"].ToString(),
+                    dr["prod_qtde"].ToString(),
+                    dr["prod_obs"].ToString(),
+                    dr["codcategoria"].ToString(),
+                    dr["codmarca"].ToString());
 
             }
         }
@@ -263,8 +259,8 @@ namespace HairLumos.Views
                 dgvProduto.DataSource = dtRetorno;
                 dgvProduto.Columns["codcategoria"].Visible = false;
                 dgvProduto.Columns["codmarca"].Visible = false;
-                dgvProduto.Columns["prod_descricao"].Visible = false;
-                dgvProduto.Columns["prod_obsproduto"].Visible = false;
+                dgvProduto.Columns["prod_obs"].Visible = false;
+                dgvProduto.Columns["codcategoria"].Visible = false;
                 dgvProduto.ClearSelection();
             }
             else
@@ -284,14 +280,13 @@ namespace HairLumos.Views
                     this.intCodigoProduto = intCod;
 
                     ttbCodigo.Text = dgvProduto.CurrentRow.Cells[0].Value.ToString();
-                    ttbNome.Text = dgvProduto.CurrentRow.Cells[3].Value.ToString();
-                    carregaComboMarcaTela(dgvProduto.CurrentRow.Cells[2].Value.ToString());
-                    carregaComboCategoriaTela(dgvProduto.CurrentRow.Cells[1].Value.ToString());
-                    ttbDescricao.Text = dgvProduto.CurrentRow.Cells[6].Value.ToString();
-                    ttbObservacao.Text = dgvProduto.CurrentRow.Cells[7].Value.ToString();
-                    mskPrecoCompra.Text = dgvProduto.CurrentRow.Cells[4].Value.ToString();
-                    mskPrecoVenda.Text = dgvProduto.CurrentRow.Cells[5].Value.ToString();
-                    mskQtdeProd.Text = dgvProduto.CurrentRow.Cells[8].Value.ToString();
+                    ttbNome.Text = dgvProduto.CurrentRow.Cells[1].Value.ToString();
+                    mskPrecoCompra.Text = dgvProduto.CurrentRow.Cells[2].Value.ToString();
+                    mskPrecoVenda.Text = dgvProduto.CurrentRow.Cells[3].Value.ToString();
+                    mskQtdeProd.Text = dgvProduto.CurrentRow.Cells[4].Value.ToString();
+                    ttbObservacao.Text = dgvProduto.CurrentRow.Cells[5].Value.ToString();
+                    carregaComboMarcaTela(dgvProduto.CurrentRow.Cells[6].Value.ToString());
+                    carregaComboCategoriaTela(dgvProduto.CurrentRow.Cells[7].Value.ToString());
 
                 }
             }
@@ -351,7 +346,7 @@ namespace HairLumos.Views
                 {
 
                     int intRetorno = _ctrlProd.gravaProduto(intCodigo,categoria , marca, 
-                        ttbNome.Text, custo, venda, ttbDescricao.Text, qtde, ttbObservacao.Text);
+                        ttbNome.Text, custo, venda, qtde, ttbObservacao.Text);
                     if (intRetorno > 0)
                     {
                         MessageBox.Show("Gravado com Sucesso!");
@@ -435,5 +430,7 @@ namespace HairLumos.Views
             btnExcluir.Enabled = true;
             selecionaProduto();
         }
+
+        
     }
 }

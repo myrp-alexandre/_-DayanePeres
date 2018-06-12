@@ -28,14 +28,14 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
                 cmd.CommandText = _sql;
                 cmd.Parameters.AddWithValue("@codparametro");
-                cmd.Parameters.AddWithValue("@param_razaosocial");
-                cmd.Parameters.AddWithValue("@param_nomefantasia");
+                cmd.Parameters.AddWithValue("@param_razao");
+                cmd.Parameters.AddWithValue("@param_fantasia");
                 cmd.Parameters.AddWithValue("@param_email");
-                cmd.Parameters.AddWithValue("@param_endereco");
+                cmd.Parameters.AddWithValue("@param_logradouro");
                 cmd.Parameters.AddWithValue("@param_complemento");
                 cmd.Parameters.AddWithValue("@param_numero");
-                cmd.Parameters.AddWithValue("@param_telefone");
-                cmd.Parameters.AddWithValue("@param_celular");
+                cmd.Parameters.AddWithValue("@param_fone");
+                cmd.Parameters.AddWithValue("@param_cel");
                 cmd.Parameters.AddWithValue("@param_logo");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
@@ -56,8 +56,8 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codparametro, param_razaosocial, param_nomefantasia, param_email, param_endereco, " +
-                                "param_complemento, param_numero, param_telefone, param_celular, param_logo " +
+            _sql = "SELECT codparametro, param_razao, param_fantasia, param_email, param_logradouro, " +
+                                "param_complemento, param_numero, param_fone, param_cel, param_logo " +
                    "FROM tbparametro";
 
 
@@ -67,14 +67,14 @@ namespace HairLumos.DAO
 
                 cmd.CommandText = _sql;
                 cmd.Parameters.AddWithValue("@codparametro");
-                cmd.Parameters.AddWithValue("@param_razaosocial");
-                cmd.Parameters.AddWithValue("@param_nomefantasia");
+                cmd.Parameters.AddWithValue("@param_razao");
+                cmd.Parameters.AddWithValue("@param_fantasia");
                 cmd.Parameters.AddWithValue("@param_email");
-                cmd.Parameters.AddWithValue("@param_endereco");
+                cmd.Parameters.AddWithValue("@param_logradouro");
                 cmd.Parameters.AddWithValue("@param_complemento");
                 cmd.Parameters.AddWithValue("@param_numero");
-                cmd.Parameters.AddWithValue("@param_telefone");
-                cmd.Parameters.AddWithValue("@param_celular");
+                cmd.Parameters.AddWithValue("@param_fone");
+                cmd.Parameters.AddWithValue("@param_cel");
                 cmd.Parameters.AddWithValue("@param_logo");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
@@ -101,27 +101,27 @@ namespace HairLumos.DAO
             {
                 if (dt.Rows.Count == 0)
                 {
-                    _sql = "INSERT INTO tbparametro(param_razaosocial, param_nomefantasia, param_email, " +
-                                    "param_endereco, param_complemento, param_numero, param_telefone, param_celular, param_logo) " +
+                    _sql = "INSERT INTO tbparametro(param_razao, param_fantasia, param_email, " +
+                                    "param_logradouro, param_complemento, param_numero, param_fone, param_cel, param_logo) " +
                         "VALUES(@razao, @fantasia, @email, @endereco, @complemento, @num, @fone, @cel, @logo)";
                 }
                 else
                 {
-                    _sql = "UPDATE public.tbparametro SET " +
-                                    "param_razaosocial = @razao, " +
-                                    "param_nomefantasia = @fantasia, " +
+                    _sql = "UPDATE  tbparametro SET " +
+                                    "param_razao = @razao, " +
+                                    "param_fantasia = @fantasia, " +
                                     "param_email = @email, " +
-                                    "param_endereco = @endereco, " +
+                                    "param_logradouro = @endereco, " +
                                     "param_complemento = @complemento, " +
                                     "param_numero = @num, " +
-                                    "param_telefone = @fone, " +
-                                    "param_celular = @cel, " +
+                                    "param_fone = @fone, " +
+                                    "param_cel = @cel, " +
                                     "param_logo = @logo " +
                         "WHERE codparametro = @cod";
                 }
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codigo", _entParam.Codigo);
+                cmd.Parameters.AddWithValue("@cod", _entParam.Codigo);
                 cmd.Parameters.AddWithValue("@razao", _entParam.Razao);
                 cmd.Parameters.AddWithValue("@fantasia", _entParam.NomeFantasia);
                 cmd.Parameters.AddWithValue("@email", _entParam.Email);
