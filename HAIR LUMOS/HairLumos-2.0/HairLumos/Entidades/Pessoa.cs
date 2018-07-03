@@ -131,6 +131,20 @@ namespace HairLumos.Entidades
             this.PessoaJuridica = pessoajuridica;
         }
 
+        public void carregaPessoaTable(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status,
+            string obs, bool fiado, string email)
+        {
+            this.Codigo = cod;
+            this.Nome = nome;
+            this.DataCadastro = dataCadastro;
+            this.TipoPessoa = tipoPes;
+            this.StatusPessoa = status;
+            this.Observacao = obs;
+            this.Fiado = fiado;
+            this.Email = email;
+            
+        }
+
     }
 
     public class Endereco

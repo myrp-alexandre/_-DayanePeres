@@ -188,7 +188,6 @@ C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\Ha
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
-C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Newtonsoft.Json.dll
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.RemoteControl.dll
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Utilities.Internal.dll
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
@@ -200,7 +199,6 @@ C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\Ha
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.GraphModel.resources.dll
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csprojAssemblyReference.cache
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.exe.config
-C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.InterfacePadrão.frmCadastro.resources
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_CategoriaProduto.resources
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_MarcaProduto.resources
 C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Produto.resources
@@ -294,3 +292,37 @@ D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLum
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.exe
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.pdb
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csprojAssemblyReference.cache
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.CoreUtility.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.Data.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Editor.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Threading.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Designer.Interfaces.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Utilities.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Imaging.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.ImageCatalog.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Validation.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.Logic.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.UI.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.UI.Wpf.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\StreamJsonRpc.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\System.Collections.Immutable.dll
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.CoreUtility.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.Data.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Editor.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Threading.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Designer.Interfaces.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Utilities.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Imaging.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.ImageCatalog.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Validation.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.Logic.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.UI.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Text.UI.Wpf.xml
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_FormaPagamento.resources
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Pacotes.resources
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Pessoa.resources
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_TipoDespesa.resources
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_TipoServico.resources
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Cadastro_Usuario.resources
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Parametro_Sistema.resources
+C:\Users\dayane.peres\Documents\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Pesquisa_Pessoa.resources

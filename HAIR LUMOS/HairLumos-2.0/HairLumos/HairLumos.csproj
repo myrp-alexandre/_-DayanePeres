@@ -95,58 +95,58 @@
     <Compile Include="Models\ProdutoModels.cs" />
     <Compile Include="Models\ServicoModel.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
-    <Compile Include="Views\Cadastro_CategoriaProduto.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_CategoriaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_CategoriaProduto.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_CategoriaProduto.Designer.cs">
       <DependentUpon>Cadastro_CategoriaProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_FormaPagamento.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_FormaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_FormaPagamento.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_FormaPagamento.Designer.cs">
       <DependentUpon>Cadastro_FormaPagamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_MarcaProduto.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_MarcaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_MarcaProduto.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_MarcaProduto.Designer.cs">
       <DependentUpon>Cadastro_MarcaProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_Pacotes.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Pacotes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_Pacotes.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Pacotes.Designer.cs">
       <DependentUpon>Cadastro_Pacotes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_Pessoa.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Pessoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_Pessoa.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Pessoa.Designer.cs">
       <DependentUpon>Cadastro_Pessoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_Produto.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Produto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_Produto.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Produto.Designer.cs">
       <DependentUpon>Cadastro_Produto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_TipoDespesa.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_TipoDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_TipoDespesa.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_TipoDespesa.Designer.cs">
       <DependentUpon>Cadastro_TipoDespesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_TipoServico.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_TipoServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_TipoServico.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_TipoServico.Designer.cs">
       <DependentUpon>Cadastro_TipoServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro_Usuario.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro_Usuario.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Cadastro_Usuario.Designer.cs">
       <DependentUpon>Cadastro_Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Menu.cs">
@@ -157,43 +157,43 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Parametro_Sistema.cs">
+    <Compile Include="Views\Funcoes Basicas\Parametro_Sistema.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Parametro_Sistema.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Parametro_Sistema.Designer.cs">
       <DependentUpon>Parametro_Sistema.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pesquisa_Pessoa.cs">
+    <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Pessoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Pesquisa_Pessoa.Designer.cs">
+    <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Pessoa.Designer.cs">
       <DependentUpon>Pesquisa_Pessoa.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Cadastro_CategoriaProduto.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_CategoriaProduto.resx">
       <DependentUpon>Cadastro_CategoriaProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_FormaPagamento.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_FormaPagamento.resx">
       <DependentUpon>Cadastro_FormaPagamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_MarcaProduto.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_MarcaProduto.resx">
       <DependentUpon>Cadastro_MarcaProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_Pacotes.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_Pacotes.resx">
       <DependentUpon>Cadastro_Pacotes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_Pessoa.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_Pessoa.resx">
       <DependentUpon>Cadastro_Pessoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_Produto.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_Produto.resx">
       <DependentUpon>Cadastro_Produto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_TipoDespesa.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_TipoDespesa.resx">
       <DependentUpon>Cadastro_TipoDespesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_TipoServico.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_TipoServico.resx">
       <DependentUpon>Cadastro_TipoServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro_Usuario.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_Usuario.resx">
       <DependentUpon>Cadastro_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Menu.resx">
@@ -208,10 +208,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Parametro_Sistema.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Parametro_Sistema.resx">
       <DependentUpon>Parametro_Sistema.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Pesquisa_Pessoa.resx">
+    <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Pessoa.resx">
       <DependentUpon>Pesquisa_Pessoa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -230,6 +230,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Funcoes Fundamentais\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,20 +51,14 @@ namespace HairLumos.Models
             bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cpf, string rg, DateTime nascimento)
         {
-            //Entidades.Pessoa _entPessoa = new Entidades.Pessoa();
+
+            Entidades.Pessoa _entPes = new Entidades.Pessoa();
+            _entPes.carregaPessoaTable(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email);
+
             Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica();
-
-            //_entPessoa.PessoaFisica.carregaPessoaFisica(cpf, rg, nascimento);
-
-
-            //_entPessoa.carregaPessoa(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email,
-            //    _entPessoa.PessoaFisica, _entPessoa.PessoaJuridica);
-
             _entFis.carregaPessoaFisica(cpf, rg, nascimento, cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado);
             return _DAOPessoa.alteraPessoaFisica(_entFis);
 
-
-            //return _DAOPessoa.GravaPessoa(_entPessoa);
         }
 
         public int excluiPessoa(int cod)
