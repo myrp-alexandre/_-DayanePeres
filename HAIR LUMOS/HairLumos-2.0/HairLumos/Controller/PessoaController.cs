@@ -44,6 +44,11 @@ namespace HairLumos.Controller
             return _MdlPes.retornaPessoa(strTexto);
         }
 
+        public DataTable retornaPessoaCod(string strCod)
+        {
+            return _MdlPes.retornaPessoaCod(strCod);
+        }
+
         public int excluiPessoaFisica(int cod)
         {
             return _MdlPes.excluiPessoa(cod);

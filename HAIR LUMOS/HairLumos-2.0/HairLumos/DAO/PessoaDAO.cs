@@ -512,14 +512,43 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable RetornaPessoaCod(int cod) //string Texto
+        public DataTable RetornaPessoaCod(string cod) //string Texto
         {
             DataTable dt = new DataTable();
 
 
             _sql = "SELECT codpessoa, pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa," +
                         "pes_obs, pes_fiado, pes_email" +
-                      " FROM tbpessoa";
+                      " FROM tbpessoa WHERE codpessoa =" + cod;
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", cod);
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaPessoaFisicaCod(string cod) //string Texto
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT codpessoa, fis_cpf, fis_rg, fis_datanascimento"+
+                            "FROM public.tbfisica;" +
+                      " FROM tbpessoa WHERE codpessoa =" + cod;
 
 
             try

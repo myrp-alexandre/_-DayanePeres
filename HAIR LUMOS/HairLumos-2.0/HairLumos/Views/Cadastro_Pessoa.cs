@@ -254,48 +254,65 @@ namespace HairLumos.Views
 
                 if (intCodPessoa == 0) { 
                     //verificar se houve alguma anormalidade no cadastro
-                    if (string.IsNullOrEmpty(strMensagem))
-                    {
 
-                        int retorno = _ctrlPessoa.gravarPessoaFisica(intCodigo, ttbNome.Text, DateTime.Now, tipoPessoa, statusPessoa,
-                            ttbObservação.Text, fiado, ttbEmail.Text, arrEndreco, arrContato, mskCPF.Text, ttbRg.Text, dtpDataNascimento.Value);
-                        if (retorno > 0)
+                    if(rbFisica.Checked == true)
+                    {
+                        if (string.IsNullOrEmpty(strMensagem))
                         {
+
+                            int retorno = _ctrlPessoa.gravarPessoaFisica(intCodigo, ttbNome.Text.Trim(), DateTime.Now, tipoPessoa, statusPessoa,
+                                ttbObservação.Text.Trim(), fiado, ttbEmail.Text.Trim(), arrEndreco, arrContato, mskCPF.Text.Trim(), ttbRg.Text.Trim(), dtpDataNascimento.Value);
+                            if (retorno > 0)
+                            {
+                                _limpaCampos();
+                                _inicializa();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro :$");
+                            }
                             _limpaCampos();
                             _inicializa();
                         }
                         else
-                        {
-                            MessageBox.Show("Erro :$");
-                        }
-                        _limpaCampos();
-                        _inicializa();
+                            MessageBox.Show(strMensagem, "Aviso!!");
                     }
                     else
-                        MessageBox.Show(strMensagem, "Aviso!!");
+                    {
+                        //pessoa juridica
+                    }
+                    
                 }
                 else
                 {
                     if (string.IsNullOrEmpty(strMensagem))
                     {
-
-                        int retorno = _ctrlPessoa.alteraPessoaFisica(intCodigo, ttbNome.Text, DateTime.Now, tipoPessoa, statusPessoa,
-                            ttbObservação.Text, fiado, ttbEmail.Text, arrEndreco, arrContato, mskCPF.Text, ttbRg.Text, dtpDataNascimento.Value);
-                        if (retorno > 0)
+                        if (rbFisica.Checked == true)
                         {
-                            MessageBox.Show("Alterou");
+
+                            int retorno = _ctrlPessoa.alteraPessoaFisica(intCodPessoa, ttbNome.Text.Trim(), DateTime.Now, tipoPessoa, statusPessoa,
+                                ttbObservação.Text.Trim(), fiado, ttbEmail.Text.Trim(), arrEndreco, arrContato, mskCPF.Text.Trim(), ttbRg.Text.Trim(), dtpDataNascimento.Value);
+                            if (retorno > 0)
+                            {
+                                MessageBox.Show("Alterou");
+                                _limpaCampos();
+                                _inicializa();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro :$");
+                            }
                             _limpaCampos();
                             _inicializa();
+                        }                        
+                        else{
+                            //pessoa juridica
                         }
-                        else
-                        {
-                            MessageBox.Show("Erro :$");
-                        }
-                        _limpaCampos();
-                        _inicializa();
                     }
                     else
+                    {
                         MessageBox.Show(strMensagem, "Aviso!!");
+                    }
                 }
 
             }
@@ -435,7 +452,7 @@ namespace HairLumos.Views
             if (objTela.intCodigoPessoa > 0)
             {
                 PessoaController _pes = new PessoaController();
-                DataTable dtRetorno = _pes.retornaPessoa(objTela.intCodigoPessoa.ToString());
+                DataTable dtRetorno = _pes.retornaPessoaCod(objTela.intCodigoPessoa.ToString());
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
                     DataRow dr = dtRetorno.Rows[0];
