@@ -40,7 +40,15 @@ namespace HairLumos.Entidades
         public Pessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado,
         string email)
         {
-            this.carregaPessoa(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email);
+            //this.carregaPessoa(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email);
+            this.Codigo = cod;
+            this.Nome = nome;
+            this.DataCadastro = dataCadastro;
+            this.TipoPessoa = tipoPes;
+            this.StatusPessoa = status;
+            this.Observacao = obs;
+            this.Fiado = fiado;
+            this.Email = email;
         }
 
         public Pessoa()
