@@ -9,32 +9,43 @@ namespace HairLumos.Entidades
     public class Pessoa
     {
         // tbPessoa
-        private int _cod;
-        private string _nome;
-        private DateTime _dataCadastro;
-        private string _tipoPessoa;
-        private bool _statusPessoa;
-        private string _obsPessoa;
-        private bool _fiado;
-        private string _email;
+        protected int _cod;
+        protected string _nome;
+        protected DateTime _dataCadastro;
+        protected string _tipoPessoa;
+        protected bool _statusPessoa;
+        protected string _obsPessoa;
+        protected bool _fiado;
+        protected string _email;
 
-        public PessoaFisica PessoaFisica { get; set; }
-        public PessoaJuridica PessoaJuridica { get; set; }
+        //public PessoaFisica PessoaFisica { get; set; }
+        //public PessoaJuridica PessoaJuridica { get; set; }
 
         private List<Endereco> _listaEndreco;
         private List<Contato> _listaContato;
 
         private string _erro;
 
-        public Pessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado, 
-            string email, PessoaFisica pessoafisica, PessoaJuridica pessoajuridica)
+        //public Pessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado, 
+        //    string email, PessoaFisica pessoafisica, PessoaJuridica pessoajuridica)
+        //{
+        //    this.carregaPessoa(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email, pessoafisica, pessoajuridica);
+        //}
+
+        //public Pessoa()
+        //{
+        //    this.carregaPessoa(0, string.Empty, DateTime.Now, string.Empty, false, string.Empty, false, string.Empty, null, null);
+        //}
+
+        public Pessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado,
+        string email)
         {
-            this.carregaPessoa(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email, pessoafisica, pessoajuridica);
+            this.carregaPessoa(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email);
         }
 
         public Pessoa()
         {
-            this.carregaPessoa(0, string.Empty, DateTime.Now, string.Empty, false, string.Empty, false, string.Empty, null, null);
+            this.carregaPessoa(0, string.Empty, DateTime.Now, string.Empty, false, string.Empty, false, string.Empty);
         }
 
         public string Erro
@@ -117,7 +128,7 @@ namespace HairLumos.Entidades
 
 
         public void carregaPessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status,
-            string obs, bool fiado, string email, PessoaFisica pessoaFisica, PessoaJuridica pessoajuridica)
+            string obs, bool fiado, string email)//, PessoaFisica pessoaFisica, PessoaJuridica pessoajuridica)
         {
             this.Codigo = cod;
             this.Nome = nome;
@@ -127,8 +138,8 @@ namespace HairLumos.Entidades
             this.Observacao = obs;
             this.Fiado = fiado;
             this.Email = email;
-            this.PessoaFisica = pessoaFisica;
-            this.PessoaJuridica = pessoajuridica;
+            //this.PessoaFisica = pessoaFisica;
+            //this.PessoaJuridica = pessoajuridica;
         }
 
         public void carregaPessoaTable(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status,

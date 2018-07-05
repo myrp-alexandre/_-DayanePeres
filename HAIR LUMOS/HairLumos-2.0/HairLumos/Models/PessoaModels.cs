@@ -17,7 +17,7 @@ namespace HairLumos.Models
             string cpf, string rg, DateTime nascimento)
         {
             //Entidades.Pessoa _entPessoa = new Entidades.Pessoa();
-            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica();
+            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email,);
 
             //_entPessoa.PessoaFisica.carregaPessoaFisica(cpf, rg, nascimento);
 
@@ -25,7 +25,7 @@ namespace HairLumos.Models
             //_entPessoa.carregaPessoa(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email,
             //    _entPessoa.PessoaFisica, _entPessoa.PessoaJuridica);
 
-            _entFis.carregaPessoaFisica(cpf, rg, nascimento, cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado);
+            //_entFis(); //, cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado);
             return _DAOPessoa.GravaPessoa(_entFis);
 
                 
