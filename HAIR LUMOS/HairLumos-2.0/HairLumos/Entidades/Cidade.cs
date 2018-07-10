@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HairLumos.Entidades
 {
-    class Cidade
+    public class Cidade
     {
         private int _codCidade;
         private string _nome;

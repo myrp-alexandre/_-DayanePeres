@@ -26,21 +26,11 @@ namespace HairLumos.Entidades
 
         private string _erro;
 
-        //public Pessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado, 
-        //    string email, PessoaFisica pessoafisica, PessoaJuridica pessoajuridica)
-        //{
-        //    this.carregaPessoa(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email, pessoafisica, pessoajuridica);
-        //}
-
-        //public Pessoa()
-        //{
-        //    this.carregaPessoa(0, string.Empty, DateTime.Now, string.Empty, false, string.Empty, false, string.Empty, null, null);
-        //}
 
         public Pessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado,
-        string email)
+        string email, List<Endereco> ListaEndereco, List<Contato> ListaContato)
         {
-            //this.carregaPessoa(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email);
+           
             this.Codigo = cod;
             this.Nome = nome;
             this.DataCadastro = dataCadastro;
@@ -49,11 +39,23 @@ namespace HairLumos.Entidades
             this.Observacao = obs;
             this.Fiado = fiado;
             this.Email = email;
+            this.ListaEndereco = ListaEndereco;
+            this.ListaContato = ListaContato;
         }
 
         public Pessoa()
         {
-            this.carregaPessoa(0, string.Empty, DateTime.Now, string.Empty, false, string.Empty, false, string.Empty);
+            this.Codigo = 0;
+            this.Nome = "";
+            this.DataCadastro = DateTime.Now;
+            this.TipoPessoa = "";
+            this.StatusPessoa = false;
+            this.Observacao = "";
+            this.Fiado = false;
+            this.Email = "";
+            this.ListaEndereco = null;
+            this.ListaContato = null;
+
         }
 
         public string Erro
@@ -109,12 +111,7 @@ namespace HairLumos.Entidades
             get { return _email; }
             set { _email = value; }
         }
-
-
-
         
-
-
         public List<Endereco> ListaEndereco
         {
             get { return _listaEndreco; }
@@ -197,24 +194,22 @@ namespace HairLumos.Entidades
 
     public class Contato
     {
+
+        public int _cod { get; set; }
+        public string _telefone { get; set; }
+        public string _tipo { get; set; }
+
         public Contato()
         {
 
         }
 
-        public Contato(string strfone, string strCel, string strEmail)
+        public Contato(string strfone, string strTipo)
         {
             _cod = 0;
             _telefone = strfone;
-            _celular = strCel;
-            _email = strEmail;
-            
-        }
+            _tipo = strTipo;
 
-        public int _cod { get; set; }
-        public string _telefone { get; set; }
-        public string _celular { get; set; }
-        public string _email { get; set; }
-        
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace HairLumos.Views
     {
         List<Endereco> arrEndreco = null;
         List<Contato> arrContato = null;
+       
 
         int intCodPessoa = 0;
         string tipoContato = "";
@@ -30,6 +31,8 @@ namespace HairLumos.Views
             
             _inicializa();
             _limpaCampos();
+
+            carregaEstado();
         }
 
        
@@ -44,6 +47,7 @@ namespace HairLumos.Views
             mskCNPJ.Enabled = false;
             dtpDataNascimento.Enabled = false;
             ttbEmail.Enabled = false;
+
 
             rbAtivo.Enabled = false;
             rbInativo.Enabled = false;
@@ -64,8 +68,40 @@ namespace HairLumos.Views
 
             //pesquisaMarca();
             _limpaCampos();
-            
 
+            PessoaController _ctrlPessoa = new PessoaController();
+
+            carregaEstado();
+        }
+
+        private void carregaEstado()
+        {
+            DataTable dtEstado = new DataTable();
+            Controller.PessoaController objPessoa= new PessoaController();
+
+             dtEstado = objPessoa.retornaEstado();
+
+            if (dtEstado != null && dtEstado.Rows.Count > 0)
+            {
+                this.cbbEstado.ValueMember = "coduf";
+                this.cbbEstado.DisplayMember = "uf";
+                this.cbbEstado.DataSource = dtEstado;
+            }
+        }
+
+        private void carregaCidade(int cod)
+        {
+            DataTable dtCidade = new DataTable();
+            Controller.PessoaController objPessoa = new PessoaController();
+
+            dtCidade = objPessoa.retornaCidade(cod);
+
+            if (dtCidade != null && dtCidade.Rows.Count > 0)
+            {
+                this.cbbCidade.ValueMember = "codcidade";
+                this.cbbCidade.DisplayMember = "nome";
+                this.cbbCidade.DataSource = dtCidade;
+            }
         }
 
         public void _limpaCampos()
@@ -101,6 +137,8 @@ namespace HairLumos.Views
 
             rbFisica.Enabled = true;
             rbFisica.Checked = true;
+            ttbRazao.Enabled = false;
+            mskCNPJ.Enabled = false;
             rbJuridica.Enabled = true;
 
             dgvEndereco.Enabled = true;
@@ -180,8 +218,10 @@ namespace HairLumos.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            _inicializa();
             _limpaCampos();
-            
+            arrContato = new List<Contato>();
+            arrEndreco = new List<Endereco>();
         }
 
         private void Cadastro_Pessoa_Load(object sender, EventArgs e)
@@ -250,7 +290,7 @@ namespace HairLumos.Views
 
 
                 if (string.IsNullOrWhiteSpace(ttbNome.Text))
-                    strMensagem += $"Informe a categoria do Produto.";
+                    strMensagem += $"Informe o nome.";
 
                 if (intCodPessoa == 0) { 
                     //verificar se houve alguma anormalidade no cadastro
@@ -269,7 +309,7 @@ namespace HairLumos.Views
                             }
                             else
                             {
-                                MessageBox.Show("Erro :$");
+                                MessageBox.Show("Erro :");
                             }
                             _limpaCampos();
                             _inicializa();
@@ -279,7 +319,25 @@ namespace HairLumos.Views
                     }
                     else
                     {
-                        //pessoa juridica
+                        if (string.IsNullOrEmpty(strMensagem))
+                        {
+
+                            int retorno = _ctrlPessoa.gravarPessoaJuridica(intCodigo, ttbNome.Text.Trim(), DateTime.Now, tipoPessoa, statusPessoa,
+                                ttbObservação.Text.Trim(), fiado, ttbEmail.Text.Trim(), arrEndreco, arrContato, mskCNPJ.Text.Trim(), ttbRazao.Text.Trim(), ttbNome.Text.Trim());
+                            if (retorno > 0)
+                            {
+                                _limpaCampos();
+                                _inicializa();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro :");
+                            }
+                            _limpaCampos();
+                            _inicializa();
+                        }
+                        else
+                            MessageBox.Show(strMensagem, "Aviso!!");
                     }
                     
                 }
@@ -305,8 +363,22 @@ namespace HairLumos.Views
                             _limpaCampos();
                             _inicializa();
                         }                        
-                        else{
-                            //pessoa juridica
+                        else
+                        {
+                            int retorno = _ctrlPessoa.alteraPessoaJuridica(intCodPessoa, ttbNome.Text.Trim(), DateTime.Now, tipoPessoa, statusPessoa,
+                                ttbObservação.Text.Trim(), fiado, ttbEmail.Text.Trim(), arrEndreco, arrContato, mskCNPJ.Text.Trim(), ttbRazao.Text.Trim(), ttbNome.Text.Trim());
+                            if (retorno > 0)
+                            {
+                                MessageBox.Show("Alterou");
+                                _limpaCampos();
+                                _inicializa();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro :");
+                            }
+                            _limpaCampos();
+                            _inicializa();
                         }
                     }
                     else
@@ -327,37 +399,59 @@ namespace HairLumos.Views
             //Valida se as informaçoes foram digitadas
             
             Endereco obj = new Endereco();
+            obj._cep = maskedTextBox1.Text.Trim();
             obj._logradouro = ttbLogradouro.Text.Trim();
             obj._numero = ttbNumero.Text.Trim();
             obj._bairro = ttbBairro.Text.Trim();
             obj._complemento = ttbComplemento.Text.Trim();
+            obj._codCidade = Convert.ToInt32(cbbCidade.SelectedValue.ToString());
+            obj._codUf = Convert.ToInt32(cbbEstado.SelectedValue.ToString());
             //obj._codUf = cbb
 
             this.arrEndreco.Add(obj);
             dgvEndereco.DataSource = arrEndreco;
             dgvEndereco.ClearSelection();
+
+            limpaEndereco();
+        }
+
+        public void limpaEndereco()
+        {
+            ttbLogradouro.Clear();
+            ttbNumero.Clear();
+            ttbBairro.Clear();
+            ttbComplemento.Clear();
+            maskedTextBox1.Clear();
         }
 
         private void btnSalvarContato_Click(object sender, EventArgs e)
         {
-            Entidades.Contato obj = new Entidades.Contato();
+            Contato obj = new Contato();
             obj._telefone = mskTelefone.Text.Trim();
             
             if(rbTelefone.Checked == true)
             {
-                tipoContato = "TELEFONE";
+                obj._tipo = "TELEFONE";
             }
             if (rbCelular.Checked == true)
             {
-                tipoContato = "CELULAR";
+                obj._tipo = "CELULAR";
             }
             if (rbComercial.Checked == true)
             {
-                tipoContato = "COMERCIAL";
+                obj._tipo = "COMERCIAL";
             }
             this.arrContato.Add(obj);
             dgvContato.DataSource = arrContato;
             dgvContato.ClearSelection();
+
+            limpaComtato();
+        }
+
+        public void limpaComtato()
+        {
+            rbTelefone.Checked = true;
+            mskTelefone.Clear();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -464,11 +558,20 @@ namespace HairLumos.Views
                         dr["pes_obs"].ToString(), 
                         Boolean.Parse(dr["pes_fiado"].ToString()), 
                         dr["pes_email"].ToString());
-
-
                 }
             }
         }
-   
+
+        private void cbbEstado_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int cid = 0;
+
+            if(cbbEstado.SelectedIndex != -1)
+            {
+                cid = Convert.ToInt32(cbbEstado.SelectedValue.ToString());
+                carregaCidade(cid);
+            }
+            
+        }
     }
 }

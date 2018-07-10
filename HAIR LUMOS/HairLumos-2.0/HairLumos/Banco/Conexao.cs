@@ -119,7 +119,7 @@ namespace HairLumos.Banco
 
                     return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     return false;
                     //Tratamento de erro em camadas

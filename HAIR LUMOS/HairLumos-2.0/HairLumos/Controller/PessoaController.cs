@@ -21,14 +21,14 @@ namespace HairLumos.Controller
 
         }
 
-        //public int gravarPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
-        //    bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
-        //    string cnpj, string razao, string fantasia)
-        //{
-        //    return _MdlPes.gravaPessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
-        //        fiado, email, Listendereco, Listcontato,cnpj, razao, fantasia);
+        public int gravarPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
+            bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+            string cnpj, string razao, string fantasia)
+        {
+            return _MdlPes.gravaPessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
+                fiado, email, Listendereco, Listcontato, cnpj, razao, fantasia);
 
-        //}
+        }
 
         public int alteraPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
             bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
@@ -36,6 +36,15 @@ namespace HairLumos.Controller
         {
             return _MdlPes.alteraPessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
                 fiado, email, Listendereco, Listcontato, cpf, rg, nascimento);
+
+        }
+
+        public int alteraPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
+            bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+            string cnpj, string razao, string fantasia)
+        {
+            return _MdlPes.alteraPessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
+                fiado, email, Listendereco, Listcontato, cnpj, razao, fantasia);
 
         }
 
@@ -49,7 +58,23 @@ namespace HairLumos.Controller
             return _MdlPes.retornaPessoaCod(strCod);
         }
 
+        public DataTable retornaEstado()
+        {
+            return _MdlPes.retornaEstado();
+        }
+
+        public DataTable retornaCidade(int cod)
+        {
+            return _MdlPes.retornaCidade(cod);
+        }
+
         public int excluiPessoaFisica(int cod)
+        {
+            return _MdlPes.excluiPessoa(cod);
+
+        }
+
+        public int excluiPessoaJuridica(int cod)
         {
             return _MdlPes.excluiPessoa(cod);
 

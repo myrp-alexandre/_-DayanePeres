@@ -71,8 +71,6 @@
             this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contato = new System.Windows.Forms.TabPage();
             this.dgvContato = new System.Windows.Forms.DataGridView();
-            this.cont_telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cont_tipofone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContato = new System.Windows.Forms.Panel();
             this.rbComercial = new System.Windows.Forms.RadioButton();
             this.rbCelular = new System.Windows.Forms.RadioButton();
@@ -100,6 +98,8 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this._telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -425,6 +425,7 @@
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(215, 21);
             this.cbbEstado.TabIndex = 5;
+            this.cbbEstado.SelectedValueChanged += new System.EventHandler(this.cbbEstado_SelectedValueChanged);
             // 
             // label13
             // 
@@ -570,29 +571,13 @@
             this.dgvContato.BackgroundColor = System.Drawing.Color.White;
             this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContato.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cont_telefone,
-            this.cont_tipofone});
+            this._telefone,
+            this._tipo});
             this.dgvContato.Location = new System.Drawing.Point(48, 6);
             this.dgvContato.Name = "dgvContato";
             this.dgvContato.ReadOnly = true;
-            this.dgvContato.Size = new System.Drawing.Size(642, 89);
+            this.dgvContato.Size = new System.Drawing.Size(284, 89);
             this.dgvContato.TabIndex = 13;
-            // 
-            // cont_telefone
-            // 
-            this.cont_telefone.DataPropertyName = "cont_telefone";
-            this.cont_telefone.HeaderText = "Telefone";
-            this.cont_telefone.Name = "cont_telefone";
-            this.cont_telefone.ReadOnly = true;
-            this.cont_telefone.Width = 120;
-            // 
-            // cont_tipofone
-            // 
-            this.cont_tipofone.DataPropertyName = "cont_tipofone";
-            this.cont_tipofone.HeaderText = "Tipo Contato";
-            this.cont_tipofone.Name = "cont_tipofone";
-            this.cont_tipofone.ReadOnly = true;
-            this.cont_tipofone.Width = 120;
             // 
             // pnlContato
             // 
@@ -605,7 +590,7 @@
             this.pnlContato.Controls.Add(this.label19);
             this.pnlContato.Location = new System.Drawing.Point(48, 101);
             this.pnlContato.Name = "pnlContato";
-            this.pnlContato.Size = new System.Drawing.Size(642, 78);
+            this.pnlContato.Size = new System.Drawing.Size(587, 78);
             this.pnlContato.TabIndex = 12;
             this.pnlContato.Visible = false;
             // 
@@ -862,6 +847,22 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // _telefone
+            // 
+            this._telefone.DataPropertyName = "_telefone";
+            this._telefone.HeaderText = "Telefone";
+            this._telefone.Name = "_telefone";
+            this._telefone.ReadOnly = true;
+            this._telefone.Width = 120;
+            // 
+            // _tipo
+            // 
+            this._tipo.DataPropertyName = "_tipo";
+            this._tipo.HeaderText = "Tipo Contato";
+            this._tipo.Name = "_tipo";
+            this._tipo.ReadOnly = true;
+            this._tipo.Width = 120;
+            // 
             // Cadastro_Pessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -965,11 +966,11 @@
         public System.Windows.Forms.TextBox ttbObservação;
         public System.Windows.Forms.Label label21;
         public System.Windows.Forms.TextBox ttbEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cont_telefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cont_tipofone;
         private System.Windows.Forms.RadioButton rbComercial;
         private System.Windows.Forms.RadioButton rbCelular;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbTelefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _tipo;
     }
 }

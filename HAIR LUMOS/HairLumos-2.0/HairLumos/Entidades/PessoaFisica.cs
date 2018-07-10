@@ -17,10 +17,9 @@ namespace HairLumos.Entidades
         
 
         public PessoaFisica(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado,
-        string email, string cpf, string rg, DateTime nascimento) : base(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email)
+        string email, List<Endereco> ListaEndereco, List<Contato> ListaContato, string cpf, string rg, DateTime nascimento) : base(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email, ListaEndereco, ListaContato)
         {
-            //this.carregaPessoaFisica(cpf, rg, nascimento);                
-            // Pessoa = new Pessoa();
+            
             this.CPF = cpf;
             this.RG = rg;
             this.Nascimento = nascimento;
@@ -35,8 +34,7 @@ namespace HairLumos.Entidades
 
         public PessoaFisica() : base()
         {
-            //this.carregaPessoaFisica(string.Empty, string.Empty, DateTime.Now);
-            //Pessoa = new Pessoa();
+            
             this.CPF = "";
             this.RG = "";
             this.Nascimento = _nascimento;
@@ -68,14 +66,6 @@ namespace HairLumos.Entidades
             set { _nascimento = value; }
         }
         
-        public void carregaPessoaFisica(string cpf, string rg, DateTime nascimento)
-            //int codP, string nome, DateTime dataCadastro, string tipoPes, bool status,
-            // obs, bool fiado)
-        {
-            this.CPF = cpf;
-            this.RG = rg;
-            this.Nascimento = nascimento;
-            
-        }
+       
     }
 }

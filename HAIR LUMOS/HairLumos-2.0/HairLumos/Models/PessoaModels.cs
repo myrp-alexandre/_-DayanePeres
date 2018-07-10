@@ -16,67 +16,51 @@ namespace HairLumos.Models
             bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cpf, string rg, DateTime nascimento)
         {
-            //Entidades.Pessoa _entPessoa = new Entidades.Pessoa();
-            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email,);
+           
+            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, cpf, rg, nascimento);
 
-            //_entPessoa.PessoaFisica.carregaPessoaFisica(cpf, rg, nascimento);
-
-
-            //_entPessoa.carregaPessoa(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email,
-            //    _entPessoa.PessoaFisica, _entPessoa.PessoaJuridica);
-
-            //_entFis(); //, cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado);
             return _DAOPessoa.GravaPessoa(_entFis);
-
-                
-            //return _DAOPessoa.GravaPessoa(_entPessoa);
+            
         }
 
-        //public int gravaPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
-        //    bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
-        //    string cnpj, string razao, string fantasia)
-        //{
-        //    Entidades.Pessoa _entPessoa = new Entidades.Pessoa();            
-        //    Entidades.PessoaJuridica _entJur = new Entidades.PessoaJuridica();
+        public int gravaPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
+            bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+            string CNPJ, string razao, string fantasia)
+        {
+            Entidades.PessoaJuridica _entJur = new Entidades.PessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, CNPJ, razao, fantasia);
 
-
-        //    _entPessoa.PessoaJuridica.carregaPessoaJuridica(cnpj, razao, fantasia);
-
-        //    _entPessoa.carregaPessoa(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email,
-        //        _entPessoa.PessoaFisica, _entPessoa.PessoaJuridica);
-
-        //}
-
+            return _DAOPessoa.GravaPessoa(_entJur);
+        }
+        
         public int alteraPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
             bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cpf, string rg, DateTime nascimento)
         {
 
-            Entidades.Pessoa _entPes = new Entidades.Pessoa();
-            _entPes.carregaPessoaTable(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email);
-
-            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica();
-            _entFis.carregaPessoaFisica(cpf, rg, nascimento, cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado);
+            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, cpf, rg, nascimento);
+           
             return _DAOPessoa.alteraPessoaFisica(_entFis);
+
+        }
+
+        public int alteraPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
+           bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+           string cnpj, string razao, string fantasia)
+        {
+
+            Entidades.PessoaJuridica _entJur = new Entidades.PessoaJuridica();
+
+            return _DAOPessoa.alteraPessoaJuridica(_entJur);
 
         }
 
         public int excluiPessoa(int cod)
         {
-            //Entidades.Pessoa _entPessoa = new Entidades.Pessoa();
+            
             Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica();
 
-            //_entPessoa.PessoaFisica.carregaPessoaFisica(cpf, rg, nascimento);
-
-
-            //_entPessoa.carregaPessoa(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email,
-            //    _entPessoa.PessoaFisica, _entPessoa.PessoaJuridica);
-
-            _entFis.carregaPessoaFisica(null, null, DateTime.Now, cod, null, DateTime.Now, null, true, null, false);
             return _DAOPessoa.deletaPessoaFisica(_entFis);
 
-
-            //return _DAOPessoa.GravaPessoa(_entPessoa);
         }
 
         public DataTable retornaPessoa(string texto)
@@ -91,6 +75,17 @@ namespace HairLumos.Models
             return _DAOPessoa.RetornaPessoaCod(cod);
         }
 
+        public DataTable retornaEstado()
+        {
+
+            return _DAOPessoa.RetornaEstado();
+        }
+
+        public DataTable retornaCidade(int codigo)
+        {
+
+            return _DAOPessoa.RetornaCidades(codigo);
+        }
 
     }
 }

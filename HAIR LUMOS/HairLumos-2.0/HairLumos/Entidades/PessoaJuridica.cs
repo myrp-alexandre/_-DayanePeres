@@ -16,21 +16,26 @@ namespace HairLumos.Entidades
 
         private string _erro;
 
-        public PessoaJuridica (string cnpj, string razao, string fantasia)//, int codP, string nome, DateTime dataCadastro,
-            //string tipoPes, bool status,string obs, bool fiado) 
+        public PessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado,
+        string email, List<Endereco> ListaEndereco, List<Contato> ListaContato, string cnpj, string razao, string fantasia) : base(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email, ListaEndereco, ListaContato)
         {
-
-            this.carregaPessoaJuridica(cnpj, razao, fantasia);
+            this.CNPJ = cnpj;
+            this.RazaoSocial = razao;
+            this.NomeFantasia = fantasia;
         }
-
-        //public PessoaJuridica(string cnpj, string razao, string fantasia)
-        //{
-        //    this.carregaPessoaJuridica(cnpj, razao, fantasia);
-        //}
-
+        
         public PessoaJuridica()
         {
-            this.carregaPessoaJuridica(string.Empty, string.Empty, string.Empty);
+            this.CNPJ = "";
+            this.RazaoSocial = "";
+            this.NomeFantasia = "";
+        }
+
+        private Pessoa pessoa;
+        public Pessoa Pessoa
+        {
+            get { return pessoa; }
+            set { pessoa = value; }
         }
 
         public string Erro
@@ -38,12 +43,7 @@ namespace HairLumos.Entidades
             get { return _erro; }
             set { _erro = value; }
         }
-
-        //public Pessoa Pessoa
-        //{
-        //    get { return _Pessoa; }
-        //    set { _Pessoa = value; }
-        //}
+        
         public string CNPJ
         {
             get { return _cnpj; }
@@ -62,19 +62,6 @@ namespace HairLumos.Entidades
             set { _fantasia = value; }
         }
 
-        //public string InscricaoEstadual
-        //{
-        //    get { return _inscricaoEstadual; }
-        //    set { _inscricaoEstadual = value; }
-        //}
-
-        public void carregaPessoaJuridica(string cnpj, string razao, string fantasia)
-        {
-            //this.Pessoa = pes;
-            this.CNPJ = cnpj;
-            this.RazaoSocial = razao;
-            this.NomeFantasia = fantasia;
-            
-        }
+       
     }
 }

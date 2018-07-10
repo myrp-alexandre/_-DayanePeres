@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HairLumos.Entidades
 {
-    class Estado
+    public class Estado
     {
         private int _codUf;
         private string _uf;
@@ -53,6 +53,11 @@ namespace HairLumos.Entidades
             this.CodigoUF = cod;
             this.UF = uf;
             this.NomeEstado = nome;
+        }
+
+        public string toString()
+        {
+            return NomeEstado;
         }
     }
 }
