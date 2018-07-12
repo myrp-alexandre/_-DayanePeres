@@ -724,7 +724,7 @@ namespace HairLumos.DAO
             return intRetorno;
         }
 
-        public DataTable RetornaPessoa(string texto) //string Texto
+        public DataTable RetornaPessoa(string texto) 
         {
             DataTable dt = new DataTable();
 
@@ -756,7 +756,7 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable RetornaPessoaCod(string cod) //string Texto
+        public DataTable RetornaPessoaCod(int cod) //string Texto
         {
             DataTable dt = new DataTable();
 
@@ -791,8 +791,37 @@ namespace HairLumos.DAO
 
 
             _sql = "SELECT codpessoa, fis_cpf, fis_rg, fis_datanascimento"+
-                            "FROM public.tbfisica;" +
+                            "FROM tbfisica;" +
                       " FROM tbpessoa WHERE codpessoa =" + cod;
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", cod);
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaPessoaJuridicaCod(int cod) //string Texto
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT codpessoa, jur_cnpj, jur_razaosocial, jur_fantasia" +
+                            "FROM tbjuridica;" +
+                      " FROM tbjuridica WHERE codpessoa =" + cod;
 
 
             try

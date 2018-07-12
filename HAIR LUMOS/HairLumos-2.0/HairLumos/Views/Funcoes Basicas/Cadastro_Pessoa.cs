@@ -536,8 +536,22 @@ namespace HairLumos.Views
             ttbEmail.Text = email;
         }
 
+        public void preenchePessoaFisica(string cpf, string rg, DateTime nascimento)
+        {
+            mskCPF.Text = cpf;
+            ttbRg.Text = rg;
+
+        }
+
+        public void preenchePessoaJuridica()
+        {
+
+        }
+
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            int codPessoa = 0;
+            string tipoPes = "";
             _btnAlterar();
             this.PreencheTela("", "", DateTime.Now, "", true, "", true, "");
             Pesquisa_Pessoa objTela = new Pesquisa_Pessoa();
@@ -549,7 +563,20 @@ namespace HairLumos.Views
                 DataTable dtRetorno = _pes.retornaPessoaCod(objTela.intCodigoPessoa.ToString());
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
+                    
                     DataRow dr = dtRetorno.Rows[0];
+                    codPessoa = Convert.ToInt32(dr["codpessoa"].ToString());
+                    tipoPes = dr["pes_tipopessoa"].ToString();
+
+                    if (tipoPes.Equals("FISICA"))
+                    {
+                        DataTable dtPesFisica = _pes.retornaPessoaFisicaCod(codPessoa);
+                    }
+                    if (tipoPes.Equals("JURIDICA"))
+                    {
+                        DataTable dtPesFisica = _pes.retornaPessoaJuridicaCod(codPessoa);
+                    }
+
                     this.PreencheTela(dr["codpessoa"].ToString(), 
                         dr["pes_nome"].ToString(), 
                         DateTime.Parse(dr["pes_datacadastro"].ToString()), 

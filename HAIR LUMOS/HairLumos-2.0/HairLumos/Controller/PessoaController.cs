@@ -12,8 +12,7 @@ namespace HairLumos.Controller
         private Models.PessoaModels _MdlPes = new Models.PessoaModels();
 
 
-        public int gravarPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
-            bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+        public int gravarPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cpf, string rg, DateTime nascimento)
         {
             return _MdlPes.gravaPessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
@@ -21,8 +20,7 @@ namespace HairLumos.Controller
 
         }
 
-        public int gravarPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
-            bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+        public int gravarPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cnpj, string razao, string fantasia)
         {
             return _MdlPes.gravaPessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
@@ -30,8 +28,7 @@ namespace HairLumos.Controller
 
         }
 
-        public int alteraPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
-            bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+        public int alteraPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cpf, string rg, DateTime nascimento)
         {
             return _MdlPes.alteraPessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
@@ -39,8 +36,7 @@ namespace HairLumos.Controller
 
         }
 
-        public int alteraPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs,
-            bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+        public int alteraPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cnpj, string razao, string fantasia)
         {
             return _MdlPes.alteraPessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs,
@@ -56,6 +52,16 @@ namespace HairLumos.Controller
         public DataTable retornaPessoaCod(string strCod)
         {
             return _MdlPes.retornaPessoaCod(strCod);
+        }
+
+        public DataTable retornaPessoaFisicaCod(int strCod)
+        {
+            return _MdlPes.retornaPessoaFisica(strCod);
+        }
+
+        public DataTable retornaPessoaJuridicaCod(int strCod)
+        {
+            return _MdlPes.retornaPessoaFisica(strCod);
         }
 
         public DataTable retornaEstado()
