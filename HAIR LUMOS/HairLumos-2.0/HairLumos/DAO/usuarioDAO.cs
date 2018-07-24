@@ -23,29 +23,29 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpessoa, pes_nome, pes_tipopessoa, pes_statuspessoa" +
-                        " FROM tbpessoa" +
-                        "WHERE pes_statuspessoa = "+ true;
+            _sql = "SELECT codusuario, codpessoa, usu_usuario, usu_senha, usu_nivel" +
+                        " FROM tbusuario";
 
             int intCodigo = 0;
             
             int.TryParse(texto, out intCodigo);
 
             if (intCodigo > 0)
-                _sql += $"OR codpessoa = @codigo ";
+                _sql += $"OR codusuario = @codusuario ";
 
-            _sql += $"OR UPPER (pes_nome) LIKE @produto";
+            //_sql += $"OR UPPER (pes_nome) LIKE @pes_nome";
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codusuario");
                 cmd.Parameters.AddWithValue("@codpessoa");
-                cmd.Parameters.AddWithValue("@pes_nome");
-                cmd.Parameters.AddWithValue("@pes_tipopessoa");
-                cmd.Parameters.AddWithValue("@pes_statuspessoa");
-                
+                cmd.Parameters.AddWithValue("@usu_usuario");
+                cmd.Parameters.AddWithValue("@usu_senha");
+                cmd.Parameters.AddWithValue("@usu_nivel");
+
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -54,7 +54,7 @@ namespace HairLumos.DAO
             catch (Exception e)
             {
 
-                throw new SystemException(e + "Erro ao retronar Despesa");
+                throw new SystemException(e + "Erro ao retornar Usuário");
             }
             return dt;
         }
@@ -82,56 +82,34 @@ namespace HairLumos.DAO
 
         public int GravaUsuario(Usuario objPessoa)
         {
-            int intRetorno = 0;
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
-            string strSQL = "";
-            Conexao objConexao = null;
+            //int _controle = 0;
             try
             {
-
-                objConexao = new Conexao();
-
-
-
-                strSQL = "INSERT INTO tbusuario( codpessoa, usu_usuario, usu_senha, usu_nivel)";
-                strSQL += " VALUES(@codPessoa, @usuario, @senha, @nivel)";
-
-
-                objConexao.SqlCmd.CommandText = strSQL;
-                objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", objPessoa.PessoaCod);
-                objConexao.SqlCmd.Parameters.AddWithValue("@usuario", objPessoa.Login);
-                objConexao.SqlCmd.Parameters.AddWithValue("@senha", objPessoa.Senha);
-                objConexao.SqlCmd.Parameters.AddWithValue("@nivel", objPessoa.Nivel);
-
-
-
-                objConexao.iniciarTransacao();
-                objConexao.AutoConexao = false;
-
-                int cod = (int)objConexao.executarScalar();
-                //int cod = 0;
-                //objConexao.executarComando();
-                if (cod <= 0)
+                if (objPessoa.UsuarioCodigo == 0)
                 {
-                    return -1;
+
+                    _sql = "INSERT INTO tbusuario( codpessoa, usu_usuario, usu_senha, usu_nivel)" +
+                      " VALUES(@codPessoa, @usuario, @senha, @nivel)";
+
+
+                    cmd.CommandText = _sql;
+                    cmd.Parameters.AddWithValue("@codPessoa", objPessoa.PessoaCod);
+                    cmd.Parameters.AddWithValue("@usuario", objPessoa.Login);
+                    cmd.Parameters.AddWithValue("@senha", objPessoa.Senha);
+                    cmd.Parameters.AddWithValue("@nivel", objPessoa.Nivel);
+
+                    cmd.ExecuteNonQuery();
+
+                    return 1;
                 }
-
-                objConexao.commitTransacao();
-                return 1;
-
-
             }
-            catch (Exception e)
+            catch (Exception E)
             {
-                objConexao?.rollbackTransacao();
+                return 0;
             }
-            finally
-            {
-                objConexao?.fecharConexao();
-            }
-
-            return intRetorno;
-
+            return 0;
         }
     }
 }

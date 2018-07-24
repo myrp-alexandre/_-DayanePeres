@@ -86,7 +86,7 @@ namespace HairLumos.Views
 
         public void _btnNovo()
         {
-            ttbCodigo.Text = "0";
+            //ttbCodigo.Text = "0";
             ttbCodigo.Enabled = false;
             ttbPessoa.Enabled = true;
             ttbLogin.Enabled = true;
@@ -189,6 +189,7 @@ namespace HairLumos.Views
                         {
                             _limpaCampos();
                             _inicializa();
+                            MessageBox.Show("Usuário gravado com sucesso :");
                         }
                         else
                         {
@@ -238,6 +239,50 @@ namespace HairLumos.Views
                 else
                 {
                     MessageBox.Show("cancela ?");
+                }
+            }
+        }
+
+        public void preencheUsuário(int cod, string login, string senha, int nivel)
+        {
+            ttbCodigo.Text = Convert.ToString(cod);
+            ttbLogin.Text = login;
+            mskSenha.Text = senha;
+            mskConfirmaSenha.Text = mskSenha.Text;
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            int intcodUser = 0;
+            _btnAlterar();
+            this.preencheUsuário(0, "", "", 0);
+            Views.Funcoes_Basicas.Pesquisas.Pesquisa_Usuario pesquisa_Usuario = new Funcoes_Basicas.Pesquisas.Pesquisa_Usuario();
+
+            pesquisa_Usuario.ShowDialog();
+            if (pesquisa_Usuario.intCodigoPessoa > 0)
+            {
+                Controller.UsuarioController usuarioController = new Controller.UsuarioController();
+                Controller.PessoaController pessoaController = new Controller.PessoaController();
+                DataTable dtRetorno = usuarioController.retornaPessoa(pesquisa_Usuario.intCodigoPessoa.ToString());
+
+                if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+                {
+                    DataRow dr = dtRetorno.Rows[0];
+                    string  codPessoa = dr["codpessoa"].ToString();
+                    DataTable dtPessoa = pessoaController.retornaPessoaCod(codPessoa);
+
+                    if(dtPessoa != null && dtPessoa.Rows.Count > 0)
+                    {
+                        DataRow drPes = dtPessoa.Rows[0];
+                        ttbPessoa.Text = drPes["pes_nome"].ToString();
+                    }
+
+                    this.preencheUsuário(
+                        int.Parse(dr["codusuario"].ToString()),
+                        dr["usu_usuario"].ToString(),
+                        dr["usu_senha"].ToString(),
+                        int.Parse(dr["usu_nivel"].ToString()));
+
                 }
             }
         }
