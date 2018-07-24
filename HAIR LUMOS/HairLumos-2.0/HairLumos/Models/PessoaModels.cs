@@ -52,7 +52,7 @@ namespace HairLumos.Models
 
         public int excluiPessoa(int cod)
         {
-            
+
             Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica();
 
             return _DAOPessoa.deletaPessoaFisica(_entFis);

@@ -16,7 +16,7 @@ namespace HairLumos.Views
     {
         List<Endereco> arrEndreco = null;
         List<Contato> arrContato = null;
-       
+
 
         int intCodPessoa = 0;
         string tipoContato = "";
@@ -28,14 +28,14 @@ namespace HairLumos.Views
             this.arrContato = new List<Contato>();
             dgvEndereco.AutoGenerateColumns = false;
             dgvContato.AutoGenerateColumns = false;
-            
+
             _inicializa();
             _limpaCampos();
 
             carregaEstado();
         }
 
-       
+
         public void _inicializa()
         {
             // ttb
@@ -77,9 +77,9 @@ namespace HairLumos.Views
         private void carregaEstado()
         {
             DataTable dtEstado = new DataTable();
-            Controller.PessoaController objPessoa= new PessoaController();
+            Controller.PessoaController objPessoa = new PessoaController();
 
-             dtEstado = objPessoa.retornaEstado();
+            dtEstado = objPessoa.retornaEstado();
 
             if (dtEstado != null && dtEstado.Rows.Count > 0)
             {
@@ -198,8 +198,8 @@ namespace HairLumos.Views
             {
                 if (MessageBox.Show("Confirma exclusão da Pessoa?", "Pessoa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    int blnExcluiu = _ctrlPessoa.excluiPessoaFisica(intCod); 
-                    if (intCod>0)
+                    int blnExcluiu = _ctrlPessoa.excluiPessoaFisica(intCod);
+                    if (intCod > 0)
                     {
                         MessageBox.Show("Pessoa Excluída");
                         _limpaCampos();
@@ -226,16 +226,16 @@ namespace HairLumos.Views
 
         private void Cadastro_Pessoa_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnIncluirEndereco_Click(object sender, EventArgs e)
         {
             pnlEndereco.Visible = true;
-   
-            
+
+
         }
-        
+
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
@@ -259,7 +259,7 @@ namespace HairLumos.Views
                 Int32.TryParse(ttbCodigo.Text, out intCodPessoa);
                 string tipoPessoa = "";
 
-                if(rbFisica.Checked == true)
+                if (rbFisica.Checked == true)
                 {
                     tipoPessoa = "FISICA";
                 }
@@ -269,7 +269,7 @@ namespace HairLumos.Views
                 }
 
                 bool statusPessoa = false;
-                if(rbAtivo.Checked == true)
+                if (rbAtivo.Checked == true)
                 {
                     statusPessoa = true;
                 }
@@ -279,7 +279,7 @@ namespace HairLumos.Views
                 }
 
                 bool fiado = false;
-                if(rbPagaSim.Checked == true)
+                if (rbPagaSim.Checked == true)
                 {
                     fiado = true;
                 }
@@ -292,10 +292,11 @@ namespace HairLumos.Views
                 if (string.IsNullOrWhiteSpace(ttbNome.Text))
                     strMensagem += $"Informe o nome.";
 
-                if (intCodPessoa == 0) { 
+                if (intCodPessoa == 0)
+                {
                     //verificar se houve alguma anormalidade no cadastro
 
-                    if(rbFisica.Checked == true)
+                    if (rbFisica.Checked == true)
                     {
                         if (string.IsNullOrEmpty(strMensagem))
                         {
@@ -339,7 +340,7 @@ namespace HairLumos.Views
                         else
                             MessageBox.Show(strMensagem, "Aviso!!");
                     }
-                    
+
                 }
                 else
                 {
@@ -362,7 +363,7 @@ namespace HairLumos.Views
                             }
                             _limpaCampos();
                             _inicializa();
-                        }                        
+                        }
                         else
                         {
                             int retorno = _ctrlPessoa.alteraPessoaJuridica(intCodPessoa, ttbNome.Text.Trim(), DateTime.Now, tipoPessoa, statusPessoa,
@@ -397,7 +398,7 @@ namespace HairLumos.Views
         private void btnSalvarEndereco_Click(object sender, EventArgs e)
         {
             //Valida se as informaçoes foram digitadas
-            
+
             Endereco obj = new Endereco();
             obj._cep = maskedTextBox1.Text.Trim();
             obj._logradouro = ttbLogradouro.Text.Trim();
@@ -428,8 +429,8 @@ namespace HairLumos.Views
         {
             Contato obj = new Contato();
             obj._telefone = mskTelefone.Text.Trim();
-            
-            if(rbTelefone.Checked == true)
+
+            if (rbTelefone.Checked == true)
             {
                 obj._tipo = "TELEFONE";
             }
@@ -499,7 +500,7 @@ namespace HairLumos.Views
             _btnAlterar();
         }
 
-        public void PreencheTela(string cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, 
+        public void PreencheTela(string cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa,
             string obs, bool fiado, string email)
         {
             ttbCodigo.Text = cod;
@@ -524,7 +525,7 @@ namespace HairLumos.Views
                 rbInativo.Checked = true;
             }
 
-            if(fiado == true)
+            if (fiado == true)
             {
                 rbPagaSim.Checked = true;
             }
@@ -536,16 +537,18 @@ namespace HairLumos.Views
             ttbEmail.Text = email;
         }
 
-        public void preenchePessoaFisica(string cpf, string rg, DateTime nascimento)
+        public void preenchePessoaFisica(int cod, string cpf, string rg, DateTime nascimento)
         {
             mskCPF.Text = cpf;
             ttbRg.Text = rg;
-
+            dtpDataNascimento.Value = nascimento;
         }
 
-        public void preenchePessoaJuridica()
+        public void preenchePessoaJuridica(int cod, string cnpj, string razao, string fantasia)
         {
-
+            mskCNPJ.Text = cnpj;
+            ttbNome.Text = fantasia;
+            ttbRazao.Text = razao;
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -563,27 +566,51 @@ namespace HairLumos.Views
                 DataTable dtRetorno = _pes.retornaPessoaCod(objTela.intCodigoPessoa.ToString());
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
-                    
+
                     DataRow dr = dtRetorno.Rows[0];
                     codPessoa = Convert.ToInt32(dr["codpessoa"].ToString());
                     tipoPes = dr["pes_tipopessoa"].ToString();
 
+                    _pes = new PessoaController();
+
                     if (tipoPes.Equals("FISICA"))
                     {
                         DataTable dtPesFisica = _pes.retornaPessoaFisicaCod(codPessoa);
+
+                        if (dtPesFisica != null && dtPesFisica.Rows.Count > 0)
+                        {
+                            DataRow drPesFis = dtPesFisica.Rows[0];
+                            this.preenchePessoaFisica
+                          (int.Parse(drPesFis["codpessoa"].ToString()),
+                           drPesFis["fis_cpf"].ToString(),
+                           drPesFis["fis_rg"].ToString(),
+                           DateTime.Parse(drPesFis["fis_datanascimento"].ToString()));
+                        }
+
                     }
                     if (tipoPes.Equals("JURIDICA"))
                     {
-                        DataTable dtPesFisica = _pes.retornaPessoaJuridicaCod(codPessoa);
+                        DataTable dtPesJuridica = _pes.retornaPessoaJuridicaCod(codPessoa);
+
+                        if (dtPesJuridica != null && dtPesJuridica.Rows.Count > 0)
+                        {
+                            DataRow drPesJur = dtPesJuridica.Rows[0];
+                            this.preenchePessoaJuridica
+                                (int.Parse(drPesJur["codpessoa"].ToString()),
+                                drPesJur["jur_cnpj"].ToString(),
+                               drPesJur["jur_razaosocial"].ToString(),
+                               drPesJur["jur_fantasia"].ToString());
+                        }
+
                     }
 
-                    this.PreencheTela(dr["codpessoa"].ToString(), 
-                        dr["pes_nome"].ToString(), 
-                        DateTime.Parse(dr["pes_datacadastro"].ToString()), 
-                        dr["pes_tipopessoa"].ToString(), 
+                    this.PreencheTela(dr["codpessoa"].ToString(),
+                        dr["pes_nome"].ToString(),
+                        DateTime.Parse(dr["pes_datacadastro"].ToString()),
+                        dr["pes_tipopessoa"].ToString(),
                         Boolean.Parse(dr["pes_statuspessoa"].ToString()),
-                        dr["pes_obs"].ToString(), 
-                        Boolean.Parse(dr["pes_fiado"].ToString()), 
+                        dr["pes_obs"].ToString(),
+                        Boolean.Parse(dr["pes_fiado"].ToString()),
                         dr["pes_email"].ToString());
                 }
             }
@@ -593,12 +620,12 @@ namespace HairLumos.Views
         {
             int cid = 0;
 
-            if(cbbEstado.SelectedIndex != -1)
+            if (cbbEstado.SelectedIndex != -1)
             {
                 cid = Convert.ToInt32(cbbEstado.SelectedValue.ToString());
                 carregaCidade(cid);
             }
-            
+
         }
     }
 }

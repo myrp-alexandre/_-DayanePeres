@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 
 namespace HairLumos.Entidades
 {
-    class Usuario
+    public class Usuario
     {
         private int _codUsu;
-        private Pessoa _pessoa;
+        //private Pessoa _pessoa;
+        private int _pessoa;
         private string _login;
         private string _senha;
         private int _nivel;
 
         private string _erro;
 
-        public Usuario(int codUsu, Pessoa pessoa, string login, string senha, int nivel)
+        public Usuario(int codUsu, int pessoa, string login, string senha, int nivel)
         {
             carregaUsuario(codUsu, pessoa, login, senha, nivel);
         }
 
         public Usuario()
         {
-            carregaUsuario(0, null, string.Empty, string.Empty, 0);
+            carregaUsuario(0, 0, string.Empty, string.Empty, 0);
         }
 
         public int UsuarioCodigo
@@ -32,7 +33,7 @@ namespace HairLumos.Entidades
             set { _codUsu = value; }
         }
 
-        public Pessoa PessoaCod
+        public int PessoaCod
         {
             get { return _pessoa; }
             set { _pessoa = value; }
@@ -56,7 +57,7 @@ namespace HairLumos.Entidades
             set { _nivel = value; }
         }
 
-        public void carregaUsuario(int codUsu, Pessoa pessoa, string login, string senha, int nivel)
+        public void carregaUsuario(int codUsu, int pessoa, string login, string senha, int nivel)
         {
             this.UsuarioCodigo = codUsu;
             this.PessoaCod = pessoa;

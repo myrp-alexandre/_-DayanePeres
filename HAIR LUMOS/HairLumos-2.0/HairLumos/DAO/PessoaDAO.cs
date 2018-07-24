@@ -437,7 +437,7 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.Clear();
                 objConexao.SqlCmd.CommandText = strSQL;
 
-                
+
                 objConexao.SqlCmd.Parameters.AddWithValue("@cpf", obj.CPF);
                 objConexao.SqlCmd.Parameters.AddWithValue("@rg", obj.RG);
                 objConexao.SqlCmd.Parameters.AddWithValue("@dataNascimento", obj.Nascimento);
@@ -631,7 +631,6 @@ namespace HairLumos.DAO
             return intRetorno;
         }
 
-
         public int deletaPessoaFisica(PessoaFisica obj)
         {
             int intRetorno = 0;
@@ -664,9 +663,6 @@ namespace HairLumos.DAO
 
                 if (!objConexao.executarComando())
                     return -1;
-
-
-
 
                 if (obj.ListaEndereco != null)
                 {
@@ -724,7 +720,7 @@ namespace HairLumos.DAO
             return intRetorno;
         }
 
-        public DataTable RetornaPessoa(string texto) 
+        public DataTable RetornaPessoa(string texto)
         {
             DataTable dt = new DataTable();
 
@@ -732,8 +728,8 @@ namespace HairLumos.DAO
             _sql = "SELECT codpessoa, pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa," +
                         "pes_obs, pes_fiado, pes_email" +
                       " FROM tbpessoa";
-            
-            if(texto != null && texto != "")
+
+            if (texto != null && texto != "")
                 _sql += $" WHERE UPPER(pes_nome) LIKE @pes_nome";
 
             try
@@ -741,8 +737,8 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                if (texto != null && texto!="")
-                    cmd.Parameters.AddWithValue("@pes_nome",texto.ToUpper());
+                if (texto != null && texto != "")
+                    cmd.Parameters.AddWithValue("@pes_nome", texto.ToUpper());
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -756,7 +752,7 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable RetornaPessoaCod(int cod) //string Texto
+        public DataTable RetornaPessoaCod(string cod) //string Texto
         {
             DataTable dt = new DataTable();
 
@@ -785,14 +781,13 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable RetornaPessoaFisicaCod(string cod) //string Texto
+        public DataTable RetornaPessoaFisicaCod(int cod) //string Texto
         {
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT codpessoa, fis_cpf, fis_rg, fis_datanascimento"+
-                            "FROM tbfisica;" +
-                      " FROM tbpessoa WHERE codpessoa =" + cod;
+            _sql = "SELECT codpessoa, fis_cpf, fis_rg, fis_datanascimento" +
+                            " FROM tbfisica WHERE codpessoa =" + cod;
 
 
             try
@@ -848,7 +843,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT * FROM tbcidade WHERE coduf =" + estado; 
+            _sql = "SELECT * FROM tbcidade WHERE coduf =" + estado;
 
 
             try
@@ -862,7 +857,7 @@ namespace HairLumos.DAO
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
 
-               
+
 
             }
             catch (Exception e)
@@ -873,11 +868,9 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        
-
         public DataTable RetornaEstado()
         {
-            
+
             DataTable dt = new DataTable();
 
 
@@ -904,7 +897,7 @@ namespace HairLumos.DAO
             return dt;
         }
 
-
+        
     }
 }
 

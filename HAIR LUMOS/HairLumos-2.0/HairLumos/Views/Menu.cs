@@ -81,5 +81,11 @@ namespace HairLumos
             Views.Cadastro_TipoDespesa cadastro_TipoDespesa = new Views.Cadastro_TipoDespesa();
             cadastro_TipoDespesa.Show();
         }
+
+        private void cadastroDeUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_Usuario cadastro_Usuario = new Views.Cadastro_Usuario();
+            cadastro_Usuario.Show();
+        }
     }
 }

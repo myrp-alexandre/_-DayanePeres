@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HairLumos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,25 +12,25 @@ namespace HairLumos.Controller
     {
         private Models.UsuarioModels _MdlUsu = new Models.UsuarioModels();
 
-        //public int gravaDespesa(int cod, string descricao, string status)
-        //{
-        //    return _MdlDespesa.gravaDespesa(cod, descricao, status);
-        //}
+        public int gravaUsuario(int cod, int pessoa, string usuario, string senha, int nivel)
+        {
+            return _MdlUsu.gravaUsuario(cod, pessoa, usuario, senha, nivel);
+        }
 
-        public DataTable retronaDespesa(string texto)
+        public DataTable retornaPessoa(string texto)
         {
             return _MdlUsu.retornaPessoa(texto);
         }
-        
+
 
         //public DataTable retornaObjDespesa(int cod)
         //{
-        //    return _MdlDespesa.retornaObjDespesa(cod);
+        //    return _MdlUsu.retornaPessoa(cod);
         //}
 
-        //public bool excluirDespesa(int intCod)
-        //{
-        //    return _MdlDespesa.excluirDespesa(intCod);
-        //}
+        public bool excluiUsuario(int intCod)
+        {
+            return _MdlUsu.excluirUsuario(intCod);
+        }
     }
 }

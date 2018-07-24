@@ -94,10 +94,11 @@
             // 
             // btnPesquisaPessoa
             // 
-            this.btnPesquisaPessoa.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisaPessoa.Location = new System.Drawing.Point(458, 48);
+            this.btnPesquisaPessoa.BackColor = System.Drawing.Color.White;
+            this.btnPesquisaPessoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisaPessoa.Location = new System.Drawing.Point(458, 45);
             this.btnPesquisaPessoa.Name = "btnPesquisaPessoa";
-            this.btnPesquisaPessoa.Size = new System.Drawing.Size(110, 20);
+            this.btnPesquisaPessoa.Size = new System.Drawing.Size(110, 27);
             this.btnPesquisaPessoa.TabIndex = 14;
             this.btnPesquisaPessoa.Text = "Pesquisar Pessoa";
             this.btnPesquisaPessoa.UseVisualStyleBackColor = false;
@@ -132,6 +133,9 @@
             // cbbNivel
             // 
             this.cbbNivel.FormattingEnabled = true;
+            this.cbbNivel.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.cbbNivel.Location = new System.Drawing.Point(297, 105);
             this.cbbNivel.Name = "cbbNivel";
             this.cbbNivel.Size = new System.Drawing.Size(121, 21);
@@ -221,6 +225,7 @@
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -231,6 +236,7 @@
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnExcluir
             // 
@@ -241,6 +247,7 @@
             this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -251,6 +258,7 @@
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnGravar
             // 
@@ -261,6 +269,7 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -284,6 +293,7 @@
             this.Name = "Cadastro_Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CADASTRO DE USUÁRIO";
+            this.Load += new System.EventHandler(this.Cadastro_Usuario_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

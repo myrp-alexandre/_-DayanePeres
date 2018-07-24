@@ -12,13 +12,13 @@ namespace HairLumos.Models
     {
         DAO.usuarioDAO _DAOUsu = new DAO.usuarioDAO();
 
-        //public int gravaUsuario(int cod, Pessoa pessoa, string usuario, string senha, int nivel)
-        //{
-        //    Entidades.Usuario _entUsu = new Entidades.Usuario();
-        //    _entUsu.carregaUsuario(cod, pessoa, usuario, senha, nivel);
+        public int gravaUsuario(int cod, int pessoa, string usuario, string senha, int nivel)
+        {
+            Entidades.Usuario _entUsu = new Entidades.Usuario();
+            _entUsu.carregaUsuario(cod, pessoa, usuario, senha, nivel);
 
-        //    return _DAOPac.GravarPacote(_entUsu);
-        //}
+            return _DAOUsu.GravaUsuario(_entUsu);
+        }
 
         public DataTable retornaPessoa(string  texto)
         {
@@ -26,16 +26,16 @@ namespace HairLumos.Models
             return _DAOUsu.RetornaPessoa(texto);
         }
 
-        //public DataTable retornoObjPacote(int cod)
-        //{
+        ////public DataTable retornoObjUsuario(int cod)
+        ////{
 
-        //    return _DAOPac.RetornaObjPacote(cod);
+        ////    return _DAOUsu.RetornaPessoa(cod);
         //}
 
-        //public bool excluirPacote(int intCod)
-        //{
+        public bool excluirUsuario(int intCod)
+        {
 
-        //    return _DAOPac.ExcluirPacote(intCod);
-        //}
+            return _DAOUsu.ExcluirUsuario(intCod);
+        }
     }
 }

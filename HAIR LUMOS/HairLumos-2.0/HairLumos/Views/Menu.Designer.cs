@@ -41,6 +41,8 @@
             this.cadastroProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeFormaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +53,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cadastroDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tipoDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +117,7 @@
             this.cadastroDeUsuárioToolStripMenuItem.Name = "cadastroDeUsuárioToolStripMenuItem";
             this.cadastroDeUsuárioToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.cadastroDeUsuárioToolStripMenuItem.Text = "Cadastro de Usuário";
+            this.cadastroDeUsuárioToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUsuárioToolStripMenuItem_Click);
             // 
             // usuárioToolStripMenuItem
             // 
@@ -168,6 +169,23 @@
             this.cadastroServiçoToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.cadastroServiçoToolStripMenuItem.Text = "Cadastro Serviço";
             this.cadastroServiçoToolStripMenuItem.Click += new System.EventHandler(this.cadastroServiçoToolStripMenuItem_Click);
+            // 
+            // cadastroDeDespesaToolStripMenuItem
+            // 
+            this.cadastroDeDespesaToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.cadastroDeDespesaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tipoDeDespesaToolStripMenuItem});
+            this.cadastroDeDespesaToolStripMenuItem.Name = "cadastroDeDespesaToolStripMenuItem";
+            this.cadastroDeDespesaToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.cadastroDeDespesaToolStripMenuItem.Text = "Cadastro de Despesa";
+            // 
+            // tipoDeDespesaToolStripMenuItem
+            // 
+            this.tipoDeDespesaToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
+            this.tipoDeDespesaToolStripMenuItem.Name = "tipoDeDespesaToolStripMenuItem";
+            this.tipoDeDespesaToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.tipoDeDespesaToolStripMenuItem.Text = "Tipo de Despesa";
+            this.tipoDeDespesaToolStripMenuItem.Click += new System.EventHandler(this.tipoDeDespesaToolStripMenuItem_Click);
             // 
             // rELATÓRIOSToolStripMenuItem
             // 
@@ -247,23 +265,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
-            // 
-            // cadastroDeDespesaToolStripMenuItem
-            // 
-            this.cadastroDeDespesaToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.cadastroDeDespesaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tipoDeDespesaToolStripMenuItem});
-            this.cadastroDeDespesaToolStripMenuItem.Name = "cadastroDeDespesaToolStripMenuItem";
-            this.cadastroDeDespesaToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.cadastroDeDespesaToolStripMenuItem.Text = "Cadastro de Despesa";
-            // 
-            // tipoDeDespesaToolStripMenuItem
-            // 
-            this.tipoDeDespesaToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
-            this.tipoDeDespesaToolStripMenuItem.Name = "tipoDeDespesaToolStripMenuItem";
-            this.tipoDeDespesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tipoDeDespesaToolStripMenuItem.Text = "Tipo de Despesa";
-            this.tipoDeDespesaToolStripMenuItem.Click += new System.EventHandler(this.tipoDeDespesaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
