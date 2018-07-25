@@ -35,6 +35,7 @@
             this.ttbDescricao = new System.Windows.Forms.TextBox();
             this.dgvUsuário = new System.Windows.Forms.DataGridView();
             this.codusuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codpessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usu_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usu_nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -117,6 +118,7 @@
             this.dgvUsuário.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuário.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codusuario,
+            this.codpessoa,
             this.usu_usuario,
             this.usu_nivel});
             this.dgvUsuário.Location = new System.Drawing.Point(12, 14);
@@ -133,6 +135,13 @@
             this.codusuario.HeaderText = "Cod User";
             this.codusuario.Name = "codusuario";
             this.codusuario.ReadOnly = true;
+            // 
+            // codpessoa
+            // 
+            this.codpessoa.DataPropertyName = "codpessoa";
+            this.codpessoa.HeaderText = "Cod Pessoa";
+            this.codpessoa.Name = "codpessoa";
+            this.codpessoa.ReadOnly = true;
             // 
             // usu_usuario
             // 
@@ -181,6 +190,7 @@
         private System.Windows.Forms.TextBox ttbDescricao;
         private System.Windows.Forms.DataGridView dgvUsuário;
         private System.Windows.Forms.DataGridViewTextBoxColumn codusuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codpessoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn usu_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn usu_nivel;
     }

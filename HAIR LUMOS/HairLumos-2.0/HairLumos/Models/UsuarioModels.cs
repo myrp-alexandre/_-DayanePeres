@@ -26,11 +26,17 @@ namespace HairLumos.Models
             return _DAOUsu.RetornaPessoa(texto);
         }
 
-        ////public DataTable retornoObjUsuario(int cod)
-        ////{
+        public DataTable retornoObjUsuario(int cod)
+        {
 
-        ////    return _DAOUsu.RetornaPessoa(cod);
-        //}
+            return _DAOUsu.RetornaPessoaCod(cod);
+        }
+
+        public int verificaCadastroUser(int cod)
+        {
+
+            return _DAOUsu.VerificaUsuarioCadastro(cod);
+        }
 
         public bool excluirUsuario(int intCod)
         {

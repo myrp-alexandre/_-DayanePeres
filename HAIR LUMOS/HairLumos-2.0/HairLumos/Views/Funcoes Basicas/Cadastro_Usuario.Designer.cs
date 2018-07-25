@@ -178,9 +178,9 @@
             this.Código.AutoSize = true;
             this.Código.Location = new System.Drawing.Point(18, 8);
             this.Código.Name = "Código";
-            this.Código.Size = new System.Drawing.Size(79, 13);
+            this.Código.Size = new System.Drawing.Size(78, 13);
             this.Código.TabIndex = 6;
-            this.Código.Text = "Código Usuário";
+            this.Código.Text = "Código Pessoa";
             // 
             // ttbCodigo
             // 

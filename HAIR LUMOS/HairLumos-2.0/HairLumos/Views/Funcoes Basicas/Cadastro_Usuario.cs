@@ -15,6 +15,7 @@ namespace HairLumos.Views
     {
         int intCodPessoa = 0;
 
+
         public Cadastro_Usuario()
         {
             InitializeComponent();
@@ -183,27 +184,38 @@ namespace HairLumos.Views
                 {
                     if (string.IsNullOrEmpty(strmensagem))
                     {
-                        int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
-
-                        if(retorno > 0)
+                        int cadPessoaUsuario = usuarioController.verificaCadastroUser(intcodUser);
+                        
+                        if(cadPessoaUsuario > 1)
                         {
+                            int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
+
+                            if (retorno > 0)
+                            {
+                                _limpaCampos();
+                                _inicializa();
+                                MessageBox.Show("Usuário gravado com sucesso :");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro :");
+                            }
                             _limpaCampos();
                             _inicializa();
-                            MessageBox.Show("Usuário gravado com sucesso :");
+
                         }
                         else
                         {
-                            MessageBox.Show("Erro :");
+                            int retorno = usuarioController.gravaUsuario(cadPessoaUsuario, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
                         }
-                        _limpaCampos();
-                        _inicializa();
+                                               
                     }
                     else
                         MessageBox.Show(strmensagem, "Aviso!!");
                 }
                 else
                 {
-                    MessageBox.Show("Informa a pessoa.");
+                    MessageBox.Show("Informe a pessoa.");
                 }
                 
             }
@@ -228,7 +240,7 @@ namespace HairLumos.Views
                     bool blnExcluiu = _ctrlUser.excluiUsuario(intCod);
                     if (blnExcluiu)
                     {
-                        MessageBox.Show("Marca Excluída");
+                        MessageBox.Show("Usuário Excluída");
                         _limpaCampos();
                         //pesquisaMarca();
                         _btnNovo();
@@ -243,16 +255,18 @@ namespace HairLumos.Views
             }
         }
 
-        public void preencheUsuário(int cod, string login, string senha, int nivel)
+        public void preencheUsuário(int coduser, string login, string senha, int nivel)
         {
-            ttbCodigo.Text = Convert.ToString(cod);
+            ttbCodigo.Text = Convert.ToString(coduser);
             ttbLogin.Text = login;
             mskSenha.Text = senha;
             mskConfirmaSenha.Text = mskSenha.Text;
+            cbbNivel.Text = Convert.ToString(nivel);
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            _limpaCampos();
             int intcodUser = 0;
             _btnAlterar();
             this.preencheUsuário(0, "", "", 0);
@@ -263,7 +277,7 @@ namespace HairLumos.Views
             {
                 Controller.UsuarioController usuarioController = new Controller.UsuarioController();
                 Controller.PessoaController pessoaController = new Controller.PessoaController();
-                DataTable dtRetorno = usuarioController.retornaPessoa(pesquisa_Usuario.intCodigoPessoa.ToString());
+                DataTable dtRetorno = usuarioController.retornaObjUsuario(Convert.ToInt32(pesquisa_Usuario.intCodigoPessoa.ToString()));
 
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
@@ -275,6 +289,7 @@ namespace HairLumos.Views
                     {
                         DataRow drPes = dtPessoa.Rows[0];
                         ttbPessoa.Text = drPes["pes_nome"].ToString();
+                        
                     }
 
                     this.preencheUsuário(
@@ -282,7 +297,7 @@ namespace HairLumos.Views
                         dr["usu_usuario"].ToString(),
                         dr["usu_senha"].ToString(),
                         int.Parse(dr["usu_nivel"].ToString()));
-
+                    
                 }
             }
         }

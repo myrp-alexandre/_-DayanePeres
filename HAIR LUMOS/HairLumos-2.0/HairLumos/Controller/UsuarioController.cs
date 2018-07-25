@@ -22,11 +22,15 @@ namespace HairLumos.Controller
             return _MdlUsu.retornaPessoa(texto);
         }
 
+        public DataTable retornaObjUsuario(int cod)
+        {
+            return _MdlUsu.retornoObjUsuario(cod);
+        }
 
-        //public DataTable retornaObjDespesa(int cod)
-        //{
-        //    return _MdlUsu.retornaPessoa(cod);
-        //}
+        public int verificaCadastroUser(int cod)
+        {
+            return _MdlUsu.verificaCadastroUser(cod);
+        }
 
         public bool excluiUsuario(int intCod)
         {
