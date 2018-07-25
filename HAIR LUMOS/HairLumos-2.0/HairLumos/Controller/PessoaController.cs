@@ -86,5 +86,15 @@ namespace HairLumos.Controller
 
         }
 
+        public DataTable retornaContato(int cod)
+        {
+            return _MdlPes.retornaContato(cod);
+        }
+
+        public DataTable retornaEndereco(int cod)
+        {
+            return _MdlPes.retornaEndereco(cod);
+        }
+
     }
 }

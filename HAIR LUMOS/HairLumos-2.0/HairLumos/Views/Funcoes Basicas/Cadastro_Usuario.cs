@@ -25,8 +25,8 @@ namespace HairLumos.Views
 
         private void btnPesquisaPessoa_Click(object sender, EventArgs e)
         {
-           
-            
+
+
             try
             {
                 Views.Pesquisa_Pessoa objPessoa = new Pesquisa_Pessoa();
@@ -52,7 +52,7 @@ namespace HairLumos.Views
                 throw;
             }
         }
-        
+
         public void _inicializa()
         {
             // ttb
@@ -70,7 +70,7 @@ namespace HairLumos.Views
             btnExcluir.Enabled = true;
             btnSair.Enabled = true;
 
-            
+
             _limpaCampos();
 
         }
@@ -81,7 +81,7 @@ namespace HairLumos.Views
             ttbPessoa.Text = "";
             ttbLogin.Text = "";
             mskSenha.Text = "";
-            mskConfirmaSenha.Text  = "";
+            mskConfirmaSenha.Text = "";
             cbbNivel.SelectedIndex = -1;
         }
 
@@ -162,7 +162,7 @@ namespace HairLumos.Views
 
             try
             {
-                
+
                 Int32.TryParse(ttbCodigo.Text, out intCodPessoa);
 
                 if (string.IsNullOrWhiteSpace(ttbPessoa.Text))
@@ -180,14 +180,17 @@ namespace HairLumos.Views
 
                 object pessoa = new StringBuilder();
 
-                if(intCodPessoa != 0)
+                if (intCodPessoa != 0)
                 {
                     if (string.IsNullOrEmpty(strmensagem))
                     {
-                        int cadPessoaUsuario = usuarioController.verificaCadastroUser(intcodUser);
-                        
-                        if(cadPessoaUsuario > 1)
+                        DataTable usuario = new DataTable();
+                        usuario = usuarioController.verificaCadastroUser(intCodPessoa);
+
+
+                        if (usuario.Rows.Count == 0)
                         {
+
                             int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
 
                             if (retorno > 0)
@@ -206,9 +209,25 @@ namespace HairLumos.Views
                         }
                         else
                         {
-                            int retorno = usuarioController.gravaUsuario(cadPessoaUsuario, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
+                            DataRow dr = usuario.Rows[0];
+                            intcodUser = Convert.ToInt32(dr["codusuario"]);
+                            int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
+
+                            if (retorno > 0)
+                            {
+                                _limpaCampos();
+                                _inicializa();
+                                MessageBox.Show("Usuário alterado com sucesso :");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro :");
+                            }
+                            _limpaCampos();
+                            _inicializa();
+
                         }
-                                               
+
                     }
                     else
                         MessageBox.Show(strmensagem, "Aviso!!");
@@ -217,7 +236,7 @@ namespace HairLumos.Views
                 {
                     MessageBox.Show("Informe a pessoa.");
                 }
-                
+
             }
             catch (Exception Ex)
             {
@@ -282,22 +301,22 @@ namespace HairLumos.Views
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
                     DataRow dr = dtRetorno.Rows[0];
-                    string  codPessoa = dr["codpessoa"].ToString();
+                    string codPessoa = dr["codpessoa"].ToString();
                     DataTable dtPessoa = pessoaController.retornaPessoaCod(codPessoa);
 
-                    if(dtPessoa != null && dtPessoa.Rows.Count > 0)
+                    if (dtPessoa != null && dtPessoa.Rows.Count > 0)
                     {
                         DataRow drPes = dtPessoa.Rows[0];
                         ttbPessoa.Text = drPes["pes_nome"].ToString();
-                        
+
                     }
 
                     this.preencheUsuário(
-                        int.Parse(dr["codusuario"].ToString()),
+                        int.Parse(dr["codpessoa"].ToString()),
                         dr["usu_usuario"].ToString(),
                         dr["usu_senha"].ToString(),
                         int.Parse(dr["usu_nivel"].ToString()));
-                    
+
                 }
             }
         }

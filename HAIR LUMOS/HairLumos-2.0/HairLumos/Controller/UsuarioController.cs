@@ -27,7 +27,7 @@ namespace HairLumos.Controller
             return _MdlUsu.retornoObjUsuario(cod);
         }
 
-        public int verificaCadastroUser(int cod)
+        public DataTable verificaCadastroUser(int cod)
         {
             return _MdlUsu.verificaCadastroUser(cod);
         }

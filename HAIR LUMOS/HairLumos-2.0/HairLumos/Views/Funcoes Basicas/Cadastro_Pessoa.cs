@@ -581,10 +581,17 @@ namespace HairLumos.Views
                         {
                             DataRow drPesFis = dtPesFisica.Rows[0];
                             this.preenchePessoaFisica
-                          (int.Parse(drPesFis["codpessoa"].ToString()),
-                           drPesFis["fis_cpf"].ToString(),
-                           drPesFis["fis_rg"].ToString(),
-                           DateTime.Parse(drPesFis["fis_datanascimento"].ToString()));
+                            (int.Parse(drPesFis["codpessoa"].ToString()),
+                            drPesFis["fis_cpf"].ToString(),
+                            drPesFis["fis_rg"].ToString(),
+                            DateTime.Parse(drPesFis["fis_datanascimento"].ToString()));
+                            rbFisica.Checked = true;
+                            mskCNPJ.Enabled = false;
+                            ttbRazao.Enabled = false;
+                            if (Convert.ToBoolean(dr["pes_fiado"]))
+                                rbPagaSim.Checked = true;
+                            else
+                                rbPagaNao.Checked = true;
                         }
 
                     }
@@ -612,6 +619,16 @@ namespace HairLumos.Views
                         dr["pes_obs"].ToString(),
                         Boolean.Parse(dr["pes_fiado"].ToString()),
                         dr["pes_email"].ToString());
+
+                    DataTable dtContato = new DataTable();
+                    DataTable dtEndereco = new DataTable();
+                    dtContato = _pes.retornaContato(Convert.ToInt32(dr["codpessoa"]));
+                    dtEndereco = _pes.retornaEndereco(Convert.ToInt32(dr["codpessoa"]));
+                    arrContato = transformaContatoLista(dtContato);
+                    arrEndreco = transformaEnderecoLista(dtEndereco);
+                    dgvContato.DataSource = arrContato;
+                    dgvEndereco.DataSource = arrEndreco;
+
                 }
             }
         }
@@ -627,5 +644,49 @@ namespace HairLumos.Views
             }
 
         }
+
+        private List<Contato> transformaContatoLista(DataTable dt)
+        {
+            List<Contato> lista = new List<Contato>();
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    Contato c = new Contato();
+                    c._cod = Convert.ToInt32(dr["codcontato"]);
+                    c._telefone = dr["cont_telefone"].ToString();
+                    c._tipo = dr["cont_tipofone"].ToString();
+                    lista.Add(c);
+                }
+            }
+            return lista;
+        }
+
+        private List<Endereco> transformaEnderecoLista(DataTable dt)
+        {
+            List<Endereco> lista = new List<Endereco>();
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    Endereco e = new Endereco();
+                    e._cod = Convert.ToInt32(dr["codendereco"]);
+                    e._cep = dr["end_cep"].ToString();
+                    e._logradouro = dr["end_logradouro"].ToString();
+                    e._numero = dr["end_numero"].ToString();
+                    e._bairro = dr["end_bairro"].ToString();
+                    e._complemento = dr["edn_complemento"].ToString();
+                    e._codCidade = Convert.ToInt32(dr["codcidade"]);
+                    e._codUf = Convert.ToInt32(dr["coduf"]);
+                    lista.Add(e);
+                }
+            }
+            return lista;
+        }
+
     }
 }

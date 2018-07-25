@@ -27,13 +27,13 @@ namespace HairLumos.DAO
                         " FROM tbusuario";
 
             int intCodigo = 0;
-            
+
             int.TryParse(texto, out intCodigo);
 
             if (intCodigo > 0)
                 _sql += $"OR codusuario = @codusuario ";
 
-           // _sql += $"OR UPPER (usu_usuario) LIKE @usu_usuario";
+            // _sql += $"OR UPPER (usu_usuario) LIKE @usu_usuario";
 
             try
             {
@@ -64,7 +64,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
             _sql = "SELECT codusuario, codpessoa, usu_usuario, usu_senha, usu_nivel" +
-                        " FROM tbusuario WHERE codusuario = "+cod;
+                        " FROM tbusuario WHERE codusuario = " + cod;
 
 
             try
@@ -91,12 +91,12 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public int VerificaUsuarioCadastro(int cod)
+        public DataTable VerificaUsuarioCadastro(int cod)
         {
-            
+            DataTable dt = new DataTable();
 
             _sql = "SELECT codusuario, codpessoa, usu_usuario, usu_senha, usu_nivel" +
-                        " FROM tbusuario WHERE codusuario = " + cod;
+                        " FROM tbusuario WHERE codpessoa = " + cod;
 
 
             try
@@ -104,24 +104,26 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                
+
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
-                return 1;
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+
+                return dt;
             }
             catch (Exception e)
             {
 
                 throw new SystemException(e + "Erro ao retornar Usuário");
-                
+
             }
-            return 0;
         }
 
         public bool ExcluirUsuario(int intCod)
         {
 
             _sql = "DELETE FROM tbusuario" +
-                    " WHERE codusuario = "+ intCod;
+                    " WHERE codpessoa = " + intCod;
 
             int _controle = 0;
             try
@@ -145,27 +147,30 @@ namespace HairLumos.DAO
             //int _controle = 0;
             try
             {
+
                 if (objPessoa.UsuarioCodigo == 0)
                 {
 
                     _sql = "INSERT INTO tbusuario( codpessoa, usu_usuario, usu_senha, usu_nivel)" +
-                      " VALUES(@codPessoa, @usuario, @senha, @nivel)";
-                    
+                      " VALUES(@codPessoa, @user, @senha, @nivel)";
+
                 }
                 else
                 {
                     _sql = "UPDATE tbusuario " +
                         "SET usu_usuario = @user, usu_senha = @senha, usu_nivel = @nivel" +
                         " WHERE codusuario = @codUser";
+
+
                 }
+
 
                 cmd.CommandText = _sql;
                 cmd.Parameters.AddWithValue("@codUser", objPessoa.UsuarioCodigo);
                 cmd.Parameters.AddWithValue("@codPessoa", objPessoa.PessoaCod);
-                cmd.Parameters.AddWithValue("@usuario", objPessoa.Login);
+                cmd.Parameters.AddWithValue("@user", objPessoa.Login);
                 cmd.Parameters.AddWithValue("@senha", objPessoa.Senha);
                 cmd.Parameters.AddWithValue("@nivel", objPessoa.Nivel);
-
                 cmd.ExecuteNonQuery();
 
                 return 1;
@@ -175,7 +180,7 @@ namespace HairLumos.DAO
             {
                 return 0;
             }
-            
+
         }
     }
 }

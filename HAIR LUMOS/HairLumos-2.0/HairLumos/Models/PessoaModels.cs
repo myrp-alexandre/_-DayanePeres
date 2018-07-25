@@ -10,16 +10,16 @@ namespace HairLumos.Models
     public class PessoaModels
     {
         DAO.PessoaDAO _DAOPessoa = new DAO.PessoaDAO();
-        
+
 
         public int gravaPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cpf, string rg, DateTime nascimento)
         {
-           
+
             Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, cpf, rg, nascimento);
 
             return _DAOPessoa.GravaPessoa(_entFis);
-            
+
         }
 
         public int gravaPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
@@ -29,13 +29,13 @@ namespace HairLumos.Models
 
             return _DAOPessoa.GravaPessoa(_entJur);
         }
-        
+
         public int alteraPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
             string cpf, string rg, DateTime nascimento)
         {
 
             Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, cpf, rg, nascimento);
-           
+
             return _DAOPessoa.alteraPessoaFisica(_entFis);
 
         }
@@ -89,6 +89,16 @@ namespace HairLumos.Models
         {
 
             return _DAOPessoa.RetornaCidades(codigo);
+        }
+
+        public DataTable retornaContato(int cod)
+        {
+            return _DAOPessoa.RetornaContato(cod);
+        }
+
+        public DataTable retornaEndereco(int cod)
+        {
+            return _DAOPessoa.RetornaEndereco(cod);
         }
 
     }

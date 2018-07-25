@@ -20,7 +20,7 @@ namespace HairLumos.Models
             return _DAOUsu.GravaUsuario(_entUsu);
         }
 
-        public DataTable retornaPessoa(string  texto)
+        public DataTable retornaPessoa(string texto)
         {
 
             return _DAOUsu.RetornaPessoa(texto);
@@ -32,7 +32,7 @@ namespace HairLumos.Models
             return _DAOUsu.RetornaPessoaCod(cod);
         }
 
-        public int verificaCadastroUser(int cod)
+        public DataTable verificaCadastroUser(int cod)
         {
 
             return _DAOUsu.VerificaUsuarioCadastro(cod);
