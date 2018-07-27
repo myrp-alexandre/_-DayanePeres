@@ -49,5 +49,11 @@ namespace HairLumos.Models
 
             return _DAOUsu.RealizaLogin(login,senha);
         }
+
+        public DataTable verificaLogin(string login)
+        {
+
+            return _DAOUsu.VerificaLogin(login);
+        }
     }
 }

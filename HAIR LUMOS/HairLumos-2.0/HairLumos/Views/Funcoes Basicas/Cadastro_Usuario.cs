@@ -188,46 +188,84 @@ namespace HairLumos.Views
                         usuario = usuarioController.verificaCadastroUser(intCodPessoa);
 
 
+
                         if (usuario.Rows.Count == 0)
                         {
-
-                            int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
-
-                            if (retorno > 0)
+                            DataTable dtLogin = new DataTable();
+                            dtLogin = usuarioController.verificaLogin(ttbLogin.Text);
+                            if (dtLogin.Rows.Count == 0)
                             {
+                                int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
+
+                                if (retorno > 0)
+                                {
+                                    _limpaCampos();
+                                    _inicializa();
+                                    MessageBox.Show("Usuário gravado com sucesso :");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Erro :");
+                                }
                                 _limpaCampos();
                                 _inicializa();
-                                MessageBox.Show("Usuário gravado com sucesso :");
                             }
                             else
                             {
-                                MessageBox.Show("Erro :");
+                                MessageBox.Show("Login ja existente!");
+                                ttbLogin.Clear();
                             }
-                            _limpaCampos();
-                            _inicializa();
-
                         }
                         else
                         {
                             DataRow dr = usuario.Rows[0];
                             intcodUser = Convert.ToInt32(dr["codusuario"]);
-                            int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
-
-                            if (retorno > 0)
+                            if (!dr["usu_usuario"].ToString().Equals(ttbLogin.Text))
                             {
-                                _limpaCampos();
-                                _inicializa();
-                                MessageBox.Show("Usuário alterado com sucesso :");
+                                DataTable dtLogin = new DataTable();
+                                dtLogin = usuarioController.verificaLogin(ttbLogin.Text);
+                                if (dtLogin.Rows.Count == 0)
+                                {
+                                    int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
+
+                                    if (retorno > 0)
+                                    {
+                                        _limpaCampos();
+                                        _inicializa();
+                                        MessageBox.Show("Usuário alterado com sucesso :");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Erro :");
+                                    }
+                                    _limpaCampos();
+                                    _inicializa();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Login ja utilizado!");
+                                    ttbLogin.Clear();
+                                    ttbLogin.Focus();
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Erro :");
+                                int retorno = usuarioController.gravaUsuario(intcodUser, intCodPessoa, ttbLogin.Text.Trim(), mskSenha.Text.Trim(), Convert.ToInt32(cbbNivel.SelectedItem.ToString()));
+
+                                if (retorno > 0)
+                                {
+                                    _limpaCampos();
+                                    _inicializa();
+                                    MessageBox.Show("Usuário alterado com sucesso :");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Erro :");
+                                }
+                                _limpaCampos();
+                                _inicializa();
                             }
-                            _limpaCampos();
-                            _inicializa();
-
                         }
-
                     }
                     else
                         MessageBox.Show(strmensagem, "Aviso!!");
