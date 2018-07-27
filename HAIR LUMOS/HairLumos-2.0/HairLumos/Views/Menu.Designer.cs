@@ -95,6 +95,7 @@
             this.pessoaToolStripMenuItem.Name = "pessoaToolStripMenuItem";
             this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.pessoaToolStripMenuItem.Text = "Cadastro de Pessoa";
+            this.pessoaToolStripMenuItem.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
             // 
             // cadastrodePessoa
             // 
@@ -227,15 +228,16 @@
             // sairToolStripMenuItem1
             // 
             this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem1.Text = "Sair";
             this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
             // 
             // trocarUsuárioToolStripMenuItem
             // 
             this.trocarUsuárioToolStripMenuItem.Name = "trocarUsuárioToolStripMenuItem";
-            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.trocarUsuárioToolStripMenuItem.Text = "Trocar Usuário";
+            this.trocarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.trocarUsuárioToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 

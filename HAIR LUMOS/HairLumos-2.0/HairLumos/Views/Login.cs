@@ -25,7 +25,7 @@ namespace HairLumos.Views
             if (usuarioLogado != null && usuarioLogado.Rows.Count > 0)
             {
                 this.Hide();
-                frmMenu menu = new frmMenu();
+                frmMenu menu = new frmMenu(usuarioLogado);
                 menu.ShowDialog();
             }
         }

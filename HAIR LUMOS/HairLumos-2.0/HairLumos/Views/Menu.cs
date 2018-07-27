@@ -1,4 +1,5 @@
 ﻿
+using HairLumos.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,27 @@ namespace HairLumos
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        DataTable dt = new DataTable();
+
+        public frmMenu(DataTable usuario)
         {
             InitializeComponent();
+            dt = usuario;
+            DataRow dr = dt.Rows[0];
+            if (Convert.ToInt32(dr["usu_nivel"]) == 2)
+            {
+
+                usuárioToolStripMenuItem.Visible = false;
+                cadastroDeFormaDePagamentoToolStripMenuItem.Visible = false;
+                cadastroServiçoToolStripMenuItem.Visible = false;
+                cadastroDeDespesaToolStripMenuItem.Visible = false;
+                cadastroDeParceiroToolStripMenuItem.Visible = false;
+                cadastroDeUsuárioToolStripMenuItem.Visible = false;
+                rELATÓRIOSToolStripMenuItem.Visible = false;
+                iNFORMAÇÕESToolStripMenuItem.Visible = false;
+                bACKUPToolStripMenuItem.Visible = false;
+            }
+
         }
 
         private void cadastroCategoriaProdutoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,6 +105,18 @@ namespace HairLumos
         {
             Views.Cadastro_Usuario cadastro_Usuario = new Views.Cadastro_Usuario();
             cadastro_Usuario.Show();
+        }
+
+        private void pessoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trocarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
         }
     }
 }
