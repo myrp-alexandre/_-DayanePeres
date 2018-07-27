@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HairLumos.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace HairLumos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           Application.Run(new frmMenu());
+            Application.Run(new Login());
         }
     }
 }

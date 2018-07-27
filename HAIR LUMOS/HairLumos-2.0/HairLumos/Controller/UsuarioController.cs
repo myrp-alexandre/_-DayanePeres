@@ -36,5 +36,10 @@ namespace HairLumos.Controller
         {
             return _MdlUsu.excluirUsuario(intCod);
         }
+
+        public DataTable realizaLogin(string login, string senha)
+        {
+            return _MdlUsu.realizaLogin(login, senha);
+        }
     }
 }

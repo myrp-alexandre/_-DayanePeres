@@ -43,5 +43,11 @@ namespace HairLumos.Models
 
             return _DAOUsu.ExcluirUsuario(intCod);
         }
+
+        public DataTable realizaLogin(string login, string senha)
+        {
+
+            return _DAOUsu.RealizaLogin(login,senha);
+        }
     }
 }
