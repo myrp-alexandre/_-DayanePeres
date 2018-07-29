@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HairLumos.Views.Funcoes_Basicas
+namespace HairLumos.Views.Funcoes_Fundamentais
 {
-    public partial class Cadastro_ServiçosParceiros : Form
+    public partial class GerenciarCompra : Form
     {
-        public Cadastro_ServiçosParceiros()
+        public GerenciarCompra()
         {
             InitializeComponent();
         }
-
     }
 }

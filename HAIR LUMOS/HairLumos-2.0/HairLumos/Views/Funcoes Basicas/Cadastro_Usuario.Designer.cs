@@ -147,6 +147,7 @@
             this.mskConfirmaSenha.Name = "mskConfirmaSenha";
             this.mskConfirmaSenha.Size = new System.Drawing.Size(198, 20);
             this.mskConfirmaSenha.TabIndex = 13;
+            this.mskConfirmaSenha.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -163,6 +164,7 @@
             this.mskSenha.Name = "mskSenha";
             this.mskSenha.Size = new System.Drawing.Size(198, 20);
             this.mskSenha.TabIndex = 11;
+            this.mskSenha.UseSystemPasswordChar = true;
             // 
             // label2
             // 

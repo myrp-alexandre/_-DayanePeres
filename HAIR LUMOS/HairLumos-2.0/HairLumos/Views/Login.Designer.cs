@@ -32,10 +32,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEntrar = new System.Windows.Forms.Button();
-            this.ttbSenha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ttbUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ttbSenha = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,13 +44,13 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.ttbSenha);
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.btnEntrar);
-            this.panel1.Controls.Add(this.ttbSenha);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.ttbUsuario);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 1);
+            this.panel1.Location = new System.Drawing.Point(-3, -3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 360);
             this.panel1.TabIndex = 0;
@@ -76,13 +76,6 @@
             this.btnEntrar.Text = "ENTRAR";
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click_1);
-            // 
-            // ttbSenha
-            // 
-            this.ttbSenha.Location = new System.Drawing.Point(135, 247);
-            this.ttbSenha.Name = "ttbSenha";
-            this.ttbSenha.Size = new System.Drawing.Size(161, 20);
-            this.ttbSenha.TabIndex = 3;
             // 
             // label2
             // 
@@ -113,14 +106,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuário:";
             // 
+            // ttbSenha
+            // 
+            this.ttbSenha.Location = new System.Drawing.Point(135, 250);
+            this.ttbSenha.Name = "ttbSenha";
+            this.ttbSenha.Size = new System.Drawing.Size(161, 20);
+            this.ttbSenha.TabIndex = 6;
+            this.ttbSenha.UseSystemPasswordChar = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(384, 361);
+            this.ClientSize = new System.Drawing.Size(355, 353);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -136,9 +138,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnEntrar;
-        private System.Windows.Forms.TextBox ttbSenha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ttbUsuario;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox ttbSenha;
     }
 }
