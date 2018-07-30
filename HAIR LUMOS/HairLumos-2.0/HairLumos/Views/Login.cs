@@ -1,4 +1,5 @@
 ﻿using HairLumos.Controller;
+using HairLumos.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,14 @@ namespace HairLumos.Views
         public Login()
         {
             InitializeComponent();
+            UsuarioController uc = new UsuarioController();
+            DataTable dt = uc.existeUsuario();
+            if(dt==null || dt.Rows.Count == 0)
+            {
+                this.Hide();
+                frmMenu menu = new frmMenu(dt);
+                menu.ShowDialog();
+            }
         }
 
         private void btnEntrar_Click_1(object sender, EventArgs e)

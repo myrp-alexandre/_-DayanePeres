@@ -55,5 +55,11 @@ namespace HairLumos.Models
 
             return _DAOUsu.VerificaLogin(login);
         }
+
+        public DataTable existeUsuario()
+        {
+
+            return _DAOUsu.ExisteUsuario();
+        }
     }
 }

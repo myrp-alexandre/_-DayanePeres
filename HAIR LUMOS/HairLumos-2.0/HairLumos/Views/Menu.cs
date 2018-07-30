@@ -19,17 +19,30 @@ namespace HairLumos
         public frmMenu(DataTable usuario)
         {
             InitializeComponent();
-            dt = usuario;
-            DataRow dr = dt.Rows[0];
-            if (Convert.ToInt32(dr["usu_nivel"]) == 2)
-            {
+            if (usuario != null && usuario.Rows.Count>0) {
+                dt = usuario;
+                DataRow dr = dt.Rows[0];
+                if (Convert.ToInt32(dr["usu_nivel"]) == 2)
+                {
 
+                    usuárioToolStripMenuItem.Visible = false;
+                    cadastroDeFormaDePagamentoToolStripMenuItem.Visible = false;
+                    cadastroServiçoToolStripMenuItem.Visible = false;
+                    cadastroDeDespesaToolStripMenuItem.Visible = false;
+                    cadastroDeParceiroToolStripMenuItem.Visible = false;
+                    cadastroDeUsuárioToolStripMenuItem.Visible = false;
+                    rELATÓRIOSToolStripMenuItem.Visible = false;
+                    iNFORMAÇÕESToolStripMenuItem.Visible = false;
+                    bACKUPToolStripMenuItem.Visible = false;
+                }
+            }
+            else
+            {
                 usuárioToolStripMenuItem.Visible = false;
                 cadastroDeFormaDePagamentoToolStripMenuItem.Visible = false;
                 cadastroServiçoToolStripMenuItem.Visible = false;
                 cadastroDeDespesaToolStripMenuItem.Visible = false;
                 cadastroDeParceiroToolStripMenuItem.Visible = false;
-                cadastroDeUsuárioToolStripMenuItem.Visible = false;
                 rELATÓRIOSToolStripMenuItem.Visible = false;
                 iNFORMAÇÕESToolStripMenuItem.Visible = false;
                 bACKUPToolStripMenuItem.Visible = false;
@@ -107,16 +120,17 @@ namespace HairLumos
             cadastro_Usuario.Show();
         }
 
-        private void pessoaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void trocarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             Login login = new Login();
             login.ShowDialog();
+        }
+
+        private void gerenciarCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.GerenciarCompra gerenciar_compra = new Views.Funcoes_Fundamentais.GerenciarCompra();
+            gerenciar_compra.Show();
         }
     }
 }

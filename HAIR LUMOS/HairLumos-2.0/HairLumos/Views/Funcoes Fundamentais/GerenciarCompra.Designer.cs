@@ -29,41 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.Código = new System.Windows.Forms.Label();
-            this.ttbCodigo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.ttbFornecedor = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnPesquisaFornecedor = new System.Windows.Forms.Button();
-            this.ttbProduto = new System.Windows.Forms.TextBox();
-            this.btnPesquisaProduto = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpData = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ttbQuantidade = new System.Windows.Forms.TextBox();
-            this.mskCusto = new System.Windows.Forms.MaskedTextBox();
-            this.mskVenda = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.rbSim = new System.Windows.Forms.RadioButton();
-            this.rbNao = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Pedido = new System.Windows.Forms.TabPage();
-            this.Observação = new System.Windows.Forms.TabPage();
             this.dgvGerenciarCompra = new System.Windows.Forms.DataGridView();
-            this.btnExcluirCompra = new System.Windows.Forms.Button();
-            this.btnGerarCompra = new System.Windows.Forms.Button();
-            this.BtnGerarContaPagar = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.codcompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,17 +40,48 @@
             this.PrecoCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_statusconsignado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observação = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btnExcluirCompra = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnIncluirProduto = new System.Windows.Forms.Button();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ttbQuantidade = new System.Windows.Forms.TextBox();
+            this.mskVenda = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.mskCusto = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnPesquisaProduto = new System.Windows.Forms.Button();
+            this.ttbProduto = new System.Windows.Forms.TextBox();
+            this.rbNao = new System.Windows.Forms.RadioButton();
+            this.btnPesquisaFornecedor = new System.Windows.Forms.Button();
+            this.rbSim = new System.Windows.Forms.RadioButton();
+            this.ttbFornecedor = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Código = new System.Windows.Forms.Label();
+            this.ttbCodigo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BtnGerarContaPagar = new System.Windows.Forms.Button();
+            this.btnGerarCompra = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Pedido.SuspendLayout();
-            this.Observação.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGerenciarCompra)).BeginInit();
+            this.Observação.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -121,250 +121,6 @@
             this.splitContainer1.SplitterDistance = 408;
             this.splitContainer1.TabIndex = 1;
             // 
-            // Código
-            // 
-            this.Código.AutoSize = true;
-            this.Código.Location = new System.Drawing.Point(18, 18);
-            this.Código.Name = "Código";
-            this.Código.Size = new System.Drawing.Size(40, 13);
-            this.Código.TabIndex = 6;
-            this.Código.Text = "Código";
-            // 
-            // ttbCodigo
-            // 
-            this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
-            this.ttbCodigo.Name = "ttbCodigo";
-            this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
-            this.ttbCodigo.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Produto";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 48);
-            this.btnCancelar.TabIndex = 13;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(824, 12);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 48);
-            this.btnSair.TabIndex = 11;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(264, 12);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 48);
-            this.btnExcluir.TabIndex = 10;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(183, 12);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 48);
-            this.btnAlterar.TabIndex = 8;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            // 
-            // btnGravar
-            // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(102, 12);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 48);
-            this.btnGravar.TabIndex = 7;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = false;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.Location = new System.Drawing.Point(21, 12);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 48);
-            this.btnNovo.TabIndex = 6;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = false;
-            // 
-            // ttbFornecedor
-            // 
-            this.ttbFornecedor.Location = new System.Drawing.Point(345, 15);
-            this.ttbFornecedor.MaxLength = 100;
-            this.ttbFornecedor.Name = "ttbFornecedor";
-            this.ttbFornecedor.Size = new System.Drawing.Size(448, 20);
-            this.ttbFornecedor.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(261, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Fornecedor:";
-            // 
-            // btnPesquisaFornecedor
-            // 
-            this.btnPesquisaFornecedor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisaFornecedor.Location = new System.Drawing.Point(812, 9);
-            this.btnPesquisaFornecedor.Name = "btnPesquisaFornecedor";
-            this.btnPesquisaFornecedor.Size = new System.Drawing.Size(87, 31);
-            this.btnPesquisaFornecedor.TabIndex = 15;
-            this.btnPesquisaFornecedor.Text = "Pesquisa";
-            this.btnPesquisaFornecedor.UseVisualStyleBackColor = false;
-            // 
-            // ttbProduto
-            // 
-            this.ttbProduto.Location = new System.Drawing.Point(79, 62);
-            this.ttbProduto.MaxLength = 100;
-            this.ttbProduto.Name = "ttbProduto";
-            this.ttbProduto.Size = new System.Drawing.Size(448, 20);
-            this.ttbProduto.TabIndex = 16;
-            // 
-            // btnPesquisaProduto
-            // 
-            this.btnPesquisaProduto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisaProduto.Location = new System.Drawing.Point(552, 57);
-            this.btnPesquisaProduto.Name = "btnPesquisaProduto";
-            this.btnPesquisaProduto.Size = new System.Drawing.Size(87, 31);
-            this.btnPesquisaProduto.TabIndex = 17;
-            this.btnPesquisaProduto.Text = "Pesquisa";
-            this.btnPesquisaProduto.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(338, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Preço de Custo*";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnIncluirProduto);
-            this.groupBox1.Controls.Add(this.dtpData);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.ttbQuantidade);
-            this.groupBox1.Controls.Add(this.mskVenda);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.mskCusto);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(21, 108);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(878, 66);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            // 
-            // dtpData
-            // 
-            this.dtpData.CustomFormat = "dd/MM/YYYY";
-            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(215, 24);
-            this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(103, 20);
-            this.dtpData.TabIndex = 26;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(174, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Data:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Qtde";
-            // 
-            // ttbQuantidade
-            // 
-            this.ttbQuantidade.Location = new System.Drawing.Point(58, 27);
-            this.ttbQuantidade.Name = "ttbQuantidade";
-            this.ttbQuantidade.Size = new System.Drawing.Size(100, 20);
-            this.ttbQuantidade.TabIndex = 24;
-            // 
-            // mskCusto
-            // 
-            this.mskCusto.Location = new System.Drawing.Point(428, 24);
-            this.mskCusto.Name = "mskCusto";
-            this.mskCusto.Size = new System.Drawing.Size(100, 20);
-            this.mskCusto.TabIndex = 23;
-            // 
-            // mskVenda
-            // 
-            this.mskVenda.Location = new System.Drawing.Point(652, 23);
-            this.mskVenda.Name = "mskVenda";
-            this.mskVenda.Size = new System.Drawing.Size(100, 20);
-            this.mskVenda.TabIndex = 25;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(550, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Preço de Venda*";
-            // 
-            // rbSim
-            // 
-            this.rbSim.AutoSize = true;
-            this.rbSim.Location = new System.Drawing.Point(788, 85);
-            this.rbSim.Name = "rbSim";
-            this.rbSim.Size = new System.Drawing.Size(42, 17);
-            this.rbSim.TabIndex = 26;
-            this.rbSim.TabStop = true;
-            this.rbSim.Text = "Sim";
-            this.rbSim.UseVisualStyleBackColor = true;
-            // 
-            // rbNao
-            // 
-            this.rbNao.AutoSize = true;
-            this.rbNao.Location = new System.Drawing.Point(848, 85);
-            this.rbNao.Name = "rbNao";
-            this.rbNao.Size = new System.Drawing.Size(45, 17);
-            this.rbNao.TabIndex = 27;
-            this.rbNao.TabStop = true;
-            this.rbNao.Text = "Não";
-            this.rbNao.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(785, 62);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 13);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Compra Consignado?";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tabControl1);
@@ -397,17 +153,6 @@
             this.Pedido.Text = "Pedido";
             this.Pedido.UseVisualStyleBackColor = true;
             // 
-            // Observação
-            // 
-            this.Observação.Controls.Add(this.textBox4);
-            this.Observação.Location = new System.Drawing.Point(4, 22);
-            this.Observação.Name = "Observação";
-            this.Observação.Padding = new System.Windows.Forms.Padding(3);
-            this.Observação.Size = new System.Drawing.Size(777, 174);
-            this.Observação.TabIndex = 1;
-            this.Observação.Text = "Observação";
-            this.Observação.UseVisualStyleBackColor = true;
-            // 
             // dgvGerenciarCompra
             // 
             this.dgvGerenciarCompra.AllowUserToAddRows = false;
@@ -428,45 +173,6 @@
             this.dgvGerenciarCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGerenciarCompra.Size = new System.Drawing.Size(765, 162);
             this.dgvGerenciarCompra.TabIndex = 15;
-            // 
-            // btnExcluirCompra
-            // 
-            this.btnExcluirCompra.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluirCompra.Location = new System.Drawing.Point(800, 93);
-            this.btnExcluirCompra.Name = "btnExcluirCompra";
-            this.btnExcluirCompra.Size = new System.Drawing.Size(72, 37);
-            this.btnExcluirCompra.TabIndex = 16;
-            this.btnExcluirCompra.Text = "Excluir Item";
-            this.btnExcluirCompra.UseVisualStyleBackColor = false;
-            // 
-            // btnGerarCompra
-            // 
-            this.btnGerarCompra.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGerarCompra.Location = new System.Drawing.Point(528, 12);
-            this.btnGerarCompra.Name = "btnGerarCompra";
-            this.btnGerarCompra.Size = new System.Drawing.Size(111, 48);
-            this.btnGerarCompra.TabIndex = 14;
-            this.btnGerarCompra.Text = "Gerar Compra";
-            this.btnGerarCompra.UseVisualStyleBackColor = false;
-            // 
-            // BtnGerarContaPagar
-            // 
-            this.BtnGerarContaPagar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnGerarContaPagar.Location = new System.Drawing.Point(645, 12);
-            this.BtnGerarContaPagar.Name = "BtnGerarContaPagar";
-            this.BtnGerarContaPagar.Size = new System.Drawing.Size(128, 48);
-            this.BtnGerarContaPagar.TabIndex = 15;
-            this.BtnGerarContaPagar.Text = "Gerar Conta a Pagar";
-            this.BtnGerarContaPagar.UseVisualStyleBackColor = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(9, 18);
-            this.textBox4.MaxLength = 100;
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(750, 135);
-            this.textBox4.TabIndex = 30;
             // 
             // codcompra
             // 
@@ -518,6 +224,62 @@
             this.comp_statusconsignado.Name = "comp_statusconsignado";
             this.comp_statusconsignado.ReadOnly = true;
             // 
+            // Observação
+            // 
+            this.Observação.Controls.Add(this.textBox4);
+            this.Observação.Location = new System.Drawing.Point(4, 22);
+            this.Observação.Name = "Observação";
+            this.Observação.Padding = new System.Windows.Forms.Padding(3);
+            this.Observação.Size = new System.Drawing.Size(777, 174);
+            this.Observação.TabIndex = 1;
+            this.Observação.Text = "Observação";
+            this.Observação.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(9, 18);
+            this.textBox4.MaxLength = 100;
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(750, 135);
+            this.textBox4.TabIndex = 30;
+            // 
+            // btnExcluirCompra
+            // 
+            this.btnExcluirCompra.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluirCompra.Location = new System.Drawing.Point(800, 93);
+            this.btnExcluirCompra.Name = "btnExcluirCompra";
+            this.btnExcluirCompra.Size = new System.Drawing.Size(72, 37);
+            this.btnExcluirCompra.TabIndex = 16;
+            this.btnExcluirCompra.Text = "Excluir Item";
+            this.btnExcluirCompra.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(785, 62);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 13);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Compra Consignado?";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnIncluirProduto);
+            this.groupBox1.Controls.Add(this.dtpData);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.ttbQuantidade);
+            this.groupBox1.Controls.Add(this.mskVenda);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.mskCusto);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(21, 108);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(878, 66);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            // 
             // btnIncluirProduto
             // 
             this.btnIncluirProduto.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -527,6 +289,246 @@
             this.btnIncluirProduto.TabIndex = 17;
             this.btnIncluirProduto.Text = "Incluir Produto";
             this.btnIncluirProduto.UseVisualStyleBackColor = false;
+            // 
+            // dtpData
+            // 
+            this.dtpData.CustomFormat = "dd/MM/YYYY";
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(215, 24);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(103, 20);
+            this.dtpData.TabIndex = 26;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(174, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Data:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Qtde";
+            // 
+            // ttbQuantidade
+            // 
+            this.ttbQuantidade.Location = new System.Drawing.Point(58, 27);
+            this.ttbQuantidade.Name = "ttbQuantidade";
+            this.ttbQuantidade.Size = new System.Drawing.Size(100, 20);
+            this.ttbQuantidade.TabIndex = 24;
+            // 
+            // mskVenda
+            // 
+            this.mskVenda.Location = new System.Drawing.Point(652, 23);
+            this.mskVenda.Name = "mskVenda";
+            this.mskVenda.Size = new System.Drawing.Size(100, 20);
+            this.mskVenda.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(550, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Preço de Venda*";
+            // 
+            // mskCusto
+            // 
+            this.mskCusto.Location = new System.Drawing.Point(428, 24);
+            this.mskCusto.Name = "mskCusto";
+            this.mskCusto.Size = new System.Drawing.Size(100, 20);
+            this.mskCusto.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(338, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Preço de Custo*";
+            // 
+            // btnPesquisaProduto
+            // 
+            this.btnPesquisaProduto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisaProduto.Location = new System.Drawing.Point(552, 57);
+            this.btnPesquisaProduto.Name = "btnPesquisaProduto";
+            this.btnPesquisaProduto.Size = new System.Drawing.Size(87, 31);
+            this.btnPesquisaProduto.TabIndex = 17;
+            this.btnPesquisaProduto.Text = "Pesquisa";
+            this.btnPesquisaProduto.UseVisualStyleBackColor = false;
+            // 
+            // ttbProduto
+            // 
+            this.ttbProduto.Location = new System.Drawing.Point(79, 62);
+            this.ttbProduto.MaxLength = 100;
+            this.ttbProduto.Name = "ttbProduto";
+            this.ttbProduto.Size = new System.Drawing.Size(448, 20);
+            this.ttbProduto.TabIndex = 16;
+            // 
+            // rbNao
+            // 
+            this.rbNao.AutoSize = true;
+            this.rbNao.Location = new System.Drawing.Point(848, 85);
+            this.rbNao.Name = "rbNao";
+            this.rbNao.Size = new System.Drawing.Size(45, 17);
+            this.rbNao.TabIndex = 27;
+            this.rbNao.TabStop = true;
+            this.rbNao.Text = "Não";
+            this.rbNao.UseVisualStyleBackColor = true;
+            // 
+            // btnPesquisaFornecedor
+            // 
+            this.btnPesquisaFornecedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisaFornecedor.Location = new System.Drawing.Point(812, 9);
+            this.btnPesquisaFornecedor.Name = "btnPesquisaFornecedor";
+            this.btnPesquisaFornecedor.Size = new System.Drawing.Size(87, 31);
+            this.btnPesquisaFornecedor.TabIndex = 15;
+            this.btnPesquisaFornecedor.Text = "Pesquisa";
+            this.btnPesquisaFornecedor.UseVisualStyleBackColor = false;
+            this.btnPesquisaFornecedor.Click += new System.EventHandler(this.btnPesquisaFornecedor_Click);
+            // 
+            // rbSim
+            // 
+            this.rbSim.AutoSize = true;
+            this.rbSim.Location = new System.Drawing.Point(788, 85);
+            this.rbSim.Name = "rbSim";
+            this.rbSim.Size = new System.Drawing.Size(42, 17);
+            this.rbSim.TabIndex = 26;
+            this.rbSim.TabStop = true;
+            this.rbSim.Text = "Sim";
+            this.rbSim.UseVisualStyleBackColor = true;
+            // 
+            // ttbFornecedor
+            // 
+            this.ttbFornecedor.Location = new System.Drawing.Point(345, 15);
+            this.ttbFornecedor.MaxLength = 100;
+            this.ttbFornecedor.Name = "ttbFornecedor";
+            this.ttbFornecedor.Size = new System.Drawing.Size(448, 20);
+            this.ttbFornecedor.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(261, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Fornecedor:";
+            // 
+            // Código
+            // 
+            this.Código.AutoSize = true;
+            this.Código.Location = new System.Drawing.Point(18, 18);
+            this.Código.Name = "Código";
+            this.Código.Size = new System.Drawing.Size(40, 13);
+            this.Código.TabIndex = 6;
+            this.Código.Text = "Código";
+            // 
+            // ttbCodigo
+            // 
+            this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
+            this.ttbCodigo.Name = "ttbCodigo";
+            this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
+            this.ttbCodigo.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Produto";
+            // 
+            // BtnGerarContaPagar
+            // 
+            this.BtnGerarContaPagar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnGerarContaPagar.Location = new System.Drawing.Point(645, 12);
+            this.BtnGerarContaPagar.Name = "BtnGerarContaPagar";
+            this.BtnGerarContaPagar.Size = new System.Drawing.Size(128, 48);
+            this.BtnGerarContaPagar.TabIndex = 15;
+            this.BtnGerarContaPagar.Text = "Gerar Conta a Pagar";
+            this.BtnGerarContaPagar.UseVisualStyleBackColor = false;
+            // 
+            // btnGerarCompra
+            // 
+            this.btnGerarCompra.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGerarCompra.Location = new System.Drawing.Point(528, 12);
+            this.btnGerarCompra.Name = "btnGerarCompra";
+            this.btnGerarCompra.Size = new System.Drawing.Size(111, 48);
+            this.btnGerarCompra.TabIndex = 14;
+            this.btnGerarCompra.Text = "Gerar Compra";
+            this.btnGerarCompra.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 48);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.Location = new System.Drawing.Point(824, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 48);
+            this.btnSair.TabIndex = 11;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluir.Location = new System.Drawing.Point(264, 12);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 48);
+            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterar.Location = new System.Drawing.Point(183, 12);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 48);
+            this.btnAlterar.TabIndex = 8;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGravar.Location = new System.Drawing.Point(102, 12);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 48);
+            this.btnGravar.TabIndex = 7;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = false;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.Location = new System.Drawing.Point(21, 12);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 48);
+            this.btnNovo.TabIndex = 6;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = false;
             // 
             // GerenciarCompra
             // 
@@ -544,14 +546,14 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.Pedido.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGerenciarCompra)).EndInit();
             this.Observação.ResumeLayout(false);
             this.Observação.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGerenciarCompra)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

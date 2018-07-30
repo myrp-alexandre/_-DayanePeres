@@ -815,8 +815,7 @@ namespace HairLumos.DAO
 
 
             _sql = "SELECT codpessoa, jur_cnpj, jur_razaosocial, jur_fantasia" +
-                            "FROM tbjuridica;" +
-                      " FROM tbjuridica WHERE codpessoa =" + cod;
+                      " FROM tbjuridica WHERE @cod =" + cod;
 
 
             try

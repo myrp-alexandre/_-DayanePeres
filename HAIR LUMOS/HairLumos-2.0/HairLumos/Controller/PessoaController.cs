@@ -61,7 +61,7 @@ namespace HairLumos.Controller
 
         public DataTable retornaPessoaJuridicaCod(int strCod)
         {
-            return _MdlPes.retornaPessoaFisica(strCod);
+            return _MdlPes.retornaPessoaJuridica(strCod);
         }
 
         public DataTable retornaEstado()

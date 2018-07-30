@@ -46,5 +46,10 @@ namespace HairLumos.Controller
         {
             return _MdlUsu.verificaLogin(login);
         }
+
+        public DataTable existeUsuario()
+        {
+            return _MdlUsu.existeUsuario();
+        }
     }
 }

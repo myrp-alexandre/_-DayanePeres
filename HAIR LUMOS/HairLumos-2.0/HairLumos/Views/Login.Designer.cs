@@ -138,9 +138,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.MaskedTextBox ttbSenha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ttbUsuario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox ttbSenha;
+        
     }
 }

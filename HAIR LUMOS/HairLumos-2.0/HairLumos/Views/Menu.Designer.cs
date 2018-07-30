@@ -53,6 +53,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenciarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +65,7 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cADASTROToolStripMenuItem,
+            this.compraToolStripMenuItem,
             this.rELATÓRIOSToolStripMenuItem,
             this.iNFORMAÇÕESToolStripMenuItem,
             this.bACKUPToolStripMenuItem,
@@ -95,7 +98,6 @@
             this.pessoaToolStripMenuItem.Name = "pessoaToolStripMenuItem";
             this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.pessoaToolStripMenuItem.Text = "Cadastro de Pessoa";
-            this.pessoaToolStripMenuItem.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
             // 
             // cadastrodePessoa
             // 
@@ -228,14 +230,14 @@
             // sairToolStripMenuItem1
             // 
             this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.sairToolStripMenuItem1.Text = "Sair";
             this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
             // 
             // trocarUsuárioToolStripMenuItem
             // 
             this.trocarUsuárioToolStripMenuItem.Name = "trocarUsuárioToolStripMenuItem";
-            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.trocarUsuárioToolStripMenuItem.Text = "Trocar Usuário";
             this.trocarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.trocarUsuárioToolStripMenuItem_Click);
             // 
@@ -267,6 +269,21 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // compraToolStripMenuItem
+            // 
+            this.compraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gerenciarCompraToolStripMenuItem});
+            this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
+            this.compraToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.compraToolStripMenuItem.Text = "COMPRA";
+            // 
+            // gerenciarCompraToolStripMenuItem
+            // 
+            this.gerenciarCompraToolStripMenuItem.Name = "gerenciarCompraToolStripMenuItem";
+            this.gerenciarCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gerenciarCompraToolStripMenuItem.Text = "Gerenciar Compra";
+            this.gerenciarCompraToolStripMenuItem.Click += new System.EventHandler(this.gerenciarCompraToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -319,6 +336,8 @@
         private System.Windows.Forms.ToolStripMenuItem parametrizaçãoDoSistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeDespesaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDeDespesaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerenciarCompraToolStripMenuItem;
     }
 }
 
