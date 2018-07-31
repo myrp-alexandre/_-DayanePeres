@@ -26,7 +26,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         {
             try
             {
-                Views.Pesquisa_Pessoa objPessoa = new Pesquisa_Pessoa();
+                Views.Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor objPessoa = new Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor();
 
                 objPessoa.ShowDialog();
                 if (objPessoa.intCodigoPessoa > 0)
@@ -38,6 +38,33 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     {
                         DataRow dr = dtRetorno.Rows[0];
                         ttbFornecedor.Text = dr["jur_fantasia"].ToString();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnPesquisaProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Views.Funcoes_Basicas.Pesquisas.Pesquisa_Produto objProduto = new Funcoes_Basicas.Pesquisas.Pesquisa_Produto();
+
+                objProduto.ShowDialog();
+                if (objProduto.codProduto > 0)
+                {
+                    Controller.ProdutoController produtoController = new Controller.ProdutoController();
+                    DataTable dtRetorno = produtoController.retornaProduto(objProduto.codProduto);
+
+                    if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+                    {
+                        DataRow dr = dtRetorno.Rows[0];
+                        ttbProduto.Text = dr["prod_produto"].ToString();
 
                     }
                 }

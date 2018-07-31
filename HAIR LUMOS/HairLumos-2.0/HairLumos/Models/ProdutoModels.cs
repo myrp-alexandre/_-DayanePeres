@@ -143,5 +143,15 @@ namespace HairLumos.Models
             return _DAOProd.ExcluirProduto(intCod);
         }
 
+        public DataTable retornaProduto(string texto)
+        {
+            return _DAOProd.RetornaProduto(texto);
+        }
+
+        public DataTable retornaProduto(int cod)
+        {
+            return _DAOProd.RetornaProduto(cod);
+        }
+
     }
 }

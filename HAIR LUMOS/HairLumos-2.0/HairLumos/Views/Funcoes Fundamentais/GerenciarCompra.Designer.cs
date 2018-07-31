@@ -365,6 +365,7 @@
             this.btnPesquisaProduto.TabIndex = 17;
             this.btnPesquisaProduto.Text = "Pesquisa";
             this.btnPesquisaProduto.UseVisualStyleBackColor = false;
+            this.btnPesquisaProduto.Click += new System.EventHandler(this.btnPesquisaProduto_Click);
             // 
             // ttbProduto
             // 

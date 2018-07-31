@@ -77,5 +77,15 @@ namespace HairLumos.Controller
         {
             return _MdlProd.excluirProduto(intCod);
         }
+
+        public DataTable retornaProduto(string texto)
+        {
+            return _MdlProd.retornaProduto(texto);
+        }
+
+        public DataTable retornaProduto(int cod)
+        {
+            return _MdlProd.retornaProduto(cod);
+        }
     }
 }

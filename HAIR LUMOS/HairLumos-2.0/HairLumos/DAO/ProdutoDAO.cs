@@ -390,5 +390,65 @@ namespace HairLumos.DAO
             return (_controle > 0);
         }
 
+        public DataTable RetornaProduto(string texto) //string Texto
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT codproduto, prod_produto, prod_precocusto, prod_precovenda, prod_qtde, prod_obs, p.codcategoria, cat_categoria, p.codmarca, marc_nome" +
+                    " FROM tbproduto p INNER JOIN tbmarca m ON m.codmarca = p.codmarca" +
+                    " INNER JOIN tbcategoria c ON c.codcategoria = p.codcategoria";
+
+            if(texto != null && texto != "")
+                _sql += $" WHERE UPPER(prod_produto) LIKE @produto";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                if (texto != null && texto != "")
+                    cmd.Parameters.AddWithValue("@produto", texto.ToUpper());
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaProduto(int cod) //inteiro
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT codproduto, prod_produto, prod_precocusto, prod_precovenda, prod_qtde," +
+                        "prod_obs, codcategoria, codmarca" +
+                    " FROM tbproduto WHERE codproduto = @codigo;";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codigo", cod);
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
     }
 }
