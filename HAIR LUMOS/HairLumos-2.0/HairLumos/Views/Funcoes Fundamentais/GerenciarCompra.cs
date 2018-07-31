@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HairLumos.Controller;
+using HairLumos.DAO;
+using HairLumos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +15,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 {
     public partial class GerenciarCompra : Form
     {
+        private List<CompraProduto> lista; 
+
         public GerenciarCompra()
         {
             InitializeComponent();
             inicializa(false);
+            lista = new List<CompraProduto>();
+            dgvGerenciarCompra.AutoGenerateColumns = false;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -126,6 +133,37 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         private void btnNovo_Click(object sender, EventArgs e)
         {
             inicializa(true);
+        }
+
+        private void carregaDGV(List<CompraProduto> lista)
+        {
+            dgvGerenciarCompra.DataSource = lista;
+        }
+
+        private void btnIncluirProduto_Click(object sender, EventArgs e)
+        {
+            ProdutoController pc = new ProdutoController();
+            ProdutoDAO pd = new ProdutoDAO();
+            DataTable dtproduto = pc.retornaProduto(ttbProduto.Text.Trim());
+            DataRow dr = dtproduto.Rows[0];
+            Produto p = new Produto();
+            p.CodigoProduto = Convert.ToInt32(dr["codproduto"]);
+            p.Custo = Convert.ToDouble(dr["prod_precocusto"]);
+            p.NomeProduto = dr["prod_produto"].ToString();
+            p.Venda = Convert.ToDouble(dr["prod_precovenda"]);
+            p.Quantidade = Convert.ToInt32(dr["prod_qtde"]);
+            p.Observacao = dr["prod_obs"].ToString();
+            p.Marca = pd.retornaMarca(Convert.ToInt32(dr["codmarca"]));
+            p.Categoria = pd.retornaCateria(Convert.ToInt32(dr["codcategoria"]));
+            CompraProduto cp = new CompraProduto();
+            cp.Produto = p;
+            cp.Qtde = Convert.ToInt32(ttbQuantidade.Text);
+            double custo = 0; // = Convert.ToDouble(mskPrecoCompra.Text);
+            double.TryParse(mskVenda.Text, out custo);
+            cp.Valor = custo;
+            lista.Add(cp);
+            carregaDGV(lista);
+
         }
     }
 }

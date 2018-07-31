@@ -33,13 +33,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Pedido = new System.Windows.Forms.TabPage();
             this.dgvGerenciarCompra = new System.Windows.Forms.DataGridView();
-            this.codcompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comp_datacompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecoCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comp_valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comp_statusconsignado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observação = new System.Windows.Forms.TabPage();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.btnExcluirCompra = new System.Windows.Forms.Button();
@@ -72,6 +65,10 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.Compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -160,69 +157,16 @@
             this.dgvGerenciarCompra.BackgroundColor = System.Drawing.Color.White;
             this.dgvGerenciarCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGerenciarCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codcompra,
+            this.Compra,
             this.Produto,
-            this.Quantidade,
-            this.comp_datacompra,
-            this.PrecoCusto,
-            this.comp_valortotal,
-            this.comp_statusconsignado});
+            this.Qtde,
+            this.Valor});
             this.dgvGerenciarCompra.Location = new System.Drawing.Point(6, 6);
             this.dgvGerenciarCompra.Name = "dgvGerenciarCompra";
             this.dgvGerenciarCompra.ReadOnly = true;
             this.dgvGerenciarCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGerenciarCompra.Size = new System.Drawing.Size(765, 162);
             this.dgvGerenciarCompra.TabIndex = 15;
-            // 
-            // codcompra
-            // 
-            this.codcompra.DataPropertyName = "codcompra";
-            this.codcompra.HeaderText = "Cód";
-            this.codcompra.Name = "codcompra";
-            this.codcompra.ReadOnly = true;
-            this.codcompra.Width = 50;
-            // 
-            // Produto
-            // 
-            this.Produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Qtde";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            this.Quantidade.Width = 50;
-            // 
-            // comp_datacompra
-            // 
-            this.comp_datacompra.DataPropertyName = "comp_datacompra";
-            this.comp_datacompra.HeaderText = "Data";
-            this.comp_datacompra.Name = "comp_datacompra";
-            this.comp_datacompra.ReadOnly = true;
-            // 
-            // PrecoCusto
-            // 
-            this.PrecoCusto.DataPropertyName = "PrecoCusto";
-            this.PrecoCusto.HeaderText = "Preço de Custo (R$)";
-            this.PrecoCusto.Name = "PrecoCusto";
-            this.PrecoCusto.ReadOnly = true;
-            // 
-            // comp_valortotal
-            // 
-            this.comp_valortotal.DataPropertyName = "comp_valortotal";
-            this.comp_valortotal.HeaderText = "Total R$";
-            this.comp_valortotal.Name = "comp_valortotal";
-            this.comp_valortotal.ReadOnly = true;
-            // 
-            // comp_statusconsignado
-            // 
-            this.comp_statusconsignado.DataPropertyName = "comp_statusconsignado";
-            this.comp_statusconsignado.HeaderText = "Status Consig.";
-            this.comp_statusconsignado.Name = "comp_statusconsignado";
-            this.comp_statusconsignado.ReadOnly = true;
             // 
             // Observação
             // 
@@ -289,6 +233,7 @@
             this.btnIncluirProduto.TabIndex = 17;
             this.btnIncluirProduto.Text = "Incluir Produto";
             this.btnIncluirProduto.UseVisualStyleBackColor = false;
+            this.btnIncluirProduto.Click += new System.EventHandler(this.btnIncluirProduto_Click);
             // 
             // dtpData
             // 
@@ -534,6 +479,37 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // Compra
+            // 
+            this.Compra.DataPropertyName = "_compra";
+            this.Compra.HeaderText = "Cód";
+            this.Compra.Name = "Compra";
+            this.Compra.ReadOnly = true;
+            this.Compra.Width = 50;
+            // 
+            // Produto
+            // 
+            this.Produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Produto.DataPropertyName = "_produto";
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            // 
+            // Qtde
+            // 
+            this.Qtde.DataPropertyName = "_qtde";
+            this.Qtde.HeaderText = "Qtde";
+            this.Qtde.Name = "Qtde";
+            this.Qtde.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "_valor";
+            this.Valor.HeaderText = "Preço de Custo (R$)";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Width = 150;
+            // 
             // GerenciarCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,13 +576,10 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button BtnGerarContaPagar;
         public System.Windows.Forms.Button btnGerarCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codcompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comp_datacompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecoCusto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comp_valortotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comp_statusconsignado;
         public System.Windows.Forms.Button btnIncluirProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
     }
 }

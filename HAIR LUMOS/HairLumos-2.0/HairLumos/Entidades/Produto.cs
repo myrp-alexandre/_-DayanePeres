@@ -100,5 +100,10 @@ namespace HairLumos.Entidades
             get { return _erro; }
             set { _erro = value; }
         }
+
+        public override string ToString()
+        {
+            return _nome;
+        }
     }
 }

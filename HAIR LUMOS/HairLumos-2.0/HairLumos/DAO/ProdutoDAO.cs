@@ -125,6 +125,40 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public Categoria retornaCateria(int cod)
+        {
+
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codcategoria, cat_categoria, cat_obscategoria " +
+                    "FROM tbcategoria " +
+                    "WHERE codcategoria = " + cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+
+                DataRow drs = dt.Rows[0];
+                Categoria c = new Categoria();
+                c.Codigo = Convert.ToInt32(drs["codcategoria"]);
+                c.CategoriaNome = drs["cat_categoria"].ToString();
+                c.Observacao = drs["cat_obscategoria"].ToString();
+                return c;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public bool excluirCategoria (int intCod)
         {
             _sql = "DELETE FROM tbcategoria WHERE codcategoria = @cod";
@@ -214,6 +248,39 @@ namespace HairLumos.DAO
                 throw;
             }
             return dt;
+        }
+
+        public Marca retornaMarca(int cod)
+        {
+
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codmarca, marc_nome " +
+                "FROM tbmarca " +
+                "WHERE codmarca = " + cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+
+                DataRow drs = dt.Rows[0];
+                Marca m = new Marca();
+                m.Codigo = Convert.ToInt32(drs["codmarca"]);
+                m.MarcaProduto = drs["marc_nome"].ToString();
+                return m;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public DataTable RetornaMarca()
