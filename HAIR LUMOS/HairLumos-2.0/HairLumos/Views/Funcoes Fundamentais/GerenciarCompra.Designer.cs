@@ -41,7 +41,7 @@
             this.comp_valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_statusconsignado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observação = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.btnExcluirCompra = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -226,7 +226,7 @@
             // 
             // Observação
             // 
-            this.Observação.Controls.Add(this.textBox4);
+            this.Observação.Controls.Add(this.ttbObservacao);
             this.Observação.Location = new System.Drawing.Point(4, 22);
             this.Observação.Name = "Observação";
             this.Observação.Padding = new System.Windows.Forms.Padding(3);
@@ -235,14 +235,14 @@
             this.Observação.Text = "Observação";
             this.Observação.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // ttbObservacao
             // 
-            this.textBox4.Location = new System.Drawing.Point(9, 18);
-            this.textBox4.MaxLength = 100;
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(750, 135);
-            this.textBox4.TabIndex = 30;
+            this.ttbObservacao.Location = new System.Drawing.Point(9, 18);
+            this.ttbObservacao.MaxLength = 100;
+            this.ttbObservacao.Multiline = true;
+            this.ttbObservacao.Name = "ttbObservacao";
+            this.ttbObservacao.Size = new System.Drawing.Size(750, 135);
+            this.ttbObservacao.TabIndex = 30;
             // 
             // btnExcluirCompra
             // 
@@ -436,6 +436,7 @@
             // 
             // ttbCodigo
             // 
+            this.ttbCodigo.Enabled = false;
             this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
@@ -479,6 +480,7 @@
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -530,6 +532,7 @@
             this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // GerenciarCompra
             // 
@@ -576,7 +579,7 @@
         private System.Windows.Forms.TabPage Pedido;
         private System.Windows.Forms.DataGridView dgvGerenciarCompra;
         private System.Windows.Forms.TabPage Observação;
-        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox ttbObservacao;
         public System.Windows.Forms.Button btnExcluirCompra;
         public System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;

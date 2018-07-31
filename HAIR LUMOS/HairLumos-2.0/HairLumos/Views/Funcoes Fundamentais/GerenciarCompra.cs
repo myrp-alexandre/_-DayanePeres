@@ -15,6 +15,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         public GerenciarCompra()
         {
             InitializeComponent();
+            inicializa(false);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -74,6 +75,57 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
                 throw;
             }
+        }
+
+        private void inicializa(Boolean estado)
+        {
+            ttbFornecedor.Enabled = estado;
+            btnPesquisaFornecedor.Enabled = estado;
+            ttbProduto.Enabled = estado;
+            btnPesquisaProduto.Enabled = estado;
+            rbSim.Checked = !estado;
+            rbNao.Checked = estado;
+            ttbQuantidade.Enabled = estado;
+            dtpData.Enabled = estado;
+            mskCusto.Enabled = estado;
+            mskVenda.Enabled = estado;
+            btnIncluirProduto.Enabled = estado;
+            dgvGerenciarCompra.Enabled = estado;
+            btnExcluirCompra.Enabled = estado;
+            ttbObservacao.Enabled = estado;
+            btnNovo.Enabled = !estado;
+            btnGravar.Enabled = estado;
+            btnAlterar.Enabled = estado;
+            btnExcluir.Enabled = estado;
+            btnCancelar.Enabled = estado;
+            btnGerarCompra.Enabled = estado;
+            BtnGerarContaPagar.Enabled = estado;
+        }
+
+        private void limpaCampos()
+        {
+            ttbCodigo.Clear();
+            ttbFornecedor.Clear();
+            ttbProduto.Clear();
+            rbSim.Checked = true;
+            rbNao.Checked = false;
+            ttbQuantidade.Clear();
+            dtpData.Value = DateTime.Now;
+            mskCusto.Clear();
+            mskVenda.Clear();
+            dgvGerenciarCompra.Rows.Clear();
+            ttbObservacao.Clear();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpaCampos();
+            inicializa(false);
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            inicializa(true);
         }
     }
 }
