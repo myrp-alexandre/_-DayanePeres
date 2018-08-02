@@ -65,10 +65,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.Compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -156,11 +152,6 @@
             this.dgvGerenciarCompra.AllowUserToDeleteRows = false;
             this.dgvGerenciarCompra.BackgroundColor = System.Drawing.Color.White;
             this.dgvGerenciarCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGerenciarCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Compra,
-            this.Produto,
-            this.Qtde,
-            this.Valor});
             this.dgvGerenciarCompra.Location = new System.Drawing.Point(6, 6);
             this.dgvGerenciarCompra.Name = "dgvGerenciarCompra";
             this.dgvGerenciarCompra.ReadOnly = true;
@@ -479,37 +470,6 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // Compra
-            // 
-            this.Compra.DataPropertyName = "_compra";
-            this.Compra.HeaderText = "Cód";
-            this.Compra.Name = "Compra";
-            this.Compra.ReadOnly = true;
-            this.Compra.Width = 50;
-            // 
-            // Produto
-            // 
-            this.Produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Produto.DataPropertyName = "_produto";
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            // 
-            // Qtde
-            // 
-            this.Qtde.DataPropertyName = "_qtde";
-            this.Qtde.HeaderText = "Qtde";
-            this.Qtde.Name = "Qtde";
-            this.Qtde.ReadOnly = true;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "_valor";
-            this.Valor.HeaderText = "Preço de Custo (R$)";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            this.Valor.Width = 150;
-            // 
             // GerenciarCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -577,9 +537,5 @@
         public System.Windows.Forms.Button BtnGerarContaPagar;
         public System.Windows.Forms.Button btnGerarCompra;
         public System.Windows.Forms.Button btnIncluirProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Compra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
     }
 }

@@ -19,8 +19,8 @@ namespace HairLumos.Entidades
 
         public Compra()
         {
-            despesa = new Despesa();
-            pessoa = new PessoaJuridica();
+            this.despesa = new Despesa();
+            this.pessoa = new PessoaJuridica();
         }
 
         public int Codigo
@@ -71,6 +71,9 @@ namespace HairLumos.Entidades
             set { pessoa = value; }
         }
 
-
+        public override string ToString()
+        {
+            return this.codigo.ToString();
+        }
     }
 }

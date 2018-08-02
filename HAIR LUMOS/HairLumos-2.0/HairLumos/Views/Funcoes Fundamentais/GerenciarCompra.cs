@@ -22,7 +22,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             InitializeComponent();
             inicializa(false);
             lista = new List<CompraProduto>();
-            dgvGerenciarCompra.AutoGenerateColumns = false;
+            //dgvGerenciarCompra.AutoGenerateColumns = false;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -158,12 +158,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             CompraProduto cp = new CompraProduto();
             cp.Produto = p;
             cp.Qtde = Convert.ToInt32(ttbQuantidade.Text);
-            double custo = 0; // = Convert.ToDouble(mskPrecoCompra.Text);
+            double custo = 0; 
             double.TryParse(mskVenda.Text, out custo);
             cp.Valor = custo;
             lista.Add(cp);
             carregaDGV(lista);
-
+            ttbProduto.Clear();
+            ttbQuantidade.Clear();
+            mskCusto.Clear();
+            mskVenda.Clear();
         }
     }
 }
