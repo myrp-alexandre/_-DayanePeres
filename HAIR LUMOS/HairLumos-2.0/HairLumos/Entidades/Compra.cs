@@ -11,14 +11,17 @@ namespace HairLumos.Entidades
         private int codigo;
         private Despesa despesa;
         private DateTime data;
-        private Boolean situacao;
+        private string situacao;
         private Boolean consignado;
         private double valorTotal;
         private string obs;
         private PessoaJuridica pessoa;
 
+        List<CompraProduto> listaItens;
+
         public Compra()
         {
+            listaItens = new List<CompraProduto>();
             this.despesa = new Despesa();
             this.pessoa = new PessoaJuridica();
         }
@@ -41,7 +44,7 @@ namespace HairLumos.Entidades
             set { data = value; }
         }
 
-        public Boolean Situacao
+        public string Situacao
         {
             get { return situacao; }
             set { situacao = value; }
@@ -70,6 +73,8 @@ namespace HairLumos.Entidades
             get { return pessoa; }
             set { pessoa = value; }
         }
+
+        public List<CompraProduto> Lista { get; set; }
 
         public override string ToString()
         {

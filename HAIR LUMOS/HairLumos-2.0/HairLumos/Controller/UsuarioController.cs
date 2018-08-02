@@ -51,5 +51,15 @@ namespace HairLumos.Controller
         {
             return _MdlUsu.existeUsuario();
         }
+
+        public int usuarioLogado(int cod, int codU)
+        {
+            return _MdlUsu.usuarioLogado(cod, codU);
+        }
+
+        public DataTable existeUsuarioLogado()
+        {
+            return _MdlUsu.existeUsuarioLogado();
+        }
     }
 }

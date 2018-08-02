@@ -8,7 +8,6 @@ namespace HairLumos.Entidades
 {
     class CompraProduto
     {
-        public Compra _compra;
         public Produto _produto;
         public int _qtde;
         public double _valor;
@@ -16,14 +15,7 @@ namespace HairLumos.Entidades
 
         public CompraProduto()
         {
-            _compra = new Compra();
             _produto = new Produto();
-        }
-
-        public Compra Compra
-        {
-            get { return _compra; }
-            set { _compra = value; }
         }
 
         public Produto Produto

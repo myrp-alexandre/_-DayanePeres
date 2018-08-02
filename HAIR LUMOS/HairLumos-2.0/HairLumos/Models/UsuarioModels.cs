@@ -61,5 +61,16 @@ namespace HairLumos.Models
 
             return _DAOUsu.ExisteUsuario();
         }
+
+        public int usuarioLogado(int cod, int codU)
+        {
+            return _DAOUsu.usuarioLogado(cod, codU);
+        }
+
+        public DataTable existeUsuarioLogado()
+        {
+
+            return _DAOUsu.ExisteUsuarioLogado();
+        }
     }
 }

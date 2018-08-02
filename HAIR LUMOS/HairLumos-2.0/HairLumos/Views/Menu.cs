@@ -1,4 +1,5 @@
 ﻿
+using HairLumos.Controller;
 using HairLumos.Views;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,14 @@ namespace HairLumos
 
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            UsuarioController uc = new UsuarioController();
+            DataTable dt = uc.existeUsuarioLogado();
+            if(dt!=null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                uc.usuarioLogado(Convert.ToInt32(dr["codusuario"]), 0);
+            }
+            
             Close();
         }
 
@@ -122,6 +131,14 @@ namespace HairLumos
 
         private void trocarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            UsuarioController uc = new UsuarioController();
+            DataTable dt = uc.existeUsuarioLogado();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                uc.usuarioLogado(Convert.ToInt32(dr["codusuario"]), 0);
+            }
             this.Hide();
             Login login = new Login();
             login.ShowDialog();

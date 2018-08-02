@@ -33,6 +33,9 @@ namespace HairLumos.Views
             DataTable usuarioLogado = uc.realizaLogin(ttbUsuario.Text, ttbSenha.Text);
             if (usuarioLogado != null && usuarioLogado.Rows.Count > 0)
             {
+                DataRow dr = usuarioLogado.Rows[0];
+                int codigo = Convert.ToInt32(dr["codusuario"]);
+                uc.usuarioLogado(codigo, codigo);
                 this.Hide();
                 frmMenu menu = new frmMenu(usuarioLogado);
                 menu.ShowDialog();
