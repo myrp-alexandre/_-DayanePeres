@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\Conexao.cs" />
+    <Compile Include="Controller\CompraController.cs" />
     <Compile Include="Controller\DespesaController.cs" />
     <Compile Include="Controller\PacoteController.cs" />
     <Compile Include="Controller\PagamentoController.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\ServicoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="DAO\CompraDAO.cs" />
     <Compile Include="DAO\DespesaDAO.cs" />
     <Compile Include="DAO\PacoteDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
@@ -75,6 +77,8 @@
     <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cidade.cs" />
+    <Compile Include="Entidades\Compra.cs" />
+    <Compile Include="Entidades\CompraProduto.cs" />
     <Compile Include="Entidades\Despesa.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
@@ -87,6 +91,7 @@
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Servico.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Models\CompraModels.cs" />
     <Compile Include="Models\DespesaModels.cs" />
     <Compile Include="Models\PacoteModels.cs" />
     <Compile Include="Models\PagamentoModels.cs" />
@@ -155,17 +160,36 @@
     <Compile Include="Views\Funcoes Basicas\Cadastro_Usuario.Designer.cs">
       <DependentUpon>Cadastro_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Fornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Fornecedor.Designer.cs">
+      <DependentUpon>Pesquisa_Fornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Produto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Produto.Designer.cs">
+      <DependentUpon>Pesquisa_Produto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Usuario.Designer.cs">
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Basicas\ValidaCPF.cs" />
     <Compile Include="Views\Funcoes Fundamentais\GerenciarCompra.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Funcoes Fundamentais\GerenciarCompra.Designer.cs">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\LancarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\LancarDespesa.Designer.cs">
+      <DependentUpon>LancarDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -223,11 +247,20 @@
     <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_Usuario.resx">
       <DependentUpon>Cadastro_Usuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Fornecedor.resx">
+      <DependentUpon>Pesquisa_Fornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Produto.resx">
+      <DependentUpon>Pesquisa_Produto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Usuario.resx">
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\GerenciarCompra.resx">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\LancarDespesa.resx">
+      <DependentUpon>LancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

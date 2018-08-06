@@ -491,3 +491,5 @@ D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.Shell.15.0.resources.dll
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\pt-BR\Microsoft.VisualStudio.GraphModel.resources.dll
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.CopyComplete
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Basicas.Pesquisas.Pesquisa_Produto.resources

@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ttbSenha = new System.Windows.Forms.MaskedTextBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ttbUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ttbSenha = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 360);
             this.panel1.TabIndex = 0;
+            // 
+            // ttbSenha
+            // 
+            this.ttbSenha.Location = new System.Drawing.Point(135, 250);
+            this.ttbSenha.Name = "ttbSenha";
+            this.ttbSenha.Size = new System.Drawing.Size(161, 20);
+            this.ttbSenha.TabIndex = 3;
+            this.ttbSenha.UseSystemPasswordChar = true;
             // 
             // btnSair
             // 
@@ -105,14 +113,6 @@
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuário:";
-            // 
-            // ttbSenha
-            // 
-            this.ttbSenha.Location = new System.Drawing.Point(135, 250);
-            this.ttbSenha.Name = "ttbSenha";
-            this.ttbSenha.Size = new System.Drawing.Size(161, 20);
-            this.ttbSenha.TabIndex = 6;
-            this.ttbSenha.UseSystemPasswordChar = true;
             // 
             // Login
             // 

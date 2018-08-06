@@ -20,6 +20,7 @@ namespace HairLumos.Views
 
         int intCodPessoa = 0;
         string tipoContato = "";
+        private Funcoes_Basicas.ValidaCPF validacpf;
 
         public Cadastro_Pessoa()
         {
@@ -70,7 +71,7 @@ namespace HairLumos.Views
             _limpaCampos();
 
             PessoaController _ctrlPessoa = new PessoaController();
-
+            validacpf = new Funcoes_Basicas.ValidaCPF();
             carregaEstado();
         }
 
@@ -688,5 +689,35 @@ namespace HairLumos.Views
             return lista;
         }
 
+        public bool LeaveCPF(MaskedTextBox ttb)
+        {
+            int lenght = ttb.Text.Replace("-", "").Replace(".", "").Replace(" ", "").Length;
+            if ((lenght == 11 && !validacpf.CPFValido(ttb.Text)) || lenght != 11)
+            {
+                if (lenght == 11)
+                    MessageBox.Show("CPF INVÁLIDO!", "SGC", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
+                ttb.Clear();
+                return false;
+            }
+            else
+            {
+                // Verificar a existência de outro registro com o mesmo CPF
+                /*if (BuscaRegistro("cliente", "cli_cpf", "cli_cpf like '%" + ttb.Text.Replace(" ", "") + "%'").Rows.Count > 0)
+                {
+                    MessageBox.Show("CPF JÁ CADASTRADO!", "SGC", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    ttb.Clear();
+                    ttb.Focus();
+
+                    return false;
+                }*/
+                return true;
+            }
+        }
+
+        private void mskCPF_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }
