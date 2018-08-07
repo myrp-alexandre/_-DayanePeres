@@ -43,6 +43,8 @@
             this.cadastroServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenciarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,8 +55,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gerenciarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -190,6 +190,21 @@
             this.tipoDeDespesaToolStripMenuItem.Text = "Tipo de Despesa";
             this.tipoDeDespesaToolStripMenuItem.Click += new System.EventHandler(this.tipoDeDespesaToolStripMenuItem_Click);
             // 
+            // compraToolStripMenuItem
+            // 
+            this.compraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gerenciarCompraToolStripMenuItem});
+            this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
+            this.compraToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.compraToolStripMenuItem.Text = "COMPRA";
+            // 
+            // gerenciarCompraToolStripMenuItem
+            // 
+            this.gerenciarCompraToolStripMenuItem.Name = "gerenciarCompraToolStripMenuItem";
+            this.gerenciarCompraToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.gerenciarCompraToolStripMenuItem.Text = "Gerenciar Compra";
+            this.gerenciarCompraToolStripMenuItem.Click += new System.EventHandler(this.gerenciarCompraToolStripMenuItem_Click);
+            // 
             // rELATÓRIOSToolStripMenuItem
             // 
             this.rELATÓRIOSToolStripMenuItem.Name = "rELATÓRIOSToolStripMenuItem";
@@ -270,21 +285,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // compraToolStripMenuItem
-            // 
-            this.compraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gerenciarCompraToolStripMenuItem});
-            this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
-            this.compraToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.compraToolStripMenuItem.Text = "COMPRA";
-            // 
-            // gerenciarCompraToolStripMenuItem
-            // 
-            this.gerenciarCompraToolStripMenuItem.Name = "gerenciarCompraToolStripMenuItem";
-            this.gerenciarCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gerenciarCompraToolStripMenuItem.Text = "Gerenciar Compra";
-            this.gerenciarCompraToolStripMenuItem.Click += new System.EventHandler(this.gerenciarCompraToolStripMenuItem_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,7 +319,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroCategoriaProdutoToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem rELATÓRIOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iNFORMAÇÕESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bACKUPToolStripMenuItem;
@@ -338,6 +337,7 @@
         private System.Windows.Forms.ToolStripMenuItem tipoDeDespesaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciarCompraToolStripMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

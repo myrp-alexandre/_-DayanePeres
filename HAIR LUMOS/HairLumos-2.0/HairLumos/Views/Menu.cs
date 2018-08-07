@@ -149,5 +149,10 @@ namespace HairLumos
             Views.Funcoes_Fundamentais.GerenciarCompra gerenciar_compra = new Views.Funcoes_Fundamentais.GerenciarCompra();
             gerenciar_compra.Show();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

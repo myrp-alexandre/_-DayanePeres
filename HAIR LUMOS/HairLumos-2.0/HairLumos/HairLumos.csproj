@@ -191,6 +191,12 @@
     <Compile Include="Views\Funcoes Fundamentais\LancarDespesa.Designer.cs">
       <DependentUpon>LancarDespesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\QuitarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\QuitarDespesa.Designer.cs">
+      <DependentUpon>QuitarDespesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     <EmbeddedResource Include="Views\Funcoes Fundamentais\LancarDespesa.resx">
       <DependentUpon>LancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\QuitarDespesa.resx">
+      <DependentUpon>QuitarDespesa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,11 +309,13 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Img\calendar %281%29.png" />
+    <Content Include="Img\calendar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
