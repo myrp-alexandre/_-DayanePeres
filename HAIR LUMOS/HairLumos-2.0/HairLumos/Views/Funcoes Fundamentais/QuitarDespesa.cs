@@ -16,5 +16,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         {
             InitializeComponent();
         }
+
+        
     }
 }

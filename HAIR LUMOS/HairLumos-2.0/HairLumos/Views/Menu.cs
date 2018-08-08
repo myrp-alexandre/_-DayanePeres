@@ -54,7 +54,7 @@ namespace HairLumos
         private void cadastroCategoriaProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_CategoriaProduto CategoProd = new Views.Cadastro_CategoriaProduto();
-            CategoProd.Show();
+            CategoProd.ShowDialog();
         }
 
         private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,13 +65,13 @@ namespace HairLumos
         private void cadastroMarcaProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_MarcaProduto cadastro_MarcaProduto = new Views.Cadastro_MarcaProduto();
-            cadastro_MarcaProduto.Show();
+            cadastro_MarcaProduto.ShowDialog();
         }
 
         private void cadastroProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_Produto cadastro_Produto = new Views.Cadastro_Produto();
-            cadastro_Produto.Show();
+            cadastro_Produto.ShowDialog();
         }
 
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -83,50 +83,51 @@ namespace HairLumos
                 DataRow dr = dt.Rows[0];
                 uc.usuarioLogado(Convert.ToInt32(dr["codusuario"]), 0);
             }
-            
-            Close();
+
+            this.Close();
+            Application.Exit();
         }
 
         private void cadastrodePessoa_Click(object sender, EventArgs e)
         {
             Views.Cadastro_Pessoa cadastro_Pessoa = new Views.Cadastro_Pessoa();
-            cadastro_Pessoa.Show();
+            cadastro_Pessoa.ShowDialog();
         }
 
         private void cadastroDeFormaDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_FormaPagamento cadastro_FormaPagamento = new Views.Cadastro_FormaPagamento();
-            cadastro_FormaPagamento.Show();
+            cadastro_FormaPagamento.ShowDialog();
         }
 
         private void cadastroServiçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_TipoServico cadastro_Servico = new Views.Cadastro_TipoServico();
-            cadastro_Servico.Show();
+            cadastro_Servico.ShowDialog();
         }
 
         private void cadastroPacoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_Pacotes cadastro_Pacotes = new Views.Cadastro_Pacotes();
-            cadastro_Pacotes.Show();
+            cadastro_Pacotes.ShowDialog();
         }
 
         private void parametrizaçãoDoSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Parametro_Sistema parametro_Sistema = new Views.Parametro_Sistema();
-            parametro_Sistema.Show();
+            parametro_Sistema.ShowDialog();
         }
 
         private void tipoDeDespesaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_TipoDespesa cadastro_TipoDespesa = new Views.Cadastro_TipoDespesa();
-            cadastro_TipoDespesa.Show();
+            cadastro_TipoDespesa.ShowDialog();
         }
 
         private void cadastroDeUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_Usuario cadastro_Usuario = new Views.Cadastro_Usuario();
-            cadastro_Usuario.Show();
+            cadastro_Usuario.ShowDialog();
         }
 
         private void trocarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,7 +148,7 @@ namespace HairLumos
         private void gerenciarCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Funcoes_Fundamentais.GerenciarCompra gerenciar_compra = new Views.Funcoes_Fundamentais.GerenciarCompra();
-            gerenciar_compra.Show();
+            gerenciar_compra.ShowDialog();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

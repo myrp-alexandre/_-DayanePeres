@@ -115,6 +115,11 @@ namespace HairLumos.Views
             mskCPF.Text = "";
             ttbEmail.Text = "";
             dtpDataNascimento.Value = DateTime.Now.Date;
+            dgvContato.DataSource = null;            
+            dgvContato.Rows.Clear();
+            dgvEndereco.DataSource = null;
+            dgvEndereco.Rows.Clear();
+            ttbObservação.Text = "";
 
             rbAtivo.Checked = true;
             rbFisica.Checked = true;
@@ -264,31 +269,40 @@ namespace HairLumos.Views
                 {
                     tipoPessoa = "FISICA";
                 }
-                if (rbJuridica.Checked == true)
+                else
                 {
-                    tipoPessoa = "JURIDICA";
+                    if (rbJuridica.Checked == true)
+                    {
+                        tipoPessoa = "JURIDICA";
+                    }
                 }
+                
 
                 bool statusPessoa = false;
                 if (rbAtivo.Checked == true)
                 {
                     statusPessoa = true;
                 }
-                if (rbInativo.Checked == true)
+                else
                 {
-                    statusPessoa = true;
+                    if (rbInativo.Checked == true)
+                    {
+                        statusPessoa = true;
+                    }
                 }
-
+                
                 bool fiado = false;
                 if (rbPagaSim.Checked == true)
                 {
                     fiado = true;
                 }
-                if (rbPagaNao.Checked == true)
+                else
                 {
-                    fiado = true;
-                }
-
+                    if (rbPagaNao.Checked == true)
+                    {
+                        fiado = true;
+                    }
+                }    
 
                 if (string.IsNullOrWhiteSpace(ttbNome.Text))
                     strMensagem += $"Informe o nome.";
@@ -306,12 +320,13 @@ namespace HairLumos.Views
                                 ttbObservação.Text.Trim(), fiado, ttbEmail.Text.Trim(), arrEndreco, arrContato, mskCPF.Text.Trim(), ttbRg.Text.Trim(), dtpDataNascimento.Value);
                             if (retorno > 0)
                             {
+                                MessageBox.Show("Cliente cadastrado com sucesso!");
                                 _limpaCampos();
                                 _inicializa();
                             }
                             else
                             {
-                                MessageBox.Show("Erro :");
+                                MessageBox.Show("Erro oa Gravar");
                             }
                             _limpaCampos();
                             _inicializa();
@@ -630,6 +645,7 @@ namespace HairLumos.Views
                     dgvContato.DataSource = arrContato;
                     dgvEndereco.DataSource = arrEndreco;
 
+                    
                 }
             }
         }
@@ -716,6 +732,11 @@ namespace HairLumos.Views
         }
 
         private void mskCPF_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

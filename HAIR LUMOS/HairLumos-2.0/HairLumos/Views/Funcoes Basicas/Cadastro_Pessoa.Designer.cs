@@ -158,6 +158,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(890, 495);
             this.splitContainer1.SplitterDistance = 423;
             this.splitContainer1.TabIndex = 0;

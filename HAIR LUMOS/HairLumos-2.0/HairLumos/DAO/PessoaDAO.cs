@@ -201,8 +201,6 @@ namespace HairLumos.DAO
                     return -1;
 
 
-
-
                 if (objPessoa.ListaEndereco != null)
                 {
                     //Fazer o insert dos Endereços
@@ -214,7 +212,6 @@ namespace HairLumos.DAO
 
                         objConexao.SqlCmd.Parameters.Clear();
                         objConexao.SqlCmd.CommandText = strSQL;
-
 
                         objConexao.SqlCmd.Parameters.AddWithValue("@cep", item._cep);
                         objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", item._logradouro);
@@ -237,17 +234,15 @@ namespace HairLumos.DAO
                     foreach (var item in objPessoa.ListaContato)
                     {
                         //COLOCAR CO CODPESSOA
-                        strSQL = "INSERT INTO tbcontato(cont_telefone, cont_tipofone,codpessoa)";
-                        strSQL += "VALUES(@cont_telefone, @tipofone, @codpessoa)";
+                        strSQL = "INSERT INTO tbcontato(cont_telefone, cont_tipofone,codpessoa) ";
+                        strSQL += " VALUES(@cont_telefone, @tipofone, @codpessoa)";
 
                         objConexao.SqlCmd.Parameters.Clear();
                         objConexao.SqlCmd.CommandText = strSQL;
 
                         objConexao.SqlCmd.Parameters.AddWithValue("@cont_telefone", item._telefone);
                         objConexao.SqlCmd.Parameters.AddWithValue("@tipofone", item._tipo);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", cod);
-
-
+                        objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", cod);
 
                         if (!objConexao.executarComando())
                             return -1;
@@ -365,7 +360,7 @@ namespace HairLumos.DAO
                     foreach (var item in objPessoa.ListaContato)
                     {
                         //COLOCAR CO CODPESSOA
-                        strSQL = "INSERT INTO tbcontato(cont_telefone, cont_tipofone,codpessoa)";
+                        strSQL = "INSERT INTO tbcontato(cont_telefone, cont_tipofone,codpessoa) ";
                         strSQL += "VALUES(@cont_telefone, @tipofone, @codpessoa)";
 
                         objConexao.SqlCmd.Parameters.Clear();

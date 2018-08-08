@@ -273,7 +273,7 @@
             this.toolStripStatusLabel1.LinkColor = System.Drawing.Color.Black;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(122, 17);
-            this.toolStripStatusLabel1.Text = "Hair Lumos - Usuário:";
+            this.toolStripStatusLabel1.Text = "Hair Lumus - Usuário:";
             // 
             // flowLayoutPanel1
             // 
