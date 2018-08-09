@@ -35,13 +35,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.rdbReceber = new System.Windows.Forms.RadioButton();
             this.rdbPagar = new System.Windows.Forms.RadioButton();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskPorcentagem = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbTipoServico = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.mskValor = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ttbServico = new System.Windows.Forms.TextBox();
+            this.ttbPessoa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvServico = new System.Windows.Forms.DataGridView();
@@ -58,6 +58,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnPesquisar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
@@ -98,13 +100,13 @@
             // 
             this.groupBox1.Controls.Add(this.btnIncluirServico);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.mskPorcentagem);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbbTipoServico);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.mskValor);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.ttbServico);
+            this.groupBox1.Controls.Add(this.ttbPessoa);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 41);
@@ -134,7 +136,6 @@
             this.groupBox2.Size = new System.Drawing.Size(164, 65);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
-
             // 
             // label5
             // 
@@ -167,29 +168,29 @@
             this.rdbPagar.Text = "Pagar";
             this.rdbPagar.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox1
+            // mskPorcentagem
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(170, 163);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 34;
+            this.mskPorcentagem.Location = new System.Drawing.Point(218, 163);
+            this.mskPorcentagem.Name = "mskPorcentagem";
+            this.mskPorcentagem.Size = new System.Drawing.Size(100, 20);
+            this.mskPorcentagem.TabIndex = 34;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(167, 145);
+            this.label4.Location = new System.Drawing.Point(215, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 33;
             this.label4.Text = " Pagar/Receb (%)";
             // 
-            // comboBox1
+            // cbbTipoServico
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(20, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(298, 21);
-            this.comboBox1.TabIndex = 32;
+            this.cbbTipoServico.FormattingEnabled = true;
+            this.cbbTipoServico.Location = new System.Drawing.Point(20, 91);
+            this.cbbTipoServico.Name = "cbbTipoServico";
+            this.cbbTipoServico.Size = new System.Drawing.Size(298, 21);
+            this.cbbTipoServico.TabIndex = 32;
             // 
             // button1
             // 
@@ -205,7 +206,7 @@
             // 
             this.mskValor.Location = new System.Drawing.Point(20, 163);
             this.mskValor.Name = "mskValor";
-            this.mskValor.Size = new System.Drawing.Size(100, 20);
+            this.mskValor.Size = new System.Drawing.Size(112, 20);
             this.mskValor.TabIndex = 30;
             // 
             // label3
@@ -217,13 +218,13 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "Valor Serviço (R$)*";
             // 
-            // ttbServico
+            // ttbPessoa
             // 
-            this.ttbServico.Location = new System.Drawing.Point(20, 34);
-            this.ttbServico.MaxLength = 100;
-            this.ttbServico.Name = "ttbServico";
-            this.ttbServico.Size = new System.Drawing.Size(439, 20);
-            this.ttbServico.TabIndex = 27;
+            this.ttbPessoa.Location = new System.Drawing.Point(20, 34);
+            this.ttbPessoa.MaxLength = 100;
+            this.ttbPessoa.Name = "ttbPessoa";
+            this.ttbPessoa.Size = new System.Drawing.Size(439, 20);
+            this.ttbPessoa.TabIndex = 27;
             // 
             // label2
             // 
@@ -320,19 +321,20 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
+            this.btnCancelar.Location = new System.Drawing.Point(376, 12);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
+            this.btnCancelar.Size = new System.Drawing.Size(65, 38);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(491, 12);
+            this.btnSair.Location = new System.Drawing.Point(496, 12);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 38);
+            this.btnSair.Size = new System.Drawing.Size(70, 38);
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
@@ -340,29 +342,31 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(264, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(234, 12);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 38);
+            this.btnExcluir.Size = new System.Drawing.Size(65, 38);
             this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(183, 12);
+            this.btnAlterar.Location = new System.Drawing.Point(163, 12);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 38);
+            this.btnAlterar.Size = new System.Drawing.Size(65, 38);
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(102, 12);
+            this.btnGravar.Location = new System.Drawing.Point(92, 12);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 38);
+            this.btnGravar.Size = new System.Drawing.Size(65, 38);
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
@@ -372,10 +376,21 @@
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNovo.Location = new System.Drawing.Point(21, 12);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 38);
+            this.btnNovo.Size = new System.Drawing.Size(65, 38);
             this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisar.Location = new System.Drawing.Point(305, 12);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(65, 38);
+            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
             // 
             // Cadastro_ServiçosParceiros
             // 
@@ -383,9 +398,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(607, 491);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Cadastro_ServiçosParceiros";
-            this.Text = "CADASTRO SERVIÇOS PARCEIROS";
+            this.Text = "HL - CADASTRO SERVIÇOS PARCEIROS";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -422,15 +438,16 @@
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rdbReceber;
         private System.Windows.Forms.RadioButton rdbPagar;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskPorcentagem;
         public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbTipoServico;
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox mskValor;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox ttbServico;
+        public System.Windows.Forms.TextBox ttbPessoa;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnIncluirServico;
+        public System.Windows.Forms.Button btnPesquisar;
     }
 }

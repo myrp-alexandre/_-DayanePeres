@@ -358,7 +358,7 @@ namespace HairLumos.Views
                     }
 
                 }
-                else
+                else // ALTERAÇÃO
                 {
                     if (string.IsNullOrEmpty(strMensagem))
                     {

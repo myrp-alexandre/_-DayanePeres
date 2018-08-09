@@ -179,22 +179,28 @@
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Funcoes Basicas\ValidaCPF.cs" />
-    <Compile Include="Views\Funcoes Fundamentais\GerenciarCompra.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerarContaPagar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\GerenciarCompra.Designer.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerarContaPagar.Designer.cs">
+      <DependentUpon>GerarContaPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerenciarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerenciarCompra.Designer.cs">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\LancarDespesa.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F9\LancarDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\LancarDespesa.Designer.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F9\LancarDespesa.Designer.cs">
       <DependentUpon>LancarDespesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\QuitarDespesa.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F10\QuitarDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\QuitarDespesa.Designer.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F10\QuitarDespesa.Designer.cs">
       <DependentUpon>QuitarDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
@@ -262,13 +268,16 @@
     <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Usuario.resx">
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\GerenciarCompra.resx">
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5\GerarContaPagar.resx">
+      <DependentUpon>GerarContaPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5\GerenciarCompra.resx">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\LancarDespesa.resx">
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F9\LancarDespesa.resx">
       <DependentUpon>LancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\QuitarDespesa.resx">
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F10\QuitarDespesa.resx">
       <DependentUpon>QuitarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
@@ -309,7 +318,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Funcoes Fundamentais\Outras_Fundamentais\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login.png" />
   </ItemGroup>

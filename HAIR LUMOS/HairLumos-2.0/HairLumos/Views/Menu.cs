@@ -30,7 +30,7 @@ namespace HairLumos
                     cadastroDeFormaDePagamentoToolStripMenuItem.Visible = false;
                     cadastroServiçoToolStripMenuItem.Visible = false;
                     cadastroDeDespesaToolStripMenuItem.Visible = false;
-                    cadastroDeParceiroToolStripMenuItem.Visible = false;
+                    //cadastroDeParceiroToolStripMenuItem.Visible = false;
                     cadastroDeUsuárioToolStripMenuItem.Visible = false;
                     rELATÓRIOSToolStripMenuItem.Visible = false;
                     iNFORMAÇÕESToolStripMenuItem.Visible = false;
@@ -43,7 +43,7 @@ namespace HairLumos
                 cadastroDeFormaDePagamentoToolStripMenuItem.Visible = false;
                 cadastroServiçoToolStripMenuItem.Visible = false;
                 cadastroDeDespesaToolStripMenuItem.Visible = false;
-                cadastroDeParceiroToolStripMenuItem.Visible = false;
+                //cadastroDeParceiroToolStripMenuItem.Visible = false;
                 rELATÓRIOSToolStripMenuItem.Visible = false;
                 iNFORMAÇÕESToolStripMenuItem.Visible = false;
                 bACKUPToolStripMenuItem.Visible = false;
@@ -102,8 +102,7 @@ namespace HairLumos
 
         private void cadastroServiçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Views.Cadastro_TipoServico cadastro_Servico = new Views.Cadastro_TipoServico();
-            cadastro_Servico.ShowDialog();
+            
         }
 
         private void cadastroPacoteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,9 +150,16 @@ namespace HairLumos
             gerenciar_compra.ShowDialog();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void cadastroDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Views.Cadastro_TipoServico cadastro_Servico = new Views.Cadastro_TipoServico();
+            cadastro_Servico.ShowDialog();
+        }
 
+        private void cadastroServiçosDeParceirosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Basicas.Cadastro_ServiçosParceiros cadastro_ServiçosParceiros = new Views.Funcoes_Basicas.Cadastro_ServiçosParceiros();
+            cadastro_ServiçosParceiros.Show();
         }
     }
 }
