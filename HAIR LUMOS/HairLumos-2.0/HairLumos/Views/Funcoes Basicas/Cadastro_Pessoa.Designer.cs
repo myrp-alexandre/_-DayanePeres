@@ -451,6 +451,7 @@
             // 
             // ttbComplemento
             // 
+            this.ttbComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ttbComplemento.Location = new System.Drawing.Point(431, 44);
             this.ttbComplemento.Name = "ttbComplemento";
             this.ttbComplemento.Size = new System.Drawing.Size(325, 20);
@@ -467,6 +468,7 @@
             // 
             // ttbBairro
             // 
+            this.ttbBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ttbBairro.Location = new System.Drawing.Point(70, 44);
             this.ttbBairro.Name = "ttbBairro";
             this.ttbBairro.Size = new System.Drawing.Size(278, 20);
@@ -499,6 +501,7 @@
             // 
             // ttbLogradouro
             // 
+            this.ttbLogradouro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ttbLogradouro.Location = new System.Drawing.Point(70, 15);
             this.ttbLogradouro.Name = "ttbLogradouro";
             this.ttbLogradouro.Size = new System.Drawing.Size(555, 20);
@@ -720,6 +723,7 @@
             // 
             // ttbObservação
             // 
+            this.ttbObservação.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ttbObservação.Location = new System.Drawing.Point(21, 49);
             this.ttbObservação.Multiline = true;
             this.ttbObservação.Name = "ttbObservação";
@@ -744,6 +748,7 @@
             // 
             // ttbRazao
             // 
+            this.ttbRazao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ttbRazao.Location = new System.Drawing.Point(305, 103);
             this.ttbRazao.Name = "ttbRazao";
             this.ttbRazao.Size = new System.Drawing.Size(544, 20);
@@ -760,6 +765,7 @@
             // 
             // ttbNome
             // 
+            this.ttbNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ttbNome.Location = new System.Drawing.Point(305, 56);
             this.ttbNome.Name = "ttbNome";
             this.ttbNome.Size = new System.Drawing.Size(544, 20);

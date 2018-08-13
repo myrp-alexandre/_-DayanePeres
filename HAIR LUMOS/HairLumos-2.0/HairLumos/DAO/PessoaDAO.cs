@@ -425,6 +425,9 @@ namespace HairLumos.DAO
                 objConexao.iniciarTransacao();
                 objConexao.AutoConexao = false;
 
+                if (!objConexao.executarComando())
+                    return -1;
+
                 //Fazer o insert da Fisica ou Juridica
 
                 strSQL = "UPDATE tbFisica SET fis_cpf = @cpf, fis_rg = @rg, fis_datanascimento = @dataNascimento where codpessoa = @codPessoa;";
@@ -629,32 +632,24 @@ namespace HairLumos.DAO
         public int deletaPessoaFisica(PessoaFisica obj)
         {
             int intRetorno = 0;
+            //int intRetorno = 0 x
+
+            //     ,2+*--------------------------------------;
 
             string strSQL = "";
             Conexao objConexao = null;
             try
             {
-
                 objConexao = new Conexao();
+                
+                //Fazer o delete da Fisica ou Juridica
 
-
-                //Fazer o Insert da pessoa
-                strSQL = "DELETE FROM tbPessoa WHERE codpessoa = @codigo;";
-                //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codigo", obj.Codigo);
-
+                strSQL = "DELETE FROM tbFisica WHERE codpessoa = @codPessoa;";
+                objConexao.SqlCmd.CommandText = strSQL;
+                objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", obj.Codigo);
 
                 objConexao.iniciarTransacao();
                 objConexao.AutoConexao = false;
-
-                //Fazer o insert da Fisica ou Juridica
-
-                strSQL = "DELETE FROM tbFisica WHERE codpessoa = @codPessoa;";
-
-                objConexao.SqlCmd.Parameters.Clear();
-                objConexao.SqlCmd.CommandText = strSQL;
-
-                objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", obj.Codigo);
 
                 if (!objConexao.executarComando())
                     return -1;
@@ -697,11 +692,19 @@ namespace HairLumos.DAO
                     }
                 }
 
+                //Fazer o Insert da pessoa
+                strSQL = "DELETE FROM tbPessoa WHERE codpessoa = @codigo;";
+                //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
+                objConexao.SqlCmd.Parameters.Clear();
+                objConexao.SqlCmd.CommandText = strSQL;
+                objConexao.SqlCmd.Parameters.AddWithValue("@codigo", obj.Codigo);
+
+                if (!objConexao.executarComando())
+                    return -1;
+
 
                 objConexao.commitTransacao();
                 return 1;
-
-
             }
             catch (Exception e)
             {

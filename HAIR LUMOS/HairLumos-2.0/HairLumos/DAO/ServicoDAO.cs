@@ -31,7 +31,7 @@ namespace HairLumos.DAO
                 {
                     _sql = "INSERT INTO tbtiposervico" +
                         "(tiposerv_descricao, tiposerv_obs, tiposerv_velor, tiposerv_temposervico)" +
-                        " VALUES(@descricao, @obs, @valor, @tempo)";
+                        " VALUES (@descricao, @obs, @valor, @tempo)";
 
                 }
                 else
@@ -46,7 +46,10 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@descricao", _servico.ServicoNome);
                 cmd.Parameters.AddWithValue("@obs", _servico.Observacao);
                 cmd.Parameters.AddWithValue("@valor", _servico.Valor);
-                cmd.Parameters.AddWithValue("@tempo", _servico.Tempo);
+                DateTime data = DateTime.Now;
+                data = Convert.ToDateTime(_servico.Tempo.ToString());
+                TimeZoneInfo.ConvertTimeToUtc(data);
+                cmd.Parameters.AddWithValue("@tempo", data);// _servico.Tempo);
 
                 cmd.ExecuteNonQuery();
 

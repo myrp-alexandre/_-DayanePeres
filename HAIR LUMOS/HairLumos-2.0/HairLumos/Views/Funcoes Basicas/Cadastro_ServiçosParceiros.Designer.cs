@@ -38,7 +38,7 @@
             this.mskPorcentagem = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbTipoServico = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSelecionaPessoa = new System.Windows.Forms.Button();
             this.mskValor = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ttbPessoa = new System.Windows.Forms.TextBox();
@@ -50,15 +50,13 @@
             this.tiposerv_velor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiposerv_temposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelecionar = new System.Windows.Forms.Button();
-            this.Código = new System.Windows.Forms.Label();
-            this.ttbCodigo = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,8 +78,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
-            this.splitContainer1.Panel1.Controls.Add(this.Código);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             // 
             // splitContainer1.Panel2
             // 
@@ -103,13 +99,13 @@
             this.groupBox1.Controls.Add(this.mskPorcentagem);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cbbTipoServico);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnSelecionaPessoa);
             this.groupBox1.Controls.Add(this.mskValor);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.ttbPessoa);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 41);
+            this.groupBox1.Location = new System.Drawing.Point(13, 14);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(568, 191);
             this.groupBox1.TabIndex = 13;
@@ -131,7 +127,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.rdbReceber);
             this.groupBox2.Controls.Add(this.rdbPagar);
-            this.groupBox2.Location = new System.Drawing.Point(372, 63);
+            this.groupBox2.Location = new System.Drawing.Point(389, 69);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(164, 65);
             this.groupBox2.TabIndex = 35;
@@ -172,7 +168,7 @@
             // 
             this.mskPorcentagem.Location = new System.Drawing.Point(218, 163);
             this.mskPorcentagem.Name = "mskPorcentagem";
-            this.mskPorcentagem.Size = new System.Drawing.Size(100, 20);
+            this.mskPorcentagem.Size = new System.Drawing.Size(118, 20);
             this.mskPorcentagem.TabIndex = 34;
             // 
             // label4
@@ -189,18 +185,19 @@
             this.cbbTipoServico.FormattingEnabled = true;
             this.cbbTipoServico.Location = new System.Drawing.Point(20, 91);
             this.cbbTipoServico.Name = "cbbTipoServico";
-            this.cbbTipoServico.Size = new System.Drawing.Size(298, 21);
+            this.cbbTipoServico.Size = new System.Drawing.Size(316, 21);
             this.cbbTipoServico.TabIndex = 32;
             // 
-            // button1
+            // btnSelecionaPessoa
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(483, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 27);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Seleciona";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSelecionaPessoa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSelecionaPessoa.Location = new System.Drawing.Point(483, 30);
+            this.btnSelecionaPessoa.Name = "btnSelecionaPessoa";
+            this.btnSelecionaPessoa.Size = new System.Drawing.Size(72, 27);
+            this.btnSelecionaPessoa.TabIndex = 31;
+            this.btnSelecionaPessoa.Text = "Seleciona";
+            this.btnSelecionaPessoa.UseVisualStyleBackColor = false;
+            this.btnSelecionaPessoa.Click += new System.EventHandler(this.btnSelecionaPessoa_Click);
             // 
             // mskValor
             // 
@@ -240,9 +237,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Pessoa*";
+            this.label1.Text = "Parceiro*";
             // 
             // dgvServico
             // 
@@ -255,11 +252,11 @@
             this.tiposerv_descricao,
             this.tiposerv_velor,
             this.tiposerv_temposervico});
-            this.dgvServico.Location = new System.Drawing.Point(21, 251);
+            this.dgvServico.Location = new System.Drawing.Point(21, 222);
             this.dgvServico.Name = "dgvServico";
             this.dgvServico.ReadOnly = true;
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServico.Size = new System.Drawing.Size(468, 130);
+            this.dgvServico.Size = new System.Drawing.Size(468, 159);
             this.dgvServico.TabIndex = 12;
             // 
             // codtiposervico
@@ -302,21 +299,15 @@
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
             // 
-            // Código
+            // btnPesquisar
             // 
-            this.Código.AutoSize = true;
-            this.Código.Location = new System.Drawing.Point(18, 18);
-            this.Código.Name = "Código";
-            this.Código.Size = new System.Drawing.Size(40, 13);
-            this.Código.TabIndex = 6;
-            this.Código.Text = "Código";
-            // 
-            // ttbCodigo
-            // 
-            this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
-            this.ttbCodigo.Name = "ttbCodigo";
-            this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
-            this.ttbCodigo.TabIndex = 7;
+            this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisar.Location = new System.Drawing.Point(305, 12);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(65, 38);
+            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
@@ -338,6 +329,7 @@
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnExcluir
             // 
@@ -382,16 +374,6 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(305, 12);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(65, 38);
-            this.btnPesquisar.TabIndex = 14;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            // 
             // Cadastro_ServiçosParceiros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,7 +385,6 @@
             this.Name = "Cadastro_ServiçosParceiros";
             this.Text = "HL - CADASTRO SERVIÇOS PARCEIROS";
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -425,8 +406,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_velor;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_temposervico;
         public System.Windows.Forms.Button btnSelecionar;
-        public System.Windows.Forms.Label Código;
-        public System.Windows.Forms.TextBox ttbCodigo;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
@@ -441,7 +420,7 @@
         private System.Windows.Forms.MaskedTextBox mskPorcentagem;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbbTipoServico;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnSelecionaPessoa;
         private System.Windows.Forms.MaskedTextBox mskValor;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox ttbPessoa;

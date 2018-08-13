@@ -19,8 +19,7 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         public void _btnNovo()
         {
-            ttbCodigo.Text = "0";
-            ttbCodigo.Enabled = false;
+            
             ttbPessoa.Enabled = true;
             mskValor.Enabled = true;
             mskPorcentagem.Enabled = true;
@@ -40,7 +39,7 @@ namespace HairLumos.Views.Funcoes_Basicas
         public void _inicializa()
         {
             // ttb
-            ttbCodigo.Enabled = false;
+           
             ttbPessoa.Enabled = false;
             mskPorcentagem.Enabled = false;
             mskValor.Enabled = false;
@@ -63,7 +62,7 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         public void _limpaCampos()
         {
-            ttbCodigo.Text = "";
+            
             ttbPessoa.Text = "";
             mskPorcentagem.Text = "";
             mskValor.Text = "";
@@ -71,7 +70,7 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         public void _btnAlterar()
         {
-            ttbCodigo.Enabled = false;
+            
             ttbPessoa.Enabled = true;
             mskPorcentagem.Enabled = true;
             mskValor.Enabled = true;
@@ -88,6 +87,21 @@ namespace HairLumos.Views.Funcoes_Basicas
 
             ttbPessoa.Focus();
 
+        }
+
+        private void carregaServicoCbb(int cod)
+        {
+            DataTable dtCidade = new DataTable();
+            Controller.ServicoController servicoController = new Controller.ServicoController();
+
+            dtCidade = servicoController.retornaObjServico(cod);
+
+            if (dtCidade != null && dtCidade.Rows.Count > 0)
+            {
+                this.cbbTipoServico.ValueMember = "codtiposervico";
+                this.cbbTipoServico.DisplayMember = "tiposerv_descricao";
+                this.cbbTipoServico.DataSource = dtCidade;
+            }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -109,6 +123,38 @@ namespace HairLumos.Views.Funcoes_Basicas
         {
             _limpaCampos();
             
+        }
+
+        private void btnSelecionaPessoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Views.Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor objPessoa = new Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor();
+
+                objPessoa.ShowDialog();
+                if (objPessoa.intCodigoPessoa > 0)
+                {
+                    Controller.PessoaController pessoaController = new Controller.PessoaController();
+                    DataTable dtRetorno = pessoaController.retornaPessoaJuridicaCod(objPessoa.intCodigoPessoa);
+
+                    if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+                    {
+                        DataRow dr = dtRetorno.Rows[0];
+                        ttbPessoa.Text = dr["jur_fantasia"].ToString();
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

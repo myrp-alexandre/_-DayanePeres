@@ -101,10 +101,10 @@
             this.rbVariavel.AutoSize = true;
             this.rbVariavel.Location = new System.Drawing.Point(6, 36);
             this.rbVariavel.Name = "rbVariavel";
-            this.rbVariavel.Size = new System.Drawing.Size(65, 17);
+            this.rbVariavel.Size = new System.Drawing.Size(63, 17);
             this.rbVariavel.TabIndex = 14;
             this.rbVariavel.TabStop = true;
-            this.rbVariavel.Text = "Variáveil";
+            this.rbVariavel.Text = "Variável";
             this.rbVariavel.UseVisualStyleBackColor = true;
             // 
             // rbFixa
