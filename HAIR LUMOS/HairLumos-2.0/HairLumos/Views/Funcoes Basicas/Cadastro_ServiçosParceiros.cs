@@ -12,9 +12,15 @@ namespace HairLumos.Views.Funcoes_Basicas
 {
     public partial class Cadastro_ServiçosParceiros : Form
     {
+        int intCodServicoParceiro = 0;
+
         public Cadastro_ServiçosParceiros()
         {
             InitializeComponent();
+            _inicializa();
+            _limpaCampos();
+            dgvServico.AutoGenerateColumns = false;
+            carregaServicoCbb();
         }
 
         public void _btnNovo()
@@ -32,8 +38,10 @@ namespace HairLumos.Views.Funcoes_Basicas
             btnPesquisar.Enabled = true; ;
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
+            btnSelecionaPessoa.Enabled = true;
 
             ttbPessoa.Focus();
+            carregaServicoCbb();
         }
 
         public void _inicializa()
@@ -54,6 +62,7 @@ namespace HairLumos.Views.Funcoes_Basicas
             btnPesquisar.Enabled = true; ;
             btnCancelar.Enabled = false;
             btnSair.Enabled = true;
+            btnSelecionaPessoa.Enabled = false;
 
             //pesquisaServico();
             _limpaCampos();
@@ -84,23 +93,24 @@ namespace HairLumos.Views.Funcoes_Basicas
             btnPesquisar.Enabled = false;
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
+            btnSelecionaPessoa.Enabled = true;
 
             ttbPessoa.Focus();
 
         }
 
-        private void carregaServicoCbb(int cod)
+        private void carregaServicoCbb()
         {
-            DataTable dtCidade = new DataTable();
+            DataTable dtServicoParceiro = new DataTable();
             Controller.ServicoController servicoController = new Controller.ServicoController();
 
-            dtCidade = servicoController.retornaObjServico(cod);
+            dtServicoParceiro = servicoController.retornaServico();
 
-            if (dtCidade != null && dtCidade.Rows.Count > 0)
+            if (dtServicoParceiro != null && dtServicoParceiro.Rows.Count > 0)
             {
                 this.cbbTipoServico.ValueMember = "codtiposervico";
                 this.cbbTipoServico.DisplayMember = "tiposerv_descricao";
-                this.cbbTipoServico.DataSource = dtCidade;
+                this.cbbTipoServico.DataSource = dtServicoParceiro;
             }
         }
 
@@ -116,7 +126,42 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Controller.ServicoParceiroController _ctrServParc = new Controller.ServicoParceiroController();
 
+                int intCodPessoa = 0;
+                int intCodServico = 0;
+
+                int.TryParse(ttbPessoa.Text, out intCodPessoa);
+
+                intCodServico = Convert.ToInt32(cbbTipoServico.SelectedValue);
+
+                if (intCodPessoa > 0 && intCodServico > 0)
+                {
+                    if (MessageBox.Show("Confirma exclusão da Despesa?", "Despesa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        bool blnExcluiu = _ctrServParc.excluirServicoParceiro(intCodPessoa, intCodServico);
+                        if (blnExcluiu)
+                        {
+                            MessageBox.Show("Excluído");
+                            _limpaCampos();
+                            
+                            _btnNovo();
+                        }
+                        else
+                            MessageBox.Show("Erro ao excluir!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("cancela ?");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -140,6 +185,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                     {
                         DataRow dr = dtRetorno.Rows[0];
+                        intCodServicoParceiro = Convert.ToInt32(dr["codpessoa"].ToString());
                         ttbPessoa.Text = dr["jur_fantasia"].ToString();
 
                     }
@@ -155,6 +201,118 @@ namespace HairLumos.Views.Funcoes_Basicas
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Controller.ServicoParceiroController _ctrlServParceiro = new Controller.ServicoParceiroController();
+            string strMensagem = string.Empty;
+
+            try
+            {
+                //verificar se houve alguma anormalidade no cadastro
+                if (string.IsNullOrEmpty(strMensagem))
+                {
+                    double valorServico = 0;
+                    double.TryParse(mskValor.Text, out valorServico);
+
+                    double valorPorcentagem = 0;
+                    double.TryParse(mskPorcentagem.Text, out valorPorcentagem);
+
+                    string pagamento;
+                    if(rbPagar.Checked == true)
+                    {
+                        pagamento = "PAGAR";
+                    }
+                    else
+                    {
+                        pagamento = "RECEBER";
+
+                    }
+
+                    int servico = Convert.ToInt32(cbbTipoServico.SelectedValue);
+
+                    DataTable dtRetorno = _ctrlServParceiro.retornaParceiroServico(intCodServicoParceiro, servico);
+                    
+                    if (dtRetorno != null && dtRetorno.Rows.Count != 0)
+                    {
+                        DataRow dr = dtRetorno.Rows[0];
+                        intCodServicoParceiro = Convert.ToInt32(dr["codpessoa"].ToString());
+                        servico = Convert.ToInt32(dr["codtiposervico"].ToString());
+
+                        if (intCodServicoParceiro != Convert.ToInt32(dr["codpessoa"].ToString()) || servico != Convert.ToInt32(dr["codtiposervico"].ToString()))
+                        {
+                            int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, valorPorcentagem, pagamento);
+                            if (intRetorno == 1)
+                            {
+                                MessageBox.Show("Gravado com sucesso!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao Gravar.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Já existe Parceiro vinculado a esse tipo de Serviço.");
+                        }
+                    }
+                    else
+                    {
+                        int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, valorPorcentagem, pagamento);
+                        if (intRetorno == 1)
+                        {
+                            MessageBox.Show("Gravado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao Gravar.");
+                        }
+                    }
+                    _limpaCampos();
+                    _inicializa();
+                }
+                else
+                    MessageBox.Show(strMensagem, "Aviso!!");
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex + "");
+            }
+        }
+
+        private void mskValor_Click(object sender, EventArgs e)
+        {
+            mskPorcentagem.Enabled = false;
+        }
+
+        private void mskValor_Enter(object sender, EventArgs e)
+        {
+            mskPorcentagem.Enabled = false;
+        }
+
+        private void mskPorcentagem_Enter(object sender, EventArgs e)
+        {
+            mskValor.Enabled = false;
+        }
+
+        private void mskPorcentagem_Click(object sender, EventArgs e)
+        {
+            mskValor.Enabled = false;
+        }
+
+        private void mskValor_DoubleClick(object sender, EventArgs e)
+        {
+            mskPorcentagem.Enabled = true;
+            mskValor.Enabled = false;
+        }
+
+        private void mskPorcentagem_DoubleClick(object sender, EventArgs e)
+        {
+            //if(MessageBox.Show("")
+            mskValor.Enabled = true;
+            mskPorcentagem.Enabled = false;
         }
     }
 }

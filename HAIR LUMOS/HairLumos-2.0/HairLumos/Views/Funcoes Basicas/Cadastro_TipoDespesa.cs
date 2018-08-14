@@ -238,31 +238,38 @@ namespace HairLumos.Views
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Controller.DespesaController _ctlDesp= new Controller.DespesaController();
-
-            int intCod = 0;
-
-            int.TryParse(ttbCodigo.Text, out intCod);
-
-            if (intCod > 0)
+            try
             {
-                if (MessageBox.Show("Confirma exclusão da Despesa?", "Despesa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                Controller.DespesaController _ctlDesp = new Controller.DespesaController();
+
+                int intCod = 0;
+
+                int.TryParse(ttbCodigo.Text, out intCod);
+
+                if (intCod > 0)
                 {
-                    bool blnExcluiu = _ctlDesp.excluirDespesa(intCod);
-                    if (blnExcluiu)
+                    if (MessageBox.Show("Confirma exclusão da Despesa?", "Despesa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        MessageBox.Show("Despesa Excluída");
-                        _limpaCampos();
-                        pesquisaDespesa();
-                        _btnNovo();
+                        bool blnExcluiu = _ctlDesp.excluirDespesa(intCod);
+                        if (blnExcluiu)
+                        {
+                            MessageBox.Show("Despesa Excluída");
+                            _limpaCampos();
+                            pesquisaDespesa();
+                            _btnNovo();
+                        }
+                        else
+                            MessageBox.Show("Erro ao excluir!");
                     }
                     else
-                        MessageBox.Show("Erro ao excluir!");
+                    {
+                        MessageBox.Show("cancela ?");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("cancela ?");
-                }
+            }
+            catch (Exception)
+            {
+
             }
         }
 

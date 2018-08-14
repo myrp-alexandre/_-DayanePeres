@@ -65,6 +65,7 @@
     <Compile Include="Controller\PessoaController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\ServicoController.cs" />
+    <Compile Include="Controller\ServicoParceiroController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="DAO\CompraDAO.cs" />
     <Compile Include="DAO\DespesaDAO.cs" />

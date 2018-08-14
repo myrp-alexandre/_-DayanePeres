@@ -28,7 +28,7 @@ namespace HairLumos.Models
                 DataRow dr = dtPessoaJuridica.Rows[0];
 
                 _pessoaJuridica.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
-                _pessoaJuridica.Nome = dr["pes_nome"].ToString();
+                
             }
 
             DataTable dtServico = ServicoDAO.RetornaObjServico(codServico);
@@ -40,7 +40,25 @@ namespace HairLumos.Models
 
             }
 
-            return _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb);
+            _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb);
+
+            return ServicoParceiroDAO.GravarServicoParceiro(_servicoParceiro);
+        }
+
+        public DataTable retornaServicoParceiro()
+        { 
+            return ServicoParceiroDAO.RetornaServicoParceiro();
+        }
+
+        public DataTable retornaParceiroServico(int codPessoa, int codServico)
+        {
+            return ServicoParceiroDAO.RetornaParceiroServico(codPessoa, codServico);
+        }
+
+        public bool excluirServicoParceiro(int intCodP, int codServ)
+        {
+            //Entidades.Servico _entServico= new Entidades.Servico();
+            return ServicoParceiroDAO.ExcluirServicoParceiro(intCodP, codServ);
         }
     }
 }

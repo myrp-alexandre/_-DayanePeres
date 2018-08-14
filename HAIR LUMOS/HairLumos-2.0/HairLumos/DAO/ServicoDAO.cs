@@ -72,8 +72,6 @@ namespace HairLumos.DAO
                         " FROM tbtiposervico; ";
 
             // int intCodigo = 0;
-
-
             //_sql += $"OR codcategoria = @cod";
             //_sql += $"OR cat_categoria = @categoria";
             //_sql += $"OR cat_obscategoria = @obs";

@@ -37,7 +37,7 @@ namespace HairLumos.Models
 
         public bool excluirServico(int intCod)
         {
-            Entidades.Servico _entServico= new Entidades.Servico();
+            //Entidades.Servico _entServico= new Entidades.Servico();
             return _DAOServ.ExcluirServico(intCod);
         }
     }
