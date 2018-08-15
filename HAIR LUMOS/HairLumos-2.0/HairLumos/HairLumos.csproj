@@ -68,6 +68,7 @@
     <Compile Include="Controller\ServicoParceiroController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="DAO\CompraDAO.cs" />
+    <Compile Include="DAO\ContasPagarDAO.cs" />
     <Compile Include="DAO\DespesaDAO.cs" />
     <Compile Include="DAO\PacoteDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
@@ -77,10 +78,13 @@
     <Compile Include="DAO\ServicoDAO.cs" />
     <Compile Include="DAO\ServicoParceiroDAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
+    <Compile Include="Entidades\Caixa.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cidade.cs" />
+    <Compile Include="Entidades\Comissao.cs" />
     <Compile Include="Entidades\Compra.cs" />
     <Compile Include="Entidades\CompraProduto.cs" />
+    <Compile Include="Entidades\ContasPagar.cs" />
     <Compile Include="Entidades\Despesa.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Entidades\ServicoParceiro.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Models\CompraModels.cs" />
+    <Compile Include="Models\ContasPagar.cs" />
     <Compile Include="Models\DespesaModels.cs" />
     <Compile Include="Models\PacoteModels.cs" />
     <Compile Include="Models\PagamentoModels.cs" />

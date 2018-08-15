@@ -29,24 +29,25 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mskValor = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpVencimento = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rbVariavel = new System.Windows.Forms.RadioButton();
+            this.rbFixa = new System.Windows.Forms.RadioButton();
+            this.cbbDespesa = new System.Windows.Forms.ComboBox();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGravar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.mskValor = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,10 +66,10 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.mskValor);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
+            this.splitContainer1.Panel1.Controls.Add(this.dtpVencimento);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.cbbDespesa);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
@@ -77,7 +78,8 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
+            this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
             this.splitContainer1.Panel2.Controls.Add(this.btnPesquisar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
@@ -86,46 +88,79 @@
             this.splitContainer1.SplitterDistance = 256;
             this.splitContainer1.TabIndex = 2;
             // 
+            // mskValor
+            // 
+            this.mskValor.Location = new System.Drawing.Point(299, 113);
+            this.mskValor.Name = "mskValor";
+            this.mskValor.Size = new System.Drawing.Size(100, 20);
+            this.mskValor.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(238, 113);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Valor (R$)";
+            // 
+            // dtpVencimento
+            // 
+            this.dtpVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimento.Location = new System.Drawing.Point(102, 113);
+            this.dtpVencimento.Name = "dtpVencimento";
+            this.dtpVencimento.Size = new System.Drawing.Size(113, 20);
+            this.dtpVencimento.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Data Vencimento";
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(436, 18);
+            this.groupBox1.Controls.Add(this.rbVariavel);
+            this.groupBox1.Controls.Add(this.rbFixa);
+            this.groupBox1.Location = new System.Drawing.Point(436, 62);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(130, 80);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Despesa";
             // 
-            // radioButton2
+            // rbVariavel
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 48);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "VARIÁVEL";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbVariavel.AutoSize = true;
+            this.rbVariavel.Location = new System.Drawing.Point(6, 48);
+            this.rbVariavel.Name = "rbVariavel";
+            this.rbVariavel.Size = new System.Drawing.Size(77, 17);
+            this.rbVariavel.TabIndex = 1;
+            this.rbVariavel.TabStop = true;
+            this.rbVariavel.Text = "VARIÁVEL";
+            this.rbVariavel.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbFixa
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(48, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "FIXA";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbFixa.AutoSize = true;
+            this.rbFixa.Location = new System.Drawing.Point(6, 19);
+            this.rbFixa.Name = "rbFixa";
+            this.rbFixa.Size = new System.Drawing.Size(48, 17);
+            this.rbFixa.TabIndex = 0;
+            this.rbFixa.TabStop = true;
+            this.rbFixa.Text = "FIXA";
+            this.rbFixa.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbbDespesa
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(77, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(322, 21);
-            this.comboBox1.TabIndex = 18;
+            this.cbbDespesa.FormattingEnabled = true;
+            this.cbbDespesa.Location = new System.Drawing.Point(77, 62);
+            this.cbbDespesa.Name = "cbbDespesa";
+            this.cbbDespesa.Size = new System.Drawing.Size(322, 21);
+            this.cbbDespesa.TabIndex = 18;
             // 
             // Código
             // 
@@ -170,12 +205,23 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Despesa*";
             // 
+            // btnGravar
+            // 
+            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGravar.Location = new System.Drawing.Point(83, 6);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(67, 28);
+            this.btnGravar.TabIndex = 15;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(210, 6);
+            this.btnExcluir.Location = new System.Drawing.Point(156, 6);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(94, 28);
+            this.btnExcluir.Size = new System.Drawing.Size(67, 28);
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -183,9 +229,9 @@
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(310, 6);
+            this.btnPesquisar.Location = new System.Drawing.Point(229, 6);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(94, 28);
+            this.btnPesquisar.Size = new System.Drawing.Size(67, 28);
             this.btnPesquisar.TabIndex = 13;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
@@ -205,53 +251,21 @@
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNovo.Location = new System.Drawing.Point(10, 6);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(94, 28);
+            this.btnNovo.Size = new System.Drawing.Size(67, 28);
             this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // label3
+            // btnCancelar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Data Vencimento";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(102, 113);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(113, 20);
-            this.dateTimePicker1.TabIndex = 22;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(238, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Valor (R$)";
-            // 
-            // mskValor
-            // 
-            this.mskValor.Location = new System.Drawing.Point(299, 113);
-            this.mskValor.Name = "mskValor";
-            this.mskValor.Size = new System.Drawing.Size(100, 20);
-            this.mskValor.TabIndex = 24;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(110, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 28);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Gravar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Location = new System.Drawing.Point(302, 6);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(67, 28);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // LancarDespesa
             // 
@@ -285,15 +299,16 @@
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RadioButton rbVariavel;
+        private System.Windows.Forms.RadioButton rbFixa;
+        private System.Windows.Forms.ComboBox cbbDespesa;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpVencimento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox mskValor;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnGravar;
+        public System.Windows.Forms.Button btnCancelar;
     }
 }

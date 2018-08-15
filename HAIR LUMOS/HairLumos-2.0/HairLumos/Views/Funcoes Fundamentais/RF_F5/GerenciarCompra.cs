@@ -168,5 +168,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             mskCusto.Clear();
             mskVenda.Clear();
         }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
