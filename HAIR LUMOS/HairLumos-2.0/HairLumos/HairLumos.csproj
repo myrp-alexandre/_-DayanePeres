@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Banco\Conexao.cs" />
     <Compile Include="Controller\CompraController.cs" />
+    <Compile Include="Controller\ContasPagarController.cs" />
     <Compile Include="Controller\DespesaController.cs" />
     <Compile Include="Controller\PacoteController.cs" />
     <Compile Include="Controller\PagamentoController.cs" />

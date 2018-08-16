@@ -121,6 +121,7 @@ namespace HairLumos.Banco
                 }
                 catch (Exception e)
                 {
+                    System.Windows.Forms.MessageBox.Show(e.Message);
                     return false;
                     //Tratamento de erro em camadas
                     //throw new Exception(ex.Message,ex.InnerException);

@@ -21,6 +21,15 @@ namespace HairLumos.Models
             Entidades.FormaPagamento _formaPagamento = new Entidades.FormaPagamento();
             Entidades.Comissao _comissao = new Entidades.Comissao();
 
+            //DataTable dtCategoria = _DAOProd.retornaObjCateria(codCategoria);
+            //if (dtCategoria != null && dtCategoria.Rows.Count > 0)
+            //{
+            //    DataRow dr = dtCategoria.Rows[0];
+
+            //    _entCategoria.Codigo = Convert.ToInt32(dr["codcategoria"].ToString());
+            //    _entCategoria.CategoriaNome = dr["cat_categoria"].ToString();
+            //    _entCategoria.Observacao = dr["cat_obscategoria"].ToString();
+            //}
 
             return 1;
         }

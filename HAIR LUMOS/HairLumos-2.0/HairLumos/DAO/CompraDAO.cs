@@ -2,6 +2,7 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,39 @@ namespace HairLumos.DAO
             {
                 return 0;
             }
+        }
+
+        public DataTable retornaCompra()
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codformapag, formpag_descricao" +
+                        " FROM tbformapagamento; ";
+
+            // int intCodigo = 0;
+
+
+            //_sql += $"OR codcategoria = @cod";
+            //_sql += $"OR cat_categoria = @categoria";
+            //_sql += $"OR cat_obscategoria = @obs";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codformapag");
+                cmd.Parameters.AddWithValue("@formpag_descricao");
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
         }
 
     }

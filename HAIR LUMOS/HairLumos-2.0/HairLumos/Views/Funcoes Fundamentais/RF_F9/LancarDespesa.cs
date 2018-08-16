@@ -12,6 +12,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 {
     public partial class LancarDespesa : Form
     {
+
+
         public LancarDespesa()
         {
             InitializeComponent();
@@ -77,7 +79,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
+            Controller.ContasPagarController _ctrlContas = new Controller.ContasPagarController();
+            int codigo = Convert.ToInt32(ttbCodigo.Text);
+            string tipo;
+            if (rbFixa.Checked)
+                tipo = "Fixa";
+            else
+                tipo = "Variavel";
+            double valor = Convert.ToDouble(mskValor.Text);
+            int result = _ctrlContas.insert(codigo,cbbDespesa.SelectedValue, dtpVencimento.Value, valor, ttbObservacao.Text);
         }
     }
 }
