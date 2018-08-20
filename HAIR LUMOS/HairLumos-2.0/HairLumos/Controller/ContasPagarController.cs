@@ -4,7 +4,7 @@ namespace HairLumos.Controller
 {
     internal class ContasPagarController
     {
-        private Models.ContasPagar _MdlCont = new Models.ContasPagar();
+        private Models.ContasPagarModels _MdlCont = new Models.ContasPagarModels();
 
         public int insereLancamento(int codigo, int despesa, DateTime data, double valor, string obs)
         {

@@ -49,7 +49,7 @@
             this.tabcInformaçõesPessoa = new System.Windows.Forms.TabControl();
             this.Endereço = new System.Windows.Forms.TabPage();
             this.pnlEndereco = new System.Windows.Forms.Panel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
             this.btnSalvarEndereco = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -100,6 +100,9 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.btnAlterarEnd = new System.Windows.Forms.Button();
+            this.btnExcluirEnd = new System.Windows.Forms.Button();
+            this.btnRemoverContato = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -158,7 +161,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(890, 495);
             this.splitContainer1.SplitterDistance = 423;
             this.splitContainer1.TabIndex = 0;
@@ -174,15 +176,18 @@
             // 
             // ttbEmail
             // 
+            this.ttbEmail.Enabled = false;
             this.ttbEmail.Location = new System.Drawing.Point(102, 183);
             this.ttbEmail.Name = "ttbEmail";
             this.ttbEmail.Size = new System.Drawing.Size(640, 20);
             this.ttbEmail.TabIndex = 19;
+            this.ttbEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbEmail_KeyPress);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rbPagaNao);
             this.groupBox2.Controls.Add(this.rbPagaSim);
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(758, 133);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(91, 81);
@@ -194,6 +199,7 @@
             // 
             this.rbPagaNao.AutoSize = true;
             this.rbPagaNao.Checked = true;
+            this.rbPagaNao.Enabled = false;
             this.rbPagaNao.Location = new System.Drawing.Point(7, 32);
             this.rbPagaNao.Name = "rbPagaNao";
             this.rbPagaNao.Size = new System.Drawing.Size(45, 17);
@@ -205,6 +211,7 @@
             // rbPagaSim
             // 
             this.rbPagaSim.AutoSize = true;
+            this.rbPagaSim.Enabled = false;
             this.rbPagaSim.Location = new System.Drawing.Point(7, 53);
             this.rbPagaSim.Name = "rbPagaSim";
             this.rbPagaSim.Size = new System.Drawing.Size(42, 17);
@@ -216,6 +223,7 @@
             // 
             this.grpPessoa.Controls.Add(this.rbFisica);
             this.grpPessoa.Controls.Add(this.rbJuridica);
+            this.grpPessoa.Enabled = false;
             this.grpPessoa.Location = new System.Drawing.Point(64, 54);
             this.grpPessoa.Name = "grpPessoa";
             this.grpPessoa.Size = new System.Drawing.Size(100, 81);
@@ -227,6 +235,7 @@
             // 
             this.rbFisica.AutoSize = true;
             this.rbFisica.Checked = true;
+            this.rbFisica.Enabled = false;
             this.rbFisica.Location = new System.Drawing.Point(7, 21);
             this.rbFisica.Name = "rbFisica";
             this.rbFisica.Size = new System.Drawing.Size(54, 17);
@@ -234,29 +243,31 @@
             this.rbFisica.TabStop = true;
             this.rbFisica.Text = "Física";
             this.rbFisica.UseVisualStyleBackColor = true;
-            this.rbFisica.CheckedChanged += new System.EventHandler(this.rbFisica_CheckedChanged);
             // 
             // rbJuridica
             // 
             this.rbJuridica.AutoSize = true;
+            this.rbJuridica.Enabled = false;
             this.rbJuridica.Location = new System.Drawing.Point(7, 53);
             this.rbJuridica.Name = "rbJuridica";
             this.rbJuridica.Size = new System.Drawing.Size(63, 17);
             this.rbJuridica.TabIndex = 1;
             this.rbJuridica.Text = "Jurídica";
             this.rbJuridica.UseVisualStyleBackColor = true;
-            this.rbJuridica.CheckedChanged += new System.EventHandler(this.rbJuridica_CheckedChanged);
             // 
             // mskCNPJ
             // 
+            this.mskCNPJ.Enabled = false;
             this.mskCNPJ.Location = new System.Drawing.Point(305, 151);
             this.mskCNPJ.Mask = "00.000.000/0000-00";
             this.mskCNPJ.Name = "mskCNPJ";
             this.mskCNPJ.Size = new System.Drawing.Size(123, 20);
             this.mskCNPJ.TabIndex = 13;
+            this.mskCNPJ.Leave += new System.EventHandler(this.mskCNPJ_Leave);
             // 
             // mskCPF
             // 
+            this.mskCPF.Enabled = false;
             this.mskCPF.Location = new System.Drawing.Point(470, 151);
             this.mskCPF.Mask = "000.000.000-00";
             this.mskCPF.Name = "mskCPF";
@@ -275,11 +286,13 @@
             // 
             // dtpDataNascimento
             // 
+            this.dtpDataNascimento.Enabled = false;
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataNascimento.Location = new System.Drawing.Point(628, 151);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.Size = new System.Drawing.Size(114, 20);
             this.dtpDataNascimento.TabIndex = 17;
+            this.dtpDataNascimento.Leave += new System.EventHandler(this.dtpDataNascimento_Leave);
             // 
             // label8
             // 
@@ -302,6 +315,7 @@
             // rbInativo
             // 
             this.rbInativo.AutoSize = true;
+            this.rbInativo.Enabled = false;
             this.rbInativo.Location = new System.Drawing.Point(790, 22);
             this.rbInativo.Name = "rbInativo";
             this.rbInativo.Size = new System.Drawing.Size(57, 17);
@@ -313,6 +327,7 @@
             // 
             this.rbAtivo.AutoSize = true;
             this.rbAtivo.Checked = true;
+            this.rbAtivo.Enabled = false;
             this.rbAtivo.Location = new System.Drawing.Point(735, 22);
             this.rbAtivo.Name = "rbAtivo";
             this.rbAtivo.Size = new System.Drawing.Size(49, 17);
@@ -335,6 +350,7 @@
             this.tabcInformaçõesPessoa.Controls.Add(this.Endereço);
             this.tabcInformaçõesPessoa.Controls.Add(this.Contato);
             this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
+            this.tabcInformaçõesPessoa.Enabled = false;
             this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(12, 209);
             this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
             this.tabcInformaçõesPessoa.SelectedIndex = 0;
@@ -355,7 +371,9 @@
             // 
             // pnlEndereco
             // 
-            this.pnlEndereco.Controls.Add(this.maskedTextBox1);
+            this.pnlEndereco.Controls.Add(this.btnExcluirEnd);
+            this.pnlEndereco.Controls.Add(this.btnAlterarEnd);
+            this.pnlEndereco.Controls.Add(this.mtbCEP);
             this.pnlEndereco.Controls.Add(this.btnSalvarEndereco);
             this.pnlEndereco.Controls.Add(this.label15);
             this.pnlEndereco.Controls.Add(this.label14);
@@ -376,19 +394,20 @@
             this.pnlEndereco.TabIndex = 1;
             this.pnlEndereco.Visible = false;
             // 
-            // maskedTextBox1
+            // mtbCEP
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(70, 75);
-            this.maskedTextBox1.Mask = "00000-000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(79, 20);
-            this.maskedTextBox1.TabIndex = 9;
+            this.mtbCEP.Location = new System.Drawing.Point(70, 75);
+            this.mtbCEP.Mask = "00000-000";
+            this.mtbCEP.Name = "mtbCEP";
+            this.mtbCEP.Size = new System.Drawing.Size(79, 20);
+            this.mtbCEP.TabIndex = 9;
+            this.mtbCEP.Leave += new System.EventHandler(this.mtbCEP_Leave);
             // 
             // btnSalvarEndereco
             // 
             this.btnSalvarEndereco.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSalvarEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarEndereco.Location = new System.Drawing.Point(762, 43);
+            this.btnSalvarEndereco.Location = new System.Drawing.Point(762, 70);
             this.btnSalvarEndereco.Name = "btnSalvarEndereco";
             this.btnSalvarEndereco.Size = new System.Drawing.Size(53, 28);
             this.btnSalvarEndereco.TabIndex = 14;
@@ -429,7 +448,6 @@
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(215, 21);
             this.cbbEstado.TabIndex = 11;
-            this.cbbEstado.SelectedValueChanged += new System.EventHandler(this.cbbEstado_SelectedValueChanged);
             // 
             // label13
             // 
@@ -456,6 +474,7 @@
             this.ttbComplemento.Name = "ttbComplemento";
             this.ttbComplemento.Size = new System.Drawing.Size(325, 20);
             this.ttbComplemento.TabIndex = 7;
+            this.ttbComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbComplemento_KeyPress);
             // 
             // label11
             // 
@@ -473,6 +492,7 @@
             this.ttbBairro.Name = "ttbBairro";
             this.ttbBairro.Size = new System.Drawing.Size(278, 20);
             this.ttbBairro.TabIndex = 5;
+            this.ttbBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbBairro_KeyPress);
             // 
             // label10
             // 
@@ -498,6 +518,7 @@
             this.ttbNumero.Name = "ttbNumero";
             this.ttbNumero.Size = new System.Drawing.Size(100, 20);
             this.ttbNumero.TabIndex = 3;
+            this.ttbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbNumero_KeyPress);
             // 
             // ttbLogradouro
             // 
@@ -506,6 +527,7 @@
             this.ttbLogradouro.Name = "ttbLogradouro";
             this.ttbLogradouro.Size = new System.Drawing.Size(555, 20);
             this.ttbLogradouro.TabIndex = 1;
+            this.ttbLogradouro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbLogradouro_KeyPress);
             // 
             // btnIncluirEndereco
             // 
@@ -560,6 +582,7 @@
             // 
             // Contato
             // 
+            this.Contato.Controls.Add(this.btnRemoverContato);
             this.Contato.Controls.Add(this.dgvContato);
             this.Contato.Controls.Add(this.pnlContato);
             this.Contato.Controls.Add(this.btnIncluirContato);
@@ -693,7 +716,7 @@
             // 
             this.btnIncluirContato.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnIncluirContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncluirContato.Location = new System.Drawing.Point(6, 4);
+            this.btnIncluirContato.Location = new System.Drawing.Point(6, 6);
             this.btnIncluirContato.Name = "btnIncluirContato";
             this.btnIncluirContato.Size = new System.Drawing.Size(29, 32);
             this.btnIncluirContato.TabIndex = 10;
@@ -729,13 +752,16 @@
             this.ttbObservação.Name = "ttbObservação";
             this.ttbObservação.Size = new System.Drawing.Size(812, 62);
             this.ttbObservação.TabIndex = 67;
+            this.ttbObservação.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbObservação_KeyPress);
             // 
             // ttbRg
             // 
+            this.ttbRg.Enabled = false;
             this.ttbRg.Location = new System.Drawing.Point(101, 151);
             this.ttbRg.Name = "ttbRg";
             this.ttbRg.Size = new System.Drawing.Size(128, 20);
             this.ttbRg.TabIndex = 11;
+            this.ttbRg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbRg_KeyPress);
             // 
             // label5
             // 
@@ -749,10 +775,12 @@
             // ttbRazao
             // 
             this.ttbRazao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbRazao.Enabled = false;
             this.ttbRazao.Location = new System.Drawing.Point(305, 103);
             this.ttbRazao.Name = "ttbRazao";
             this.ttbRazao.Size = new System.Drawing.Size(544, 20);
             this.ttbRazao.TabIndex = 9;
+            this.ttbRazao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbRazao_KeyPress);
             // 
             // label4
             // 
@@ -766,10 +794,12 @@
             // ttbNome
             // 
             this.ttbNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbNome.Enabled = false;
             this.ttbNome.Location = new System.Drawing.Point(305, 56);
             this.ttbNome.Name = "ttbNome";
             this.ttbNome.Size = new System.Drawing.Size(544, 20);
             this.ttbNome.TabIndex = 7;
+            this.ttbNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbNome_KeyPress);
             // 
             // label2
             // 
@@ -791,10 +821,13 @@
             // 
             // ttbCodigo
             // 
+            this.ttbCodigo.Enabled = false;
             this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 1;
+            this.ttbCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbCodigo_KeyPress);
+            this.ttbCodigo.Leave += new System.EventHandler(this.ttbCodigo_Leave);
             // 
             // btnPesquisar
             // 
@@ -873,6 +906,42 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // btnAlterarEnd
+            // 
+            this.btnAlterarEnd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterarEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterarEnd.Location = new System.Drawing.Point(762, 9);
+            this.btnAlterarEnd.Name = "btnAlterarEnd";
+            this.btnAlterarEnd.Size = new System.Drawing.Size(53, 28);
+            this.btnAlterarEnd.TabIndex = 15;
+            this.btnAlterarEnd.Text = "Alterar";
+            this.btnAlterarEnd.UseVisualStyleBackColor = false;
+            this.btnAlterarEnd.Click += new System.EventHandler(this.btnAlterarEnd_Click);
+            // 
+            // btnExcluirEnd
+            // 
+            this.btnExcluirEnd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluirEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluirEnd.Location = new System.Drawing.Point(762, 40);
+            this.btnExcluirEnd.Name = "btnExcluirEnd";
+            this.btnExcluirEnd.Size = new System.Drawing.Size(53, 28);
+            this.btnExcluirEnd.TabIndex = 16;
+            this.btnExcluirEnd.Text = "Excluir";
+            this.btnExcluirEnd.UseVisualStyleBackColor = false;
+            this.btnExcluirEnd.Click += new System.EventHandler(this.btnExcluirEnd_Click);
+            // 
+            // btnRemoverContato
+            // 
+            this.btnRemoverContato.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRemoverContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverContato.Location = new System.Drawing.Point(6, 44);
+            this.btnRemoverContato.Name = "btnRemoverContato";
+            this.btnRemoverContato.Size = new System.Drawing.Size(29, 32);
+            this.btnRemoverContato.TabIndex = 14;
+            this.btnRemoverContato.Text = "-";
+            this.btnRemoverContato.UseVisualStyleBackColor = false;
+            this.btnRemoverContato.Click += new System.EventHandler(this.btnRemoverContato_Click);
+            // 
             // Cadastro_Pessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -944,7 +1013,7 @@
         private System.Windows.Forms.TabControl tabcInformaçõesPessoa;
         private System.Windows.Forms.TabPage Endereço;
         private System.Windows.Forms.Panel pnlEndereco;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mtbCEP;
         public System.Windows.Forms.Button btnSalvarEndereco;
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Label label14;
@@ -982,5 +1051,8 @@
         private System.Windows.Forms.RadioButton rbTelefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn _telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn _tipo;
+        public System.Windows.Forms.Button btnAlterarEnd;
+        public System.Windows.Forms.Button btnExcluirEnd;
+        public System.Windows.Forms.Button btnRemoverContato;
     }
 }

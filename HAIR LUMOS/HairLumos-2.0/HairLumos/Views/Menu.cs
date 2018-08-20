@@ -161,5 +161,11 @@ namespace HairLumos
             Views.Funcoes_Basicas.Cadastro_ServiçosParceiros cadastro_ServiçosParceiros = new Views.Funcoes_Basicas.Cadastro_ServiçosParceiros();
             cadastro_ServiçosParceiros.Show();
         }
+
+        private void lançarDespesasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.LancarDespesa lancarDespesas = new Views.Funcoes_Fundamentais.LancarDespesa();
+            lancarDespesas.Show();
+        }
     }
 }

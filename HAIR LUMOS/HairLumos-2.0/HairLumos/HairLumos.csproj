@@ -100,7 +100,7 @@
     <Compile Include="Entidades\ServicoParceiro.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Models\CompraModels.cs" />
-    <Compile Include="Models\ContasPagar.cs" />
+    <Compile Include="Models\ContasPagarModels.cs" />
     <Compile Include="Models\DespesaModels.cs" />
     <Compile Include="Models\PacoteModels.cs" />
     <Compile Include="Models\PagamentoModels.cs" />
@@ -189,28 +189,40 @@
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Funcoes Basicas\ValidaCPF.cs" />
-    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerarContaPagar.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F4 - Fechar Caixa\FecharCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerarContaPagar.Designer.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F4 - Fechar Caixa\FecharCaixa.Designer.cs">
+      <DependentUpon>FecharCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerarContaPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerarContaPagar.Designer.cs">
       <DependentUpon>GerarContaPagar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerenciarCompra.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerenciarCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F5\GerenciarCompra.Designer.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerenciarCompra.Designer.cs">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F9\LancarDespesa.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F6 - Abrir Caixa\AbrirCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F9\LancarDespesa.Designer.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F6 - Abrir Caixa\AbrirCaixa.Designer.cs">
+      <DependentUpon>AbrirCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\LancarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\LancarDespesa.Designer.cs">
       <DependentUpon>LancarDespesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F10\QuitarDespesa.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\QuitarDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F10\QuitarDespesa.Designer.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\QuitarDespesa.Designer.cs">
       <DependentUpon>QuitarDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
@@ -278,16 +290,22 @@
     <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Usuario.resx">
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5\GerarContaPagar.resx">
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F4 - Fechar Caixa\FecharCaixa.resx">
+      <DependentUpon>FecharCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerarContaPagar.resx">
       <DependentUpon>GerarContaPagar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5\GerenciarCompra.resx">
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerenciarCompra.resx">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F9\LancarDespesa.resx">
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F6 - Abrir Caixa\AbrirCaixa.resx">
+      <DependentUpon>AbrirCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\LancarDespesa.resx">
       <DependentUpon>LancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F10\QuitarDespesa.resx">
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\QuitarDespesa.resx">
       <DependentUpon>QuitarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">

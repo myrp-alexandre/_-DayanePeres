@@ -27,25 +27,26 @@ namespace HairLumos.DAO
 
                 objConexao = new Conexao();
 
-
+                
                 //Fazer o Insert da pessoa
                 strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao)";
                 strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao);"; //SELECT MAX(codpessoa) FROM tbpessoa;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
-                objConexao.SqlCmd.Parameters.AddWithValue("@contpag_datavencimento", objContasPagar.DataVencimento);
-                objConexao.SqlCmd.Parameters.AddWithValue("@contpag_datapagamento", objContasPagar.DataPagamento);
-                objConexao.SqlCmd.Parameters.AddWithValue("@contpag_valortotal", objContasPagar.ValorTotal);
-                objConexao.SqlCmd.Parameters.AddWithValue("@contpag_valorpago", objContasPagar.ValorPago);
-                objConexao.SqlCmd.Parameters.AddWithValue("@contpag_obs", objContasPagar.Observacao);
-                objConexao.SqlCmd.Parameters.AddWithValue("@contpag_status", objContasPagar.Status);
-                objConexao.SqlCmd.Parameters.AddWithValue("@contpag_numparc", objContasPagar.Parcela);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codcompra", objContasPagar.Compra);
-                objConexao.SqlCmd.Parameters.AddWithValue("@coddespesa", objContasPagar.Despesa);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codcaixa", objContasPagar.Caixa);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codformapag", objContasPagar.FormaPagamento);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codcomissao", objContasPagar.Comissao);
+                objConexao.SqlCmd.Parameters.AddWithValue("@dtVencimento", objContasPagar.DataVencimento);
+                objConexao.SqlCmd.Parameters.AddWithValue("@dtPagamento", objContasPagar.DataPagamento);
+                objConexao.SqlCmd.Parameters.AddWithValue("@valorTotal", objContasPagar.ValorTotal);
+                objConexao.SqlCmd.Parameters.AddWithValue("@valorPago", objContasPagar.ValorPago);
+                objConexao.SqlCmd.Parameters.AddWithValue("@obs", objContasPagar.Observacao);
+                objConexao.SqlCmd.Parameters.AddWithValue("@status", objContasPagar.Status);
+                objConexao.SqlCmd.Parameters.AddWithValue("@numParcela", objContasPagar.Parcela);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", objContasPagar.FormaPagamento.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", objContasPagar.Comissao.CodigoComissao);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codContaPagar", objContasPagar.CodigoContasaPagar);
 
 
 
@@ -59,7 +60,7 @@ namespace HairLumos.DAO
                 //{
                 //    return -1;
                 //}
-                
+
                 if (!objConexao.executarComando())
                     return -1;
 

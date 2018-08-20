@@ -26,7 +26,7 @@ namespace HairLumos.Entidades
 
         public Caixa()
         {
-            this.carregaCaixa(0, string.Empty, Convert.ToDateTime("00/00/0000".ToString()), Convert.ToDateTime("00/00/0000".ToString()), 0, 0, 0, 0);
+            this.carregaCaixa(0, string.Empty, DateTime.Now, DateTime.Now, 0, 0, 0, 0); //Convert.ToDateTime("dd/MM/yyyy")
         }
 
         public string Erro

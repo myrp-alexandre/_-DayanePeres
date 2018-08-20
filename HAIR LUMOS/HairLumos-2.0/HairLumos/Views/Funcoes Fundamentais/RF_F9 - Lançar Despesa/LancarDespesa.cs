@@ -19,6 +19,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             InitializeComponent();
             _inicializa();
             _limpaCampos();
+            carregaCbbDespesa();
         }
         
 
@@ -31,6 +32,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             rbVariavel.Enabled = false;
             dtpVencimento.Enabled = false;
             mskValor.Enabled = false;
+            ttbObservacao.Enabled = false;
 
             //btn
             btnNovo.Enabled = true;
@@ -49,6 +51,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             cbbDespesa.Text= "";
             dtpVencimento.Value = DateTime.Now;
             mskValor.Text = "";
+            ttbObservacao.Text = "";
         }
 
         public void _btnNovo()
@@ -58,7 +61,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             cbbDespesa.Enabled = true;
             dtpVencimento.Enabled = true;
             mskValor.Enabled = true;
-
+            rbFixa.Enabled = true;
+            rbVariavel.Enabled = true;
+            rbFixa.Checked = true;
+            ttbObservacao.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
@@ -71,7 +77,20 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             cbbDespesa.Focus();
         }
 
-       
+        public void carregaCbbDespesa()
+        {
+            Controller.DespesaController _ctrlDespe = new Controller.DespesaController();
+
+            DataTable dtDespesa = _ctrlDespe.retronaDespesa();
+            if (dtDespesa != null && dtDespesa.Rows.Count > 0)
+            {
+                this.cbbDespesa.ValueMember = "coddespesa";
+                this.cbbDespesa.DisplayMember = "desp_descricao";
+                this.cbbDespesa.DataSource = dtDespesa;
+            }
+
+        }
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             _btnNovo();
@@ -87,7 +106,36 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             else
                 tipo = "Variavel";
             double valor = Convert.ToDouble(mskValor.Text);
-            int result = _ctrlContas.insert(codigo,cbbDespesa.SelectedValue, dtpVencimento.Value, valor, ttbObservacao.Text);
+            //Entidades.Despesa _despesa = new Entidades.Despesa();
+            //_despesa = (Entidades.Despesa)cbbDespesa.SelectedValue;
+
+            int codDespesa = Convert.ToInt32(cbbDespesa.SelectedValue.ToString());
+            int result = _ctrlContas.insereLancamento(codigo,codDespesa, dtpVencimento.Value, valor, ttbObservacao.Text);
+            if (result > 0)
+            {
+                MessageBox.Show("Gravado com sucesso");
+                _limpaCampos();
+                _inicializa();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao gravar!");
+            }
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            _limpaCampos();
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

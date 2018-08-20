@@ -33,7 +33,7 @@ namespace HairLumos.Entidades
 
         public ContasPagar()
         {
-            this.carregaDespesa(0, Convert.ToDateTime("00/00/0000".ToString()), Convert.ToDateTime("00/00/0000".ToString()), 0, 0, string.Empty, 0, false, null, null, null, null, null);
+            this.carregaDespesa(0, DateTime.Now, DateTime.Now, 0, 0, string.Empty, 0, false, null, null, null, null, null);
         }
 
         public string Erro
