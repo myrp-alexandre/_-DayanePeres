@@ -167,5 +167,26 @@ namespace HairLumos
             Views.Funcoes_Fundamentais.LancarDespesa lancarDespesas = new Views.Funcoes_Fundamentais.LancarDespesa();
             lancarDespesas.Show();
         }
+
+        private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa abrirCaixa = new Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa();
+            abrirCaixa.Show();
+        }
+
+        private void fecharCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DAO.CaixaDAO caixaDAO = new DAO.CaixaDAO();
+            DataTable dt = caixaDAO.caixaAberto();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa.FecharCaixa fecharCaixa = new Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa.FecharCaixa();
+                fecharCaixa.Show();
+            }
+            else
+            {
+                MessageBox.Show("Ja possui um caixa aberto!");
+            }
+        }
     }
 }

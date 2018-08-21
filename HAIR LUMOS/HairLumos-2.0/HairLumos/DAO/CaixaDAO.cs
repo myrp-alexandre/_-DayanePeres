@@ -1,0 +1,75 @@
+﻿using HairLumos.Banco;
+using Npgsql;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HairLumos.DAO
+{
+    class CaixaDAO
+    {
+        private string _sql;
+
+        public int abrirCaixa(Entidades.Caixa obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+                if (obj.CodCaixa == 0)
+                {
+                    _sql = "INSERT INTO tbcaixa(caixa_periodo, caixa_datahoraabertura, caixa_datahorafecha,caixa_saldoinicial, caixa_troco, caixa_totalentra, caixa_totalsaida,codusuario, codpessoa)"+
+                            " VALUES(@caixaperiodo, @caixaabertura, @caixadatafecha, @caixasaldoinicial, @caixatroco, @caixatotalen, @caixatotalsa, @codusu, @codpessoa)";
+
+                }
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@caixaperiodo", obj.Periodo);
+                cmd.Parameters.AddWithValue("@caixaabertura", obj.DataAbertura);
+                cmd.Parameters.AddWithValue("@caixadatafecha", obj.DataFechamento);
+                cmd.Parameters.AddWithValue("@caixasaldoinicial", obj.SaldoInicial);
+                cmd.Parameters.AddWithValue("@caixatroco", obj.Troco);
+                cmd.Parameters.AddWithValue("@caixatotalen", obj.TotalEntrada);
+                cmd.Parameters.AddWithValue("@caixatotalsa", obj.TotalSaida);
+                cmd.Parameters.AddWithValue("@codusu", obj.Usuario.UsuarioCodigo);
+                cmd.Parameters.AddWithValue("@codpessoa", obj.Usuario.PessoaCod);
+
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        public DataTable caixaAberto()
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT * FROM tbcaixa where caixa_datahorafecha = @data; ";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@data", null);
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesa");
+            }
+            return dt;
+        }
+
+    }
+}
