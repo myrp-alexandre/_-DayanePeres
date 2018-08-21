@@ -498,3 +498,10 @@ D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLum
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.pdb
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa.FecharCaixa.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa.resources
+D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor.resources
+D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Basicas.Pesquisas.Pesquisa_Produto.resources
+D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa.FecharCaixa.resources
+D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar.resources
+D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa.resources
+D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.LancarDespesa.resources
+D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.QuitarDespesa.resources
