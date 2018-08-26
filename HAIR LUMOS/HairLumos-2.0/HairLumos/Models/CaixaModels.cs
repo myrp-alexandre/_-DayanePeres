@@ -53,12 +53,12 @@ namespace HairLumos.Models
             return _DAOCaixa.fecharCaixa(c);
         }
 
-        public double retornaMaxCaixa()
+        public DataTable retornaMaxCaixa()
         {
             return _DAOCaixa.retornaMaxCaixa();
         }
 
-        public double retornaValCaixaAberto()
+        public DataTable retornaValCaixaAberto()
         {
             return _DAOCaixa.retornaValCaixaAberto();
         }

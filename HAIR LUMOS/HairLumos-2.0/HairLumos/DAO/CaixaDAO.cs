@@ -95,36 +95,41 @@ namespace HairLumos.DAO
             }
         }
 
-        public double retornaMaxCaixa()
+        public DataTable retornaMaxCaixa()
         {
             NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
             try
             {
-                _sql = "select caixa_totalsaida from tbcaixa where codcaixa = ((select max(codcaixa) from tbcaixa)-1)";
+                DataTable dt = new DataTable();
+                _sql = "select * from tbcaixa where codcaixa = ((select max(codcaixa) from tbcaixa)-1)";
                 cmd.CommandText = _sql;
-                return cmd.ExecuteNonQuery();
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                return dt;
             }
             catch (Exception e)
             {
-                return 0;
+                return null;
             }
         }
 
-        public double retornaValCaixaAberto()
+        public DataTable retornaValCaixaAberto()
         {
             NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
             try
             {
-                double valor = 0;
-                _sql = "select caixa_saldoinicial from tbcaixa where codcaixa = (select max(codcaixa) from tbcaixa)";
+                DataTable dt = new DataTable();
+                _sql = "select * from tbcaixa where codcaixa = (select max(codcaixa) from tbcaixa)";
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("caixa_saldoinicial", valor);
-                cmd.ExecuteNonQuery();
-                return valor;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                return dt;
             }
             catch (Exception e)
             {
-                return 0;
+                return null;
             }
         }
 
