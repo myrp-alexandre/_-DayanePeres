@@ -48,6 +48,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvFechaCaixa = new System.Windows.Forms.DataGridView();
+            this.forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -273,12 +275,29 @@
             this.dgvFechaCaixa.AllowUserToDeleteRows = false;
             this.dgvFechaCaixa.BackgroundColor = System.Drawing.Color.White;
             this.dgvFechaCaixa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFechaCaixa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.forma,
+            this.valor});
             this.dgvFechaCaixa.GridColor = System.Drawing.Color.White;
             this.dgvFechaCaixa.Location = new System.Drawing.Point(7, 16);
             this.dgvFechaCaixa.Name = "dgvFechaCaixa";
             this.dgvFechaCaixa.ReadOnly = true;
             this.dgvFechaCaixa.Size = new System.Drawing.Size(285, 209);
             this.dgvFechaCaixa.TabIndex = 0;
+            // 
+            // forma
+            // 
+            this.forma.DataPropertyName = "forma";
+            this.forma.HeaderText = "Forma de Pagamento";
+            this.forma.Name = "forma";
+            this.forma.ReadOnly = true;
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -374,6 +393,7 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // FecharCaixa
             // 
@@ -433,5 +453,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Button btnIncluir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn forma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
     }
 }

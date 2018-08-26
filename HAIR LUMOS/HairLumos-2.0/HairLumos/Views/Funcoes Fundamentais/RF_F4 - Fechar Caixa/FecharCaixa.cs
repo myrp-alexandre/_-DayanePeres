@@ -1,4 +1,5 @@
 ﻿using HairLumos.Controller;
+using HairLumos.DAO;
 using HairLumos.Entidades;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             lista = new List<FechamentoTabela>();
             ttbCodigo.Enabled = false;
             ttbUsuário.Enabled = false;
+            mskFechamentoLancado.Enabled = false;
+            mskDifereca.Enabled = false;
+            mskLiquido.Enabled = false;
             UsuarioController uc = new UsuarioController();
             DataTable dt = uc.existeUsuarioLogado();
             if (dt != null && dt.Rows.Count > 0)
@@ -46,6 +50,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
                 DataRow dr = dt.Rows[0];
                 ttbUsuário.Text = dr["usu_usuario"].ToString();
             }
+            mskFechamentoLancado.Text = (somaFatura() - somaCredito()).ToString();
         }
 
         public void carregaCbbPagamento()
@@ -87,7 +92,102 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             fc.Forma = f.Forma;
             fc.Valor = Convert.ToDouble(mskValor.Text.ToString());
             lista.Add(fc);
-            dgvFechaCaixa.DataSource = lista;
+            carregaDGV(lista);
+            mskValor.Text = "";
+            mskFechamentoInformado.Text = somalista(lista).ToString();
+            double valor = Convert.ToDouble(mskFechamentoLancado.Text.ToString());
+            mskLiquido.Text = ((valor) + somalista(lista)).ToString();
+            mskDifereca.Text = (valor - somalista(lista)).ToString();
+        }
+
+        private void carregaDGV(List<FechamentoTabela> lista)
+        {
+            BindingSource bd = new BindingSource();
+            bd.DataSource = lista;
+            dgvFechaCaixa.DataSource = bd;
+            dgvFechaCaixa.Refresh();
+        }
+
+        private double somalista(List<FechamentoTabela> lista)
+        {
+            double valor = 0;
+            for(int i = 0; i<lista.Count; i++)
+            {
+                valor += lista[i].Valor;
+            }
+            return valor;
+        }
+
+        private double somaFatura()
+        {
+            double total = 0;
+            DateTime data = DateTime.Now;
+            ContasReceberDAO cr = new ContasReceberDAO();
+            DAO.CaixaDAO caixaDAO = new DAO.CaixaDAO();
+            DataTable dt = caixaDAO.caixaAberto();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                data = Convert.ToDateTime(dr["caixa_datahoraabertura"].ToString());
+            }
+            DataTable dtContas = cr.retornaContasPeriodo(data);
+            if (dtContas != null && dtContas.Rows.Count > 0)
+            {
+                for (int i = 0; i < dtContas.Rows.Count; i++) {
+                    DataRow dr = dtContas.Rows[i];
+                    total += Convert.ToDouble(dr["contrec_valortotal"].ToString());
+                }
+            }
+            return total;
+        }
+
+        private double somaCredito()
+        {
+            double total = 0;
+            DateTime data = DateTime.Now;
+            ContasPagarDAO cr = new ContasPagarDAO();
+            DAO.CaixaDAO caixaDAO = new DAO.CaixaDAO();
+            DataTable dt = caixaDAO.caixaAberto();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                data = Convert.ToDateTime(dr["caixa_datahoraabertura"].ToString());
+            }
+            DataTable dtContas = cr.retornaContasPeriodo(data);
+            if (dtContas != null && dtContas.Rows.Count > 0)
+            {
+                for (int i = 0; i < dtContas.Rows.Count; i++)
+                {
+                    DataRow dr = dtContas.Rows[i];
+                    total += Convert.ToDouble(dr["contpag_valorpago"].ToString());
+                }
+            }
+            return total;
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            int caixa=0;
+            CaixaController cc = new CaixaController();
+            DAO.CaixaDAO caixaDAO = new DAO.CaixaDAO();
+            DataTable dt = caixaDAO.caixaAberto();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                caixa = Convert.ToInt32(dr["codcaixa"].ToString());
+            }
+            int result = cc.fechaCaixa(caixa, mskLiquido.Text, DateTime.Now);
+            if(result > 0)
+            {
+                MessageBox.Show("Caixa Fechado com Sucesso!");
+                limpatela();
+                inicializa();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao fechar o caixa!");
+            }
+
         }
     }
 }

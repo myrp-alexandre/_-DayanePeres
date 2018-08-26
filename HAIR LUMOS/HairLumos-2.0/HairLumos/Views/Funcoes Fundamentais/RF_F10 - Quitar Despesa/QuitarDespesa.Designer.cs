@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.ttbTotalVencido = new System.Windows.Forms.TextBox();
+            this.ttbTotalPago = new System.Windows.Forms.TextBox();
+            this.ttbTotalPagar = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -55,11 +60,6 @@
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ttbTotalVencido = new System.Windows.Forms.TextBox();
-            this.ttbTotalPago = new System.Windows.Forms.TextBox();
-            this.ttbTotalPagar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,6 +96,50 @@
             this.splitContainer1.Size = new System.Drawing.Size(792, 467);
             this.splitContainer1.SplitterDistance = 390;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // ttbTotalVencido
+            // 
+            this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
+            this.ttbTotalVencido.Location = new System.Drawing.Point(647, 363);
+            this.ttbTotalVencido.Name = "ttbTotalVencido";
+            this.ttbTotalVencido.Size = new System.Drawing.Size(89, 20);
+            this.ttbTotalVencido.TabIndex = 44;
+            // 
+            // ttbTotalPago
+            // 
+            this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
+            this.ttbTotalPago.Location = new System.Drawing.Point(536, 363);
+            this.ttbTotalPago.Name = "ttbTotalPago";
+            this.ttbTotalPago.Size = new System.Drawing.Size(89, 20);
+            this.ttbTotalPago.TabIndex = 43;
+            // 
+            // ttbTotalPagar
+            // 
+            this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
+            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 363);
+            this.ttbTotalPagar.Name = "ttbTotalPagar";
+            this.ttbTotalPagar.Size = new System.Drawing.Size(89, 20);
+            this.ttbTotalPagar.TabIndex = 42;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(644, 347);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Total Vencido:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Green;
+            this.label4.Location = new System.Drawing.Point(533, 346);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Total Pago:";
             // 
             // label3
             // 
@@ -173,10 +217,10 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(206, 28);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(66, 17);
+            this.radioButton1.Size = new System.Drawing.Size(55, 17);
             this.radioButton1.TabIndex = 25;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Receber";
+            this.radioButton1.Text = "Todos";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // rdbReceber
@@ -342,50 +386,6 @@
             this.btnQuitar.TabIndex = 6;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(533, 346);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Total Pago:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(644, 347);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Total Vencido:";
-            // 
-            // ttbTotalVencido
-            // 
-            this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
-            this.ttbTotalVencido.Location = new System.Drawing.Point(647, 363);
-            this.ttbTotalVencido.Name = "ttbTotalVencido";
-            this.ttbTotalVencido.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalVencido.TabIndex = 44;
-            // 
-            // ttbTotalPago
-            // 
-            this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
-            this.ttbTotalPago.Location = new System.Drawing.Point(536, 363);
-            this.ttbTotalPago.Name = "ttbTotalPago";
-            this.ttbTotalPago.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalPago.TabIndex = 43;
-            // 
-            // ttbTotalPagar
-            // 
-            this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
-            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 363);
-            this.ttbTotalPagar.Name = "ttbTotalPagar";
-            this.ttbTotalPagar.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalPagar.TabIndex = 42;
             // 
             // QuitarDespesa
             // 

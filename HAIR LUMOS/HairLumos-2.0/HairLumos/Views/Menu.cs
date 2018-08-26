@@ -170,8 +170,17 @@ namespace HairLumos
 
         private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa abrirCaixa = new Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa();
-            abrirCaixa.Show();
+            DAO.CaixaDAO caixaDAO = new DAO.CaixaDAO();
+            DataTable dt = caixaDAO.caixaAberto();
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa abrirCaixa = new Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa();
+                abrirCaixa.Show();
+            }
+            else
+            {
+                MessageBox.Show("Ja possui um caixa aberto!");
+            }
         }
 
         private void fecharCaixaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,7 +194,7 @@ namespace HairLumos
             }
             else
             {
-                MessageBox.Show("Ja possui um caixa aberto!");
+                MessageBox.Show("Não possui um caixa aberto!");
             }
         }
     }

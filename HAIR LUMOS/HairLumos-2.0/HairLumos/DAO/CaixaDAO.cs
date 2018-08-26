@@ -50,15 +50,16 @@ namespace HairLumos.DAO
         public DataTable caixaAberto()
         {
             DataTable dt = new DataTable();
-
-            _sql = "SELECT * FROM tbcaixa where caixa_datahorafecha = @data; ";
+            string data = "0001-01-01";
+            DateTime datad = Convert.ToDateTime(data);
+            _sql = "SELECT * FROM tbcaixa where caixa_datahorafecha = @data ";
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@data", null);
+                cmd.Parameters.AddWithValue("@data", datad);
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
@@ -69,6 +70,29 @@ namespace HairLumos.DAO
                 throw new SystemException(e + "Erro ao retronar Despesa");
             }
             return dt;
+        }
+
+        public int fecharCaixa(Entidades.Caixa obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+                _sql = "UPDATE tbcaixa SET caixa_datahorafecha = @data, caixa_totalsaida = @total WHERE codcaixa = @codigo;";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@data", obj.DataFechamento);
+                cmd.Parameters.AddWithValue("@total", obj.TotalSaida);
+                cmd.Parameters.AddWithValue("@codigo", obj.CodCaixa);
+
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
         }
 
     }

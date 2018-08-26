@@ -42,5 +42,15 @@ namespace HairLumos.Models
             return _DAOCaixa.abrirCaixa(c);
 
         }
+
+        public int fecharCaixa(int caixa, string valor, DateTime data)
+        {
+            Caixa c = new Caixa();
+            c.CodCaixa = caixa;
+            c.DataFechamento = data;
+            c.TotalSaida = Convert.ToDouble(valor);
+
+            return _DAOCaixa.fecharCaixa(c);
+        }
     }
 }

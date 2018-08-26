@@ -72,6 +72,7 @@
     <Compile Include="DAO\CaixaDAO.cs" />
     <Compile Include="DAO\CompraDAO.cs" />
     <Compile Include="DAO\ContasPagarDAO.cs" />
+    <Compile Include="DAO\ContasReceberDAO.cs" />
     <Compile Include="DAO\DespesaDAO.cs" />
     <Compile Include="DAO\PacoteDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Entidades\Compra.cs" />
     <Compile Include="Entidades\CompraProduto.cs" />
     <Compile Include="Entidades\ContasPagar.cs" />
+    <Compile Include="Entidades\ContasReceber.cs" />
     <Compile Include="Entidades\Despesa.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\FechamentoTabela.cs" />
