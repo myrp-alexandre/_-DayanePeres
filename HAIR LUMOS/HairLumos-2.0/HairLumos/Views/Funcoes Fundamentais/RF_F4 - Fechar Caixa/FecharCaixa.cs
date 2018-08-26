@@ -22,6 +22,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             InitializeComponent();
             carregaCbbPagamento();
             inicializa();
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -37,12 +38,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
 
         public void inicializa()
         {
+            CaixaController cc = new CaixaController();
             lista = new List<FechamentoTabela>();
             ttbCodigo.Enabled = false;
             ttbUsuário.Enabled = false;
-            mskFechamentoLancado.Enabled = false;
-            mskDifereca.Enabled = false;
-            mskLiquido.Enabled = false;
+            mskInicialCaixa.Enabled = false;
+            mskTotalRecebido.Enabled = false;
+            mskRestante.Enabled = false;
+            mskTotalGasto.Enabled = false;
             UsuarioController uc = new UsuarioController();
             DataTable dt = uc.existeUsuarioLogado();
             if (dt != null && dt.Rows.Count > 0)
@@ -50,7 +53,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
                 DataRow dr = dt.Rows[0];
                 ttbUsuário.Text = dr["usu_usuario"].ToString();
             }
-            mskFechamentoLancado.Text = (somaFatura() - somaCredito()).ToString();
+            mskInicialCaixa.Text = cc.retornaValCaixaAberto() + "";
+            mskTotalRecebido.Text = somaFatura() + "";
+            mskTotalGasto.Text = somaCredito() + "";
+            mskRestante.Text = ((cc.retornaValCaixaAberto() + somaFatura()) - somaCredito()).ToString();
         }
 
         public void carregaCbbPagamento()
@@ -71,10 +77,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             ttbCodigo.Text = "";
             ttbUsuário.Text = "";
             ttbObservacao.Text = "";
-            mskDifereca.Text = "";
-            mskFechamentoInformado.Text = "";
-            mskFechamentoLancado.Text = "";
-            mskLiquido.Text = "";
+            mskRestante.Text = "";
+            mskTotalRecebido.Text = "";
+            mskInicialCaixa.Text = "";
+            mskTotalGasto.Text = "";
             mskValor.Text = "";
             dgvFechaCaixa.DataSource = new List<FechamentoTabela>();
         }
@@ -94,10 +100,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             lista.Add(fc);
             carregaDGV(lista);
             mskValor.Text = "";
-            mskFechamentoInformado.Text = somalista(lista).ToString();
-            double valor = Convert.ToDouble(mskFechamentoLancado.Text.ToString());
-            mskLiquido.Text = ((valor) + somalista(lista)).ToString();
-            mskDifereca.Text = (valor - somalista(lista)).ToString();
+            mskTotalRecebido.Text = somalista(lista).ToString();
+            double valor = Convert.ToDouble(mskInicialCaixa.Text.ToString());
+            mskTotalGasto.Text = ((valor) + somalista(lista)).ToString();
+            mskRestante.Text = (valor - somalista(lista)).ToString();
         }
 
         private void carregaDGV(List<FechamentoTabela> lista)
@@ -176,7 +182,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
                 DataRow dr = dt.Rows[0];
                 caixa = Convert.ToInt32(dr["codcaixa"].ToString());
             }
-            int result = cc.fechaCaixa(caixa, mskLiquido.Text, DateTime.Now);
+            int result = cc.fechaCaixa(caixa, mskTotalGasto.Text, DateTime.Now);
             if(result > 0)
             {
                 MessageBox.Show("Caixa Fechado com Sucesso!");

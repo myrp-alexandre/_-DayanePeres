@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.mskDifereca = new System.Windows.Forms.MaskedTextBox();
+            this.mskRestante = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.mskLiquido = new System.Windows.Forms.MaskedTextBox();
+            this.mskTotalGasto = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.mskFechamentoInformado = new System.Windows.Forms.MaskedTextBox();
+            this.mskTotalRecebido = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.mskFechamentoLancado = new System.Windows.Forms.MaskedTextBox();
+            this.mskInicialCaixa = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -81,13 +81,13 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.mskDifereca);
+            this.splitContainer1.Panel1.Controls.Add(this.mskRestante);
             this.splitContainer1.Panel1.Controls.Add(this.label10);
-            this.splitContainer1.Panel1.Controls.Add(this.mskLiquido);
+            this.splitContainer1.Panel1.Controls.Add(this.mskTotalGasto);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
-            this.splitContainer1.Panel1.Controls.Add(this.mskFechamentoInformado);
+            this.splitContainer1.Panel1.Controls.Add(this.mskTotalRecebido);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
-            this.splitContainer1.Panel1.Controls.Add(this.mskFechamentoLancado);
+            this.splitContainer1.Panel1.Controls.Add(this.mskInicialCaixa);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
@@ -106,69 +106,69 @@
             this.splitContainer1.SplitterDistance = 435;
             this.splitContainer1.TabIndex = 3;
             // 
-            // mskDifereca
+            // mskRestante
             // 
-            this.mskDifereca.Location = new System.Drawing.Point(453, 386);
-            this.mskDifereca.Name = "mskDifereca";
-            this.mskDifereca.Size = new System.Drawing.Size(123, 20);
-            this.mskDifereca.TabIndex = 47;
+            this.mskRestante.Location = new System.Drawing.Point(453, 386);
+            this.mskRestante.Name = "mskRestante";
+            this.mskRestante.Size = new System.Drawing.Size(123, 20);
+            this.mskRestante.TabIndex = 47;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(355, 386);
+            this.label10.Location = new System.Drawing.Point(334, 389);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.Size = new System.Drawing.Size(120, 13);
             this.label10.TabIndex = 46;
-            this.label10.Text = "Diferença (R$):";
+            this.label10.Text = "Restante no Caixa (R$):";
             // 
-            // mskLiquido
+            // mskTotalGasto
             // 
-            this.mskLiquido.Location = new System.Drawing.Point(453, 341);
-            this.mskLiquido.Name = "mskLiquido";
-            this.mskLiquido.Size = new System.Drawing.Size(123, 20);
-            this.mskLiquido.TabIndex = 45;
+            this.mskTotalGasto.Location = new System.Drawing.Point(453, 341);
+            this.mskTotalGasto.Name = "mskTotalGasto";
+            this.mskTotalGasto.Size = new System.Drawing.Size(123, 20);
+            this.mskTotalGasto.TabIndex = 45;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(355, 325);
+            this.label9.Location = new System.Drawing.Point(369, 325);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 13);
+            this.label9.Size = new System.Drawing.Size(88, 13);
             this.label9.TabIndex = 44;
-            this.label9.Text = "Total Liquido Caixa (R$):";
+            this.label9.Text = "Total Gasto (R$):";
             // 
-            // mskFechamentoInformado
+            // mskTotalRecebido
             // 
-            this.mskFechamentoInformado.Location = new System.Drawing.Point(453, 278);
-            this.mskFechamentoInformado.Name = "mskFechamentoInformado";
-            this.mskFechamentoInformado.Size = new System.Drawing.Size(123, 20);
-            this.mskFechamentoInformado.TabIndex = 43;
+            this.mskTotalRecebido.Location = new System.Drawing.Point(453, 278);
+            this.mskTotalRecebido.Name = "mskTotalRecebido";
+            this.mskTotalRecebido.Size = new System.Drawing.Size(123, 20);
+            this.mskTotalRecebido.TabIndex = 43;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(355, 262);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 13);
+            this.label8.Size = new System.Drawing.Size(103, 13);
             this.label8.TabIndex = 42;
-            this.label8.Text = "Total Fechamento Informado (R$):";
+            this.label8.Text = "Total Recebido (R$)";
             // 
-            // mskFechamentoLancado
+            // mskInicialCaixa
             // 
-            this.mskFechamentoLancado.Location = new System.Drawing.Point(453, 218);
-            this.mskFechamentoLancado.Name = "mskFechamentoLancado";
-            this.mskFechamentoLancado.Size = new System.Drawing.Size(123, 20);
-            this.mskFechamentoLancado.TabIndex = 41;
+            this.mskInicialCaixa.Location = new System.Drawing.Point(453, 218);
+            this.mskInicialCaixa.Name = "mskInicialCaixa";
+            this.mskInicialCaixa.Size = new System.Drawing.Size(123, 20);
+            this.mskInicialCaixa.TabIndex = 41;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(355, 202);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 13);
+            this.label7.Size = new System.Drawing.Size(113, 13);
             this.label7.TabIndex = 40;
-            this.label7.Text = "Total Fechamento Lançado (R$):";
+            this.label7.Text = "Total Inicial Caixa (R$)";
             // 
             // label6
             // 
@@ -443,13 +443,13 @@
         private System.Windows.Forms.TabPage tabPage2;
         public System.Windows.Forms.TextBox ttbObservacao;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox mskDifereca;
+        private System.Windows.Forms.MaskedTextBox mskRestante;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox mskLiquido;
+        private System.Windows.Forms.MaskedTextBox mskTotalGasto;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox mskFechamentoInformado;
+        private System.Windows.Forms.MaskedTextBox mskTotalRecebido;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox mskFechamentoLancado;
+        private System.Windows.Forms.MaskedTextBox mskInicialCaixa;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Button btnIncluir;

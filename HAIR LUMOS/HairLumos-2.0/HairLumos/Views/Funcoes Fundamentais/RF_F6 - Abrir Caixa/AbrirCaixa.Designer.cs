@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnAbrir = new System.Windows.Forms.Button();
+            this.mskAddValor = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,6 +58,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.mskAddValor);
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.mskTroco);
             this.splitContainer1.Panel1.Controls.Add(this.ttbUsuário);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
@@ -77,7 +81,7 @@
             // 
             // mskTroco
             // 
-            this.mskTroco.Location = new System.Drawing.Point(77, 178);
+            this.mskTroco.Location = new System.Drawing.Point(82, 178);
             this.mskTroco.Name = "mskTroco";
             this.mskTroco.Size = new System.Drawing.Size(138, 20);
             this.mskTroco.TabIndex = 30;
@@ -152,7 +156,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 186);
+            this.label2.Location = new System.Drawing.Point(6, 181);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 10;
@@ -179,6 +183,23 @@
             this.btnAbrir.Text = "Abrir";
             this.btnAbrir.UseVisualStyleBackColor = false;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
+            // 
+            // mskAddValor
+            // 
+            this.mskAddValor.Location = new System.Drawing.Point(323, 178);
+            this.mskAddValor.Name = "mskAddValor";
+            this.mskAddValor.Size = new System.Drawing.Size(166, 20);
+            this.mskAddValor.TabIndex = 32;
+            // 
+            // label4
+            // 
+            this.label4.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(236, 181);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Adicionar Valor:";
             // 
             // AbrirCaixa
             // 
@@ -213,5 +234,7 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnAbrir;
+        private System.Windows.Forms.MaskedTextBox mskAddValor;
+        public System.Windows.Forms.Label label4;
     }
 }

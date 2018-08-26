@@ -52,5 +52,15 @@ namespace HairLumos.Models
 
             return _DAOCaixa.fecharCaixa(c);
         }
+
+        public double retornaMaxCaixa()
+        {
+            return _DAOCaixa.retornaMaxCaixa();
+        }
+
+        public double retornaValCaixaAberto()
+        {
+            return _DAOCaixa.retornaValCaixaAberto();
+        }
     }
 }

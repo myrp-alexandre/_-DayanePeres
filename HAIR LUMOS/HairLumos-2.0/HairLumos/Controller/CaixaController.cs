@@ -22,6 +22,15 @@ namespace HairLumos.Controller
             return _MdlCaixa.fecharCaixa(codigo, valor, data);
         }
 
+        public double retornaMaxCaixa()
+        {
+            return _MdlCaixa.retornaMaxCaixa();
+        }
+
+        public double retornaValCaixaAberto()
+        {
+            return _MdlCaixa.retornaValCaixaAberto();
+        }
 
     }
 }

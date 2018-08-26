@@ -17,6 +17,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
         {
             InitializeComponent();
             inicializa();
+            double trocoinicial = 0;
+            CaixaController cc = new CaixaController();
+            trocoinicial = cc.retornaMaxCaixa();
+            mskTroco.Text = trocoinicial + "";
+
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -25,14 +30,17 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
             String erro = "";
             int codigo = 0;
             double troco = 0;
+            double addValor = 0;
             if (ttbCodigo.Text != null && ttbCodigo.Text!="")
                 codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
             if (mskTroco.Text == null || mskTroco.Text=="")
                 erro += "Insira o troco";
             else
                 troco = Convert.ToDouble(mskTroco.Text.ToString());
+            if (mskAddValor.Text != null || mskAddValor.Text != "")
+               addValor = Convert.ToDouble(mskAddValor.Text.ToString());
             if (erro == null || erro=="") {
-                int result = cc.abrirCaixa(codigo, ttbUsuário.Text, dtpData.Value, dtpHora.Value, troco);
+                int result = cc.abrirCaixa(codigo, ttbUsuário.Text, dtpData.Value, dtpHora.Value, troco+addValor);
                 if (result > 0)
                 {
                     MessageBox.Show("Caixa aberto com sucesso");
@@ -55,6 +63,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
         {
             ttbCodigo.Enabled = false;
             ttbUsuário.Enabled = false;
+            mskTroco.Enabled = false;
             UsuarioController uc = new UsuarioController();
             DataTable dt = uc.existeUsuarioLogado();
             if (dt != null && dt.Rows.Count > 0)
@@ -71,6 +80,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
             dtpData.Text = DateTime.Now.ToString();
             dtpHora.Text = DateTime.Now.ToString();
             mskTroco.Text = "";
+            mskAddValor.Text = "";
         }
 
         private void btnSair_Click(object sender, EventArgs e)
