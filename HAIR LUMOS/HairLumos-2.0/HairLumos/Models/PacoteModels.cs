@@ -19,21 +19,27 @@ namespace HairLumos.Models
             return _DAOPac.GravarPacote(_entPacote);
         }
 
+        public DataTable retornoPacoteText(string text)
+        {
+
+            return _DAOPac.RetornaPacote(text);
+        }
+
         public DataTable retornoPacote()
         {
-            
+
             return _DAOPac.RetornaPacote();
         }
 
         public DataTable retornoObjPacote(int cod)
         {
-            
+
             return _DAOPac.RetornaObjPacote(cod);
         }
 
         public bool excluirPacote(int intCod)
         {
-            
+
             return _DAOPac.ExcluirPacote(intCod);
         }
     }

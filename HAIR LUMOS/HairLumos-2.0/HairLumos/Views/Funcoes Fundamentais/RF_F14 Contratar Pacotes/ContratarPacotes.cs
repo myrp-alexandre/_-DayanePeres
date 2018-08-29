@@ -16,5 +16,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         {
             InitializeComponent();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

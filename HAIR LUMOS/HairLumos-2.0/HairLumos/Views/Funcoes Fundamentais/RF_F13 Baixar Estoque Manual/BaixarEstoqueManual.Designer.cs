@@ -29,11 +29,16 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnExcluiBaixaProduto = new System.Windows.Forms.Button();
+            this.dgvFormaPagamento = new System.Windows.Forms.DataGridView();
+            this.codproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baix_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
@@ -41,26 +46,21 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ttbForma = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnExcluiBaixaProduto = new System.Windows.Forms.Button();
-            this.dgvFormaPagamento = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.codproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baix_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormaPagamento)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -87,55 +87,106 @@
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 3;
             // 
-            // btnCancelar
+            // groupBox2
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(264, 12);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.groupBox2.Controls.Add(this.tabControl1);
+            this.groupBox2.Location = new System.Drawing.Point(21, 107);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(545, 172);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Produtos a Baixar";
             // 
-            // btnSair
+            // tabControl1
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(491, 12);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 38);
-            this.btnSair.TabIndex = 11;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(9, 19);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(530, 147);
+            this.tabControl1.TabIndex = 0;
             // 
-            // btnAlterar
+            // tabPage1
             // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(183, 12);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 38);
-            this.btnAlterar.TabIndex = 8;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.tabPage1.Controls.Add(this.btnExcluiBaixaProduto);
+            this.tabPage1.Controls.Add(this.dgvFormaPagamento);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(522, 121);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Baixa";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnGravar
+            // btnExcluiBaixaProduto
             // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(102, 12);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 38);
-            this.btnGravar.TabIndex = 7;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnExcluiBaixaProduto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluiBaixaProduto.Location = new System.Drawing.Point(456, 38);
+            this.btnExcluiBaixaProduto.Name = "btnExcluiBaixaProduto";
+            this.btnExcluiBaixaProduto.Size = new System.Drawing.Size(61, 27);
+            this.btnExcluiBaixaProduto.TabIndex = 15;
+            this.btnExcluiBaixaProduto.Text = "Excluir";
+            this.btnExcluiBaixaProduto.UseVisualStyleBackColor = false;
             // 
-            // btnNovo
+            // dgvFormaPagamento
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.Location = new System.Drawing.Point(21, 12);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 38);
-            this.btnNovo.TabIndex = 6;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = false;
+            this.dgvFormaPagamento.AllowUserToAddRows = false;
+            this.dgvFormaPagamento.AllowUserToDeleteRows = false;
+            this.dgvFormaPagamento.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFormaPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFormaPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codproduto,
+            this.produto,
+            this.baix_qtde});
+            this.dgvFormaPagamento.Location = new System.Drawing.Point(6, 6);
+            this.dgvFormaPagamento.Name = "dgvFormaPagamento";
+            this.dgvFormaPagamento.ReadOnly = true;
+            this.dgvFormaPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFormaPagamento.Size = new System.Drawing.Size(440, 109);
+            this.dgvFormaPagamento.TabIndex = 16;
+            // 
+            // codproduto
+            // 
+            this.codproduto.DataPropertyName = "codproduto";
+            this.codproduto.HeaderText = "Cód Prod";
+            this.codproduto.Name = "codproduto";
+            this.codproduto.ReadOnly = true;
+            this.codproduto.Width = 80;
+            // 
+            // produto
+            // 
+            this.produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.produto.DataPropertyName = "produto";
+            this.produto.HeaderText = "Produto";
+            this.produto.Name = "produto";
+            this.produto.ReadOnly = true;
+            // 
+            // baix_qtde
+            // 
+            this.baix_qtde.DataPropertyName = "baix_qtde";
+            this.baix_qtde.HeaderText = "Qtde";
+            this.baix_qtde.Name = "baix_qtde";
+            this.baix_qtde.ReadOnly = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(522, 121);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Observação";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(10, 19);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(509, 96);
+            this.textBox1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -205,106 +256,56 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Produto*";
             // 
-            // groupBox2
+            // btnCancelar
             // 
-            this.groupBox2.Controls.Add(this.tabControl1);
-            this.groupBox2.Location = new System.Drawing.Point(21, 107);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(545, 172);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Produtos a Baixar";
+            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Location = new System.Drawing.Point(264, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 38);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // tabControl1
+            // btnSair
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(9, 19);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(530, 147);
-            this.tabControl1.TabIndex = 0;
+            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.Location = new System.Drawing.Point(491, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 38);
+            this.btnSair.TabIndex = 11;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // tabPage1
+            // btnAlterar
             // 
-            this.tabPage1.Controls.Add(this.btnExcluiBaixaProduto);
-            this.tabPage1.Controls.Add(this.dgvFormaPagamento);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(522, 121);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Baixa";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterar.Location = new System.Drawing.Point(183, 12);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 38);
+            this.btnAlterar.TabIndex = 8;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
             // 
-            // tabPage2
+            // btnGravar
             // 
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(522, 121);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Observação";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGravar.Location = new System.Drawing.Point(102, 12);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 38);
+            this.btnGravar.TabIndex = 7;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = false;
             // 
-            // btnExcluiBaixaProduto
+            // btnNovo
             // 
-            this.btnExcluiBaixaProduto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluiBaixaProduto.Location = new System.Drawing.Point(456, 38);
-            this.btnExcluiBaixaProduto.Name = "btnExcluiBaixaProduto";
-            this.btnExcluiBaixaProduto.Size = new System.Drawing.Size(61, 27);
-            this.btnExcluiBaixaProduto.TabIndex = 15;
-            this.btnExcluiBaixaProduto.Text = "Excluir";
-            this.btnExcluiBaixaProduto.UseVisualStyleBackColor = false;
-            // 
-            // dgvFormaPagamento
-            // 
-            this.dgvFormaPagamento.AllowUserToAddRows = false;
-            this.dgvFormaPagamento.AllowUserToDeleteRows = false;
-            this.dgvFormaPagamento.BackgroundColor = System.Drawing.Color.White;
-            this.dgvFormaPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFormaPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codproduto,
-            this.produto,
-            this.baix_qtde});
-            this.dgvFormaPagamento.Location = new System.Drawing.Point(6, 6);
-            this.dgvFormaPagamento.Name = "dgvFormaPagamento";
-            this.dgvFormaPagamento.ReadOnly = true;
-            this.dgvFormaPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFormaPagamento.Size = new System.Drawing.Size(440, 109);
-            this.dgvFormaPagamento.TabIndex = 16;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(10, 19);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(509, 96);
-            this.textBox1.TabIndex = 0;
-            // 
-            // codproduto
-            // 
-            this.codproduto.DataPropertyName = "codproduto";
-            this.codproduto.HeaderText = "Cód Prod";
-            this.codproduto.Name = "codproduto";
-            this.codproduto.ReadOnly = true;
-            this.codproduto.Width = 80;
-            // 
-            // produto
-            // 
-            this.produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.produto.DataPropertyName = "produto";
-            this.produto.HeaderText = "Produto";
-            this.produto.Name = "produto";
-            this.produto.ReadOnly = true;
-            // 
-            // baix_qtde
-            // 
-            this.baix_qtde.DataPropertyName = "baix_qtde";
-            this.baix_qtde.HeaderText = "Qtde";
-            this.baix_qtde.Name = "baix_qtde";
-            this.baix_qtde.ReadOnly = true;
+            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.Location = new System.Drawing.Point(21, 12);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 38);
+            this.btnNovo.TabIndex = 6;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = false;
             // 
             // BaixarEstoqueManual
             // 
@@ -322,14 +323,14 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaPagamento)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaPagamento)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -195,6 +195,30 @@
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Funcoes Basicas\ValidaCPF.cs" />
+    <Compile Include="Views\Funcoes Fundamentais\RF_F13 Baixar Estoque Manual\BaixarEstoqueManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F13 Baixar Estoque Manual\BaixarEstoqueManual.Designer.cs">
+      <DependentUpon>BaixarEstoqueManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F14 Contratar Pacotes\ContratarPacotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F14 Contratar Pacotes\ContratarPacotes.Designer.cs">
+      <DependentUpon>ContratarPacotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Gerenciar Pacotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Gerenciar Pacotes.Designer.cs">
+      <DependentUpon>Gerenciar Pacotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Pesquisa_GerenciarPacotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Pesquisa_GerenciarPacotes.Designer.cs">
+      <DependentUpon>Pesquisa_GerenciarPacotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F4 - Fechar Caixa\FecharCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +319,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Usuario.resx">
       <DependentUpon>Pesquisa_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F13 Baixar Estoque Manual\BaixarEstoqueManual.resx">
+      <DependentUpon>BaixarEstoqueManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F14 Contratar Pacotes\ContratarPacotes.resx">
+      <DependentUpon>ContratarPacotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Gerenciar Pacotes.resx">
+      <DependentUpon>Gerenciar Pacotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Pesquisa_GerenciarPacotes.resx">
+      <DependentUpon>Pesquisa_GerenciarPacotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F4 - Fechar Caixa\FecharCaixa.resx">
       <DependentUpon>FecharCaixa.cs</DependentUpon>

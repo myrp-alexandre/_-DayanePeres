@@ -147,5 +147,48 @@ namespace HairLumos.DAO
             }
             return (_controle > 0);
         }
+
+        public DataTable RetornaPacote(string texto)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obspacote, pac_periodicidade" +
+                    "FROM tbpacote " +
+                    "WHERE pac_pacote LIKE %" + texto + "%";
+
+            int intCodigo = 0;
+
+            int.TryParse(texto, out intCodigo);
+
+            if (intCodigo > 0)
+                _sql += $"OR codpacote = @codpacote ";
+
+            // _sql += $"OR UPPER (usu_usuario) LIKE @usu_usuario";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codpacote");
+                cmd.Parameters.AddWithValue("@pac_pacote");
+                cmd.Parameters.AddWithValue("@pac_valor");
+                cmd.Parameters.AddWithValue("@pac_obs");
+                cmd.Parameters.AddWithValue("@pac_periodicidade");
+                cmd.Parameters.AddWithValue("@pac_datainicio");
+                cmd.Parameters.AddWithValue("@pac_datafim");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Pacote");
+            }
+            return dt;
+        }
     }
 }

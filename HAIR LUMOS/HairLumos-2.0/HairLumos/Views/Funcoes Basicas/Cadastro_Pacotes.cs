@@ -289,5 +289,10 @@ namespace HairLumos.Views
         {
             _btnNovo();
         }
+
+        private void btnSair_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

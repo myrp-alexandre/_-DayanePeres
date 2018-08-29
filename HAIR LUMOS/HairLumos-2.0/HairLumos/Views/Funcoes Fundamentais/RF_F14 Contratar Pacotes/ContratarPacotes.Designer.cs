@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.mskPrecoCompra = new System.Windows.Forms.MaskedTextBox();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +90,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(781, 495);
             this.splitContainer1.SplitterDistance = 423;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Location = new System.Drawing.Point(527, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 27);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Pesquisa";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // mskPrecoCompra
             // 
@@ -243,6 +253,7 @@
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnExcluir
             // 
@@ -283,16 +294,6 @@
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(527, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 27);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Pesquisa";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // ContratarPacotes
             // 

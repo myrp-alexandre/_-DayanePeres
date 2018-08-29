@@ -37,6 +37,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.dgvPacote = new System.Windows.Forms.DataGridView();
+            this.codpacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pac_pacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pac_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pac_periodicidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbPacote = new System.Windows.Forms.TextBox();
@@ -47,10 +51,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codpacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pac_pacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pac_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pac_periodicidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -151,7 +151,6 @@
             this.btnSelecionar.TabIndex = 12;
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
-            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // dgvPacote
             // 
@@ -170,7 +169,36 @@
             this.dgvPacote.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPacote.Size = new System.Drawing.Size(468, 108);
             this.dgvPacote.TabIndex = 12;
-            this.dgvPacote.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacote_CellDoubleClick);
+            // 
+            // codpacote
+            // 
+            this.codpacote.DataPropertyName = "codpacote";
+            this.codpacote.HeaderText = "Cód";
+            this.codpacote.Name = "codpacote";
+            this.codpacote.ReadOnly = true;
+            this.codpacote.Width = 80;
+            // 
+            // pac_pacote
+            // 
+            this.pac_pacote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pac_pacote.DataPropertyName = "pac_pacote";
+            this.pac_pacote.HeaderText = "Pacote";
+            this.pac_pacote.Name = "pac_pacote";
+            this.pac_pacote.ReadOnly = true;
+            // 
+            // pac_valor
+            // 
+            this.pac_valor.DataPropertyName = "pac_valor";
+            this.pac_valor.HeaderText = "Valor (R$)";
+            this.pac_valor.Name = "pac_valor";
+            this.pac_valor.ReadOnly = true;
+            // 
+            // pac_periodicidade
+            // 
+            this.pac_periodicidade.DataPropertyName = "pac_periodicidade";
+            this.pac_periodicidade.HeaderText = "Periodicidade";
+            this.pac_periodicidade.Name = "pac_periodicidade";
+            this.pac_periodicidade.ReadOnly = true;
             // 
             // Código
             // 
@@ -214,7 +242,6 @@
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -225,7 +252,7 @@
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click_1);
             // 
             // btnExcluir
             // 
@@ -236,7 +263,6 @@
             this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -247,7 +273,6 @@
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnGravar
             // 
@@ -258,7 +283,6 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -269,37 +293,6 @@
             this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // codpacote
-            // 
-            this.codpacote.DataPropertyName = "codpacote";
-            this.codpacote.HeaderText = "Cód";
-            this.codpacote.Name = "codpacote";
-            this.codpacote.ReadOnly = true;
-            this.codpacote.Width = 80;
-            // 
-            // pac_pacote
-            // 
-            this.pac_pacote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pac_pacote.DataPropertyName = "pac_pacote";
-            this.pac_pacote.HeaderText = "Pacote";
-            this.pac_pacote.Name = "pac_pacote";
-            this.pac_pacote.ReadOnly = true;
-            // 
-            // pac_valor
-            // 
-            this.pac_valor.DataPropertyName = "pac_valor";
-            this.pac_valor.HeaderText = "Valor (R$)";
-            this.pac_valor.Name = "pac_valor";
-            this.pac_valor.ReadOnly = true;
-            // 
-            // pac_periodicidade
-            // 
-            this.pac_periodicidade.DataPropertyName = "pac_periodicidade";
-            this.pac_periodicidade.HeaderText = "Periodicidade";
-            this.pac_periodicidade.Name = "pac_periodicidade";
-            this.pac_periodicidade.ReadOnly = true;
             // 
             // Cadastro_Pacotes
             // 
