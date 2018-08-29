@@ -46,6 +46,8 @@
             this.tipoDeDespesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançarDespesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +58,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lançarDespesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fecharCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -207,7 +209,9 @@
             // 
             this.compraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gerenciarCompraToolStripMenuItem,
-            this.lançarDespesasToolStripMenuItem});
+            this.lançarDespesasToolStripMenuItem,
+            this.abrirCaixaToolStripMenuItem,
+            this.fecharCaixaToolStripMenuItem});
             this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
             this.compraToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.compraToolStripMenuItem.Text = "COMPRA";
@@ -218,6 +222,20 @@
             this.gerenciarCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gerenciarCompraToolStripMenuItem.Text = "Gerenciar Compra";
             this.gerenciarCompraToolStripMenuItem.Click += new System.EventHandler(this.gerenciarCompraToolStripMenuItem_Click);
+            // 
+            // lançarDespesasToolStripMenuItem
+            // 
+            this.lançarDespesasToolStripMenuItem.Name = "lançarDespesasToolStripMenuItem";
+            this.lançarDespesasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lançarDespesasToolStripMenuItem.Text = "Lançar Despesas";
+            this.lançarDespesasToolStripMenuItem.Click += new System.EventHandler(this.lançarDespesasToolStripMenuItem_Click);
+            // 
+            // abrirCaixaToolStripMenuItem
+            // 
+            this.abrirCaixaToolStripMenuItem.Name = "abrirCaixaToolStripMenuItem";
+            this.abrirCaixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirCaixaToolStripMenuItem.Text = "Abrir Caixa";
+            this.abrirCaixaToolStripMenuItem.Click += new System.EventHandler(this.abrirCaixaToolStripMenuItem_Click);
             // 
             // rELATÓRIOSToolStripMenuItem
             // 
@@ -299,12 +317,12 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // lançarDespesasToolStripMenuItem
+            // fecharCaixaToolStripMenuItem
             // 
-            this.lançarDespesasToolStripMenuItem.Name = "lançarDespesasToolStripMenuItem";
-            this.lançarDespesasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.lançarDespesasToolStripMenuItem.Text = "Lançar Despesas";
-            this.lançarDespesasToolStripMenuItem.Click += new System.EventHandler(this.lançarDespesasToolStripMenuItem_Click);
+            this.fecharCaixaToolStripMenuItem.Name = "fecharCaixaToolStripMenuItem";
+            this.fecharCaixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fecharCaixaToolStripMenuItem.Text = "Fechar Caixa";
+            this.fecharCaixaToolStripMenuItem.Click += new System.EventHandler(this.fecharCaixaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -361,6 +379,8 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeServiçoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroServiçosDeParceirosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lançarDespesasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirCaixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fecharCaixaToolStripMenuItem;
     }
 }
 

@@ -29,7 +29,17 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mskRestante = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.mskTotalGasto = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.mskTotalRecebido = new System.Windows.Forms.MaskedTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.mskInicialCaixa = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnIncluir = new System.Windows.Forms.Button();
             this.mskValor = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbFormaPagamento = new System.Windows.Forms.ComboBox();
@@ -38,28 +48,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvFechaCaixa = new System.Windows.Forms.DataGridView();
+            this.forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ttbUsuário = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.ttbPeriodo = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.mskFechamentoLancado = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.mskFechamentoInformado = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.mskLiquido = new System.Windows.Forms.MaskedTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.mskDifereca = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnIncluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,21 +81,19 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.mskDifereca);
+            this.splitContainer1.Panel1.Controls.Add(this.mskRestante);
             this.splitContainer1.Panel1.Controls.Add(this.label10);
-            this.splitContainer1.Panel1.Controls.Add(this.mskLiquido);
+            this.splitContainer1.Panel1.Controls.Add(this.mskTotalGasto);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
-            this.splitContainer1.Panel1.Controls.Add(this.mskFechamentoInformado);
+            this.splitContainer1.Panel1.Controls.Add(this.mskTotalRecebido);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
-            this.splitContainer1.Panel1.Controls.Add(this.mskFechamentoLancado);
+            this.splitContainer1.Panel1.Controls.Add(this.mskInicialCaixa);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.ttbUsuário);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbPeriodo);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             // 
@@ -107,6 +105,80 @@
             this.splitContainer1.Size = new System.Drawing.Size(600, 500);
             this.splitContainer1.SplitterDistance = 435;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // mskRestante
+            // 
+            this.mskRestante.Location = new System.Drawing.Point(453, 386);
+            this.mskRestante.Name = "mskRestante";
+            this.mskRestante.Size = new System.Drawing.Size(123, 20);
+            this.mskRestante.TabIndex = 47;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(334, 389);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(120, 13);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "Restante no Caixa (R$):";
+            // 
+            // mskTotalGasto
+            // 
+            this.mskTotalGasto.Location = new System.Drawing.Point(453, 341);
+            this.mskTotalGasto.Name = "mskTotalGasto";
+            this.mskTotalGasto.Size = new System.Drawing.Size(123, 20);
+            this.mskTotalGasto.TabIndex = 45;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(369, 325);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 13);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Total Gasto (R$):";
+            // 
+            // mskTotalRecebido
+            // 
+            this.mskTotalRecebido.Location = new System.Drawing.Point(453, 278);
+            this.mskTotalRecebido.Name = "mskTotalRecebido";
+            this.mskTotalRecebido.Size = new System.Drawing.Size(123, 20);
+            this.mskTotalRecebido.TabIndex = 43;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(355, 262);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 13);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "Total Recebido (R$)";
+            // 
+            // mskInicialCaixa
+            // 
+            this.mskInicialCaixa.Location = new System.Drawing.Point(453, 218);
+            this.mskInicialCaixa.Name = "mskInicialCaixa";
+            this.mskInicialCaixa.Size = new System.Drawing.Size(123, 20);
+            this.mskInicialCaixa.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(355, 202);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 13);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Total Inicial Caixa (R$)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(391, 158);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(152, 17);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "TOTAIS LANÇADOS";
             // 
             // groupBox2
             // 
@@ -121,6 +193,17 @@
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Recebimentos:";
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluir.Location = new System.Drawing.Point(402, 35);
+            this.btnIncluir.Name = "btnIncluir";
+            this.btnIncluir.Size = new System.Drawing.Size(80, 29);
+            this.btnIncluir.TabIndex = 16;
+            this.btnIncluir.Text = "Incluir";
+            this.btnIncluir.UseVisualStyleBackColor = false;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // mskValor
             // 
@@ -192,12 +275,29 @@
             this.dgvFechaCaixa.AllowUserToDeleteRows = false;
             this.dgvFechaCaixa.BackgroundColor = System.Drawing.Color.White;
             this.dgvFechaCaixa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFechaCaixa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.forma,
+            this.valor});
             this.dgvFechaCaixa.GridColor = System.Drawing.Color.White;
             this.dgvFechaCaixa.Location = new System.Drawing.Point(7, 16);
             this.dgvFechaCaixa.Name = "dgvFechaCaixa";
             this.dgvFechaCaixa.ReadOnly = true;
             this.dgvFechaCaixa.Size = new System.Drawing.Size(285, 209);
             this.dgvFechaCaixa.TabIndex = 0;
+            // 
+            // forma
+            // 
+            this.forma.DataPropertyName = "forma";
+            this.forma.HeaderText = "Forma de Pagamento";
+            this.forma.Name = "forma";
+            this.forma.ReadOnly = true;
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -231,7 +331,7 @@
             // 
             // ttbUsuário
             // 
-            this.ttbUsuário.Location = new System.Drawing.Point(410, 39);
+            this.ttbUsuário.Location = new System.Drawing.Point(60, 43);
             this.ttbUsuário.MaxLength = 200;
             this.ttbUsuário.Name = "ttbUsuário";
             this.ttbUsuário.Size = new System.Drawing.Size(166, 20);
@@ -240,27 +340,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(358, 42);
+            this.label5.Location = new System.Drawing.Point(8, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 32;
             this.label5.Text = "Usuário:";
-            // 
-            // ttbPeriodo
-            // 
-            this.ttbPeriodo.Location = new System.Drawing.Point(200, 39);
-            this.ttbPeriodo.Name = "ttbPeriodo";
-            this.ttbPeriodo.Size = new System.Drawing.Size(138, 20);
-            this.ttbPeriodo.TabIndex = 31;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(146, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Período:";
             // 
             // Código
             // 
@@ -287,6 +371,7 @@
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -297,6 +382,7 @@
             this.btnSair.TabIndex = 14;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnGravar
             // 
@@ -307,90 +393,7 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(391, 158);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 17);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "TOTAIS LANÇADOS";
-            // 
-            // mskFechamentoLancado
-            // 
-            this.mskFechamentoLancado.Location = new System.Drawing.Point(453, 218);
-            this.mskFechamentoLancado.Name = "mskFechamentoLancado";
-            this.mskFechamentoLancado.Size = new System.Drawing.Size(123, 20);
-            this.mskFechamentoLancado.TabIndex = 41;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(355, 202);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 13);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "Total Fechamento Lançado (R$):";
-            // 
-            // mskFechamentoInformado
-            // 
-            this.mskFechamentoInformado.Location = new System.Drawing.Point(453, 278);
-            this.mskFechamentoInformado.Name = "mskFechamentoInformado";
-            this.mskFechamentoInformado.Size = new System.Drawing.Size(123, 20);
-            this.mskFechamentoInformado.TabIndex = 43;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(355, 262);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 13);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "Total Fechamento Informado (R$):";
-            // 
-            // mskLiquido
-            // 
-            this.mskLiquido.Location = new System.Drawing.Point(453, 341);
-            this.mskLiquido.Name = "mskLiquido";
-            this.mskLiquido.Size = new System.Drawing.Size(123, 20);
-            this.mskLiquido.TabIndex = 45;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(355, 325);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 13);
-            this.label9.TabIndex = 44;
-            this.label9.Text = "Total Liquido Caixa (R$):";
-            // 
-            // mskDifereca
-            // 
-            this.mskDifereca.Location = new System.Drawing.Point(453, 396);
-            this.mskDifereca.Name = "mskDifereca";
-            this.mskDifereca.Size = new System.Drawing.Size(123, 20);
-            this.mskDifereca.TabIndex = 47;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(355, 386);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 13);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "Diferença (R$):";
-            // 
-            // btnIncluir
-            // 
-            this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIncluir.Location = new System.Drawing.Point(402, 35);
-            this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(80, 29);
-            this.btnIncluir.TabIndex = 16;
-            this.btnIncluir.Text = "Incluir";
-            this.btnIncluir.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // FecharCaixa
             // 
@@ -434,23 +437,23 @@
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.TextBox ttbUsuário;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox ttbPeriodo;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvFechaCaixa;
         private System.Windows.Forms.TabPage tabPage2;
         public System.Windows.Forms.TextBox ttbObservacao;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox mskDifereca;
+        private System.Windows.Forms.MaskedTextBox mskRestante;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox mskLiquido;
+        private System.Windows.Forms.MaskedTextBox mskTotalGasto;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox mskFechamentoInformado;
+        private System.Windows.Forms.MaskedTextBox mskTotalRecebido;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox mskFechamentoLancado;
+        private System.Windows.Forms.MaskedTextBox mskInicialCaixa;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Button btnIncluir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn forma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
     }
 }

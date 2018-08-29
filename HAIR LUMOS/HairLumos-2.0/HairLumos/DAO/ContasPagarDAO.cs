@@ -1,6 +1,8 @@
 ﻿using HairLumos.Banco;
+using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,12 +43,32 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@obs", objContasPagar.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@status", objContasPagar.Status);
                 objConexao.SqlCmd.Parameters.AddWithValue("@numParcela", objContasPagar.Parcela);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", objContasPagar.FormaPagamento.Codigo);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", objContasPagar.Comissao.CodigoComissao);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codContaPagar", objContasPagar.CodigoContasaPagar);
+
+                if(objContasPagar.Compra!=null && objContasPagar.Compra.Codigo!=0)
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
+                else
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", 1);
+
+                if(objContasPagar.Despesa!=null && objContasPagar.Despesa.Codigo!=0)
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
+                else
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", 0);
+
+                if (objContasPagar.Caixa!=null && objContasPagar.Caixa.CodCaixa!=0)
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
+                else
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", 1);
+
+                if(objContasPagar.FormaPagamento!=null && objContasPagar.FormaPagamento.Codigo!=0)
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", objContasPagar.FormaPagamento.Codigo);
+                else
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", 1);
+
+                if(objContasPagar.Comissao!=null && objContasPagar.Comissao.CodigoComissao!=0)
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", objContasPagar.Comissao.CodigoComissao);
+                else
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", 1);
+                
 
 
 
@@ -79,6 +101,31 @@ namespace HairLumos.DAO
             }
 
             return intRetorno;
+        }
+
+        public DataTable retornaContasPeriodo(DateTime data)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT * FROM tbcontaspagar where contpag_datapagamento BETWEEN @datai AND @dataa; ";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@datai", data);
+                cmd.Parameters.AddWithValue("@dataa", DateTime.Now);
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return dt;
         }
     }
 

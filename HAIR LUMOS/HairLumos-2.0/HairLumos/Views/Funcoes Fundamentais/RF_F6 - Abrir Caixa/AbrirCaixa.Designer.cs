@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ttbPeriodo = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.mskTroco = new System.Windows.Forms.MaskedTextBox();
+            this.ttbUsuário = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpHora = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.Código = new System.Windows.Forms.Label();
@@ -38,11 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnAbrir = new System.Windows.Forms.Button();
-            this.dtpHora = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ttbUsuário = new System.Windows.Forms.TextBox();
-            this.mskTroco = new System.Windows.Forms.MaskedTextBox();
+            this.mskAddValor = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,19 +58,18 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.mskAddValor);
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.mskTroco);
             this.splitContainer1.Panel1.Controls.Add(this.ttbUsuário);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.dtpHora);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbPeriodo);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.dtpData);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -80,21 +79,46 @@
             this.splitContainer1.SplitterDistance = 220;
             this.splitContainer1.TabIndex = 3;
             // 
-            // ttbPeriodo
+            // mskTroco
             // 
-            this.ttbPeriodo.Location = new System.Drawing.Point(77, 78);
-            this.ttbPeriodo.Name = "ttbPeriodo";
-            this.ttbPeriodo.Size = new System.Drawing.Size(138, 20);
-            this.ttbPeriodo.TabIndex = 24;
+            this.mskTroco.Location = new System.Drawing.Point(82, 178);
+            this.mskTroco.Name = "mskTroco";
+            this.mskTroco.Size = new System.Drawing.Size(138, 20);
+            this.mskTroco.TabIndex = 30;
             // 
-            // label4
+            // ttbUsuário
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Período:";
+            this.ttbUsuário.Location = new System.Drawing.Point(76, 69);
+            this.ttbUsuário.MaxLength = 200;
+            this.ttbUsuário.Name = "ttbUsuário";
+            this.ttbUsuário.Size = new System.Drawing.Size(166, 20);
+            this.ttbUsuário.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Usuário:";
+            // 
+            // dtpHora
+            // 
+            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHora.Location = new System.Drawing.Point(323, 135);
+            this.dtpHora.Name = "dtpHora";
+            this.dtpHora.Size = new System.Drawing.Size(166, 20);
+            this.dtpHora.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(244, 141);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "horá Inicial:";
             // 
             // dtpData
             // 
@@ -132,7 +156,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 186);
+            this.label2.Location = new System.Drawing.Point(6, 181);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 10;
@@ -147,6 +171,7 @@
             this.btnSair.TabIndex = 15;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAbrir
             // 
@@ -157,47 +182,24 @@
             this.btnAbrir.TabIndex = 7;
             this.btnAbrir.Text = "Abrir";
             this.btnAbrir.UseVisualStyleBackColor = false;
+            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
-            // dtpHora
+            // mskAddValor
             // 
-            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHora.Location = new System.Drawing.Point(323, 135);
-            this.dtpHora.Name = "dtpHora";
-            this.dtpHora.Size = new System.Drawing.Size(166, 20);
-            this.dtpHora.TabIndex = 26;
+            this.mskAddValor.Location = new System.Drawing.Point(323, 178);
+            this.mskAddValor.Name = "mskAddValor";
+            this.mskAddValor.Size = new System.Drawing.Size(166, 20);
+            this.mskAddValor.TabIndex = 32;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "horá Inicial:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(250, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Usuário:";
-            // 
-            // ttbUsuário
-            // 
-            this.ttbUsuário.Location = new System.Drawing.Point(323, 75);
-            this.ttbUsuário.MaxLength = 200;
-            this.ttbUsuário.Name = "ttbUsuário";
-            this.ttbUsuário.Size = new System.Drawing.Size(166, 20);
-            this.ttbUsuário.TabIndex = 29;
-            // 
-            // mskTroco
-            // 
-            this.mskTroco.Location = new System.Drawing.Point(77, 178);
-            this.mskTroco.Name = "mskTroco";
-            this.mskTroco.Size = new System.Drawing.Size(138, 20);
-            this.mskTroco.TabIndex = 30;
+            this.label4.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(236, 181);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Adicionar Valor:";
             // 
             // AbrirCaixa
             // 
@@ -225,8 +227,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpHora;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox ttbPeriodo;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label Código;
@@ -234,5 +234,7 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnAbrir;
+        private System.Windows.Forms.MaskedTextBox mskAddValor;
+        public System.Windows.Forms.Label label4;
     }
 }
