@@ -25,7 +25,7 @@ namespace HairLumos.Banco
             //Contrutor privado da classe
             public Conexao()
             {
-                string _strConexao = "Server = 127.0.0.1; Port = 5433; User Id = postgres; Password = postgres123; Database = banco_HL_novo; ";
+                string _strConexao = "Server = 127.0.0.1; Port = 5432; User Id = postgres; Password = postgres123; Database = banco_HL_corrigido_08_08; ";
                 _conn = new NpgsqlConnection(_strConexao);
                 _conn.Open();
                 _sqlCmd = new NpgsqlCommand();

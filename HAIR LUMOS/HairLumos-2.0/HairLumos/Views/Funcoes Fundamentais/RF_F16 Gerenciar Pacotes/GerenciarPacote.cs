@@ -12,6 +12,8 @@ namespace HairLumos.Views
 {
     public partial class Cadastro_Pacotes : Form
     {
+        List<Entidades.Servico> lista = new List<Entidades.Servico>();
+
         int intCodPacote = 0;
 
         public Cadastro_Pacotes()
@@ -19,7 +21,9 @@ namespace HairLumos.Views
             InitializeComponent();
             _inicializa();
             _limpaCampos();
-            dgvPacote.AutoGenerateColumns = false;
+            
+            carregaCbbServico();
+            
             //pesquisaPacote();
         }
 
@@ -27,7 +31,7 @@ namespace HairLumos.Views
         {
             // ttb
             ttbCodigo.Enabled = false;
-            ttbPacote.Enabled = false;
+            cbbServico.Enabled = false;
             mskValor.Enabled = false;
             ttbPeriodo.Enabled = false;
             ttbObs.Enabled = false;
@@ -41,15 +45,16 @@ namespace HairLumos.Views
             btnCancelar.Enabled = false;
             btnSair.Enabled = true;
 
-            pesquisaPacote();
+            //pesquisaPacote();
             _limpaCampos();
+            dgvPacote.AutoGenerateColumns = false;
 
         }
 
         public void _limpaCampos()
         {
             ttbCodigo.Text = "";
-            ttbPacote.Text = "";
+            // CBB
             ttbPeriodo.Text = "";
             ttbObs.Text = "";
             mskValor.Text = "";
@@ -60,7 +65,7 @@ namespace HairLumos.Views
         {
             ttbCodigo.Text = "0";
             ttbCodigo.Enabled = false;
-            ttbPacote.Enabled = true;
+            cbbServico.Enabled = true;
             mskValor.Enabled = true;
             ttbPeriodo.Enabled = true;
             ttbObs.Enabled = true;
@@ -73,13 +78,13 @@ namespace HairLumos.Views
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
-            ttbPacote.Focus();
+            cbbServico.Focus();
         }
 
         public void _btnAlterar()
         {
             ttbCodigo.Enabled = false;
-            ttbPacote.Enabled = true;
+            cbbServico.Enabled = true;
             ttbPeriodo.Enabled = true;
             mskValor.Enabled = true;
             ttbObs.Enabled = true;
@@ -93,84 +98,48 @@ namespace HairLumos.Views
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
 
-            ttbPacote.Focus();
+            cbbServico.Focus();
 
         }
 
-        public void carregaPacote(string strCod, string strPacote, string strvalor, string strobs, string strPeriodo)
+        public void carregaPacote(string strCod, string strServico, string strvalor) //, string strobs, DateTime dtIni, DateTime dtFim)
         {
             ttbCodigo.Text = strCod;
-            ttbPacote.Text = strPacote;
-            ttbPeriodo.Text = strPeriodo;
+            cbbServico.Text = strServico;
+            cbbServico.Text = strServico;
             mskValor.Text = strvalor;
-            ttbObs.Text = strobs;
+            //ttbObs.Text = strobs;
+            //dtpDataInicio.Value = dtIni;
+            //dtpDataFim.Value = dtFim;
         }
 
-        public void carregaGrid()
+        public void carregaCbbServico()
         {
-            Controller.PacoteController _CtrlPac = new Controller.PacoteController();
-            DataTable dtRetorno = _CtrlPac.retornaPacote();
+            Controller.ServicoController servicoController = new Controller.ServicoController();
 
-            if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+            DataTable dtServicos = servicoController.retornaServico();
+            if (dtServicos != null && dtServicos.Rows.Count > 0)
             {
-                DataRow dr = dtRetorno.Rows[intCodPacote];
-                this.carregaPacote(
-                    dr["codpacote"].ToString(),
-                    dr["pac_pacote"].ToString(),
-                    dr["pac_valor"].ToString(),
-                    dr["pac_obspacote"].ToString(),
-                    dr["pac_periodicidade"].ToString());
-
+                this.cbbServico.ValueMember = "codtiposervico";
+                this.cbbServico.DisplayMember = "tiposerv_descricao";
+                this.cbbServico.DataSource = dtServicos;
             }
+
         }
 
-
-        public void pesquisaPacote()
+        private void btnSair_Click(object sender, EventArgs e)
         {
-            Controller.PacoteController _ctrPac = new Controller.PacoteController();
-
-            DataTable dtRetorno = _ctrPac.retornaPacote();
-
-            if (dtRetorno != null)
-            {
-                dgvPacote.DataSource = dtRetorno;
-                dgvPacote.Columns["pac_obspacote"].Visible = false;
-                dgvPacote.ClearSelection();
-
-            }
-            else
-                dgvPacote.Rows.Clear();
-
+            Close();
         }
 
-        public void selecionaPacote()
+        private void btnSelecionar_Click(object sender, EventArgs e)
         {
-
-            if (dgvPacote.Rows.Count > 0)
-            {
-                int intCod = 0;
-
-                intCod = dgvPacote.CurrentRow.Index + 1;
-                if (intCod > 0)
-                {
-                    this.intCodPacote = intCod;
-                    ttbCodigo.Text = dgvPacote.CurrentRow.Cells[0].Value.ToString();
-                    ttbPacote.Text = dgvPacote.CurrentRow.Cells[1].Value.ToString();
-                    mskValor.Text = dgvPacote.CurrentRow.Cells[2].Value.ToString();
-                    ttbObs.Text = dgvPacote.CurrentRow.Cells[3].Value.ToString();
-                    ttbPeriodo.Text = dgvPacote.CurrentRow.Cells[4].Value.ToString();
-
-
-                }
-            }
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            //selecionaServico();
         }
-
-        private void Cadastro_Pacotes_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnGravar_Click(object sender, EventArgs e)
+        
+        private void btnGravar_Click_1(object sender, EventArgs e)
         {
             Controller.PacoteController _ctrlPac = new Controller.PacoteController();
 
@@ -187,8 +156,8 @@ namespace HairLumos.Views
                 }
 
 
-                if (string.IsNullOrWhiteSpace(ttbPacote.Text))
-                    strMensagem += $"Informe o nome do pacote!.";
+                if (string.IsNullOrWhiteSpace(cbbServico.Text))
+                    strMensagem += $"Informe o Serviço!.";
 
                 if (string.IsNullOrWhiteSpace(mskValor.Text))
                     strMensagem += $"Informe o valor do pacote.";
@@ -202,7 +171,7 @@ namespace HairLumos.Views
                     double valorPacote = 0;
                     double.TryParse(mskValor.Text, out valorPacote);
 
-                    int intRetorno = _ctrlPac.gravarPacote(intCodigo, ttbPacote.Text, valorPacote, ttbObs.Text, ttbPeriodo.Text);
+                    int intRetorno = _ctrlPac.gravarPacote(intCodigo, cbbServico.ValueMember, valorPacote, ttbObs.Text, ttbPeriodo.Text);
 
                     if (intRetorno == 1)
                     {
@@ -223,14 +192,21 @@ namespace HairLumos.Views
             {
                 MessageBox.Show(Ex + "");
             }
+
         }
 
-        private void btnAlterar_Click(object sender, EventArgs e)
+        private void btnAlterar_Click_1(object sender, EventArgs e)
         {
             _btnAlterar();
+
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnNovo_Click_1(object sender, EventArgs e)
+        {
+            _btnNovo();
+        }
+
+        private void btnExcluir_Click_1(object sender, EventArgs e)
         {
             Controller.PacoteController _ctlPac = new Controller.PacoteController();
 
@@ -247,7 +223,7 @@ namespace HairLumos.Views
                     {
                         MessageBox.Show("Pacote Excluído.");
                         _limpaCampos();
-                        pesquisaPacote();
+                        //pesquisaPacote();
                         _inicializa();
                     }
                     else
@@ -260,39 +236,72 @@ namespace HairLumos.Views
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             _limpaCampos();
-            pesquisaPacote();
+            //pesquisaPacote();
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
-            Close();
+
         }
 
-        private void btnSelecionar_Click(object sender, EventArgs e)
-        {
-            btnAlterar.Enabled = true;
-            btnExcluir.Enabled = true;
-            selecionaPacote();
-        }
-
-        private void dgvPacote_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPacote_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
-            selecionaPacote();
+            //selecionaServico();
         }
 
-        private void btnNovo_Click(object sender, EventArgs e)
+        private void btnExcuirServico_Click(object sender, EventArgs e)
         {
-            _btnNovo();
+            if(dgvPacote.Rows.Count > 0)
+            {
+                lista.Remove(lista.ElementAt(dgvPacote.CurrentRow.Index));
+                carregaDGV(lista);
+            }
         }
 
         private void btnSair_Click_1(object sender, EventArgs e)
         {
             Close();
+        }
+        
+
+        private void btnIncluirServico_Click(object sender, EventArgs e)
+        {
+            Controller.ServicoController servicoController = new Controller.ServicoController();
+            Entidades.Servico servico = new Entidades.Servico();
+            int intCod = Convert.ToInt32(cbbServico.SelectedValue.ToString());
+            DataTable dtServico = servicoController.retornaObjServico(intCod);
+            DataRow drServico = dtServico.Rows[0];
+            servico.Codigo = Convert.ToInt32(drServico["codtiposervico"].ToString());
+            servico.ServicoNome = drServico["tiposerv_descricao"].ToString();
+            servico.Observacao= drServico["tiposerv_obs"].ToString();
+            servico.Valor= Convert.ToDouble(drServico["tiposerv_velor"].ToString());
+            servico.Tempo = drServico["tiposerv_temposervico"].ToString();
+            lista.Add(servico);
+            carregaDGV(lista);
+
+        }
+
+        private void carregaDGV(List<Entidades.Servico> lista)
+        {
+            BindingSource bd = new BindingSource();
+            bd.DataSource = lista;
+            dgvPacote.DataSource = bd;
+            dgvPacote.Refresh();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mskValor_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

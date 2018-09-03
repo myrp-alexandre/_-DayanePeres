@@ -14,14 +14,84 @@ namespace HairLumos.Views
 {
     public partial class Cadastro_Pessoa : Form
     {
-
-        private void InicializaTela()
+        public Cadastro_Pessoa()
         {
+            InitializeComponent();
 
+           // _inicializa();
+        }
+
+        private void _inicializa()
+        {
+            LimpaCampos();
+
+            btnNovo.Enabled = true;
+            btnPesquisar.Enabled = true;
+            btnAlterar.Enabled = false;
+            btnGravar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnSair.Enabled = true;
+
+            ttbCodigo.Enabled = true;
+            rbAtivo.Enabled = false;
+            rbInativo.Enabled = false;
+            rbFisica.Enabled = false;
+            rbJuridica.Enabled = false;
+            ttbNome.Enabled = false;
+            ttbRazao.Enabled = false;
+            ttbRg.Enabled = false;
+            mskCNPJ.Enabled = false;
+            mskCPF.Enabled = false;
+            dtpDataNascimento.Enabled = false;
+            ttbEmail.Enabled = false;
+            rbPagaNao.Enabled = false;
+            rbPagaSim.Enabled = false;
+
+            tabcInformaçõesPessoa.Enabled = false;
+        }
+
+        private void LimpaEndereco()
+        {
+            ttbLogradouro.Text = "";
+            ttbNumero.Text = "";
+            ttbBairro.Text = "";
+            ttbComplemento.Text = "";
+            mtbCEP.Text = "";
+            cbbEstado.SelectedIndex = -1;
+            cbbCidade.SelectedIndex = -1;
+        }
+
+        private void LimpaContato()
+        {
+            rbTelefone.Enabled = true;
+            rbCelular.Enabled = false;
+            rbComercial.Enabled = false;
+            mskTelefone.Text = "";
         }
 
         private void LimpaCampos()
         {
+            ttbCodigo.Text = "";
+            rbAtivo.Checked = true;
+            rbInativo.Checked = false;
+            rbFisica.Checked = true;
+            rbJuridica.Checked = false;
+            ttbNome.Text = "";
+            ttbRazao.Text = "";
+            ttbRg.Text = "";
+            mskCNPJ.Text = "";
+            mskCPF.Text = "";
+            dtpDataNascimento.Value = System.DateTime.Now;
+            ttbEmail.Text = "";
+            rbPagaNao.Checked = true;
+            rbPagaSim.Checked = false;
+            dgvEndereco.Rows.Clear();
+            LimpaEndereco();
+            dgvContato.Rows.Clear();
+            LimpaContato();
+            ttbObservação.Text = "";
+
         }
 
         private void ttbCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -161,12 +231,69 @@ namespace HairLumos.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            _inicializa();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rbAtivo_Click(object sender, EventArgs e)
+        {
+            rbAtivo.Checked = true;
+            rbInativo.Checked = false;
+        }
+
+        private void rbInativo_Click(object sender, EventArgs e)
+        {
+            rbInativo.Checked = true;
+            rbAtivo.Checked = false;
+        }
+
+        private void rbFisica_Click(object sender, EventArgs e)
+        {
+            rbFisica.Checked = true;
+            rbJuridica.Checked = false;
+        }
+
+        private void rbJuridica_Click(object sender, EventArgs e)
+        {
+            rbFisica.Checked = false;
+            rbJuridica.Checked = true;
+        }
+
+        private void rbPagaNao_Click(object sender, EventArgs e)
+        {
+            rbPagaNao.Checked = true;
+            rbPagaSim.Checked = false;
+        }
+
+        private void rbPagaSim_Click(object sender, EventArgs e)
+        {
+            rbPagaNao.Checked = false;
+            rbPagaSim.Checked = true;
+        }
+
+        private void rbTelefone_Click(object sender, EventArgs e)
+        {
+            rbTelefone.Checked = true;
+            rbCelular.Checked = false;
+            rbComercial.Checked = false;
+        }
+
+        private void rbCelular_Click(object sender, EventArgs e)
+        {
+            rbTelefone.Checked = false;
+            rbCelular.Checked = true;
+            rbComercial.Checked = false;
+        }
+
+        private void rbComercial_Click(object sender, EventArgs e)
+        {
+            rbTelefone.Checked = false;
+            rbCelular.Checked = false;
+            rbComercial.Checked = true;
         }
 
 

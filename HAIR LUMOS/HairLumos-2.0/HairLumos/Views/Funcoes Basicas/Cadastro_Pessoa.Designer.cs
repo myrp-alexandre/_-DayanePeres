@@ -49,6 +49,8 @@
             this.tabcInformaçõesPessoa = new System.Windows.Forms.TabControl();
             this.Endereço = new System.Windows.Forms.TabPage();
             this.pnlEndereco = new System.Windows.Forms.Panel();
+            this.btnExcluirEnd = new System.Windows.Forms.Button();
+            this.btnAlterarEnd = new System.Windows.Forms.Button();
             this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
             this.btnSalvarEndereco = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -70,6 +72,7 @@
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contato = new System.Windows.Forms.TabPage();
+            this.btnRemoverContato = new System.Windows.Forms.Button();
             this.dgvContato = new System.Windows.Forms.DataGridView();
             this._telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,9 +103,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnAlterarEnd = new System.Windows.Forms.Button();
-            this.btnExcluirEnd = new System.Windows.Forms.Button();
-            this.btnRemoverContato = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -207,6 +207,7 @@
             this.rbPagaNao.TabStop = true;
             this.rbPagaNao.Text = "Não";
             this.rbPagaNao.UseVisualStyleBackColor = true;
+            this.rbPagaNao.Click += new System.EventHandler(this.rbPagaNao_Click);
             // 
             // rbPagaSim
             // 
@@ -218,6 +219,7 @@
             this.rbPagaSim.TabIndex = 1;
             this.rbPagaSim.Text = "Sim";
             this.rbPagaSim.UseVisualStyleBackColor = true;
+            this.rbPagaSim.Click += new System.EventHandler(this.rbPagaSim_Click);
             // 
             // grpPessoa
             // 
@@ -243,6 +245,7 @@
             this.rbFisica.TabStop = true;
             this.rbFisica.Text = "Física";
             this.rbFisica.UseVisualStyleBackColor = true;
+            this.rbFisica.Click += new System.EventHandler(this.rbFisica_Click);
             // 
             // rbJuridica
             // 
@@ -254,6 +257,7 @@
             this.rbJuridica.TabIndex = 1;
             this.rbJuridica.Text = "Jurídica";
             this.rbJuridica.UseVisualStyleBackColor = true;
+            this.rbJuridica.Click += new System.EventHandler(this.rbJuridica_Click);
             // 
             // mskCNPJ
             // 
@@ -315,19 +319,18 @@
             // rbInativo
             // 
             this.rbInativo.AutoSize = true;
-            this.rbInativo.Enabled = false;
             this.rbInativo.Location = new System.Drawing.Point(790, 22);
             this.rbInativo.Name = "rbInativo";
             this.rbInativo.Size = new System.Drawing.Size(57, 17);
             this.rbInativo.TabIndex = 4;
             this.rbInativo.Text = "Inativo";
             this.rbInativo.UseVisualStyleBackColor = true;
+            this.rbInativo.Click += new System.EventHandler(this.rbInativo_Click);
             // 
             // rbAtivo
             // 
             this.rbAtivo.AutoSize = true;
             this.rbAtivo.Checked = true;
-            this.rbAtivo.Enabled = false;
             this.rbAtivo.Location = new System.Drawing.Point(735, 22);
             this.rbAtivo.Name = "rbAtivo";
             this.rbAtivo.Size = new System.Drawing.Size(49, 17);
@@ -335,6 +338,7 @@
             this.rbAtivo.TabStop = true;
             this.rbAtivo.Text = "Ativo";
             this.rbAtivo.UseVisualStyleBackColor = true;
+            this.rbAtivo.Click += new System.EventHandler(this.rbAtivo_Click);
             // 
             // label6
             // 
@@ -350,7 +354,6 @@
             this.tabcInformaçõesPessoa.Controls.Add(this.Endereço);
             this.tabcInformaçõesPessoa.Controls.Add(this.Contato);
             this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
-            this.tabcInformaçõesPessoa.Enabled = false;
             this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(12, 209);
             this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
             this.tabcInformaçõesPessoa.SelectedIndex = 0;
@@ -392,7 +395,30 @@
             this.pnlEndereco.Name = "pnlEndereco";
             this.pnlEndereco.Size = new System.Drawing.Size(818, 107);
             this.pnlEndereco.TabIndex = 1;
-            this.pnlEndereco.Visible = false;
+            // 
+            // btnExcluirEnd
+            // 
+            this.btnExcluirEnd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluirEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluirEnd.Location = new System.Drawing.Point(762, 40);
+            this.btnExcluirEnd.Name = "btnExcluirEnd";
+            this.btnExcluirEnd.Size = new System.Drawing.Size(53, 28);
+            this.btnExcluirEnd.TabIndex = 16;
+            this.btnExcluirEnd.Text = "Excluir";
+            this.btnExcluirEnd.UseVisualStyleBackColor = false;
+            this.btnExcluirEnd.Click += new System.EventHandler(this.btnExcluirEnd_Click);
+            // 
+            // btnAlterarEnd
+            // 
+            this.btnAlterarEnd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterarEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterarEnd.Location = new System.Drawing.Point(762, 9);
+            this.btnAlterarEnd.Name = "btnAlterarEnd";
+            this.btnAlterarEnd.Size = new System.Drawing.Size(53, 28);
+            this.btnAlterarEnd.TabIndex = 15;
+            this.btnAlterarEnd.Text = "Alterar";
+            this.btnAlterarEnd.UseVisualStyleBackColor = false;
+            this.btnAlterarEnd.Click += new System.EventHandler(this.btnAlterarEnd_Click);
             // 
             // mtbCEP
             // 
@@ -594,6 +620,18 @@
             this.Contato.Text = "Contato";
             this.Contato.UseVisualStyleBackColor = true;
             // 
+            // btnRemoverContato
+            // 
+            this.btnRemoverContato.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRemoverContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverContato.Location = new System.Drawing.Point(6, 44);
+            this.btnRemoverContato.Name = "btnRemoverContato";
+            this.btnRemoverContato.Size = new System.Drawing.Size(29, 32);
+            this.btnRemoverContato.TabIndex = 14;
+            this.btnRemoverContato.Text = "-";
+            this.btnRemoverContato.UseVisualStyleBackColor = false;
+            this.btnRemoverContato.Click += new System.EventHandler(this.btnRemoverContato_Click);
+            // 
             // dgvContato
             // 
             this.dgvContato.AllowUserToAddRows = false;
@@ -650,6 +688,7 @@
             this.rbComercial.TabStop = true;
             this.rbComercial.Text = "Comercial";
             this.rbComercial.UseVisualStyleBackColor = true;
+            this.rbComercial.Click += new System.EventHandler(this.rbComercial_Click);
             // 
             // rbCelular
             // 
@@ -662,6 +701,7 @@
             this.rbCelular.Tag = "";
             this.rbCelular.Text = "Celular";
             this.rbCelular.UseVisualStyleBackColor = true;
+            this.rbCelular.Click += new System.EventHandler(this.rbCelular_Click);
             // 
             // label1
             // 
@@ -682,6 +722,7 @@
             this.rbTelefone.TabStop = true;
             this.rbTelefone.Text = "Telefone";
             this.rbTelefone.UseVisualStyleBackColor = true;
+            this.rbTelefone.Click += new System.EventHandler(this.rbTelefone_Click);
             // 
             // btnSalvarContato
             // 
@@ -832,7 +873,7 @@
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(339, 12);
+            this.btnPesquisar.Location = new System.Drawing.Point(21, 12);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 38);
             this.btnPesquisar.TabIndex = 3;
@@ -865,7 +906,7 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(445, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(339, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 4;
@@ -887,7 +928,7 @@
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(127, 12);
+            this.btnGravar.Location = new System.Drawing.Point(445, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(100, 38);
             this.btnGravar.TabIndex = 1;
@@ -898,49 +939,13 @@
             // btnNovo
             // 
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.Location = new System.Drawing.Point(21, 12);
+            this.btnNovo.Location = new System.Drawing.Point(127, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(100, 38);
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // btnAlterarEnd
-            // 
-            this.btnAlterarEnd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterarEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterarEnd.Location = new System.Drawing.Point(762, 9);
-            this.btnAlterarEnd.Name = "btnAlterarEnd";
-            this.btnAlterarEnd.Size = new System.Drawing.Size(53, 28);
-            this.btnAlterarEnd.TabIndex = 15;
-            this.btnAlterarEnd.Text = "Alterar";
-            this.btnAlterarEnd.UseVisualStyleBackColor = false;
-            this.btnAlterarEnd.Click += new System.EventHandler(this.btnAlterarEnd_Click);
-            // 
-            // btnExcluirEnd
-            // 
-            this.btnExcluirEnd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluirEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirEnd.Location = new System.Drawing.Point(762, 40);
-            this.btnExcluirEnd.Name = "btnExcluirEnd";
-            this.btnExcluirEnd.Size = new System.Drawing.Size(53, 28);
-            this.btnExcluirEnd.TabIndex = 16;
-            this.btnExcluirEnd.Text = "Excluir";
-            this.btnExcluirEnd.UseVisualStyleBackColor = false;
-            this.btnExcluirEnd.Click += new System.EventHandler(this.btnExcluirEnd_Click);
-            // 
-            // btnRemoverContato
-            // 
-            this.btnRemoverContato.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRemoverContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoverContato.Location = new System.Drawing.Point(6, 44);
-            this.btnRemoverContato.Name = "btnRemoverContato";
-            this.btnRemoverContato.Size = new System.Drawing.Size(29, 32);
-            this.btnRemoverContato.TabIndex = 14;
-            this.btnRemoverContato.Text = "-";
-            this.btnRemoverContato.UseVisualStyleBackColor = false;
-            this.btnRemoverContato.Click += new System.EventHandler(this.btnRemoverContato_Click);
             // 
             // Cadastro_Pessoa
             // 

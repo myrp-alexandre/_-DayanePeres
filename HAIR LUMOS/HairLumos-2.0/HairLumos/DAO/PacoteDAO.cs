@@ -30,14 +30,14 @@ namespace HairLumos.DAO
                 if (_pacote.Codigo == 0)
                 {
                     _sql = "INSERT INTO tbpacote" +
-                        "(pac_pacote, pac_valor, pac_obspacote, pac_periodicidade)" +
-                        " VALUES(@pacote, @valor, @obs, @periodo)";
+                        "(pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim)" +
+                        " VALUES(@pacote, @valor, @obs, @periodo, @dtIni, @dtFim)";
 
                 }
                 else
                 {
                     _sql = "UPDATE tbpacote" +
-                            " SET pac_pacote = @pacote, pac_valor = @valor, pac_obspacote = @obs, pac_periodicidade = @periodo" +
+                            " SET pac_pacote = @pacote, pac_valor = @valor, pac_obs = @obs, pac_periodicidade = @periodo, pac_datainicio = @dtIni, pac_datafim = @dtFim" +
                         " WHERE codpacote = @codigo";
                 }
 
@@ -47,6 +47,8 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@valor", _pacote.Valor);
                 cmd.Parameters.AddWithValue("@obs", _pacote.Observacao);
                 cmd.Parameters.AddWithValue("@periodo", _pacote.Periodo);
+                cmd.Parameters.AddWithValue("@dtIni", _pacote.Periodo);
+                cmd.Parameters.AddWithValue("@dtFim", _pacote.Periodo);
 
                 cmd.ExecuteNonQuery();
 
@@ -65,7 +67,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obspacote, pac_periodicidade" +
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim" +
                         " FROM tbpacote; ";
 
             // int intCodigo = 0;
@@ -85,6 +87,8 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@pac_valor");
                 cmd.Parameters.AddWithValue("@pac_obspacote");
                 cmd.Parameters.AddWithValue("@pac_periodicidade");
+                cmd.Parameters.AddWithValue("@pac_datainicio");
+                cmd.Parameters.AddWithValue("@pac_datafim"); 
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -103,7 +107,7 @@ namespace HairLumos.DAO
 
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obspacote, pac_periodicidade" +
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim" +
                     "FROM tbpacote " +
                     "WHERE codpacote = " + cod;
 
@@ -117,6 +121,8 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@pac_valor");
                 cmd.Parameters.AddWithValue("@pac_obspacote");
                 cmd.Parameters.AddWithValue("@pac_periodicidade");
+                cmd.Parameters.AddWithValue("@pac_datainicio");
+                cmd.Parameters.AddWithValue("@pac_datafim");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -152,7 +158,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obspacote, pac_periodicidade" +
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade,  pac_datainicio, pac_datafim" +
                     "FROM tbpacote " +
                     "WHERE pac_pacote LIKE %" + texto + "%";
 

@@ -197,5 +197,11 @@ namespace HairLumos
                 MessageBox.Show("Não possui um caixa aberto!");
             }
         }
+
+        private void gerenciarPacotesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Cadastro_Pacotes cadastro_Pacotes = new Cadastro_Pacotes();
+            cadastro_Pacotes.Show();
+        }
     }
 }

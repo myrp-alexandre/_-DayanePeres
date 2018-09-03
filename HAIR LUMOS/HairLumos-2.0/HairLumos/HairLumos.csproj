@@ -134,11 +134,11 @@
     <Compile Include="Views\Funcoes Basicas\Cadastro_MarcaProduto.Designer.cs">
       <DependentUpon>Cadastro_MarcaProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcoes Basicas\Cadastro_Pacotes.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\GerenciarPacote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Basicas\Cadastro_Pacotes.Designer.cs">
-      <DependentUpon>Cadastro_Pacotes.cs</DependentUpon>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\GerenciarPacote.Designer.cs">
+      <DependentUpon>GerenciarPacote.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Funcoes Basicas\Cadastro_Pessoa.cs">
       <SubType>Form</SubType>
@@ -206,12 +206,6 @@
     </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F14 Contratar Pacotes\ContratarPacotes.Designer.cs">
       <DependentUpon>ContratarPacotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Gerenciar Pacotes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Gerenciar Pacotes.Designer.cs">
-      <DependentUpon>Gerenciar Pacotes.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Pesquisa_GerenciarPacotes.cs">
       <SubType>Form</SubType>
@@ -290,8 +284,8 @@
     <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_MarcaProduto.resx">
       <DependentUpon>Cadastro_MarcaProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_Pacotes.resx">
-      <DependentUpon>Cadastro_Pacotes.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\GerenciarPacote.resx">
+      <DependentUpon>GerenciarPacote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_Pessoa.resx">
       <DependentUpon>Cadastro_Pessoa.cs</DependentUpon>
@@ -325,9 +319,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F14 Contratar Pacotes\ContratarPacotes.resx">
       <DependentUpon>ContratarPacotes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Gerenciar Pacotes.resx">
-      <DependentUpon>Gerenciar Pacotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Pesquisa_GerenciarPacotes.resx">
       <DependentUpon>Pesquisa_GerenciarPacotes.cs</DependentUpon>
