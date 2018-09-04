@@ -11,9 +11,9 @@ namespace HairLumos.Controller
     {
         private Models.PacoteModels _MdlPac = new Models.PacoteModels();
 
-        public int gravarPacote(int cod, string pacote, double valor, string obs, string periodo)
+        public int gravarPacote(int cod, string pacote, List<Entidades.PacoteServico> servicos, double valor, string obs, string periodo, DateTime dtIni, DateTime dtFim)
         {
-            return _MdlPac.gravaPacote(cod, pacote, valor, obs, periodo);
+            return _MdlPac.gravaPacote(cod, pacote, servicos, valor, obs, periodo,dtIni,dtFim);
         }
 
         public DataTable retornaPacote()

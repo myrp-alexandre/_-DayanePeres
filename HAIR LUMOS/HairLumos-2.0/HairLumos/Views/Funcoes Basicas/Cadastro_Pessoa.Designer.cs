@@ -100,8 +100,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -154,13 +154,13 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
+            this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
+            this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
             this.splitContainer1.Panel2.Controls.Add(this.btnPesquisar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
-            this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
-            this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
             this.splitContainer1.Size = new System.Drawing.Size(890, 495);
             this.splitContainer1.SplitterDistance = 423;
             this.splitContainer1.TabIndex = 0;
@@ -873,7 +873,7 @@
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(21, 12);
+            this.btnPesquisar.Location = new System.Drawing.Point(233, 12);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 38);
             this.btnPesquisar.TabIndex = 3;
@@ -914,17 +914,6 @@
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(233, 12);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(100, 38);
-            this.btnAlterar.TabIndex = 2;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -936,16 +925,25 @@
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterar.Location = new System.Drawing.Point(129, 12);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(100, 38);
+            this.btnAlterar.TabIndex = 8;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            // 
             // btnNovo
             // 
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.Location = new System.Drawing.Point(127, 12);
+            this.btnNovo.Location = new System.Drawing.Point(23, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(100, 38);
-            this.btnNovo.TabIndex = 0;
+            this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // Cadastro_Pessoa
             // 
@@ -990,9 +988,7 @@
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
-        public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnGravar;
-        public System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.MaskedTextBox mskCNPJ;
         private System.Windows.Forms.MaskedTextBox mskCPF;
         private System.Windows.Forms.Label label9;
@@ -1059,5 +1055,7 @@
         public System.Windows.Forms.Button btnAlterarEnd;
         public System.Windows.Forms.Button btnExcluirEnd;
         public System.Windows.Forms.Button btnRemoverContato;
+        public System.Windows.Forms.Button btnAlterar;
+        public System.Windows.Forms.Button btnNovo;
     }
 }

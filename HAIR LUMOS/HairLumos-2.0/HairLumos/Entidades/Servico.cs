@@ -15,6 +15,7 @@ namespace HairLumos.Entidades
         private string _tempo;
         private string _obs;
 
+
         public string _erro;
 
         public Servico(int cod, string servico, string obs, double valor, string tempo )
@@ -70,6 +71,11 @@ namespace HairLumos.Entidades
             this.Valor = valor;
             this.Tempo = tempo;
             this.Observacao = obs;
+        }
+
+        public override string ToString()
+        {
+            return ServicoNome;
         }
     }
 }

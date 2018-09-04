@@ -12,7 +12,7 @@ namespace HairLumos.Views
 {
     public partial class Cadastro_Pacotes : Form
     {
-        List<Entidades.Servico> lista = new List<Entidades.Servico>();
+        private List<Entidades.PacoteServico> lista = new List<Entidades.PacoteServico>();
 
         int intCodPacote = 0;
 
@@ -159,11 +159,24 @@ namespace HairLumos.Views
                 if (string.IsNullOrWhiteSpace(cbbServico.Text))
                     strMensagem += $"Informe o Serviço!.";
 
+                if (string.IsNullOrWhiteSpace(ttbPacote.Text))
+                    strMensagem += $"Informe o Nome do Pacote!.";
+
                 if (string.IsNullOrWhiteSpace(mskValor.Text))
                     strMensagem += $"Informe o valor do pacote.";
 
                 if (string.IsNullOrWhiteSpace(ttbPeriodo.Text))
                     strMensagem += $"Informe a periodicidade do pacote.";
+
+                if(dtpDataInicio.Value > dtpDataFim.Value)
+                {
+                    strMensagem += "Data Inicial não pode ser maior que a data final!";
+                }
+
+                if (dtpDataFim.Value < DateTime.Now)
+                {
+                    strMensagem += "Data final não pode ser menor que a Data Atual!";
+                }
 
                 //verificar se houve alguma anormalidade no cadastro
                 if (string.IsNullOrEmpty(strMensagem))
@@ -171,7 +184,7 @@ namespace HairLumos.Views
                     double valorPacote = 0;
                     double.TryParse(mskValor.Text, out valorPacote);
 
-                    int intRetorno = _ctrlPac.gravarPacote(intCodigo, cbbServico.ValueMember, valorPacote, ttbObs.Text, ttbPeriodo.Text);
+                    int intRetorno = _ctrlPac.gravarPacote(intCodigo, ttbPacote.Text.Trim() ,lista, valorPacote, ttbObs.Text.Trim(), ttbPeriodo.Text.Trim(), dtpDataInicio.Value, dtpDataFim.Value);
 
                     if (intRetorno == 1)
                     {
@@ -273,6 +286,8 @@ namespace HairLumos.Views
         {
             Controller.ServicoController servicoController = new Controller.ServicoController();
             Entidades.Servico servico = new Entidades.Servico();
+            Entidades.PacoteServico pacoteServico = new Entidades.PacoteServico();
+
             int intCod = Convert.ToInt32(cbbServico.SelectedValue.ToString());
             DataTable dtServico = servicoController.retornaObjServico(intCod);
             DataRow drServico = dtServico.Rows[0];
@@ -281,12 +296,16 @@ namespace HairLumos.Views
             servico.Observacao= drServico["tiposerv_obs"].ToString();
             servico.Valor= Convert.ToDouble(drServico["tiposerv_velor"].ToString());
             servico.Tempo = drServico["tiposerv_temposervico"].ToString();
-            lista.Add(servico);
+
+            pacoteServico.Periodicidade = ttbPeriodo.Text.Trim();
+            pacoteServico.Servico = servico;
+            pacoteServico.Quantidade = Convert.ToInt32(ttbQtdeServico.Text.Trim().ToString());
+            lista.Add(pacoteServico);
             carregaDGV(lista);
 
         }
 
-        private void carregaDGV(List<Entidades.Servico> lista)
+        private void carregaDGV(List<Entidades.PacoteServico> lista)
         {
             BindingSource bd = new BindingSource();
             bd.DataSource = lista;

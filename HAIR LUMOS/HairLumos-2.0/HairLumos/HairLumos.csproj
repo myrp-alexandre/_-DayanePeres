@@ -96,6 +96,7 @@
     <Compile Include="Entidades\FormaPagamento.cs" />
     <Compile Include="Entidades\Marca.cs" />
     <Compile Include="Entidades\Pacote.cs" />
+    <Compile Include="Entidades\PacoteServico.cs" />
     <Compile Include="Entidades\Parametrizacao.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\PessoaFisica.cs" />

@@ -13,17 +13,21 @@ namespace HairLumos.Entidades
         private double _valor;
         private string _obs;
         private string _periodicidadde;
+        private DateTime _dataInicio;
+        private DateTime _dataFim;
+        
+        List<Entidades.PacoteServico> _listaServicos;
 
         public string _erro;
 
-        public Pacote(int cod, string pacote, double valor, string obs, string periodo)
+        public Pacote(int cod, string pacote, double valor, string obs, string periodo, List <Entidades.PacoteServico> servicos, DateTime dtIni, DateTime dtFim)
         {
-            this.carregaPacote(cod, pacote, valor, obs, periodo);
+            this.carregaPacote(cod, pacote, valor, obs, periodo, servicos, dtIni, dtFim);
         }
 
         public Pacote()
         {
-            this.carregaPacote(0, string.Empty, 0, string.Empty, string.Empty);
+            this.carregaPacote(0, string.Empty, 0, string.Empty, string.Empty, null, DateTime.Now, DateTime.Now);
         }
 
         public string Erro
@@ -63,13 +67,35 @@ namespace HairLumos.Entidades
             set { _periodicidadde = value; }
         }
 
-        public void carregaPacote(int cod, string pacote, double valor, string obs, string periodo)
+        public List<Entidades.PacoteServico> ListaServico
+        {
+            get { return _listaServicos; }
+            set { _listaServicos = value; }
+        }
+
+        public DateTime DataInicio
+        {
+            get { return _dataInicio; }
+            set { _dataInicio = value; }
+        }
+
+        public DateTime DataFim
+        {
+            get { return _dataFim; }
+            set { _dataFim = value; }
+        }
+
+        public void carregaPacote(int cod, string pacote, double valor, string obs, string periodo, List<Entidades.PacoteServico> servicos, DateTime dtIni, DateTime dtFim)
         {
             this.Codigo = cod;
             this.PaccoteNome = pacote;
             this.Valor = valor;
             this.Observacao = obs;
             this.Periodo = periodo;
+            this.ListaServico = servicos;
+            this.DataInicio = dtIni;
+            this.DataFim = dtFim;
+            
         }
     }
 }
