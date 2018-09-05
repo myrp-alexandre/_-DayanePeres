@@ -153,5 +153,21 @@ namespace HairLumos.Models
             return _DAOProd.RetornaProduto(cod);
         }
 
+        public int atualizaEstoque(Entidades.Produto obj)
+        {
+            return _DAOProd.atualizaEstoque(obj);
+        }
+
+        //------------------------------------- Baixa manual no estoque--------------------------
+
+        public int gravaBaixa(Entidades.BaixaManual obj)
+        {
+            return _DAOProd.gravaBaixaManual(obj);
+        }
+
     }
+
+
+
+
 }

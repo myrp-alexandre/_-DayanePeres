@@ -203,5 +203,11 @@ namespace HairLumos
             Views.Cadastro_Pacotes cadastro_Pacotes = new Cadastro_Pacotes();
             cadastro_Pacotes.Show();
         }
+
+        private void baixaManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual.BaixarEstoqueManual baixa = new Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual.BaixarEstoqueManual();
+            baixa.Show();
+        }
     }
 }

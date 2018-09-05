@@ -517,5 +517,43 @@ namespace HairLumos.DAO
             return dt;
         }
 
+
+        public int atualizaEstoque(Entidades.Produto obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            _sql = "UPDATE tbproduto SET prod_qtde = @qtde where codproduto = @cod";
+
+            try
+            {
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@qtde", obj.Quantidade);
+                cmd.Parameters.AddWithValue("@cod", obj.CodigoProduto);
+                return cmd.ExecuteNonQuery();
+            }catch(Exception e)
+            {
+                throw;
+            }
+        }
+
+        public int gravaBaixaManual(Entidades.BaixaManual obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            _sql = "INSERT INTO tbbaixa(baix_data, baix_qtde, baix_obs, codproduto) VALUES(@data, @qtde, @obs, @cod);";
+
+            try
+            {
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@data", obj.Data);
+                cmd.Parameters.AddWithValue("@qtde", obj.Qtde);
+                cmd.Parameters.AddWithValue("@obs", obj.Obs);
+                cmd.Parameters.AddWithValue("@cod", obj.Prod.CodigoProduto);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
     }
 }

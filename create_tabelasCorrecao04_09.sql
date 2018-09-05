@@ -5,7 +5,7 @@
 /* Project name:                                                          */
 /* Author:                                                                */
 /* Script type:           Database creation script                        */
-/* Created on:            2018-08-12 22:23                                */
+/* Created on:            2018-09-04 23:52                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -139,7 +139,7 @@ CREATE TABLE TBCOMPRA (
     comp_dataCompra DATE ,
     comp_situacao CHARACTER VARYING(40) ,
     comp_statusConsignado BOOLEAN ,
-    comp_valorTotal NUMERIC(5,2) ,
+    comp_valorTotal NUMERIC(10,2) ,
     comp_obs CHARACTER VARYING(300) ,
     codPessoa INTEGER ,
     CONSTRAINT PK_TBCOMPRA PRIMARY KEY (codCompra)
@@ -156,7 +156,7 @@ CREATE TABLE TBAGENDA (
     agen_dataAgendamento DATE ,
     agen_horaAgendamento DATE ,
     agen_status CHARACTER VARYING(40) ,
-    agen_valor NUMERIC(5,2) ,
+    agen_valor NUMERIC(10,2) ,
     codTipoServico INTEGER   NOT NULL,
     codComissao INTEGER   NOT NULL,
     codContrato INTEGER ,
@@ -170,7 +170,7 @@ CREATE TABLE TBAGENDA (
 CREATE TABLE TBFECHAMENTO (
     codFechamento SERIAL   NOT NULL,
     fec_dataHora DATE ,
-    fec_valor NUMERIC(5,2) ,
+    fec_valor NUMERIC(10,2) ,
     CONSTRAINT PK_TBFECHAMENTO PRIMARY KEY (codFechamento)
 );
 
@@ -182,7 +182,7 @@ CREATE TABLE TBTIPOSERVICO (
     codTipoServico SERIAL   NOT NULL,
     tipoServ_descricao CHARACTER VARYING(100) ,
     tipoServ_obs CHARACTER VARYING(300) ,
-    tipoServ_velor NUMERIC(5,2) ,
+    tipoServ_velor NUMERIC(10,2) ,
     tipoServ_tempoServico TIME WITH TIME ZONE ,
     CONSTRAINT PK_TBTIPOSERVICO PRIMARY KEY (codTipoServico)
 );
@@ -194,9 +194,9 @@ CREATE TABLE TBTIPOSERVICO (
 CREATE TABLE TBCOMISSAO (
     codComissao SERIAL   NOT NULL,
     comis_dataPagamento DATE ,
-    comis_valorTotal NUMERIC(5,2) ,
-    comis_valorPago NUMERIC(5,2) ,
-    comis_valorDevedor NUMERIC(5,2) ,
+    comis_valorTotal NUMERIC(10,2) ,
+    comis_valorPago NUMERIC(10,2) ,
+    comis_valorDevedor NUMERIC(10,2) ,
     comis_statusComissao CHARACTER VARYING(40) ,
     comis_statusPagamento CHARACTER VARYING(40) ,
     CONSTRAINT PK_TBCOMISSAO PRIMARY KEY (codComissao)
@@ -209,8 +209,8 @@ CREATE TABLE TBCOMISSAO (
 CREATE TABLE TBPRODUTO (
     codProduto SERIAL   NOT NULL,
     prod_produto CHARACTER VARYING(100) ,
-    prod_precoCusto NUMERIC(5,2) ,
-    prod_precoVenda NUMERIC(5,2) ,
+    prod_precoCusto NUMERIC(10,2) ,
+    prod_precoVenda NUMERIC(10,2) ,
     prod_qtde INTEGER ,
     prod_obs CHARACTER VARYING(300) ,
     codCategoria INTEGER   NOT NULL,
@@ -260,8 +260,8 @@ CREATE TABLE TBCONTASPAGAR (
     codContasPagar SERIAL   NOT NULL,
     contPag_dataVencimento DATE ,
     contPag_dataPagamento DATE ,
-    contPag_ValorTotal NUMERIC(5,2) ,
-    contPag_valorPago NUMERIC(5,2) ,
+    contPag_ValorTotal NUMERIC(10,2) ,
+    contPag_valorPago NUMERIC(10,2) ,
     contPag_obs CHARACTER VARYING(300) ,
     contPag_status BOOLEAN ,
     contPag_numParc INTEGER ,
@@ -293,7 +293,7 @@ CREATE TABLE TBCONTRATO (
 CREATE TABLE TBPACOTESADICIONAIS (
     codContrato INTEGER   NOT NULL,
     codTipoServico INTEGER   NOT NULL,
-    pacAdc_qtde NUMERIC(5,2) ,
+    pacAdc_qtde NUMERIC(10,2) ,
     codPessoa INTEGER   NOT NULL,
     CONSTRAINT PK_TBPACOTESADICIONAIS PRIMARY KEY (codContrato, codTipoServico, codPessoa)
 );
@@ -305,7 +305,7 @@ CREATE TABLE TBPACOTESADICIONAIS (
 CREATE TABLE TBPACOTE (
     codPacote SERIAL   NOT NULL,
     pac_pacote CHARACTER VARYING(100) ,
-    pac_valor NUMERIC(5,2) ,
+    pac_valor NUMERIC(10,2) ,
     pac_obs CHARACTER VARYING(300) ,
     pac_periodicidade CHARACTER VARYING(40) ,
     pac_dataInicio DATE ,
@@ -321,6 +321,7 @@ CREATE TABLE TBPACOTESERVICO (
     codPacote INTEGER   NOT NULL,
     codTipoServico INTEGER   NOT NULL,
     pacServ_qtde INTEGER ,
+    pacServ_periodicidade CHARACTER(40) ,
     CONSTRAINT PK_TBPACOTESERVICO PRIMARY KEY (codPacote, codTipoServico)
 );
 
@@ -332,7 +333,7 @@ CREATE TABLE TBVENDA (
     codVenda SERIAL   NOT NULL,
     vend_dataVenda DATE ,
     vend_situacao CHARACTER VARYING(100) ,
-    vend_valorTotal NUMERIC(5,2) ,
+    vend_valorTotal NUMERIC(10,2) ,
     vend_obs CHARACTER VARYING(300) ,
     codPessoa INTEGER   NOT NULL,
     CONSTRAINT PK_TBVENDA PRIMARY KEY (codVenda)
@@ -346,7 +347,7 @@ CREATE TABLE TBVENDAPRODUTO (
     codVenda INTEGER   NOT NULL,
     codProduto INTEGER   NOT NULL,
     vendProd_qtde INTEGER ,
-    vendProd_valor NUMERIC(5,2) ,
+    vendProd_valor NUMERIC(10,2) ,
     CONSTRAINT PK_TBVENDAPRODUTO PRIMARY KEY (codVenda, codProduto)
 );
 
@@ -358,7 +359,7 @@ CREATE TABLE TBCOMPRAPRODUTO (
     codCompra INTEGER   NOT NULL,
     codProduto INTEGER   NOT NULL,
     compProd_qtde INTEGER ,
-    compProd_valor NUMERIC(5,2) ,
+    compProd_valor NUMERIC(10,2) ,
     compProd_qtdeDevolvida NUMERIC ,
     codCompra1 INTEGER ,
     codProduto1 INTEGER ,
@@ -374,7 +375,7 @@ CREATE TABLE TBCONTASRECEBER (
     codContaReceber SERIAL   NOT NULL,
     contRec_dataVencimento DATE ,
     contRec_dataPagamento DATE ,
-    contRec_valorTotal NUMERIC(5,2) ,
+    contRec_valorTotal NUMERIC(10,2) ,
     contRec_obs CHARACTER VARYING(300) ,
     codContrato INTEGER ,
     codVenda INTEGER ,
@@ -395,10 +396,10 @@ CREATE TABLE TBCAIXA (
     caixa_periodo CHARACTER VARYING(40) ,
     caixa_dataHoraAbertura TIMESTAMP WITH TIME ZONE ,
     caixa_dataHoraFecha TIMESTAMP WITH TIME ZONE ,
-    caixa_SaldoInicial NUMERIC(5,2) ,
-    caixa_troco NUMERIC(5,2) ,
-    caixa_TotalEntra NUMERIC(5,2) ,
-    caixa_totalSaida NUMERIC(5,2) ,
+    caixa_SaldoInicial NUMERIC(10,2) ,
+    caixa_troco NUMERIC(10,2) ,
+    caixa_TotalEntra NUMERIC(10,2) ,
+    caixa_totalSaida NUMERIC(10,2) ,
     codUsuario INTEGER ,
     codPessoa INTEGER ,
     CONSTRAINT PK_TBCAIXA PRIMARY KEY (codCaixa)
@@ -439,8 +440,8 @@ CREATE TABLE TBFORMAPAGAMENTO (
 CREATE TABLE TBPRESTADORSERVICO (
     codPessoa INTEGER   NOT NULL,
     codTipoServico INTEGER   NOT NULL,
-    prestServ_valor NUMERIC(5,2) ,
-    prestServ_percentual NUMERIC(5,2) ,
+    prestServ_valor NUMERIC(10,2) ,
+    prestServ_percentual NUMERIC(10,2) ,
     prestSer_PagRec CHARACTER VARYING(40) ,
     CONSTRAINT PK_TBPRESTADORSERVICO PRIMARY KEY (codPessoa, codTipoServico)
 );

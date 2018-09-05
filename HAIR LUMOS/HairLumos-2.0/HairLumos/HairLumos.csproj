@@ -82,6 +82,7 @@
     <Compile Include="DAO\ServicoDAO.cs" />
     <Compile Include="DAO\ServicoParceiroDAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
+    <Compile Include="Entidades\BaixaManual.cs" />
     <Compile Include="Entidades\Caixa.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cidade.cs" />

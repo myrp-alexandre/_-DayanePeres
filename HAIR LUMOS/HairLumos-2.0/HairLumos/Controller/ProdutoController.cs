@@ -87,5 +87,17 @@ namespace HairLumos.Controller
         {
             return _MdlProd.retornaProduto(cod);
         }
+
+        public int atualizaEstoque(Entidades.Produto obj)
+        {
+            return _MdlProd.atualizaEstoque(obj);
+        }
+
+        //------------------------- Baixa manual estoque--------------------------------
+
+        public int gravaBaixaManual(Entidades.BaixaManual baixa)
+        {
+            return _MdlProd.gravaBaixa(baixa);
+        }
     }
 }
