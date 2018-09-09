@@ -21,5 +21,30 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         {
             Close();
         }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisaCliente_Click(object sender, EventArgs e)
+        {
+            Views.Pesquisa_Pessoa pesquisa_Pessoa = new Pesquisa_Pessoa();
+
+            pesquisa_Pessoa.ShowDialog();
+
+            Controller.PessoaController pessoaController = new Controller.PessoaController();
+            DataTable dtRetorno = pessoaController.retornaPessoaFisica();
+
+                if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+                {
+                    DataRow dr = dtRetorno.Rows[0];
+                    ttbCliente.Text = dr["pes_nome"].ToString();
+
+                }
+            
+        }
+
+       
     }
 }

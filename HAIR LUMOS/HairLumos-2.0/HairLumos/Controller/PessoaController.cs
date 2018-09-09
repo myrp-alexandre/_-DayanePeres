@@ -59,6 +59,11 @@ namespace HairLumos.Controller
             return _MdlPes.retornaPessoaFisica(strCod);
         }
 
+        public DataTable retornaPessoaFisica()
+        {
+            return _MdlPes.retornaPessoaFisica();
+        }
+
         public DataTable retornaPessoaJuridicaCod(int strCod)
         {
             return _MdlPes.retornaPessoaJuridica(strCod);

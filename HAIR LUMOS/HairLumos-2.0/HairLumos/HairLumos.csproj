@@ -91,12 +91,14 @@
     <Compile Include="Entidades\CompraProduto.cs" />
     <Compile Include="Entidades\ContasPagar.cs" />
     <Compile Include="Entidades\ContasReceber.cs" />
+    <Compile Include="Entidades\Contrato.cs" />
     <Compile Include="Entidades\Despesa.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\FechamentoTabela.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
     <Compile Include="Entidades\Marca.cs" />
     <Compile Include="Entidades\Pacote.cs" />
+    <Compile Include="Entidades\PacotesAdicionais.cs" />
     <Compile Include="Entidades\PacoteServico.cs" />
     <Compile Include="Entidades\Parametrizacao.cs" />
     <Compile Include="Entidades\Pessoa.cs" />

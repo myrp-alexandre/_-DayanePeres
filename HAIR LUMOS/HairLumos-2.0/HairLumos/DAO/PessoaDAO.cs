@@ -807,6 +807,35 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public DataTable RetornaPessoaFisica()
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT codpessoa, pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa," +
+                    "pes_obs, pes_fiado, pes_email  FROM tbpessoa WHERE pes_tipopessoa = 'FISICA' ";
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+
         public DataTable RetornaPessoaJuridicaCod(int cod) //string Texto
         {
             DataTable dt = new DataTable();

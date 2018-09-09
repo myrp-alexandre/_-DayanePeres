@@ -74,6 +74,11 @@ namespace HairLumos.Models
             return _DAOPessoa.RetornaPessoaFisicaCod(cod);
         }
 
+        public DataTable retornaPessoaFisica()
+        {
+            return _DAOPessoa.RetornaPessoaFisica();
+        }
+
         public DataTable retornaPessoaJuridica(int cod)
         {
             return _DAOPessoa.RetornaPessoaJuridicaCod(cod);
