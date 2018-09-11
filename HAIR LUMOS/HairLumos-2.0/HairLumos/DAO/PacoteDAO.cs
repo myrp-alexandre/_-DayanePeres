@@ -153,28 +153,27 @@ namespace HairLumos.DAO
 
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim" +
-                    "FROM tbpacote " +
-                    "WHERE codpacote = " + cod;
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim FROM tbpacote WHERE codpacote = " + cod;
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@codpacote");
-                cmd.Parameters.AddWithValue("@pac_pacote");
-                cmd.Parameters.AddWithValue("@pac_valor");
-                cmd.Parameters.AddWithValue("@pac_obspacote");
-                cmd.Parameters.AddWithValue("@pac_periodicidade");
-                cmd.Parameters.AddWithValue("@pac_datainicio");
-                cmd.Parameters.AddWithValue("@pac_datafim");
+                //cmd.Parameters.AddWithValue("@codpacote");
+                //cmd.Parameters.AddWithValue("@pac_pacote");
+                //cmd.Parameters.AddWithValue("@pac_valor");
+                //cmd.Parameters.AddWithValue("@pac_obspacote");
+                //cmd.Parameters.AddWithValue("@pac_periodicidade");
+                //cmd.Parameters.AddWithValue("@pac_datainicio");
+                //cmd.Parameters.AddWithValue("@pac_datafim");
+                //cmd.Parameters.AddWithValue("@cod", cod);
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
@@ -245,6 +244,25 @@ namespace HairLumos.DAO
                 throw new SystemException(e + "Erro ao retornar Pacote");
             }
             return dt;
+        }
+
+        public DataTable retornaListaPacote(int codigo)
+        {
+            DataTable dt = new DataTable();
+            _sql = "SELECT * FROM tbpacoteservico WHERE codpacote = " + codigo;
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+                cmd.CommandText = _sql;
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                return dt;
+            }catch(Exception e)
+            {
+                throw;
+            }
         }
     }
 }

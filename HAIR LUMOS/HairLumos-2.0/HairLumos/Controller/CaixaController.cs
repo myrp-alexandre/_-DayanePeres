@@ -24,10 +24,29 @@ namespace HairLumos.Controller
 
         public double retornaMaxCaixa()
         {
-            DataTable dt = _MdlCaixa.retornaMaxCaixa();
-            DataRow dr = dt.Rows[0];
-            double valor = Convert.ToDouble(dr["caixa_totalsaida"].ToString());
-            return valor;
+            try
+            {
+                DataTable dt = _MdlCaixa.retornaMaxCaixa();
+
+                if(dt !=null && dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    double valor = Convert.ToDouble(dr["caixa_totalsaida"].ToString());
+                    return valor;
+                }
+                else
+                {
+                    
+                    return 0;
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         public double retornaValCaixaAberto()

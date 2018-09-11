@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnIncluirPacote = new System.Windows.Forms.Button();
             this.cbbPacote = new System.Windows.Forms.ComboBox();
@@ -43,28 +45,27 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnIncluirServico = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.ttbQtde = new System.Windows.Forms.TextBox();
+            this.cbbServico = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnExcluirServicoPac = new System.Windows.Forms.Button();
-            this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.tipoServ_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoServ_velor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contratoPacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPacote = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.Descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacote)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -76,10 +77,13 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnExcluirServicoPac);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvProduto);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvPacote);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -93,6 +97,22 @@
             this.splitContainer1.SplitterDistance = 423;
             this.splitContainer1.TabIndex = 2;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(69, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Código:";
+            // 
+            // ttbCodigo
+            // 
+            this.ttbCodigo.Location = new System.Drawing.Point(115, 3);
+            this.ttbCodigo.Name = "ttbCodigo";
+            this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
+            this.ttbCodigo.TabIndex = 30;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnIncluirPacote);
@@ -105,7 +125,7 @@
             this.groupBox2.Controls.Add(this.btnPesquisaCliente);
             this.groupBox2.Controls.Add(this.Código);
             this.groupBox2.Controls.Add(this.ttbCliente);
-            this.groupBox2.Location = new System.Drawing.Point(16, 8);
+            this.groupBox2.Location = new System.Drawing.Point(16, 33);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(754, 144);
             this.groupBox2.TabIndex = 28;
@@ -121,6 +141,7 @@
             this.btnIncluirPacote.TabIndex = 38;
             this.btnIncluirPacote.Text = "Incluir Pacote";
             this.btnIncluirPacote.UseVisualStyleBackColor = false;
+            this.btnIncluirPacote.Click += new System.EventHandler(this.btnIncluirPacote_Click);
             // 
             // cbbPacote
             // 
@@ -205,10 +226,10 @@
             // 
             this.groupBox1.Controls.Add(this.btnIncluirServico);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.ttbQtde);
+            this.groupBox1.Controls.Add(this.cbbServico);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(16, 171);
+            this.groupBox1.Location = new System.Drawing.Point(16, 187);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(754, 70);
             this.groupBox1.TabIndex = 25;
@@ -224,6 +245,7 @@
             this.btnIncluirServico.TabIndex = 39;
             this.btnIncluirServico.Text = "Incluir Serviço";
             this.btnIncluirServico.UseVisualStyleBackColor = false;
+            this.btnIncluirServico.Click += new System.EventHandler(this.btnIncluirServico_Click);
             // 
             // label4
             // 
@@ -234,20 +256,20 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "Qtde:";
             // 
-            // textBox1
+            // ttbQtde
             // 
-            this.textBox1.Location = new System.Drawing.Point(513, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(82, 20);
-            this.textBox1.TabIndex = 41;
+            this.ttbQtde.Location = new System.Drawing.Point(513, 33);
+            this.ttbQtde.Name = "ttbQtde";
+            this.ttbQtde.Size = new System.Drawing.Size(82, 20);
+            this.ttbQtde.TabIndex = 41;
             // 
-            // comboBox2
+            // cbbServico
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(99, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(326, 21);
-            this.comboBox2.TabIndex = 40;
+            this.cbbServico.FormattingEnabled = true;
+            this.cbbServico.Location = new System.Drawing.Point(99, 30);
+            this.cbbServico.Name = "cbbServico";
+            this.cbbServico.Size = new System.Drawing.Size(326, 21);
+            this.cbbServico.TabIndex = 40;
             // 
             // label3
             // 
@@ -261,57 +283,30 @@
             // btnExcluirServicoPac
             // 
             this.btnExcluirServicoPac.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluirServicoPac.Location = new System.Drawing.Point(706, 320);
+            this.btnExcluirServicoPac.Location = new System.Drawing.Point(706, 325);
             this.btnExcluirServicoPac.Name = "btnExcluirServicoPac";
             this.btnExcluirServicoPac.Size = new System.Drawing.Size(64, 27);
             this.btnExcluirServicoPac.TabIndex = 12;
             this.btnExcluirServicoPac.Text = "Excluir";
             this.btnExcluirServicoPac.UseVisualStyleBackColor = false;
+            this.btnExcluirServicoPac.Click += new System.EventHandler(this.btnExcluirServicoPac_Click);
             // 
-            // dgvProduto
+            // dgvPacote
             // 
-            this.dgvProduto.AllowUserToAddRows = false;
-            this.dgvProduto.AllowUserToDeleteRows = false;
-            this.dgvProduto.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tipoServ_descricao,
-            this.tipoServ_velor,
-            this.pacote,
-            this.contratoPacote});
-            this.dgvProduto.Location = new System.Drawing.Point(21, 263);
-            this.dgvProduto.Name = "dgvProduto";
-            this.dgvProduto.ReadOnly = true;
-            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduto.Size = new System.Drawing.Size(679, 146);
-            this.dgvProduto.TabIndex = 12;
-            // 
-            // tipoServ_descricao
-            // 
-            this.tipoServ_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipoServ_descricao.DataPropertyName = "tipoServ_descricao";
-            this.tipoServ_descricao.HeaderText = "Serviço";
-            this.tipoServ_descricao.Name = "tipoServ_descricao";
-            this.tipoServ_descricao.ReadOnly = true;
-            // 
-            // tipoServ_velor
-            // 
-            this.tipoServ_velor.HeaderText = "Valor (R$)";
-            this.tipoServ_velor.Name = "tipoServ_velor";
-            this.tipoServ_velor.ReadOnly = true;
-            // 
-            // pacote
-            // 
-            this.pacote.HeaderText = "Serviço Adicional";
-            this.pacote.Name = "pacote";
-            this.pacote.ReadOnly = true;
-            this.pacote.Width = 150;
-            // 
-            // contratoPacote
-            // 
-            this.contratoPacote.HeaderText = "Servico Pacote";
-            this.contratoPacote.Name = "contratoPacote";
-            this.contratoPacote.ReadOnly = true;
+            this.dgvPacote.AllowUserToAddRows = false;
+            this.dgvPacote.AllowUserToDeleteRows = false;
+            this.dgvPacote.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPacote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacote.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Descr,
+            this.Qtde,
+            this.Tipo});
+            this.dgvPacote.Location = new System.Drawing.Point(21, 268);
+            this.dgvPacote.Name = "dgvPacote";
+            this.dgvPacote.ReadOnly = true;
+            this.dgvPacote.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPacote.Size = new System.Drawing.Size(679, 146);
+            this.dgvPacote.TabIndex = 12;
             // 
             // btnCancelar
             // 
@@ -375,6 +370,29 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             // 
+            // Descr
+            // 
+            this.Descr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descr.DataPropertyName = "Descr";
+            this.Descr.HeaderText = "Serviço";
+            this.Descr.Name = "Descr";
+            this.Descr.ReadOnly = true;
+            // 
+            // Qtde
+            // 
+            this.Qtde.DataPropertyName = "Qtde";
+            this.Qtde.HeaderText = "Quantidade";
+            this.Qtde.Name = "Qtde";
+            this.Qtde.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.DataPropertyName = "Tipo";
+            this.Tipo.HeaderText = "Pacote";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 150;
+            // 
             // ContratarPacotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,6 +405,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - CONTRAR PACOTES";
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -394,7 +413,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacote)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -403,7 +422,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         public System.Windows.Forms.Button btnExcluirServicoPac;
-        private System.Windows.Forms.DataGridView dgvProduto;
+        private System.Windows.Forms.DataGridView dgvPacote;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
@@ -424,12 +443,13 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnIncluirServico;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox ttbQtde;
+        private System.Windows.Forms.ComboBox cbbServico;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoServ_descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoServ_velor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pacote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contratoPacote;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox ttbCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
     }
 }

@@ -31,14 +31,18 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
             int codigo = 0;
             double troco = 0;
             double addValor = 0;
+
             if (ttbCodigo.Text != null && ttbCodigo.Text!="")
                 codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
+
             if (mskTroco.Text == null || mskTroco.Text=="")
                 erro += "Insira o troco";
             else
                 troco = Convert.ToDouble(mskTroco.Text.ToString());
+
             if (mskAddValor.Text != null || mskAddValor.Text != "")
                addValor = Convert.ToDouble(mskAddValor.Text.ToString());
+
             if (erro == null || erro=="") {
                 int result = cc.abrirCaixa(codigo, ttbUsuário.Text, dtpData.Value, dtpHora.Value, troco+addValor);
                 if (result > 0)

@@ -107,6 +107,7 @@
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Servico.cs" />
     <Compile Include="Entidades\ServicoParceiro.cs" />
+    <Compile Include="Entidades\TabelaPacotes.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Models\CaixaModels.cs" />
     <Compile Include="Models\CompraModels.cs" />

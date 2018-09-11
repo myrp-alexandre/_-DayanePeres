@@ -51,6 +51,7 @@
             this.fecharCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciarPacotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contratarPacoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baixaManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.baixaManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -262,6 +262,14 @@
             this.contratarPacoteToolStripMenuItem.Name = "contratarPacoteToolStripMenuItem";
             this.contratarPacoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contratarPacoteToolStripMenuItem.Text = "Contratar Pacote";
+            this.contratarPacoteToolStripMenuItem.Click += new System.EventHandler(this.contratarPacoteToolStripMenuItem_Click);
+            // 
+            // baixaManualToolStripMenuItem
+            // 
+            this.baixaManualToolStripMenuItem.Name = "baixaManualToolStripMenuItem";
+            this.baixaManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.baixaManualToolStripMenuItem.Text = "Baixa Manual";
+            this.baixaManualToolStripMenuItem.Click += new System.EventHandler(this.baixaManualToolStripMenuItem_Click);
             // 
             // rELATÓRIOSToolStripMenuItem
             // 
@@ -342,13 +350,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 2;
-            // 
-            // baixaManualToolStripMenuItem
-            // 
-            this.baixaManualToolStripMenuItem.Name = "baixaManualToolStripMenuItem";
-            this.baixaManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.baixaManualToolStripMenuItem.Text = "Baixa Manual";
-            this.baixaManualToolStripMenuItem.Click += new System.EventHandler(this.baixaManualToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

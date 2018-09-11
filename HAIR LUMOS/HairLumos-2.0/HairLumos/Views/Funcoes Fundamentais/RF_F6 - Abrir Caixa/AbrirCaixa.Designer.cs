@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mskAddValor = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.mskTroco = new System.Windows.Forms.MaskedTextBox();
             this.ttbUsuário = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnAbrir = new System.Windows.Forms.Button();
-            this.mskAddValor = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +78,25 @@
             this.splitContainer1.Size = new System.Drawing.Size(506, 270);
             this.splitContainer1.SplitterDistance = 220;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // mskAddValor
+            // 
+            this.mskAddValor.Location = new System.Drawing.Point(323, 178);
+            this.mskAddValor.Mask = "00000,00";
+            this.mskAddValor.Name = "mskAddValor";
+            this.mskAddValor.Size = new System.Drawing.Size(166, 20);
+            this.mskAddValor.TabIndex = 32;
+            this.mskAddValor.ValidatingType = typeof(int);
+            // 
+            // label4
+            // 
+            this.label4.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(236, 181);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Adicionar Valor:";
             // 
             // mskTroco
             // 
@@ -183,23 +202,6 @@
             this.btnAbrir.Text = "Abrir";
             this.btnAbrir.UseVisualStyleBackColor = false;
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
-            // 
-            // mskAddValor
-            // 
-            this.mskAddValor.Location = new System.Drawing.Point(323, 178);
-            this.mskAddValor.Name = "mskAddValor";
-            this.mskAddValor.Size = new System.Drawing.Size(166, 20);
-            this.mskAddValor.TabIndex = 32;
-            // 
-            // label4
-            // 
-            this.label4.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(236, 181);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 13);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Adicionar Valor:";
             // 
             // AbrirCaixa
             // 
