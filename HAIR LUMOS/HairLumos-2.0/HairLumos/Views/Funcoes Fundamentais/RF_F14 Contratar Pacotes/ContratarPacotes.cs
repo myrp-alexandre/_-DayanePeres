@@ -132,6 +132,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
             addListaTabela(listaPacoteServico);
             carregaDgvPacotesAdcinais(listaTabela);
+            ttbTotal.Text = _pacote.Valor.ToString();
 
         }
 
@@ -161,8 +162,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             try
             {
                 Entidades.TabelaPacotes tab = new Entidades.TabelaPacotes();
+                Controller.ServicoController sc = new Controller.ServicoController();
+                Entidades.Servico serv = new Entidades.Servico();
                 tab.Codigo = Convert.ToInt32(cbbServico.SelectedValue);
                 tab.Descr = cbbServico.Text.ToString();
+                DataTable dtserv = sc.retornaObjServico(Convert.ToInt32(cbbServico.SelectedValue));
+                DataRow drServ = dtserv.Rows[0];
+                serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), drServ["tiposerv_descricao"].ToString(),
+                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_velor"].ToString()), drServ["tiposerv_temposervico"].ToString());
 
                 if (string.IsNullOrWhiteSpace(ttbQtde.Text))
                     MessageBox.Show("Informe a quantidade do serviço.");
@@ -172,6 +179,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                     tab.Tipo = "Adcional";
 					listaTabela.Add(tab);
 					carregaDgvPacotesAdcinais(listaTabela);
+                    ttbTotal.Text = (Convert.ToDouble(ttbTotal.Text.ToString()) + (tab.Qtde*serv.Valor)).ToString();
                 }
             }
             catch (Exception ex)

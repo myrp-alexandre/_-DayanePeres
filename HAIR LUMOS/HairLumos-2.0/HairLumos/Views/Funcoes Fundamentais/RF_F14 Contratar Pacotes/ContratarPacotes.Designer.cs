@@ -43,6 +43,7 @@
             this.Código = new System.Windows.Forms.Label();
             this.ttbCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ttbQtde = new System.Windows.Forms.MaskedTextBox();
             this.btnIncluirServico = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbServico = new System.Windows.Forms.ComboBox();
@@ -58,7 +59,8 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.ttbQtde = new System.Windows.Forms.MaskedTextBox();
+            this.Total = new System.Windows.Forms.Label();
+            this.ttbTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,6 +79,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.Total);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbTotal);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
@@ -93,8 +97,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
-            this.splitContainer1.Size = new System.Drawing.Size(781, 495);
-            this.splitContainer1.SplitterDistance = 423;
+            this.splitContainer1.Size = new System.Drawing.Size(781, 531);
+            this.splitContainer1.SplitterDistance = 453;
             this.splitContainer1.TabIndex = 2;
             // 
             // label5
@@ -236,6 +240,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Incluir Serviços Pacote:";
             // 
+            // ttbQtde
+            // 
+            this.ttbQtde.Location = new System.Drawing.Point(505, 30);
+            this.ttbQtde.Mask = "00";
+            this.ttbQtde.Name = "ttbQtde";
+            this.ttbQtde.Size = new System.Drawing.Size(100, 20);
+            this.ttbQtde.TabIndex = 41;
+            this.ttbQtde.ValidatingType = typeof(int);
+            // 
             // btnIncluirServico
             // 
             this.btnIncluirServico.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -327,7 +340,7 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(445, 12);
+            this.btnCancelar.Location = new System.Drawing.Point(445, 22);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
             this.btnCancelar.TabIndex = 4;
@@ -337,7 +350,7 @@
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(693, 12);
+            this.btnSair.Location = new System.Drawing.Point(693, 22);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(77, 38);
             this.btnSair.TabIndex = 5;
@@ -348,7 +361,7 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(339, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(339, 22);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 3;
@@ -358,7 +371,7 @@
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(233, 12);
+            this.btnAlterar.Location = new System.Drawing.Point(233, 22);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 38);
             this.btnAlterar.TabIndex = 2;
@@ -368,7 +381,7 @@
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(127, 12);
+            this.btnGravar.Location = new System.Drawing.Point(127, 22);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(100, 38);
             this.btnGravar.TabIndex = 1;
@@ -379,28 +392,35 @@
             // btnNovo
             // 
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.Location = new System.Drawing.Point(21, 12);
+            this.btnNovo.Location = new System.Drawing.Point(21, 22);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(100, 38);
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             // 
-            // ttbQtde
+            // Total
             // 
-            this.ttbQtde.Location = new System.Drawing.Point(505, 30);
-            this.ttbQtde.Mask = "00";
-            this.ttbQtde.Name = "ttbQtde";
-            this.ttbQtde.Size = new System.Drawing.Size(100, 20);
-            this.ttbQtde.TabIndex = 41;
-            this.ttbQtde.ValidatingType = typeof(int);
+            this.Total.AutoSize = true;
+            this.Total.Location = new System.Drawing.Point(593, 423);
+            this.Total.Name = "Total";
+            this.Total.Size = new System.Drawing.Size(51, 13);
+            this.Total.TabIndex = 31;
+            this.Total.Text = "Total R$:";
+            // 
+            // ttbTotal
+            // 
+            this.ttbTotal.Location = new System.Drawing.Point(646, 420);
+            this.ttbTotal.Name = "ttbTotal";
+            this.ttbTotal.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotal.TabIndex = 32;
             // 
             // ContratarPacotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(805, 519);
+            this.ClientSize = new System.Drawing.Size(805, 555);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "ContratarPacotes";
@@ -453,5 +473,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.MaskedTextBox ttbQtde;
+        public System.Windows.Forms.Label Total;
+        public System.Windows.Forms.TextBox ttbTotal;
     }
 }
