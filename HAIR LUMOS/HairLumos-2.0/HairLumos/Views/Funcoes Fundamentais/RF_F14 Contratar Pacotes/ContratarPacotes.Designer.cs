@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Total = new System.Windows.Forms.Label();
+            this.ttbTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -59,8 +61,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.Total = new System.Windows.Forms.Label();
-            this.ttbTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -101,6 +101,22 @@
             this.splitContainer1.SplitterDistance = 453;
             this.splitContainer1.TabIndex = 2;
             // 
+            // Total
+            // 
+            this.Total.AutoSize = true;
+            this.Total.Location = new System.Drawing.Point(593, 423);
+            this.Total.Name = "Total";
+            this.Total.Size = new System.Drawing.Size(51, 13);
+            this.Total.TabIndex = 31;
+            this.Total.Text = "Total R$:";
+            // 
+            // ttbTotal
+            // 
+            this.ttbTotal.Location = new System.Drawing.Point(646, 420);
+            this.ttbTotal.Name = "ttbTotal";
+            this.ttbTotal.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotal.TabIndex = 32;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -112,6 +128,7 @@
             // 
             // ttbCodigo
             // 
+            this.ttbCodigo.Enabled = false;
             this.ttbCodigo.Location = new System.Drawing.Point(115, 3);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
@@ -346,6 +363,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -398,22 +416,7 @@
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
-            // 
-            // Total
-            // 
-            this.Total.AutoSize = true;
-            this.Total.Location = new System.Drawing.Point(593, 423);
-            this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(51, 13);
-            this.Total.TabIndex = 31;
-            this.Total.Text = "Total R$:";
-            // 
-            // ttbTotal
-            // 
-            this.ttbTotal.Location = new System.Drawing.Point(646, 420);
-            this.ttbTotal.Name = "ttbTotal";
-            this.ttbTotal.Size = new System.Drawing.Size(100, 20);
-            this.ttbTotal.TabIndex = 32;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // ContratarPacotes
             // 

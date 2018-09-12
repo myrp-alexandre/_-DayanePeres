@@ -19,6 +19,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         public ContratarPacotes()
         {
             InitializeComponent();
+            inicializa(false);
             carregaCbbPacote();
             carregaCbbServico();
             dgvPacote.AutoGenerateColumns = false;
@@ -33,6 +34,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            int codigo = 0;
+            double valor = 0;
 
         }
 
@@ -133,6 +136,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             addListaTabela(listaPacoteServico);
             carregaDgvPacotesAdcinais(listaTabela);
             ttbTotal.Text = _pacote.Valor.ToString();
+            btnIncluirPacote.Enabled = false;
 
         }
 
@@ -177,7 +181,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 {
                     tab.Qtde = Convert.ToInt32(ttbQtde.Text.ToString());
                     tab.Tipo = "Adcional";
-					listaTabela.Add(tab);
+                    int index = verificalista(tab, listaTabela);
+                    if (index > 0)
+                    {
+                        listaTabela.ElementAt(index).Qtde += tab.Qtde;
+                    }
+                    else
+                    {
+                        listaTabela.Add(tab);
+                    }
 					carregaDgvPacotesAdcinais(listaTabela);
                     ttbTotal.Text = (Convert.ToDouble(ttbTotal.Text.ToString()) + (tab.Qtde*serv.Valor)).ToString();
                 }
@@ -189,8 +201,18 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 throw;
             }
             
-           
-            
+        }
+
+        private int verificalista(Entidades.TabelaPacotes tab, List<Entidades.TabelaPacotes> lista) 
+        {
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (tab.Descr==lista.ElementAt(i).Descr && lista.ElementAt(i).Tipo=="Adcional")
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         private void btnExcluirServicoPac_Click(object sender, EventArgs e)
@@ -208,5 +230,50 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 }
             }
         }
+
+        private void limpatela()
+        {
+            ttbCliente.Text = "";
+            ttbCodigo.Text = "";
+            ttbObservacao.Text = "";
+            ttbQtde.Text = "";
+            ttbTotal.Text = "";
+            dgvPacote.DataSource = new List<Entidades.TabelaPacotes>();
+            listaTabela = new List<Entidades.TabelaPacotes>();
+            listaPacoteServico = new List<Entidades.PacoteServico>();
+            btnIncluirPacote.Enabled = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpatela();
+        }
+
+        private void inicializa(bool estado)
+        {
+            btnAlterar.Enabled = estado;
+            btnCancelar.Enabled = estado;
+            btnGravar.Enabled = estado;
+            btnIncluirPacote.Enabled = estado;
+            btnIncluirServico.Enabled = estado;
+            btnExcluir.Enabled = estado;
+            btnExcluirServicoPac.Enabled = estado;
+            btnPesquisaCliente.Enabled = estado;
+            ttbCliente.Enabled = estado;
+            ttbCodigo.Enabled = estado;
+            ttbObservacao.Enabled = estado;
+            ttbQtde.Enabled = estado;
+            ttbTotal.Enabled = estado;
+            dgvPacote.Enabled = estado;
+            cbbPacote.Enabled = estado;
+            cbbServico.Enabled = estado;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            inicializa(true);
+        }
     }
+
+    
 }
