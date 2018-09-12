@@ -144,6 +144,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         {
             for (int i = 0; i < lista.Count; i++)
             {
+
                 Entidades.TabelaPacotes tab = new Entidades.TabelaPacotes();
                 tab.Codigo = lista.ElementAt(i).Servico.Codigo;
                 tab.Descr = lista.ElementAt(i).Servico.ServicoNome;
@@ -157,13 +158,31 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         private void btnIncluirServico_Click(object sender, EventArgs e)
         {
-            Entidades.TabelaPacotes tab = new Entidades.TabelaPacotes();
-            tab.Codigo = Convert.ToInt32(cbbServico.SelectedValue);
-            tab.Descr = cbbServico.Text.ToString();
-            tab.Qtde = Convert.ToInt32(ttbQtde.Text.ToString());
-            tab.Tipo = "Adcional";
-            listaTabela.Add(tab);
-            carregaDgvPacotesAdcinais(listaTabela);
+            try
+            {
+                Entidades.TabelaPacotes tab = new Entidades.TabelaPacotes();
+                tab.Codigo = Convert.ToInt32(cbbServico.SelectedValue);
+                tab.Descr = cbbServico.Text.ToString();
+
+                if (string.IsNullOrWhiteSpace(ttbQtde.Text))
+                    MessageBox.Show("Informe a quantidade do serviço.");
+                else
+                {
+                    tab.Qtde = Convert.ToInt32(ttbQtde.Text.ToString());
+                    tab.Tipo = "Adcional";
+					listaTabela.Add(tab);
+					carregaDgvPacotesAdcinais(listaTabela);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro: "+ex);
+                throw;
+            }
+            
+           
+            
         }
 
         private void btnExcluirServicoPac_Click(object sender, EventArgs e)

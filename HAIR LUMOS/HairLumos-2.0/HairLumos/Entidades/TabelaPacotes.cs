@@ -24,5 +24,10 @@ namespace HairLumos.Entidades
         public int Qtde { get; set; }
 
         public string Tipo { get; set; }
-    }
+
+		public static explicit operator TabelaPacotes(string v)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

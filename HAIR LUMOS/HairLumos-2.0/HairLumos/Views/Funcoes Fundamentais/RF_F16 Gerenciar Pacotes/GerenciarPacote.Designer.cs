@@ -41,6 +41,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ttbQtdeServico = new System.Windows.Forms.TextBox();
             this.cbbServico = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnIncluirServico = new System.Windows.Forms.Button();
@@ -48,6 +50,9 @@
             this.ttbPeriodo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvPacote = new System.Windows.Forms.DataGridView();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Periodicidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcuirServico = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
@@ -57,11 +62,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.ttbQtdeServico = new System.Windows.Forms.TextBox();
-            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Periodicidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -222,6 +222,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Serviços do Pacote";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(265, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 13);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "Qtde do Servico*";
+            // 
+            // ttbQtdeServico
+            // 
+            this.ttbQtdeServico.Location = new System.Drawing.Point(359, 49);
+            this.ttbQtdeServico.Name = "ttbQtdeServico";
+            this.ttbQtdeServico.Size = new System.Drawing.Size(72, 20);
+            this.ttbQtdeServico.TabIndex = 40;
+            // 
             // cbbServico
             // 
             this.cbbServico.FormattingEnabled = true;
@@ -294,6 +310,28 @@
             this.dgvPacote.Size = new System.Drawing.Size(572, 108);
             this.dgvPacote.TabIndex = 13;
             this.dgvPacote.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacote_CellDoubleClick_1);
+            // 
+            // Servico
+            // 
+            this.Servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Servico.DataPropertyName = "Servico";
+            this.Servico.HeaderText = "Serviço";
+            this.Servico.Name = "Servico";
+            this.Servico.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.DataPropertyName = "Quantidade";
+            this.Quantidade.HeaderText = "Qtde Serv.";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            // 
+            // Periodicidade
+            // 
+            this.Periodicidade.DataPropertyName = "Periodicidade";
+            this.Periodicidade.HeaderText = "Periodicidade";
+            this.Periodicidade.Name = "Periodicidade";
+            this.Periodicidade.ReadOnly = true;
             // 
             // btnExcuirServico
             // 
@@ -387,44 +425,6 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(265, 52);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 13);
-            this.label8.TabIndex = 39;
-            this.label8.Text = "Qtde do Servico*";
-            // 
-            // ttbQtdeServico
-            // 
-            this.ttbQtdeServico.Location = new System.Drawing.Point(359, 49);
-            this.ttbQtdeServico.Name = "ttbQtdeServico";
-            this.ttbQtdeServico.Size = new System.Drawing.Size(72, 20);
-            this.ttbQtdeServico.TabIndex = 40;
-            // 
-            // Servico
-            // 
-            this.Servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Servico.DataPropertyName = "Servico";
-            this.Servico.HeaderText = "Serviço";
-            this.Servico.Name = "Servico";
-            this.Servico.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.DataPropertyName = "Quantidade";
-            this.Quantidade.HeaderText = "Qtde Serv.";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // Periodicidade
-            // 
-            this.Periodicidade.DataPropertyName = "Periodicidade";
-            this.Periodicidade.HeaderText = "Periodicidade";
-            this.Periodicidade.Name = "Periodicidade";
-            this.Periodicidade.ReadOnly = true;
             // 
             // Cadastro_Pacotes
             // 
