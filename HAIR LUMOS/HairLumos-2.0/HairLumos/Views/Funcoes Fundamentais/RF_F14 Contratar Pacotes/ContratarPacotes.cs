@@ -15,6 +15,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         //private List<Entidades.PacotesAdicionais> listaPacotesAdc;
         private List<Entidades.TabelaPacotes> listaTabela;
         private List<Entidades.PacoteServico> listaPacoteServico;
+        private List<Entidades.PacotesAdicionais> listaPacoteAdicionais;
+        private Entidades.Pacote pacote;
+        private Entidades.Pessoa pessoa;
 
         public ContratarPacotes()
         {
@@ -25,6 +28,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             dgvPacote.AutoGenerateColumns = false;
             listaTabela = new List<Entidades.TabelaPacotes>();
             listaPacoteServico = new List<Entidades.PacoteServico>();
+            listaPacoteAdicionais = new List<Entidades.PacotesAdicionais>();
+            pacote = new Entidades.Pacote();
+            pessoa = new Entidades.Pessoa();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -34,8 +40,51 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            Controller.PacoteController cc = new Controller.PacoteController();
             int codigo = 0;
             double valor = 0;
+            int result = 0;
+            if (ttbCodigo.Text != null && ttbCodigo.Text != "")
+            {
+                codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
+            }
+            if(ttbTotal.Text!=null && ttbTotal.Text != "")
+            {
+                valor = Convert.ToDouble(ttbTotal.Text.ToString());
+            }
+            preencheLista(listaTabela);
+            result = cc.contratarPacote(codigo, dateTimePicker1.Value, ttbObservacao.Text.ToString(), pacote, pessoa, listaPacoteAdicionais);
+            if(result > 0)
+            {
+                MessageBox.Show("Gravado com sucesso!");
+                limpatela();
+                inicializa(false);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao gravar!");
+            }
+
+        }
+
+        private void preencheLista(List<Entidades.TabelaPacotes> listap)
+        {
+            for(int i = 0; i<listap.Count; i++)
+            {
+                Entidades.PacotesAdicionais paca = new Entidades.PacotesAdicionais();
+                Controller.ServicoController sc = new Controller.ServicoController();
+                Entidades.Servico serv = new Entidades.Servico();
+                if (listap.ElementAt(i).Tipo == "Adcional")
+                {
+                    paca.QtdeServico = listap.ElementAt(i).Qtde;
+                    DataTable dt = sc.retornaObjServico(listap.ElementAt(i).Codigo);
+                    DataRow drServ = dt.Rows[0];
+                    serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), drServ["tiposerv_descricao"].ToString(),
+                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_velor"].ToString()), drServ["tiposerv_temposervico"].ToString());
+                    paca.Servico = serv;
+                    listaPacoteAdicionais.Add(paca);
+                }
+            }
 
         }
 
@@ -44,16 +93,20 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             Views.Pesquisa_Pessoa pesquisa_Pessoa = new Pesquisa_Pessoa();
 
             pesquisa_Pessoa.ShowDialog();
-
-            Controller.PessoaController pessoaController = new Controller.PessoaController();
-            DataTable dtRetorno = pessoaController.retornaPessoaFisica();
+            if(pesquisa_Pessoa.intCodigoPessoa > 0)
+            {
+                Controller.PessoaController pessoaController = new Controller.PessoaController();
+                DataTable dtRetorno = pessoaController.retornaPessoaCod(pesquisa_Pessoa.intCodigoPessoa.ToString());
 
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
                     DataRow dr = dtRetorno.Rows[0];
                     ttbCliente.Text = dr["pes_nome"].ToString();
-
+                    pessoa.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
+                    pessoa.Nome = dr["pes_nome"].ToString();
                 }
+            }
+            
             
         }
 
@@ -109,6 +162,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             _pacote.carregaPacote(Convert.ToInt32(drPacote["codpacote"].ToString()), drPacote["pac_pacote"].ToString(),
                 Convert.ToDouble(drPacote["pac_valor"].ToString()), drPacote["pac_obs"].ToString(), drPacote["pac_periodicidade"].ToString(), listaPacoteServico,
                 Convert.ToDateTime(drPacote["pac_datainicio"].ToString()), Convert.ToDateTime(drPacote["pac_datafim"].ToString()));
+
+            pacote = _pacote;
 
             if (dtLista!=null && dtLista.Rows.Count > 0)
             {

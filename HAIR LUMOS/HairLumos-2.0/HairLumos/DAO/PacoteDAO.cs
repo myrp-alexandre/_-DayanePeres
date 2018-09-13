@@ -109,6 +109,87 @@ namespace HairLumos.DAO
             return intRetorno;
         }
 
+        public int contratarPacote(Entidades.Contrato contrato)
+        {
+            int intRetorno = 0;
+
+            string strSQL = "";
+            Conexao objConexao = null;
+            //int _controle = 0;
+            try
+            {
+                objConexao = new Conexao();
+
+                if (contrato.Codigo == 0)
+                {
+                    _sql = "INSERT INTO tbcontrato" +
+                        "(contra_data, contra_ob, codpacote, codpessoa)" +
+                        " VALUES(@data, @ob, @pacote, @pessoa); SELECT MAX(codcontrato) FROM tbcontrato;";
+
+                }
+                else
+                {
+                    _sql = "UPDATE tbcontrato" +
+                            " SET contra_data = @data, contra_ob = @ob, codpacote = @pacote, codpessoa = @pessoa" +
+                        " WHERE codcontrato = @codigo";
+                }
+
+                objConexao.SqlCmd.CommandText = _sql;
+                objConexao.SqlCmd.Parameters.AddWithValue("@codigo", contrato.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@pacote", contrato.Pacote.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@ob", contrato.Observacao);
+                objConexao.SqlCmd.Parameters.AddWithValue("@pessoa", contrato.Pessoa.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@data", contrato.DataContrato);
+
+
+                objConexao.iniciarTransacao();
+                objConexao.AutoConexao = false;
+
+                int cod = (int)objConexao.executarScalar();
+                if (cod <= 0)
+                {
+                    return -1;
+                }
+
+                if (contrato.Lista != null)
+                {
+                    //Fazer o insert dos Endereços
+                    foreach (var item in contrato.Lista)
+                    {
+
+                        strSQL = "INSERT INTO tbpacotesadicionais(codcontrato,codtiposervico,pacadc_qtde, codpessoa) ";
+                        strSQL += "VALUES(@contrato, @codservico, @qtde, @pessoa)";
+
+                        objConexao.SqlCmd.Parameters.Clear();
+                        objConexao.SqlCmd.CommandText = strSQL;
+
+                        objConexao.SqlCmd.Parameters.AddWithValue("@qtde", item.QtdeServico);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@contrato", cod);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@codServico", item.Servico.Codigo);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@pessoa", contrato.Pessoa.Codigo);
+
+
+
+                        if (!objConexao.executarComando())
+                            return -1;
+                    }
+                }
+                objConexao.commitTransacao();
+                return 1;
+
+            }
+            catch (Exception e)
+            {
+                objConexao?.rollbackTransacao();
+            }
+            finally
+            {
+                objConexao?.fecharConexao();
+            }
+
+            return intRetorno;
+        }
+
         public DataTable RetornaPacote()
         {
             DataTable dt = new DataTable();
