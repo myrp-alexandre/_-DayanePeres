@@ -278,6 +278,12 @@
     <Compile Include="Views\Funcoes Fundamentais\RF_F7  Vender Produto\VenderProduto.Designer.cs">
       <DependentUpon>VenderProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\FecharAtendimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\FecharAtendimento.Designer.cs">
+      <DependentUpon>FecharAtendimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\LancarDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F7  Vender Produto\VenderProduto.resx">
       <DependentUpon>VenderProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\FecharAtendimento.resx">
+      <DependentUpon>FecharAtendimento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\LancarDespesa.resx">
       <DependentUpon>LancarDespesa.cs</DependentUpon>
