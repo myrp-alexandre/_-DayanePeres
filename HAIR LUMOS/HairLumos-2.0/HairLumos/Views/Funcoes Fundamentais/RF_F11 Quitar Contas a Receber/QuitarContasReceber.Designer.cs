@@ -1,6 +1,6 @@
-﻿namespace HairLumos.Views.Funcoes_Fundamentais
+﻿namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 {
-    partial class QuitarDespesa
+    partial class QuitarContasReceber
     {
         /// <summary>
         /// Required designer variable.
@@ -36,12 +36,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataAte = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataDe = new System.Windows.Forms.DateTimePicker();
             this.btnQuitarParcial = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbTodos = new System.Windows.Forms.RadioButton();
             this.rdbReceber = new System.Windows.Forms.RadioButton();
             this.rdbPagar = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 11);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -95,7 +95,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnQuitar);
             this.splitContainer1.Size = new System.Drawing.Size(792, 467);
             this.splitContainer1.SplitterDistance = 390;
-            this.splitContainer1.TabIndex = 3;
+            this.splitContainer1.TabIndex = 4;
             // 
             // ttbTotalVencido
             // 
@@ -153,9 +153,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dtpDataAte);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpDataDe);
             this.groupBox1.Controls.Add(this.btnQuitarParcial);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label1);
@@ -165,13 +165,13 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
-            // dateTimePicker2
+            // dtpDataAte
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(20, 93);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker2.TabIndex = 38;
+            this.dtpDataAte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataAte.Location = new System.Drawing.Point(20, 93);
+            this.dtpDataAte.Name = "dtpDataAte";
+            this.dtpDataAte.Size = new System.Drawing.Size(97, 20);
+            this.dtpDataAte.TabIndex = 38;
             // 
             // label2
             // 
@@ -182,13 +182,13 @@
             this.label2.TabIndex = 37;
             this.label2.Text = "Até:";
             // 
-            // dateTimePicker1
+            // dtpDataDe
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 35);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker1.TabIndex = 36;
+            this.dtpDataDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataDe.Location = new System.Drawing.Point(20, 35);
+            this.dtpDataDe.Name = "dtpDataDe";
+            this.dtpDataDe.Size = new System.Drawing.Size(97, 20);
+            this.dtpDataDe.TabIndex = 36;
             // 
             // btnQuitarParcial
             // 
@@ -202,7 +202,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rbTodos);
             this.groupBox2.Controls.Add(this.rdbReceber);
             this.groupBox2.Controls.Add(this.rdbPagar);
             this.groupBox2.Location = new System.Drawing.Point(231, 35);
@@ -212,16 +212,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contas";
             // 
-            // radioButton1
+            // rbTodos
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(206, 28);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(55, 17);
-            this.radioButton1.TabIndex = 25;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Todos";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(206, 28);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(55, 17);
+            this.rbTodos.TabIndex = 25;
+            this.rbTodos.TabStop = true;
+            this.rbTodos.Text = "Todos";
+            this.rbTodos.UseVisualStyleBackColor = true;
             // 
             // rdbReceber
             // 
@@ -387,16 +387,16 @@
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
             // 
-            // QuitarDespesa
+            // QuitarContasReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(816, 488);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "QuitarDespesa";
+            this.Name = "QuitarContasReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "H . L - QUITAR DESPESAS";
+            this.Text = "H. L - QUITAR CONTAS A RECEBER";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -414,21 +414,23 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TextBox ttbTotalVencido;
+        private System.Windows.Forms.TextBox ttbTotalPago;
+        private System.Windows.Forms.TextBox ttbTotalPagar;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpDataAte;
         public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDataDe;
         public System.Windows.Forms.Button btnQuitarParcial;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbTodos;
         private System.Windows.Forms.RadioButton rdbReceber;
         private System.Windows.Forms.RadioButton rdbPagar;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvServico;
-        public System.Windows.Forms.Button BtnCancelar;
-        public System.Windows.Forms.Button btnEstornar;
-        public System.Windows.Forms.Button btnSair;
-        public System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codContasPagar;
         private System.Windows.Forms.DataGridViewTextBoxColumn despesa;
         private System.Windows.Forms.DataGridViewTextBoxColumn contpag_valortotal;
@@ -439,11 +441,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datapagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datavencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn contpag_status;
-        public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox ttbTotalVencido;
-        private System.Windows.Forms.TextBox ttbTotalPago;
-        private System.Windows.Forms.TextBox ttbTotalPagar;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Button BtnCancelar;
+        public System.Windows.Forms.Button btnEstornar;
+        public System.Windows.Forms.Button btnSair;
+        public System.Windows.Forms.Button btnQuitar;
     }
 }
