@@ -16,7 +16,7 @@ namespace HairLumos.Controller
             return _MdlPac.gravaPacote(cod, pacote, servicos, valor, obs, periodo,dtIni,dtFim);
         }
 
-        public int contratarPacote(int codigo, DateTime data, string obs, Entidades.Pacote pacote, Entidades.Pessoa pessoa, List<Entidades.PacotesAdicionais> listaPacoteAdicionais)
+        public int contratarPacote(int codigo, DateTime data, string obs, Entidades.Pacote pacote, Entidades.PessoaFisica pessoa, List<Entidades.PacotesAdicionais> listaPacoteAdicionais)
         {
             return _MdlPac.contratarPacote(codigo, data, obs, pacote, pessoa, listaPacoteAdicionais);
         }

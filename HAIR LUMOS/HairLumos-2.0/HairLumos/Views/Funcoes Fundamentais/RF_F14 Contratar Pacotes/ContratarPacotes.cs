@@ -17,7 +17,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         private List<Entidades.PacoteServico> listaPacoteServico;
         private List<Entidades.PacotesAdicionais> listaPacoteAdicionais;
         private Entidades.Pacote pacote;
-        private Entidades.Pessoa pessoa;
+        private Entidades.PessoaFisica pessoa;
 
         public ContratarPacotes()
         {
@@ -30,7 +30,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             listaPacoteServico = new List<Entidades.PacoteServico>();
             listaPacoteAdicionais = new List<Entidades.PacotesAdicionais>();
             pacote = new Entidades.Pacote();
-            pessoa = new Entidades.Pessoa();
+            pessoa = new Entidades.PessoaFisica();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                     DataTable dt = sc.retornaObjServico(listap.ElementAt(i).Codigo);
                     DataRow drServ = dt.Rows[0];
                     serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), drServ["tiposerv_descricao"].ToString(),
-                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_velor"].ToString()), drServ["tiposerv_temposervico"].ToString());
+                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_valor"].ToString()), drServ["tiposerv_temposervico"].ToString());
                     paca.Servico = serv;
                     listaPacoteAdicionais.Add(paca);
                 }
@@ -100,10 +100,21 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
+                    
                     DataRow dr = dtRetorno.Rows[0];
                     ttbCliente.Text = dr["pes_nome"].ToString();
                     pessoa.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
                     pessoa.Nome = dr["pes_nome"].ToString();
+
+                    DataTable dtFisica = pessoaController.retornaPessoaFisicaCod(pessoa.Codigo);
+                    if (dtFisica != null && dtFisica.Rows.Count > 0)
+                    {
+
+                        DataRow drFisica = dtFisica.Rows[0];
+                        pessoa.CPF = drFisica["fis_cpf"].ToString();
+                    }
+
+                        
                 }
             }
             
@@ -178,7 +189,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                     serv.ServicoNome = drServ["tiposerv_descricao"].ToString();
                     serv.Observacao = drServ["tiposerv_obs"].ToString();
                     serv.Tempo = drServ["tiposerv_temposervico"].ToString();
-                    serv.Valor = Convert.ToDouble(drServ["tiposerv_velor"].ToString());
+                    serv.Valor = Convert.ToDouble(drServ["tiposerv_valor"].ToString());
                     pac.Pacote = _pacote;
                     pac.Servico = serv;
                     pac.Quantidade = Convert.ToInt32(dr["pacserv_qtde"].ToString());
@@ -210,6 +221,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 tab.Descr = lista.ElementAt(i).Servico.ServicoNome;
                 tab.Qtde = lista.ElementAt(i).Quantidade;
                 tab.Tipo = lista.ElementAt(i).Pacote.PaccoteNome;
+                tab.Valor = lista.ElementAt(i).Pacote.Valor;
                 listaTabela.Add(tab);
 
                 carregaDgvPacotesAdcinais(listaTabela);
@@ -228,7 +240,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 DataTable dtserv = sc.retornaObjServico(Convert.ToInt32(cbbServico.SelectedValue));
                 DataRow drServ = dtserv.Rows[0];
                 serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), drServ["tiposerv_descricao"].ToString(),
-                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_velor"].ToString()), drServ["tiposerv_temposervico"].ToString());
+                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_valor"].ToString()), drServ["tiposerv_temposervico"].ToString());
 
                 if (string.IsNullOrWhiteSpace(ttbQtde.Text))
                     MessageBox.Show("Informe a quantidade do serviço.");

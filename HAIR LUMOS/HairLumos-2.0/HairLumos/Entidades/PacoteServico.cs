@@ -12,6 +12,7 @@ namespace HairLumos.Entidades
         private Servico _servico;
         private int _qtde;
         private string _periodicidade;
+        private double _valor;
 
         private string _erro;
 
@@ -20,9 +21,9 @@ namespace HairLumos.Entidades
 
         }
 
-        public PacoteServico(Pacote pacote, Servico servico, int qtd, string periodicidade)
+        public PacoteServico(Pacote pacote, Servico servico, int qtd, string periodicidade, double valor)
         {
-            this.carregaPacoteServico(pacote, servico, qtd, periodicidade);
+            this.carregaPacoteServico(pacote, servico, qtd, periodicidade, valor);
         }
 
         public string Erro
@@ -51,13 +52,19 @@ namespace HairLumos.Entidades
             get { return _periodicidade; }
             set { _periodicidade = value; }
         }
+        public double Valor
+        {
+            get { return _valor; }
+            set { _valor = value; }
+        }
 
-        public void carregaPacoteServico(Pacote pacote, Servico servico, int qtd, string periodicidade)
+        public void carregaPacoteServico(Pacote pacote, Servico servico, int qtd, string periodicidade, double valor)
         {
             this.Pacote = pacote;
             this.Servico = servico;
             this.Quantidade = qtd;
             this.Periodicidade = periodicidade;
+            this.Valor = valor;
         }
     }
 }

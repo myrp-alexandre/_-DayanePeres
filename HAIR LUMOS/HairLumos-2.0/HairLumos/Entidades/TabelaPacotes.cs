@@ -12,6 +12,7 @@ namespace HairLumos.Entidades
         private string descr;
         private int qtde;
         private string tipo;
+        private double valor;
 
         public TabelaPacotes()
         {
@@ -25,7 +26,9 @@ namespace HairLumos.Entidades
 
         public string Tipo { get; set; }
 
-		public static explicit operator TabelaPacotes(string v)
+        public double Valor { get; set; }
+
+        public static explicit operator TabelaPacotes(string v)
 		{
 			throw new NotImplementedException();
 		}

@@ -294,12 +294,13 @@ namespace HairLumos.Views
             servico.Codigo = Convert.ToInt32(drServico["codtiposervico"].ToString());
             servico.ServicoNome = drServico["tiposerv_descricao"].ToString();
             servico.Observacao= drServico["tiposerv_obs"].ToString();
-            servico.Valor= Convert.ToDouble(drServico["tiposerv_velor"].ToString());
+            servico.Valor= Convert.ToDouble(drServico["tiposerv_valor"].ToString());
             servico.Tempo = drServico["tiposerv_temposervico"].ToString();
 
             pacoteServico.Periodicidade = ttbPeriodo.Text.Trim();
             pacoteServico.Servico = servico;
             pacoteServico.Quantidade = Convert.ToInt32(ttbQtdeServico.Text.Trim().ToString());
+            pacoteServico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
             lista.Add(pacoteServico);
             carregaDGV(lista);
 

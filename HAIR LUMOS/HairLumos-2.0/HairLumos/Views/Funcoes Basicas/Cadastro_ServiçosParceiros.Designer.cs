@@ -245,9 +245,9 @@
             // 
             // tiposerv_velor
             // 
-            this.tiposerv_velor.DataPropertyName = "tiposerv_velor";
+            this.tiposerv_velor.DataPropertyName = "tiposerv_valor";
             this.tiposerv_velor.HeaderText = "Valor Serviço (R$)";
-            this.tiposerv_velor.Name = "tiposerv_velor";
+            this.tiposerv_velor.Name = "tiposerv_valor";
             this.tiposerv_velor.ReadOnly = true;
             // 
             // tiposerv_temposervico

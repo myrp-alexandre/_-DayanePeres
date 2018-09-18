@@ -30,14 +30,14 @@ namespace HairLumos.DAO
                 if (_servico.Codigo == 0)
                 {
                     _sql = "INSERT INTO tbtiposervico" +
-                        "(tiposerv_descricao, tiposerv_obs, tiposerv_velor, tiposerv_temposervico)" +
+                        "(tiposerv_descricao, tiposerv_obs, tiposerv_valor, tiposerv_temposervico)" +
                         " VALUES (@descricao, @obs, @valor, @tempo)";
 
                 }
                 else
                 {
                     _sql = "UPDATE tbtiposervico" +
-                            " SET tiposerv_descricao = @descricao, tiposerv_obs = @obs, tiposerv_velor = @valor, tiposerv_temposervico = @tempo" +
+                            " SET tiposerv_descricao = @descricao, tiposerv_obs = @obs, tiposerv_valor = @valor, tiposerv_temposervico = @tempo" +
                         " WHERE codtiposervico = @codigo";
                 }
 
@@ -68,7 +68,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_velor, tiposerv_temposervico" +
+            _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_valor, tiposerv_temposervico" +
                         " FROM tbtiposervico; ";
 
             // int intCodigo = 0;
@@ -84,7 +84,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@codtiposervico");
                 cmd.Parameters.AddWithValue("@tiposerv_descricao");
                 cmd.Parameters.AddWithValue("@tiposerv_obs");
-                cmd.Parameters.AddWithValue("@tiposerv_velor");
+                cmd.Parameters.AddWithValue("@tiposerv_valor");
                 cmd.Parameters.AddWithValue("@tiposerv_temposervico");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -103,7 +103,7 @@ namespace HairLumos.DAO
 
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_velor, tiposerv_temposervico" +
+            _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_valor, tiposerv_temposervico" +
                         " FROM tbtiposervico " +
                     "WHERE codtiposervico = " + cod;
 
@@ -115,7 +115,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@codtiposervico");
                 cmd.Parameters.AddWithValue("@tiposerv_descricao");
                 cmd.Parameters.AddWithValue("@tiposerv_obs");
-                cmd.Parameters.AddWithValue("@tiposerv_velor");
+                cmd.Parameters.AddWithValue("@tiposerv_valor");
                 cmd.Parameters.AddWithValue("@tiposerv_temposervico");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader

@@ -117,7 +117,7 @@ namespace HairLumos.Views
                     dr["codtiposervico"].ToString(),
                     dr["tiposerv_descricao"].ToString(),
                     dr["tiposerv_obs"].ToString(),
-                    dr["tiposerv_velor"].ToString(),
+                    dr["tiposerv_valor"].ToString(),
                     dr["tiposerv_temposervico"].ToString());
 
             }

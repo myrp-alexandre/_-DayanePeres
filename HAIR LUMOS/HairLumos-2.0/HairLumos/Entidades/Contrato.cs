@@ -9,17 +9,19 @@ namespace HairLumos.Entidades
     class Contrato
     {
         private int codigo;
-        private string obs;
         private DateTime data;
-        private Pessoa pessoa;
+        private string obs;
         private Pacote pacote;
+        private PessoaFisica pessoaFisica;
+        private double _valor;
+        
 
         private List<Entidades.PacotesAdicionais> lista;
 
         public Contrato()
         {
             lista = new List<PacotesAdicionais>();
-            pessoa = new Pessoa();
+            pessoaFisica = new PessoaFisica();
             pacote = new Pacote();
         }
 
@@ -27,7 +29,10 @@ namespace HairLumos.Entidades
         public string Observacao { get; set; }
         public DateTime DataContrato{ get; set;}
         public Pacote Pacote { get; set; }
-        public Pessoa Pessoa { get; set; }
+        public PessoaFisica CodigoPessoa { get; set; }
+        public double Valor { get; set; }
+        
+
         public List<Entidades.PacotesAdicionais> Lista { get; set; }
     }
 }

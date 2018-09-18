@@ -11,16 +11,22 @@ namespace HairLumos.Entidades
         //private Contrato _codContrato;
         private Servico _servico;
         private int _qtdeServico;
-        private Pessoa _pessoa;
+        private PessoaFisica _pessoa;
+        private double _valor;
+        private string _observacao;
+        private bool _realizado;
 
-        public PacotesAdicionais(Servico servico, int qtdeServico, Pessoa pessoa)
+        public PacotesAdicionais(Servico servico, int qtdeServico, PessoaFisica pessoa, double valor, string observacao, bool realizado)
         {
-            this.carregaPacotesAdicionais(servico, qtdeServico, pessoa);
+            this.carregaPacotesAdicionais(servico, qtdeServico, pessoa, valor, observacao, realizado);
         }
 
         public PacotesAdicionais()
         {
-            this.carregaPacotesAdicionais(null, 0, null);
+            _servico = new Servico();
+            _pessoa = new PessoaFisica();
+
+            this.carregaPacotesAdicionais(null, 0, null, 0, "",false);
         }
 
         public Servico Servico
@@ -35,17 +41,38 @@ namespace HairLumos.Entidades
             set { _qtdeServico = value; }
         }
 
-        public Pessoa Pessoa
+        public PessoaFisica Pessoa
         {
             get { return _pessoa; }
             set { _pessoa = value; }
         }
 
-        public void carregaPacotesAdicionais(Servico servico, int qtdeServico, Pessoa pessoa)
+        public double Valor
+        {
+            get { return _valor; }
+            set { _valor = value; }
+        }
+
+        public string Observacao
+        {
+            get { return _observacao; }
+            set { _observacao = value; }
+        }
+
+        public bool Realizado
+        {
+            get { return _realizado; }
+            set { _realizado = value; }
+        }
+
+        public void carregaPacotesAdicionais(Servico servico, int qtdeServico, PessoaFisica pessoa, double valor, string observacao, bool realizado)
         {
             this.Servico = servico;
             this.QtdeServico = qtdeServico;
             this.Pessoa = pessoa;
+            this.Valor = valor;
+            this.Observacao = observacao;
+            this.Realizado = realizado;
         }
     }
 }

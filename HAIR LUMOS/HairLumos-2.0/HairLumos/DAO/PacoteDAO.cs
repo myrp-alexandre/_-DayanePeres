@@ -76,8 +76,8 @@ namespace HairLumos.DAO
                     foreach (var item in _pacote.ListaServico)
                     {
                         
-                        strSQL = "INSERT INTO tbpacoteservico(codpacote,codtiposervico,pacserv_qtde, pacServ_periodicidade) ";
-                        strSQL += "VALUES(@codpacote, @codServico, @qtde, @periodicidade)";
+                        strSQL = "INSERT INTO tbpacoteservico(codpacote,codtiposervico,pacserv_qtde, pacServ_periodicidade, pacserv_valor) ";
+                        strSQL += "VALUES(@codpacote, @codServico, @qtde, @periodicidade, @valorP)";
 
                         objConexao.SqlCmd.Parameters.Clear();
                         objConexao.SqlCmd.CommandText = strSQL;
@@ -86,6 +86,7 @@ namespace HairLumos.DAO
                         objConexao.SqlCmd.Parameters.AddWithValue("@periodicidade", item.Periodicidade);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codServico", NpgsqlTypes.NpgsqlDbType.Integer, item.Servico.Codigo);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codPacote", cod);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@valorP", item.Valor);
                         
 
 
@@ -123,14 +124,14 @@ namespace HairLumos.DAO
                 if (contrato.Codigo == 0)
                 {
                     _sql = "INSERT INTO tbcontrato" +
-                        "(contra_data, contra_ob, codpacote, codpessoa)" +
+                        "(contra_data, contra_ob, codpacote, fis_cpf)" +
                         " VALUES(@data, @ob, @pacote, @pessoa); SELECT MAX(codcontrato) FROM tbcontrato;";
 
                 }
                 else
                 {
                     _sql = "UPDATE tbcontrato" +
-                            " SET contra_data = @data, contra_ob = @ob, codpacote = @pacote, codpessoa = @pessoa" +
+                            " SET contra_data = @data, contra_ob = @ob, codpacote = @pacote, fis_cpf = @pessoa" +
                         " WHERE codcontrato = @codigo";
                 }
 
@@ -138,7 +139,7 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@codigo", contrato.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@pacote", contrato.Pacote.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@ob", contrato.Observacao);
-                objConexao.SqlCmd.Parameters.AddWithValue("@pessoa", contrato.Pessoa.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@pessoa", contrato.CodigoPessoa.CPF);
                 objConexao.SqlCmd.Parameters.AddWithValue("@data", contrato.DataContrato);
 
 
@@ -157,8 +158,8 @@ namespace HairLumos.DAO
                     foreach (var item in contrato.Lista)
                     {
 
-                        strSQL = "INSERT INTO tbpacotesadicionais(codcontrato,codtiposervico,pacadc_qtde, codpessoa) ";
-                        strSQL += "VALUES(@contrato, @codservico, @qtde, @pessoa)";
+                        strSQL = "INSERT INTO tbpacotesadicionais(codcontrato,codtiposervico,pacadc_qtde, fis_cpf, pacadc_valor, pacadc_obs, pacadc_realizado) ";
+                        strSQL += "VALUES(@contrato, @codservico, @qtde, @pessoa, @valor, @obs, @realizado)";
 
                         objConexao.SqlCmd.Parameters.Clear();
                         objConexao.SqlCmd.CommandText = strSQL;
@@ -166,9 +167,10 @@ namespace HairLumos.DAO
                         objConexao.SqlCmd.Parameters.AddWithValue("@qtde", item.QtdeServico);
                         objConexao.SqlCmd.Parameters.AddWithValue("@contrato", cod);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codServico", item.Servico.Codigo);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@pessoa", contrato.Pessoa.Codigo);
-
-
+                        objConexao.SqlCmd.Parameters.AddWithValue("@pessoa", contrato.CodigoPessoa.CPF);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@valor", contrato.Valor);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@obs", contrato.Observacao);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@realizado",false);
 
                         if (!objConexao.executarComando())
                             return -1;

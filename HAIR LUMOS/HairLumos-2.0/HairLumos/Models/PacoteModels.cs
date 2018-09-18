@@ -19,14 +19,14 @@ namespace HairLumos.Models
             return _DAOPac.GravarPacote(_entPacote);
         }
 
-        public int contratarPacote(int codigo, DateTime data, string obs, Entidades.Pacote pacote, Entidades.Pessoa pessoa, List<Entidades.PacotesAdicionais> listaPacoteAdicionais)
+        public int contratarPacote(int codigo, DateTime data, string obs, Entidades.Pacote pacote, Entidades.PessoaFisica pessoa, List<Entidades.PacotesAdicionais> listaPacoteAdicionais)
         {
             Entidades.Contrato contrato = new Entidades.Contrato();
             contrato.Codigo = codigo;
             contrato.DataContrato = data;
             contrato.Observacao = obs;
             contrato.Pacote = pacote;
-            contrato.Pessoa = pessoa;
+            contrato.CodigoPessoa = pessoa;
             contrato.Lista = listaPacoteAdicionais;
             return _DAOPac.contratarPacote(contrato);
         }
