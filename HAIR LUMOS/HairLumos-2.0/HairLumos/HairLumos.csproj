@@ -236,11 +236,17 @@
     <Compile Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Pesquisa_GerenciarPacotes.Designer.cs">
       <DependentUpon>Pesquisa_GerenciarPacotes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F2 Agendamento\Agendamento.cs">
+    <Compile Include="Views\Funcoes Fundamentais\RF_F2 Agenda\Agenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Funcoes Fundamentais\RF_F2 Agendamento\Agendamento.Designer.cs">
-      <DependentUpon>Agendamento.cs</DependentUpon>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F2 Agenda\Agenda.Designer.cs">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F3 Controlar Agendamento\ControlarAgendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F3 Controlar Agendamento\ControlarAgendamento.Designer.cs">
+      <DependentUpon>ControlarAgendamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F4 - Fechar Caixa\FecharCaixa.cs">
       <SubType>Form</SubType>
@@ -363,8 +369,11 @@
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F16 Gerenciar Pacotes\Pesquisa_GerenciarPacotes.resx">
       <DependentUpon>Pesquisa_GerenciarPacotes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F2 Agendamento\Agendamento.resx">
-      <DependentUpon>Agendamento.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F2 Agenda\Agenda.resx">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F3 Controlar Agendamento\ControlarAgendamento.resx">
+      <DependentUpon>ControlarAgendamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F4 - Fechar Caixa\FecharCaixa.resx">
       <DependentUpon>FecharCaixa.cs</DependentUpon>

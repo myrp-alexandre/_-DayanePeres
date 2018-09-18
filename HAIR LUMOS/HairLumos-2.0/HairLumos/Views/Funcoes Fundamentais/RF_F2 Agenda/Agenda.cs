@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento
+namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 {
-    public partial class Agendamento : Form
+    public partial class Agenda : Form
     {
-        public Agendamento()
+        public Agenda()
         {
             InitializeComponent();
         }

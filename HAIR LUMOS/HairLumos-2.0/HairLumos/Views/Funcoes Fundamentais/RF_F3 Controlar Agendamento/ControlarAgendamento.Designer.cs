@@ -1,6 +1,6 @@
 ﻿namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento
 {
-    partial class Agendamento
+    partial class Agenda
     {
         /// <summary>
         /// Required designer variable.
