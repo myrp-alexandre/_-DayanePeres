@@ -82,7 +82,6 @@
             // mskAddValor
             // 
             this.mskAddValor.Location = new System.Drawing.Point(323, 178);
-            this.mskAddValor.Mask = "00000,00";
             this.mskAddValor.Name = "mskAddValor";
             this.mskAddValor.Size = new System.Drawing.Size(166, 20);
             this.mskAddValor.TabIndex = 32;

@@ -215,5 +215,11 @@ namespace HairLumos
             Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes.ContratarPacotes ccp = new Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes.ContratarPacotes();
             ccp.Show();
         }
+
+        private void venderProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto venderProduto = new Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto();
+            venderProduto.Show();
+        }
     }
 }

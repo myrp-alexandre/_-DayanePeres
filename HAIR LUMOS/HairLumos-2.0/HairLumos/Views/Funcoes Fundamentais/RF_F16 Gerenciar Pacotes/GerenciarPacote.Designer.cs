@@ -164,10 +164,10 @@
             // ttbObs
             // 
             this.ttbObs.BackColor = System.Drawing.SystemColors.Window;
-            this.ttbObs.Location = new System.Drawing.Point(284, 48);
+            this.ttbObs.Location = new System.Drawing.Point(399, 51);
             this.ttbObs.Multiline = true;
             this.ttbObs.Name = "ttbObs";
-            this.ttbObs.Size = new System.Drawing.Size(369, 26);
+            this.ttbObs.Size = new System.Drawing.Size(254, 23);
             this.ttbObs.TabIndex = 19;
             // 
             // mskValor
@@ -181,11 +181,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(173, 51);
+            this.label4.Location = new System.Drawing.Point(321, 48);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 13);
+            this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Observação Pacote:";
+            this.label4.Text = "Observação:";
             // 
             // label6
             // 

@@ -514,4 +514,8 @@ D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F16_Gerenciar_Pacotes.Pesquisa_GerenciarPacotes.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao.GerenciarComissao.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes.PesquisaContratoPacotes.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento.Agendamento.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento.Agenda.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.FecharAtendimento.resources

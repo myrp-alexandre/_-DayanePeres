@@ -959,24 +959,20 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT * FROM tbcontato WHERE codpessoa =" + codigo;
-
+            _sql = "SELECT cont_telefone FROM tbcontato WHERE codpessoa = "+codigo;
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("codpessoa", codigo);
+                cmd.Parameters.AddWithValue("@cont_telefone");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
-
-
-
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
                 throw;
