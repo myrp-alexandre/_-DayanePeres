@@ -460,6 +460,9 @@
   <ItemGroup>
     <Content Include="Img\calendar %281%29.png" />
     <Content Include="Img\calendar.png" />
+    <None Include="Resources\_vermelho.png" />
+    <None Include="Resources\_verde.png" />
+    <None Include="Resources\_azul.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
