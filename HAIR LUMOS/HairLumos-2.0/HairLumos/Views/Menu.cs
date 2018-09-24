@@ -159,13 +159,13 @@ namespace HairLumos
         private void cadastroServiçosDeParceirosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Funcoes_Basicas.Cadastro_ServiçosParceiros cadastro_ServiçosParceiros = new Views.Funcoes_Basicas.Cadastro_ServiçosParceiros();
-            cadastro_ServiçosParceiros.Show();
+            cadastro_ServiçosParceiros.ShowDialog();
         }
 
         private void lançarDespesasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Funcoes_Fundamentais.LancarDespesa lancarDespesas = new Views.Funcoes_Fundamentais.LancarDespesa();
-            lancarDespesas.Show();
+            lancarDespesas.ShowDialog();
         }
 
         private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace HairLumos
             if (dt == null || dt.Rows.Count == 0)
             {
                 Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa abrirCaixa = new Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa.AbrirCaixa();
-                abrirCaixa.Show();
+                abrirCaixa.ShowDialog();
             }
             else
             {
@@ -190,7 +190,7 @@ namespace HairLumos
             if (dt != null && dt.Rows.Count > 0)
             {
                 Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa.FecharCaixa fecharCaixa = new Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa.FecharCaixa();
-                fecharCaixa.Show();
+                fecharCaixa.ShowDialog();
             }
             else
             {
@@ -201,25 +201,25 @@ namespace HairLumos
         private void gerenciarPacotesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Cadastro_Pacotes cadastro_Pacotes = new Cadastro_Pacotes();
-            cadastro_Pacotes.Show();
+            cadastro_Pacotes.ShowDialog();
         }
 
         private void baixaManualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual.BaixarEstoqueManual baixa = new Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual.BaixarEstoqueManual();
-            baixa.Show();
+            baixa.ShowDialog();
         }
 
         private void contratarPacoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes.ContratarPacotes ccp = new Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes.ContratarPacotes();
-            ccp.Show();
+            ccp.ShowDialog();
         }
 
         private void venderProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto venderProduto = new Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto();
-            venderProduto.Show();
+            venderProduto.ShowDialog();
         }
     }
 }

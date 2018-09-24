@@ -30,8 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(79, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(401, 20);
+            this.textBox1.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -67,13 +74,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(79, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(401, 20);
-            this.textBox1.TabIndex = 1;
-            // 
             // FecharAtendimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -82,6 +82,7 @@
             this.ClientSize = new System.Drawing.Size(802, 523);
             this.Controls.Add(this.groupBox1);
             this.Name = "FecharAtendimento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "H.L - FECHAR ATENDIMENTO";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

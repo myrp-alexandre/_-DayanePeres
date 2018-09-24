@@ -395,7 +395,7 @@
             this.ClientSize = new System.Drawing.Size(816, 488);
             this.Controls.Add(this.splitContainer1);
             this.Name = "QuitarDespesa";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "H . L - QUITAR DESPESAS";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

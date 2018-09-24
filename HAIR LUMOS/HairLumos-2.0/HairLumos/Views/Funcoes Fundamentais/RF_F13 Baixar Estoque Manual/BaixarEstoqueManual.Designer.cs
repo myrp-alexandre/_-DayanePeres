@@ -34,6 +34,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnExcluiBaixaProduto = new System.Windows.Forms.Button();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            this.Prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ttbObs = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,8 +49,6 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.Prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -142,6 +142,20 @@
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(440, 109);
             this.dgvProdutos.TabIndex = 16;
+            // 
+            // Prod
+            // 
+            this.Prod.DataPropertyName = "Prod";
+            this.Prod.HeaderText = "Produto";
+            this.Prod.Name = "Prod";
+            this.Prod.ReadOnly = true;
+            // 
+            // Qtde
+            // 
+            this.Qtde.DataPropertyName = "Qtde";
+            this.Qtde.HeaderText = "Quantidade";
+            this.Qtde.Name = "Qtde";
+            this.Qtde.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -276,20 +290,6 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // Prod
-            // 
-            this.Prod.DataPropertyName = "Prod";
-            this.Prod.HeaderText = "Produto";
-            this.Prod.Name = "Prod";
-            this.Prod.ReadOnly = true;
-            // 
-            // Qtde
-            // 
-            this.Qtde.DataPropertyName = "Qtde";
-            this.Qtde.HeaderText = "Quantidade";
-            this.Qtde.Name = "Qtde";
-            this.Qtde.ReadOnly = true;
-            // 
             // BaixarEstoqueManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,7 +300,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Cursor = System.Windows.Forms.Cursors.No;
             this.Name = "BaixarEstoqueManual";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "H.L - BAIXA DE ESTOQUE MANUAL";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

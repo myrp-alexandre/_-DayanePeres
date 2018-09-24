@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvContas = new System.Windows.Forms.DataGridView();
+            this.parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnIncluir = new System.Windows.Forms.Button();
             this.mskValorParcela = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDataVencimento = new System.Windows.Forms.DateTimePicker();
@@ -38,20 +43,15 @@
             this.ttbQtdeParcela = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnFinalizar = new System.Windows.Forms.Button();
-            this.dgvContas = new System.Windows.Forms.DataGridView();
-            this.btnIncluir = new System.Windows.Forms.Button();
-            this.parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -75,6 +75,47 @@
             this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 3;
             // 
+            // dgvContas
+            // 
+            this.dgvContas.AllowUserToAddRows = false;
+            this.dgvContas.AllowUserToDeleteRows = false;
+            this.dgvContas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.parcela,
+            this.valorParcela,
+            this.vencimento});
+            this.dgvContas.Location = new System.Drawing.Point(15, 136);
+            this.dgvContas.Name = "dgvContas";
+            this.dgvContas.ReadOnly = true;
+            this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContas.Size = new System.Drawing.Size(361, 162);
+            this.dgvContas.TabIndex = 34;
+            // 
+            // parcela
+            // 
+            this.parcela.DataPropertyName = "parcela";
+            this.parcela.HeaderText = "Parcela";
+            this.parcela.Name = "parcela";
+            this.parcela.ReadOnly = true;
+            this.parcela.Width = 50;
+            // 
+            // valorParcela
+            // 
+            this.valorParcela.DataPropertyName = "valorParcela";
+            this.valorParcela.HeaderText = "Valor Parcela (R$)";
+            this.valorParcela.Name = "valorParcela";
+            this.valorParcela.ReadOnly = true;
+            this.valorParcela.Width = 125;
+            // 
+            // vencimento
+            // 
+            this.vencimento.DataPropertyName = "vencimento";
+            this.vencimento.HeaderText = "Data Vencimento";
+            this.vencimento.Name = "vencimento";
+            this.vencimento.ReadOnly = true;
+            this.vencimento.Width = 125;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnIncluir);
@@ -91,6 +132,16 @@
             this.groupBox1.Size = new System.Drawing.Size(361, 109);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluir.Location = new System.Drawing.Point(279, 43);
+            this.btnIncluir.Name = "btnIncluir";
+            this.btnIncluir.Size = new System.Drawing.Size(67, 27);
+            this.btnIncluir.TabIndex = 4;
+            this.btnIncluir.Text = "Incluir";
+            this.btnIncluir.UseVisualStyleBackColor = false;
             // 
             // mskValorParcela
             // 
@@ -157,66 +208,15 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Valor Total (R$):";
             // 
-            // btnFinalizar
+            // btnSair
             // 
-            this.btnFinalizar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFinalizar.Location = new System.Drawing.Point(15, 7);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(67, 38);
-            this.btnFinalizar.TabIndex = 0;
-            this.btnFinalizar.Text = "Finalizar";
-            this.btnFinalizar.UseVisualStyleBackColor = false;
-            // 
-            // dgvContas
-            // 
-            this.dgvContas.AllowUserToAddRows = false;
-            this.dgvContas.AllowUserToDeleteRows = false;
-            this.dgvContas.BackgroundColor = System.Drawing.Color.White;
-            this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.parcela,
-            this.valorParcela,
-            this.vencimento});
-            this.dgvContas.Location = new System.Drawing.Point(15, 136);
-            this.dgvContas.Name = "dgvContas";
-            this.dgvContas.ReadOnly = true;
-            this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContas.Size = new System.Drawing.Size(361, 162);
-            this.dgvContas.TabIndex = 34;
-            // 
-            // btnIncluir
-            // 
-            this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIncluir.Location = new System.Drawing.Point(279, 43);
-            this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(67, 27);
-            this.btnIncluir.TabIndex = 4;
-            this.btnIncluir.Text = "Incluir";
-            this.btnIncluir.UseVisualStyleBackColor = false;
-            // 
-            // parcela
-            // 
-            this.parcela.DataPropertyName = "parcela";
-            this.parcela.HeaderText = "Parcela";
-            this.parcela.Name = "parcela";
-            this.parcela.ReadOnly = true;
-            this.parcela.Width = 50;
-            // 
-            // valorParcela
-            // 
-            this.valorParcela.DataPropertyName = "valorParcela";
-            this.valorParcela.HeaderText = "Valor Parcela (R$)";
-            this.valorParcela.Name = "valorParcela";
-            this.valorParcela.ReadOnly = true;
-            this.valorParcela.Width = 125;
-            // 
-            // vencimento
-            // 
-            this.vencimento.DataPropertyName = "vencimento";
-            this.vencimento.HeaderText = "Data Vencimento";
-            this.vencimento.Name = "vencimento";
-            this.vencimento.ReadOnly = true;
-            this.vencimento.Width = 125;
+            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.Location = new System.Drawing.Point(309, 7);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(67, 38);
+            this.btnSair.TabIndex = 3;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
@@ -228,15 +228,15 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // btnSair
+            // btnFinalizar
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(309, 7);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(67, 38);
-            this.btnSair.TabIndex = 3;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnFinalizar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnFinalizar.Location = new System.Drawing.Point(15, 7);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(67, 38);
+            this.btnFinalizar.TabIndex = 0;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
             // 
             // GerarContaPagar
             // 
@@ -247,14 +247,15 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "GerarContaPagar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HL - GERAR CONTAS A PAGAR";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
             this.ResumeLayout(false);
 
         }

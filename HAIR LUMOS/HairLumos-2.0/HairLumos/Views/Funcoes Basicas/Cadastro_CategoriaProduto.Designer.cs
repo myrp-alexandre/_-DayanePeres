@@ -261,7 +261,7 @@
             this.Controls.Add(this.splitContainer1);
             this.MinimizeBox = false;
             this.Name = "Cadastro_CategoriaProduto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CADASTRO DE CATEGORIA";
             this.Load += new System.EventHandler(this.Cadastro_CategoriaProduto_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

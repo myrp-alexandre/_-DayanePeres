@@ -403,6 +403,7 @@
             this.ClientSize = new System.Drawing.Size(621, 522);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FecharCaixa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HL - FECHAMENTO DE CAIXA";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

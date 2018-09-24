@@ -34,6 +34,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvServico = new System.Windows.Forms.DataGridView();
+            this.codtiposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiposerv_velor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiposerv_temposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
@@ -47,10 +51,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codtiposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiposerv_velor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiposerv_temposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -144,6 +144,36 @@
             this.dgvServico.Size = new System.Drawing.Size(468, 150);
             this.dgvServico.TabIndex = 12;
             this.dgvServico.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServico_CellDoubleClick);
+            // 
+            // codtiposervico
+            // 
+            this.codtiposervico.DataPropertyName = "codtiposervico";
+            this.codtiposervico.HeaderText = "Cód";
+            this.codtiposervico.Name = "codtiposervico";
+            this.codtiposervico.ReadOnly = true;
+            this.codtiposervico.Width = 50;
+            // 
+            // tiposerv_descricao
+            // 
+            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
+            this.tiposerv_descricao.HeaderText = "Tipo Serviço";
+            this.tiposerv_descricao.Name = "tiposerv_descricao";
+            this.tiposerv_descricao.ReadOnly = true;
+            // 
+            // tiposerv_velor
+            // 
+            this.tiposerv_velor.DataPropertyName = "tiposerv_velor";
+            this.tiposerv_velor.HeaderText = "Valor Serviço (R$)";
+            this.tiposerv_velor.Name = "tiposerv_velor";
+            this.tiposerv_velor.ReadOnly = true;
+            // 
+            // tiposerv_temposervico
+            // 
+            this.tiposerv_temposervico.DataPropertyName = "tiposerv_temposervico";
+            this.tiposerv_temposervico.HeaderText = "Tempo Estimado";
+            this.tiposerv_temposervico.Name = "tiposerv_temposervico";
+            this.tiposerv_temposervico.ReadOnly = true;
             // 
             // btnSelecionar
             // 
@@ -273,36 +303,6 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // codtiposervico
-            // 
-            this.codtiposervico.DataPropertyName = "codtiposervico";
-            this.codtiposervico.HeaderText = "Cód";
-            this.codtiposervico.Name = "codtiposervico";
-            this.codtiposervico.ReadOnly = true;
-            this.codtiposervico.Width = 50;
-            // 
-            // tiposerv_descricao
-            // 
-            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
-            this.tiposerv_descricao.HeaderText = "Tipo Serviço";
-            this.tiposerv_descricao.Name = "tiposerv_descricao";
-            this.tiposerv_descricao.ReadOnly = true;
-            // 
-            // tiposerv_velor
-            // 
-            this.tiposerv_velor.DataPropertyName = "tiposerv_velor";
-            this.tiposerv_velor.HeaderText = "Valor Serviço (R$)";
-            this.tiposerv_velor.Name = "tiposerv_velor";
-            this.tiposerv_velor.ReadOnly = true;
-            // 
-            // tiposerv_temposervico
-            // 
-            this.tiposerv_temposervico.DataPropertyName = "tiposerv_temposervico";
-            this.tiposerv_temposervico.HeaderText = "Tempo Estimado";
-            this.tiposerv_temposervico.Name = "tiposerv_temposervico";
-            this.tiposerv_temposervico.ReadOnly = true;
-            // 
             // Cadastro_TipoServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,7 +312,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Cadastro_TipoServico";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CADASTRO TIPO SERVIÇO ";
             this.Load += new System.EventHandler(this.Cadastro_Servico_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

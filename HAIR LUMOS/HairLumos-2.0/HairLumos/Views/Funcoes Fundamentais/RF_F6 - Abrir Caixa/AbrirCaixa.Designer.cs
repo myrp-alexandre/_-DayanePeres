@@ -210,6 +210,7 @@
             this.ClientSize = new System.Drawing.Size(529, 291);
             this.Controls.Add(this.splitContainer1);
             this.Name = "AbrirCaixa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HL - ABRIR CAIXA";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

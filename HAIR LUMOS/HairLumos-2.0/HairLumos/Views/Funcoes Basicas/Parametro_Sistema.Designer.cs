@@ -306,7 +306,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Parametro_Sistema";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PARAMETRO SISTEMA";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Parametro_Sistema_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);

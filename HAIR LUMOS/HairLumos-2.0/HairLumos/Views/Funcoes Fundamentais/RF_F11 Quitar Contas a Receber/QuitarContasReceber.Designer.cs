@@ -116,6 +116,7 @@
             this.btnListar.TabIndex = 14;
             this.btnListar.Text = "Listar recebimentos";
             this.btnListar.UseVisualStyleBackColor = false;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // groupBox1
             // 
@@ -196,6 +197,7 @@
             // 
             // ttbTotalPago
             // 
+            this.ttbTotalPago.Enabled = false;
             this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
             this.ttbTotalPago.Location = new System.Drawing.Point(672, 32);
             this.ttbTotalPago.Name = "ttbTotalPago";
@@ -204,6 +206,7 @@
             // 
             // ttbTotalVencido
             // 
+            this.ttbTotalVencido.Enabled = false;
             this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
             this.ttbTotalVencido.Location = new System.Drawing.Point(577, 32);
             this.ttbTotalVencido.Name = "ttbTotalVencido";
@@ -212,6 +215,7 @@
             // 
             // ttbTotalPagar
             // 
+            this.ttbTotalPagar.Enabled = false;
             this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
             this.ttbTotalPagar.Location = new System.Drawing.Point(482, 32);
             this.ttbTotalPagar.Name = "ttbTotalPagar";
@@ -322,7 +326,9 @@
             // 
             // ttbNomeCliente
             // 
+            this.ttbNomeCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ttbNomeCliente.Location = new System.Drawing.Point(10, 32);
+            this.ttbNomeCliente.MaxLength = 100;
             this.ttbNomeCliente.Name = "ttbNomeCliente";
             this.ttbNomeCliente.Size = new System.Drawing.Size(456, 20);
             this.ttbNomeCliente.TabIndex = 1;
@@ -468,6 +474,7 @@
             this.BtnCancelar.TabIndex = 13;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnEstornar
             // 
@@ -478,6 +485,7 @@
             this.btnEstornar.TabIndex = 12;
             this.btnEstornar.Text = "Estornar";
             this.btnEstornar.UseVisualStyleBackColor = false;
+            this.btnEstornar.Click += new System.EventHandler(this.btnEstornar_Click);
             // 
             // btnSair
             // 
@@ -488,6 +496,7 @@
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnQuitar
             // 
@@ -498,6 +507,7 @@
             this.btnQuitar.TabIndex = 6;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // QuitarContasReceber
             // 
@@ -508,7 +518,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "QuitarContasReceber";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "H. L - QUITAR CONTAS A RECEBER";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

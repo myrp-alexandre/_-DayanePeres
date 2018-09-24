@@ -31,6 +31,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.dgvFormaPagamento = new System.Windows.Forms.DataGridView();
+            this.codformapag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formpag_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.ttbForma = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.codformapag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formpag_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -106,6 +106,22 @@
             this.dgvFormaPagamento.Size = new System.Drawing.Size(468, 125);
             this.dgvFormaPagamento.TabIndex = 12;
             this.dgvFormaPagamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormaPagamento_CellDoubleClick);
+            // 
+            // codformapag
+            // 
+            this.codformapag.DataPropertyName = "codformapag";
+            this.codformapag.HeaderText = "Cód";
+            this.codformapag.Name = "codformapag";
+            this.codformapag.ReadOnly = true;
+            this.codformapag.Width = 80;
+            // 
+            // formpag_descricao
+            // 
+            this.formpag_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.formpag_descricao.DataPropertyName = "formpag_descricao";
+            this.formpag_descricao.HeaderText = "Forma Pagamento";
+            this.formpag_descricao.Name = "formpag_descricao";
+            this.formpag_descricao.ReadOnly = true;
             // 
             // Código
             // 
@@ -206,22 +222,6 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // codformapag
-            // 
-            this.codformapag.DataPropertyName = "codformapag";
-            this.codformapag.HeaderText = "Cód";
-            this.codformapag.Name = "codformapag";
-            this.codformapag.ReadOnly = true;
-            this.codformapag.Width = 80;
-            // 
-            // formpag_descricao
-            // 
-            this.formpag_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.formpag_descricao.DataPropertyName = "formpag_descricao";
-            this.formpag_descricao.HeaderText = "Forma Pagamento";
-            this.formpag_descricao.Name = "formpag_descricao";
-            this.formpag_descricao.ReadOnly = true;
-            // 
             // Cadastro_FormaPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,7 +231,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Cadastro_FormaPagamento";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CADASTRO FORMA DE PAGAMENTO";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

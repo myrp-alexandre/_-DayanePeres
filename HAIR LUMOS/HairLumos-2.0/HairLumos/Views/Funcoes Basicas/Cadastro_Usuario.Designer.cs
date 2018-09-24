@@ -294,7 +294,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Cadastro_Usuario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CADASTRO DE USUÁRIO";
             this.Load += new System.EventHandler(this.Cadastro_Usuario_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
