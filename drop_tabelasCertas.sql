@@ -5,7 +5,7 @@
 /* Project name:                                                          */
 /* Author:                                                                */
 /* Script type:           Database drop script                            */
-/* Created on:            2018-09-21 13:32                                */
+/* Created on:            2018-09-25 14:48                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -83,10 +83,6 @@ ALTER TABLE TBCONTASRECEBER DROP CONSTRAINT TBVENDA_TBCONTASRECEBER;
 
 ALTER TABLE TBCONTASRECEBER DROP CONSTRAINT TBCOMISSAO_TBCONTASRECEBER;
 
-ALTER TABLE TBCONTASRECEBER DROP CONSTRAINT TBCAIXA_TBCONTASRECEBER;
-
-ALTER TABLE TBCONTASRECEBER DROP CONSTRAINT TBFORMAPAGAMENTO_TBCONTASRECEBER;
-
 ALTER TABLE TBCONTASRECEBER DROP CONSTRAINT TBFIADO_TBCONTASRECEBER;
 
 ALTER TABLE TBCAIXA DROP CONSTRAINT TBUSUARIO_TBCAIXA;
@@ -101,6 +97,12 @@ ALTER TABLE TBFIADO DROP CONSTRAINT TBAGENDA_TBFIADO;
 
 ALTER TABLE TBFIADO DROP CONSTRAINT TBVENDA_TBFIADO;
 
+ALTER TABLE TBCONTASRECEBER_PARC DROP CONSTRAINT TBCONTASRECEBER_TBCONTASRECEBER_PARC;
+
+ALTER TABLE TBCONTASRECEBER_PARC DROP CONSTRAINT TBFORMAPAGAMENTO_TBCONTASRECEBER_PARC;
+
+ALTER TABLE TBCONTASRECEBER_PARC DROP CONSTRAINT TBCAIXA_TBCONTASRECEBER_PARC;
+
 /* ---------------------------------------------------------------------- */
 /* Drop table "TBCOMPRAPRODUTO"                                           */
 /* ---------------------------------------------------------------------- */
@@ -112,6 +114,18 @@ ALTER TABLE TBCOMPRAPRODUTO DROP CONSTRAINT PK_TBCOMPRAPRODUTO;
 /* Drop table */
 
 DROP TABLE TBCOMPRAPRODUTO;
+
+/* ---------------------------------------------------------------------- */
+/* Drop table "TBCONTASRECEBER_PARC"                                      */
+/* ---------------------------------------------------------------------- */
+
+/* Drop constraints */
+
+ALTER TABLE TBCONTASRECEBER_PARC DROP CONSTRAINT PK_TBCONTASRECEBER_PARC;
+
+/* Drop table */
+
+DROP TABLE TBCONTASRECEBER_PARC;
 
 /* ---------------------------------------------------------------------- */
 /* Drop table "TBCONTASRECEBER"                                           */
