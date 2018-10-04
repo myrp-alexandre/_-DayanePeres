@@ -87,26 +87,67 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            Entidades.VendaProduto vep = new Entidades.VendaProduto();
-            Controller.ProdutoController produtoController = new Controller.ProdutoController();
-            DataTable dtRetorno = produtoController.retornaProduto(prod.CodigoProduto);
-            if(dtRetorno.Rows.Count>0 && dtRetorno != null)
-            {
-                DataRow dr = dtRetorno.Rows[0];
-                prod.CodigoProduto = Convert.ToInt32(dr["codproduto"].ToString());
-                prod.NomeProduto = dr["prod_produto"].ToString();
-                prod.Venda = Convert.ToDouble(dr["prod_precoVenda"].ToString());
-                vep.Produto = prod;
-                vep.Valor = prod.Venda;
-                prod = new Entidades.Produto();
-            }
 
-            vep.Quantidade = Convert.ToInt32(mskQtde.Text.ToString());
-            insereLista(listVendaProduto, vep);
-            carregaDgv(listVendaProduto);
-            ttbProduto.Text = "";
-            mskValor.Text = "";
-            mskQtde.Text = "";
+            try
+            {
+                Entidades.VendaProduto vep = new Entidades.VendaProduto();
+                Controller.ProdutoController produtoController = new Controller.ProdutoController();
+                DataTable dtRetorno = produtoController.retornaProduto(prod.CodigoProduto);
+                if (dtRetorno.Rows.Count > 0 && dtRetorno != null)
+                {
+                    DataRow dr = dtRetorno.Rows[0];
+                    prod.CodigoProduto = Convert.ToInt32(dr["codproduto"].ToString());
+                    prod.NomeProduto = dr["prod_produto"].ToString();
+                    prod.Venda = Convert.ToDouble(dr["prod_precoVenda"].ToString());
+                    vep.Produto = prod;
+                    vep.Valor = prod.Venda;
+                    prod = new Entidades.Produto();
+
+                    double soma = 0;
+                    double multValor = 0;
+                    int qtdeProd = 0;
+
+                    if (string.IsNullOrWhiteSpace(mskQtde.Text))
+                    {
+                        MessageBox.Show("Informe a quantidade do produto a ser vendida!");
+                    }
+                    else
+                    {
+                        qtdeProd = Convert.ToInt32(mskQtde.Text.ToString());
+                        vep.Quantidade = qtdeProd;
+
+                        if (!string.IsNullOrWhiteSpace(mskValorTotal.Text))
+                        {
+
+                            multValor = qtdeProd * vep.Valor;
+                            soma = Convert.ToDouble(mskValorTotal.Text);
+                            soma += multValor;
+                            mskValorTotal.Text = Convert.ToString(soma);
+                        }
+                        else
+                        {
+                            multValor = qtdeProd * vep.Valor;
+                            soma += multValor;
+                            mskValorTotal.Text = Convert.ToString(soma);
+                        }
+
+                        insereLista(listVendaProduto, vep);
+                        carregaDgv(listVendaProduto);
+                        
+                    }
+                    
+                }
+                ttbProduto.Text = "";
+                mskValor.Text = "";
+                mskQtde.Text = "";
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         private void carregaDgv(List<Entidades.VendaProduto> lista)
@@ -142,6 +183,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                 listVendaProduto.RemoveAt(dgvProdutos.CurrentRow.Index);
                 carregaDgv(listVendaProduto);
             }
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

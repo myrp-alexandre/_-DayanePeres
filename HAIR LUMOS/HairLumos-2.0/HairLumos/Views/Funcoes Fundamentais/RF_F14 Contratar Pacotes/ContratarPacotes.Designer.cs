@@ -55,6 +55,7 @@
             this.Descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPesquisa = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -91,6 +92,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnPesquisa);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
@@ -354,10 +356,21 @@
             this.Tipo.ReadOnly = true;
             this.Tipo.Width = 150;
             // 
+            // btnPesquisa
+            // 
+            this.btnPesquisa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.Location = new System.Drawing.Point(339, 22);
+            this.btnPesquisa.Name = "btnPesquisa";
+            this.btnPesquisa.Size = new System.Drawing.Size(100, 38);
+            this.btnPesquisa.TabIndex = 6;
+            this.btnPesquisa.Text = "Pesquisar";
+            this.btnPesquisa.UseVisualStyleBackColor = false;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
+            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(445, 22);
+            this.btnCancelar.Location = new System.Drawing.Point(551, 22);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
             this.btnCancelar.TabIndex = 4;
@@ -379,7 +392,7 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(339, 22);
+            this.btnExcluir.Location = new System.Drawing.Point(445, 22);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 3;
@@ -478,5 +491,6 @@
         private System.Windows.Forms.MaskedTextBox ttbQtde;
         public System.Windows.Forms.Label Total;
         public System.Windows.Forms.TextBox ttbTotal;
+        public System.Windows.Forms.Button btnPesquisa;
     }
 }
