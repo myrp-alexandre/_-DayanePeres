@@ -329,6 +329,116 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public DataTable RetornaContrato(string texto)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codcontrato, contra_data, contra_ob, codpacote, fis_cpf, contra_valor "+
+                    "FROM tbcontrato; " +
+                    "WHERE pac_pacote LIKE %" + texto + "%";
+
+            int intCodigo = 0;
+
+            int.TryParse(texto, out intCodigo);
+
+            if (intCodigo > 0)
+                _sql += $"OR codpacote = @codpacote ";
+
+            // _sql += $"OR UPPER (usu_usuario) LIKE @usu_usuario";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codpacote");
+                cmd.Parameters.AddWithValue("@pac_pacote");
+                cmd.Parameters.AddWithValue("@pac_valor");
+                cmd.Parameters.AddWithValue("@pac_obs");
+                cmd.Parameters.AddWithValue("@pac_periodicidade");
+                cmd.Parameters.AddWithValue("@pac_datainicio");
+                cmd.Parameters.AddWithValue("@pac_datafim");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Pacote");
+            }
+            return dt;
+        }
+
+        public DataTable RetornaContratoServicos()
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT Contrato.codContrato, TipoServ.tipoServ_descricao, Adicionais.pacAdc_qtde, Pacote.pac_pacote, Contrato.fis_cpf "+
+                        "FROM tbContrato Contrato "+
+                        "INNER JOIN tbPacote as Pacote on Contrato.codPacote = Pacote.codPacote "+
+                        "INNER JOIN tbPacotesAdicionais as Adicionais on Contrato.codContrato = Adicionais.codContrato "+
+                        "INNER JOIN tbTipoServico as TipoServ on Adicionais.codTipoServico = TipoServ.codTipoServico"; 
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@Contrato.codContrato");
+                cmd.Parameters.AddWithValue("@TipoServ.tipoServ_descricao");
+                cmd.Parameters.AddWithValue("@Adicionais.pacAdc_qtde");
+                cmd.Parameters.AddWithValue("@Pacote.pac_pacote");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Contrato.");
+            }
+            return dt;
+        }
+
+        public DataTable RetornaContrato()
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codcontrato, contra_data, contra_ob, codpacote, fis_cpf, contra_valor " +
+                       "FROM tbcontrato ";
+                    
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codcontrato");
+                cmd.Parameters.AddWithValue("@contra_data");
+                cmd.Parameters.AddWithValue("@contra_ob");
+                cmd.Parameters.AddWithValue("@codpacote");
+                cmd.Parameters.AddWithValue("@fis_cpf");
+                cmd.Parameters.AddWithValue("@contra_valor");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Contrato");
+            }
+            return dt;
+        }
+
         public DataTable retornaListaPacote(int codigo)
         {
             DataTable dt = new DataTable();

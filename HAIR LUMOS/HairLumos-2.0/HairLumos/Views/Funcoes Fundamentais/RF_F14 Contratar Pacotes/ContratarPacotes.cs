@@ -361,7 +361,55 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
+            string codCpf = "";
+            string codCliente = "";
 
+            try
+            {
+                Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes.PesquisaContratoPacotes pesquisaContratoPacotes = new PesquisaContratoPacotes();
+
+                pesquisaContratoPacotes.ShowDialog();
+                if (pesquisaContratoPacotes.inCodContrato > 0)
+                {
+                    Controller.PacoteController pacoteController = new Controller.PacoteController();
+                    Controller.PessoaController pessoaController = new Controller.PessoaController();
+
+                    DataTable dtRetorno = pacoteController.retornaContrato();
+
+                    if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+                    {
+
+                        DataRow dr = dtRetorno.Rows[0];
+                        codCpf = dr["fis_cpf"].ToString();
+                        //                        codCliente = dr["codpessoa"].ToString();
+
+                        DataTable dtFisica = pessoaController.retornaCpf(codCpf);
+
+                        if (dtFisica != null && dtFisica.Rows.Count > 0)
+                        {
+
+                            DataRow drFisica = dtFisica.Rows[0];
+                            codCliente = drFisica["codpessoa"].ToString();
+
+                            DataTable dtPessoa = pessoaController.retornaPessoaCod(codCliente);
+                            if (dtPessoa != null && dtPessoa.Rows.Count > 0)
+                            {
+                                DataRow drPessoa = dtPessoa.Rows[0];
+                                ttbCliente.Text = drPessoa["pes_nome"].ToString();
+                            }
+                                
+                        }
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
         }
     }
 

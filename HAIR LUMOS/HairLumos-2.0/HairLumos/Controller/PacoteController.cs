@@ -25,7 +25,7 @@ namespace HairLumos.Controller
         {
             return _MdlPac.retornoPacote();
         }
-
+        
         public DataTable retornaObjPacote(int cod)
         {
             return _MdlPac.retornoObjPacote(cod);
@@ -36,6 +36,11 @@ namespace HairLumos.Controller
             return _MdlPac.retornoPacoteText(texto);
         }
 
+        public DataTable retornaContratoServicos()
+        {
+            return _MdlPac.retornaContratoServicos();
+        }
+
         public DataTable retornaListaPacote(int cod)
         {
             return _MdlPac.retornaListaPacote(cod);
@@ -44,6 +49,11 @@ namespace HairLumos.Controller
         public bool excluirPacote(int intCod)
         {
             return _MdlPac.excluirPacote(intCod);
+        }
+
+        public DataTable retornaContrato()
+        {
+            return _MdlPac.retornaContrato();
         }
     }
 }

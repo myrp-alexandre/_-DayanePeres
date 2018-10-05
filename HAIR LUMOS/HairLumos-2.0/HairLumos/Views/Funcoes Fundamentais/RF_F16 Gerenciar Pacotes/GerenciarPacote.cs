@@ -323,5 +323,10 @@ namespace HairLumos.Views
         {
 
         }
+
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

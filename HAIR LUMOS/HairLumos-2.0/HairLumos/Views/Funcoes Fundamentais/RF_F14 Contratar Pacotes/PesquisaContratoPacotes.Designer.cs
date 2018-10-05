@@ -34,10 +34,10 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.ttbDescricao = new System.Windows.Forms.TextBox();
             this.dgvPacote = new System.Windows.Forms.DataGridView();
-            this.codpacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pac_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.servicoPacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codcontrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoServ_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacAdc_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pac_pacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +79,7 @@
             this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnSelecionar
             // 
@@ -89,6 +90,7 @@
             this.btnSelecionar.TabIndex = 3;
             this.btnSelecionar.Text = "Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = false;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // btnPesquisar
             // 
@@ -99,6 +101,7 @@
             this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisa";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // ttbDescricao
             // 
@@ -114,45 +117,48 @@
             this.dgvPacote.BackgroundColor = System.Drawing.Color.White;
             this.dgvPacote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacote.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codpacote,
-            this.servico,
-            this.pac_valor,
-            this.servicoPacote});
+            this.codcontrato,
+            this.tipoServ_descricao,
+            this.pacAdc_qtde,
+            this.pac_pacote});
             this.dgvPacote.Location = new System.Drawing.Point(12, 14);
             this.dgvPacote.Name = "dgvPacote";
             this.dgvPacote.ReadOnly = true;
             this.dgvPacote.Size = new System.Drawing.Size(860, 368);
             this.dgvPacote.TabIndex = 0;
+            this.dgvPacote.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacote_CellDoubleClick);
             // 
-            // codpacote
+            // codcontrato
             // 
-            this.codpacote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.codpacote.DataPropertyName = "codpacote";
-            this.codpacote.HeaderText = "Cod";
-            this.codpacote.Name = "codpacote";
-            this.codpacote.ReadOnly = true;
+            this.codcontrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.codcontrato.DataPropertyName = "codcontrato";
+            this.codcontrato.HeaderText = "Cod";
+            this.codcontrato.Name = "codcontrato";
+            this.codcontrato.ReadOnly = true;
             // 
-            // servico
+            // tipoServ_descricao
             // 
-            this.servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.servico.HeaderText = "Serviço";
-            this.servico.Name = "servico";
-            this.servico.ReadOnly = true;
+            this.tipoServ_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tipoServ_descricao.DataPropertyName = "tipoServ_descricao";
+            this.tipoServ_descricao.HeaderText = "Serviço";
+            this.tipoServ_descricao.Name = "tipoServ_descricao";
+            this.tipoServ_descricao.ReadOnly = true;
             // 
-            // pac_valor
+            // pacAdc_qtde
             // 
-            this.pac_valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.pac_valor.DataPropertyName = "pac_valor";
-            this.pac_valor.HeaderText = "Valor (R$)";
-            this.pac_valor.Name = "pac_valor";
-            this.pac_valor.ReadOnly = true;
+            this.pacAdc_qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.pacAdc_qtde.DataPropertyName = "pacAdc_qtde";
+            this.pacAdc_qtde.HeaderText = "Qtde";
+            this.pacAdc_qtde.Name = "pacAdc_qtde";
+            this.pacAdc_qtde.ReadOnly = true;
             // 
-            // servicoPacote
+            // pac_pacote
             // 
-            this.servicoPacote.FillWeight = 300F;
-            this.servicoPacote.HeaderText = "Servico/Pacote";
-            this.servicoPacote.Name = "servicoPacote";
-            this.servicoPacote.ReadOnly = true;
+            this.pac_pacote.DataPropertyName = "pac_pacote";
+            this.pac_pacote.FillWeight = 300F;
+            this.pac_pacote.HeaderText = "Pacote";
+            this.pac_pacote.Name = "pac_pacote";
+            this.pac_pacote.ReadOnly = true;
             // 
             // PesquisaContratoPacotes
             // 
@@ -164,6 +170,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Name = "PesquisaContratoPacotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "H.L - PESQUISA CONTRATOS";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -182,9 +189,9 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox ttbDescricao;
         private System.Windows.Forms.DataGridView dgvPacote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codpacote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn servico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pac_valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn servicoPacote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codcontrato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoServ_descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pacAdc_qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pac_pacote;
     }
 }

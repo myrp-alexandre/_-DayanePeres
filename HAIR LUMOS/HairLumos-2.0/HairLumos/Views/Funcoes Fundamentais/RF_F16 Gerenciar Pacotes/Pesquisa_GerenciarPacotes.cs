@@ -63,5 +63,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F16_Gerenciar_Pacotes
         {
             this.selecionaPacote();
         }
+
+        private void Pesquisa_GerenciarPacotes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

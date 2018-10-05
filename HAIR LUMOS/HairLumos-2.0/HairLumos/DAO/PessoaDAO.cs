@@ -779,6 +779,38 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public DataTable RetornaCPF(string cpf) //string Texto
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT codpessoa, fis_cpf  " +
+                    "FROM tbfisica" +
+                      " WHERE  fis_cpf = '"+cpf+"'";
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+                cmd.Parameters.AddWithValue("@codpessoa");
+                cmd.Parameters.AddWithValue("@fis_cpf");
+                
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
         public DataTable RetornaPessoaFisicaCod(int cod) //string Texto
         {
             DataTable dt = new DataTable();

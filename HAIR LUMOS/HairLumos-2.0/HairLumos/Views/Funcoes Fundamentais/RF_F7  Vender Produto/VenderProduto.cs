@@ -189,5 +189,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         {
 
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

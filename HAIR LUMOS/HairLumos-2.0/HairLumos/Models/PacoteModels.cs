@@ -37,6 +37,12 @@ namespace HairLumos.Models
             return _DAOPac.RetornaPacote(text);
         }
 
+        public DataTable retornaContratoServicos()
+        {
+
+            return _DAOPac.RetornaContratoServicos();
+        }
+
         public DataTable retornoPacote()
         {
 
@@ -59,6 +65,12 @@ namespace HairLumos.Models
         {
 
             return _DAOPac.ExcluirPacote(intCod);
+        }
+
+        public DataTable retornaContrato()
+        {
+
+            return _DAOPac.RetornaContrato();
         }
     }
 }
