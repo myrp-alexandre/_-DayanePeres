@@ -26,6 +26,11 @@ namespace HairLumos.Controller
             return _MdlDespesa.retornaObjDespesa(cod);
         }
 
+        public DataTable retornaObjDespesa(string despesa)
+        {
+            return _MdlDespesa.retornaObjDespesa(despesa);
+        }
+
         public bool excluirDespesa(int intCod)
         {
             return _MdlDespesa.excluirDespesa(intCod);

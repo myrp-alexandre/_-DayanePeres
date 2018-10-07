@@ -127,6 +127,36 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public DataTable RetornaObjServico(string despesa)
+        {
+
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT coddespesa, desp_descricao, desp_status" +
+                        " FROM tbdespesa " +
+                    "WHERE desp_descricao = '" + despesa +"'";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@coddespesa");
+                cmd.Parameters.AddWithValue("@desp_descricao");
+                cmd.Parameters.AddWithValue("@desp_status");
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "");
+            }
+            return dt;
+        }
+
         public bool ExcluirServico(int intCod)
         {
             _sql = "DELETE FROM tbdespesa WHERE coddespesa = @cod";

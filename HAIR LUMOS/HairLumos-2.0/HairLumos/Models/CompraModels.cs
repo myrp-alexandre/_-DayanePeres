@@ -11,7 +11,7 @@ namespace HairLumos.Models
 
         DAO.CompraDAO _DAOComp = new DAO.CompraDAO();
 
-        public int gravarCompra(int cod, int despesa, DateTime data, string situacao, bool consignado, double valor, string obs, int pessoa)
+        public int gravarCompra(int cod, int despesa, DateTime data, string situacao, bool consignado, double valor, string obs, int pessoa, List<Entidades.CompraProduto> lista)
         {
             Entidades.Compra compra = new Entidades.Compra();
             compra.Codigo = cod;
@@ -22,6 +22,7 @@ namespace HairLumos.Models
             compra.ValorTotal = valor;
             compra.Obs = obs;
             compra.PJ.Codigo = pessoa;
+            compra.Lista = lista;
 
             return _DAOComp.gravarCompra(compra);
         }

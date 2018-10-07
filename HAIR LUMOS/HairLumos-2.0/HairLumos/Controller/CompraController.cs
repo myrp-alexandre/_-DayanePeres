@@ -11,9 +11,9 @@ namespace HairLumos.Controller
 
         private Models.CompraModels _MdlComp = new Models.CompraModels();
 
-        public int geravaCompra(int cod, int despesa, DateTime data, string situacao, bool consignado, double valor, string obs, int pessoa)
+        public int geravaCompra(int cod, int despesa, DateTime data, string situacao, bool consignado, double valor, string obs, int pessoa, List<Entidades.CompraProduto> lista)
         {
-            return _MdlComp.gravarCompra(cod, despesa, data, situacao, consignado, valor, obs, pessoa);
+            return _MdlComp.gravarCompra(cod, despesa, data, situacao, consignado, valor, obs, pessoa, lista);
         }
     }
 }

@@ -15,7 +15,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 {
     public partial class GerenciarCompra : Form
     {
-        private List<CompraProduto> lista; 
+        private List<CompraProduto> lista;
+        private CompraController cc = new CompraController();
 
         public GerenciarCompra()
         {
@@ -120,8 +121,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             dtpData.Value = DateTime.Now;
             mskCusto.Clear();
             mskVenda.Clear();
-            dgvGerenciarCompra.Rows.Clear();
+            lista = new List<CompraProduto>();
+            dgvGerenciarCompra.DataSource = lista;
             ttbObservacao.Clear();
+            totalCompra.Text = "0,00";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -137,7 +140,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void carregaDGV(List<CompraProduto> lista)
         {
-            dgvGerenciarCompra.DataSource = lista;
+            BindingSource bd = new BindingSource();
+            bd.DataSource = lista;
+            dgvGerenciarCompra.DataSource = bd;
+            dgvGerenciarCompra.Refresh();
         }
 
         private void btnIncluirProduto_Click(object sender, EventArgs e)
@@ -159,19 +165,91 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             cp.Produto = p;
             cp.Qtde = Convert.ToInt32(ttbQuantidade.Text);
             double custo = 0; 
-            double.TryParse(mskVenda.Text, out custo);
+            double.TryParse(mskCusto.Text, out custo);
             cp.Valor = custo;
-            lista.Add(cp);
+            int v = verificaLista(lista, cp);
+            if (v >= 0)
+            {
+                lista.ElementAt(v).Qtde += cp.Qtde;
+            }
+            else
+            {
+                lista.Add(cp);
+            }
             carregaDGV(lista);
+            somavalor();
             ttbProduto.Clear();
             ttbQuantidade.Clear();
             mskCusto.Clear();
             mskVenda.Clear();
         }
 
-        private void btnGravar_Click(object sender, EventArgs e)
+        private int verificaLista(List<CompraProduto> lista, CompraProduto cp) 
         {
+            for(int i = 0; i<lista.Count; i++)
+            {
+                if (lista.ElementAt(i).Produto.CodigoProduto == cp.Produto.CodigoProduto)
+                    return i;
+            }
+            return -1;
+        }
 
+        private void somavalor()
+        {
+            double total = 0;
+            for (int i = 0; i < lista.Count; i++)
+                total += lista.ElementAt(i).Qtde * lista.ElementAt(i).Valor;
+
+            totalCompra.Text = (total.ToString());
+
+        }
+
+        private void btnExcluirCompra_Click(object sender, EventArgs e)
+        {
+            if (dgvGerenciarCompra.Rows.Count > 0)
+            {
+                lista.Remove(lista.ElementAt(dgvGerenciarCompra.CurrentRow.Index));
+                carregaDGV(lista);
+                somavalor();
+            }
+        }
+
+        private void btnGerarCompra_Click(object sender, EventArgs e)
+        {
+            int codigo = 0, despesa = 0, codPessoa = 0;
+            bool consignado = false;
+            double valorTotal = 0;
+            //verifica se tem codigo
+            if(ttbCodigo.Text!=null && ttbCodigo.Text != "")
+            {
+                codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
+            }
+            //busca despesa compra
+            Controller.DespesaController _ctrlDespesa = new Controller.DespesaController();
+            DataTable dtRetorno = _ctrlDespesa.retornaObjDespesa("Compra");
+            if (dtRetorno != null && dtRetorno.Rows.Count>0)
+            {
+                DataRow dr = dtRetorno.Rows[0];
+                despesa = Convert.ToInt32(dr["coddespesa"].ToString());
+            }
+            //retorna pessoa pelo nome
+            Controller.PessoaController pc = new PessoaController();
+            DataTable dtPessoa = pc.retornaPessoa(ttbFornecedor.Text.ToString());
+            if(dtPessoa!=null && dtPessoa.Rows.Count > 0)
+            {
+                DataRow drPessoa = dtPessoa.Rows[0];
+                codPessoa = Convert.ToInt32(drPessoa["codpessoa"].ToString());
+            }
+            //verifica consignado
+            if (rbSim.Checked)
+                consignado = true;
+            else
+                consignado = false;
+            //convert o valor total
+            valorTotal = Convert.ToDouble(totalCompra.Text.ToString());
+
+            //chama o gravar
+            int rest = cc.geravaCompra(codigo, despesa, DateTime.Now, "aberta", consignado, valorTotal, ttbObservacao.Text.ToString(), codPessoa, lista);
         }
     }
 }

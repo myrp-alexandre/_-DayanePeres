@@ -296,6 +296,11 @@ namespace HairLumos.Views
             rbComercial.Checked = true;
         }
 
+        private void btnNovo_Click_1(object sender, EventArgs e)
+        {
+            _inicializa();
+        }
+
 
         /*List<Endereco> arrEndreco = null;
 List<Contato> arrContato = null;

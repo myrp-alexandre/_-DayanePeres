@@ -30,6 +30,8 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.totalCompra = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Pedido = new System.Windows.Forms.TabPage();
             this.dgvGerenciarCompra = new System.Windows.Forms.DataGridView();
@@ -116,6 +118,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.totalCompra);
+            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tabControl1);
             this.groupBox3.Controls.Add(this.btnExcluirCompra);
             this.groupBox3.Location = new System.Drawing.Point(21, 180);
@@ -123,6 +127,24 @@
             this.groupBox3.Size = new System.Drawing.Size(878, 225);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
+            // 
+            // totalCompra
+            // 
+            this.totalCompra.AutoSize = true;
+            this.totalCompra.Location = new System.Drawing.Point(816, 171);
+            this.totalCompra.Name = "totalCompra";
+            this.totalCompra.Size = new System.Drawing.Size(28, 13);
+            this.totalCompra.TabIndex = 18;
+            this.totalCompra.Text = "0,00";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(800, 149);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Total R$:";
             // 
             // tabControl1
             // 
@@ -188,6 +210,7 @@
             this.btnExcluirCompra.TabIndex = 16;
             this.btnExcluirCompra.Text = "Excluir Item";
             this.btnExcluirCompra.UseVisualStyleBackColor = false;
+            this.btnExcluirCompra.Click += new System.EventHandler(this.btnExcluirCompra_Click);
             // 
             // label7
             // 
@@ -406,6 +429,7 @@
             this.btnGerarCompra.TabIndex = 14;
             this.btnGerarCompra.Text = "Gerar Compra";
             this.btnGerarCompra.UseVisualStyleBackColor = false;
+            this.btnGerarCompra.Click += new System.EventHandler(this.btnGerarCompra_Click);
             // 
             // btnCancelar
             // 
@@ -458,7 +482,6 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -489,6 +512,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.Pedido.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGerenciarCompra)).EndInit();
@@ -539,5 +563,7 @@
         public System.Windows.Forms.Button BtnGerarContaPagar;
         public System.Windows.Forms.Button btnGerarCompra;
         public System.Windows.Forms.Button btnIncluirProduto;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label totalCompra;
     }
 }

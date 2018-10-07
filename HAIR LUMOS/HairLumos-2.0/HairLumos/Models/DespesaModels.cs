@@ -35,6 +35,12 @@ namespace HairLumos.Models
             return _DAODespesa.RetornaObjServico(cod);
         }
 
+        public DataTable retornaObjDespesa(string despesa)
+        {
+            Entidades.Despesa _entDespesa = new Entidades.Despesa();
+            return _DAODespesa.RetornaObjServico(despesa);
+        }
+
         public bool excluirDespesa(int intCod)
         {
             Entidades.Despesa _entDespesa = new Entidades.Despesa();
