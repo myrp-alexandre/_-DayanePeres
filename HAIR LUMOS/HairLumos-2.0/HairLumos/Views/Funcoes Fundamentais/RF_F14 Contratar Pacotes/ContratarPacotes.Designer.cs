@@ -88,7 +88,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnExcluirServicoPac);
             this.splitContainer1.Panel1.Controls.Add(this.dgvPacote);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+          
             // 
             // splitContainer1.Panel2
             // 

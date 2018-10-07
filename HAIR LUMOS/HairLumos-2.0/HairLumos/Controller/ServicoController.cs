@@ -21,6 +21,11 @@ namespace HairLumos.Controller
             return _MdlServ.retornaServico();
         }
 
+        public DataTable retornaServicoCod(int cod)
+        {
+            return _MdlServ.retornaServicoCod(cod);
+        }
+
         public DataTable retornaObjServico(int cod)
         {
             return _MdlServ.retornaObjServico(cod);

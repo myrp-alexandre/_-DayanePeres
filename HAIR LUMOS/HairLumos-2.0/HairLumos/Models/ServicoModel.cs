@@ -29,6 +29,12 @@ namespace HairLumos.Models
             return _DAOServ.RetornaServico();
         }
 
+        public DataTable retornaServicoCod(int cod)
+        {
+            Entidades.Servico _entServico = new Entidades.Servico();
+            return _DAOServ.RetornaServicoCod(cod);
+        }
+
         public DataTable retornaObjServico(int cod)
         {
             Entidades.Servico _entServico = new Entidades.Servico();

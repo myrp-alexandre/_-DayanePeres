@@ -192,6 +192,40 @@ namespace HairLumos.DAO
             return intRetorno;
         }
 
+        public DataTable RetornaPacoteCod(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim" +
+                        " FROM tbpacote" +
+                        " WHERE codpacote = "+cod;
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codpacote");
+                cmd.Parameters.AddWithValue("@pac_pacote");
+                cmd.Parameters.AddWithValue("@pac_valor");
+                cmd.Parameters.AddWithValue("@pac_obspacote");
+                cmd.Parameters.AddWithValue("@pac_periodicidade");
+                cmd.Parameters.AddWithValue("@pac_datainicio");
+                cmd.Parameters.AddWithValue("@pac_datafim");
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
         public DataTable RetornaPacote()
         {
             DataTable dt = new DataTable();
@@ -199,13 +233,7 @@ namespace HairLumos.DAO
             _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim" +
                         " FROM tbpacote; ";
 
-            // int intCodigo = 0;
-
-
-            //_sql += $"OR codcategoria = @cod";
-            //_sql += $"OR cat_categoria = @categoria";
-            //_sql += $"OR cat_obscategoria = @obs";
-
+            
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
@@ -236,7 +264,9 @@ namespace HairLumos.DAO
 
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim FROM tbpacote WHERE codpacote = " + cod;
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade, pac_datainicio, pac_datafim " +
+                "FROM tbpacote " +
+                "WHERE codpacote = " + cod;
 
             try
             {
@@ -376,7 +406,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT Contrato.codContrato, TipoServ.tipoServ_descricao, Adicionais.pacAdc_qtde, Pacote.pac_pacote, Contrato.fis_cpf "+
+            _sql = "SELECT Contrato.codContrato, TipoServ.tipoServ_descricao, Adicionais.pacAdc_qtde, Pacote.pac_pacote, Contrato.fis_cpf, TipoServ.codtiposervico, Pacote.codPacote " +
                         "FROM tbContrato Contrato "+
                         "INNER JOIN tbPacote as Pacote on Contrato.codPacote = Pacote.codPacote "+
                         "INNER JOIN tbPacotesAdicionais as Adicionais on Contrato.codContrato = Adicionais.codContrato "+
@@ -392,6 +422,9 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@TipoServ.tipoServ_descricao");
                 cmd.Parameters.AddWithValue("@Adicionais.pacAdc_qtde");
                 cmd.Parameters.AddWithValue("@Pacote.pac_pacote");
+                cmd.Parameters.AddWithValue("@TipoServ.codtiposervico");
+                cmd.Parameters.AddWithValue("@Pacote.codPacote");
+
 
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader

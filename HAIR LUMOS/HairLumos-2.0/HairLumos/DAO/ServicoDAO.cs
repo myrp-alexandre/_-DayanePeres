@@ -71,11 +71,38 @@ namespace HairLumos.DAO
             _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_valor, tiposerv_temposervico" +
                         " FROM tbtiposervico; ";
 
-            // int intCodigo = 0;
-            //_sql += $"OR codcategoria = @cod";
-            //_sql += $"OR cat_categoria = @categoria";
-            //_sql += $"OR cat_obscategoria = @obs";
 
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codtiposervico");
+                cmd.Parameters.AddWithValue("@tiposerv_descricao");
+                cmd.Parameters.AddWithValue("@tiposerv_obs");
+                cmd.Parameters.AddWithValue("@tiposerv_valor");
+                cmd.Parameters.AddWithValue("@tiposerv_temposervico");
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaServicoCod(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codtiposervico, tiposerv_descricao, tiposerv_obs, tiposerv_valor, tiposerv_temposervico" +
+                        " FROM tbtiposervico "+
+                        "WHERE codtiposervico = " +cod;
+
+           
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());

@@ -25,7 +25,12 @@ namespace HairLumos.Controller
         {
             return _MdlPac.retornoPacote();
         }
-        
+
+        public DataTable retornaPacoteCod(int cod)
+        {
+            return _MdlPac.retornoPacoteCod(cod);
+        }
+
         public DataTable retornaObjPacote(int cod)
         {
             return _MdlPac.retornoObjPacote(cod);

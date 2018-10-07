@@ -27,8 +27,7 @@ namespace HairLumos.Views.Funcoes_Basicas
         {
             
             ttbPessoa.Enabled = true;
-            mskValor.Enabled = true;
-            mskPorcentagem.Enabled = true;
+            mskValorServico.Enabled = true;
             dgvServico.Enabled = true;
 
             //botões
@@ -49,8 +48,7 @@ namespace HairLumos.Views.Funcoes_Basicas
             // ttb
            
             ttbPessoa.Enabled = false;
-            mskPorcentagem.Enabled = false;
-            mskValor.Enabled = false;
+            mskValorServico.Enabled = false;
             
             dgvServico.Enabled = true;
 
@@ -73,16 +71,14 @@ namespace HairLumos.Views.Funcoes_Basicas
         {
             
             ttbPessoa.Text = "";
-            mskPorcentagem.Text = "";
-            mskValor.Text = "";
+            mskValorServico.Text = "";
         }
 
         public void _btnAlterar()
         {
             
             ttbPessoa.Enabled = true;
-            mskPorcentagem.Enabled = true;
-            mskValor.Enabled = true;
+            mskValorServico.Enabled = true;
             dgvServico.Enabled = true;
 
             //botões
@@ -111,6 +107,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                 this.cbbTipoServico.ValueMember = "codtiposervico";
                 this.cbbTipoServico.DisplayMember = "tiposerv_descricao";
                 this.cbbTipoServico.DataSource = dtServicoParceiro;
+                
             }
         }
 
@@ -180,6 +177,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                 if (objPessoa.intCodigoPessoa > 0)
                 {
                     Controller.PessoaController pessoaController = new Controller.PessoaController();
+
                     DataTable dtRetorno = pessoaController.retornaPessoaJuridicaCod(objPessoa.intCodigoPessoa);
 
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
@@ -214,10 +212,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                 if (string.IsNullOrEmpty(strMensagem))
                 {
                     double valorServico = 0;
-                    double.TryParse(mskValor.Text, out valorServico);
-
-                    double valorPorcentagem = 0;
-                    double.TryParse(mskPorcentagem.Text, out valorPorcentagem);
+                    double.TryParse(mskValorServico.Text, out valorServico);
 
                     string pagamento;
                     if(rbPagar.Checked == true)
@@ -242,7 +237,7 @@ namespace HairLumos.Views.Funcoes_Basicas
 
                         if (intCodServicoParceiro != Convert.ToInt32(dr["codpessoa"].ToString()) || servico != Convert.ToInt32(dr["codtiposervico"].ToString()))
                         {
-                            int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, valorPorcentagem, pagamento);
+                            int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, 0, pagamento);
                             if (intRetorno == 1)
                             {
                                 MessageBox.Show("Gravado com sucesso!");
@@ -259,7 +254,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                     }
                     else
                     {
-                        int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, valorPorcentagem, pagamento);
+                        int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, 0, pagamento);
                         if (intRetorno == 1)
                         {
                             MessageBox.Show("Gravado com sucesso!");
@@ -282,37 +277,31 @@ namespace HairLumos.Views.Funcoes_Basicas
             }
         }
 
-        private void mskValor_Click(object sender, EventArgs e)
-        {
-            mskPorcentagem.Enabled = false;
-        }
-
-        private void mskValor_Enter(object sender, EventArgs e)
-        {
-            mskPorcentagem.Enabled = false;
-        }
-
-        private void mskPorcentagem_Enter(object sender, EventArgs e)
-        {
-            mskValor.Enabled = false;
-        }
-
-        private void mskPorcentagem_Click(object sender, EventArgs e)
-        {
-            mskValor.Enabled = false;
-        }
-
-        private void mskValor_DoubleClick(object sender, EventArgs e)
-        {
-            mskPorcentagem.Enabled = true;
-            mskValor.Enabled = false;
-        }
+       
 
         private void mskPorcentagem_DoubleClick(object sender, EventArgs e)
         {
             //if(MessageBox.Show("")
-            mskValor.Enabled = true;
-            mskPorcentagem.Enabled = false;
+            mskValorServico.Enabled = true;
+            
+        }
+
+        
+        private void btnIncluirServico_Click(object sender, EventArgs e)
+        {
+            double valorConta = 0;
+            if(rbPagar.Checked == true)
+            {
+                if (!string.IsNullOrWhiteSpace(mskValorConta.Text))
+                {
+                    
+                }
+            }
+        }
+
+        private void cbbTipoServico_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

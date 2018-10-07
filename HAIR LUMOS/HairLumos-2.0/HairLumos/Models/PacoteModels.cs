@@ -49,6 +49,12 @@ namespace HairLumos.Models
             return _DAOPac.RetornaPacote();
         }
 
+        public DataTable retornoPacoteCod(int cod)
+        {
+
+            return _DAOPac.RetornaPacoteCod(cod);
+        }
+
         public DataTable retornoObjPacote(int cod)
         {
 

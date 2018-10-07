@@ -107,7 +107,7 @@
             // 
             this.jur_fantasia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.jur_fantasia.DataPropertyName = "jur_fantasia";
-            this.jur_fantasia.HeaderText = "Nome";
+            this.jur_fantasia.HeaderText = "Nome Fantasia";
             this.jur_fantasia.Name = "jur_fantasia";
             this.jur_fantasia.ReadOnly = true;
             // 

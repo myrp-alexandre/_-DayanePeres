@@ -51,7 +51,7 @@ namespace HairLumos.Views.Funcoes_Basicas.Pesquisas
             Controller.PessoaController _pes = new Controller.PessoaController();
             DataTable dtRetorno = _pes.retornaPessoaJuridica(ttbDescricao.Text.Trim());
 
-            if (dtRetorno != null)
+            if (dtRetorno != null && dtRetorno.Rows.Count > 0 )
             {
                 dgvPessoa.DataSource = dtRetorno;
                 dgvPessoa.ClearSelection();

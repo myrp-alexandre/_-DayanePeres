@@ -32,11 +32,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.mskPorcentagem = new System.Windows.Forms.MaskedTextBox();
+            this.mskPercentual = new System.Windows.Forms.MaskedTextBox();
+            this.mskTotalLiquido = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.mskValor = new System.Windows.Forms.MaskedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.mskValorConta = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnIncluirServico = new System.Windows.Forms.Button();
+            this.mskValorServico = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.rbReceber = new System.Windows.Forms.RadioButton();
@@ -99,6 +102,8 @@
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.btnIncluirServico);
+            this.groupBox1.Controls.Add(this.mskValorServico);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.cbbTipoServico);
             this.groupBox1.Controls.Add(this.btnSelecionaPessoa);
@@ -107,7 +112,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(568, 206);
+            this.groupBox1.Size = new System.Drawing.Size(568, 227);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SERVIÇOS";
@@ -115,63 +120,67 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.mskPorcentagem);
+            this.groupBox3.Controls.Add(this.mskPercentual);
+            this.groupBox3.Controls.Add(this.mskTotalLiquido);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.mskValor);
-            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.mskValorConta);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(20, 118);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(337, 74);
+            this.groupBox3.Size = new System.Drawing.Size(390, 103);
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Informe Valor (R$) ou Porcentagem (%) do Serviço:";
+            this.groupBox3.Text = "INFOME:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(150, 36);
+            this.label6.Location = new System.Drawing.Point(6, 61);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 13);
-            this.label6.TabIndex = 41;
-            this.label6.Text = "OU";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Valor em (%)";
             // 
-            // mskPorcentagem
+            // mskPercentual
             // 
-            this.mskPorcentagem.Location = new System.Drawing.Point(201, 46);
-            this.mskPorcentagem.Name = "mskPorcentagem";
-            this.mskPorcentagem.Size = new System.Drawing.Size(118, 20);
-            this.mskPorcentagem.TabIndex = 40;
-            this.mskPorcentagem.Click += new System.EventHandler(this.mskPorcentagem_Click);
-            this.mskPorcentagem.DoubleClick += new System.EventHandler(this.mskPorcentagem_DoubleClick);
-            this.mskPorcentagem.Enter += new System.EventHandler(this.mskPorcentagem_Enter);
+            this.mskPercentual.Enabled = false;
+            this.mskPercentual.Location = new System.Drawing.Point(6, 77);
+            this.mskPercentual.Name = "mskPercentual";
+            this.mskPercentual.Size = new System.Drawing.Size(159, 20);
+            this.mskPercentual.TabIndex = 41;
+            // 
+            // mskTotalLiquido
+            // 
+            this.mskTotalLiquido.Enabled = false;
+            this.mskTotalLiquido.Location = new System.Drawing.Point(235, 46);
+            this.mskTotalLiquido.Name = "mskTotalLiquido";
+            this.mskTotalLiquido.Size = new System.Drawing.Size(136, 20);
+            this.mskTotalLiquido.TabIndex = 40;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(198, 28);
+            this.label4.Location = new System.Drawing.Point(232, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
+            this.label4.Size = new System.Drawing.Size(132, 13);
             this.label4.TabIndex = 39;
-            this.label4.Text = " Pagar/Receb (%)";
+            this.label4.Text = "Total Líquido Serviço (R$)";
             // 
-            // mskValor
+            // mskValorConta
             // 
-            this.mskValor.Location = new System.Drawing.Point(12, 46);
-            this.mskValor.Name = "mskValor";
-            this.mskValor.Size = new System.Drawing.Size(112, 20);
-            this.mskValor.TabIndex = 38;
-            this.mskValor.Click += new System.EventHandler(this.mskValor_Click);
-            this.mskValor.DoubleClick += new System.EventHandler(this.mskValor_DoubleClick);
-            this.mskValor.Enter += new System.EventHandler(this.mskValor_Enter);
+            this.mskValorConta.Location = new System.Drawing.Point(6, 36);
+            this.mskValorConta.Name = "mskValorConta";
+            this.mskValorConta.Size = new System.Drawing.Size(159, 20);
+            this.mskValorConta.TabIndex = 40;
             // 
-            // label3
+            // label7
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 13);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Valor Serviço (R$)*";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(181, 13);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Valor a PAGAR ou a RECEBER (R$)";
             // 
             // btnIncluirServico
             // 
@@ -182,22 +191,39 @@
             this.btnIncluirServico.TabIndex = 14;
             this.btnIncluirServico.Text = "Incluir Serviço";
             this.btnIncluirServico.UseVisualStyleBackColor = false;
+            this.btnIncluirServico.Click += new System.EventHandler(this.btnIncluirServico_Click);
+            // 
+            // mskValorServico
+            // 
+            this.mskValorServico.Location = new System.Drawing.Point(274, 83);
+            this.mskValorServico.Name = "mskValorServico";
+            this.mskValorServico.Size = new System.Drawing.Size(136, 20);
+            this.mskValorServico.TabIndex = 38;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(271, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Valor Total do Serviço (R$)*";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.rbReceber);
             this.groupBox2.Controls.Add(this.rbPagar);
-            this.groupBox2.Location = new System.Drawing.Point(389, 69);
+            this.groupBox2.Location = new System.Drawing.Point(424, 69);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(164, 65);
+            this.groupBox2.Size = new System.Drawing.Size(129, 65);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 16);
+            this.label5.Location = new System.Drawing.Point(18, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 22;
@@ -206,7 +232,7 @@
             // rbReceber
             // 
             this.rbReceber.AutoSize = true;
-            this.rbReceber.Location = new System.Drawing.Point(93, 36);
+            this.rbReceber.Location = new System.Drawing.Point(61, 36);
             this.rbReceber.Name = "rbReceber";
             this.rbReceber.Size = new System.Drawing.Size(66, 17);
             this.rbReceber.TabIndex = 24;
@@ -217,7 +243,7 @@
             // rbPagar
             // 
             this.rbPagar.AutoSize = true;
-            this.rbPagar.Location = new System.Drawing.Point(5, 36);
+            this.rbPagar.Location = new System.Drawing.Point(6, 36);
             this.rbPagar.Name = "rbPagar";
             this.rbPagar.Size = new System.Drawing.Size(53, 17);
             this.rbPagar.TabIndex = 23;
@@ -230,8 +256,9 @@
             this.cbbTipoServico.FormattingEnabled = true;
             this.cbbTipoServico.Location = new System.Drawing.Point(20, 82);
             this.cbbTipoServico.Name = "cbbTipoServico";
-            this.cbbTipoServico.Size = new System.Drawing.Size(337, 21);
+            this.cbbTipoServico.Size = new System.Drawing.Size(241, 21);
             this.cbbTipoServico.TabIndex = 32;
+            this.cbbTipoServico.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbbTipoServico_MouseClick);
             // 
             // btnSelecionaPessoa
             // 
@@ -281,11 +308,11 @@
             this.tiposerv_descricao,
             this.tiposerv_valor,
             this.tiposerv_temposervico});
-            this.dgvServico.Location = new System.Drawing.Point(21, 226);
+            this.dgvServico.Location = new System.Drawing.Point(21, 247);
             this.dgvServico.Name = "dgvServico";
             this.dgvServico.ReadOnly = true;
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServico.Size = new System.Drawing.Size(468, 159);
+            this.dgvServico.Size = new System.Drawing.Size(468, 138);
             this.dgvServico.TabIndex = 12;
             // 
             // codtiposervico
@@ -458,11 +485,14 @@
         public System.Windows.Forms.Button btnIncluirServico;
         public System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.GroupBox groupBox3;
-        public System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox mskPorcentagem;
-        public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox mskValor;
-        public System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_valor;
+        private System.Windows.Forms.MaskedTextBox mskValorConta;
+        public System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox mskTotalLiquido;
+        public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox mskValorServico;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox mskPercentual;
     }
 }

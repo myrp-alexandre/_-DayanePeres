@@ -19,6 +19,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         private Entidades.Pacote pacote;
         private Entidades.PessoaFisica pessoa;
 
+        private int intCarregaCbbServico = 0;
+        private int intCarregaCbbPacote = 0;
+        private int intServAdicionais = 0;
+
+
         public ContratarPacotes()
         {
             InitializeComponent();
@@ -52,7 +57,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             {
                 valor = Convert.ToDouble(ttbTotal.Text.ToString());
             }
-            preencheLista(listaTabela);
+            preencheLista(listaTabela, intServAdicionais);
             result = cc.contratarPacote(codigo, dateTimePicker1.Value, ttbObservacao.Text.ToString(), pacote, pessoa, listaPacoteAdicionais);
             if(result > 0)
             {
@@ -67,7 +72,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         }
 
-        private void preencheLista(List<Entidades.TabelaPacotes> listap)
+        private void preencheLista(List<Entidades.TabelaPacotes> listap, int intServAdicionais)
         {
             for(int i = 0; i<listap.Count; i++)
             {
@@ -79,8 +84,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                     paca.QtdeServico = listap.ElementAt(i).Qtde;
                     DataTable dt = sc.retornaObjServico(listap.ElementAt(i).Codigo);
                     DataRow drServ = dt.Rows[0];
-                    serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), drServ["tiposerv_descricao"].ToString(),
-                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_valor"].ToString()), drServ["tiposerv_temposervico"].ToString());
+                    serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), 
+                                        drServ["tiposerv_descricao"].ToString(),
+                                        drServ["tiposerv_obs"].ToString(), 
+                                        Convert.ToDouble(drServ["tiposerv_valor"].ToString()), 
+                                        drServ["tiposerv_temposervico"].ToString());
                     paca.Servico = serv;
                     listaPacoteAdicionais.Add(paca);
                 }
@@ -124,8 +132,16 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         public void carregaCbbPacote()
         {
             Controller.PacoteController pacoteController = new Controller.PacoteController();
-
-            DataTable dtPacote = pacoteController.retornaPacote();
+            DataTable dtPacote;
+            if (intCarregaCbbPacote > 0)
+            {
+                dtPacote = pacoteController.retornaPacoteCod(intCarregaCbbPacote);
+            }
+            else
+            {
+                dtPacote = pacoteController.retornaPacote();
+            }
+             
             if (dtPacote != null && dtPacote.Rows.Count > 0)
             {
                 this.cbbPacote.ValueMember = "codpacote";
@@ -137,8 +153,18 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
         public void carregaCbbServico()
         {
             Controller.ServicoController servicoController = new Controller.ServicoController();
+            DataTable dtServico;
 
-            DataTable dtServico = servicoController.retornaServico();
+            if (intCarregaCbbServico > 0)
+            {
+                dtServico = servicoController.retornaServicoCod(intCarregaCbbServico);
+            }
+            else
+            {
+                dtServico = servicoController.retornaServico();
+            }
+
+            
             if (dtServico != null && dtServico.Rows.Count > 0)
             {
                 this.cbbServico.ValueMember = "codtiposervico";
@@ -182,9 +208,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 DataTable dtLista = pacoteController.retornaListaPacote(intCodPacote);
                 DataRow drPacote = dtPacote.Rows[0];
 
-                _pacote.carregaPacote(Convert.ToInt32(drPacote["codpacote"].ToString()), drPacote["pac_pacote"].ToString(),
-                    Convert.ToDouble(drPacote["pac_valor"].ToString()), drPacote["pac_obs"].ToString(), drPacote["pac_periodicidade"].ToString(), listaPacoteServico,
-                    Convert.ToDateTime(drPacote["pac_datainicio"].ToString()), Convert.ToDateTime(drPacote["pac_datafim"].ToString()));
+                _pacote.carregaPacote(Convert.ToInt32(drPacote["codpacote"].ToString()), 
+                    drPacote["pac_pacote"].ToString(),
+                    Convert.ToDouble(drPacote["pac_valor"].ToString()), 
+                    drPacote["pac_obs"].ToString(), 
+                    drPacote["pac_periodicidade"].ToString(), 
+                    listaPacoteServico,
+                    Convert.ToDateTime(drPacote["pac_datainicio"].ToString()), 
+                    Convert.ToDateTime(drPacote["pac_datafim"].ToString()));
 
                 pacote = _pacote;
 
@@ -224,11 +255,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void addListaTabela(List<Entidades.PacoteServico> lista)
         {
             for (int i = 0; i < lista.Count; i++)
@@ -257,8 +283,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 tab.Descr = cbbServico.Text.ToString();
                 DataTable dtserv = sc.retornaObjServico(Convert.ToInt32(cbbServico.SelectedValue));
                 DataRow drServ = dtserv.Rows[0];
-                serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), drServ["tiposerv_descricao"].ToString(),
-                    drServ["tiposerv_obs"].ToString(), Convert.ToDouble(drServ["tiposerv_valor"].ToString()), drServ["tiposerv_temposervico"].ToString());
+                serv.carregaServico(Convert.ToInt32(drServ["codtiposervico"].ToString()), 
+                    drServ["tiposerv_descricao"].ToString(),
+                    drServ["tiposerv_obs"].ToString(), 
+                    Convert.ToDouble(drServ["tiposerv_valor"].ToString()), 
+                    drServ["tiposerv_temposervico"].ToString());
 
                 if (string.IsNullOrWhiteSpace(ttbQtde.Text))
                     MessageBox.Show("Informe a quantidade do serviço.");
@@ -275,8 +304,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                     {
                         listaTabela.Add(tab);
                     }
-					carregaDgvPacotesAdcinais(listaTabela);
-                    ttbTotal.Text = (Convert.ToDouble(ttbTotal.Text.ToString()) + (tab.Qtde*serv.Valor)).ToString();
+                    ttbTotal.Text = (Convert.ToDouble(ttbTotal.Text.ToString()) + (tab.Qtde * serv.Valor)).ToString();
+                    carregaDgvPacotesAdcinais(listaTabela);
+                    
                 }
             }
             catch (Exception ex)
@@ -374,14 +404,16 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                     Controller.PacoteController pacoteController = new Controller.PacoteController();
                     Controller.PessoaController pessoaController = new Controller.PessoaController();
 
-                    DataTable dtRetorno = pacoteController.retornaContrato();
+                    DataTable dtRetorno = pacoteController.retornaContratoServicos();
 
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                     {
 
                         DataRow dr = dtRetorno.Rows[0];
                         codCpf = dr["fis_cpf"].ToString();
-                        //                        codCliente = dr["codpessoa"].ToString();
+                        intCarregaCbbServico = Convert.ToInt32(dr["codtiposervico"].ToString());
+                        intCarregaCbbPacote = Convert.ToInt32(dr["codpacote"].ToString());
+
 
                         DataTable dtFisica = pessoaController.retornaCpf(codCpf);
 
@@ -400,6 +432,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                                 
                         }
 
+                        carregaCbbPacote();
+                        carregaCbbServico();
                     }
                 }
             }
