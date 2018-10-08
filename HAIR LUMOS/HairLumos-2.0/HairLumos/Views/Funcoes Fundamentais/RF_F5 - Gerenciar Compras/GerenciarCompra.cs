@@ -103,7 +103,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             ttbObservacao.Enabled = estado;
             btnNovo.Enabled = !estado;
             btnGravar.Enabled = estado;
-            btnAlterar.Enabled = estado;
+            btnLocalizar.Enabled = estado;
             btnExcluir.Enabled = estado;
             btnCancelar.Enabled = estado;
             btnGerarCompra.Enabled = estado;
@@ -250,6 +250,72 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
             //chama o gravar
             int rest = cc.geravaCompra(codigo, despesa, DateTime.Now, "aberta", consignado, valorTotal, ttbObservacao.Text.ToString(), codPessoa, lista);
+            if (rest > 0)
+            {
+                MessageBox.Show("Gravado com sucesso!");
+                limpaCampos();
+                inicializa(false);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao gravar dados");
+            }
+        }
+
+        private void btnLocalizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Views.Funcoes_Fundamentais.RF_F5___Gerenciar_Compras.PesquisarCompras objCompras = new RF_F5___Gerenciar_Compras.PesquisarCompras();
+                objCompras.ShowDialog();
+                if (objCompras.codCompra > 0)
+                {
+                    DataTable dtRetorno = cc.retornaCompra(objCompras.codCompra);
+
+                    if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+                    {
+                        DataRow dr = dtRetorno.Rows[0];
+                        ttbCodigo.Text = dr["codcompra"].ToString();
+                        // adciona pessoa na tela
+                        PessoaController pc = new PessoaController();
+                        DataTable dtPessoa = pc.retornaPessoaCod(dr["codpessoa"].ToString());
+                        if (dtPessoa != null && dtPessoa.Rows.Count > 0)
+                        {
+                            DataRow drPessoa = dtPessoa.Rows[0];
+                            ttbFornecedor.Text = drPessoa["pes_nome"].ToString();
+                        }
+                        lista = cc.retornaLista(Convert.ToInt32(dr["codcompra"].ToString()));
+                        carregaDGV(lista);
+                        somavalor();
+
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int codigo = 0;
+            if(ttbCodigo.Text!=null && ttbCodigo.Text != "")
+            {
+                codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
+                int result = cc.excluirCompra(codigo);
+                if(result > 0)
+                {
+                    MessageBox.Show("Excluido com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Excluir!");
+                }
+            }
         }
     }
 }

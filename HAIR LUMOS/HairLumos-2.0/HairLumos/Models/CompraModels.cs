@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,26 @@ namespace HairLumos.Models
             compra.Lista = lista;
 
             return _DAOComp.gravarCompra(compra);
+        }
+
+        public DataTable retornaCompra()
+        {
+            return _DAOComp.retornaCompra();
+        }
+
+        public DataTable retornaCompra(int codigo)
+        {
+            return _DAOComp.retornaCompra(codigo);
+        }
+
+        public List<Entidades.CompraProduto> retornaLista(int codigo)
+        {
+            return _DAOComp.retornaLista(codigo);
+        }
+
+        public int excluirCompra(int codigo)
+        {
+            return _DAOComp.excluirCompra(codigo);
         }
     }
 }

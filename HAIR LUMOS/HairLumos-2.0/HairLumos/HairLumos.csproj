@@ -268,6 +268,12 @@
     <Compile Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerenciarCompra.Designer.cs">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\PesquisarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\PesquisarCompras.Designer.cs">
+      <DependentUpon>PesquisarCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F6 - Abrir Caixa\AbrirCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\GerenciarCompra.resx">
       <DependentUpon>GerenciarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F5 - Gerenciar Compras\PesquisarCompras.resx">
+      <DependentUpon>PesquisarCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F6 - Abrir Caixa\AbrirCaixa.resx">
       <DependentUpon>AbrirCaixa.cs</DependentUpon>
