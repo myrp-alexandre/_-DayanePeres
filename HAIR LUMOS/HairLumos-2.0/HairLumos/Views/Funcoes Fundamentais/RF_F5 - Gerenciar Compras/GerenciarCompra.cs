@@ -317,5 +317,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 }
             }
         }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnGerarContaPagar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

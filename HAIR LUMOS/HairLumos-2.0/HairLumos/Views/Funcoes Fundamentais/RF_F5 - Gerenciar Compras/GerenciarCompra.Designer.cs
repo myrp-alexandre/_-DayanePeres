@@ -59,7 +59,6 @@
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnGerarContaPagar = new System.Windows.Forms.Button();
             this.btnGerarCompra = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -67,6 +66,7 @@
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.BtnGerarContaPagar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -410,16 +410,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Produto";
             // 
-            // BtnGerarContaPagar
-            // 
-            this.BtnGerarContaPagar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnGerarContaPagar.Location = new System.Drawing.Point(645, 12);
-            this.BtnGerarContaPagar.Name = "BtnGerarContaPagar";
-            this.BtnGerarContaPagar.Size = new System.Drawing.Size(128, 48);
-            this.BtnGerarContaPagar.TabIndex = 15;
-            this.BtnGerarContaPagar.Text = "Gerar Conta a Pagar";
-            this.BtnGerarContaPagar.UseVisualStyleBackColor = false;
-            // 
             // btnGerarCompra
             // 
             this.btnGerarCompra.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -484,6 +474,7 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -495,6 +486,17 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // BtnGerarContaPagar
+            // 
+            this.BtnGerarContaPagar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnGerarContaPagar.Location = new System.Drawing.Point(645, 12);
+            this.BtnGerarContaPagar.Name = "BtnGerarContaPagar";
+            this.BtnGerarContaPagar.Size = new System.Drawing.Size(128, 48);
+            this.BtnGerarContaPagar.TabIndex = 15;
+            this.BtnGerarContaPagar.Text = "Gerar Conta a Pagar";
+            this.BtnGerarContaPagar.UseVisualStyleBackColor = false;
+            this.BtnGerarContaPagar.Click += new System.EventHandler(this.BtnGerarContaPagar_Click);
             // 
             // GerenciarCompra
             // 
@@ -562,10 +564,10 @@
         private System.Windows.Forms.RadioButton rbSim;
         public System.Windows.Forms.TextBox ttbFornecedor;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Button BtnGerarContaPagar;
         public System.Windows.Forms.Button btnGerarCompra;
         public System.Windows.Forms.Button btnIncluirProduto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label totalCompra;
+        public System.Windows.Forms.Button BtnGerarContaPagar;
     }
 }
