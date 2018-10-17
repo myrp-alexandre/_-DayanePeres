@@ -406,11 +406,11 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT Contrato.codContrato, TipoServ.tipoServ_descricao, Adicionais.pacAdc_qtde, Pacote.pac_pacote, Contrato.fis_cpf, TipoServ.codtiposervico, Pacote.codPacote " +
-                        "FROM tbContrato Contrato "+
-                        "INNER JOIN tbPacote as Pacote on Contrato.codPacote = Pacote.codPacote "+
-                        "INNER JOIN tbPacotesAdicionais as Adicionais on Contrato.codContrato = Adicionais.codContrato "+
-                        "INNER JOIN tbTipoServico as TipoServ on Adicionais.codTipoServico = TipoServ.codTipoServico"; 
+            _sql = "SELECT c.codContrato, p.codPacote, p.pac_pacote, sum(ps.pacServ_qtde), p.pac_valor, c.fis_cpf"+
+                    " FROM tbpacoteservico ps inner join tbpacote p on p.codPacote = ps.codPacote"+
+                    " INNER JOIN tbcontrato c on c.codPacote = p.codPacote"+
+                    " GROUP BY p.codPacote, ps.codPacote, p.pac_valor, c.codContrato" +
+                    " ORDER BY c.codContrato ";
 
 
             try
@@ -418,12 +418,12 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@Contrato.codContrato");
-                cmd.Parameters.AddWithValue("@TipoServ.tipoServ_descricao");
-                cmd.Parameters.AddWithValue("@Adicionais.pacAdc_qtde");
-                cmd.Parameters.AddWithValue("@Pacote.pac_pacote");
-                cmd.Parameters.AddWithValue("@TipoServ.codtiposervico");
-                cmd.Parameters.AddWithValue("@Pacote.codPacote");
+                cmd.Parameters.AddWithValue("@c.codContrato");
+                cmd.Parameters.AddWithValue("@p.codPacote");
+                cmd.Parameters.AddWithValue("@p.pac_pacote");
+                cmd.Parameters.AddWithValue("@sum");
+                cmd.Parameters.AddWithValue("@p.pac_valor");
+                cmd.Parameters.AddWithValue("@c.fis_cpf");
 
 
 

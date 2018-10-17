@@ -35,7 +35,7 @@
             this.ttbDescricao = new System.Windows.Forms.TextBox();
             this.dgvPacote = new System.Windows.Forms.DataGridView();
             this.pac_pacote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacAdc_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -116,7 +116,7 @@
             this.dgvPacote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacote.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pac_pacote,
-            this.pacAdc_qtde});
+            this.sum});
             this.dgvPacote.Location = new System.Drawing.Point(12, 14);
             this.dgvPacote.Name = "dgvPacote";
             this.dgvPacote.ReadOnly = true;
@@ -133,14 +133,14 @@
             this.pac_pacote.Name = "pac_pacote";
             this.pac_pacote.ReadOnly = true;
             // 
-            // pacAdc_qtde
+            // sum
             // 
-            this.pacAdc_qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.pacAdc_qtde.DataPropertyName = "pacAdc_qtde";
-            this.pacAdc_qtde.HeaderText = "Qtde de Serviços do Pacote";
-            this.pacAdc_qtde.Name = "pacAdc_qtde";
-            this.pacAdc_qtde.ReadOnly = true;
-            this.pacAdc_qtde.Width = 250;
+            this.sum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.sum.DataPropertyName = "sum";
+            this.sum.HeaderText = "Qtde de Serviços do Pacote";
+            this.sum.Name = "sum";
+            this.sum.ReadOnly = true;
+            this.sum.Width = 250;
             // 
             // PesquisaContratoPacotes
             // 
@@ -173,6 +173,6 @@
         private System.Windows.Forms.TextBox ttbDescricao;
         private System.Windows.Forms.DataGridView dgvPacote;
         private System.Windows.Forms.DataGridViewTextBoxColumn pac_pacote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pacAdc_qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sum;
     }
 }

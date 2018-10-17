@@ -49,7 +49,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             if (dgvPacote.Rows.Count > 0)
             {
                 int intCod = 0;
-                int.TryParse(dgvPacote.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
+                int.TryParse(dgvPacote.CurrentRow.Cells[1].FormattedValue.ToString(), out intCod);
 
                 if (intCod > 0)
                 {

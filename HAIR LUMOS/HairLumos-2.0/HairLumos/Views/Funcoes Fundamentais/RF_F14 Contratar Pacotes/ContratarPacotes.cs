@@ -403,7 +403,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                 {
                     Controller.PacoteController pacoteController = new Controller.PacoteController();
                     Controller.PessoaController pessoaController = new Controller.PessoaController();
-
+                    Controller.ServicoController sc = new Controller.ServicoController();
+                    Entidades.Pacote _pacote = new Entidades.Pacote();
                     DataTable dtRetorno = pacoteController.retornaContratoServicos();
 
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
@@ -413,7 +414,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                         codCpf = dr["fis_cpf"].ToString();
                         intCarregaCbbServico = Convert.ToInt32(dr["codtiposervico"].ToString());
                         intCarregaCbbPacote = Convert.ToInt32(dr["codpacote"].ToString());
-
+                        
 
                         DataTable dtFisica = pessoaController.retornaCpf(codCpf);
 
@@ -431,6 +432,51 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                             }
                                 
                         }
+
+                        int intCodPacote = 0;
+
+                        for (int i = 0; i < dtRetorno.Rows.Count; i++)
+                        {
+                            intCodPacote = intCarregaCbbPacote;
+                            pacote = _pacote;
+
+                            DataTable dtPacote = pacoteController.retornaObjPacote(intCodPacote);
+                            DataTable dtLista = pacoteController.retornaListaPacote(intCodPacote);
+                            DataRow drPacote = dtPacote.Rows[0];
+
+                            _pacote.carregaPacote(Convert.ToInt32(drPacote["codpacote"].ToString()),
+                                drPacote["pac_pacote"].ToString(),
+                                Convert.ToDouble(drPacote["pac_valor"].ToString()),
+                                drPacote["pac_obs"].ToString(),
+                                drPacote["pac_periodicidade"].ToString(),
+                                listaPacoteServico,
+                                Convert.ToDateTime(drPacote["pac_datainicio"].ToString()),
+                                Convert.ToDateTime(drPacote["pac_datafim"].ToString()));
+
+                            
+
+
+                            dr = dtRetorno.Rows[i];
+                            Entidades.PacoteServico pac = new Entidades.PacoteServico();
+                            Entidades.Servico serv = new Entidades.Servico();
+                            pacoteController.retornaListaPacote(Convert.ToInt32(drPacote["codpacote"].ToString()));
+
+                            DataTable dtServico = sc.retornaObjServico(intCarregaCbbServico);
+                            DataRow drServ = dtServico.Rows[0];
+                            serv.Codigo = Convert.ToInt32(drServ["codtiposervico"].ToString());
+                            serv.ServicoNome = drServ["tiposerv_descricao"].ToString();
+                            serv.Observacao = drServ["tiposerv_obs"].ToString();
+                            serv.Tempo = drServ["tiposerv_temposervico"].ToString();
+                            serv.Valor = Convert.ToDouble(drServ["tiposerv_valor"].ToString());
+                            pac.Pacote = _pacote;
+                            pac.Servico = serv;
+                            pac.Quantidade = Convert.ToInt32(dr["pacserv_qtde"].ToString());
+                            pac.Periodicidade = dr["pacserv_periodicidade"].ToString();
+                            listaPacoteServico.Add(pac);
+
+                            intCarregaCbbServico = 0;
+                        }
+
 
                         carregaCbbPacote();
                         carregaCbbServico();
