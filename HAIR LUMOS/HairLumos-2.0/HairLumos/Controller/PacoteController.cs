@@ -60,5 +60,10 @@ namespace HairLumos.Controller
         {
             return _MdlPac.retornaContrato();
         }
+
+        public Boolean retornaContrato(int Cod)
+        {
+            return _MdlPac.retornaContrato(Cod);
+        }
     }
 }

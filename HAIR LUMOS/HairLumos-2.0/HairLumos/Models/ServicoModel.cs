@@ -13,6 +13,7 @@ namespace HairLumos.Models
         // validar informações para enviar/receber do Banco 
 
         DAO.ServicoDAO _DAOServ = new DAO.ServicoDAO();
+        DAO.PacoteDAO _DAOPacoteServico = new DAO.PacoteDAO();
 
        
         public int gravaServico(int cod, string servico, double valor,string tempo,  string obs)
@@ -39,6 +40,12 @@ namespace HairLumos.Models
         {
             Entidades.Servico _entServico = new Entidades.Servico();
             return _DAOServ.RetornaObjServico(cod);
+        }
+
+        public DataTable retornaPacoteServico(int cod)
+        {
+            Entidades.Servico _entServico = new Entidades.Servico();
+            return _DAOPacoteServico.RetornaPacoteServicos(cod);
         }
 
         public bool excluirServico(int intCod)

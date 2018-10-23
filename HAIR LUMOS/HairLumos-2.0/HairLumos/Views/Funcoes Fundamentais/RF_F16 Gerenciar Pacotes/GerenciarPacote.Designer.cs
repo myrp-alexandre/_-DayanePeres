@@ -30,15 +30,18 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.rbSim = new System.Windows.Forms.RadioButton();
+            this.rbNao = new System.Windows.Forms.RadioButton();
+            this.dtpDataFim = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpDataInicio = new System.Windows.Forms.DateTimePicker();
             this.ttbPacote = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtpDataFim = new System.Windows.Forms.DateTimePicker();
             this.ttbObs = new System.Windows.Forms.TextBox();
             this.mskValor = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,9 +53,6 @@
             this.ttbPeriodo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvPacote = new System.Windows.Forms.DataGridView();
-            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Periodicidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcuirServico = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
@@ -63,11 +63,15 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Periodicidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacote)).BeginInit();
@@ -87,7 +91,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -105,22 +108,76 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.dtpDataInicio);
             this.groupBox3.Controls.Add(this.ttbPacote);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.dtpDataFim);
             this.groupBox3.Controls.Add(this.ttbObs);
             this.groupBox3.Controls.Add(this.mskValor);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(21, 41);
+            this.groupBox3.Location = new System.Drawing.Point(21, 35);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(659, 82);
+            this.groupBox3.Size = new System.Drawing.Size(659, 95);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Informações Pacote";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.rbSim);
+            this.groupBox4.Controls.Add(this.rbNao);
+            this.groupBox4.Controls.Add(this.dtpDataFim);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Location = new System.Drawing.Point(6, 47);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(332, 39);
+            this.groupBox4.TabIndex = 36;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "O Pacote terá data final?";
+            // 
+            // rbSim
+            // 
+            this.rbSim.AutoSize = true;
+            this.rbSim.Location = new System.Drawing.Point(6, 19);
+            this.rbSim.Name = "rbSim";
+            this.rbSim.Size = new System.Drawing.Size(44, 17);
+            this.rbSim.TabIndex = 38;
+            this.rbSim.TabStop = true;
+            this.rbSim.Text = "SIM";
+            this.rbSim.UseVisualStyleBackColor = true;
+            this.rbSim.CheckedChanged += new System.EventHandler(this.rbSim_CheckedChanged);
+            this.rbSim.Click += new System.EventHandler(this.rbSim_Click);
+            // 
+            // rbNao
+            // 
+            this.rbNao.AutoSize = true;
+            this.rbNao.Location = new System.Drawing.Point(75, 19);
+            this.rbNao.Name = "rbNao";
+            this.rbNao.Size = new System.Drawing.Size(48, 17);
+            this.rbNao.TabIndex = 37;
+            this.rbNao.TabStop = true;
+            this.rbNao.Text = "NÃO";
+            this.rbNao.UseVisualStyleBackColor = true;
+            this.rbNao.Click += new System.EventHandler(this.rbNao_Click);
+            // 
+            // dtpDataFim
+            // 
+            this.dtpDataFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataFim.Location = new System.Drawing.Point(198, 13);
+            this.dtpDataFim.Name = "dtpDataFim";
+            this.dtpDataFim.Size = new System.Drawing.Size(96, 20);
+            this.dtpDataFim.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(140, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Data Fim:";
             // 
             // label7
             // 
@@ -155,18 +212,10 @@
             this.label5.TabIndex = 35;
             this.label5.Text = "Data Início:";
             // 
-            // dtpDataFim
-            // 
-            this.dtpDataFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFim.Location = new System.Drawing.Point(243, 19);
-            this.dtpDataFim.Name = "dtpDataFim";
-            this.dtpDataFim.Size = new System.Drawing.Size(96, 20);
-            this.dtpDataFim.TabIndex = 34;
-            // 
             // ttbObs
             // 
             this.ttbObs.BackColor = System.Drawing.SystemColors.Window;
-            this.ttbObs.Location = new System.Drawing.Point(399, 51);
+            this.ttbObs.Location = new System.Drawing.Point(399, 63);
             this.ttbObs.Multiline = true;
             this.ttbObs.Name = "ttbObs";
             this.ttbObs.Size = new System.Drawing.Size(254, 23);
@@ -174,39 +223,28 @@
             // 
             // mskValor
             // 
-            this.mskValor.Location = new System.Drawing.Point(81, 48);
+            this.mskValor.Location = new System.Drawing.Point(254, 19);
             this.mskValor.Name = "mskValor";
             this.mskValor.Size = new System.Drawing.Size(84, 20);
             this.mskValor.TabIndex = 31;
-            this.mskValor.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskValor_MaskInputRejected);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(321, 48);
+            this.label4.Location = new System.Drawing.Point(396, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 18;
             this.label4.Text = "Observação:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(185, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Data Fim:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 51);
+            this.label2.Location = new System.Drawing.Point(190, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 27;
             this.label2.Text = "Valor (R$)*";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupBox2
             // 
@@ -217,7 +255,7 @@
             this.groupBox2.Controls.Add(this.btnIncluirServico);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.ttbPeriodo);
-            this.groupBox2.Location = new System.Drawing.Point(21, 129);
+            this.groupBox2.Location = new System.Drawing.Point(21, 136);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(578, 84);
             this.groupBox2.TabIndex = 21;
@@ -288,7 +326,7 @@
             // 
             this.groupBox1.Controls.Add(this.dgvPacote);
             this.groupBox1.Controls.Add(this.btnExcuirServico);
-            this.groupBox1.Location = new System.Drawing.Point(21, 219);
+            this.groupBox1.Location = new System.Drawing.Point(21, 221);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(659, 137);
             this.groupBox1.TabIndex = 20;
@@ -313,28 +351,6 @@
             this.dgvPacote.TabIndex = 13;
             this.dgvPacote.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacote_CellDoubleClick_1);
             // 
-            // Servico
-            // 
-            this.Servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Servico.DataPropertyName = "Servico";
-            this.Servico.HeaderText = "Serviço";
-            this.Servico.Name = "Servico";
-            this.Servico.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.DataPropertyName = "Quantidade";
-            this.Quantidade.HeaderText = "Qtde Serv.";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // Periodicidade
-            // 
-            this.Periodicidade.DataPropertyName = "Periodicidade";
-            this.Periodicidade.HeaderText = "Periodicidade";
-            this.Periodicidade.Name = "Periodicidade";
-            this.Periodicidade.ReadOnly = true;
-            // 
             // btnExcuirServico
             // 
             this.btnExcuirServico.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -349,7 +365,7 @@
             // Código
             // 
             this.Código.AutoSize = true;
-            this.Código.Location = new System.Drawing.Point(18, 18);
+            this.Código.Location = new System.Drawing.Point(18, 12);
             this.Código.Name = "Código";
             this.Código.Size = new System.Drawing.Size(40, 13);
             this.Código.TabIndex = 6;
@@ -357,7 +373,7 @@
             // 
             // ttbCodigo
             // 
-            this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
+            this.ttbCodigo.Location = new System.Drawing.Point(64, 9);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 7;
@@ -439,6 +455,29 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
             // 
+            // Servico
+            // 
+            this.Servico.DataPropertyName = "Servico";
+            this.Servico.HeaderText = "Serviço";
+            this.Servico.Name = "Servico";
+            this.Servico.ReadOnly = true;
+            this.Servico.Width = 250;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.DataPropertyName = "Quantidade";
+            this.Quantidade.HeaderText = "Qtde Serv.";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            // 
+            // Periodicidade
+            // 
+            this.Periodicidade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Periodicidade.DataPropertyName = "Periodicidade";
+            this.Periodicidade.HeaderText = "Periodicidade";
+            this.Periodicidade.Name = "Periodicidade";
+            this.Periodicidade.ReadOnly = true;
+            // 
             // Cadastro_Pacotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +489,7 @@
             this.Name = "Cadastro_Pacotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "H.L - GERENCIAR PACOTES";
+            this.Load += new System.EventHandler(this.Cadastro_Pacotes_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -457,6 +497,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -498,9 +540,12 @@
         public System.Windows.Forms.TextBox ttbPacote;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox ttbQtdeServico;
+        public System.Windows.Forms.Button btnPesquisa;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton rbSim;
+        private System.Windows.Forms.RadioButton rbNao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Periodicidade;
-        public System.Windows.Forms.Button btnPesquisa;
     }
 }

@@ -320,18 +320,10 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade,  pac_datainicio, pac_datafim" +
-                    "FROM tbpacote " +
-                    "WHERE pac_pacote LIKE %" + texto + "%";
-
-            int intCodigo = 0;
-
-            int.TryParse(texto, out intCodigo);
-
-            if (intCodigo > 0)
-                _sql += $"OR codpacote = @codpacote ";
-
-            // _sql += $"OR UPPER (usu_usuario) LIKE @usu_usuario";
+            _sql = "SELECT codpacote, pac_pacote, pac_valor, pac_obs, pac_periodicidade,  pac_datainicio, pac_datafim " +
+                    "FROM tbpacote ";
+             if(!string.IsNullOrEmpty(texto))
+                    _sql += "WHERE pac_pacote LIKE %" + texto + "%";
 
             try
             {
@@ -358,6 +350,41 @@ namespace HairLumos.DAO
             }
             return dt;
         }
+
+        public DataTable RetornaPacoteServicos(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT Pacote.codPacote, Pacote.pac_pacote, PacServ.pacServ_qtde, PacServ.pacServ_periodicidade, TipoServ.tipoServ_descricao"+
+                        " FROM TbPacote Pacote " +
+                        " INNER JOIN TbPacoteServico PacServ on Pacote.codPacote = PacServ.codPacote" +
+                        " INNER JOIN TbTipoServico TipoServ on PacServ.codTipoServico = TipoServ.codTipoServico" +
+                        " WHERE Pacote.codPacote = " +cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@Pacote.codPacote");
+                cmd.Parameters.AddWithValue("@Pacote.pac_pacote");
+                cmd.Parameters.AddWithValue("@PacServ.pacServ_qtde");
+                cmd.Parameters.AddWithValue("@PacServ.pacServ_periodicidade");
+                cmd.Parameters.AddWithValue("@TipoServ.tipoServ_descricao");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Pacote Serviços");
+            }
+            return dt;
+        }
+
 
         public DataTable RetornaContrato(string texto)
         {
@@ -470,6 +497,38 @@ namespace HairLumos.DAO
                 throw new SystemException(e + "Erro ao retornar Contrato");
             }
             return dt;
+        }
+
+        public Boolean RetornaContrato(int Cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codcontrato, contra_data, contra_ob, codpacote, fis_cpf, contra_valor " +
+                       "FROM tbcontrato "+
+                       " WHERE codPacote = "+Cod;
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+
+                if(dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Contrato");
+            }
+            return false;
         }
 
         public DataTable retornaListaPacote(int codigo)
