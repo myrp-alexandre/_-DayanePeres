@@ -27,8 +27,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
             if (dtRetorno != null && dtRetorno.Rows.Count > 0)
             {
-                dgvPacote.DataSource = dtRetorno;
-                dgvPacote.ClearSelection();
+                BindingSource bd = new BindingSource();
+                bd.DataSource = dtRetorno;
+                dgvPacote.DataSource = bd;
+                dgvPacote.Refresh();
             }
             else
                 dgvPacote.Rows.Clear();

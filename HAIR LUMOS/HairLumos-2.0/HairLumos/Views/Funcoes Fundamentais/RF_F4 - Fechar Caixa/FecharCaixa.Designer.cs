@@ -116,7 +116,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(334, 389);
+            this.label10.Location = new System.Drawing.Point(335, 370);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(120, 13);
             this.label10.TabIndex = 46;
@@ -124,7 +124,7 @@
             // 
             // mskTotalGasto
             // 
-            this.mskTotalGasto.Location = new System.Drawing.Point(453, 341);
+            this.mskTotalGasto.Location = new System.Drawing.Point(453, 328);
             this.mskTotalGasto.Name = "mskTotalGasto";
             this.mskTotalGasto.Size = new System.Drawing.Size(123, 20);
             this.mskTotalGasto.TabIndex = 45;
@@ -132,7 +132,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(369, 325);
+            this.label9.Location = new System.Drawing.Point(366, 312);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 13);
             this.label9.TabIndex = 44;
@@ -187,7 +187,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.cbbFormaPagamento);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(78, 72);
+            this.groupBox2.Location = new System.Drawing.Point(78, 70);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(498, 71);
             this.groupBox2.TabIndex = 35;
@@ -241,7 +241,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabControl1);
-            this.groupBox1.Location = new System.Drawing.Point(19, 149);
+            this.groupBox1.Location = new System.Drawing.Point(16, 147);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(319, 283);
             this.groupBox1.TabIndex = 34;
@@ -357,7 +357,7 @@
             // 
             // ttbCodigo
             // 
-            this.ttbCodigo.Location = new System.Drawing.Point(54, 12);
+            this.ttbCodigo.Location = new System.Drawing.Point(60, 12);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(83, 20);
             this.ttbCodigo.TabIndex = 7;

@@ -165,6 +165,11 @@ namespace HairLumos.Models
             return _DAOProd.gravaBaixaManual(obj);
         }
 
+        public DataTable retornaBaixaManual(int cod)
+        {
+            return _DAOProd.RetornaBaixas(cod);
+        }
+
     }
 
 

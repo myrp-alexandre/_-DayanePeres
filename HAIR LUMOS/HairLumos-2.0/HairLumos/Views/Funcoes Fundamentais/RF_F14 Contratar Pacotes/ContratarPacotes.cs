@@ -389,6 +389,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             inicializa(true);
         }
 
+        private void carregaDGV(List<Entidades.PacoteServico> lista)
+        {
+            BindingSource bd = new BindingSource();
+            bd.DataSource = lista;
+            dgvPacote.DataSource = bd;
+            dgvPacote.Refresh();
+        }
+
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
             string codCpf = "";
@@ -405,7 +413,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                     Controller.PessoaController pessoaController = new Controller.PessoaController();
                     Controller.ServicoController sc = new Controller.ServicoController();
                     Entidades.Pacote _pacote = new Entidades.Pacote();
-
+                    Entidades.PacoteServico pacoteServico = new Entidades.PacoteServico();
 
                     DataTable dtRetorno = pacoteController.retornaContratoServicos();
 
@@ -431,6 +439,26 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
                             {
                                 DataRow drPessoa = dtPessoa.Rows[0];
                                 ttbCliente.Text = drPessoa["pes_nome"].ToString();
+
+                                for (int i = 0; i < dtRetorno.Rows.Count; i++)
+                                {
+                                    pacote = new Entidades.Pacote();
+                                    pacoteServico = new Entidades.PacoteServico();
+                                    DataRow drServico = dtRetorno.Rows[i];
+                                    pacote.Codigo = Convert.ToInt32(drServico["codPacote"].ToString());
+                                    pacote.PaccoteNome = dr["pac_pacote"].ToString();
+                                    pacote.Valor = Convert.ToDouble(dr["pac_valor"].ToString());
+                                    pacoteServico.Quantidade = Convert.ToInt32(dr["sum"].ToString());
+                                    pacoteServico.Pacote = pacote;
+                                    
+                                    
+                                   listaPacoteServico.Add(pacoteServico);
+
+
+                                }
+                                addListaTabela(listaPacoteServico);
+                                carregaDgvPacotesAdcinais(listaTabela);
+
                             }
 
                         }

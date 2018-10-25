@@ -194,5 +194,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         {
 
         }
+
+        private void btnFecharVenda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

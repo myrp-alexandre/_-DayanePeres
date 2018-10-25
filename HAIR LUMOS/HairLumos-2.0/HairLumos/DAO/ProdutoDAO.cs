@@ -401,17 +401,7 @@ namespace HairLumos.DAO
                         "prod_obs, codcategoria, codmarca" +
                     " FROM tbproduto;";   
 
-            
-            //int intCodigo = 0;
-            //int.TryParse(Texto, out intCodigo);
-            
-            //if (intCodigo > 0)
-            //    _sql += $"OR codproduto = @codigo ";
-
-            //_sql += $"OR codproduto = @codigo ";
-            //_sql += $"OR UPPER (prod_produto) LIKE @produto";
-
-            // _sql += $"OR UPPER(pes_nome) LIKE @nome ";
+           
 
             try
             {
@@ -517,6 +507,7 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        //------------------------ BAIXA DE ESTOQUE -----------------------
 
         public int atualizaEstoque(Entidades.Produto obj)
         {
@@ -553,6 +544,43 @@ namespace HairLumos.DAO
             {
                 throw;
             }
+        }
+
+        public DataTable RetornaBaixas(int cod) //inteiro
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT Prod.codProduto, Prod.prod_produto, Baixa.codBaixa, Baixa.baix_data, Baixa.baix_qtde, Baixa.baix_obs" +
+                   " FROM tbProduto Prod" +
+                   " INNER JOIN tbBaixa Baixa on Prod.CodProduto = Baixa.codProduto";
+                
+            if(cod > 0)
+                _sql = " WHERE Prod.codProduto = "+cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@Prod.codProduto");
+                cmd.Parameters.AddWithValue("@Prod.prod_produto");
+                cmd.Parameters.AddWithValue("@Baixa.codBaixa");
+                cmd.Parameters.AddWithValue("@Baixa.baix_data");
+                cmd.Parameters.AddWithValue("@Baixa.baix_qtde");
+                cmd.Parameters.AddWithValue("@Baixa.baix_obs");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
         }
 
     }

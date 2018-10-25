@@ -45,6 +45,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.ttbProduto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPesquisa = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
@@ -75,6 +76,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnPesquisa);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
@@ -145,6 +147,7 @@
             // 
             // Prod
             // 
+            this.Prod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Prod.DataPropertyName = "Prod";
             this.Prod.HeaderText = "Produto";
             this.Prod.Name = "Prod";
@@ -184,6 +187,7 @@
             this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Controls.Add(this.ttbProduto);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.groupBox1.Location = new System.Drawing.Point(21, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(547, 89);
@@ -246,10 +250,21 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Produto*";
             // 
+            // btnPesquisa
+            // 
+            this.btnPesquisa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.Location = new System.Drawing.Point(183, 12);
+            this.btnPesquisa.Name = "btnPesquisa";
+            this.btnPesquisa.Size = new System.Drawing.Size(75, 38);
+            this.btnPesquisa.TabIndex = 13;
+            this.btnPesquisa.Text = "Pesquisar";
+            this.btnPesquisa.UseVisualStyleBackColor = false;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
+            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(183, 12);
+            this.btnCancelar.Location = new System.Drawing.Point(264, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 38);
             this.btnCancelar.TabIndex = 12;
@@ -298,7 +313,7 @@
             this.ClientSize = new System.Drawing.Size(609, 374);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Cursor = System.Windows.Forms.Cursors.No;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "BaixarEstoqueManual";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "H.L - BAIXA DE ESTOQUE MANUAL";
@@ -339,6 +354,7 @@
         private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox ttbObs;
+        public System.Windows.Forms.Button btnPesquisa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prod;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
     }

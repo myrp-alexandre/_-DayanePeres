@@ -148,5 +148,50 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
                 inicializa(false);
             }
         }
+
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual.Pesquisa_BaixaEstoque pesquisa_BaixaEstoque = new Pesquisa_BaixaEstoque();
+
+                pesquisa_BaixaEstoque.ShowDialog();
+
+                if (pesquisa_BaixaEstoque.intCodBaixa > 0)
+                {
+                    Controller.ProdutoController produtoController = new Controller.ProdutoController();
+                    DataTable dtRetorno = produtoController.retornabaixaManual(pesquisa_BaixaEstoque.intCodBaixa);
+                    Entidades.Produto produto;
+
+                    if (dtRetorno != null && dtRetorno.Rows.Count > 0)
+                    {
+                        DataRow dr = dtRetorno.Rows[0];
+
+                        for (int i = 0; i < dtRetorno.Rows.Count; i++)
+                        {
+                            Entidades.BaixaManual baixaManual = new Entidades.BaixaManual();
+                            produto = new Entidades.Produto();
+                            DataRow drProd = dtRetorno.Rows[i];
+                            produto.CodigoProduto = Convert.ToInt32(dr["codProd"].ToString());
+                            produto.NomeProduto = dr["prod_produto"].ToString();
+                            baixaManual.Qtde = Convert.ToInt32(dr["baixa_qtde"].ToString());
+                            baixaManual.Data = Convert.ToDateTime(dr["baixa_data"].ToString());
+
+                            lista.Add(baixaManual);
+
+
+                        }
+                        carregaDGV(lista);
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

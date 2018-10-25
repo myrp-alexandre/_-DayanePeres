@@ -343,6 +343,7 @@
             this.btnFecharVenda.TabIndex = 13;
             this.btnFecharVenda.Text = "FECHAR VENDA";
             this.btnFecharVenda.UseVisualStyleBackColor = false;
+            this.btnFecharVenda.Click += new System.EventHandler(this.btnFecharVenda_Click);
             // 
             // btnPesquisar
             // 
@@ -406,6 +407,7 @@
             this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // VenderProduto
             // 

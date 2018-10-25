@@ -99,5 +99,10 @@ namespace HairLumos.Controller
         {
             return _MdlProd.gravaBaixa(baixa);
         }
+
+        public DataTable retornabaixaManual(int cod)
+        {
+            return _MdlProd.retornaBaixaManual(cod);
+        }
     }
 }
