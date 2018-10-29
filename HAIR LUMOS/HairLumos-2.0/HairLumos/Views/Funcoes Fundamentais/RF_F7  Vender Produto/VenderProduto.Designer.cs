@@ -57,8 +57,6 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -90,8 +88,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnPesquisar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
-            this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
-            this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
             this.splitContainer1.Size = new System.Drawing.Size(776, 479);
             this.splitContainer1.SplitterDistance = 420;
@@ -102,7 +98,7 @@
             // 
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(21, 107);
+            this.groupBox2.Location = new System.Drawing.Point(21, 105);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(742, 310);
             this.groupBox2.TabIndex = 18;
@@ -114,7 +110,7 @@
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.btnExcluirItem);
             this.groupBox4.Controls.Add(this.dgvProdutos);
-            this.groupBox4.Location = new System.Drawing.Point(9, 122);
+            this.groupBox4.Location = new System.Drawing.Point(9, 121);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(717, 182);
             this.groupBox4.TabIndex = 2;
@@ -337,9 +333,9 @@
             // btnFecharVenda
             // 
             this.btnFecharVenda.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFecharVenda.Location = new System.Drawing.Point(525, 9);
+            this.btnFecharVenda.Location = new System.Drawing.Point(396, 9);
             this.btnFecharVenda.Name = "btnFecharVenda";
-            this.btnFecharVenda.Size = new System.Drawing.Size(138, 38);
+            this.btnFecharVenda.Size = new System.Drawing.Size(222, 38);
             this.btnFecharVenda.TabIndex = 13;
             this.btnFecharVenda.Text = "FECHAR VENDA";
             this.btnFecharVenda.UseVisualStyleBackColor = false;
@@ -348,7 +344,7 @@
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(218, 9);
+            this.btnPesquisar.Location = new System.Drawing.Point(122, 9);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(90, 38);
             this.btnPesquisar.TabIndex = 12;
@@ -359,7 +355,7 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(410, 9);
+            this.btnCancelar.Location = new System.Drawing.Point(218, 9);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 38);
             this.btnCancelar.TabIndex = 10;
@@ -376,27 +372,6 @@
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(314, 9);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(90, 38);
-            this.btnExcluir.TabIndex = 9;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            // 
-            // btnGravar
-            // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(122, 9);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(90, 38);
-            this.btnGravar.TabIndex = 8;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = false;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -448,8 +423,6 @@
         public System.Windows.Forms.Button btnPesquisar;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
-        public System.Windows.Forms.Button btnExcluir;
-        public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.Button btnPesquisarProduto;

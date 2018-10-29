@@ -16,5 +16,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
         {
             InitializeComponent();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
