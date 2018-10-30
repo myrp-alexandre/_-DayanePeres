@@ -19,11 +19,76 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         public VenderProduto()
         {
             InitializeComponent();
+            _inicializa();
+            mskValorTotal.Enabled = false;
+        }
+
+        public void _inicializa()
+        {
+
             ttbCliente.Enabled = false;
             mskTelefone.Enabled = false;
-            mskValor.Enabled = false;
-            mskValorTotal.Enabled = false;
             ttbProduto.Enabled = false;
+            mskValor.Enabled = false;
+            mskQtde.Enabled = false;
+            dgvProdutos.Enabled = false;
+            mskValorTotal.Enabled = false;
+
+            btnPesquisar.Enabled = false;
+            btnPesquisarProduto.Enabled = false;
+            btnIncluir.Enabled = false;
+            btnExcluirItem.Enabled = false;
+            btnPesquisar.Enabled = false;
+            btnPesquisarCliente.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnFecharVenda.Enabled = false;
+            btnSair.Enabled = false;
+
+        }
+
+        public void _btnNovo()
+        {
+            ttbCliente.Enabled = true;
+            mskTelefone.Enabled = true;
+            ttbProduto.Enabled = true;
+            mskValor.Enabled = true;
+            mskQtde.Enabled = true;
+            dgvProdutos.Enabled = true;
+            
+
+            btnNovo.Enabled = false;
+            btnPesquisar.Enabled = true;
+            btnPesquisarProduto.Enabled = true;
+            btnPesquisarCliente.Enabled = true;
+            btnIncluir.Enabled = true;
+            btnExcluirItem.Enabled = true;
+            btnPesquisar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnFecharVenda.Enabled = true;
+            btnSair.Enabled = true;
+
+            ttbCliente.Focus();
+
+            _limpaCampos();
+         
+        }
+
+        public void _limpaCampos()
+        {
+            ttbCliente.Text = "";
+            mskTelefone.Text = "";
+            ttbProduto.Text = "";
+            mskValor.Text = "";
+            mskQtde.Text = "";
+            dgvProdutos.Rows.Clear();
+            mskValorTotal.Text = "";
+        }
+
+        public void _btnCancelar()
+        {
+            _btnNovo();
+            _limpaCampos();
+            btnNovo.Enabled = true;
         }
 
         private void btnPesquisarCliente_Click(object sender, EventArgs e)
@@ -82,6 +147,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void btnSair_Click(object sender, EventArgs e)
         {
+            _limpaCampos();
             Close();
         }
 
@@ -116,24 +182,26 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                         qtdeProd = Convert.ToInt32(mskQtde.Text.ToString());
                         vep.Quantidade = qtdeProd;
 
-                        if (!string.IsNullOrWhiteSpace(mskValorTotal.Text))
-                        {
+                        //if (!string.IsNullOrWhiteSpace(mskValorTotal.Text))
+                        //{
 
-                            multValor = qtdeProd * vep.Valor;
-                            soma = Convert.ToDouble(mskValorTotal.Text);
-                            soma += multValor;
-                            mskValorTotal.Text = Convert.ToString(soma);
-                        }
-                        else
-                        {
-                            multValor = qtdeProd * vep.Valor;
-                            soma += multValor;
-                            mskValorTotal.Text = Convert.ToString(soma);
-                        }
+                        //    multValor = qtdeProd * vep.Valor;
+                        //    soma = Convert.ToDouble(mskValorTotal.Text);
+                        //    soma += multValor;
+                        //    mskValorTotal.Text = Convert.ToString(soma);
+                        //}
+                        //else
+                        //{
+                        //    multValor = qtdeProd * vep.Valor;
+                        //    soma += multValor;
+                        //    mskValorTotal.Text = Convert.ToString(soma);
+                        //}
 
                         insereLista(listVendaProduto, vep);
                         carregaDgv(listVendaProduto);
-                        
+                        mskValorTotal.Text = somaValorTotal(listVendaProduto)+"";
+
+
                     }
                     
                 }
@@ -162,18 +230,35 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         {
             int i = 0;
             bool achou = false;
-            while(i< lista.Count && !achou)
+            if (lista.Count > 0)
             {
-                if (lista.ElementAt(i).Produto.CodigoProduto == vep.Produto.CodigoProduto)
+                while (i < lista.Count || achou)
                 {
-                    lista.ElementAt(i).Quantidade += vep.Quantidade;
-                    achou = true;
-                    listVendaProduto = lista;
+                    if (lista.ElementAt(i).Produto.CodigoProduto == vep.Produto.CodigoProduto)
+                    {
+                        lista.ElementAt(i).Quantidade += vep.Quantidade;
+                        achou = true;
+                        listVendaProduto = lista;
+                    }
+                    i++;
                 }
-            }
-            if (!achou)
+                if (!achou)
+                    listVendaProduto.Add(vep);
+            }else
                 listVendaProduto.Add(vep);
 
+        }
+
+        private double somaValorTotal(List<Entidades.VendaProduto> lista)
+        {
+            double total = 0;
+
+            for (int i = 0; i < lista.Count; i++)
+            {
+                total += (lista.ElementAt(i).Valor * lista.ElementAt(i).Quantidade);
+            }
+
+            return total;
         }
 
         private void btnExcluirItem_Click(object sender, EventArgs e)
@@ -182,6 +267,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
             {
                 listVendaProduto.RemoveAt(dgvProdutos.CurrentRow.Index);
                 carregaDgv(listVendaProduto);
+
+                mskValorTotal.Text = somaValorTotal(listVendaProduto)+"";
             }
         }
 
@@ -197,12 +284,18 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void btnFecharVenda_Click(object sender, EventArgs e)
         {
-
+            Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.FecharAtendimento fecharAtendimento = new RF_F8_Fechar_Atendimento.FecharAtendimento();
+            fecharAtendimento.ShowDialog();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            _btnNovo();
+        }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            _btnCancelar();
         }
     }
 }

@@ -46,48 +46,6 @@
             this.rbInativo = new System.Windows.Forms.RadioButton();
             this.rbAtivo = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.tabcInformaçõesPessoa = new System.Windows.Forms.TabControl();
-            this.Endereço = new System.Windows.Forms.TabPage();
-            this.pnlEndereco = new System.Windows.Forms.Panel();
-            this.btnExcluirEnd = new System.Windows.Forms.Button();
-            this.btnAlterarEnd = new System.Windows.Forms.Button();
-            this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
-            this.btnSalvarEndereco = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cbbCidade = new System.Windows.Forms.ComboBox();
-            this.cbbEstado = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.ttbComplemento = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ttbBairro = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ttbNumero = new System.Windows.Forms.TextBox();
-            this.ttbLogradouro = new System.Windows.Forms.TextBox();
-            this.btnIncluirEndereco = new System.Windows.Forms.Button();
-            this.dgvEndereco = new System.Windows.Forms.DataGridView();
-            this.Logradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contato = new System.Windows.Forms.TabPage();
-            this.btnRemoverContato = new System.Windows.Forms.Button();
-            this.dgvContato = new System.Windows.Forms.DataGridView();
-            this._telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlContato = new System.Windows.Forms.Panel();
-            this.rbComercial = new System.Windows.Forms.RadioButton();
-            this.rbCelular = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rbTelefone = new System.Windows.Forms.RadioButton();
-            this.btnSalvarContato = new System.Windows.Forms.Button();
-            this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btnIncluirContato = new System.Windows.Forms.Button();
-            this.Observações = new System.Windows.Forms.TabPage();
-            this.label17 = new System.Windows.Forms.Label();
-            this.ttbObservação = new System.Windows.Forms.TextBox();
             this.ttbRg = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ttbRazao = new System.Windows.Forms.TextBox();
@@ -103,20 +61,40 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.Observações = new System.Windows.Forms.TabPage();
+            this.ttbObservação = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Endereço = new System.Windows.Forms.TabPage();
+            this.pnlEndereco = new System.Windows.Forms.Panel();
+            this.ttbLogradouro = new System.Windows.Forms.TextBox();
+            this.ttbNumero = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ttbBairro = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ttbComplemento = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cbbEstado = new System.Windows.Forms.ComboBox();
+            this.cbbCidade = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
+            this.tabcInformaçõesPessoa = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpPessoa.SuspendLayout();
-            this.tabcInformaçõesPessoa.SuspendLayout();
+            this.Observações.SuspendLayout();
             this.Endereço.SuspendLayout();
             this.pnlEndereco.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
-            this.Contato.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).BeginInit();
-            this.pnlContato.SuspendLayout();
-            this.Observações.SuspendLayout();
+            this.tabcInformaçõesPessoa.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -128,8 +106,12 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.mskTelefone);
+            this.splitContainer1.Panel1.Controls.Add(this.label16);
+            this.splitContainer1.Panel1.Controls.Add(this.maskedTextBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label21);
             this.splitContainer1.Panel1.Controls.Add(this.ttbEmail);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.grpPessoa);
             this.splitContainer1.Panel1.Controls.Add(this.mskCNPJ);
@@ -168,7 +150,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(61, 186);
+            this.label21.Location = new System.Drawing.Point(60, 233);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(35, 13);
             this.label21.TabIndex = 18;
@@ -177,7 +159,7 @@
             // ttbEmail
             // 
             this.ttbEmail.Enabled = false;
-            this.ttbEmail.Location = new System.Drawing.Point(102, 183);
+            this.ttbEmail.Location = new System.Drawing.Point(101, 230);
             this.ttbEmail.Name = "ttbEmail";
             this.ttbEmail.Size = new System.Drawing.Size(640, 20);
             this.ttbEmail.TabIndex = 19;
@@ -188,9 +170,9 @@
             this.groupBox2.Controls.Add(this.rbPagaNao);
             this.groupBox2.Controls.Add(this.rbPagaSim);
             this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(758, 133);
+            this.groupBox2.Location = new System.Drawing.Point(758, 137);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(91, 81);
+            this.groupBox2.Size = new System.Drawing.Size(91, 113);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pagamento Diferenciado?";
@@ -200,7 +182,7 @@
             this.rbPagaNao.AutoSize = true;
             this.rbPagaNao.Checked = true;
             this.rbPagaNao.Enabled = false;
-            this.rbPagaNao.Location = new System.Drawing.Point(7, 32);
+            this.rbPagaNao.Location = new System.Drawing.Point(10, 56);
             this.rbPagaNao.Name = "rbPagaNao";
             this.rbPagaNao.Size = new System.Drawing.Size(45, 17);
             this.rbPagaNao.TabIndex = 0;
@@ -213,7 +195,7 @@
             // 
             this.rbPagaSim.AutoSize = true;
             this.rbPagaSim.Enabled = false;
-            this.rbPagaSim.Location = new System.Drawing.Point(7, 53);
+            this.rbPagaSim.Location = new System.Drawing.Point(10, 84);
             this.rbPagaSim.Name = "rbPagaSim";
             this.rbPagaSim.Size = new System.Drawing.Size(42, 17);
             this.rbPagaSim.TabIndex = 1;
@@ -262,7 +244,7 @@
             // mskCNPJ
             // 
             this.mskCNPJ.Enabled = false;
-            this.mskCNPJ.Location = new System.Drawing.Point(305, 151);
+            this.mskCNPJ.Location = new System.Drawing.Point(305, 155);
             this.mskCNPJ.Mask = "00.000.000/0000-00";
             this.mskCNPJ.Name = "mskCNPJ";
             this.mskCNPJ.Size = new System.Drawing.Size(123, 20);
@@ -272,7 +254,7 @@
             // mskCPF
             // 
             this.mskCPF.Enabled = false;
-            this.mskCPF.Location = new System.Drawing.Point(470, 151);
+            this.mskCPF.Location = new System.Drawing.Point(470, 155);
             this.mskCPF.Mask = "000.000.000-00";
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(83, 20);
@@ -282,7 +264,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(561, 151);
+            this.label9.Location = new System.Drawing.Point(561, 155);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 16;
@@ -292,7 +274,7 @@
             // 
             this.dtpDataNascimento.Enabled = false;
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataNascimento.Location = new System.Drawing.Point(628, 151);
+            this.dtpDataNascimento.Location = new System.Drawing.Point(628, 155);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.Size = new System.Drawing.Size(114, 20);
             this.dtpDataNascimento.TabIndex = 17;
@@ -301,7 +283,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(252, 154);
+            this.label8.Location = new System.Drawing.Point(252, 158);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
             this.label8.TabIndex = 12;
@@ -310,7 +292,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(434, 151);
+            this.label7.Location = new System.Drawing.Point(434, 155);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 14;
@@ -349,456 +331,10 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Status*";
             // 
-            // tabcInformaçõesPessoa
-            // 
-            this.tabcInformaçõesPessoa.Controls.Add(this.Endereço);
-            this.tabcInformaçõesPessoa.Controls.Add(this.Contato);
-            this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
-            this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(12, 209);
-            this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
-            this.tabcInformaçõesPessoa.SelectedIndex = 0;
-            this.tabcInformaçõesPessoa.Size = new System.Drawing.Size(875, 211);
-            this.tabcInformaçõesPessoa.TabIndex = 21;
-            // 
-            // Endereço
-            // 
-            this.Endereço.Controls.Add(this.pnlEndereco);
-            this.Endereço.Controls.Add(this.btnIncluirEndereco);
-            this.Endereço.Controls.Add(this.dgvEndereco);
-            this.Endereço.Location = new System.Drawing.Point(4, 22);
-            this.Endereço.Name = "Endereço";
-            this.Endereço.Size = new System.Drawing.Size(867, 185);
-            this.Endereço.TabIndex = 4;
-            this.Endereço.Text = "Endereço";
-            this.Endereço.UseVisualStyleBackColor = true;
-            // 
-            // pnlEndereco
-            // 
-            this.pnlEndereco.Controls.Add(this.btnExcluirEnd);
-            this.pnlEndereco.Controls.Add(this.btnAlterarEnd);
-            this.pnlEndereco.Controls.Add(this.mtbCEP);
-            this.pnlEndereco.Controls.Add(this.btnSalvarEndereco);
-            this.pnlEndereco.Controls.Add(this.label15);
-            this.pnlEndereco.Controls.Add(this.label14);
-            this.pnlEndereco.Controls.Add(this.cbbCidade);
-            this.pnlEndereco.Controls.Add(this.cbbEstado);
-            this.pnlEndereco.Controls.Add(this.label13);
-            this.pnlEndereco.Controls.Add(this.label12);
-            this.pnlEndereco.Controls.Add(this.ttbComplemento);
-            this.pnlEndereco.Controls.Add(this.label11);
-            this.pnlEndereco.Controls.Add(this.ttbBairro);
-            this.pnlEndereco.Controls.Add(this.label10);
-            this.pnlEndereco.Controls.Add(this.label3);
-            this.pnlEndereco.Controls.Add(this.ttbNumero);
-            this.pnlEndereco.Controls.Add(this.ttbLogradouro);
-            this.pnlEndereco.Location = new System.Drawing.Point(29, 75);
-            this.pnlEndereco.Name = "pnlEndereco";
-            this.pnlEndereco.Size = new System.Drawing.Size(818, 107);
-            this.pnlEndereco.TabIndex = 1;
-            // 
-            // btnExcluirEnd
-            // 
-            this.btnExcluirEnd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluirEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirEnd.Location = new System.Drawing.Point(762, 40);
-            this.btnExcluirEnd.Name = "btnExcluirEnd";
-            this.btnExcluirEnd.Size = new System.Drawing.Size(53, 28);
-            this.btnExcluirEnd.TabIndex = 16;
-            this.btnExcluirEnd.Text = "Excluir";
-            this.btnExcluirEnd.UseVisualStyleBackColor = false;
-            this.btnExcluirEnd.Click += new System.EventHandler(this.btnExcluirEnd_Click);
-            // 
-            // btnAlterarEnd
-            // 
-            this.btnAlterarEnd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterarEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterarEnd.Location = new System.Drawing.Point(762, 9);
-            this.btnAlterarEnd.Name = "btnAlterarEnd";
-            this.btnAlterarEnd.Size = new System.Drawing.Size(53, 28);
-            this.btnAlterarEnd.TabIndex = 15;
-            this.btnAlterarEnd.Text = "Alterar";
-            this.btnAlterarEnd.UseVisualStyleBackColor = false;
-            this.btnAlterarEnd.Click += new System.EventHandler(this.btnAlterarEnd_Click);
-            // 
-            // mtbCEP
-            // 
-            this.mtbCEP.Location = new System.Drawing.Point(70, 75);
-            this.mtbCEP.Mask = "00000-000";
-            this.mtbCEP.Name = "mtbCEP";
-            this.mtbCEP.Size = new System.Drawing.Size(79, 20);
-            this.mtbCEP.TabIndex = 9;
-            this.mtbCEP.Leave += new System.EventHandler(this.mtbCEP_Leave);
-            // 
-            // btnSalvarEndereco
-            // 
-            this.btnSalvarEndereco.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSalvarEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarEndereco.Location = new System.Drawing.Point(762, 70);
-            this.btnSalvarEndereco.Name = "btnSalvarEndereco";
-            this.btnSalvarEndereco.Size = new System.Drawing.Size(53, 28);
-            this.btnSalvarEndereco.TabIndex = 14;
-            this.btnSalvarEndereco.Text = "Salvar";
-            this.btnSalvarEndereco.UseVisualStyleBackColor = false;
-            this.btnSalvarEndereco.Click += new System.EventHandler(this.btnSalvarEndereco_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(428, 73);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 13);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Cidade";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(155, 73);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 13);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Estado";
-            // 
-            // cbbCidade
-            // 
-            this.cbbCidade.FormattingEnabled = true;
-            this.cbbCidade.Location = new System.Drawing.Point(474, 74);
-            this.cbbCidade.Name = "cbbCidade";
-            this.cbbCidade.Size = new System.Drawing.Size(286, 21);
-            this.cbbCidade.TabIndex = 13;
-            // 
-            // cbbEstado
-            // 
-            this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(201, 74);
-            this.cbbEstado.Name = "cbbEstado";
-            this.cbbEstado.Size = new System.Drawing.Size(215, 21);
-            this.cbbEstado.TabIndex = 11;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 74);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 13);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "CEP";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(354, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Complemento";
-            // 
-            // ttbComplemento
-            // 
-            this.ttbComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbComplemento.Location = new System.Drawing.Point(431, 44);
-            this.ttbComplemento.Name = "ttbComplemento";
-            this.ttbComplemento.Size = new System.Drawing.Size(325, 20);
-            this.ttbComplemento.TabIndex = 7;
-            this.ttbComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbComplemento_KeyPress);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 44);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Bairro";
-            // 
-            // ttbBairro
-            // 
-            this.ttbBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbBairro.Location = new System.Drawing.Point(70, 44);
-            this.ttbBairro.Name = "ttbBairro";
-            this.ttbBairro.Size = new System.Drawing.Size(278, 20);
-            this.ttbBairro.TabIndex = 5;
-            this.ttbBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbBairro_KeyPress);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(631, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 13);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Nº";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Logradouro";
-            // 
-            // ttbNumero
-            // 
-            this.ttbNumero.Location = new System.Drawing.Point(656, 15);
-            this.ttbNumero.Name = "ttbNumero";
-            this.ttbNumero.Size = new System.Drawing.Size(100, 20);
-            this.ttbNumero.TabIndex = 3;
-            this.ttbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbNumero_KeyPress);
-            // 
-            // ttbLogradouro
-            // 
-            this.ttbLogradouro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbLogradouro.Location = new System.Drawing.Point(70, 15);
-            this.ttbLogradouro.Name = "ttbLogradouro";
-            this.ttbLogradouro.Size = new System.Drawing.Size(555, 20);
-            this.ttbLogradouro.TabIndex = 1;
-            this.ttbLogradouro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbLogradouro_KeyPress);
-            // 
-            // btnIncluirEndereco
-            // 
-            this.btnIncluirEndereco.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIncluirEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncluirEndereco.Location = new System.Drawing.Point(29, 3);
-            this.btnIncluirEndereco.Name = "btnIncluirEndereco";
-            this.btnIncluirEndereco.Size = new System.Drawing.Size(45, 22);
-            this.btnIncluirEndereco.TabIndex = 0;
-            this.btnIncluirEndereco.Text = "+";
-            this.btnIncluirEndereco.UseVisualStyleBackColor = false;
-            this.btnIncluirEndereco.Click += new System.EventHandler(this.btnIncluirEndereco_Click);
-            // 
-            // dgvEndereco
-            // 
-            this.dgvEndereco.AllowUserToAddRows = false;
-            this.dgvEndereco.AllowUserToDeleteRows = false;
-            this.dgvEndereco.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEndereco.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Logradouro,
-            this.Numero,
-            this.Bairro});
-            this.dgvEndereco.Location = new System.Drawing.Point(29, 4);
-            this.dgvEndereco.Name = "dgvEndereco";
-            this.dgvEndereco.ReadOnly = true;
-            this.dgvEndereco.Size = new System.Drawing.Size(815, 65);
-            this.dgvEndereco.TabIndex = 10;
-            // 
-            // Logradouro
-            // 
-            this.Logradouro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Logradouro.DataPropertyName = "_logradouro";
-            this.Logradouro.HeaderText = "Logradouro";
-            this.Logradouro.Name = "Logradouro";
-            this.Logradouro.ReadOnly = true;
-            // 
-            // Numero
-            // 
-            this.Numero.DataPropertyName = "_numero";
-            this.Numero.HeaderText = "Número";
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
-            // 
-            // Bairro
-            // 
-            this.Bairro.DataPropertyName = "_bairro";
-            this.Bairro.HeaderText = "Bairro";
-            this.Bairro.Name = "Bairro";
-            this.Bairro.ReadOnly = true;
-            this.Bairro.Width = 300;
-            // 
-            // Contato
-            // 
-            this.Contato.Controls.Add(this.btnRemoverContato);
-            this.Contato.Controls.Add(this.dgvContato);
-            this.Contato.Controls.Add(this.pnlContato);
-            this.Contato.Controls.Add(this.btnIncluirContato);
-            this.Contato.Location = new System.Drawing.Point(4, 22);
-            this.Contato.Name = "Contato";
-            this.Contato.Padding = new System.Windows.Forms.Padding(3);
-            this.Contato.Size = new System.Drawing.Size(867, 185);
-            this.Contato.TabIndex = 1;
-            this.Contato.Text = "Contato";
-            this.Contato.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoverContato
-            // 
-            this.btnRemoverContato.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRemoverContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoverContato.Location = new System.Drawing.Point(6, 44);
-            this.btnRemoverContato.Name = "btnRemoverContato";
-            this.btnRemoverContato.Size = new System.Drawing.Size(29, 32);
-            this.btnRemoverContato.TabIndex = 14;
-            this.btnRemoverContato.Text = "-";
-            this.btnRemoverContato.UseVisualStyleBackColor = false;
-            this.btnRemoverContato.Click += new System.EventHandler(this.btnRemoverContato_Click);
-            // 
-            // dgvContato
-            // 
-            this.dgvContato.AllowUserToAddRows = false;
-            this.dgvContato.AllowUserToDeleteRows = false;
-            this.dgvContato.BackgroundColor = System.Drawing.Color.White;
-            this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContato.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._telefone,
-            this._tipo});
-            this.dgvContato.Location = new System.Drawing.Point(48, 6);
-            this.dgvContato.Name = "dgvContato";
-            this.dgvContato.ReadOnly = true;
-            this.dgvContato.Size = new System.Drawing.Size(284, 89);
-            this.dgvContato.TabIndex = 13;
-            // 
-            // _telefone
-            // 
-            this._telefone.DataPropertyName = "_telefone";
-            this._telefone.HeaderText = "Telefone";
-            this._telefone.Name = "_telefone";
-            this._telefone.ReadOnly = true;
-            this._telefone.Width = 120;
-            // 
-            // _tipo
-            // 
-            this._tipo.DataPropertyName = "_tipo";
-            this._tipo.HeaderText = "Tipo Contato";
-            this._tipo.Name = "_tipo";
-            this._tipo.ReadOnly = true;
-            this._tipo.Width = 120;
-            // 
-            // pnlContato
-            // 
-            this.pnlContato.Controls.Add(this.rbComercial);
-            this.pnlContato.Controls.Add(this.rbCelular);
-            this.pnlContato.Controls.Add(this.label1);
-            this.pnlContato.Controls.Add(this.rbTelefone);
-            this.pnlContato.Controls.Add(this.btnSalvarContato);
-            this.pnlContato.Controls.Add(this.mskTelefone);
-            this.pnlContato.Controls.Add(this.label19);
-            this.pnlContato.Location = new System.Drawing.Point(48, 101);
-            this.pnlContato.Name = "pnlContato";
-            this.pnlContato.Size = new System.Drawing.Size(587, 78);
-            this.pnlContato.TabIndex = 12;
-            this.pnlContato.Visible = false;
-            // 
-            // rbComercial
-            // 
-            this.rbComercial.AutoSize = true;
-            this.rbComercial.Location = new System.Drawing.Point(93, 58);
-            this.rbComercial.Name = "rbComercial";
-            this.rbComercial.Size = new System.Drawing.Size(71, 17);
-            this.rbComercial.TabIndex = 69;
-            this.rbComercial.TabStop = true;
-            this.rbComercial.Text = "Comercial";
-            this.rbComercial.UseVisualStyleBackColor = true;
-            this.rbComercial.Click += new System.EventHandler(this.rbComercial_Click);
-            // 
-            // rbCelular
-            // 
-            this.rbCelular.AutoSize = true;
-            this.rbCelular.Location = new System.Drawing.Point(93, 34);
-            this.rbCelular.Name = "rbCelular";
-            this.rbCelular.Size = new System.Drawing.Size(57, 17);
-            this.rbCelular.TabIndex = 68;
-            this.rbCelular.TabStop = true;
-            this.rbCelular.Tag = "";
-            this.rbCelular.Text = "Celular";
-            this.rbCelular.UseVisualStyleBackColor = true;
-            this.rbCelular.Click += new System.EventHandler(this.rbCelular_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 63;
-            this.label1.Text = "Tipo Contato";
-            // 
-            // rbTelefone
-            // 
-            this.rbTelefone.AutoSize = true;
-            this.rbTelefone.Location = new System.Drawing.Point(93, 11);
-            this.rbTelefone.Name = "rbTelefone";
-            this.rbTelefone.Size = new System.Drawing.Size(67, 17);
-            this.rbTelefone.TabIndex = 67;
-            this.rbTelefone.TabStop = true;
-            this.rbTelefone.Text = "Telefone";
-            this.rbTelefone.UseVisualStyleBackColor = true;
-            this.rbTelefone.Click += new System.EventHandler(this.rbTelefone_Click);
-            // 
-            // btnSalvarContato
-            // 
-            this.btnSalvarContato.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSalvarContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarContato.Location = new System.Drawing.Point(467, 18);
-            this.btnSalvarContato.Name = "btnSalvarContato";
-            this.btnSalvarContato.Size = new System.Drawing.Size(73, 49);
-            this.btnSalvarContato.TabIndex = 66;
-            this.btnSalvarContato.Text = "Salvar";
-            this.btnSalvarContato.UseVisualStyleBackColor = false;
-            this.btnSalvarContato.Click += new System.EventHandler(this.btnSalvarContato_Click);
-            // 
-            // mskTelefone
-            // 
-            this.mskTelefone.Location = new System.Drawing.Point(327, 23);
-            this.mskTelefone.Mask = "(99) 0 0000-0000";
-            this.mskTelefone.Name = "mskTelefone";
-            this.mskTelefone.Size = new System.Drawing.Size(100, 20);
-            this.mskTelefone.TabIndex = 64;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(263, 26);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 13);
-            this.label19.TabIndex = 61;
-            this.label19.Text = "Contato*";
-            // 
-            // btnIncluirContato
-            // 
-            this.btnIncluirContato.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIncluirContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncluirContato.Location = new System.Drawing.Point(6, 6);
-            this.btnIncluirContato.Name = "btnIncluirContato";
-            this.btnIncluirContato.Size = new System.Drawing.Size(29, 32);
-            this.btnIncluirContato.TabIndex = 10;
-            this.btnIncluirContato.Text = "+";
-            this.btnIncluirContato.UseVisualStyleBackColor = false;
-            this.btnIncluirContato.Click += new System.EventHandler(this.btnIncluirContato_Click);
-            // 
-            // Observações
-            // 
-            this.Observações.Controls.Add(this.label17);
-            this.Observações.Controls.Add(this.ttbObservação);
-            this.Observações.Location = new System.Drawing.Point(4, 22);
-            this.Observações.Name = "Observações";
-            this.Observações.Size = new System.Drawing.Size(867, 185);
-            this.Observações.TabIndex = 5;
-            this.Observações.Text = "Observações";
-            this.Observações.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(18, 18);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 13);
-            this.label17.TabIndex = 68;
-            this.label17.Text = "Observação Cliente";
-            // 
-            // ttbObservação
-            // 
-            this.ttbObservação.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbObservação.Location = new System.Drawing.Point(21, 49);
-            this.ttbObservação.Multiline = true;
-            this.ttbObservação.Name = "ttbObservação";
-            this.ttbObservação.Size = new System.Drawing.Size(812, 62);
-            this.ttbObservação.TabIndex = 67;
-            this.ttbObservação.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbObservação_KeyPress);
-            // 
             // ttbRg
             // 
             this.ttbRg.Enabled = false;
-            this.ttbRg.Location = new System.Drawing.Point(101, 151);
+            this.ttbRg.Location = new System.Drawing.Point(101, 155);
             this.ttbRg.Name = "ttbRg";
             this.ttbRg.Size = new System.Drawing.Size(128, 20);
             this.ttbRg.TabIndex = 11;
@@ -807,7 +343,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 154);
+            this.label5.Location = new System.Drawing.Point(61, 158);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 10;
@@ -946,6 +482,234 @@
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
+            // mskTelefone
+            // 
+            this.mskTelefone.Location = new System.Drawing.Point(305, 197);
+            this.mskTelefone.Mask = "(99) 0 0000-0000";
+            this.mskTelefone.Name = "mskTelefone";
+            this.mskTelefone.Size = new System.Drawing.Size(123, 20);
+            this.mskTelefone.TabIndex = 64;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Telefone";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(250, 197);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(39, 13);
+            this.label16.TabIndex = 66;
+            this.label16.Text = "Celular";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(129, 197);
+            this.maskedTextBox1.Mask = "(99) 0000-0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 67;
+            // 
+            // Observações
+            // 
+            this.Observações.Controls.Add(this.label17);
+            this.Observações.Controls.Add(this.ttbObservação);
+            this.Observações.Location = new System.Drawing.Point(4, 22);
+            this.Observações.Name = "Observações";
+            this.Observações.Size = new System.Drawing.Size(778, 138);
+            this.Observações.TabIndex = 5;
+            this.Observações.Text = "Observações";
+            this.Observações.UseVisualStyleBackColor = true;
+            // 
+            // ttbObservação
+            // 
+            this.ttbObservação.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbObservação.Location = new System.Drawing.Point(21, 49);
+            this.ttbObservação.Multiline = true;
+            this.ttbObservação.Name = "ttbObservação";
+            this.ttbObservação.Size = new System.Drawing.Size(742, 62);
+            this.ttbObservação.TabIndex = 67;
+            this.ttbObservação.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbObservação_KeyPress);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(18, 18);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 13);
+            this.label17.TabIndex = 68;
+            this.label17.Text = "Observação Cliente";
+            // 
+            // Endereço
+            // 
+            this.Endereço.Controls.Add(this.pnlEndereco);
+            this.Endereço.Location = new System.Drawing.Point(4, 22);
+            this.Endereço.Name = "Endereço";
+            this.Endereço.Size = new System.Drawing.Size(778, 138);
+            this.Endereço.TabIndex = 4;
+            this.Endereço.Text = "Endereço";
+            this.Endereço.UseVisualStyleBackColor = true;
+            // 
+            // pnlEndereco
+            // 
+            this.pnlEndereco.Controls.Add(this.mtbCEP);
+            this.pnlEndereco.Controls.Add(this.label15);
+            this.pnlEndereco.Controls.Add(this.label14);
+            this.pnlEndereco.Controls.Add(this.cbbCidade);
+            this.pnlEndereco.Controls.Add(this.cbbEstado);
+            this.pnlEndereco.Controls.Add(this.label13);
+            this.pnlEndereco.Controls.Add(this.label12);
+            this.pnlEndereco.Controls.Add(this.ttbComplemento);
+            this.pnlEndereco.Controls.Add(this.label11);
+            this.pnlEndereco.Controls.Add(this.ttbBairro);
+            this.pnlEndereco.Controls.Add(this.label10);
+            this.pnlEndereco.Controls.Add(this.label3);
+            this.pnlEndereco.Controls.Add(this.ttbNumero);
+            this.pnlEndereco.Controls.Add(this.ttbLogradouro);
+            this.pnlEndereco.Location = new System.Drawing.Point(7, 3);
+            this.pnlEndereco.Name = "pnlEndereco";
+            this.pnlEndereco.Size = new System.Drawing.Size(768, 109);
+            this.pnlEndereco.TabIndex = 1;
+            // 
+            // ttbLogradouro
+            // 
+            this.ttbLogradouro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbLogradouro.Location = new System.Drawing.Point(70, 15);
+            this.ttbLogradouro.Name = "ttbLogradouro";
+            this.ttbLogradouro.Size = new System.Drawing.Size(555, 20);
+            this.ttbLogradouro.TabIndex = 1;
+            this.ttbLogradouro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbLogradouro_KeyPress);
+            // 
+            // ttbNumero
+            // 
+            this.ttbNumero.Location = new System.Drawing.Point(656, 15);
+            this.ttbNumero.Name = "ttbNumero";
+            this.ttbNumero.Size = new System.Drawing.Size(100, 20);
+            this.ttbNumero.TabIndex = 3;
+            this.ttbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbNumero_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Logradouro";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(631, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Nº";
+            // 
+            // ttbBairro
+            // 
+            this.ttbBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbBairro.Location = new System.Drawing.Point(70, 44);
+            this.ttbBairro.Name = "ttbBairro";
+            this.ttbBairro.Size = new System.Drawing.Size(278, 20);
+            this.ttbBairro.TabIndex = 5;
+            this.ttbBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbBairro_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Bairro";
+            // 
+            // ttbComplemento
+            // 
+            this.ttbComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbComplemento.Location = new System.Drawing.Point(431, 44);
+            this.ttbComplemento.Name = "ttbComplemento";
+            this.ttbComplemento.Size = new System.Drawing.Size(325, 20);
+            this.ttbComplemento.TabIndex = 7;
+            this.ttbComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbComplemento_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(354, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Complemento";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 74);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 13);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "CEP";
+            // 
+            // cbbEstado
+            // 
+            this.cbbEstado.FormattingEnabled = true;
+            this.cbbEstado.Location = new System.Drawing.Point(201, 74);
+            this.cbbEstado.Name = "cbbEstado";
+            this.cbbEstado.Size = new System.Drawing.Size(215, 21);
+            this.cbbEstado.TabIndex = 11;
+            // 
+            // cbbCidade
+            // 
+            this.cbbCidade.FormattingEnabled = true;
+            this.cbbCidade.Location = new System.Drawing.Point(474, 74);
+            this.cbbCidade.Name = "cbbCidade";
+            this.cbbCidade.Size = new System.Drawing.Size(286, 21);
+            this.cbbCidade.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(155, 73);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Estado";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(428, 73);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(40, 13);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Cidade";
+            // 
+            // mtbCEP
+            // 
+            this.mtbCEP.Location = new System.Drawing.Point(70, 75);
+            this.mtbCEP.Mask = "00000-000";
+            this.mtbCEP.Name = "mtbCEP";
+            this.mtbCEP.Size = new System.Drawing.Size(79, 20);
+            this.mtbCEP.TabIndex = 9;
+            this.mtbCEP.Leave += new System.EventHandler(this.mtbCEP_Leave);
+            // 
+            // tabcInformaçõesPessoa
+            // 
+            this.tabcInformaçõesPessoa.Controls.Add(this.Endereço);
+            this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
+            this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(63, 256);
+            this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
+            this.tabcInformaçõesPessoa.SelectedIndex = 0;
+            this.tabcInformaçõesPessoa.Size = new System.Drawing.Size(786, 164);
+            this.tabcInformaçõesPessoa.TabIndex = 21;
+            // 
             // Cadastro_Pessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -966,17 +730,12 @@
             this.groupBox2.PerformLayout();
             this.grpPessoa.ResumeLayout(false);
             this.grpPessoa.PerformLayout();
-            this.tabcInformaçõesPessoa.ResumeLayout(false);
+            this.Observações.ResumeLayout(false);
+            this.Observações.PerformLayout();
             this.Endereço.ResumeLayout(false);
             this.pnlEndereco.ResumeLayout(false);
             this.pnlEndereco.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).EndInit();
-            this.Contato.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).EndInit();
-            this.pnlContato.ResumeLayout(false);
-            this.pnlContato.PerformLayout();
-            this.Observações.ResumeLayout(false);
-            this.Observações.PerformLayout();
+            this.tabcInformaçõesPessoa.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1012,11 +771,18 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbPagaNao;
         private System.Windows.Forms.RadioButton rbPagaSim;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.TextBox ttbEmail;
+        public System.Windows.Forms.Button btnAlterar;
+        public System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.MaskedTextBox mskTelefone;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabcInformaçõesPessoa;
         private System.Windows.Forms.TabPage Endereço;
         private System.Windows.Forms.Panel pnlEndereco;
         private System.Windows.Forms.MaskedTextBox mtbCEP;
-        public System.Windows.Forms.Button btnSalvarEndereco;
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cbbCidade;
@@ -1030,33 +796,8 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox ttbNumero;
         public System.Windows.Forms.TextBox ttbLogradouro;
-        public System.Windows.Forms.Button btnIncluirEndereco;
-        private System.Windows.Forms.DataGridView dgvEndereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Logradouro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Bairro;
-        private System.Windows.Forms.TabPage Contato;
-        private System.Windows.Forms.DataGridView dgvContato;
-        private System.Windows.Forms.Panel pnlContato;
-        public System.Windows.Forms.Button btnSalvarContato;
-        private System.Windows.Forms.MaskedTextBox mskTelefone;
-        public System.Windows.Forms.Label label19;
-        public System.Windows.Forms.Button btnIncluirContato;
         private System.Windows.Forms.TabPage Observações;
         public System.Windows.Forms.Label label17;
         public System.Windows.Forms.TextBox ttbObservação;
-        public System.Windows.Forms.Label label21;
-        public System.Windows.Forms.TextBox ttbEmail;
-        private System.Windows.Forms.RadioButton rbComercial;
-        private System.Windows.Forms.RadioButton rbCelular;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rbTelefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _telefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _tipo;
-        public System.Windows.Forms.Button btnAlterarEnd;
-        public System.Windows.Forms.Button btnExcluirEnd;
-        public System.Windows.Forms.Button btnRemoverContato;
-        public System.Windows.Forms.Button btnAlterar;
-        public System.Windows.Forms.Button btnNovo;
     }
 }

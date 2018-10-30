@@ -17,18 +17,20 @@ namespace HairLumos.Entidades
         protected string _obsPessoa;
         protected bool _fiado;
         protected string _email;
+        protected string _fone;
+        protected string _cel;
 
+        protected Endereco _endereco;
         //public PessoaFisica PessoaFisica { get; set; }
         //public PessoaJuridica PessoaJuridica { get; set; }
 
-        private List<Endereco> _listaEndreco;
-        private List<Contato> _listaContato;
+       
 
         private string _erro;
 
 
         public Pessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado,
-        string email, List<Endereco> ListaEndereco, List<Contato> ListaContato)
+        string email, string fone, string cel, Endereco endereco)
         {
            
             this.Codigo = cod;
@@ -39,8 +41,10 @@ namespace HairLumos.Entidades
             this.Observacao = obs;
             this.Fiado = fiado;
             this.Email = email;
-            this.ListaEndereco = ListaEndereco;
-            this.ListaContato = ListaContato;
+            this.Telefone = fone;
+            this.Celular = cel;
+            this.Endereco = endereco;
+            
         }
 
         public Pessoa()
@@ -53,8 +57,8 @@ namespace HairLumos.Entidades
             this.Observacao = "";
             this.Fiado = false;
             this.Email = "";
-            this.ListaEndereco = null;
-            this.ListaContato = null;
+            this.Telefone = "";
+            this.Celular = "";
 
         }
 
@@ -111,29 +115,30 @@ namespace HairLumos.Entidades
             get { return _email; }
             set { _email = value; }
         }
-        
-        public List<Endereco> ListaEndereco
+
+        public string Telefone
         {
-            get { return _listaEndreco; }
-            set
-            {
-                _listaEndreco = value;
-            }
+            get {
+                return _fone;
+                    ; }
+            set { _fone = value; }
         }
 
-        public List<Contato> ListaContato
+        public string Celular
         {
-            get { return _listaContato; }
-            set
-            {
-                _listaContato = value;
-            }
+            get { return _cel; }
+            set { _cel = value; }
         }
 
+        public Endereco Endereco
+        {
+            get { return _endereco; }
+            set { _endereco = value; }
+        }
 
 
         public void carregaPessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status,
-            string obs, bool fiado, string email)//, PessoaFisica pessoaFisica, PessoaJuridica pessoajuridica)
+            string obs, bool fiado, string email, string fone, string cel)//, PessoaFisica pessoaFisica, PessoaJuridica pessoajuridica)
         {
             this.Codigo = cod;
             this.Nome = nome;
@@ -143,12 +148,15 @@ namespace HairLumos.Entidades
             this.Observacao = obs;
             this.Fiado = fiado;
             this.Email = email;
+            this.Telefone = fone;
+            this.Celular = cel; 
+
             //this.PessoaFisica = pessoaFisica;
             //this.PessoaJuridica = pessoajuridica;
         }
 
         public void carregaPessoaTable(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status,
-            string obs, bool fiado, string email)
+            string obs, bool fiado, string email, string fone, string cel, Endereco endereco)
         {
             this.Codigo = cod;
             this.Nome = nome;
@@ -158,7 +166,8 @@ namespace HairLumos.Entidades
             this.Observacao = obs;
             this.Fiado = fiado;
             this.Email = email;
-            
+            this.Telefone = fone;
+            this.Celular = cel;
         }
 
     }
@@ -191,25 +200,5 @@ namespace HairLumos.Entidades
         public int _codUf { get; set; }
         public int _codCidade { get; set; }
     }
-
-    public class Contato
-    {
-
-        public int _cod { get; set; }
-        public string _telefone { get; set; }
-        public string _tipo { get; set; }
-
-        public Contato()
-        {
-
-        }
-
-        public Contato(string strfone, string strTipo)
-        {
-            _cod = 0;
-            _telefone = strfone;
-            _tipo = strTipo;
-
-        }
-    }
+    
 }

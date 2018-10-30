@@ -707,3 +707,7 @@ D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F5___Gerenciar_Compras.PesquisarCompras.resources
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto.resources
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.FecharAtendimento.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Telemetry.dll
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.RemoteControl.dll
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Utilities.Internal.dll
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
