@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HairLumos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -12,36 +13,36 @@ namespace HairLumos.Models
         DAO.PessoaDAO _DAOPessoa = new DAO.PessoaDAO();
 
 
-        public int gravaPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+        public int gravaPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, Endereco endereco, string telefone, string celular,
             string cpf, string rg, DateTime nascimento)
         {
 
-            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, cpf, rg, nascimento);
+            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, endereco, telefone, celular, cpf, rg, nascimento);
 
             return _DAOPessoa.GravaPessoa(_entFis);
 
         }
 
-        public int gravaPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
-            string CNPJ, string razao, string fantasia)
+        public int gravaPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, Endereco endereco, string telefone, string celular,
+            string CNPJ, string razao)
         {
-            Entidades.PessoaJuridica _entJur = new Entidades.PessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, CNPJ, razao, fantasia);
+            Entidades.PessoaJuridica _entJur = new Entidades.PessoaJuridica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, endereco, telefone, celular, CNPJ, razao);
 
             return _DAOPessoa.GravaPessoa(_entJur);
         }
 
-        public int alteraPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
+        public int alteraPessoaFisica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, Endereco endereco, string telefone, string celular,
             string cpf, string rg, DateTime nascimento)
         {
 
-            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, Listendereco, Listcontato, cpf, rg, nascimento);
+            Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica(cod, nome, dataCadastro, tipopes, statusPessoa, obs, fiado, email, endereco, telefone, celular,  cpf, rg, nascimento);
 
             return _DAOPessoa.alteraPessoaFisica(_entFis);
 
         }
 
-        public int alteraPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, List<Entidades.Endereco> Listendereco, List<Entidades.Contato> Listcontato,
-           string cnpj, string razao, string fantasia)
+        public int alteraPessoaJuridica(int cod, string nome, DateTime dataCadastro, string tipopes, bool statusPessoa, string obs, bool fiado, string email, Endereco endereco, string telefone, string celular,
+           string cnpj, string razao)
         {
 
             Entidades.PessoaJuridica _entJur = new Entidades.PessoaJuridica();
@@ -54,7 +55,7 @@ namespace HairLumos.Models
         {
 
             Entidades.PessoaFisica _entFis = new Entidades.PessoaFisica();
-
+            _entFis.Codigo = cod;
             return _DAOPessoa.deletaPessoaFisica(_entFis);
 
         }
@@ -106,14 +107,14 @@ namespace HairLumos.Models
             return _DAOPessoa.RetornaCidades(codigo);
         }
 
-        public DataTable retornaContato(int cod)
-        {
-            return _DAOPessoa.RetornaContato(cod);
-        }
-
         public DataTable retornaEndereco(int cod)
         {
             return _DAOPessoa.RetornaEndereco(cod);
+        }
+
+        public DataTable retornaCidCodigo(int cod)
+        {
+            return _DAOPessoa.RetornaCidCodigo(cod);
         }
 
     }

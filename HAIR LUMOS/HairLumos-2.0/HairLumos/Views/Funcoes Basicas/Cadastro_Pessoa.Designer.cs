@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.maskCelular = new System.Windows.Forms.MaskedTextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.maskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.ttbEmail = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.grpFiado = new System.Windows.Forms.GroupBox();
             this.rbPagaNao = new System.Windows.Forms.RadioButton();
             this.rbPagaSim = new System.Windows.Forms.RadioButton();
             this.grpPessoa = new System.Windows.Forms.GroupBox();
@@ -46,6 +50,26 @@
             this.rbInativo = new System.Windows.Forms.RadioButton();
             this.rbAtivo = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabcInformaçõesPessoa = new System.Windows.Forms.TabControl();
+            this.Endereço = new System.Windows.Forms.TabPage();
+            this.pnlEndereco = new System.Windows.Forms.Panel();
+            this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbbCidade = new System.Windows.Forms.ComboBox();
+            this.cbbEstado = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ttbComplemento = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ttbBairro = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ttbNumero = new System.Windows.Forms.TextBox();
+            this.ttbLogradouro = new System.Windows.Forms.TextBox();
+            this.Observações = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.ttbObservação = new System.Windows.Forms.TextBox();
             this.ttbRg = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ttbRazao = new System.Windows.Forms.TextBox();
@@ -61,40 +85,16 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.Observações = new System.Windows.Forms.TabPage();
-            this.ttbObservação = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Endereço = new System.Windows.Forms.TabPage();
-            this.pnlEndereco = new System.Windows.Forms.Panel();
-            this.ttbLogradouro = new System.Windows.Forms.TextBox();
-            this.ttbNumero = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ttbBairro = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ttbComplemento = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cbbEstado = new System.Windows.Forms.ComboBox();
-            this.cbbCidade = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
-            this.tabcInformaçõesPessoa = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpFiado.SuspendLayout();
             this.grpPessoa.SuspendLayout();
-            this.Observações.SuspendLayout();
+            this.tabcInformaçõesPessoa.SuspendLayout();
             this.Endereço.SuspendLayout();
             this.pnlEndereco.SuspendLayout();
-            this.tabcInformaçõesPessoa.SuspendLayout();
+            this.Observações.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -106,13 +106,13 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.mskTelefone);
+            this.splitContainer1.Panel1.Controls.Add(this.maskCelular);
             this.splitContainer1.Panel1.Controls.Add(this.label16);
-            this.splitContainer1.Panel1.Controls.Add(this.maskedTextBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.maskTelefone);
             this.splitContainer1.Panel1.Controls.Add(this.label21);
             this.splitContainer1.Panel1.Controls.Add(this.ttbEmail);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.grpFiado);
             this.splitContainer1.Panel1.Controls.Add(this.grpPessoa);
             this.splitContainer1.Panel1.Controls.Add(this.mskCNPJ);
             this.splitContainer1.Panel1.Controls.Add(this.mskCPF);
@@ -147,6 +147,31 @@
             this.splitContainer1.SplitterDistance = 423;
             this.splitContainer1.TabIndex = 0;
             // 
+            // maskCelular
+            // 
+            this.maskCelular.Location = new System.Drawing.Point(305, 197);
+            this.maskCelular.Mask = "(99) 0 0000-0000";
+            this.maskCelular.Name = "maskCelular";
+            this.maskCelular.Size = new System.Drawing.Size(123, 20);
+            this.maskCelular.TabIndex = 64;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(250, 197);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(39, 13);
+            this.label16.TabIndex = 66;
+            this.label16.Text = "Celular";
+            // 
+            // maskTelefone
+            // 
+            this.maskTelefone.Location = new System.Drawing.Point(129, 197);
+            this.maskTelefone.Mask = "(99) 0000-0000";
+            this.maskTelefone.Name = "maskTelefone";
+            this.maskTelefone.Size = new System.Drawing.Size(100, 20);
+            this.maskTelefone.TabIndex = 67;
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -163,19 +188,27 @@
             this.ttbEmail.Name = "ttbEmail";
             this.ttbEmail.Size = new System.Drawing.Size(640, 20);
             this.ttbEmail.TabIndex = 19;
-            this.ttbEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbEmail_KeyPress);
             // 
-            // groupBox2
+            // label1
             // 
-            this.groupBox2.Controls.Add(this.rbPagaNao);
-            this.groupBox2.Controls.Add(this.rbPagaSim);
-            this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(758, 137);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(91, 113);
-            this.groupBox2.TabIndex = 20;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pagamento Diferenciado?";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Telefone";
+            // 
+            // grpFiado
+            // 
+            this.grpFiado.Controls.Add(this.rbPagaNao);
+            this.grpFiado.Controls.Add(this.rbPagaSim);
+            this.grpFiado.Enabled = false;
+            this.grpFiado.Location = new System.Drawing.Point(758, 137);
+            this.grpFiado.Name = "grpFiado";
+            this.grpFiado.Size = new System.Drawing.Size(91, 113);
+            this.grpFiado.TabIndex = 20;
+            this.grpFiado.TabStop = false;
+            this.grpFiado.Text = "Pagamento Diferenciado?";
             // 
             // rbPagaNao
             // 
@@ -189,7 +222,6 @@
             this.rbPagaNao.TabStop = true;
             this.rbPagaNao.Text = "Não";
             this.rbPagaNao.UseVisualStyleBackColor = true;
-            this.rbPagaNao.Click += new System.EventHandler(this.rbPagaNao_Click);
             // 
             // rbPagaSim
             // 
@@ -201,7 +233,6 @@
             this.rbPagaSim.TabIndex = 1;
             this.rbPagaSim.Text = "Sim";
             this.rbPagaSim.UseVisualStyleBackColor = true;
-            this.rbPagaSim.Click += new System.EventHandler(this.rbPagaSim_Click);
             // 
             // grpPessoa
             // 
@@ -227,7 +258,7 @@
             this.rbFisica.TabStop = true;
             this.rbFisica.Text = "Física";
             this.rbFisica.UseVisualStyleBackColor = true;
-            this.rbFisica.Click += new System.EventHandler(this.rbFisica_Click);
+            this.rbFisica.CheckedChanged += new System.EventHandler(this.rbFisica_CheckedChanged);
             // 
             // rbJuridica
             // 
@@ -239,7 +270,6 @@
             this.rbJuridica.TabIndex = 1;
             this.rbJuridica.Text = "Jurídica";
             this.rbJuridica.UseVisualStyleBackColor = true;
-            this.rbJuridica.Click += new System.EventHandler(this.rbJuridica_Click);
             // 
             // mskCNPJ
             // 
@@ -249,7 +279,6 @@
             this.mskCNPJ.Name = "mskCNPJ";
             this.mskCNPJ.Size = new System.Drawing.Size(123, 20);
             this.mskCNPJ.TabIndex = 13;
-            this.mskCNPJ.Leave += new System.EventHandler(this.mskCNPJ_Leave);
             // 
             // mskCPF
             // 
@@ -259,7 +288,6 @@
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(83, 20);
             this.mskCPF.TabIndex = 15;
-            this.mskCPF.Leave += new System.EventHandler(this.mskCPF_Leave);
             // 
             // label9
             // 
@@ -278,7 +306,6 @@
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.Size = new System.Drawing.Size(114, 20);
             this.dtpDataNascimento.TabIndex = 17;
-            this.dtpDataNascimento.Leave += new System.EventHandler(this.dtpDataNascimento_Leave);
             // 
             // label8
             // 
@@ -307,7 +334,6 @@
             this.rbInativo.TabIndex = 4;
             this.rbInativo.Text = "Inativo";
             this.rbInativo.UseVisualStyleBackColor = true;
-            this.rbInativo.Click += new System.EventHandler(this.rbInativo_Click);
             // 
             // rbAtivo
             // 
@@ -320,7 +346,6 @@
             this.rbAtivo.TabStop = true;
             this.rbAtivo.Text = "Ativo";
             this.rbAtivo.UseVisualStyleBackColor = true;
-            this.rbAtivo.Click += new System.EventHandler(this.rbAtivo_Click);
             // 
             // label6
             // 
@@ -331,6 +356,195 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Status*";
             // 
+            // tabcInformaçõesPessoa
+            // 
+            this.tabcInformaçõesPessoa.Controls.Add(this.Endereço);
+            this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
+            this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(63, 256);
+            this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
+            this.tabcInformaçõesPessoa.SelectedIndex = 0;
+            this.tabcInformaçõesPessoa.Size = new System.Drawing.Size(786, 164);
+            this.tabcInformaçõesPessoa.TabIndex = 21;
+            // 
+            // Endereço
+            // 
+            this.Endereço.Controls.Add(this.pnlEndereco);
+            this.Endereço.Location = new System.Drawing.Point(4, 22);
+            this.Endereço.Name = "Endereço";
+            this.Endereço.Size = new System.Drawing.Size(778, 138);
+            this.Endereço.TabIndex = 4;
+            this.Endereço.Text = "Endereço";
+            this.Endereço.UseVisualStyleBackColor = true;
+            // 
+            // pnlEndereco
+            // 
+            this.pnlEndereco.Controls.Add(this.mtbCEP);
+            this.pnlEndereco.Controls.Add(this.label15);
+            this.pnlEndereco.Controls.Add(this.label14);
+            this.pnlEndereco.Controls.Add(this.cbbCidade);
+            this.pnlEndereco.Controls.Add(this.cbbEstado);
+            this.pnlEndereco.Controls.Add(this.label13);
+            this.pnlEndereco.Controls.Add(this.label12);
+            this.pnlEndereco.Controls.Add(this.ttbComplemento);
+            this.pnlEndereco.Controls.Add(this.label11);
+            this.pnlEndereco.Controls.Add(this.ttbBairro);
+            this.pnlEndereco.Controls.Add(this.label10);
+            this.pnlEndereco.Controls.Add(this.label3);
+            this.pnlEndereco.Controls.Add(this.ttbNumero);
+            this.pnlEndereco.Controls.Add(this.ttbLogradouro);
+            this.pnlEndereco.Location = new System.Drawing.Point(7, 3);
+            this.pnlEndereco.Name = "pnlEndereco";
+            this.pnlEndereco.Size = new System.Drawing.Size(768, 109);
+            this.pnlEndereco.TabIndex = 1;
+            // 
+            // mtbCEP
+            // 
+            this.mtbCEP.Location = new System.Drawing.Point(70, 75);
+            this.mtbCEP.Mask = "00000-000";
+            this.mtbCEP.Name = "mtbCEP";
+            this.mtbCEP.Size = new System.Drawing.Size(79, 20);
+            this.mtbCEP.TabIndex = 9;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(428, 73);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(40, 13);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Cidade";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(155, 73);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Estado";
+            // 
+            // cbbCidade
+            // 
+            this.cbbCidade.FormattingEnabled = true;
+            this.cbbCidade.Location = new System.Drawing.Point(474, 74);
+            this.cbbCidade.Name = "cbbCidade";
+            this.cbbCidade.Size = new System.Drawing.Size(286, 21);
+            this.cbbCidade.TabIndex = 13;
+            // 
+            // cbbEstado
+            // 
+            this.cbbEstado.FormattingEnabled = true;
+            this.cbbEstado.Location = new System.Drawing.Point(201, 74);
+            this.cbbEstado.Name = "cbbEstado";
+            this.cbbEstado.Size = new System.Drawing.Size(215, 21);
+            this.cbbEstado.TabIndex = 11;
+            this.cbbEstado.SelectedIndexChanged += new System.EventHandler(this.cbbEstado_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 74);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 13);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "CEP";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(354, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Complemento";
+            // 
+            // ttbComplemento
+            // 
+            this.ttbComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbComplemento.Location = new System.Drawing.Point(431, 44);
+            this.ttbComplemento.Name = "ttbComplemento";
+            this.ttbComplemento.Size = new System.Drawing.Size(325, 20);
+            this.ttbComplemento.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Bairro";
+            // 
+            // ttbBairro
+            // 
+            this.ttbBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbBairro.Location = new System.Drawing.Point(70, 44);
+            this.ttbBairro.Name = "ttbBairro";
+            this.ttbBairro.Size = new System.Drawing.Size(278, 20);
+            this.ttbBairro.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(631, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Nº";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Logradouro";
+            // 
+            // ttbNumero
+            // 
+            this.ttbNumero.Location = new System.Drawing.Point(656, 15);
+            this.ttbNumero.Name = "ttbNumero";
+            this.ttbNumero.Size = new System.Drawing.Size(100, 20);
+            this.ttbNumero.TabIndex = 3;
+            // 
+            // ttbLogradouro
+            // 
+            this.ttbLogradouro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbLogradouro.Location = new System.Drawing.Point(70, 15);
+            this.ttbLogradouro.Name = "ttbLogradouro";
+            this.ttbLogradouro.Size = new System.Drawing.Size(555, 20);
+            this.ttbLogradouro.TabIndex = 1;
+            // 
+            // Observações
+            // 
+            this.Observações.Controls.Add(this.label17);
+            this.Observações.Controls.Add(this.ttbObservação);
+            this.Observações.Location = new System.Drawing.Point(4, 22);
+            this.Observações.Name = "Observações";
+            this.Observações.Size = new System.Drawing.Size(778, 138);
+            this.Observações.TabIndex = 5;
+            this.Observações.Text = "Observações";
+            this.Observações.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(18, 18);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 13);
+            this.label17.TabIndex = 68;
+            this.label17.Text = "Observação Cliente";
+            // 
+            // ttbObservação
+            // 
+            this.ttbObservação.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ttbObservação.Location = new System.Drawing.Point(21, 49);
+            this.ttbObservação.Multiline = true;
+            this.ttbObservação.Name = "ttbObservação";
+            this.ttbObservação.Size = new System.Drawing.Size(742, 62);
+            this.ttbObservação.TabIndex = 67;
+            // 
             // ttbRg
             // 
             this.ttbRg.Enabled = false;
@@ -338,7 +552,6 @@
             this.ttbRg.Name = "ttbRg";
             this.ttbRg.Size = new System.Drawing.Size(128, 20);
             this.ttbRg.TabIndex = 11;
-            this.ttbRg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbRg_KeyPress);
             // 
             // label5
             // 
@@ -357,7 +570,6 @@
             this.ttbRazao.Name = "ttbRazao";
             this.ttbRazao.Size = new System.Drawing.Size(544, 20);
             this.ttbRazao.TabIndex = 9;
-            this.ttbRazao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbRazao_KeyPress);
             // 
             // label4
             // 
@@ -376,7 +588,6 @@
             this.ttbNome.Name = "ttbNome";
             this.ttbNome.Size = new System.Drawing.Size(544, 20);
             this.ttbNome.TabIndex = 7;
-            this.ttbNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbNome_KeyPress);
             // 
             // label2
             // 
@@ -403,8 +614,6 @@
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 1;
-            this.ttbCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbCodigo_KeyPress);
-            this.ttbCodigo.Leave += new System.EventHandler(this.ttbCodigo_Leave);
             // 
             // btnAlterar
             // 
@@ -415,6 +624,7 @@
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
@@ -425,7 +635,7 @@
             this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnPesquisar
             // 
@@ -482,234 +692,6 @@
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // mskTelefone
-            // 
-            this.mskTelefone.Location = new System.Drawing.Point(305, 197);
-            this.mskTelefone.Mask = "(99) 0 0000-0000";
-            this.mskTelefone.Name = "mskTelefone";
-            this.mskTelefone.Size = new System.Drawing.Size(123, 20);
-            this.mskTelefone.TabIndex = 64;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 197);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Telefone";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(250, 197);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(39, 13);
-            this.label16.TabIndex = 66;
-            this.label16.Text = "Celular";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(129, 197);
-            this.maskedTextBox1.Mask = "(99) 0000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 67;
-            // 
-            // Observações
-            // 
-            this.Observações.Controls.Add(this.label17);
-            this.Observações.Controls.Add(this.ttbObservação);
-            this.Observações.Location = new System.Drawing.Point(4, 22);
-            this.Observações.Name = "Observações";
-            this.Observações.Size = new System.Drawing.Size(778, 138);
-            this.Observações.TabIndex = 5;
-            this.Observações.Text = "Observações";
-            this.Observações.UseVisualStyleBackColor = true;
-            // 
-            // ttbObservação
-            // 
-            this.ttbObservação.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbObservação.Location = new System.Drawing.Point(21, 49);
-            this.ttbObservação.Multiline = true;
-            this.ttbObservação.Name = "ttbObservação";
-            this.ttbObservação.Size = new System.Drawing.Size(742, 62);
-            this.ttbObservação.TabIndex = 67;
-            this.ttbObservação.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbObservação_KeyPress);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(18, 18);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 13);
-            this.label17.TabIndex = 68;
-            this.label17.Text = "Observação Cliente";
-            // 
-            // Endereço
-            // 
-            this.Endereço.Controls.Add(this.pnlEndereco);
-            this.Endereço.Location = new System.Drawing.Point(4, 22);
-            this.Endereço.Name = "Endereço";
-            this.Endereço.Size = new System.Drawing.Size(778, 138);
-            this.Endereço.TabIndex = 4;
-            this.Endereço.Text = "Endereço";
-            this.Endereço.UseVisualStyleBackColor = true;
-            // 
-            // pnlEndereco
-            // 
-            this.pnlEndereco.Controls.Add(this.mtbCEP);
-            this.pnlEndereco.Controls.Add(this.label15);
-            this.pnlEndereco.Controls.Add(this.label14);
-            this.pnlEndereco.Controls.Add(this.cbbCidade);
-            this.pnlEndereco.Controls.Add(this.cbbEstado);
-            this.pnlEndereco.Controls.Add(this.label13);
-            this.pnlEndereco.Controls.Add(this.label12);
-            this.pnlEndereco.Controls.Add(this.ttbComplemento);
-            this.pnlEndereco.Controls.Add(this.label11);
-            this.pnlEndereco.Controls.Add(this.ttbBairro);
-            this.pnlEndereco.Controls.Add(this.label10);
-            this.pnlEndereco.Controls.Add(this.label3);
-            this.pnlEndereco.Controls.Add(this.ttbNumero);
-            this.pnlEndereco.Controls.Add(this.ttbLogradouro);
-            this.pnlEndereco.Location = new System.Drawing.Point(7, 3);
-            this.pnlEndereco.Name = "pnlEndereco";
-            this.pnlEndereco.Size = new System.Drawing.Size(768, 109);
-            this.pnlEndereco.TabIndex = 1;
-            // 
-            // ttbLogradouro
-            // 
-            this.ttbLogradouro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbLogradouro.Location = new System.Drawing.Point(70, 15);
-            this.ttbLogradouro.Name = "ttbLogradouro";
-            this.ttbLogradouro.Size = new System.Drawing.Size(555, 20);
-            this.ttbLogradouro.TabIndex = 1;
-            this.ttbLogradouro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbLogradouro_KeyPress);
-            // 
-            // ttbNumero
-            // 
-            this.ttbNumero.Location = new System.Drawing.Point(656, 15);
-            this.ttbNumero.Name = "ttbNumero";
-            this.ttbNumero.Size = new System.Drawing.Size(100, 20);
-            this.ttbNumero.TabIndex = 3;
-            this.ttbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbNumero_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Logradouro";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(631, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 13);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Nº";
-            // 
-            // ttbBairro
-            // 
-            this.ttbBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbBairro.Location = new System.Drawing.Point(70, 44);
-            this.ttbBairro.Name = "ttbBairro";
-            this.ttbBairro.Size = new System.Drawing.Size(278, 20);
-            this.ttbBairro.TabIndex = 5;
-            this.ttbBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbBairro_KeyPress);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 44);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Bairro";
-            // 
-            // ttbComplemento
-            // 
-            this.ttbComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbComplemento.Location = new System.Drawing.Point(431, 44);
-            this.ttbComplemento.Name = "ttbComplemento";
-            this.ttbComplemento.Size = new System.Drawing.Size(325, 20);
-            this.ttbComplemento.TabIndex = 7;
-            this.ttbComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbComplemento_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(354, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Complemento";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 74);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 13);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "CEP";
-            // 
-            // cbbEstado
-            // 
-            this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(201, 74);
-            this.cbbEstado.Name = "cbbEstado";
-            this.cbbEstado.Size = new System.Drawing.Size(215, 21);
-            this.cbbEstado.TabIndex = 11;
-            // 
-            // cbbCidade
-            // 
-            this.cbbCidade.FormattingEnabled = true;
-            this.cbbCidade.Location = new System.Drawing.Point(474, 74);
-            this.cbbCidade.Name = "cbbCidade";
-            this.cbbCidade.Size = new System.Drawing.Size(286, 21);
-            this.cbbCidade.TabIndex = 13;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(155, 73);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 13);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Estado";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(428, 73);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 13);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Cidade";
-            // 
-            // mtbCEP
-            // 
-            this.mtbCEP.Location = new System.Drawing.Point(70, 75);
-            this.mtbCEP.Mask = "00000-000";
-            this.mtbCEP.Name = "mtbCEP";
-            this.mtbCEP.Size = new System.Drawing.Size(79, 20);
-            this.mtbCEP.TabIndex = 9;
-            this.mtbCEP.Leave += new System.EventHandler(this.mtbCEP_Leave);
-            // 
-            // tabcInformaçõesPessoa
-            // 
-            this.tabcInformaçõesPessoa.Controls.Add(this.Endereço);
-            this.tabcInformaçõesPessoa.Controls.Add(this.Observações);
-            this.tabcInformaçõesPessoa.Location = new System.Drawing.Point(63, 256);
-            this.tabcInformaçõesPessoa.Name = "tabcInformaçõesPessoa";
-            this.tabcInformaçõesPessoa.SelectedIndex = 0;
-            this.tabcInformaçõesPessoa.Size = new System.Drawing.Size(786, 164);
-            this.tabcInformaçõesPessoa.TabIndex = 21;
-            // 
             // Cadastro_Pessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,16 +708,16 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpFiado.ResumeLayout(false);
+            this.grpFiado.PerformLayout();
             this.grpPessoa.ResumeLayout(false);
             this.grpPessoa.PerformLayout();
-            this.Observações.ResumeLayout(false);
-            this.Observações.PerformLayout();
+            this.tabcInformaçõesPessoa.ResumeLayout(false);
             this.Endereço.ResumeLayout(false);
             this.pnlEndereco.ResumeLayout(false);
             this.pnlEndereco.PerformLayout();
-            this.tabcInformaçõesPessoa.ResumeLayout(false);
+            this.Observações.ResumeLayout(false);
+            this.Observações.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -768,16 +750,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grpPessoa;
         public System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpFiado;
         private System.Windows.Forms.RadioButton rbPagaNao;
         private System.Windows.Forms.RadioButton rbPagaSim;
         public System.Windows.Forms.Label label21;
         public System.Windows.Forms.TextBox ttbEmail;
         public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.MaskedTextBox mskTelefone;
+        private System.Windows.Forms.MaskedTextBox maskCelular;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskTelefone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabcInformaçõesPessoa;
         private System.Windows.Forms.TabPage Endereço;

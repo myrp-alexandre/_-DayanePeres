@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HairLumos.Views
+namespace HairLumos.Views.Funcoes_Basicas.Pesquisas
 {
     public partial class Pesquisa_Pessoa : Form
     {

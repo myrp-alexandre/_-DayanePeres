@@ -21,8 +21,6 @@ namespace HairLumos.Entidades
         protected string _cel;
 
         protected Endereco _endereco;
-        //public PessoaFisica PessoaFisica { get; set; }
-        //public PessoaJuridica PessoaJuridica { get; set; }
 
        
 
@@ -138,7 +136,7 @@ namespace HairLumos.Entidades
 
 
         public void carregaPessoa(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status,
-            string obs, bool fiado, string email, string fone, string cel)//, PessoaFisica pessoaFisica, PessoaJuridica pessoajuridica)
+            string obs, bool fiado, string email, string fone, string cel)
         {
             this.Codigo = cod;
             this.Nome = nome;
@@ -150,9 +148,7 @@ namespace HairLumos.Entidades
             this.Email = email;
             this.Telefone = fone;
             this.Celular = cel; 
-
-            //this.PessoaFisica = pessoaFisica;
-            //this.PessoaJuridica = pessoajuridica;
+            
         }
 
         public void carregaPessoaTable(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status,

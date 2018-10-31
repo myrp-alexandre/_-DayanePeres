@@ -93,7 +93,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void btnPesquisarCliente_Click(object sender, EventArgs e)
         {
-            Views.Pesquisa_Pessoa pesquisa_Pessoa = new Pesquisa_Pessoa();
+            Views.Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa pesquisa_Pessoa = new Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa();
 
             pesquisa_Pessoa.ShowDialog();
             if (pesquisa_Pessoa.intCodigoPessoa > 0)
@@ -108,15 +108,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                     ttbCliente.Text = dr["pes_nome"].ToString();
                     Pessoa.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
                     Pessoa.Nome = dr["pes_nome"].ToString();
-
-                    DataTable dtContato = pessoaController.retornaContato(Pessoa.Codigo);
-
-                    if (dtContato != null && dtContato.Rows.Count > 0)
-                    {
-                        DataRow drContato = dtContato.Rows[0];
-                        mskTelefone.Text = drContato["cont_telefone"].ToString();
-                    }
-
+                    mskTelefone.Text = dr["pes_fone"].ToString();
 
                 }
             }

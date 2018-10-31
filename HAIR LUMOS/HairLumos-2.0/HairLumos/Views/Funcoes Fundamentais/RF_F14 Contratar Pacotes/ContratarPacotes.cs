@@ -98,7 +98,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         private void btnPesquisaCliente_Click(object sender, EventArgs e)
         {
-            Views.Pesquisa_Pessoa pesquisa_Pessoa = new Pesquisa_Pessoa();
+            Views.Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa pesquisa_Pessoa = new Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa();
 
             pesquisa_Pessoa.ShowDialog();
             if(pesquisa_Pessoa.intCodigoPessoa > 0)

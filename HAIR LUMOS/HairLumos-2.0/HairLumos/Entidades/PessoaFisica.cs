@@ -17,7 +17,7 @@ namespace HairLumos.Entidades
         
 
         public PessoaFisica(int cod, string nome, DateTime dataCadastro, string tipoPes, bool status, string obs, bool fiado,
-        string email, List<Endereco> ListaEndereco, List<Contato> ListaContato, string cpf, string rg, DateTime nascimento) : base(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email, ListaEndereco, ListaContato)
+        string email, Endereco endereco, string telefone, string celular, string cpf, string rg, DateTime nascimento) : base(cod, nome, dataCadastro, tipoPes, status, obs, fiado, email, telefone, celular, endereco)
         {
             
             this.CPF = cpf;

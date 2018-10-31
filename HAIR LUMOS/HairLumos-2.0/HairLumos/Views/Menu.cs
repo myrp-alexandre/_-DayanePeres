@@ -221,5 +221,11 @@ namespace HairLumos
             Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto venderProduto = new Views.Funcoes_Fundamentais.RF_F7_Vender_Produto.VenderProduto();
             venderProduto.ShowDialog();
         }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda agenda = new Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda();
+            agenda.ShowDialog();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace HairLumos.Views
+﻿namespace HairLumos.Views.Funcoes_Basicas.Pesquisas
 {
     partial class Pesquisa_Pessoa
     {

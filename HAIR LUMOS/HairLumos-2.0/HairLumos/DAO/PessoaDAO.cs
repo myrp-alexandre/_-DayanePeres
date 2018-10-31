@@ -158,8 +158,8 @@ namespace HairLumos.DAO
 
 
                 //Fazer o Insert da pessoa
-                strSQL = "INSERT INTO tbPessoa(pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa, pes_obs, pes_fiado, pes_email)";
-                strSQL += " VALUES(@nomePessoa, @dataCadastro, @tipoPessoa, @statusPessoa, @obsPessoa, @fiado, @email); SELECT MAX(codpessoa) FROM tbpessoa;";
+                strSQL = "INSERT INTO tbPessoa(pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa, pes_obs, pes_fiado, pes_email, pes_fone, pes_cel)";
+                strSQL += " VALUES(@nomePessoa, @dataCadastro, @tipoPessoa, @statusPessoa, @obsPessoa, @fiado, @email, @telefone, @celular); SELECT MAX(codpessoa) FROM tbpessoa;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -170,6 +170,8 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@obsPessoa", objPessoa.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@fiado", objPessoa.Fiado);
                 objConexao.SqlCmd.Parameters.AddWithValue("@email", objPessoa.Email);
+                objConexao.SqlCmd.Parameters.AddWithValue("@telefone", objPessoa.Telefone);
+                objConexao.SqlCmd.Parameters.AddWithValue("@celular", objPessoa.Celular);
 
 
 
@@ -201,11 +203,10 @@ namespace HairLumos.DAO
                     return -1;
 
 
-                if (objPessoa.ListaEndereco != null)
+                if (objPessoa.Endereco != null)
                 {
                     //Fazer o insert dos Endereços
-                    foreach (var item in objPessoa.ListaEndereco)
-                    {
+                    
                         //COLOCAR CO CODPESSOA
                         strSQL = "INSERT INTO tbendereco(end_cep, end_logradouro, end_numero, end_bairro, edn_complemento, codcidade, coduf, codPessoa) ";
                         strSQL += "VALUES(@cep, @logradouro, @numero, @bairro, @complemento, @codcidade, @coduf, @codPessoa)";
@@ -213,42 +214,20 @@ namespace HairLumos.DAO
                         objConexao.SqlCmd.Parameters.Clear();
                         objConexao.SqlCmd.CommandText = strSQL;
 
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", item._cep);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", item._logradouro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", item._numero);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", item._bairro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", item._complemento);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, item._codCidade);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, item._codUf);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", objPessoa.Endereco._cep);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", objPessoa.Endereco._logradouro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", objPessoa.Endereco._numero);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", objPessoa.Endereco._bairro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", objPessoa.Endereco._complemento);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, objPessoa.Endereco._codCidade);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, objPessoa.Endereco._codUf);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", cod);
 
 
                         if (!objConexao.executarComando())
                             return -1;
-                    }
+                    
                 }
-
-                if (objPessoa.ListaContato != null)
-                {
-                    //Fazer insert dos Contatos
-                    foreach (var item in objPessoa.ListaContato)
-                    {
-                        //COLOCAR CO CODPESSOA
-                        strSQL = "INSERT INTO tbcontato(cont_telefone, cont_tipofone,codpessoa) ";
-                        strSQL += " VALUES(@cont_telefone, @tipofone, @codpessoa)";
-
-                        objConexao.SqlCmd.Parameters.Clear();
-                        objConexao.SqlCmd.CommandText = strSQL;
-
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cont_telefone", item._telefone);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@tipofone", item._tipo);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", cod);
-
-                        if (!objConexao.executarComando())
-                            return -1;
-                    }
-                }
-
 
                 objConexao.commitTransacao();
                 return 1;
@@ -281,8 +260,8 @@ namespace HairLumos.DAO
 
 
                 //Fazer o Insert da pessoa
-                strSQL = "INSERT INTO tbPessoa(pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa, pes_obs, pes_fiado, pes_email)";
-                strSQL += " VALUES(@nomePessoa, @dataCadastro, @tipoPessoa, @statusPessoa, @obsPessoa, @fiado, @email); SELECT MAX(codpessoa) FROM tbpessoa;";
+                strSQL = "INSERT INTO tbPessoa(pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa, pes_obs, pes_fiado, pes_email, pes_fone, pes_cel)";
+                strSQL += " VALUES(@nomePessoa, @dataCadastro, @tipoPessoa, @statusPessoa, @obsPessoa, @fiado, @email, @fone, @cel); SELECT MAX(codpessoa) FROM tbpessoa;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -293,6 +272,8 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@obsPessoa", objPessoa.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@fiado", objPessoa.Fiado);
                 objConexao.SqlCmd.Parameters.AddWithValue("@email", objPessoa.Email);
+                objConexao.SqlCmd.Parameters.AddWithValue("@fone", objPessoa.Telefone);
+                objConexao.SqlCmd.Parameters.AddWithValue("@cel", objPessoa.Celular);
 
 
 
@@ -309,8 +290,8 @@ namespace HairLumos.DAO
 
                 //Fazer o insert da Fisica ou Juridica
 
-                strSQL = "INSERT INTO tbjuridica(codpessoa, jur_cnpj, jur_razaosocial, jur_fantasia) ";
-                strSQL += "VALUES(@codPessoa, @cnpj, @razao, @fantasia)";
+                strSQL = "INSERT INTO tbjuridica(codpessoa, jur_cnpj, jur_razaosocial) ";
+                strSQL += "VALUES(@codPessoa, @cnpj, @razao)";
 
                 objConexao.SqlCmd.Parameters.Clear();
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -318,7 +299,6 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", cod);
                 objConexao.SqlCmd.Parameters.AddWithValue("@cnpj", objPessoa.CNPJ);
                 objConexao.SqlCmd.Parameters.AddWithValue("@razao", objPessoa.RazaoSocial);
-                objConexao.SqlCmd.Parameters.AddWithValue("@fantasia", objPessoa.NomeFantasia);
 
                 if (!objConexao.executarComando())
                     return -1;
@@ -326,11 +306,10 @@ namespace HairLumos.DAO
 
 
 
-                if (objPessoa.ListaEndereco != null)
+                if (objPessoa.Endereco != null)
                 {
                     //Fazer o insert dos Endereços
-                    foreach (var item in objPessoa.ListaEndereco)
-                    {
+                    
                         //COLOCAR CO CODPESSOA
                         strSQL = "INSERT INTO tbendereco(end_cep, end_logradouro, end_numero, end_bairro, edn_complemento, codcidade, coduf, codPessoa) ";
                         strSQL += "VALUES(@cep, @logradouro, @numero, @bairro, @complemento, @codcidade, @coduf, @codPessoa)";
@@ -339,42 +318,19 @@ namespace HairLumos.DAO
                         objConexao.SqlCmd.CommandText = strSQL;
 
 
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", item._cep);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", item._logradouro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", item._numero);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", item._bairro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", item._complemento);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, item._codCidade);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, item._codUf);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", objPessoa.Endereco._cep);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", objPessoa.Endereco._logradouro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", objPessoa.Endereco._numero);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", objPessoa.Endereco._bairro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", objPessoa.Endereco._complemento);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, objPessoa.Endereco._codCidade);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, objPessoa.Endereco._codUf);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", cod);
 
 
                         if (!objConexao.executarComando())
                             return -1;
-                    }
-                }
-
-                if (objPessoa.ListaContato != null)
-                {
-                    //Fazer insert dos Contatos
-                    foreach (var item in objPessoa.ListaContato)
-                    {
-                        //COLOCAR CO CODPESSOA
-                        strSQL = "INSERT INTO tbcontato(cont_telefone, cont_tipofone,codpessoa) ";
-                        strSQL += "VALUES(@cont_telefone, @tipofone, @codpessoa)";
-
-                        objConexao.SqlCmd.Parameters.Clear();
-                        objConexao.SqlCmd.CommandText = strSQL;
-
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cont_telefone", item._telefone);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@tipofone", item._tipo);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", cod);
-
-
-
-                        if (!objConexao.executarComando())
-                            return -1;
-                    }
+                    
                 }
 
 
@@ -408,7 +364,7 @@ namespace HairLumos.DAO
 
 
                 //Fazer o Insert da pessoa
-                strSQL = "UPDATE tbPessoa SET pes_nome = @nomePessoa, pes_datacadastro =  @dataCadastro, pes_tipopessoa = @tipoPessoa, pes_statuspessoa = @statusPessoa, pes_obs = @obsPessoa, pes_fiado = @fiado, pes_email = @email WHERE codpessoa = @codigo;";
+                strSQL = "UPDATE tbPessoa SET pes_nome = @nomePessoa, pes_datacadastro =  @dataCadastro, pes_tipopessoa = @tipoPessoa, pes_statuspessoa = @statusPessoa, pes_obs = @obsPessoa, pes_fiado = @fiado, pes_email = @email, pes_fone = @telefone, pes_cel = @celular WHERE codpessoa = @codigo;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -419,6 +375,8 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@obsPessoa", obj.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@fiado", obj.Fiado);
                 objConexao.SqlCmd.Parameters.AddWithValue("@email", obj.Email);
+                objConexao.SqlCmd.Parameters.AddWithValue("@telefone", obj.Telefone);
+                objConexao.SqlCmd.Parameters.AddWithValue("@celular", obj.Celular);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codigo", obj.Codigo);
 
 
@@ -447,11 +405,10 @@ namespace HairLumos.DAO
 
 
 
-                if (obj.ListaEndereco != null)
+                if (obj.Endereco != null)
                 {
                     //Fazer o insert dos Endereços
-                    foreach (var item in obj.ListaEndereco)
-                    {
+                   
                         //COLOCAR CO CODPESSOA
                         strSQL = "UPDATE tbendereco SET end_cep = @cep, end_logradouro = @logradouro, end_numero = @numero, end_bairro = @bairro, edn_complemento = @complemento, codcidade = @codcidade, coduf = @coduf WHERE codpessoa = @codPessoa;";
 
@@ -460,42 +417,20 @@ namespace HairLumos.DAO
                         objConexao.SqlCmd.CommandText = strSQL;
 
 
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", item._cep);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", item._logradouro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", item._numero);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", item._bairro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", item._complemento);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, item._codCidade);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, item._codUf);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", obj.Endereco._cep);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", obj.Endereco._logradouro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", obj.Endereco._numero);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", obj.Endereco._bairro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", obj.Endereco._complemento);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, obj.Endereco._codCidade);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, obj.Endereco._codUf);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", obj.Codigo);
 
 
                         if (!objConexao.executarComando())
                             return -1;
-                    }
+                    
                 }
-
-                if (obj.ListaContato != null)
-                {
-                    //Fazer insert dos Contatos
-                    foreach (var item in obj.ListaContato)
-                    {
-                        //COLOCAR CO CODPESSOA
-                        strSQL = "UPDATE tbcontato SET cont_telefone = @cont_telefone, cont_tipofone = @tipofone WHERE codpessoa = @codpessoa;";
-
-
-                        objConexao.SqlCmd.Parameters.Clear();
-                        objConexao.SqlCmd.CommandText = strSQL;
-
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cont_telefone", item._telefone);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@tipofone", item._tipo);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", obj.Codigo);
-
-                        if (!objConexao.executarComando())
-                            return -1;
-                    }
-                }
-
 
                 objConexao.commitTransacao();
                 return 1;
@@ -527,7 +462,7 @@ namespace HairLumos.DAO
 
 
                 //Fazer o Insert da pessoa
-                strSQL = "UPDATE tbPessoa SET pes_nome = @nomePessoa, pes_datacadastro =  @dataCadastro, pes_tipopessoa = @tipoPessoa, pes_statuspessoa = @statusPessoa, pes_obs = @obsPessoa, pes_fiado = @fiado, pes_email = @email WHERE codpessoa = @codigo;";
+                strSQL = "UPDATE tbPessoa SET pes_nome = @nomePessoa, pes_datacadastro =  @dataCadastro, pes_tipopessoa = @tipoPessoa, pes_statuspessoa = @statusPessoa, pes_obs = @obsPessoa, pes_fiado = @fiado, pes_email = @email, pes_fone = @telefone, pes_cel = @celular  WHERE codpessoa = @codigo;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -538,6 +473,8 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@obsPessoa", obj.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@fiado", obj.Fiado);
                 objConexao.SqlCmd.Parameters.AddWithValue("@email", obj.Email);
+                objConexao.SqlCmd.Parameters.AddWithValue("@telefone", obj.Telefone);
+                objConexao.SqlCmd.Parameters.AddWithValue("@celular", obj.Celular);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codigo", obj.Codigo);
 
 
@@ -546,7 +483,7 @@ namespace HairLumos.DAO
 
                 //Fazer o insert da Fisica ou Juridica
 
-                strSQL = "UPDATE tbjuridica SET jur_cnpj = @cnpj, jur_razaosocial = @razao, jur_fantasia = @fantasia  where codpessoa = @codPessoa;";
+                strSQL = "UPDATE tbjuridica SET jur_cnpj = @cnpj, jur_razaosocial = @razao  where codpessoa = @codPessoa;";
 
                 objConexao.SqlCmd.Parameters.Clear();
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -554,7 +491,6 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", obj.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@cnpj", obj.CNPJ);
                 objConexao.SqlCmd.Parameters.AddWithValue("@razao", obj.RazaoSocial);
-                objConexao.SqlCmd.Parameters.AddWithValue("@fantasia", obj.NomeFantasia);
 
                 if (!objConexao.executarComando())
                     return -1;
@@ -562,11 +498,10 @@ namespace HairLumos.DAO
 
 
 
-                if (obj.ListaEndereco != null)
+                if (obj.Endereco != null)
                 {
                     //Fazer o insert dos Endereços
-                    foreach (var item in obj.ListaEndereco)
-                    {
+                    
                         //COLOCAR CO CODPESSOA
                         strSQL = "UPDATE tbendereco SET end_cep = @cep, end_logradouro = @logradouro, end_numero = @numero, end_bairro = @bairro, edn_complemento = @complemento, codcidade = @codcidade, coduf = @coduf WHERE codpessoa = @codPessoa;";
 
@@ -575,42 +510,20 @@ namespace HairLumos.DAO
                         objConexao.SqlCmd.CommandText = strSQL;
 
 
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", item._cep);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", item._logradouro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", item._numero);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", item._bairro);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", item._complemento);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, item._codCidade);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, item._codUf);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@cep", obj.Endereco._cep);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@logradouro", obj.Endereco._logradouro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@numero", obj.Endereco._numero);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@bairro", obj.Endereco._bairro);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@complemento", obj.Endereco._complemento);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@codcidade", NpgsqlTypes.NpgsqlDbType.Integer, obj.Endereco._codCidade);
+                        objConexao.SqlCmd.Parameters.AddWithValue("@coduf", NpgsqlTypes.NpgsqlDbType.Integer, obj.Endereco._codUf);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", obj.Codigo);
 
 
                         if (!objConexao.executarComando())
                             return -1;
-                    }
+                    
                 }
-
-                if (obj.ListaContato != null)
-                {
-                    //Fazer insert dos Contatos
-                    foreach (var item in obj.ListaContato)
-                    {
-                        //COLOCAR CO CODPESSOA
-                        strSQL = "UPDATE tbcontato SET cont_telefone = @cont_telefone, cont_tipofone = @tipofone WHERE codpessoa = @codpessoa;";
-
-
-                        objConexao.SqlCmd.Parameters.Clear();
-                        objConexao.SqlCmd.CommandText = strSQL;
-
-                        objConexao.SqlCmd.Parameters.AddWithValue("@cont_telefone", item._telefone);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@tipofone", item._tipo);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", obj.Codigo);
-
-                        if (!objConexao.executarComando())
-                            return -1;
-                    }
-                }
-
 
                 objConexao.commitTransacao();
                 return 1;
@@ -654,43 +567,20 @@ namespace HairLumos.DAO
                 if (!objConexao.executarComando())
                     return -1;
 
-                if (obj.ListaEndereco != null)
-                {
-                    //Fazer o insert dos Endereços
-                    foreach (var item in obj.ListaEndereco)
-                    {
-                        //COLOCAR CO CODPESSOA
-                        strSQL = "DELETE FROM tbendereco WHERE codpessoa = @codPessoa;";
+                
+                strSQL = "DELETE FROM tbendereco WHERE codpessoa = @codPessoa;";
 
 
-                        objConexao.SqlCmd.Parameters.Clear();
-                        objConexao.SqlCmd.CommandText = strSQL;
+                objConexao.SqlCmd.Parameters.Clear();
+                objConexao.SqlCmd.CommandText = strSQL;
 
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", obj.Codigo);
-
-
-                        if (!objConexao.executarComando())
-                            return -1;
-                    }
-                }
-
-                if (obj.ListaContato != null)
-                {
-                    //Fazer insert dos Contatos
-                    foreach (var item in obj.ListaContato)
-                    {
-                        //COLOCAR CO CODPESSOA
-                        strSQL = "DELETE FROM tbcontato WHERE codpessoa = @codpessoa;";
+                objConexao.SqlCmd.Parameters.AddWithValue("@codPessoa", obj.Codigo);
 
 
-                        objConexao.SqlCmd.Parameters.Clear();
-                        objConexao.SqlCmd.CommandText = strSQL;
-                        objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", obj.Codigo);
-
-                        if (!objConexao.executarComando())
-                            return -1;
-                    }
-                }
+                if (!objConexao.executarComando())
+                    return -1;
+                    
+                
 
                 //Fazer o Insert da pessoa
                 strSQL = "DELETE FROM tbPessoa WHERE codpessoa = @codigo;";
@@ -724,7 +614,7 @@ namespace HairLumos.DAO
 
 
             _sql = "SELECT codpessoa, pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa," +
-                        "pes_obs, pes_fiado, pes_email" +
+                        "pes_obs, pes_fiado, pes_email, pes_fone, pes_cel" +
                       " FROM tbpessoa";
 
             if (texto != null && texto != "")
@@ -756,7 +646,7 @@ namespace HairLumos.DAO
 
 
             _sql = "SELECT codpessoa, pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa," +
-                        "pes_obs, pes_fiado, pes_email" +
+                        "pes_obs, pes_fiado, pes_email, pes_fone, pes_cel" +
                       " FROM tbpessoa WHERE codpessoa =" + cod;
 
 
@@ -845,7 +735,7 @@ namespace HairLumos.DAO
 
 
             _sql = "SELECT codpessoa, pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa," +
-                    "pes_obs, pes_fiado, pes_email  FROM tbpessoa WHERE pes_tipopessoa = 'FISICA' ";
+                    "pes_obs, pes_fiado, pes_email, pes_fone, pes_cel  FROM tbpessoa WHERE pes_tipopessoa = 'FISICA' ";
 
 
             try
@@ -873,7 +763,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT codpessoa, jur_cnpj, jur_razaosocial, jur_fantasia" +
+            _sql = "SELECT codpessoa, jur_cnpj, jur_razaosocial" +
                       " FROM tbjuridica WHERE @cod =" + cod;
 
 
@@ -900,11 +790,11 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpessoa, jur_cnpj, jur_razaosocial, jur_fantasia" +
-                      " FROM tbjuridica";
+            _sql = "SELECT pj.codpessoa, jur_cnpj, jur_razaosocial" +
+                      " FROM tbjuridica pj INNER JOIN tbpessoa p ON p.codpessoa = pj.codpessoa";
 
             if (texto != null && texto != "")
-                _sql += $" WHERE UPPER(jur_fantasia) LIKE @jur_fantasia";
+                _sql += $" WHERE UPPER(p.pes_nome) LIKE @pes_nome";
 
 
             try
@@ -913,7 +803,7 @@ namespace HairLumos.DAO
 
                 cmd.CommandText = _sql;
                 if (texto != null && texto != "")
-                    cmd.Parameters.AddWithValue("@jur_fantasia", texto.ToUpper());
+                    cmd.Parameters.AddWithValue("@pes_nome", texto.ToUpper());
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -986,32 +876,6 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable RetornaContato(int codigo)
-        {
-            DataTable dt = new DataTable();
-
-
-            _sql = "SELECT cont_telefone FROM tbcontato WHERE codpessoa = "+codigo;
-
-            try
-            {
-                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
-
-                cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@cont_telefone");
-
-                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
-                dt.Load(dr);//Carrego o DataReader no meu DataTable
-                dr.Close();//Fecho o DataReader
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return dt;
-        }
-
         public DataTable RetornaEndereco(int codigo)
         {
             DataTable dt = new DataTable();
@@ -1026,6 +890,36 @@ namespace HairLumos.DAO
 
                 cmd.CommandText = _sql;
                 cmd.Parameters.AddWithValue("codpessoa", codigo);
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+
+
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaCidCodigo(int codigo)
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT * FROM tbcidade WHERE codcidade =" + codigo;
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("codcidade", codigo);
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable

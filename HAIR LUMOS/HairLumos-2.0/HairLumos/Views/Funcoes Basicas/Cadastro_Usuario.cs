@@ -29,7 +29,7 @@ namespace HairLumos.Views
 
             try
             {
-                Views.Pesquisa_Pessoa objPessoa = new Pesquisa_Pessoa();
+                Views.Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa objPessoa = new Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa();
 
                 objPessoa.ShowDialog();
                 if (objPessoa.intCodigoPessoa > 0)
