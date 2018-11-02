@@ -166,7 +166,14 @@ namespace HairLumos.Entidades
             this.Celular = cel;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
     }
+
+
 
     public class Endereco
     {

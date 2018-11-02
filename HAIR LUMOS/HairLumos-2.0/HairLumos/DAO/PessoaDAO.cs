@@ -786,6 +786,59 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public DataTable RetornaPessoaJuridicaCnpj(string cnpj) //string Texto
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT p.codpessoa, jur_cnpj, jur_razaosocial , pes_nome" +
+                      " FROM tbjuridica pj inner join tbpessoa p on p.codpessoa = pj.codpessoa WHERE @jur_cnpj =" + cnpj;
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaPessoaJuridicaCod() //string Texto
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT p.codpessoa, jur_cnpj, jur_razaosocial , pes_nome FROM tbjuridica pj inner join tbpessoa p on p.codpessoa = pj.codpessoa";
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
         public DataTable RetornaPessoaJuridicaCod(string texto) //string Texto
         {
             DataTable dt = new DataTable();

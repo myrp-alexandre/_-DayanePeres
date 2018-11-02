@@ -30,6 +30,11 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvAgendamento = new System.Windows.Forms.DataGridView();
+            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -38,18 +43,20 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.mtcData = new System.Windows.Forms.MonthCalendar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbbListaAgenda = new System.Windows.Forms.ComboBox();
+            this.cbbFuncionario = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +71,6 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -81,12 +87,63 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dgvAgendamento);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(810, 479);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agenda";
+            // 
+            // dgvAgendamento
+            // 
+            this.dgvAgendamento.AllowUserToAddRows = false;
+            this.dgvAgendamento.AllowUserToDeleteRows = false;
+            this.dgvAgendamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAgendamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Hora,
+            this.Pes,
+            this.Servico,
+            this.Funcionario});
+            this.dgvAgendamento.Location = new System.Drawing.Point(71, 9);
+            this.dgvAgendamento.Name = "dgvAgendamento";
+            this.dgvAgendamento.ReadOnly = true;
+            this.dgvAgendamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAgendamento.Size = new System.Drawing.Size(708, 464);
+            this.dgvAgendamento.TabIndex = 0;
+            this.dgvAgendamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellDoubleClick);
+            // 
+            // Hora
+            // 
+            this.Hora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Hora.DataPropertyName = "Hora";
+            this.Hora.HeaderText = "Hora";
+            this.Hora.Name = "Hora";
+            this.Hora.ReadOnly = true;
+            // 
+            // Pes
+            // 
+            this.Pes.DataPropertyName = "Pes";
+            this.Pes.HeaderText = "Cliente";
+            this.Pes.Name = "Pes";
+            this.Pes.ReadOnly = true;
+            this.Pes.Width = 180;
+            // 
+            // Servico
+            // 
+            this.Servico.DataPropertyName = "Servico";
+            this.Servico.HeaderText = "Serviço";
+            this.Servico.Name = "Servico";
+            this.Servico.ReadOnly = true;
+            this.Servico.Width = 180;
+            // 
+            // Funcionario
+            // 
+            this.Funcionario.DataPropertyName = "Funcionario";
+            this.Funcionario.HeaderText = "Funcionario";
+            this.Funcionario.Name = "Funcionario";
+            this.Funcionario.ReadOnly = true;
+            this.Funcionario.Width = 180;
             // 
             // button2
             // 
@@ -127,6 +184,7 @@
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnPesquisa
             // 
@@ -162,16 +220,23 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.Color.White;
+            this.groupBox8.Controls.Add(this.mtcData);
             this.groupBox8.Controls.Add(this.groupBox2);
-            this.groupBox8.Controls.Add(this.cbbListaAgenda);
+            this.groupBox8.Controls.Add(this.cbbFuncionario);
             this.groupBox8.Controls.Add(this.label1);
-            this.groupBox8.Controls.Add(this.monthCalendar1);
             this.groupBox8.Location = new System.Drawing.Point(13, 12);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(251, 569);
             this.groupBox8.TabIndex = 5;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Informações";
+            // 
+            // mtcData
+            // 
+            this.mtcData.Location = new System.Drawing.Point(12, 150);
+            this.mtcData.Name = "mtcData";
+            this.mtcData.TabIndex = 6;
+            this.mtcData.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mtcData_DateChanged);
             // 
             // groupBox2
             // 
@@ -230,13 +295,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Horário Livre";
             // 
-            // cbbListaAgenda
+            // cbbFuncionario
             // 
-            this.cbbListaAgenda.FormattingEnabled = true;
-            this.cbbListaAgenda.Location = new System.Drawing.Point(12, 80);
-            this.cbbListaAgenda.Name = "cbbListaAgenda";
-            this.cbbListaAgenda.Size = new System.Drawing.Size(227, 21);
-            this.cbbListaAgenda.TabIndex = 4;
+            this.cbbFuncionario.FormattingEnabled = true;
+            this.cbbFuncionario.Location = new System.Drawing.Point(12, 80);
+            this.cbbFuncionario.Name = "cbbFuncionario";
+            this.cbbFuncionario.Size = new System.Drawing.Size(227, 21);
+            this.cbbFuncionario.TabIndex = 4;
+            this.cbbFuncionario.SelectedIndexChanged += new System.EventHandler(this.cbbFuncionario_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -247,12 +313,6 @@
             this.label1.Size = new System.Drawing.Size(153, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Listar Agendamento";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 164);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
             // 
             // Agenda
             // 
@@ -270,6 +330,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -291,12 +353,17 @@
         public System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cbbListaAgenda;
+        private System.Windows.Forms.ComboBox cbbFuncionario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvAgendamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Funcionario;
+        private System.Windows.Forms.MonthCalendar mtcData;
     }
 }

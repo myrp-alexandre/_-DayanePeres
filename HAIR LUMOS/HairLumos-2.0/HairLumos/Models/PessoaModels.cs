@@ -90,6 +90,16 @@ namespace HairLumos.Models
             return _DAOPessoa.RetornaPessoaJuridicaCod(cod);
         }
 
+        public DataTable retornaPessoaJuridicaCnpj(string cnpj)
+        {
+            return _DAOPessoa.RetornaPessoaJuridicaCnpj(cnpj);
+        }
+
+        public DataTable retornaPessoaJuridica()
+        {
+            return _DAOPessoa.RetornaPessoaJuridicaCod();
+        }
+
         public DataTable retornaPessoaJuridica(string texto)
         {
             return _DAOPessoa.RetornaPessoaJuridicaCod(texto);

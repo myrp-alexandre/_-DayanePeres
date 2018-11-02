@@ -53,6 +53,10 @@ namespace HairLumos.Entidades
             set { _razaoSocial = value; }
         }
 
-       
+        public override string ToString()
+        {
+            return Pessoa.Nome;
+        }
+
     }
 }

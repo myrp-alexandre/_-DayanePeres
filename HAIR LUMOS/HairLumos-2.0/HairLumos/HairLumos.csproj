@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\Conexao.cs" />
+    <Compile Include="Controller\AgendaController.cs" />
     <Compile Include="Controller\CaixaController.cs" />
     <Compile Include="Controller\CompraController.cs" />
     <Compile Include="Controller\ContasPagarController.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Controller\ServicoController.cs" />
     <Compile Include="Controller\ServicoParceiroController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="DAO\AgendaDAO.cs" />
     <Compile Include="DAO\CaixaDAO.cs" />
     <Compile Include="DAO\CompraDAO.cs" />
     <Compile Include="DAO\ContasPagarDAO.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="DAO\ServicoDAO.cs" />
     <Compile Include="DAO\ServicoParceiroDAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
+    <Compile Include="Entidades\Agenda.cs" />
     <Compile Include="Entidades\BaixaManual.cs" />
     <Compile Include="Entidades\Caixa.cs" />
     <Compile Include="Entidades\Categoria.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="Entidades\Contrato.cs" />
     <Compile Include="Entidades\Despesa.cs" />
     <Compile Include="Entidades\Estado.cs" />
+    <Compile Include="Entidades\Fechamento.cs" />
     <Compile Include="Entidades\FechamentoTabela.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
     <Compile Include="Entidades\Marca.cs" />
@@ -111,6 +115,7 @@
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Venda.cs" />
     <Compile Include="Entidades\VendaProduto.cs" />
+    <Compile Include="Models\AgendaModels.cs" />
     <Compile Include="Models\CaixaModels.cs" />
     <Compile Include="Models\CompraModels.cs" />
     <Compile Include="Models\ContasPagarModels.cs" />
