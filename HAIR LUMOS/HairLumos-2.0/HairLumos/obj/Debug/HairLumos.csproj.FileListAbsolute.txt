@@ -685,7 +685,6 @@ D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLum
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.frmMenu.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Properties.Resources.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Parametro_Sistema.resources
-D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Pesquisa_Pessoa.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.GenerateResource.cache
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.CoreCompileInputs.cache
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.csproj.CopyComplete
@@ -711,3 +710,4 @@ D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microso
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Utilities.Internal.dll
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa.resources
+D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa.resources

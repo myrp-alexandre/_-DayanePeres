@@ -21,6 +21,7 @@ namespace HairLumos.Models
             Entidades.PessoaJuridica _pessoaJuridica = new Entidades.PessoaJuridica();
             Entidades.Servico _servico = new Entidades.Servico();
             Entidades.ServicoParceiro _servicoParceiro = new Entidades.ServicoParceiro();
+            Entidades.Agenda _agenda = new Entidades.Agenda();
 
             DataTable dtPessoaJuridica = pessoaDAO.RetornaPessoaJuridicaCod(codPessoaJur);
             if (dtPessoaJuridica != null && dtPessoaJuridica.Rows.Count > 0)
@@ -40,7 +41,7 @@ namespace HairLumos.Models
 
             }
 
-            _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb);
+            _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb, _agenda);
 
             return ServicoParceiroDAO.GravarServicoParceiro(_servicoParceiro);
         }

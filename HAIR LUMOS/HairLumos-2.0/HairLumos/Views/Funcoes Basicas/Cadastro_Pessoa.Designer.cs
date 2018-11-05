@@ -618,7 +618,7 @@
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(129, 12);
+            this.btnAlterar.Location = new System.Drawing.Point(233, 12);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 38);
             this.btnAlterar.TabIndex = 8;
@@ -640,7 +640,7 @@
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(233, 12);
+            this.btnPesquisar.Location = new System.Drawing.Point(339, 12);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 38);
             this.btnPesquisar.TabIndex = 3;
@@ -673,7 +673,7 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(339, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(445, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 4;
@@ -684,7 +684,7 @@
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(445, 12);
+            this.btnGravar.Location = new System.Drawing.Point(127, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(100, 38);
             this.btnGravar.TabIndex = 1;
@@ -730,7 +730,6 @@
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
-        public System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.MaskedTextBox mskCNPJ;
         private System.Windows.Forms.MaskedTextBox mskCPF;
         private System.Windows.Forms.Label label9;
@@ -781,5 +780,6 @@
         private System.Windows.Forms.TabPage Observações;
         public System.Windows.Forms.Label label17;
         public System.Windows.Forms.TextBox ttbObservação;
+        public System.Windows.Forms.Button btnGravar;
     }
 }

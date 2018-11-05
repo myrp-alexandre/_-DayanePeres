@@ -34,7 +34,7 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.dgvPessoa = new System.Windows.Forms.DataGridView();
             this.codpessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jur_fantasia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jur_razaosocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jur_cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +87,7 @@
             this.dgvPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPessoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codpessoa,
-            this.jur_fantasia,
+            this.jur_razaosocial,
             this.jur_cnpj});
             this.dgvPessoa.Location = new System.Drawing.Point(12, 98);
             this.dgvPessoa.Name = "dgvPessoa";
@@ -103,13 +103,13 @@
             this.codpessoa.Name = "codpessoa";
             this.codpessoa.ReadOnly = true;
             // 
-            // jur_fantasia
+            // jur_razaosocial
             // 
-            this.jur_fantasia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.jur_fantasia.DataPropertyName = "jur_fantasia";
-            this.jur_fantasia.HeaderText = "Nome Fantasia";
-            this.jur_fantasia.Name = "jur_fantasia";
-            this.jur_fantasia.ReadOnly = true;
+            this.jur_razaosocial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.jur_razaosocial.DataPropertyName = "jur_razaosocial";
+            this.jur_razaosocial.HeaderText = "Nome";
+            this.jur_razaosocial.Name = "jur_razaosocial";
+            this.jur_razaosocial.ReadOnly = true;
             // 
             // jur_cnpj
             // 
@@ -125,13 +125,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(884, 478);
+            this.ControlBox = false;
             this.Controls.Add(this.dgvPessoa);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.ttbDescricao);
             this.Name = "Pesquisa_Fornecedor";
-            this.Text = "PESQUISA FORNECEDOR";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "H.L - PESQUISA FORNECEDOR";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,7 +147,7 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.DataGridView dgvPessoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn codpessoa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jur_fantasia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jur_razaosocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn jur_cnpj;
     }
 }

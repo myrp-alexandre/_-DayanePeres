@@ -31,12 +31,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.mskPercentual = new System.Windows.Forms.MaskedTextBox();
-            this.mskTotalLiquido = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.mskValorConta = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.mskValorInformado = new System.Windows.Forms.MaskedTextBox();
+            this.rbPOrcentagemInformada = new System.Windows.Forms.RadioButton();
+            this.rbValorInformado = new System.Windows.Forms.RadioButton();
             this.btnIncluirServico = new System.Windows.Forms.Button();
             this.mskValorServico = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,10 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvServico = new System.Windows.Forms.DataGridView();
-            this.codtiposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiposerv_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiposerv_temposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -62,12 +57,17 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PagamentoRecebido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
             this.SuspendLayout();
@@ -119,68 +119,65 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.mskPercentual);
-            this.groupBox3.Controls.Add(this.mskTotalLiquido);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.mskValorConta);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(20, 118);
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Location = new System.Drawing.Point(20, 109);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(390, 103);
+            this.groupBox3.Size = new System.Drawing.Size(279, 112);
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "INFOME:";
+            this.groupBox3.Text = "Informações de Pagamento/Recebimento";
             // 
-            // label6
+            // groupBox4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "Valor em (%)";
+            this.groupBox4.Controls.Add(this.mskPercentual);
+            this.groupBox4.Controls.Add(this.mskValorInformado);
+            this.groupBox4.Controls.Add(this.rbPOrcentagemInformada);
+            this.groupBox4.Controls.Add(this.rbValorInformado);
+            this.groupBox4.Location = new System.Drawing.Point(16, 20);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(250, 86);
+            this.groupBox4.TabIndex = 43;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Informar em Valor ou Porcentagem?";
             // 
             // mskPercentual
             // 
             this.mskPercentual.Enabled = false;
-            this.mskPercentual.Location = new System.Drawing.Point(6, 77);
+            this.mskPercentual.Location = new System.Drawing.Point(139, 54);
             this.mskPercentual.Name = "mskPercentual";
-            this.mskPercentual.Size = new System.Drawing.Size(159, 20);
-            this.mskPercentual.TabIndex = 41;
+            this.mskPercentual.Size = new System.Drawing.Size(90, 20);
+            this.mskPercentual.TabIndex = 45;
             // 
-            // mskTotalLiquido
+            // mskValorInformado
             // 
-            this.mskTotalLiquido.Enabled = false;
-            this.mskTotalLiquido.Location = new System.Drawing.Point(235, 46);
-            this.mskTotalLiquido.Name = "mskTotalLiquido";
-            this.mskTotalLiquido.Size = new System.Drawing.Size(136, 20);
-            this.mskTotalLiquido.TabIndex = 40;
+            this.mskValorInformado.Location = new System.Drawing.Point(8, 54);
+            this.mskValorInformado.Name = "mskValorInformado";
+            this.mskValorInformado.Size = new System.Drawing.Size(90, 20);
+            this.mskValorInformado.TabIndex = 44;
             // 
-            // label4
+            // rbPOrcentagemInformada
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(232, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 13);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Total Líquido Serviço (R$)";
+            this.rbPOrcentagemInformada.AutoSize = true;
+            this.rbPOrcentagemInformada.Location = new System.Drawing.Point(139, 27);
+            this.rbPOrcentagemInformada.Name = "rbPOrcentagemInformada";
+            this.rbPOrcentagemInformada.Size = new System.Drawing.Size(105, 17);
+            this.rbPOrcentagemInformada.TabIndex = 1;
+            this.rbPOrcentagemInformada.TabStop = true;
+            this.rbPOrcentagemInformada.Text = "Porcentagem (%)";
+            this.rbPOrcentagemInformada.UseVisualStyleBackColor = true;
+            this.rbPOrcentagemInformada.Click += new System.EventHandler(this.rbPOrcentagemInformada_Click);
             // 
-            // mskValorConta
+            // rbValorInformado
             // 
-            this.mskValorConta.Location = new System.Drawing.Point(6, 36);
-            this.mskValorConta.Name = "mskValorConta";
-            this.mskValorConta.Size = new System.Drawing.Size(159, 20);
-            this.mskValorConta.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(181, 13);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Valor a PAGAR ou a RECEBER (R$)";
+            this.rbValorInformado.AutoSize = true;
+            this.rbValorInformado.Location = new System.Drawing.Point(8, 27);
+            this.rbValorInformado.Name = "rbValorInformado";
+            this.rbValorInformado.Size = new System.Drawing.Size(72, 17);
+            this.rbValorInformado.TabIndex = 0;
+            this.rbValorInformado.TabStop = true;
+            this.rbValorInformado.Text = "Valor (R$)";
+            this.rbValorInformado.UseVisualStyleBackColor = true;
+            this.rbValorInformado.Click += new System.EventHandler(this.rbValorInformado_Click);
             // 
             // btnIncluirServico
             // 
@@ -195,7 +192,7 @@
             // 
             // mskValorServico
             // 
-            this.mskValorServico.Location = new System.Drawing.Point(274, 83);
+            this.mskValorServico.Location = new System.Drawing.Point(274, 80);
             this.mskValorServico.Name = "mskValorServico";
             this.mskValorServico.Size = new System.Drawing.Size(136, 20);
             this.mskValorServico.TabIndex = 38;
@@ -203,11 +200,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(271, 64);
+            this.label3.Location = new System.Drawing.Point(271, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 13);
+            this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 37;
-            this.label3.Text = "Valor Total do Serviço (R$)*";
+            this.label3.Text = "Valor do Serviço (R$)*";
             // 
             // groupBox2
             // 
@@ -254,7 +251,7 @@
             // cbbTipoServico
             // 
             this.cbbTipoServico.FormattingEnabled = true;
-            this.cbbTipoServico.Location = new System.Drawing.Point(20, 82);
+            this.cbbTipoServico.Location = new System.Drawing.Point(20, 79);
             this.cbbTipoServico.Name = "cbbTipoServico";
             this.cbbTipoServico.Size = new System.Drawing.Size(241, 21);
             this.cbbTipoServico.TabIndex = 32;
@@ -282,7 +279,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 69);
+            this.label2.Location = new System.Drawing.Point(19, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 28;
@@ -304,46 +301,16 @@
             this.dgvServico.BackgroundColor = System.Drawing.Color.White;
             this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codtiposervico,
-            this.tiposerv_descricao,
-            this.tiposerv_valor,
-            this.tiposerv_temposervico});
+            this.Servico,
+            this.Valor,
+            this.PagamentoRecebido,
+            this.Column1});
             this.dgvServico.Location = new System.Drawing.Point(21, 247);
             this.dgvServico.Name = "dgvServico";
             this.dgvServico.ReadOnly = true;
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServico.Size = new System.Drawing.Size(468, 138);
             this.dgvServico.TabIndex = 12;
-            // 
-            // codtiposervico
-            // 
-            this.codtiposervico.DataPropertyName = "codtiposervico";
-            this.codtiposervico.HeaderText = "Cód";
-            this.codtiposervico.Name = "codtiposervico";
-            this.codtiposervico.ReadOnly = true;
-            this.codtiposervico.Width = 50;
-            // 
-            // tiposerv_descricao
-            // 
-            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
-            this.tiposerv_descricao.HeaderText = "Tipo Serviço";
-            this.tiposerv_descricao.Name = "tiposerv_descricao";
-            this.tiposerv_descricao.ReadOnly = true;
-            // 
-            // tiposerv_valor
-            // 
-            this.tiposerv_valor.DataPropertyName = "tiposerv_valor";
-            this.tiposerv_valor.HeaderText = "Valor Serviço (R$)";
-            this.tiposerv_valor.Name = "tiposerv_valor";
-            this.tiposerv_valor.ReadOnly = true;
-            // 
-            // tiposerv_temposervico
-            // 
-            this.tiposerv_temposervico.DataPropertyName = "tiposerv_temposervico";
-            this.tiposerv_temposervico.HeaderText = "Tempo Estimado";
-            this.tiposerv_temposervico.Name = "tiposerv_temposervico";
-            this.tiposerv_temposervico.ReadOnly = true;
             // 
             // btnSelecionar
             // 
@@ -431,6 +398,35 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // Servico
+            // 
+            this.Servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Servico.DataPropertyName = "Servico";
+            this.Servico.HeaderText = "Serviço";
+            this.Servico.Name = "Servico";
+            this.Servico.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor Serviço (R$)";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            // 
+            // PagamentoRecebido
+            // 
+            this.PagamentoRecebido.DataPropertyName = "PagamentoRecebido";
+            this.PagamentoRecebido.HeaderText = "Serviço a Pagar ou Receber?";
+            this.PagamentoRecebido.Name = "PagamentoRecebido";
+            this.PagamentoRecebido.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Valor";
+            this.Column1.HeaderText = "Valor Descontato";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // Cadastro_ServiçosParceiros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,7 +445,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
@@ -461,10 +458,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvServico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codtiposervico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_velor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_temposervico;
         public System.Windows.Forms.Button btnSelecionar;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
@@ -485,14 +479,16 @@
         public System.Windows.Forms.Button btnIncluirServico;
         public System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_valor;
-        private System.Windows.Forms.MaskedTextBox mskValorConta;
-        public System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox mskTotalLiquido;
-        public System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mskValorServico;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton rbPOrcentagemInformada;
+        private System.Windows.Forms.RadioButton rbValorInformado;
         private System.Windows.Forms.MaskedTextBox mskPercentual;
+        private System.Windows.Forms.MaskedTextBox mskValorInformado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PagamentoRecebido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

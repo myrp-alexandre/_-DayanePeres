@@ -369,19 +369,24 @@ namespace HairLumos.Views
 
                     int intCod = Convert.ToInt32(cbbServico.SelectedValue.ToString());
                     DataTable dtServico = servicoController.retornaObjServico(intCod);
-                    DataRow drServico = dtServico.Rows[0];
-                    servico.Codigo = Convert.ToInt32(drServico["codtiposervico"].ToString());
-                    servico.ServicoNome = drServico["tiposerv_descricao"].ToString();
-                    servico.Observacao = drServico["tiposerv_obs"].ToString();
-                    servico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
-                    servico.Tempo = drServico["tiposerv_temposervico"].ToString();
 
-                    pacoteServico.Periodicidade = ttbPeriodo.Text.Trim();
-                    pacoteServico.Servico = servico;
-                    pacoteServico.Quantidade = Convert.ToInt32(ttbQtdeServico.Text.Trim().ToString());
-                    pacoteServico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
-                    lista.Add(pacoteServico);
-                    carregaDGV(lista);
+                    if(dtServico != null && dtServico.Rows.Count > 0)
+                    {
+                        DataRow drServico = dtServico.Rows[0];
+                        servico.Codigo = Convert.ToInt32(drServico["codtiposervico"].ToString());
+                        servico.ServicoNome = drServico["tiposerv_descricao"].ToString();
+                        servico.Observacao = drServico["tiposerv_obs"].ToString();
+                        servico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
+                        servico.Tempo = drServico["tiposerv_temposervico"].ToString();
+
+                        pacoteServico.Periodicidade = ttbPeriodo.Text.Trim();
+                        pacoteServico.Servico = servico;
+                        pacoteServico.Quantidade = Convert.ToInt32(ttbQtdeServico.Text.Trim().ToString());
+                        pacoteServico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
+                        lista.Add(pacoteServico);
+                        carregaDGV(lista);
+                    }
+                    
                 }
                 else
                 {

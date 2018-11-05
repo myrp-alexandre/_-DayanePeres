@@ -53,8 +53,13 @@ namespace HairLumos.Views.Funcoes_Basicas.Pesquisas
 
             if (dtRetorno != null && dtRetorno.Rows.Count > 0 )
             {
-                dgvPessoa.DataSource = dtRetorno;
-                dgvPessoa.ClearSelection();
+                //dgvPessoa.DataSource = dtRetorno;
+                //dgvPessoa.ClearSelection();
+
+                BindingSource bd = new BindingSource();
+                bd.DataSource = dtRetorno;
+                dgvPessoa.DataSource = bd;
+                dgvPessoa.Refresh();
             }
             else
                 dgvPessoa.Rows.Clear();
