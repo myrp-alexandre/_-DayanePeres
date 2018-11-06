@@ -414,5 +414,46 @@ namespace HairLumos.Views.Funcoes_Basicas
             mskPercentual.Enabled = true;
             mskValorServico.Text = "";
         }
+
+        private void btnExcluirServico_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvServico.Rows.Count > 0)
+                {
+                    if (dgvServico.Rows.Count > 0)
+                    {
+                        servicoParceirosLista.Remove(servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index));
+                        carregaDGV(servicoParceirosLista);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não pode excluit itens do pacote!");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int codServico;
+                Views.Funcoes_Basicas.Pesquisas.Pesquisa_ServicoParceiro pesquisa_ServicoParceiro = new Pesquisas.Pesquisa_ServicoParceiro();
+                pesquisa_ServicoParceiro.ShowDialog();
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

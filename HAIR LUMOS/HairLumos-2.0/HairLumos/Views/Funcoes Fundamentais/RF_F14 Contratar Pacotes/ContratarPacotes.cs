@@ -335,18 +335,28 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
 
         private void btnExcluirServicoPac_Click(object sender, EventArgs e)
         {
-            if (dgvPacote.Rows.Count > 0)
+            try
             {
-                if (listaTabela.ElementAt(dgvPacote.CurrentRow.Index).Tipo == "Adcional")
+                if (dgvPacote.Rows.Count > 0)
                 {
-                    listaTabela.Remove(listaTabela.ElementAt(dgvPacote.CurrentRow.Index));
-                    carregaDgvPacotesAdcinais(listaTabela);
-                }
-                else
-                {
-                    MessageBox.Show("Não pode excluit itens do pacote!");
+                    if (listaTabela.ElementAt(dgvPacote.CurrentRow.Index).Tipo == "Adcional")
+                    {
+                        listaTabela.Remove(listaTabela.ElementAt(dgvPacote.CurrentRow.Index));
+                        carregaDgvPacotesAdcinais(listaTabela);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não pode excluit itens do pacote!");
+                    }
                 }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
         }
 
         private void limpatela()
