@@ -31,13 +31,16 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbReceber = new System.Windows.Forms.RadioButton();
+            this.rbPagar = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.mskPercentual = new System.Windows.Forms.MaskedTextBox();
             this.mskValorInformado = new System.Windows.Forms.MaskedTextBox();
             this.rbPOrcentagemInformada = new System.Windows.Forms.RadioButton();
             this.rbValorInformado = new System.Windows.Forms.RadioButton();
             this.btnIncluirServico = new System.Windows.Forms.Button();
-            this.mskValorServico = new System.Windows.Forms.MaskedTextBox();
+            this.ttbValorServico = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbbTipoServico = new System.Windows.Forms.ComboBox();
             this.btnSelecionaPessoa = new System.Windows.Forms.Button();
@@ -45,6 +48,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvServico = new System.Windows.Forms.DataGridView();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PagamentoRecebido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcluirServico = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -53,22 +60,15 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PagamentoRecebido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbReceber = new System.Windows.Forms.RadioButton();
-            this.rbPagar = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -101,7 +101,7 @@
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.btnIncluirServico);
-            this.groupBox1.Controls.Add(this.mskValorServico);
+            this.groupBox1.Controls.Add(this.ttbValorServico);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbbTipoServico);
             this.groupBox1.Controls.Add(this.btnSelecionaPessoa);
@@ -125,6 +125,39 @@
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Informações de Pagamento/Recebimento";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbReceber);
+            this.groupBox2.Controls.Add(this.rbPagar);
+            this.groupBox2.Location = new System.Drawing.Point(299, 25);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(123, 86);
+            this.groupBox2.TabIndex = 44;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Serviço a Pagar ou Receber?";
+            // 
+            // rbReceber
+            // 
+            this.rbReceber.AutoSize = true;
+            this.rbReceber.Location = new System.Drawing.Point(6, 62);
+            this.rbReceber.Name = "rbReceber";
+            this.rbReceber.Size = new System.Drawing.Size(66, 17);
+            this.rbReceber.TabIndex = 24;
+            this.rbReceber.TabStop = true;
+            this.rbReceber.Text = "Receber";
+            this.rbReceber.UseVisualStyleBackColor = true;
+            // 
+            // rbPagar
+            // 
+            this.rbPagar.AutoSize = true;
+            this.rbPagar.Location = new System.Drawing.Point(6, 36);
+            this.rbPagar.Name = "rbPagar";
+            this.rbPagar.Size = new System.Drawing.Size(53, 17);
+            this.rbPagar.TabIndex = 23;
+            this.rbPagar.TabStop = true;
+            this.rbPagar.Text = "Pagar";
+            this.rbPagar.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -189,13 +222,13 @@
             this.btnIncluirServico.UseVisualStyleBackColor = false;
             this.btnIncluirServico.Click += new System.EventHandler(this.btnIncluirServico_Click);
             // 
-            // mskValorServico
+            // ttbValorServico
             // 
-            this.mskValorServico.Enabled = false;
-            this.mskValorServico.Location = new System.Drawing.Point(419, 80);
-            this.mskValorServico.Name = "mskValorServico";
-            this.mskValorServico.Size = new System.Drawing.Size(136, 20);
-            this.mskValorServico.TabIndex = 38;
+            this.ttbValorServico.Enabled = false;
+            this.ttbValorServico.Location = new System.Drawing.Point(419, 80);
+            this.ttbValorServico.Name = "ttbValorServico";
+            this.ttbValorServico.Size = new System.Drawing.Size(136, 20);
+            this.ttbValorServico.TabIndex = 38;
             // 
             // label3
             // 
@@ -213,6 +246,7 @@
             this.cbbTipoServico.Name = "cbbTipoServico";
             this.cbbTipoServico.Size = new System.Drawing.Size(367, 21);
             this.cbbTipoServico.TabIndex = 32;
+            this.cbbTipoServico.SelectedIndexChanged += new System.EventHandler(this.cbbTipoServico_SelectedIndexChanged);
             this.cbbTipoServico.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbbTipoServico_MouseClick);
             // 
             // btnSelecionaPessoa
@@ -269,6 +303,35 @@
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServico.Size = new System.Drawing.Size(468, 138);
             this.dgvServico.TabIndex = 12;
+            // 
+            // Servico
+            // 
+            this.Servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Servico.DataPropertyName = "Servico";
+            this.Servico.HeaderText = "Serviço";
+            this.Servico.Name = "Servico";
+            this.Servico.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor Serviço (R$)";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            // 
+            // PagamentoRecebido
+            // 
+            this.PagamentoRecebido.DataPropertyName = "PagamentoRecebido";
+            this.PagamentoRecebido.HeaderText = "Serviço a Pagar ou Receber?";
+            this.PagamentoRecebido.Name = "PagamentoRecebido";
+            this.PagamentoRecebido.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Valor";
+            this.Column1.HeaderText = "Valor Líquido";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // btnExcluirServico
             // 
@@ -358,68 +421,6 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // Servico
-            // 
-            this.Servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Servico.DataPropertyName = "Servico";
-            this.Servico.HeaderText = "Serviço";
-            this.Servico.Name = "Servico";
-            this.Servico.ReadOnly = true;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "Valor";
-            this.Valor.HeaderText = "Valor Serviço (R$)";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            // 
-            // PagamentoRecebido
-            // 
-            this.PagamentoRecebido.DataPropertyName = "PagamentoRecebido";
-            this.PagamentoRecebido.HeaderText = "Serviço a Pagar ou Receber?";
-            this.PagamentoRecebido.Name = "PagamentoRecebido";
-            this.PagamentoRecebido.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Valor";
-            this.Column1.HeaderText = "Valor Líquido";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rbReceber);
-            this.groupBox2.Controls.Add(this.rbPagar);
-            this.groupBox2.Location = new System.Drawing.Point(299, 25);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(123, 86);
-            this.groupBox2.TabIndex = 44;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Serviço a Pagar ou Receber?";
-            // 
-            // rbReceber
-            // 
-            this.rbReceber.AutoSize = true;
-            this.rbReceber.Location = new System.Drawing.Point(6, 62);
-            this.rbReceber.Name = "rbReceber";
-            this.rbReceber.Size = new System.Drawing.Size(66, 17);
-            this.rbReceber.TabIndex = 24;
-            this.rbReceber.TabStop = true;
-            this.rbReceber.Text = "Receber";
-            this.rbReceber.UseVisualStyleBackColor = true;
-            // 
-            // rbPagar
-            // 
-            this.rbPagar.AutoSize = true;
-            this.rbPagar.Location = new System.Drawing.Point(6, 36);
-            this.rbPagar.Name = "rbPagar";
-            this.rbPagar.Size = new System.Drawing.Size(53, 17);
-            this.rbPagar.TabIndex = 23;
-            this.rbPagar.TabStop = true;
-            this.rbPagar.Text = "Pagar";
-            this.rbPagar.UseVisualStyleBackColor = true;
-            // 
             // Cadastro_ServiçosParceiros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,11 +439,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -468,7 +469,7 @@
         public System.Windows.Forms.Button btnIncluirServico;
         public System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.MaskedTextBox mskValorServico;
+        private System.Windows.Forms.MaskedTextBox ttbValorServico;
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton rbPOrcentagemInformada;

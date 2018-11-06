@@ -28,14 +28,13 @@ namespace HairLumos.Views.Funcoes_Basicas
             dgvServico.AutoGenerateColumns = false;
             carregaServicoCbb();
 
-            mskValorServico.Enabled = false;
+            ttbValorServico.Enabled = false;
         }
 
         public void _btnNovo()
         {
             
             ttbPessoa.Enabled = true;
-            mskValorServico.Enabled = true;
             dgvServico.Enabled = true;
 
             //botões
@@ -56,7 +55,6 @@ namespace HairLumos.Views.Funcoes_Basicas
             // ttb
            
             ttbPessoa.Enabled = false;
-            mskValorServico.Enabled = false;
             mskValorInformado.Enabled = false;
             mskPercentual.Enabled = false;
 
@@ -83,14 +81,15 @@ namespace HairLumos.Views.Funcoes_Basicas
         {
             
             ttbPessoa.Text = "";
-            mskValorServico.Text = "";
+            mskPercentual.Text = "";
+            mskValorInformado.Text = "";
+            dgvServico.Rows.Clear();
         }
 
         public void _btnAlterar()
         {
             
             ttbPessoa.Enabled = true;
-            mskValorServico.Enabled = true;
             dgvServico.Enabled = true;
 
             //botões
@@ -121,7 +120,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                 this.cbbTipoServico.DisplayMember = "tiposerv_descricao";
                 this.cbbTipoServico.DataSource = dtServicoParceiro;
 
-                mskValorServico.Text = dr["tiposerv_valor"].ToString();
+                ttbValorServico.Text = dr["tiposerv_valor"].ToString();
                 
             }
         }
@@ -193,7 +192,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                 {
                     Controller.PessoaController pessoaController = new Controller.PessoaController();
 
-                    DataTable dtRetorno = pessoaController.retornaPessoaJuridicaCod(objPessoa.intCodigoPessoa);//intPessoa);
+                    DataTable dtRetorno = pessoaController.retornaPessoaJuridica();//intPessoa);
                     
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                     {
@@ -224,67 +223,32 @@ namespace HairLumos.Views.Funcoes_Basicas
 
             try
             {
-                //verificar se houve alguma anormalidade no cadastro
-                if (string.IsNullOrEmpty(strMensagem))
+                if (servicoParceirosLista.Count > 0)
                 {
-                    double valorServico = 0;
-                    double.TryParse(mskValorServico.Text, out valorServico);
-
-                    string pagamento;
-                    if(rbPagar.Checked == true)
+                    int i = 0;
+                    bool fim = false;
+                    while(i< servicoParceirosLista.Count || fim)
                     {
-                        pagamento = "PAGAR";
+                        int rest = _ctrlServParceiro.gravaServico(servicoParceirosLista.ElementAt(i).PessoaJuridica.Codigo, servicoParceirosLista.ElementAt(i).Servico.Codigo, servicoParceirosLista.ElementAt(i).Valor, servicoParceirosLista.ElementAt(i).Percentual, servicoParceirosLista.ElementAt(i).PagamentoRecebido);
+                        if (rest == 0)
+                        {
+                            MessageBox.Show("Erro ao gravar os dados!");
+                            fim = true;
+                        }
+                        i++;
                     }
-                    else
+                    if(i== servicoParceirosLista.Count)
                     {
-                        pagamento = "RECEBER";
-
+                        MessageBox.Show("Serviços atribuidos ao parceiro com sucesso!");
+                        _limpaCampos();
+                        _inicializa();
                     }
 
-                    int servico = Convert.ToInt32(cbbTipoServico.SelectedValue);
-
-                    DataTable dtRetorno = _ctrlServParceiro.retornaParceiroServico(intCodServicoParceiro, servico);
-                    
-                    if (dtRetorno != null && dtRetorno.Rows.Count != 0)
-                    {
-                        DataRow dr = dtRetorno.Rows[0];
-                        intCodServicoParceiro = Convert.ToInt32(dr["codpessoa"].ToString());
-                        servico = Convert.ToInt32(dr["codtiposervico"].ToString());
-
-                        if (intCodServicoParceiro != Convert.ToInt32(dr["codpessoa"].ToString()) || servico != Convert.ToInt32(dr["codtiposervico"].ToString()))
-                        {
-                            int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, 0, pagamento);
-                            if (intRetorno == 1)
-                            {
-                                MessageBox.Show("Gravado com sucesso!");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Erro ao Gravar.");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Já existe Parceiro vinculado a esse tipo de Serviço.");
-                        }
-                    }
-                    else
-                    {
-                        int intRetorno = _ctrlServParceiro.gravaServico(intCodServicoParceiro, servico, valorServico, 0, pagamento);
-                        if (intRetorno == 1)
-                        {
-                            MessageBox.Show("Gravado com sucesso!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro ao Gravar.");
-                        }
-                    }
-                    _limpaCampos();
-                    _inicializa();
                 }
                 else
-                    MessageBox.Show(strMensagem, "Aviso!!");
+                {
+                    MessageBox.Show("Lista de serviços esta vazia!");
+                }
 
             }
             catch (Exception Ex)
@@ -293,20 +257,15 @@ namespace HairLumos.Views.Funcoes_Basicas
             }
         }
 
-       
-
-        private void mskPorcentagem_DoubleClick(object sender, EventArgs e)
-        {
-            
-        }
-
         
         private void btnIncluirServico_Click(object sender, EventArgs e)
         {
             try
             {
                 double valor = 0;
-                double valorServico = Convert.ToDouble(mskValorServico.Text);
+                double valorServico = 0;
+                if (!String.IsNullOrWhiteSpace(ttbValorServico.Text))
+                    valorServico = Convert.ToDouble(ttbValorServico.Text);
                 double result = 0;
                 string pagRec = "";
 
@@ -366,15 +325,15 @@ namespace HairLumos.Views.Funcoes_Basicas
 
                         servicoParceiro.Servico = servico;
 
-                        servicoParceiro.Valor = Convert.ToDouble(mskValorInformado.Text);
-                        servicoParceiro.Percentual = Convert.ToDouble(mskPercentual.Text);
-                        servicoParceiro.PagamentoRecebido = pagRec;
-                        servicoParceiro.Agenda = null;
-
-                        servicoParceirosLista.Add(servicoParceiro);
-                        carregaDGV(servicoParceirosLista);
-
                     }
+                    servicoParceiro.Valor = Convert.ToDouble(mskValorInformado.Text);
+                    servicoParceiro.Percentual = Convert.ToDouble(mskPercentual.Text);
+                    servicoParceiro.PagamentoRecebido = pagRec;
+
+                    servicoParceirosLista.Add(servicoParceiro);
+                    carregaDGV(servicoParceirosLista);
+                    mskPercentual.Text = "";
+                    mskValorInformado.Text = "";
                 }
 
             }
@@ -412,7 +371,7 @@ namespace HairLumos.Views.Funcoes_Basicas
         {
             mskValorInformado.Enabled = false;
             mskPercentual.Enabled = true;
-            mskValorServico.Text = "";
+            mskValorInformado.Text = "";
         }
 
         private void btnExcluirServico_Click(object sender, EventArgs e)
@@ -453,6 +412,18 @@ namespace HairLumos.Views.Funcoes_Basicas
             {
 
                 throw;
+            }
+        }
+
+        private void cbbTipoServico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Controller.ServicoController servicoController = new Controller.ServicoController();
+            int codigo = Convert.ToInt32(cbbTipoServico.SelectedValue);
+            DataTable dt = servicoController.retornaObjServico(codigo);
+            if(dt!=null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                ttbValorServico.Text = dr["tiposerv_valor"].ToString();
             }
         }
     }

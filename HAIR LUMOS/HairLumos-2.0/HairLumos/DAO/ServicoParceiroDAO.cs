@@ -30,14 +30,14 @@ namespace HairLumos.DAO
                 if (_servicoParceiro.PessoaJuridica.Codigo != 0 && _servicoParceiro._servico.Codigo != 0)
                 {
                     _sql = "INSERT INTO tbprestadorservico" +
-                        "(codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec)" +
-                        " VALUES (@codPessoa, @codtipoServico, @valor, @percentual, @recebido)";
+                        "(codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec, jur_cnpj)" +
+                        " VALUES (@codPessoa, @codtipoServico, @valor, @percentual, @recebido, @cnpj)";
 
                 }
                 else
                 {
                     _sql = "UPDATE tbprestadorservico" +
-                            " SET codpessoa = @codPessoa, codtiposervico = @codtipoServico, prestserv_valor = @valor, prestserv_percentual = @percentual, prestser_pagrec = @recebido " +
+                            " SET codpessoa = @codPessoa, codtiposervico = @codtipoServico, prestserv_valor = @valor, prestserv_percentual = @percentual, prestser_pagrec = @recebido, jur_cnpj = @cnpj " +
                         " WHERE codpessoa = @codPessoa AND WHERE codtiposervico = @codtipoServico";
                 }
 
@@ -47,6 +47,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@valor", _servicoParceiro.Valor);
                 cmd.Parameters.AddWithValue("@percentual", _servicoParceiro.Percentual);
                 cmd.Parameters.AddWithValue("@recebido", _servicoParceiro.PagamentoRecebido);
+                cmd.Parameters.AddWithValue("@cnpj", _servicoParceiro.PessoaJuridica.CNPJ);
                 
                 cmd.ExecuteNonQuery();
 

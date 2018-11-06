@@ -29,6 +29,7 @@ namespace HairLumos.Models
                 DataRow dr = dtPessoaJuridica.Rows[0];
 
                 _pessoaJuridica.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
+                _pessoaJuridica.CNPJ = dr["jur_cnpj"].ToString();
                 
             }
 
@@ -41,7 +42,7 @@ namespace HairLumos.Models
 
             }
 
-            _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb, _agenda);
+            _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb);
 
             return ServicoParceiroDAO.GravarServicoParceiro(_servicoParceiro);
         }
