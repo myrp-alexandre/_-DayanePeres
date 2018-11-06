@@ -402,11 +402,23 @@ namespace HairLumos.Views.Funcoes_Basicas
         {
             try
             {
+                Controller.ServicoController servicoController = new Controller.ServicoController();
+                Entidades.ServicoParceiro servicoParceiro = new Entidades.ServicoParceiro();
+
                 int codServico;
                 Views.Funcoes_Basicas.Pesquisas.Pesquisa_ServicoParceiro pesquisa_ServicoParceiro = new Pesquisas.Pesquisa_ServicoParceiro();
                 pesquisa_ServicoParceiro.ShowDialog();
 
+                if(pesquisa_ServicoParceiro.intCodServico > 0)
+                {
+                    DataTable dtRetorno = servicoController.retornaObjServico(pesquisa_ServicoParceiro.intCodServico);
 
+                    if(dtRetorno != null && dtRetorno.Rows.Count > 0)
+                    {
+                        DataRow dr = dtRetorno.Rows[0];
+
+                    }
+                }
             }
             catch (Exception)
             {

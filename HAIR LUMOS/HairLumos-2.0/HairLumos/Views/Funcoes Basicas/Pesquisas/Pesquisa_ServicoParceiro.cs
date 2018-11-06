@@ -23,5 +23,10 @@ namespace HairLumos.Views.Funcoes_Basicas.Pesquisas
         {
 
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

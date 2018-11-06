@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvPessoa = new System.Windows.Forms.DataGridView();
+            this.codpessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jur_razaosocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.ttbDescricao = new System.Windows.Forms.TextBox();
-            this.codpessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jur_razaosocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,21 @@
             this.dgvPessoa.Size = new System.Drawing.Size(860, 378);
             this.dgvPessoa.TabIndex = 14;
             // 
+            // codpessoa
+            // 
+            this.codpessoa.DataPropertyName = "codpessoa";
+            this.codpessoa.HeaderText = "Cod";
+            this.codpessoa.Name = "codpessoa";
+            this.codpessoa.ReadOnly = true;
+            // 
+            // jur_razaosocial
+            // 
+            this.jur_razaosocial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.jur_razaosocial.DataPropertyName = "jur_razaosocial";
+            this.jur_razaosocial.HeaderText = "Nome";
+            this.jur_razaosocial.Name = "jur_razaosocial";
+            this.jur_razaosocial.ReadOnly = true;
+            // 
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.White;
@@ -62,6 +77,7 @@
             this.btnSair.TabIndex = 13;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnSelecionar
             // 
@@ -90,21 +106,6 @@
             this.ttbDescricao.Name = "ttbDescricao";
             this.ttbDescricao.Size = new System.Drawing.Size(400, 20);
             this.ttbDescricao.TabIndex = 10;
-            // 
-            // codpessoa
-            // 
-            this.codpessoa.DataPropertyName = "codpessoa";
-            this.codpessoa.HeaderText = "Cod";
-            this.codpessoa.Name = "codpessoa";
-            this.codpessoa.ReadOnly = true;
-            // 
-            // jur_razaosocial
-            // 
-            this.jur_razaosocial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.jur_razaosocial.DataPropertyName = "jur_razaosocial";
-            this.jur_razaosocial.HeaderText = "Nome";
-            this.jur_razaosocial.Name = "jur_razaosocial";
-            this.jur_razaosocial.ReadOnly = true;
             // 
             // Pesquisa_ServicoParceiro
             // 
