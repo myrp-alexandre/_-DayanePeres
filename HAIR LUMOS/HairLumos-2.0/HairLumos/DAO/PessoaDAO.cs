@@ -791,8 +791,8 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT p.codpessoa, jur_cnpj, jur_razaosocial , pes_nome" +
-                      " FROM tbjuridica pj inner join tbpessoa p on p.codpessoa = pj.codpessoa WHERE @jur_cnpj =" + cnpj;
+            _sql = "SELECT p.codpessoa, pj.jur_cnpj, pj.jur_razaosocial , p.pes_nome" +
+                      " FROM tbjuridica pj inner join tbpessoa p on p.codpessoa = pj.codpessoa WHERE pj.jur_cnpj ='" + cnpj+"'";
 
 
             try

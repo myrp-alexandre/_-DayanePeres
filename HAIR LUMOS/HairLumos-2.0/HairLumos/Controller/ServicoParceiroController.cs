@@ -32,5 +32,15 @@ namespace HairLumos.Controller
             return _ServicoParceiroModel.excluirServicoParceiro(intCodP, codServ);
         }
 
+        public DataTable retornaPrestador()
+        {
+            return _ServicoParceiroModel.retornaPrestador();
+        }
+
+        public DataTable retornaServicos(int codigo)
+        {
+            return _ServicoParceiroModel.retornaServicos(codigo);
+        }
+
     }
 }

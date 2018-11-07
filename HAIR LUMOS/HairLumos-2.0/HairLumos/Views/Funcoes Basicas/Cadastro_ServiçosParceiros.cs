@@ -75,6 +75,7 @@ namespace HairLumos.Views.Funcoes_Basicas
             //pesquisaServico();
             _limpaCampos();
 
+
         }
 
         public void _limpaCampos()
@@ -84,6 +85,7 @@ namespace HairLumos.Views.Funcoes_Basicas
             mskPercentual.Text = "";
             mskValorInformado.Text = "";
             dgvServico.Rows.Clear();
+            servicoParceirosLista = new List<Entidades.ServicoParceiro>();
         }
 
         public void _btnAlterar()
@@ -400,27 +402,65 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            _limpaCampos();
             try
             {
-                Controller.ServicoController servicoController = new Controller.ServicoController();
-                Entidades.ServicoParceiro servicoParceiro = new Entidades.ServicoParceiro();
-
-                int codServico;
+                Controller.ServicoParceiroController servicoController = new Controller.ServicoParceiroController();
+                Controller.ServicoController sc = new Controller.ServicoController();
+                Controller.PessoaController pc = new Controller.PessoaController();
+                
                 Views.Funcoes_Basicas.Pesquisas.Pesquisa_ServicoParceiro pesquisa_ServicoParceiro = new Pesquisas.Pesquisa_ServicoParceiro();
                 pesquisa_ServicoParceiro.ShowDialog();
 
-                if(pesquisa_ServicoParceiro.intCodServico > 0)
+                if(pesquisa_ServicoParceiro.intCodprestador > 0)
                 {
-                    DataTable dtRetorno = servicoController.retornaObjServico(pesquisa_ServicoParceiro.intCodServico);
 
-                    if(dtRetorno != null && dtRetorno.Rows.Count > 0)
+                    DataTable dtServParc = servicoController.retornaServicos(pesquisa_ServicoParceiro.intCodprestador);
+
+                    if(dtServParc != null && dtServParc.Rows.Count > 0)
                     {
-                        DataRow dr = dtRetorno.Rows[0];
+                        for(int i =0; i<dtServParc.Rows.Count; i++)
+                        {
+                            DataRow drServPac = dtServParc.Rows[i];
+                            Entidades.PessoaJuridica pj = new Entidades.PessoaJuridica();
+                            DataTable dtPessoa = pc.retornaPessoaJuridicaCnpj(drServPac["jur_cnpj"].ToString());
+                            if (dtPessoa != null && dtPessoa.Rows.Count > 0)
+                            {
+                                
+                                DataRow drPessoa = dtPessoa.Rows[0];
+                                pj.Codigo = Convert.ToInt32(drServPac["codpessoa"].ToString());
+                                pj.CNPJ = drServPac["jur_cnpj"].ToString();
+                                pj.Nome = drPessoa["pes_nome"].ToString();
+                                pj.RazaoSocial = drPessoa["jur_razaosocial"].ToString();
+                                ttbPessoa.Text = drPessoa["pes_nome"].ToString();
+                            }
+                            
+                            DataTable dtServico = sc.retornaObjServico(Convert.ToInt32(drServPac["codtiposervico"].ToString()));
+                            Entidades.Servico servico = new Entidades.Servico();
+                            if (dtServico != null && dtServico.Rows.Count > 0)
+                            {
+                                
+                                DataRow drServico = dtServico.Rows[0];
+                                servico.Codigo = Convert.ToInt32(drServico["codtiposervico"].ToString());
+                                servico.ServicoNome = drServico["tiposerv_descricao"].ToString();
+                                servico.Observacao = drServico["tiposerv_obs"].ToString();
+                                servico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
+                                servico.Tempo = drServico["tiposerv_temposervico"].ToString();
+                            }
+                            Entidades.ServicoParceiro servicoParceiro = new Entidades.ServicoParceiro();
+                            servicoParceiro.PessoaJuridica = pj;
+                            servicoParceiro.Servico = servico;
+                            servicoParceiro.Valor = Convert.ToDouble(drServPac["prestserv_valor"].ToString());
+                            servicoParceiro.Percentual = Convert.ToDouble(drServPac["prestserv_percentual"].ToString());
+                            servicoParceiro.PagamentoRecebido = drServPac["prestser_pagrec"].ToString();
+                            servicoParceirosLista.Add(servicoParceiro);
+                            carregaDGV(servicoParceirosLista);
+                        }
 
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception E)
             {
 
                 throw;
