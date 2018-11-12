@@ -14,17 +14,18 @@ namespace HairLumos.Entidades
         public double _valor;
         public double _percentual;
         public string _pagRecebido;
+        public bool _estado;
 
         public string _erro;
 
-        public ServicoParceiro (PessoaJuridica pes, Servico serv, double valor, double percentual, string recebido)
+        public ServicoParceiro(PessoaJuridica pes, Servico serv, double valor, double percentual, string recebido, bool estado)
         {
-            this.CarregaServicoParceiro(pes, serv, valor, percentual, recebido);
+            this.CarregaServicoParceiro(pes, serv, valor, percentual, recebido, estado);
         }
 
         public ServicoParceiro()
         {
-            this.CarregaServicoParceiro(null, null, 0, 0, string.Empty);
+            this.CarregaServicoParceiro(null, null, 0, 0, string.Empty,false);
         }
 
         public PessoaJuridica PessoaJuridica
@@ -63,13 +64,20 @@ namespace HairLumos.Entidades
             set { _erro = value; }
         }
 
-        public void CarregaServicoParceiro(PessoaJuridica strPessoa, Servico strServico, double strValor, double strPercentual, string strRecebido)
+        public bool Estado
+        {
+            get { return _estado; }
+            set { _estado = value; }
+        }
+
+        public void CarregaServicoParceiro(PessoaJuridica strPessoa, Servico strServico, double strValor, double strPercentual, string strRecebido, bool estado)
         {
             this.PessoaJuridica = strPessoa;
             this.Servico = strServico;
             this.Valor = strValor;
             this.Percentual = strPercentual;
             this.PagamentoRecebido = strRecebido;
+            this.Estado = estado;
         }
         
     }

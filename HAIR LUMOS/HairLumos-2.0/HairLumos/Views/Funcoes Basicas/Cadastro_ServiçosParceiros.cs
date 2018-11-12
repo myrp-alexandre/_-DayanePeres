@@ -231,7 +231,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                     bool fim = false;
                     while(i< servicoParceirosLista.Count || fim)
                     {
-                        int rest = _ctrlServParceiro.gravaServico(servicoParceirosLista.ElementAt(i).PessoaJuridica.Codigo, servicoParceirosLista.ElementAt(i).Servico.Codigo, servicoParceirosLista.ElementAt(i).Valor, servicoParceirosLista.ElementAt(i).Percentual, servicoParceirosLista.ElementAt(i).PagamentoRecebido);
+                        int rest = _ctrlServParceiro.gravaServico(servicoParceirosLista.ElementAt(i).PessoaJuridica.Codigo, servicoParceirosLista.ElementAt(i).Servico.Codigo, servicoParceirosLista.ElementAt(i).Valor, servicoParceirosLista.ElementAt(i).Percentual, servicoParceirosLista.ElementAt(i).PagamentoRecebido, true);
                         if (rest == 0)
                         {
                             MessageBox.Show("Erro ao gravar os dados!");
@@ -258,7 +258,6 @@ namespace HairLumos.Views.Funcoes_Basicas
                 MessageBox.Show(Ex + "");
             }
         }
-
         
         private void btnIncluirServico_Click(object sender, EventArgs e)
         {
@@ -384,6 +383,9 @@ namespace HairLumos.Views.Funcoes_Basicas
                 {
                     if (dgvServico.Rows.Count > 0)
                     {
+                        Entidades.ServicoParceiro sp = new Entidades.ServicoParceiro();
+                        sp = servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index);
+
                         servicoParceirosLista.Remove(servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index));
                         carregaDGV(servicoParceirosLista);
                     }
@@ -453,8 +455,12 @@ namespace HairLumos.Views.Funcoes_Basicas
                             servicoParceiro.Valor = Convert.ToDouble(drServPac["prestserv_valor"].ToString());
                             servicoParceiro.Percentual = Convert.ToDouble(drServPac["prestserv_percentual"].ToString());
                             servicoParceiro.PagamentoRecebido = drServPac["prestser_pagrec"].ToString();
-                            servicoParceirosLista.Add(servicoParceiro);
-                            carregaDGV(servicoParceirosLista);
+                            servicoParceiro.Estado = Convert.ToBoolean(drServPac["estado"].ToString());
+                            if (servicoParceiro.Estado)
+                            {
+                                servicoParceirosLista.Add(servicoParceiro);
+                                carregaDGV(servicoParceirosLista);
+                            }
                         }
 
                     }

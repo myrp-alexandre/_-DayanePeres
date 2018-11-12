@@ -30,14 +30,14 @@ namespace HairLumos.DAO
                 if (_servicoParceiro.PessoaJuridica.Codigo != 0 && _servicoParceiro._servico.Codigo != 0)
                 {
                     _sql = "INSERT INTO tbprestadorservico" +
-                        "(codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec, jur_cnpj)" +
-                        " VALUES (@codPessoa, @codtipoServico, @valor, @percentual, @recebido, @cnpj)";
+                        "(codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec, jur_cnpj, estado)" +
+                        " VALUES (@codPessoa, @codtipoServico, @valor, @percentual, @recebido, @cnpj, @estado)";
 
                 }
                 else
                 {
                     _sql = "UPDATE tbprestadorservico" +
-                            " SET codpessoa = @codPessoa, codtiposervico = @codtipoServico, prestserv_valor = @valor, prestserv_percentual = @percentual, prestser_pagrec = @recebido, jur_cnpj = @cnpj " +
+                            " SET codpessoa = @codPessoa, codtiposervico = @codtipoServico, prestserv_valor = @valor, prestserv_percentual = @percentual, prestser_pagrec = @recebido, jur_cnpj = @cnpj, estado = @estado " +
                         " WHERE codpessoa = @codPessoa AND WHERE codtiposervico = @codtipoServico";
                 }
 
@@ -48,6 +48,8 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@percentual", _servicoParceiro.Percentual);
                 cmd.Parameters.AddWithValue("@recebido", _servicoParceiro.PagamentoRecebido);
                 cmd.Parameters.AddWithValue("@cnpj", _servicoParceiro.PessoaJuridica.CNPJ);
+                cmd.Parameters.AddWithValue("@estado", _servicoParceiro.Estado);
+
                 
                 cmd.ExecuteNonQuery();
 
@@ -66,7 +68,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec" +
+            _sql = "SELECT codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec, estado" +
                         " FROM tbprestadorservico; ";
 
             // int intCodigo = 0;
@@ -84,6 +86,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@prestserv_valor");
                 cmd.Parameters.AddWithValue("@prestserv_percentual");
                 cmd.Parameters.AddWithValue("@prestser_pagrec");
+                cmd.Parameters.AddWithValue("@estado");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
@@ -100,7 +103,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec" +
+            _sql = "SELECT codpessoa, codtiposervico, prestserv_valor, prestserv_percentual, prestser_pagrec, estado" +
                         " FROM tbprestadorservico WHERE codpessoa = "+ intCodPessoa +" AND codtiposervico = " + intCodServico +"; ";
 
             
@@ -115,6 +118,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@prestserv_valor");
                 cmd.Parameters.AddWithValue("@prestserv_percentual");
                 cmd.Parameters.AddWithValue("@prestser_pagrec");
+                cmd.Parameters.AddWithValue("@estado");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader

@@ -11,9 +11,9 @@ namespace HairLumos.Controller
     {
         private Models.ServicoParceiroModel _ServicoParceiroModel = new Models.ServicoParceiroModel();
 
-        public int gravaServico(int codPessoaJuridica, int codServico, double valor, double percentual, string recebido)
+        public int gravaServico(int codPessoaJuridica, int codServico, double valor, double percentual, string recebido, bool estado)
         {
-            return _ServicoParceiroModel.gravaServicoParceiro(codPessoaJuridica, codServico, valor, percentual, recebido);
+            return _ServicoParceiroModel.gravaServicoParceiro(codPessoaJuridica, codServico, valor, percentual, recebido, estado);
         }
 
         public DataTable retornaServicoParceiro()

@@ -16,7 +16,7 @@ namespace HairLumos.Models
         DAO.PessoaDAO pessoaDAO = new DAO.PessoaDAO();
         DAO.ServicoDAO ServicoDAO = new DAO.ServicoDAO();
 
-        public int gravaServicoParceiro(int codPessoaJur, int codServico, double valor, double percentual, string pagamReceb)
+        public int gravaServicoParceiro(int codPessoaJur, int codServico, double valor, double percentual, string pagamReceb, bool estado)
         {
             Entidades.PessoaJuridica _pessoaJuridica = new Entidades.PessoaJuridica();
             Entidades.Servico _servico = new Entidades.Servico();
@@ -42,7 +42,7 @@ namespace HairLumos.Models
 
             }
 
-            _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb);
+            _servicoParceiro.CarregaServicoParceiro(_pessoaJuridica, _servico, valor, percentual, pagamReceb, estado);
 
             return ServicoParceiroDAO.GravarServicoParceiro(_servicoParceiro);
         }
