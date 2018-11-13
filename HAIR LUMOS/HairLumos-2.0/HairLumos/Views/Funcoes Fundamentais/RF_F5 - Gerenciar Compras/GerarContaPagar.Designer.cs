@@ -30,9 +30,6 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvContas = new System.Windows.Forms.DataGridView();
-            this.parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.mskValorParcela = new System.Windows.Forms.MaskedTextBox();
@@ -46,6 +43,9 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
+            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,39 +82,15 @@
             this.dgvContas.BackgroundColor = System.Drawing.Color.White;
             this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.parcela,
-            this.valorParcela,
-            this.vencimento});
-            this.dgvContas.Location = new System.Drawing.Point(15, 136);
+            this.Parcela,
+            this.ValorTotal,
+            this.DataVencimento});
+            this.dgvContas.Location = new System.Drawing.Point(15, 138);
             this.dgvContas.Name = "dgvContas";
             this.dgvContas.ReadOnly = true;
             this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContas.Size = new System.Drawing.Size(361, 162);
             this.dgvContas.TabIndex = 34;
-            // 
-            // parcela
-            // 
-            this.parcela.DataPropertyName = "parcela";
-            this.parcela.HeaderText = "Parcela";
-            this.parcela.Name = "parcela";
-            this.parcela.ReadOnly = true;
-            this.parcela.Width = 50;
-            // 
-            // valorParcela
-            // 
-            this.valorParcela.DataPropertyName = "valorParcela";
-            this.valorParcela.HeaderText = "Valor Parcela (R$)";
-            this.valorParcela.Name = "valorParcela";
-            this.valorParcela.ReadOnly = true;
-            this.valorParcela.Width = 125;
-            // 
-            // vencimento
-            // 
-            this.vencimento.DataPropertyName = "vencimento";
-            this.vencimento.HeaderText = "Data Vencimento";
-            this.vencimento.Name = "vencimento";
-            this.vencimento.ReadOnly = true;
-            this.vencimento.Width = 125;
             // 
             // groupBox1
             // 
@@ -142,6 +118,7 @@
             this.btnIncluir.TabIndex = 4;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = false;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // mskValorParcela
             // 
@@ -189,6 +166,7 @@
             this.ttbQtdeParcela.Name = "ttbQtdeParcela";
             this.ttbQtdeParcela.Size = new System.Drawing.Size(63, 20);
             this.ttbQtdeParcela.TabIndex = 2;
+            this.ttbQtdeParcela.TextChanged += new System.EventHandler(this.ttbQtdeParcela_TextChanged);
             // 
             // label4
             // 
@@ -227,6 +205,7 @@
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnFinalizar
             // 
@@ -237,6 +216,30 @@
             this.btnFinalizar.TabIndex = 0;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
+            // Parcela
+            // 
+            this.Parcela.DataPropertyName = "Parcela";
+            this.Parcela.HeaderText = "Parcela";
+            this.Parcela.Name = "Parcela";
+            this.Parcela.ReadOnly = true;
+            // 
+            // ValorTotal
+            // 
+            this.ValorTotal.DataPropertyName = "ValorTotal";
+            this.ValorTotal.HeaderText = "Valor Parcela (R$)";
+            this.ValorTotal.Name = "ValorTotal";
+            this.ValorTotal.ReadOnly = true;
+            this.ValorTotal.Width = 125;
+            // 
+            // DataVencimento
+            // 
+            this.DataVencimento.DataPropertyName = "DataVencimento";
+            this.DataVencimento.HeaderText = "Data Vencimento";
+            this.DataVencimento.Name = "DataVencimento";
+            this.DataVencimento.ReadOnly = true;
+            this.DataVencimento.Width = 125;
             // 
             // GerarContaPagar
             // 
@@ -275,10 +278,10 @@
         public System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvContas;
         public System.Windows.Forms.Button btnIncluir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vencimento;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
     }
 }

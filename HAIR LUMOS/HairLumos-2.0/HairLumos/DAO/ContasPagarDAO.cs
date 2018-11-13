@@ -127,6 +127,57 @@ namespace HairLumos.DAO
             }
             return dt;
         }
+
+
+        public int GravarContasPagar(Entidades.ContasPagar contasPagar)
+        {
+            Conexao objConexao = null;
+            try
+            {
+                objConexao = new Conexao();
+                if (contasPagar.CodigoContasaPagar == 0)
+                {
+                    _sql = "INSERT INTO tbcontaspagar" +
+                           " (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag,codcomissao)" +
+                           " VALUES (@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @CodComissao);" +
+                           " SELECT MAX(codcompra),  max(codCaixa)"+
+                           " FROM tbcompra;";
+
+                }
+               
+
+                objConexao.SqlCmd.CommandText = _sql;
+                objConexao.SqlCmd.Parameters.AddWithValue("@dtVencimento", contasPagar.DataVencimento);
+                objConexao.SqlCmd.Parameters.AddWithValue("@dtPagamento", contasPagar.DataPagamento);
+                objConexao.SqlCmd.Parameters.AddWithValue("@valorTotal", contasPagar.ValorTotal);
+                objConexao.SqlCmd.Parameters.AddWithValue("@valorPago", contasPagar.ValorPago);
+                objConexao.SqlCmd.Parameters.AddWithValue("@obs", contasPagar.Observacao);
+                objConexao.SqlCmd.Parameters.AddWithValue("@numParcela", contasPagar.Parcela);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", contasPagar.Compra.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", contasPagar.Despesa.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", contasPagar.Caixa.CodCaixa);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", NpgsqlTypes.NpgsqlDbType.Integer, 0);
+                objConexao.SqlCmd.Parameters.AddWithValue("@CodComissao", NpgsqlTypes.NpgsqlDbType.Integer, 0);
+
+
+
+                objConexao.iniciarTransacao();
+                objConexao.AutoConexao = false;
+                
+                if (!objConexao.executarComando())
+                    return -1;
+                
+                
+
+                objConexao.commitTransacao();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
     }
 
 }

@@ -26,7 +26,9 @@ namespace HairLumos.DAO
                 {
                     _sql = "INSERT INTO tbcompra "+
                            "(coddespesa, comp_datacompra, comp_situacao, comp_statusconsignado, comp_valortotal, comp_obs, codpessoa)"+
-                           " VALUES(@coddespesa, @comp_datacompra, @comp_situacao, @comp_statusconsignado, @comp_valortotal, @comp_obs, @codpessoa); SELECT MAX(codcompra) FROM tbcompra;";
+                           " VALUES(@coddespesa, @comp_datacompra, @comp_situacao, @comp_statusconsignado, @comp_valortotal, @comp_obs, @codpessoa);"+
+                           " SELECT MAX(codcompra)"+
+                           " FROM tbcompra;";
 
                 }
                 else
@@ -83,11 +85,13 @@ namespace HairLumos.DAO
                 objConexao.commitTransacao();
                 return 1;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return 0;
             }
         }
+
+
 
         public DataTable retornaCompra()
         {
@@ -105,6 +109,29 @@ namespace HairLumos.DAO
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
             }catch(Exception e)
+            {
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable retornaCompraMax()
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT codcompra, comp_valortotal from tbCompra Where codCOmpra = (Select max(codCompra) from tbCompra)";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
             {
                 throw;
             }

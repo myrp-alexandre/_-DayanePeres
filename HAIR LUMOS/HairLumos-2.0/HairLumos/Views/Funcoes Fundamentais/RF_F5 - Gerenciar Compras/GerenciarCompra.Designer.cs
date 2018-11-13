@@ -64,9 +64,7 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLocalizar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.BtnGerarContaPagar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -104,13 +102,11 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.BtnGerarContaPagar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGerarCompra);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
             this.splitContainer1.Panel2.Controls.Add(this.btnLocalizar);
-            this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
             this.splitContainer1.Size = new System.Drawing.Size(916, 477);
             this.splitContainer1.SplitterDistance = 408;
@@ -413,18 +409,18 @@
             // btnGerarCompra
             // 
             this.btnGerarCompra.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGerarCompra.Location = new System.Drawing.Point(528, 12);
+            this.btnGerarCompra.Location = new System.Drawing.Point(519, 12);
             this.btnGerarCompra.Name = "btnGerarCompra";
-            this.btnGerarCompra.Size = new System.Drawing.Size(111, 48);
+            this.btnGerarCompra.Size = new System.Drawing.Size(221, 48);
             this.btnGerarCompra.TabIndex = 14;
-            this.btnGerarCompra.Text = "Gerar Compra";
+            this.btnGerarCompra.Text = "Gerar Compra e Contas a Pagar";
             this.btnGerarCompra.UseVisualStyleBackColor = false;
             this.btnGerarCompra.Click += new System.EventHandler(this.btnGerarCompra_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(345, 12);
+            this.btnCancelar.Location = new System.Drawing.Point(286, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 48);
             this.btnCancelar.TabIndex = 13;
@@ -446,7 +442,7 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(264, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(205, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 48);
             this.btnExcluir.TabIndex = 10;
@@ -457,7 +453,7 @@
             // btnLocalizar
             // 
             this.btnLocalizar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLocalizar.Location = new System.Drawing.Point(183, 12);
+            this.btnLocalizar.Location = new System.Drawing.Point(124, 12);
             this.btnLocalizar.Name = "btnLocalizar";
             this.btnLocalizar.Size = new System.Drawing.Size(75, 48);
             this.btnLocalizar.TabIndex = 8;
@@ -465,38 +461,16 @@
             this.btnLocalizar.UseVisualStyleBackColor = false;
             this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
             // 
-            // btnGravar
-            // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(102, 12);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 48);
-            this.btnGravar.TabIndex = 7;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = false;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
-            // 
             // btnNovo
             // 
             this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.Location = new System.Drawing.Point(21, 12);
+            this.btnNovo.Location = new System.Drawing.Point(43, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 48);
             this.btnNovo.TabIndex = 6;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // BtnGerarContaPagar
-            // 
-            this.BtnGerarContaPagar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnGerarContaPagar.Location = new System.Drawing.Point(645, 12);
-            this.BtnGerarContaPagar.Name = "BtnGerarContaPagar";
-            this.BtnGerarContaPagar.Size = new System.Drawing.Size(128, 48);
-            this.BtnGerarContaPagar.TabIndex = 15;
-            this.BtnGerarContaPagar.Text = "Gerar Conta a Pagar";
-            this.BtnGerarContaPagar.UseVisualStyleBackColor = false;
-            this.BtnGerarContaPagar.Click += new System.EventHandler(this.BtnGerarContaPagar_Click);
             // 
             // GerenciarCompra
             // 
@@ -538,7 +512,6 @@
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
         public System.Windows.Forms.Button btnLocalizar;
-        public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabControl tabControl1;
@@ -568,6 +541,5 @@
         public System.Windows.Forms.Button btnIncluirProduto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label totalCompra;
-        public System.Windows.Forms.Button BtnGerarContaPagar;
     }
 }

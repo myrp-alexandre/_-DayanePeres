@@ -22,6 +22,11 @@ namespace HairLumos.Controller
             return _MdlComp.retornaCompra();
         }
 
+        public DataTable retornaCompraMAX()
+        {
+            return _MdlComp.retornaCompraMax();
+        }
+
         public DataTable retornaCompra(int codigo)
         {
             return _MdlComp.retornaCompra(codigo);

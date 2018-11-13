@@ -17,6 +17,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
     {
         private List<CompraProduto> lista;
         private CompraController cc = new CompraController();
+        
 
         public GerenciarCompra()
         {
@@ -46,7 +47,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                     {
                         DataRow dr = dtRetorno.Rows[0];
-                        ttbFornecedor.Text = dr["jur_fantasia"].ToString();
+                        ttbFornecedor.Text = dr["jur_razaosocial"].ToString();
 
                     }
                 }
@@ -102,12 +103,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             btnExcluirCompra.Enabled = estado;
             ttbObservacao.Enabled = estado;
             btnNovo.Enabled = !estado;
-            btnGravar.Enabled = estado;
+            
             btnLocalizar.Enabled = estado;
             btnExcluir.Enabled = estado;
             btnCancelar.Enabled = estado;
             btnGerarCompra.Enabled = estado;
-            BtnGerarContaPagar.Enabled = estado;
+            
         }
 
         private void limpaCampos()
@@ -250,15 +251,26 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
             //chama o gravar
             int rest = cc.geravaCompra(codigo, despesa, DateTime.Now, "aberta", consignado, valorTotal, ttbObservacao.Text.ToString(), codPessoa, lista);
+
+
             if (rest > 0)
             {
                 MessageBox.Show("Gravado com sucesso!");
+
+                DialogResult result = MessageBox.Show("Gerar Contas a Pagar", "caption", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar gerarContaPagar = new RF_F5.GerarContaPagar();
+                    gerarContaPagar.ShowDialog();
+                }
+                
+
                 limpaCampos();
                 inicializa(false);
             }
             else
             {
-                MessageBox.Show("Erro ao gravar dados");
+                MessageBox.Show("Erro ao gravar dados. Falta cadastrar Despesa Tipo: Compra");
             }
         }
 

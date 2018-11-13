@@ -33,6 +33,11 @@ namespace HairLumos.Models
             return _DAOComp.retornaCompra();
         }
 
+        public DataTable retornaCompraMax()
+        {
+            return _DAOComp.retornaCompraMax();
+        }
+
         public DataTable retornaCompra(int codigo)
         {
             return _DAOComp.retornaCompra(codigo);
