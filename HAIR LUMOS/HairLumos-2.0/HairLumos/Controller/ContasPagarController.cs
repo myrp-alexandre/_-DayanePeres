@@ -10,5 +10,7 @@ namespace HairLumos.Controller
         {
             return _MdlCont.gravarLancamentoConta(codigo, data, DateTime.Now, valor, 0, obs, 0, false, 0, despesa, 0, 0, 0);
         }
+
+        
     }
 }

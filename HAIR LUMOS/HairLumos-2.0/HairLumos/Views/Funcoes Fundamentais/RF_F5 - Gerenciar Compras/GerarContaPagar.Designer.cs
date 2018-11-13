@@ -30,6 +30,9 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvContas = new System.Windows.Forms.DataGridView();
+            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.mskValorParcela = new System.Windows.Forms.MaskedTextBox();
@@ -43,15 +46,19 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ttbObservacao = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -63,7 +70,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dgvContas);
+            this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
             // splitContainer1.Panel2
@@ -71,7 +78,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnFinalizar);
-            this.splitContainer1.Size = new System.Drawing.Size(389, 383);
+            this.splitContainer1.Size = new System.Drawing.Size(414, 383);
             this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -85,12 +92,35 @@
             this.Parcela,
             this.ValorTotal,
             this.DataVencimento});
-            this.dgvContas.Location = new System.Drawing.Point(15, 138);
+            this.dgvContas.Location = new System.Drawing.Point(9, 8);
             this.dgvContas.Name = "dgvContas";
             this.dgvContas.ReadOnly = true;
             this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContas.Size = new System.Drawing.Size(361, 162);
+            this.dgvContas.Size = new System.Drawing.Size(373, 162);
             this.dgvContas.TabIndex = 34;
+            // 
+            // Parcela
+            // 
+            this.Parcela.DataPropertyName = "Parcela";
+            this.Parcela.HeaderText = "Parcela";
+            this.Parcela.Name = "Parcela";
+            this.Parcela.ReadOnly = true;
+            // 
+            // ValorTotal
+            // 
+            this.ValorTotal.DataPropertyName = "ValorTotal";
+            this.ValorTotal.HeaderText = "Valor Parcela (R$)";
+            this.ValorTotal.Name = "ValorTotal";
+            this.ValorTotal.ReadOnly = true;
+            this.ValorTotal.Width = 125;
+            // 
+            // DataVencimento
+            // 
+            this.DataVencimento.DataPropertyName = "DataVencimento";
+            this.DataVencimento.HeaderText = "Data Vencimento";
+            this.DataVencimento.Name = "DataVencimento";
+            this.DataVencimento.ReadOnly = true;
+            this.DataVencimento.Width = 125;
             // 
             // groupBox1
             // 
@@ -105,14 +135,14 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(15, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 109);
+            this.groupBox1.Size = new System.Drawing.Size(396, 109);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             // 
             // btnIncluir
             // 
             this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIncluir.Location = new System.Drawing.Point(279, 43);
+            this.btnIncluir.Location = new System.Drawing.Point(319, 34);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(67, 27);
             this.btnIncluir.TabIndex = 4;
@@ -122,7 +152,7 @@
             // 
             // mskValorParcela
             // 
-            this.mskValorParcela.Location = new System.Drawing.Point(153, 82);
+            this.mskValorParcela.Location = new System.Drawing.Point(165, 82);
             this.mskValorParcela.Name = "mskValorParcela";
             this.mskValorParcela.Size = new System.Drawing.Size(100, 20);
             this.mskValorParcela.TabIndex = 3;
@@ -130,7 +160,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 66);
+            this.label2.Location = new System.Drawing.Point(162, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 31;
@@ -162,7 +192,7 @@
             // 
             // ttbQtdeParcela
             // 
-            this.ttbQtdeParcela.Location = new System.Drawing.Point(153, 34);
+            this.ttbQtdeParcela.Location = new System.Drawing.Point(165, 34);
             this.ttbQtdeParcela.Name = "ttbQtdeParcela";
             this.ttbQtdeParcela.Size = new System.Drawing.Size(63, 20);
             this.ttbQtdeParcela.TabIndex = 2;
@@ -171,7 +201,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(150, 18);
+            this.label4.Location = new System.Drawing.Point(162, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 29;
@@ -189,17 +219,18 @@
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(309, 7);
+            this.btnSair.Location = new System.Drawing.Point(334, 7);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(67, 38);
             this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(88, 7);
+            this.btnCancelar.Location = new System.Drawing.Point(101, 7);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(67, 38);
             this.btnCancelar.TabIndex = 2;
@@ -210,7 +241,7 @@
             // btnFinalizar
             // 
             this.btnFinalizar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFinalizar.Location = new System.Drawing.Point(15, 7);
+            this.btnFinalizar.Location = new System.Drawing.Point(28, 7);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(67, 38);
             this.btnFinalizar.TabIndex = 0;
@@ -218,35 +249,52 @@
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // Parcela
+            // tabControl1
             // 
-            this.Parcela.DataPropertyName = "Parcela";
-            this.Parcela.HeaderText = "Parcela";
-            this.Parcela.Name = "Parcela";
-            this.Parcela.ReadOnly = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(15, 125);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(396, 199);
+            this.tabControl1.TabIndex = 23;
             // 
-            // ValorTotal
+            // tabPage1
             // 
-            this.ValorTotal.DataPropertyName = "ValorTotal";
-            this.ValorTotal.HeaderText = "Valor Parcela (R$)";
-            this.ValorTotal.Name = "ValorTotal";
-            this.ValorTotal.ReadOnly = true;
-            this.ValorTotal.Width = 125;
+            this.tabPage1.Controls.Add(this.dgvContas);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(388, 173);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Contas a Pagar";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // DataVencimento
+            // tabPage2
             // 
-            this.DataVencimento.DataPropertyName = "DataVencimento";
-            this.DataVencimento.HeaderText = "Data Vencimento";
-            this.DataVencimento.Name = "DataVencimento";
-            this.DataVencimento.ReadOnly = true;
-            this.DataVencimento.Width = 125;
+            this.tabPage2.Controls.Add(this.ttbObservacao);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(388, 173);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Observações";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ttbObservacao
+            // 
+            this.ttbObservacao.Location = new System.Drawing.Point(9, 20);
+            this.ttbObservacao.Multiline = true;
+            this.ttbObservacao.Name = "ttbObservacao";
+            this.ttbObservacao.Size = new System.Drawing.Size(373, 138);
+            this.ttbObservacao.TabIndex = 0;
             // 
             // GerarContaPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(412, 404);
+            this.ClientSize = new System.Drawing.Size(438, 404);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "GerarContaPagar";
@@ -259,6 +307,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -283,5 +335,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox ttbObservacao;
     }
 }
