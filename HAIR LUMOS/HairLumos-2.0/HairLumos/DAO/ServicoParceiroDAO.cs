@@ -64,6 +64,44 @@ namespace HairLumos.DAO
             //return 0;
         }
 
+        public int AlteraServicoParceiro(Entidades.ServicoParceiro _servicoParceiro)
+        {
+
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+            //int _controle = 0;
+            try
+            {
+                
+                
+                _sql = "UPDATE tbprestadorservico" +
+                        " SET codpessoa = @codPessoa, codtiposervico = @codtipoServico, prestserv_valor = @valor, prestserv_percentual = @percentual, prestser_pagrec = @recebido, jur_cnpj = @cnpj, estado = @estado " +
+                    " WHERE codpessoa = @codPessoa AND WHERE codtiposervico = @codtipoServico";
+                
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codPessoa", _servicoParceiro._pessoaJuridica.Codigo);
+                cmd.Parameters.AddWithValue("@codtipoServico", _servicoParceiro.Servico.Codigo);
+                cmd.Parameters.AddWithValue("@valor", _servicoParceiro.Valor);
+                cmd.Parameters.AddWithValue("@percentual", _servicoParceiro.Percentual);
+                cmd.Parameters.AddWithValue("@recebido", _servicoParceiro.PagamentoRecebido);
+                cmd.Parameters.AddWithValue("@cnpj", _servicoParceiro.PessoaJuridica.CNPJ);
+                cmd.Parameters.AddWithValue("@estado", _servicoParceiro.Estado);
+
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception E)
+            {
+                return 0;
+            }
+            //if (_controle > 0)
+            //return 1;
+            //return 0;
+        }
+
         public DataTable RetornaServicoParceiro()
         {
             DataTable dt = new DataTable();
@@ -194,6 +232,36 @@ namespace HairLumos.DAO
                 throw;
             }
             return dt;
+        }
+
+        public bool VerificaAgenda(int codServico, string cnpj)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "select * from tbagenda where where codtiposervico = @cod and jur_cnpj = '@cnpj'";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", codServico);
+                cmd.Parameters.AddWithValue("@cnpj", cnpj);
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    return false; //ja realizou serviço
+                }
+                else
+                    return true; //não existe cadastrado
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

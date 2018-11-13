@@ -16,6 +16,11 @@ namespace HairLumos.Controller
             return _ServicoParceiroModel.gravaServicoParceiro(codPessoaJuridica, codServico, valor, percentual, recebido, estado);
         }
 
+        public int alteraServico(int codPessoaJuridica, int codServico, double valor, double percentual, string recebido, bool estado)
+        {
+            return _ServicoParceiroModel.alteraServicoParceiro(codPessoaJuridica, codServico, valor, percentual, recebido, estado);
+        }
+
         public DataTable retornaServicoParceiro()
         {
             return _ServicoParceiroModel.retornaServicoParceiro();
@@ -40,6 +45,11 @@ namespace HairLumos.Controller
         public DataTable retornaServicos(int codigo)
         {
             return _ServicoParceiroModel.retornaServicos(codigo);
+        }
+
+        public bool verificaAgenda(int intCodS, string cnpj)
+        {
+            return _ServicoParceiroModel.verificaAgenda(intCodS, cnpj);
         }
 
     }

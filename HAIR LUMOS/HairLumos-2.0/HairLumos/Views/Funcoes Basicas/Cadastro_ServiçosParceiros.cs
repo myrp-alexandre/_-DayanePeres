@@ -16,6 +16,7 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private List<Entidades.ServicoParceiro> servicoParceirosLista = new List<Entidades.ServicoParceiro>();
         private Controller.PessoaController PessoaController = new Controller.PessoaController();
+        private Controller.ServicoParceiroController spc = new Controller.ServicoParceiroController();
 
         int intPessoa { get; set; }
         
@@ -385,9 +386,18 @@ namespace HairLumos.Views.Funcoes_Basicas
                     {
                         Entidades.ServicoParceiro sp = new Entidades.ServicoParceiro();
                         sp = servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index);
-
+                        if (spc.verificaAgenda(sp.Servico.Codigo, sp.PessoaJuridica.CNPJ)) //não prestou esse serviço ainda
+                        {
+                            spc.excluirServicoParceiro(sp.PessoaJuridica.Codigo, sp.Servico.Codigo);
+                        }
+                        else
+                        {
+                            sp.Estado = false;
+                            spc.alteraServico(sp.PessoaJuridica.Codigo, sp.Servico.Codigo, sp.Valor, sp.Percentual, sp.PagamentoRecebido, sp.Estado);
+                        }
                         servicoParceirosLista.Remove(servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index));
                         carregaDGV(servicoParceirosLista);
+
                     }
                     else
                     {
