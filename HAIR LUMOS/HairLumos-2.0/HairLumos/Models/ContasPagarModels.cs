@@ -14,8 +14,7 @@ namespace HairLumos.Models
         DAO.ContasPagarDAO ContasPagarDAO = new DAO.ContasPagarDAO();
         DAO.DespesaDAO DespesaDAO = new DAO.DespesaDAO();
 
-        public int gravarLancamentoConta(int codContaPagar, DateTime dtvencimento, DateTime dtpagamento, double valortotal, double valorpago,
-            string obs, int numparcela, bool status, int compra, int despesa, int caixa, int formpagamento, int comissao)
+        public int gravarLancamentoConta(Entidades.ContasPagar contasPagar)
         {
             Entidades.Compra _compra = new Entidades.Compra();
             Entidades.Despesa _despesa = new Entidades.Despesa();
@@ -23,20 +22,9 @@ namespace HairLumos.Models
             Entidades.FormaPagamento _formaPagamento = new Entidades.FormaPagamento();
             Entidades.Comissao _comissao = new Entidades.Comissao();
             Entidades.ContasPagar _contas = new Entidades.ContasPagar();
-            _contas.CodigoContasaPagar = codContaPagar;
-            _contas.DataVencimento = dtvencimento;
-            _contas.ValorTotal = valortotal;
-            _contas.Observacao = obs;
-            _contas.DataPagamento = dtpagamento;
-            _contas.ValorPago = valorpago;
-            _contas.Parcela = numparcela;
-            _contas.Status = status;
-            _contas.Compra = _compra;
-            _contas.Caixa = _caixa;
-            _contas.FormaPagamento = _formaPagamento;
-            _contas.Comissao = _comissao;
 
-            DataTable dtDespesa = DespesaDAO.RetornaObjServico(despesa);
+
+            DataTable dtDespesa = DespesaDAO.RetornaObjServico(contasPagar.Despesa.Codigo);
             if(dtDespesa!=null && dtDespesa.Rows.Count > 0)
             {
                 DataRow dr = dtDespesa.Rows[0];

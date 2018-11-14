@@ -6,9 +6,9 @@ namespace HairLumos.Controller
     {
         private Models.ContasPagarModels _MdlCont = new Models.ContasPagarModels();
 
-        public int insereLancamento(int codigo, int despesa, DateTime data, double valor, string obs)
+        public int insereLancamento(Entidades.ContasPagar contasPagar)
         {
-            return _MdlCont.gravarLancamentoConta(codigo, data, DateTime.Now, valor, 0, obs, 0, false, 0, despesa, 0, 0, 0);
+            return _MdlCont.gravarLancamentoConta(contasPagar);
         }
 
         
