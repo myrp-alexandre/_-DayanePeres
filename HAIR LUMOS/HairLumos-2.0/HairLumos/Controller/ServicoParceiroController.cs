@@ -52,5 +52,10 @@ namespace HairLumos.Controller
             return _ServicoParceiroModel.verificaAgenda(intCodS, cnpj);
         }
 
+        public bool verificaServico(int intCodS, int codPessoa)
+        {
+            return _ServicoParceiroModel.verificaServico(intCodS, codPessoa);
+        }
+
     }
 }

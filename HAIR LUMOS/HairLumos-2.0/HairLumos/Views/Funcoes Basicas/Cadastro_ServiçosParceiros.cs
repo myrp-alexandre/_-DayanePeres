@@ -143,34 +143,33 @@ namespace HairLumos.Views.Funcoes_Basicas
             try
             {
                 Controller.ServicoParceiroController _ctrServParc = new Controller.ServicoParceiroController();
-
-                int intCodPessoa = 0;
-                int intCodServico = 0;
-
-                int.TryParse(ttbPessoa.Text, out intCodPessoa);
-
-                intCodServico = Convert.ToInt32(cbbTipoServico.SelectedValue);
-
-                if (intCodPessoa > 0 && intCodServico > 0)
+                if (servicoParceirosLista.Count > 0)
                 {
-                    if (MessageBox.Show("Confirma exclusão da Despesa?", "Despesa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    int i = 0;
+                    bool fim = false;
+                    while(i<servicoParceirosLista.Count && !fim)
                     {
-                        bool blnExcluiu = _ctrServParc.excluirServicoParceiro(intCodPessoa, intCodServico);
-                        if (blnExcluiu)
-                        {
-                            MessageBox.Show("Excluído");
-                            _limpaCampos();
-                            
-                            _btnNovo();
-                        }
+                        if (_ctrServParc.excluirServicoParceiro(servicoParceirosLista.ElementAt(i).PessoaJuridica.Codigo, servicoParceirosLista.ElementAt(i).Servico.Codigo))
+                            i++;
                         else
+                        {
                             MessageBox.Show("Erro ao excluir!");
+                            fim = true;
+                        }
                     }
-                    else
+                    if(i== servicoParceirosLista.Count)
                     {
-                        MessageBox.Show("cancela ?");
+                        MessageBox.Show("Prestador de Serviço foi desvinculado dos serviços");
+                        _limpaCampos();
                     }
+                        
                 }
+                else
+                {
+                    MessageBox.Show("Selecione o Prestador de serviço e seus serviços");
+                }
+                
+                
             }
             catch (Exception)
             {
@@ -195,7 +194,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                 {
                     Controller.PessoaController pessoaController = new Controller.PessoaController();
 
-                    DataTable dtRetorno = pessoaController.retornaPessoaJuridica();//intPessoa);
+                    DataTable dtRetorno = pessoaController.retornaPessoaJuridicaCod(objPessoa.intCodigoPessoa);//intPessoa);
                     
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                     {
@@ -221,26 +220,48 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            List<Entidades.ServicoParceiro> listaaux = new List<Entidades.ServicoParceiro>();
             Controller.ServicoParceiroController _ctrlServParceiro = new Controller.ServicoParceiroController();
             string strMensagem = string.Empty;
-
+            for (int i = 0; i < servicoParceirosLista.Count; i++)//carrega lista na tela, apenas com os elementos ativos - true
+            {
+                if (servicoParceirosLista.ElementAt(i).Estado != false)
+                    listaaux.Add(servicoParceirosLista.ElementAt(i));
+            }
             try
             {
-                if (servicoParceirosLista.Count > 0)
+                if (listaaux.Count > 0)
                 {
                     int i = 0;
                     bool fim = false;
-                    while(i< servicoParceirosLista.Count || fim)
+                    while(i < listaaux.Count && !fim)
                     {
-                        int rest = _ctrlServParceiro.gravaServico(servicoParceirosLista.ElementAt(i).PessoaJuridica.Codigo, servicoParceirosLista.ElementAt(i).Servico.Codigo, servicoParceirosLista.ElementAt(i).Valor, servicoParceirosLista.ElementAt(i).Percentual, servicoParceirosLista.ElementAt(i).PagamentoRecebido, true);
-                        if (rest == 0)
+                        int rest = 0;
+                        if (_ctrlServParceiro.verificaServico(listaaux.ElementAt(i).Servico.Codigo, listaaux.ElementAt(i).PessoaJuridica.Codigo))
                         {
-                            MessageBox.Show("Erro ao gravar os dados!");
-                            fim = true;
+                            rest = _ctrlServParceiro.alteraServico(listaaux.ElementAt(i).PessoaJuridica.Codigo, listaaux.ElementAt(i).Servico.Codigo, listaaux.ElementAt(i).Valor, listaaux.ElementAt(i).Percentual, listaaux.ElementAt(i).PagamentoRecebido, true);
+                            if (rest == 0)
+                            {
+                                MessageBox.Show("Erro ao gravar os dados!");
+                                fim = true;
+                            }
+                            else
+                                i++;
                         }
-                        i++;
+                        else
+                        {
+                            rest = _ctrlServParceiro.gravaServico(listaaux.ElementAt(i).PessoaJuridica.Codigo, listaaux.ElementAt(i).Servico.Codigo, listaaux.ElementAt(i).Valor, listaaux.ElementAt(i).Percentual, listaaux.ElementAt(i).PagamentoRecebido, true);
+                            if (rest == 0)
+                            {
+                                MessageBox.Show("Erro ao gravar os dados!");
+                                fim = true;
+                            }
+                            else
+                                i++;
+                        }
+                        
                     }
-                    if(i== servicoParceirosLista.Count)
+                    if(i== listaaux.Count)
                     {
                         MessageBox.Show("Serviços atribuidos ao parceiro com sucesso!");
                         _limpaCampos();
@@ -331,11 +352,22 @@ namespace HairLumos.Views.Funcoes_Basicas
                     servicoParceiro.Valor = Convert.ToDouble(mskValorInformado.Text);
                     servicoParceiro.Percentual = Convert.ToDouble(mskPercentual.Text);
                     servicoParceiro.PagamentoRecebido = pagRec;
+                    servicoParceiro.Estado = true;
 
-                    servicoParceirosLista.Add(servicoParceiro);
-                    carregaDGV(servicoParceirosLista);
-                    mskPercentual.Text = "";
-                    mskValorInformado.Text = "";
+                    if(servicoParceiroController.verificaServico(servicoParceiro.Servico.Codigo, servicoParceiro.PessoaJuridica.Codigo))
+                    {
+                        MessageBox.Show("Ja existe este serviço cadastrado para essa pessoa!");
+                        mskPercentual.Text = "";
+                        mskValorInformado.Text = "";
+                    }
+                    else
+                    {
+                        servicoParceirosLista.Add(servicoParceiro);
+                        carregaDGV(servicoParceirosLista);
+                        mskPercentual.Text = "";
+                        mskValorInformado.Text = "";
+                    }
+                    
                 }
 
             }
@@ -378,6 +410,7 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private void btnExcluirServico_Click(object sender, EventArgs e)
         {
+            List<Entidades.ServicoParceiro> listaaux = new List<Entidades.ServicoParceiro>();
             try
             {
                 if (dgvServico.Rows.Count > 0)
@@ -388,15 +421,21 @@ namespace HairLumos.Views.Funcoes_Basicas
                         sp = servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index);
                         if (spc.verificaAgenda(sp.Servico.Codigo, sp.PessoaJuridica.CNPJ)) //não prestou esse serviço ainda
                         {
-                            spc.excluirServicoParceiro(sp.PessoaJuridica.Codigo, sp.Servico.Codigo);
+                            spc.excluirServicoParceiro(sp.PessoaJuridica.Codigo, sp.Servico.Codigo); //exclusão permanente
+                            servicoParceirosLista.Remove(servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index)); //retira da lista
                         }
                         else
-                        {
-                            sp.Estado = false;
-                            spc.alteraServico(sp.PessoaJuridica.Codigo, sp.Servico.Codigo, sp.Valor, sp.Percentual, sp.PagamentoRecebido, sp.Estado);
+                        {//ja prestou serviço
+                            sp.Estado = false; //coloca o estado como false - não ativo
+                            spc.alteraServico(sp.PessoaJuridica.Codigo, sp.Servico.Codigo, sp.Valor, sp.Percentual, sp.PagamentoRecebido, sp.Estado); //altera no banco o estado
+                            servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index).Estado = false; //altera o estado na lista
                         }
-                        servicoParceirosLista.Remove(servicoParceirosLista.ElementAt(dgvServico.CurrentRow.Index));
-                        carregaDGV(servicoParceirosLista);
+                        for(int i=0; i<servicoParceirosLista.Count; i++)//carrega lista na tela, apenas com os elementos ativos - true
+                        {
+                            if (servicoParceirosLista.ElementAt(i).Estado != false)
+                                listaaux.Add(servicoParceirosLista.ElementAt(i));
+                        }
+                        carregaDGV(listaaux);
 
                     }
                     else
@@ -405,7 +444,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -414,6 +453,7 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            List<Entidades.ServicoParceiro> listaaux = new List<Entidades.ServicoParceiro>();
             _limpaCampos();
             try
             {
@@ -466,13 +506,15 @@ namespace HairLumos.Views.Funcoes_Basicas
                             servicoParceiro.Percentual = Convert.ToDouble(drServPac["prestserv_percentual"].ToString());
                             servicoParceiro.PagamentoRecebido = drServPac["prestser_pagrec"].ToString();
                             servicoParceiro.Estado = Convert.ToBoolean(drServPac["estado"].ToString());
-                            if (servicoParceiro.Estado)
-                            {
-                                servicoParceirosLista.Add(servicoParceiro);
-                                carregaDGV(servicoParceirosLista);
-                            }
+                            servicoParceirosLista.Add(servicoParceiro);
                         }
-
+                        for (int j = 0; j < servicoParceirosLista.Count; j++)
+                        {
+                            if (servicoParceirosLista.ElementAt(j).Estado != false)
+                                listaaux.Add(servicoParceirosLista.ElementAt(j));
+                        }
+                        carregaDGV(listaaux);
+                        btnAlterar.Enabled = true;
                     }
                 }
             }
