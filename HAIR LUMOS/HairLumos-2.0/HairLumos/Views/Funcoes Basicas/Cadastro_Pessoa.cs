@@ -251,6 +251,8 @@ namespace HairLumos.Views
             bool fiado = false;
             string tipo = "Jurídica";
             string cpf = "";
+            string cnpj = "";
+
             if (!String.IsNullOrEmpty(ttbCodigo.Text))
             {
                 codigo = Convert.ToInt32(ttbCodigo.Text);
@@ -259,58 +261,80 @@ namespace HairLumos.Views
             uf = cbbEstado.SelectedIndex+1;
             if (rbAtivo.Checked)
                 status = true;
-            if (rbFisica.Checked)
+            if (rbFisica.Checked) 
                 tipo = "Física";
             if (rbPagaSim.Checked)
                 fiado = true;
-            cpf = mskCPF.Text.ToString().Replace(",", "");
-            cpf = cpf.Replace("-", "");
+            cpf = mskCPF.Text.ToString().Replace(",", ".");
+            //cpf = cpf.Replace("-", "");
+            cnpj = mskCNPJ.Text.ToString().Replace(",", ".");
+            Views.Outras_Fundamentais.CpfCnpj cpfCnpj = new Outras_Fundamentais.CpfCnpj();
+
             Entidades.Endereco end = new Entidades.Endereco(mtbCEP.Text, ttbLogradouro.Text, ttbNumero.Text, ttbBairro.Text, ttbComplemento.Text, uf, cid);
             if (rbFisica.Checked)
             {
-                if (codigo == 0)
+                bool cpfVal = cpfCnpj.IsValid(cpf);
+
+                if (!cpfVal)
                 {
-                    int resp = pc.gravarPessoaFisica(codigo, ttbNome.Text, DateTime.Now, tipo, status, ttbObservação.Text, fiado, ttbEmail.Text, end, maskTelefone.Text, maskCelular.Text, cpf, ttbRg.Text, dtpDataNascimento.Value);
-                    if (resp > 0)
-                    {
-                        MessageBox.Show("Pessoa Gravada Com Sucesso!");
-                        LimpaCampos();
-                        _inicializa(false);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao gravar pessoa!");
-                    }
+                    MessageBox.Show("Cpf Inválido!");
                 }
                 else
                 {
-                    int resp = pc.alteraPessoaFisica(codigo, ttbNome.Text, DateTime.Now, tipo, status, ttbObservação.Text, fiado, ttbEmail.Text, end, maskTelefone.Text, maskCelular.Text, cpf, ttbRg.Text, dtpDataNascimento.Value);
-                    if (resp > 0)
+                    if (codigo == 0)
                     {
-                        MessageBox.Show("Pessoa alterada Com Sucesso!");
-                        LimpaCampos();
-                        _inicializa(false);
+
+
+                        int resp = pc.gravarPessoaFisica(codigo, ttbNome.Text, DateTime.Now, tipo, status, ttbObservação.Text, fiado, ttbEmail.Text, end, maskTelefone.Text, maskCelular.Text, cpf, ttbRg.Text, dtpDataNascimento.Value);
+                        if (resp > 0)
+                        {
+                            MessageBox.Show("Pessoa Gravada Com Sucesso!");
+                            LimpaCampos();
+                            _inicializa(false);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao gravar pessoa!");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao alterar pessoa!");
+                        int resp = pc.alteraPessoaFisica(codigo, ttbNome.Text, DateTime.Now, tipo, status, ttbObservação.Text, fiado, ttbEmail.Text, end, maskTelefone.Text, maskCelular.Text, cpf, ttbRg.Text, dtpDataNascimento.Value);
+                        if (resp > 0)
+                        {
+                            MessageBox.Show("Pessoa alterada Com Sucesso!");
+                            LimpaCampos();
+                            _inicializa(false);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao alterar pessoa!");
+                        }
                     }
                 }
+                
             }
             else
             {
+                bool cnpjVal = cpfCnpj.IsValid(cnpj);
+
+                if (!cnpjVal)
+                {
+                    MessageBox.Show("CNPJ Inválido!");
+                }
+
                 if (codigo == 0)
                 {
                     int resp = pc.gravarPessoaJuridica(codigo, ttbNome.Text, DateTime.Now, tipo, status, ttbObservação.Text, fiado, ttbEmail.Text, end, maskTelefone.Text, maskCelular.Text, mskCNPJ.Text, ttbRazao.Text);
                     if (resp > 0)
                     {
-                        MessageBox.Show("Pessoa Gravada Com Sucesso!");
+                        MessageBox.Show("Pessoa Jurídica Gravada Com Sucesso!");
                         LimpaCampos();
                         _inicializa(false);
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao gravar pessoa!");
+                        MessageBox.Show("Erro ao gravar pessoa jurídica!");
                     }
                 }
                 else
@@ -318,13 +342,13 @@ namespace HairLumos.Views
                     int resp = pc.alteraPessoaJuridica(codigo, ttbNome.Text, DateTime.Now, tipo, status, ttbObservação.Text, fiado, ttbEmail.Text, end, maskTelefone.Text, maskCelular.Text, mskCNPJ.Text, ttbRazao.Text);
                     if (resp > 0)
                     {
-                        MessageBox.Show("Pessoa alterada Com Sucesso!");
+                        MessageBox.Show("Pessoa Jurídica alterada Com Sucesso!");
                         LimpaCampos();
                         _inicializa(false);
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao alterar pessoa!");
+                        MessageBox.Show("Erro ao alterar pessoa jurídica!");
                     }
                 }
             }

@@ -57,5 +57,10 @@ namespace HairLumos.Controller
             return valor;
         }
 
+        public DataTable retornacaixaAbetoDia()
+        {
+            return _MdlCaixa.retornaCaixaAbertoDia();
+        }
+
     }
 }

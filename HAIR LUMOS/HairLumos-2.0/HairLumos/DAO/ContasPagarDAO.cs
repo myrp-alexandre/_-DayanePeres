@@ -31,8 +31,8 @@ namespace HairLumos.DAO
 
                 
                 //Fazer o Insert da pessoa
-                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao)";
-                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao);"; //SELECT MAX(codpessoa) FROM tbpessoa;";
+                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao, contPag_valorParcela, contPag_Parcela)";
+                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao, contPag_valorParcela, @contPag_Parcela);"; //SELECT MAX(codpessoa) FROM tbpessoa;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -43,8 +43,17 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@obs", objContasPagar.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@status", objContasPagar.Status);
                 objConexao.SqlCmd.Parameters.AddWithValue("@numParcela", objContasPagar.Parcela);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", objContasPagar.FormaPagamento.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", objContasPagar.Comissao.CodigoComissao);
+                objConexao.SqlCmd.Parameters.AddWithValue("@contPag_valorParcela", objContasPagar.ValorParcela);
 
-                if(objContasPagar.Compra!=null && objContasPagar.Compra.Codigo!=0)
+
+
+
+                if (objContasPagar.Compra!=null && objContasPagar.Compra.Codigo!=0)
                     objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
                 else
                     objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", 1);

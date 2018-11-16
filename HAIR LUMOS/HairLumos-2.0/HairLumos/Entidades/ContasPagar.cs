@@ -16,6 +16,8 @@ namespace HairLumos.Entidades
         public string _obs;
         public int _numParcela;
         public bool _status;
+        public double _valorParcela;
+        public int _codParcela;
 
         public Compra _Compra;
         public Despesa _Despesa;
@@ -26,14 +28,14 @@ namespace HairLumos.Entidades
         public string _erro;
 
         public ContasPagar(int codContaPagar, DateTime dtvencimento, DateTime dtpagamento, double valortotal, double valorpago, 
-            string obs, int numparcela, bool status, Compra compra, Despesa despesa, Caixa caixa, FormaPagamento formpagamento, Comissao comissao)
+            string obs, int numparcela, bool status, Compra compra, Despesa despesa, Caixa caixa, FormaPagamento formpagamento, Comissao comissao, int codParcela, int valorParc)
         {
-            this.carregaDespesa(codContaPagar, dtvencimento, dtpagamento, valortotal, valorpago, obs, numparcela, status, compra, despesa, caixa, formpagamento, comissao);
+            this.carregaDespesa(codContaPagar, dtvencimento, dtpagamento, valortotal, valorpago, obs, numparcela, status, compra, despesa, caixa, formpagamento, comissao, codParcela, valorParc);
         }
 
         public ContasPagar()
         {
-            this.carregaDespesa(0, DateTime.Now, DateTime.Now, 0, 0, string.Empty, 0, false, null, null, null, null, null);
+            this.carregaDespesa(0, DateTime.Now, DateTime.Now, 0, 0, string.Empty, 0, false, null, null, null, null, null, 0, 0);
         }
 
         public string Erro
@@ -108,9 +110,21 @@ namespace HairLumos.Entidades
             get { return _Comissao; }
             set { _Comissao = value; }
         }
-        
+
+        public int CodParcela
+        {
+            get { return _codParcela; }
+            set { _codParcela = value; }
+        }
+
+        public double ValorParcela
+        {
+            get { return _valorParcela; }
+            set { _valorParcela = value; }
+        }
+
         public void carregaDespesa(int codContaPagar, DateTime dtvencimento, DateTime dtpagamento, double valortotal, double valorpago,
-            string obs, int numparcela, bool status, Compra compra, Despesa despesa, Caixa caixa, FormaPagamento formpagamento, Comissao comissao)
+            string obs, int numparcela, bool status, Compra compra, Despesa despesa, Caixa caixa, FormaPagamento formpagamento, Comissao comissao, int codParcela, int valorParc)
         {
             this.CodigoContasaPagar = codContaPagar;
             this.DataVencimento = dtvencimento;
@@ -125,6 +139,8 @@ namespace HairLumos.Entidades
             this.Caixa = caixa;
             this.FormaPagamento = formpagamento;
             this.Comissao = comissao;
+            this.CodigoContasaPagar = codParcela;
+            this.ValorParcela = valorParc;
         }
 
     }

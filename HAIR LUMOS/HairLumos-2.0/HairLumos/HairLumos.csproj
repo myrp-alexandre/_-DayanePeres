@@ -347,6 +347,7 @@
     <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_Pessoa.Designer.cs">
       <DependentUpon>Pesquisa_Pessoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Outras_Fundamentais\CpfCnpj.cs" />
     <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_CategoriaProduto.resx">
       <DependentUpon>Cadastro_CategoriaProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -483,9 +484,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Outras_Fundamentais\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\login.png" />
   </ItemGroup>

@@ -15,7 +15,7 @@ namespace HairLumos.Entidades
         private Boolean consignado;
         private double valorTotal;
         private string obs;
-        private PessoaJuridica pessoa;
+        private Pessoa pessoa;
 
         List<CompraProduto> listaItens;
 
@@ -68,7 +68,7 @@ namespace HairLumos.Entidades
             set { obs = value; }
         }
 
-        public PessoaJuridica PJ
+        public Pessoa Pessoa
         {
             get { return pessoa; }
             set { pessoa = value; }

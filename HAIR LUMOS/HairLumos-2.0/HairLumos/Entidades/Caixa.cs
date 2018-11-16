@@ -5,7 +5,6 @@ namespace HairLumos.Entidades
     public class Caixa
     {
         public int _codCaixa;
-        public string _periodo;
         public DateTime _dtAbertura;
         public DateTime _dtFecha;
         public double _saldoInicial;
@@ -18,15 +17,15 @@ namespace HairLumos.Entidades
 
         public string _erro;
 
-        public Caixa(int codCaixa, string strPeriodo, DateTime strAbertura, DateTime strFecha, double strSaldoInicial, double strTroco,
+        public Caixa(int codCaixa, DateTime strAbertura, DateTime strFecha, double strSaldoInicial, double strTroco,
             double strEntrada, double strSaida)
         {
-            this.carregaCaixa(codCaixa, strPeriodo, strAbertura, strFecha, strSaldoInicial, strTroco, strEntrada, strSaida);
+            this.carregaCaixa(codCaixa, strAbertura, strFecha, strSaldoInicial, strTroco, strEntrada, strSaida);
         }
 
         public Caixa()
         {
-            this.carregaCaixa(0, string.Empty, DateTime.Now, DateTime.Now, 0, 0, 0, 0); //Convert.ToDateTime("dd/MM/yyyy")
+            this.carregaCaixa(0, DateTime.Now, DateTime.Now, 0, 0, 0, 0); //Convert.ToDateTime("dd/MM/yyyy")
         }
 
         public string Erro
@@ -40,11 +39,7 @@ namespace HairLumos.Entidades
             get { return _codCaixa; }
             set { _codCaixa = value; }
         }
-        public string Periodo
-        {
-            get { return _periodo; }
-            set { _periodo = value; }
-        }
+        
         public DateTime DataAbertura
         {
             get { return _dtAbertura; }
@@ -86,11 +81,10 @@ namespace HairLumos.Entidades
             set { _Pessoa = value; }
         }
 
-        public void carregaCaixa(int codCaixa, string strPeriodo, DateTime strAbertura, DateTime strFecha, double strSaldoInicial, 
+        public void carregaCaixa(int codCaixa, DateTime strAbertura, DateTime strFecha, double strSaldoInicial, 
             double strTroco, double strEntrada, double strSaida)
         {
             this.CodCaixa = codCaixa;
-            this.Periodo = strPeriodo;
             this.DataAbertura = strAbertura;
             this.DataFechamento = strFecha;
             this.SaldoInicial = strSaldoInicial;

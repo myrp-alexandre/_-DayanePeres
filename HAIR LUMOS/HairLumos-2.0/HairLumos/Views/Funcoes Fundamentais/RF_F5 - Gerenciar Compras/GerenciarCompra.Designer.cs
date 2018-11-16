@@ -127,18 +127,21 @@
             // totalCompra
             // 
             this.totalCompra.AutoSize = true;
-            this.totalCompra.Location = new System.Drawing.Point(816, 171);
+            this.totalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCompra.ForeColor = System.Drawing.Color.DarkRed;
+            this.totalCompra.Location = new System.Drawing.Point(816, 176);
             this.totalCompra.Name = "totalCompra";
-            this.totalCompra.Size = new System.Drawing.Size(28, 13);
+            this.totalCompra.Size = new System.Drawing.Size(31, 15);
             this.totalCompra.TabIndex = 18;
             this.totalCompra.Text = "0,00";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(800, 149);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.Size = new System.Drawing.Size(75, 17);
             this.label8.TabIndex = 17;
             this.label8.Text = "Total R$:";
             // 

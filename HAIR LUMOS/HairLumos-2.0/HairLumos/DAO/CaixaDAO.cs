@@ -20,13 +20,12 @@ namespace HairLumos.DAO
             {
                 if (obj.CodCaixa == 0)
                 {
-                    _sql = "INSERT INTO tbcaixa(caixa_periodo, caixa_datahoraabertura, caixa_datahorafecha,caixa_saldoinicial, caixa_troco, caixa_totalentra, caixa_totalsaida,codusuario, codpessoa)"+
+                    _sql = "INSERT INTO tbcaixa(caixa_datahoraabertura, caixa_datahorafecha,caixa_saldoinicial, caixa_troco, caixa_totalentra, caixa_totalsaida,codusuario, codpessoa)"+
                             " VALUES(@caixaperiodo, @caixaabertura, @caixadatafecha, @caixasaldoinicial, @caixatroco, @caixatotalen, @caixatotalsa, @codusu, @codpessoa)";
 
                 }
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@caixaperiodo", obj.Periodo);
                 cmd.Parameters.AddWithValue("@caixaabertura", obj.DataAbertura);
                 cmd.Parameters.AddWithValue("@caixadatafecha", obj.DataFechamento);
                 cmd.Parameters.AddWithValue("@caixasaldoinicial", obj.SaldoInicial);
@@ -122,6 +121,33 @@ namespace HairLumos.DAO
                 DataTable dt = new DataTable();
                 _sql = "select * from tbcaixa where codcaixa = (select max(codcaixa) from tbcaixa)";
                 cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                return dt;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public DataTable retornaCaixaAbertoDia()
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+                DataTable dt = new DataTable();
+                string data = "0001-01-01";
+                DateTime datad = Convert.ToDateTime(data);
+
+                _sql = " select caixa_datahoraabertura"+
+                       " from tbCaixa"+
+                       " where to_char(caixa_datahoraabertura, 'DD/MM/YYYY') = to_char(CURRENT_DATE, 'DD/MM/YYYY')" +
+                       " AND caixa_datahorafecha = @data";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@data", datad);
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader

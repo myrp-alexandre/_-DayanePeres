@@ -62,5 +62,10 @@ namespace HairLumos.Models
         {
             return _DAOCaixa.retornaValCaixaAberto();
         }
+
+        public DataTable retornaCaixaAbertoDia()
+        {
+            return _DAOCaixa.retornaValCaixaAberto();
+        }
     }
 }

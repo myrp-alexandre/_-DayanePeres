@@ -46,7 +46,7 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@comp_statusconsignado", compra.Consignado);
                 objConexao.SqlCmd.Parameters.AddWithValue("@comp_valortotal", compra.ValorTotal);
                 objConexao.SqlCmd.Parameters.AddWithValue("@comp_obs", compra.Obs);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", compra.PJ.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", compra.Pessoa.Codigo);
 
                 objConexao.iniciarTransacao();
                 objConexao.AutoConexao = false;
@@ -98,7 +98,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
             
 
-            _sql = "SELECT codcompra, coddespesa, comp_datacompra, comp_situacao, comp_statusconsignado, comp_valortotal, comp_obs, codpessoa, jur_cnpj FROM tbcompra";
+            _sql = "SELECT codcompra, coddespesa, comp_datacompra, comp_situacao, comp_statusconsignado, comp_valortotal, comp_obs, codpessoa FROM tbcompra";
 
             try
             {
@@ -143,7 +143,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT codcompra, coddespesa, comp_datacompra, comp_situacao, comp_statusconsignado, comp_valortotal, comp_obs, codpessoa, jur_cnpj FROM tbcompra WHERE codcompra = "+codigo;
+            _sql = "SELECT codcompra, coddespesa, comp_datacompra, comp_situacao, comp_statusconsignado, comp_valortotal, comp_obs, codpessoa FROM tbcompra WHERE codcompra = "+codigo;
 
             try
             {

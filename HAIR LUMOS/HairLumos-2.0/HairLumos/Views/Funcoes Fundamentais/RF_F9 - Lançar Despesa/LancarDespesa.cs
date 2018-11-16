@@ -99,7 +99,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Controller.ContasPagarController _ctrlContas = new Controller.ContasPagarController();
-            int codigo = Convert.ToInt32(ttbCodigo.Text);
+
+            int codigo = 0;
+
+            if (!string.IsNullOrWhiteSpace(ttbCodigo.Text))
+                codigo = Convert.ToInt32(ttbCodigo.Text);
+
             string tipo;
             if (rbFixa.Checked)
                 tipo = "Fixa";
@@ -109,18 +114,20 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             //Entidades.Despesa _despesa = new Entidades.Despesa();
             //_despesa = (Entidades.Despesa)cbbDespesa.SelectedValue;
 
+            
+
             int codDespesa = Convert.ToInt32(cbbDespesa.SelectedValue.ToString());
-            int result = _ctrlContas.insereLancamento(codigo,codDespesa, dtpVencimento.Value, valor, ttbObservacao.Text);
-            if (result > 0)
-            {
-                MessageBox.Show("Gravado com sucesso");
-                _limpaCampos();
-                _inicializa();
-            }
-            else
-            {
-                MessageBox.Show("Erro ao gravar!");
-            }
+            //int result = _ctrlContas.insereLancamento(contasPagar);
+            //if (result > 0)
+            //{
+            //    MessageBox.Show("Gravado com sucesso");
+            //    _limpaCampos();
+            //    _inicializa();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Erro ao gravar!");
+            //}
         }
 
         private void btnSair_Click(object sender, EventArgs e)

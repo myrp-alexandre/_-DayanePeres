@@ -22,7 +22,7 @@ namespace HairLumos.Models
             compra.Consignado = consignado;
             compra.ValorTotal = valor;
             compra.Obs = obs;
-            compra.PJ.Codigo = pessoa;
+            compra.Pessoa.Codigo = pessoa;
             compra.Lista = lista;
 
             return _DAOComp.gravarCompra(compra);

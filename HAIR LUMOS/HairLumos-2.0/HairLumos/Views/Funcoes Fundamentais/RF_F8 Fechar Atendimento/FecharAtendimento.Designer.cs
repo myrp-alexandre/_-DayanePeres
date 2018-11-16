@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnExcluirItem = new System.Windows.Forms.Button();
+            this.dtpListaProdutosServicos = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -60,25 +69,16 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnExcluirItem = new System.Windows.Forms.Button();
-            this.dtpListaProdutosServicos = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpListaProdutosServicos)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpListaProdutosServicos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -93,6 +93,101 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fechamento de Atendimento/Venda";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(13, 77);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(780, 182);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridView2);
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnExcluirItem);
+            this.tabPage1.Controls.Add(this.dtpListaProdutosServicos);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(772, 156);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Serviço/Produto";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(11, 87);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(629, 52);
+            this.dataGridView2.TabIndex = 37;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.Location = new System.Drawing.Point(645, 118);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(115, 25);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "Excluir Produto";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.Location = new System.Drawing.Point(645, 83);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(115, 25);
+            this.button3.TabIndex = 35;
+            this.button3.Text = "Alterar Produto";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Location = new System.Drawing.Point(645, 41);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 25);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Excluir Serviço";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnExcluirItem
+            // 
+            this.btnExcluirItem.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluirItem.Location = new System.Drawing.Point(646, 14);
+            this.btnExcluirItem.Name = "btnExcluirItem";
+            this.btnExcluirItem.Size = new System.Drawing.Size(115, 25);
+            this.btnExcluirItem.TabIndex = 33;
+            this.btnExcluirItem.Text = "Alterar Serviço";
+            this.btnExcluirItem.UseVisualStyleBackColor = false;
+            // 
+            // dtpListaProdutosServicos
+            // 
+            this.dtpListaProdutosServicos.BackgroundColor = System.Drawing.Color.White;
+            this.dtpListaProdutosServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtpListaProdutosServicos.Location = new System.Drawing.Point(11, 14);
+            this.dtpListaProdutosServicos.Name = "dtpListaProdutosServicos";
+            this.dtpListaProdutosServicos.Size = new System.Drawing.Size(629, 52);
+            this.dtpListaProdutosServicos.TabIndex = 32;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(772, 156);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Contrato Pacotes";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -170,6 +265,7 @@
             // 
             // maskedTextBox8
             // 
+            this.maskedTextBox8.Enabled = false;
             this.maskedTextBox8.Location = new System.Drawing.Point(151, 177);
             this.maskedTextBox8.Name = "maskedTextBox8";
             this.maskedTextBox8.Size = new System.Drawing.Size(115, 20);
@@ -186,6 +282,7 @@
             // 
             // maskedTextBox6
             // 
+            this.maskedTextBox6.Enabled = false;
             this.maskedTextBox6.Location = new System.Drawing.Point(151, 137);
             this.maskedTextBox6.Name = "maskedTextBox6";
             this.maskedTextBox6.Size = new System.Drawing.Size(115, 20);
@@ -234,6 +331,7 @@
             // 
             // maskedTextBox5
             // 
+            this.maskedTextBox5.Enabled = false;
             this.maskedTextBox5.Location = new System.Drawing.Point(151, 18);
             this.maskedTextBox5.Name = "maskedTextBox5";
             this.maskedTextBox5.Size = new System.Drawing.Size(115, 20);
@@ -376,6 +474,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(50, 19);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(714, 20);
@@ -390,101 +489,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(13, 77);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(780, 182);
-            this.tabControl1.TabIndex = 4;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dataGridView2);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.btnExcluirItem);
-            this.tabPage1.Controls.Add(this.dtpListaProdutosServicos);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(772, 156);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Serviço/Produto";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(772, 156);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Contrato Pacotes";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(11, 87);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(629, 52);
-            this.dataGridView2.TabIndex = 37;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Location = new System.Drawing.Point(645, 118);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 25);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Excluir Produto";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.Location = new System.Drawing.Point(645, 83);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(115, 25);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Alterar Produto";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(645, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 25);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Excluir Serviço";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnExcluirItem
-            // 
-            this.btnExcluirItem.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluirItem.Location = new System.Drawing.Point(646, 14);
-            this.btnExcluirItem.Name = "btnExcluirItem";
-            this.btnExcluirItem.Size = new System.Drawing.Size(115, 25);
-            this.btnExcluirItem.TabIndex = 33;
-            this.btnExcluirItem.Text = "Alterar Serviço";
-            this.btnExcluirItem.UseVisualStyleBackColor = false;
-            // 
-            // dtpListaProdutosServicos
-            // 
-            this.dtpListaProdutosServicos.BackgroundColor = System.Drawing.Color.White;
-            this.dtpListaProdutosServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtpListaProdutosServicos.Location = new System.Drawing.Point(11, 14);
-            this.dtpListaProdutosServicos.Name = "dtpListaProdutosServicos";
-            this.dtpListaProdutosServicos.Size = new System.Drawing.Size(629, 52);
-            this.dtpListaProdutosServicos.TabIndex = 32;
-            // 
             // FecharAtendimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +501,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - FECHAR ATENDIMENTO";
             this.groupBox1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpListaProdutosServicos)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -505,10 +513,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpListaProdutosServicos)).EndInit();
             this.ResumeLayout(false);
 
         }
