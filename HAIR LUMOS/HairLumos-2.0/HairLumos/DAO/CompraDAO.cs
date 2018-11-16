@@ -83,7 +83,7 @@ namespace HairLumos.DAO
                 }
 
                 objConexao.commitTransacao();
-                return 1;
+                return cod;
             }
             catch (Exception e)
             {

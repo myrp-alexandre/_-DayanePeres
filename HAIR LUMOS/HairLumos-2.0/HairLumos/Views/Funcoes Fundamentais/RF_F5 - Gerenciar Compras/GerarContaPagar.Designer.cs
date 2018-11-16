@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvContas = new System.Windows.Forms.DataGridView();
-            this.Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.mskValorParcela = new System.Windows.Forms.MaskedTextBox();
@@ -46,19 +47,18 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.ttbObservacao = new System.Windows.Forms.TextBox();
+            this.CodParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -82,6 +82,27 @@
             this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 3;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(15, 125);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(396, 199);
+            this.tabControl1.TabIndex = 23;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dgvContas);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(388, 173);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Contas a Pagar";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // dgvContas
             // 
             this.dgvContas.AllowUserToAddRows = false;
@@ -89,8 +110,8 @@
             this.dgvContas.BackgroundColor = System.Drawing.Color.White;
             this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Parcela,
-            this.ValorTotal,
+            this.CodParcela,
+            this.ValorParcela,
             this.DataVencimento});
             this.dgvContas.Location = new System.Drawing.Point(9, 8);
             this.dgvContas.Name = "dgvContas";
@@ -99,28 +120,24 @@
             this.dgvContas.Size = new System.Drawing.Size(373, 162);
             this.dgvContas.TabIndex = 34;
             // 
-            // Parcela
+            // tabPage2
             // 
-            this.Parcela.DataPropertyName = "Parcela";
-            this.Parcela.HeaderText = "Parcela";
-            this.Parcela.Name = "Parcela";
-            this.Parcela.ReadOnly = true;
+            this.tabPage2.Controls.Add(this.ttbObservacao);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(388, 173);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Observações";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // ValorTotal
+            // ttbObservacao
             // 
-            this.ValorTotal.DataPropertyName = "ValorTotal";
-            this.ValorTotal.HeaderText = "Valor Parcela (R$)";
-            this.ValorTotal.Name = "ValorTotal";
-            this.ValorTotal.ReadOnly = true;
-            this.ValorTotal.Width = 125;
-            // 
-            // DataVencimento
-            // 
-            this.DataVencimento.DataPropertyName = "DataVencimento";
-            this.DataVencimento.HeaderText = "Data Vencimento";
-            this.DataVencimento.Name = "DataVencimento";
-            this.DataVencimento.ReadOnly = true;
-            this.DataVencimento.Width = 125;
+            this.ttbObservacao.Location = new System.Drawing.Point(9, 20);
+            this.ttbObservacao.Multiline = true;
+            this.ttbObservacao.Name = "ttbObservacao";
+            this.ttbObservacao.Size = new System.Drawing.Size(373, 138);
+            this.ttbObservacao.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -249,45 +266,28 @@
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // tabControl1
+            // CodParcela
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(15, 125);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(396, 199);
-            this.tabControl1.TabIndex = 23;
+            this.CodParcela.DataPropertyName = "CodParcela";
+            this.CodParcela.HeaderText = "Parcela";
+            this.CodParcela.Name = "CodParcela";
+            this.CodParcela.ReadOnly = true;
             // 
-            // tabPage1
+            // ValorParcela
             // 
-            this.tabPage1.Controls.Add(this.dgvContas);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(388, 173);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Contas a Pagar";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.ValorParcela.DataPropertyName = "ValorParcela";
+            this.ValorParcela.HeaderText = "Valor Parcela (R$)";
+            this.ValorParcela.Name = "ValorParcela";
+            this.ValorParcela.ReadOnly = true;
+            this.ValorParcela.Width = 125;
             // 
-            // tabPage2
+            // DataVencimento
             // 
-            this.tabPage2.Controls.Add(this.ttbObservacao);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(388, 173);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Observações";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // ttbObservacao
-            // 
-            this.ttbObservacao.Location = new System.Drawing.Point(9, 20);
-            this.ttbObservacao.Multiline = true;
-            this.ttbObservacao.Name = "ttbObservacao";
-            this.ttbObservacao.Size = new System.Drawing.Size(373, 138);
-            this.ttbObservacao.TabIndex = 0;
+            this.DataVencimento.DataPropertyName = "DataVencimento";
+            this.DataVencimento.HeaderText = "Data Vencimento";
+            this.DataVencimento.Name = "DataVencimento";
+            this.DataVencimento.ReadOnly = true;
+            this.DataVencimento.Width = 125;
             // 
             // GerarContaPagar
             // 
@@ -304,13 +304,13 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -332,12 +332,12 @@
         public System.Windows.Forms.Button btnIncluir;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Parcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox ttbObservacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodParcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
     }
 }

@@ -31,8 +31,8 @@ namespace HairLumos.DAO
 
                 
                 //Fazer o Insert da pessoa
-                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao, contPag_valorParcela, contPag_Parcela)";
-                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao, contPag_valorParcela, @contPag_Parcela);"; //SELECT MAX(codpessoa) FROM tbpessoa;";
+                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao, \"contPag_valorParcela\", \"contPag_Parcela\")";
+                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao, @contPag_valorParcela, @contPag_Parcela);"; //SELECT MAX(codpessoa) FROM tbpessoa;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -46,38 +46,16 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", objContasPagar.FormaPagamento.Codigo);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", objContasPagar.Comissao.CodigoComissao);
-                objConexao.SqlCmd.Parameters.AddWithValue("@contPag_valorParcela", objContasPagar.ValorParcela);
-
-
-
-
-                if (objContasPagar.Compra!=null && objContasPagar.Compra.Codigo!=0)
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
-                else
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", 1);
-
-                if(objContasPagar.Despesa!=null && objContasPagar.Despesa.Codigo!=0)
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
-                else
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", 0);
-
-                if (objContasPagar.Caixa!=null && objContasPagar.Caixa.CodCaixa!=0)
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
-                else
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", 1);
-
                 if(objContasPagar.FormaPagamento!=null && objContasPagar.FormaPagamento.Codigo!=0)
                     objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", objContasPagar.FormaPagamento.Codigo);
-                else
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", 1);
-
-                if(objContasPagar.Comissao!=null && objContasPagar.Comissao.CodigoComissao!=0)
+                else 
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", NpgsqlTypes.NpgsqlDbType.Integer, objContasPagar.FormaPagamento.Codigo);
+                if (objContasPagar.Comissao != null && objContasPagar.Comissao.CodigoComissao != 0)
                     objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", objContasPagar.Comissao.CodigoComissao);
                 else
-                    objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", 1);
-                
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", NpgsqlTypes.NpgsqlDbType.Integer, objContasPagar.Comissao.CodigoComissao);
+                objConexao.SqlCmd.Parameters.AddWithValue("@contPag_valorParcela", objContasPagar.ValorParcela);
+                objConexao.SqlCmd.Parameters.AddWithValue("@contPag_Parcela", objContasPagar.CodParcela);
 
 
 

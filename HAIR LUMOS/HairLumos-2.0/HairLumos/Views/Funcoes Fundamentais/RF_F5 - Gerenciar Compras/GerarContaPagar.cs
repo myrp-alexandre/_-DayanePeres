@@ -112,9 +112,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     MessageBox.Show("Data inválida.");
 
                 double valorParc = Convert.ToDouble(mskValorTotal.Text) / Convert.ToInt32(ttbQtdeParcela.Text);
+                double resto = Convert.ToDouble(mskValorTotal.Text) - (Convert.ToInt32(ttbQtdeParcela.Text) * valorParc);
 
 
-                DataTable dt = compraController.retornaCompra();
+                DataTable dt = compraController.retornaCompra(codCompra);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -131,7 +132,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     codPessoa = dr["codpessoa"].ToString();
                     compra.Pessoa.Codigo =  Convert.ToInt32(dr["codpessoa"].ToString());
 
-                    DataTable dtDespesa = despesaController.retronaDespesa();
+                    DataTable dtDespesa = despesaController.retornaObjDespesa("Compra");
 
                     if(dtDespesa != null && dt.Rows.Count > 0)
                     {
@@ -178,13 +179,16 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     ContasPagar.ValorTotal = Convert.ToDouble(mskValorTotal.Text);
                     ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(i*30);
                     ContasPagar.CodParcela = i + 1;
-                    ContasPagar.ValorParcela = valorParc;
+                    if (i + 1 == Convert.ToInt32(ttbQtdeParcela.Text))
+                        ContasPagar.ValorParcela = valorParc + resto;
+                    else
+                        ContasPagar.ValorParcela = valorParc;
                     ContasPagar.Status = false;
                     ContasPagar.Compra = compra;
                     ContasPagar.Despesa = despesa;
                     ContasPagar.Caixa = caixa;
-                    //ContasPagar.FormaPagamento =
-                    //ContasPagar.Comissao = 
+                    ContasPagar.FormaPagamento = new Entidades.FormaPagamento();
+                    ContasPagar.Comissao = new Entidades.Comissao();
 
 
                     listacontasPagars.Add(ContasPagar);

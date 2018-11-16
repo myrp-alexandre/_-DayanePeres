@@ -137,6 +137,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         private void btnNovo_Click(object sender, EventArgs e)
         {
             inicializa(true);
+            btnLocalizar.Enabled = true;
         }
 
         private void carregaDGV(List<CompraProduto> lista)
@@ -220,12 +221,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             int codigo = 0, despesa = 0, codPessoa = 0;
             bool consignado = false;
             double valorTotal = 0;
+
             //verifica se tem codigo
-            if(ttbCodigo.Text!=null && ttbCodigo.Text != "")
+            if (ttbCodigo.Text != null && ttbCodigo.Text != "")
             {
                 codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
             }
-            //busca despesa compra
+            // busca despesa compra;
             Controller.DespesaController _ctrlDespesa = new Controller.DespesaController();
             DataTable dtRetorno = _ctrlDespesa.retornaObjDespesa("Compra");
             if (dtRetorno != null && dtRetorno.Rows.Count>0)
@@ -249,29 +251,62 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             //convert o valor total
             valorTotal = Convert.ToDouble(totalCompra.Text.ToString());
 
-            //chama o gravar
-            int rest = cc.geravaCompra(codigo, despesa, DateTime.Now, "aberta", consignado, valorTotal, ttbObservacao.Text.ToString(), codPessoa, lista);
-
-
-            if (rest > 0)
-            {
-                MessageBox.Show("Gravado com sucesso!");
-
-                DialogResult result = MessageBox.Show("Gerar Contas a Pagar", "caption", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+            if(codigo > 0) { 
+                DialogResult resulta = MessageBox.Show("Deseja fazer um novo pedido", "caption", MessageBoxButtons.YesNo);
+                if (resulta == DialogResult.Yes)
                 {
-                    Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar gerarContaPagar = new RF_F5.GerarContaPagar();
-                    gerarContaPagar.ShowDialog();
-                }
-                
+                    //chama o gravar
+                    int rest = cc.geravaCompra(0, despesa, DateTime.Now, "aberta", consignado, valorTotal, ttbObservacao.Text.ToString(), codPessoa, lista);
 
-                limpaCampos();
-                inicializa(false);
+
+                    if (rest > 0)
+                    {
+                        MessageBox.Show("Gravado com sucesso!");
+
+                        DialogResult result = MessageBox.Show("Gerar Contas a Pagar", "caption", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar gerarContaPagar = new RF_F5.GerarContaPagar();
+                            gerarContaPagar.ShowDialog();
+                        }
+
+
+                        limpaCampos();
+                        inicializa(false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao gravar dados. Falta cadastrar Despesa Tipo: Compra");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Erro ao gravar dados. Falta cadastrar Despesa Tipo: Compra");
+                int rest = cc.geravaCompra(0, despesa, DateTime.Now, "aberta", consignado, valorTotal, ttbObservacao.Text.ToString(), codPessoa, lista);
+
+
+                if (rest > 0)
+                {
+                    MessageBox.Show("Gravado com sucesso!");
+
+                    DialogResult result = MessageBox.Show("Gerar Contas a Pagar", "caption", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar gerarContaPagar = new RF_F5.GerarContaPagar();
+                        gerarContaPagar.ShowDialog();
+                    }
+
+
+                    limpaCampos();
+                    inicializa(false);
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao gravar dados. Falta cadastrar Despesa Tipo: Compra");
+                }
             }
+
+            
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)
