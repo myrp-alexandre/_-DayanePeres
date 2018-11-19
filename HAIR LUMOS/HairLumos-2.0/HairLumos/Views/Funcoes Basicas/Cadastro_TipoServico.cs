@@ -29,7 +29,7 @@ namespace HairLumos.Views
             ttbCodigo.Enabled = false;
             ttbServico.Enabled = false;
             ttbObservacao.Enabled = false;
-            mskTempoServiço.Enabled = false;
+            cbbTempoServico.Enabled = false;
             mskValor.Enabled = false;
             dgvServico.Enabled = true;
 
@@ -51,7 +51,7 @@ namespace HairLumos.Views
             ttbCodigo.Text = "";
             ttbServico.Text = "";
             ttbObservacao.Text = "";
-            mskTempoServiço.Text = "";
+            cbbTempoServico.Text = "";
             mskValor.Text = "";
         }
 
@@ -61,7 +61,7 @@ namespace HairLumos.Views
             ttbCodigo.Enabled = false;
             ttbServico.Enabled = true;
             ttbObservacao.Enabled = true;
-            mskTempoServiço.Enabled = true;
+            cbbTempoServico.Enabled = true;
             mskValor.Enabled = true;
             dgvServico.Enabled = true;
 
@@ -80,7 +80,7 @@ namespace HairLumos.Views
             ttbCodigo.Enabled = false;
             ttbServico.Enabled = true;
             ttbObservacao.Enabled = true;
-            mskTempoServiço.Enabled = true;
+            cbbTempoServico.Enabled = true;
             mskValor.Enabled = true;
             dgvServico.Enabled = true;
 
@@ -101,7 +101,7 @@ namespace HairLumos.Views
             ttbCodigo.Text = strCod;
             ttbServico.Text = strDescricao;
             ttbObservacao.Text = strobs;
-            mskTempoServiço.Text = strtempo;
+            cbbTempoServico.Text = strtempo;
             mskValor.Text = strvalor;
         }
 
@@ -119,7 +119,7 @@ namespace HairLumos.Views
                     dr["tiposerv_obs"].ToString(),
                     dr["tiposerv_valor"].ToString(),
                     dr["tiposerv_temposervico"].ToString());
-
+                    DGVMoeda();
             }
         }
 
@@ -140,6 +140,8 @@ namespace HairLumos.Views
             else
                 dgvServico.Rows.Clear();
 
+            DGVMoeda();
+
         }
 
         public void selecionaServico()
@@ -157,13 +159,12 @@ namespace HairLumos.Views
                     ttbServico.Text = dgvServico.CurrentRow.Cells[1].Value.ToString();
                     ttbObservacao.Text = dgvServico.CurrentRow.Cells[2].Value.ToString();
                     mskValor.Text = dgvServico.CurrentRow.Cells[3].Value.ToString();
-                    mskTempoServiço.Text = dgvServico.CurrentRow.Cells[4].Value.ToString();
+                    cbbTempoServico.Text = dgvServico.CurrentRow.Cells[4].Value.ToString();
                     
-
-
                 }
             }
         }
+
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
@@ -178,7 +179,7 @@ namespace HairLumos.Views
 
             try
             {
-                //validações
+                //validações'
                 int intCodigo = 0;
                 if (intCodServico != 0)
                 {
@@ -193,7 +194,7 @@ namespace HairLumos.Views
                 if (string.IsNullOrWhiteSpace(mskValor.Text))
                     strMensagem += $"Informe o valor do serviço!.";
 
-                if (string.IsNullOrWhiteSpace(mskTempoServiço.Text))
+                if (string.IsNullOrWhiteSpace(cbbTempoServico.Text))
                     strMensagem += $"Informe o tempo estimado do serviço!.";
 
                 //verificar se houve alguma anormalidade no cadastro
@@ -203,7 +204,7 @@ namespace HairLumos.Views
                     double.TryParse(mskValor.Text, out valorServico);
                     
 
-                    int intRetorno = _ctrlServ.gravaServico(intCodigo, ttbServico.Text, valorServico, mskTempoServiço.Text, ttbObservacao.Text);
+                    int intRetorno = _ctrlServ.gravaServico(intCodigo, ttbServico.Text, valorServico, cbbTempoServico.Text, ttbObservacao.Text);
 
                     if (intRetorno == 1)
                     {
@@ -255,7 +256,7 @@ namespace HairLumos.Views
 
             if (intCod > 0)
             {
-                if (MessageBox.Show("Confirma exclusão da Marca?", "Categoria", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Confirma exclusão do Tipo de Serviço?", "Tipo de Serviço", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     bool blnExcluiu = _ctlServ.excluirServico(intCod);
                     if (blnExcluiu)
@@ -270,7 +271,7 @@ namespace HairLumos.Views
                 }
                 else
                 {
-                    MessageBox.Show("Cancela ?");
+                    MessageBox.Show("Cancelar ?");
                 }
             }
         }
@@ -290,5 +291,28 @@ namespace HairLumos.Views
         {
 
         }
+
+        private void mskValor_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskValor);
+        }
+
+        private void mskValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskValor, e);
+        }
+
+        private void mskValor_Leave(object sender, EventArgs e)
+        {
+            mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
+        }
+
+        private void DGVMoeda()
+        {
+            this.dgvServico.Columns["tiposerv_valor"].DefaultCellStyle.Format = "c";
+        }
+        
     }
 }

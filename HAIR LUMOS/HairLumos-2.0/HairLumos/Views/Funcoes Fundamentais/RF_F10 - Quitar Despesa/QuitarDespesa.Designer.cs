@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ttbTotalVencido = new System.Windows.Forms.TextBox();
-            this.ttbTotalPago = new System.Windows.Forms.TextBox();
-            this.ttbTotalPagar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +53,9 @@
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.ttbTotalPagar = new System.Windows.Forms.MaskedTextBox();
+            this.ttbTotalVencido = new System.Windows.Forms.MaskedTextBox();
+            this.ttbTotalPago = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,8 +73,8 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.ttbTotalVencido);
             this.splitContainer1.Panel1.Controls.Add(this.ttbTotalPago);
+            this.splitContainer1.Panel1.Controls.Add(this.ttbTotalVencido);
             this.splitContainer1.Panel1.Controls.Add(this.ttbTotalPagar);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
@@ -92,30 +92,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(792, 467);
             this.splitContainer1.SplitterDistance = 390;
             this.splitContainer1.TabIndex = 3;
-            // 
-            // ttbTotalVencido
-            // 
-            this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
-            this.ttbTotalVencido.Location = new System.Drawing.Point(647, 363);
-            this.ttbTotalVencido.Name = "ttbTotalVencido";
-            this.ttbTotalVencido.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalVencido.TabIndex = 44;
-            // 
-            // ttbTotalPago
-            // 
-            this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
-            this.ttbTotalPago.Location = new System.Drawing.Point(536, 363);
-            this.ttbTotalPago.Name = "ttbTotalPago";
-            this.ttbTotalPago.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalPago.TabIndex = 43;
-            // 
-            // ttbTotalPagar
-            // 
-            this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
-            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 363);
-            this.ttbTotalPagar.Name = "ttbTotalPagar";
-            this.ttbTotalPagar.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalPagar.TabIndex = 42;
             // 
             // label5
             // 
@@ -189,7 +165,7 @@
             // 
             // btnQuitarParcial
             // 
-            this.btnQuitarParcial.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnQuitarParcial.BackColor = System.Drawing.Color.White;
             this.btnQuitarParcial.Location = new System.Drawing.Point(644, 32);
             this.btnQuitarParcial.Name = "btnQuitarParcial";
             this.btnQuitarParcial.Size = new System.Drawing.Size(97, 38);
@@ -311,7 +287,7 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnCancelar.BackColor = System.Drawing.Color.White;
             this.BtnCancelar.Location = new System.Drawing.Point(213, 12);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(90, 46);
@@ -321,7 +297,7 @@
             // 
             // btnEstornar
             // 
-            this.btnEstornar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEstornar.BackColor = System.Drawing.Color.White;
             this.btnEstornar.Location = new System.Drawing.Point(117, 12);
             this.btnEstornar.Name = "btnEstornar";
             this.btnEstornar.Size = new System.Drawing.Size(90, 46);
@@ -331,7 +307,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(687, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 46);
@@ -342,13 +318,43 @@
             // 
             // btnQuitar
             // 
-            this.btnQuitar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnQuitar.BackColor = System.Drawing.Color.White;
             this.btnQuitar.Location = new System.Drawing.Point(21, 12);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(90, 46);
             this.btnQuitar.TabIndex = 6;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
+            // 
+            // ttbTotalPagar
+            // 
+            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 362);
+            this.ttbTotalPagar.Name = "ttbTotalPagar";
+            this.ttbTotalPagar.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPagar.TabIndex = 45;
+            this.ttbTotalPagar.Enter += new System.EventHandler(this.ttbTotalPagar_Enter_1);
+            this.ttbTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPagar_KeyPress);
+            this.ttbTotalPagar.Leave += new System.EventHandler(this.ttbTotalPagar_Leave);
+            // 
+            // ttbTotalVencido
+            // 
+            this.ttbTotalVencido.Location = new System.Drawing.Point(647, 362);
+            this.ttbTotalVencido.Name = "ttbTotalVencido";
+            this.ttbTotalVencido.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalVencido.TabIndex = 46;
+            this.ttbTotalVencido.Enter += new System.EventHandler(this.ttbTotalVencido_Enter);
+            this.ttbTotalVencido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalVencido_KeyPress);
+            this.ttbTotalVencido.Leave += new System.EventHandler(this.ttbTotalVencido_Leave);
+            // 
+            // ttbTotalPago
+            // 
+            this.ttbTotalPago.Location = new System.Drawing.Point(536, 362);
+            this.ttbTotalPago.Name = "ttbTotalPago";
+            this.ttbTotalPago.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPago.TabIndex = 47;
+            this.ttbTotalPago.Enter += new System.EventHandler(this.ttbTotalPago_Enter);
+            this.ttbTotalPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPago_KeyPress);
+            this.ttbTotalPago.Leave += new System.EventHandler(this.ttbTotalPago_Leave);
             // 
             // QuitarDespesa
             // 
@@ -387,9 +393,6 @@
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnQuitar;
         public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox ttbTotalVencido;
-        private System.Windows.Forms.TextBox ttbTotalPago;
-        private System.Windows.Forms.TextBox ttbTotalPagar;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn codContasPagar;
@@ -402,5 +405,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datapagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datavencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn contpag_status;
+        private System.Windows.Forms.MaskedTextBox ttbTotalPago;
+        private System.Windows.Forms.MaskedTextBox ttbTotalVencido;
+        private System.Windows.Forms.MaskedTextBox ttbTotalPagar;
     }
 }

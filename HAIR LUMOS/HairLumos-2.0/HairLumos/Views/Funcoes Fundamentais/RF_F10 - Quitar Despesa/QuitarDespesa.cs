@@ -109,5 +109,65 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             }
             return total;
         }
+
+        
+        private void ttbTotalPagar_Enter_1(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(ttbTotalPagar);
+        }
+
+        private void ttbTotalPagar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(ttbTotalPagar, e);
+
+        }
+
+        private void ttbTotalPagar_Leave(object sender, EventArgs e)
+        {
+            ttbTotalPagar.Text = Convert.ToDouble(ttbTotalPagar.Text).ToString("###,###,##0.00");
+        }
+
+        private void DGVMoeda()
+        {
+            this.dgvContas.Columns["contpag_valortotal"].DefaultCellStyle.Format = "c";
+            this.dgvContas.Columns["contPag_valorParcela"].DefaultCellStyle.Format = "c";
+            this.dgvContas.Columns["contpag_valorpago"].DefaultCellStyle.Format = "c";
+        }
+
+        private void ttbTotalPago_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(ttbTotalPago);
+        }
+
+        private void ttbTotalPago_Leave(object sender, EventArgs e)
+        {
+            ttbTotalPago.Text = Convert.ToDouble(ttbTotalPago.Text).ToString("###,###,##0.00");
+        }
+
+        private void ttbTotalPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(ttbTotalPago, e);
+        }
+
+        private void ttbTotalVencido_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(ttbTotalVencido);
+        }
+
+        private void ttbTotalVencido_Leave(object sender, EventArgs e)
+        {
+            ttbTotalVencido.Text = Convert.ToDouble(ttbTotalVencido.Text).ToString("###,###,##0.00");
+        }
+
+        private void ttbTotalVencido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(ttbTotalVencido, e);
+        }
     }
 }

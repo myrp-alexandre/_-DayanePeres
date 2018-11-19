@@ -354,6 +354,7 @@
       <DependentUpon>Pesquisa_Pessoa.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Outras_Fundamentais\CpfCnpj.cs" />
+    <Compile Include="Views\Outras_Fundamentais\EnterPropriedades.cs" />
     <EmbeddedResource Include="Views\Funcoes Basicas\Cadastro_CategoriaProduto.resx">
       <DependentUpon>Cadastro_CategoriaProduto.cs</DependentUpon>
     </EmbeddedResource>

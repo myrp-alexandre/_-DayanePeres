@@ -124,7 +124,7 @@ namespace HairLumos.Views.Funcoes_Basicas
                 this.cbbTipoServico.DataSource = dtServicoParceiro;
 
                 ttbValorServico.Text = dr["tiposerv_valor"].ToString();
-                
+                ttbValorServico.Text = Convert.ToDouble(ttbValorServico.Text).ToString("###,###,##0.00");
             }
         }
 
@@ -534,7 +534,48 @@ namespace HairLumos.Views.Funcoes_Basicas
             {
                 DataRow dr = dt.Rows[0];
                 ttbValorServico.Text = dr["tiposerv_valor"].ToString();
+                
             }
+        }
+
+        private void DGVMoeda()
+        {
+            this.dgvServico.Columns["Valor"].DefaultCellStyle.Format = "c";
+            this.dgvServico.Columns["Valor"].DefaultCellStyle.Format = "c";
+        }
+
+        private void mskValorInformado_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskValorInformado);
+        }
+
+        private void ttbValorServico_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(ttbValorServico);
+        }
+
+        private void ttbValorServico_Leave(object sender, EventArgs e)
+        {
+            ttbValorServico.Text = Convert.ToDouble(ttbValorServico.Text).ToString("###,###,##0.00");
+        }
+
+        private void ttbValorServico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(ttbValorServico, e);
+        }
+
+        private void mskValorInformado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskValorInformado, e);
+        }
+
+        private void mskValorInformado_Leave(object sender, EventArgs e)
+        {
+            mskValorInformado.Text = Convert.ToDouble(mskValorInformado.Text).ToString("###,###,##0.00");
         }
     }
 }

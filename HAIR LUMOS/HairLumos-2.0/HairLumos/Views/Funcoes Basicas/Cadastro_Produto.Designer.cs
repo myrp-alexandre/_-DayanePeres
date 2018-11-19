@@ -121,7 +121,7 @@
             this.cbbMarca.Location = new System.Drawing.Point(410, 125);
             this.cbbMarca.Name = "cbbMarca";
             this.cbbMarca.Size = new System.Drawing.Size(360, 21);
-            this.cbbMarca.TabIndex = 7;
+            this.cbbMarca.TabIndex = 5;
             // 
             // mskQtdeProd
             // 
@@ -154,6 +154,10 @@
             this.mskPrecoCompra.Name = "mskPrecoCompra";
             this.mskPrecoCompra.Size = new System.Drawing.Size(91, 20);
             this.mskPrecoCompra.TabIndex = 1;
+            this.mskPrecoCompra.Click += new System.EventHandler(this.mskPrecoCompra_Click);
+            this.mskPrecoCompra.Enter += new System.EventHandler(this.mskPrecoCompra_Enter);
+            this.mskPrecoCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskPrecoCompra_KeyPress);
+            this.mskPrecoCompra.Leave += new System.EventHandler(this.mskPrecoCompra_Leave);
             // 
             // ttbObservacao
             // 
@@ -179,7 +183,7 @@
             this.cbbCategoria.Location = new System.Drawing.Point(21, 128);
             this.cbbCategoria.Name = "cbbCategoria";
             this.cbbCategoria.Size = new System.Drawing.Size(354, 21);
-            this.cbbCategoria.TabIndex = 5;
+            this.cbbCategoria.TabIndex = 4;
             // 
             // mskPrecoVenda
             // 
@@ -187,6 +191,9 @@
             this.mskPrecoVenda.Name = "mskPrecoVenda";
             this.mskPrecoVenda.Size = new System.Drawing.Size(91, 20);
             this.mskPrecoVenda.TabIndex = 2;
+            this.mskPrecoVenda.Enter += new System.EventHandler(this.mskPrecoVenda_Enter);
+            this.mskPrecoVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskPrecoVenda_KeyPress);
+            this.mskPrecoVenda.Leave += new System.EventHandler(this.mskPrecoVenda_Leave);
             // 
             // label4
             // 
@@ -208,11 +215,11 @@
             // 
             // btnSelecionar
             // 
-            this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSelecionar.BackColor = System.Drawing.Color.White;
             this.btnSelecionar.Location = new System.Drawing.Point(706, 320);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(64, 27);
-            this.btnSelecionar.TabIndex = 12;
+            this.btnSelecionar.TabIndex = 8;
             this.btnSelecionar.Text = "Seleciona";
             this.btnSelecionar.UseVisualStyleBackColor = false;
             this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
@@ -234,7 +241,7 @@
             this.dgvProduto.ReadOnly = true;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(679, 146);
-            this.dgvProduto.TabIndex = 12;
+            this.dgvProduto.TabIndex = 7;
             this.dgvProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellDoubleClick);
             // 
             // codproduto
@@ -285,6 +292,7 @@
             // 
             // ttbCodigo
             // 
+            this.ttbCodigo.Enabled = false;
             this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
@@ -309,7 +317,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(445, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
@@ -320,7 +328,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(693, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(77, 38);
@@ -331,7 +339,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluir.BackColor = System.Drawing.Color.White;
             this.btnExcluir.Location = new System.Drawing.Point(339, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
@@ -342,7 +350,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterar.BackColor = System.Drawing.Color.White;
             this.btnAlterar.Location = new System.Drawing.Point(233, 12);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 38);
@@ -353,7 +361,7 @@
             // 
             // btnGravar
             // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGravar.BackColor = System.Drawing.Color.White;
             this.btnGravar.Location = new System.Drawing.Point(127, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(100, 38);
@@ -364,7 +372,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.BackColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(21, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(100, 38);

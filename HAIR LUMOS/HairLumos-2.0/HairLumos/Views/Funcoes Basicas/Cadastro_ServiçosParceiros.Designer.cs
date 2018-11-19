@@ -48,10 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvServico = new System.Windows.Forms.DataGridView();
-            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PagamentoRecebido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcluirServico = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -60,6 +56,9 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PagamentoRecebido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -187,6 +186,9 @@
             this.mskValorInformado.Name = "mskValorInformado";
             this.mskValorInformado.Size = new System.Drawing.Size(90, 20);
             this.mskValorInformado.TabIndex = 44;
+            this.mskValorInformado.Enter += new System.EventHandler(this.mskValorInformado_Enter);
+            this.mskValorInformado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorInformado_KeyPress);
+            this.mskValorInformado.Leave += new System.EventHandler(this.mskValorInformado_Leave);
             // 
             // rbPOrcentagemInformada
             // 
@@ -214,7 +216,7 @@
             // 
             // btnIncluirServico
             // 
-            this.btnIncluirServico.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluirServico.BackColor = System.Drawing.Color.White;
             this.btnIncluirServico.Location = new System.Drawing.Point(465, 158);
             this.btnIncluirServico.Name = "btnIncluirServico";
             this.btnIncluirServico.Size = new System.Drawing.Size(97, 38);
@@ -230,6 +232,9 @@
             this.ttbValorServico.Name = "ttbValorServico";
             this.ttbValorServico.Size = new System.Drawing.Size(136, 20);
             this.ttbValorServico.TabIndex = 38;
+            this.ttbValorServico.Enter += new System.EventHandler(this.ttbValorServico_Enter);
+            this.ttbValorServico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbValorServico_KeyPress);
+            this.ttbValorServico.Leave += new System.EventHandler(this.ttbValorServico_Leave);
             // 
             // label3
             // 
@@ -252,7 +257,7 @@
             // 
             // btnSelecionaPessoa
             // 
-            this.btnSelecionaPessoa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSelecionaPessoa.BackColor = System.Drawing.Color.White;
             this.btnSelecionaPessoa.Location = new System.Drawing.Point(483, 30);
             this.btnSelecionaPessoa.Name = "btnSelecionaPessoa";
             this.btnSelecionaPessoa.Size = new System.Drawing.Size(72, 27);
@@ -296,14 +301,101 @@
             this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Servico,
             this.Valor,
-            this.PagamentoRecebido,
-            this.Column1});
+            this.PagamentoRecebido});
             this.dgvServico.Location = new System.Drawing.Point(21, 255);
             this.dgvServico.Name = "dgvServico";
             this.dgvServico.ReadOnly = true;
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServico.Size = new System.Drawing.Size(468, 138);
             this.dgvServico.TabIndex = 12;
+            // 
+            // btnExcluirServico
+            // 
+            this.btnExcluirServico.BackColor = System.Drawing.Color.White;
+            this.btnExcluirServico.Location = new System.Drawing.Point(495, 318);
+            this.btnExcluirServico.Name = "btnExcluirServico";
+            this.btnExcluirServico.Size = new System.Drawing.Size(72, 27);
+            this.btnExcluirServico.TabIndex = 12;
+            this.btnExcluirServico.Text = "Excluir";
+            this.btnExcluirServico.UseVisualStyleBackColor = false;
+            this.btnExcluirServico.Click += new System.EventHandler(this.btnExcluirServico_Click);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.White;
+            this.btnPesquisar.Location = new System.Drawing.Point(305, 12);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(65, 38);
+            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(376, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(65, 38);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(496, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(70, 38);
+            this.btnSair.TabIndex = 11;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(234, 12);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(65, 38);
+            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.White;
+            this.btnAlterar.Location = new System.Drawing.Point(163, 12);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(65, 38);
+            this.btnAlterar.TabIndex = 8;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.BackColor = System.Drawing.Color.White;
+            this.btnGravar.Location = new System.Drawing.Point(92, 12);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(65, 38);
+            this.btnGravar.TabIndex = 7;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.BackColor = System.Drawing.Color.White;
+            this.btnNovo.Location = new System.Drawing.Point(21, 12);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(65, 38);
+            this.btnNovo.TabIndex = 6;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // Servico
             // 
@@ -316,7 +408,7 @@
             // Valor
             // 
             this.Valor.DataPropertyName = "Valor";
-            this.Valor.HeaderText = "Valor Serviço (R$)";
+            this.Valor.HeaderText = "Valor Comissão (R$)";
             this.Valor.Name = "Valor";
             this.Valor.ReadOnly = true;
             // 
@@ -326,101 +418,6 @@
             this.PagamentoRecebido.HeaderText = "Serviço a Pagar ou Receber?";
             this.PagamentoRecebido.Name = "PagamentoRecebido";
             this.PagamentoRecebido.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Valor";
-            this.Column1.HeaderText = "Valor Líquido";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // btnExcluirServico
-            // 
-            this.btnExcluirServico.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluirServico.Location = new System.Drawing.Point(495, 318);
-            this.btnExcluirServico.Name = "btnExcluirServico";
-            this.btnExcluirServico.Size = new System.Drawing.Size(72, 27);
-            this.btnExcluirServico.TabIndex = 12;
-            this.btnExcluirServico.Text = "Excluir";
-            this.btnExcluirServico.UseVisualStyleBackColor = false;
-            this.btnExcluirServico.Click += new System.EventHandler(this.btnExcluirServico_Click);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(305, 12);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(65, 38);
-            this.btnPesquisar.TabIndex = 14;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(376, 12);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(65, 38);
-            this.btnCancelar.TabIndex = 13;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(496, 12);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(70, 38);
-            this.btnSair.TabIndex = 11;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(234, 12);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(65, 38);
-            this.btnExcluir.TabIndex = 10;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlterar.Location = new System.Drawing.Point(163, 12);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(65, 38);
-            this.btnAlterar.TabIndex = 8;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnGravar
-            // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGravar.Location = new System.Drawing.Point(92, 12);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(65, 38);
-            this.btnGravar.TabIndex = 7;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = false;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.Location = new System.Drawing.Point(21, 12);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(65, 38);
-            this.btnNovo.TabIndex = 6;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // Cadastro_ServiçosParceiros
             // 
@@ -483,6 +480,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn PagamentoRecebido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

@@ -240,7 +240,7 @@
             // 
             // btnPesquisa
             // 
-            this.btnPesquisa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.BackColor = System.Drawing.Color.White;
             this.btnPesquisa.Location = new System.Drawing.Point(811, 75);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(75, 29);
@@ -370,7 +370,7 @@
             // 
             // btnVoltaTodos
             // 
-            this.btnVoltaTodos.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnVoltaTodos.BackColor = System.Drawing.Color.White;
             this.btnVoltaTodos.Location = new System.Drawing.Point(539, 271);
             this.btnVoltaTodos.Name = "btnVoltaTodos";
             this.btnVoltaTodos.Size = new System.Drawing.Size(69, 27);
@@ -380,7 +380,7 @@
             // 
             // btnVoltaUm
             // 
-            this.btnVoltaUm.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnVoltaUm.BackColor = System.Drawing.Color.White;
             this.btnVoltaUm.Location = new System.Drawing.Point(539, 238);
             this.btnVoltaUm.Name = "btnVoltaUm";
             this.btnVoltaUm.Size = new System.Drawing.Size(69, 27);
@@ -390,7 +390,7 @@
             // 
             // btnSelecionaTodos
             // 
-            this.btnSelecionaTodos.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSelecionaTodos.BackColor = System.Drawing.Color.White;
             this.btnSelecionaTodos.Location = new System.Drawing.Point(539, 205);
             this.btnSelecionaTodos.Name = "btnSelecionaTodos";
             this.btnSelecionaTodos.Size = new System.Drawing.Size(69, 27);
@@ -470,7 +470,7 @@
             // 
             // btnExcuirServico
             // 
-            this.btnExcuirServico.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcuirServico.BackColor = System.Drawing.Color.White;
             this.btnExcuirServico.Location = new System.Drawing.Point(539, 172);
             this.btnExcuirServico.Name = "btnExcuirServico";
             this.btnExcuirServico.Size = new System.Drawing.Size(69, 27);
@@ -480,7 +480,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(1053, 7);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 38);
@@ -490,7 +490,7 @@
             // 
             // btnQuitarComissao
             // 
-            this.btnQuitarComissao.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnQuitarComissao.BackColor = System.Drawing.Color.White;
             this.btnQuitarComissao.Location = new System.Drawing.Point(565, 7);
             this.btnQuitarComissao.Name = "btnQuitarComissao";
             this.btnQuitarComissao.Size = new System.Drawing.Size(136, 38);
@@ -500,7 +500,7 @@
             // 
             // btnGerarComissao
             // 
-            this.btnGerarComissao.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGerarComissao.BackColor = System.Drawing.Color.White;
             this.btnGerarComissao.Location = new System.Drawing.Point(386, 7);
             this.btnGerarComissao.Name = "btnGerarComissao";
             this.btnGerarComissao.Size = new System.Drawing.Size(173, 38);

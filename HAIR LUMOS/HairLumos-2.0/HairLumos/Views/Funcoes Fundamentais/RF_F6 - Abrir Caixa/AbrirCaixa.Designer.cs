@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.Código = new System.Windows.Forms.Label();
-            this.ttbCodigo = new System.Windows.Forms.TextBox();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnAbrir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mskAddValor = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,6 +40,10 @@
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Código = new System.Windows.Forms.Label();
+            this.ttbCodigo = new System.Windows.Forms.TextBox();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnAbrir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,44 +73,6 @@
             this.splitContainer1.SplitterDistance = 220;
             this.splitContainer1.TabIndex = 3;
             // 
-            // Código
-            // 
-            this.Código.AutoSize = true;
-            this.Código.Location = new System.Drawing.Point(31, 18);
-            this.Código.Name = "Código";
-            this.Código.Size = new System.Drawing.Size(40, 13);
-            this.Código.TabIndex = 6;
-            this.Código.Text = "Código";
-            // 
-            // ttbCodigo
-            // 
-            this.ttbCodigo.Location = new System.Drawing.Point(82, 18);
-            this.ttbCodigo.Name = "ttbCodigo";
-            this.ttbCodigo.Size = new System.Drawing.Size(78, 20);
-            this.ttbCodigo.TabIndex = 7;
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(411, 3);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(78, 40);
-            this.btnSair.TabIndex = 15;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnAbrir
-            // 
-            this.btnAbrir.BackColor = System.Drawing.Color.White;
-            this.btnAbrir.Location = new System.Drawing.Point(310, 3);
-            this.btnAbrir.Name = "btnAbrir";
-            this.btnAbrir.Size = new System.Drawing.Size(78, 40);
-            this.btnAbrir.TabIndex = 7;
-            this.btnAbrir.Text = "Abrir";
-            this.btnAbrir.UseVisualStyleBackColor = false;
-            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.mskAddValor);
@@ -128,7 +90,6 @@
             this.groupBox1.Size = new System.Drawing.Size(471, 171);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "1";
             // 
             // mskAddValor
             // 
@@ -174,6 +135,7 @@
             // 
             // dtpHora
             // 
+            this.dtpHora.Enabled = false;
             this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHora.Location = new System.Drawing.Point(327, 83);
             this.dtpHora.Name = "dtpHora";
@@ -191,6 +153,7 @@
             // 
             // dtpData
             // 
+            this.dtpData.Enabled = false;
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpData.Location = new System.Drawing.Point(82, 84);
             this.dtpData.Name = "dtpData";
@@ -214,6 +177,44 @@
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 33;
             this.label2.Text = "Troco Inicial:";
+            // 
+            // Código
+            // 
+            this.Código.AutoSize = true;
+            this.Código.Location = new System.Drawing.Point(31, 18);
+            this.Código.Name = "Código";
+            this.Código.Size = new System.Drawing.Size(40, 13);
+            this.Código.TabIndex = 6;
+            this.Código.Text = "Código";
+            // 
+            // ttbCodigo
+            // 
+            this.ttbCodigo.Location = new System.Drawing.Point(82, 18);
+            this.ttbCodigo.Name = "ttbCodigo";
+            this.ttbCodigo.Size = new System.Drawing.Size(78, 20);
+            this.ttbCodigo.TabIndex = 7;
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(411, 3);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(78, 40);
+            this.btnSair.TabIndex = 15;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnAbrir
+            // 
+            this.btnAbrir.BackColor = System.Drawing.Color.White;
+            this.btnAbrir.Location = new System.Drawing.Point(310, 3);
+            this.btnAbrir.Name = "btnAbrir";
+            this.btnAbrir.Size = new System.Drawing.Size(78, 40);
+            this.btnAbrir.TabIndex = 7;
+            this.btnAbrir.Text = "Abrir";
+            this.btnAbrir.UseVisualStyleBackColor = false;
+            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
             // AbrirCaixa
             // 

@@ -21,7 +21,7 @@ namespace HairLumos.DAO
                 if (obj.CodCaixa == 0)
                 {
                     _sql = "INSERT INTO tbcaixa(caixa_datahoraabertura, caixa_datahorafecha,caixa_saldoinicial, caixa_troco, caixa_totalentra, caixa_totalsaida,codusuario, codpessoa)"+
-                            " VALUES(@caixaperiodo, @caixaabertura, @caixadatafecha, @caixasaldoinicial, @caixatroco, @caixatotalen, @caixatotalsa, @codusu, @codpessoa)";
+                            " VALUES(@caixaabertura, @caixadatafecha, @caixasaldoinicial, @caixatroco, @caixatotalen, @caixatotalsa, @codusu, @codpessoa)";
 
                 }
 

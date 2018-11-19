@@ -36,9 +36,6 @@
             this.labelPago = new System.Windows.Forms.Label();
             this.labelEmAberto = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ttbTotalPago = new System.Windows.Forms.TextBox();
-            this.ttbTotalVencido = new System.Windows.Forms.TextBox();
-            this.ttbTotalPagar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gbOrdenacao = new System.Windows.Forms.GroupBox();
@@ -56,6 +53,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDataDe = new System.Windows.Forms.DateTimePicker();
             this.dgvServico = new System.Windows.Forms.DataGridView();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.btnEstornar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
             this.codContasPagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codPessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pes_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,10 +65,9 @@
             this.contRec_dataPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contRec_valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contRec_obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.btnEstornar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnQuitar = new System.Windows.Forms.Button();
+            this.ttbTotalPagar = new System.Windows.Forms.MaskedTextBox();
+            this.ttbTotalVencido = new System.Windows.Forms.MaskedTextBox();
+            this.ttbTotalPago = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -109,7 +109,7 @@
             // 
             // btnListar
             // 
-            this.btnListar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnListar.BackColor = System.Drawing.Color.White;
             this.btnListar.Location = new System.Drawing.Point(614, 71);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(165, 40);
@@ -120,14 +120,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ttbTotalPago);
             this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.ttbTotalVencido);
             this.groupBox1.Controls.Add(this.labelVencido);
+            this.groupBox1.Controls.Add(this.ttbTotalPagar);
             this.groupBox1.Controls.Add(this.labelPago);
             this.groupBox1.Controls.Add(this.labelEmAberto);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.ttbTotalPago);
-            this.groupBox1.Controls.Add(this.ttbTotalVencido);
-            this.groupBox1.Controls.Add(this.ttbTotalPagar);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 315);
@@ -189,44 +189,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(574, 16);
+            this.label4.Location = new System.Drawing.Point(537, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 40;
             this.label4.Text = "Total pago:";
             // 
-            // ttbTotalPago
-            // 
-            this.ttbTotalPago.Enabled = false;
-            this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
-            this.ttbTotalPago.Location = new System.Drawing.Point(672, 32);
-            this.ttbTotalPago.Name = "ttbTotalPago";
-            this.ttbTotalPago.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalPago.TabIndex = 43;
-            // 
-            // ttbTotalVencido
-            // 
-            this.ttbTotalVencido.Enabled = false;
-            this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
-            this.ttbTotalVencido.Location = new System.Drawing.Point(577, 32);
-            this.ttbTotalVencido.Name = "ttbTotalVencido";
-            this.ttbTotalVencido.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalVencido.TabIndex = 44;
-            // 
-            // ttbTotalPagar
-            // 
-            this.ttbTotalPagar.Enabled = false;
-            this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
-            this.ttbTotalPagar.Location = new System.Drawing.Point(482, 32);
-            this.ttbTotalPagar.Name = "ttbTotalPagar";
-            this.ttbTotalPagar.Size = new System.Drawing.Size(89, 20);
-            this.ttbTotalPagar.TabIndex = 42;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(669, 16);
+            this.label5.Location = new System.Drawing.Point(653, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 41;
@@ -236,7 +209,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(479, 16);
+            this.label3.Location = new System.Drawing.Point(417, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 39;
@@ -417,6 +390,50 @@
             this.dgvServico.Size = new System.Drawing.Size(767, 192);
             this.dgvServico.TabIndex = 12;
             // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.BackColor = System.Drawing.Color.White;
+            this.BtnCancelar.Location = new System.Drawing.Point(204, 12);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(90, 46);
+            this.BtnCancelar.TabIndex = 13;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // btnEstornar
+            // 
+            this.btnEstornar.BackColor = System.Drawing.Color.White;
+            this.btnEstornar.Location = new System.Drawing.Point(108, 12);
+            this.btnEstornar.Name = "btnEstornar";
+            this.btnEstornar.Size = new System.Drawing.Size(90, 46);
+            this.btnEstornar.TabIndex = 12;
+            this.btnEstornar.Text = "Estornar";
+            this.btnEstornar.UseVisualStyleBackColor = false;
+            this.btnEstornar.Click += new System.EventHandler(this.btnEstornar_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(704, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 46);
+            this.btnSair.TabIndex = 11;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.BackColor = System.Drawing.Color.White;
+            this.btnQuitar.Location = new System.Drawing.Point(12, 12);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(90, 46);
+            this.btnQuitar.TabIndex = 6;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
             // codContasPagar
             // 
             this.codContasPagar.DataPropertyName = "codContaReceber";
@@ -437,77 +454,73 @@
             // 
             // pes_nome
             // 
+            this.pes_nome.HeaderText = "pes_nome";
             this.pes_nome.Name = "pes_nome";
             this.pes_nome.ReadOnly = true;
             // 
             // contRec_descricao
             // 
+            this.contRec_descricao.HeaderText = "contRec_descricao";
             this.contRec_descricao.Name = "contRec_descricao";
             this.contRec_descricao.ReadOnly = true;
             // 
             // contRec_dataVencimento
             // 
+            this.contRec_dataVencimento.HeaderText = "contRec_dataVencimento";
             this.contRec_dataVencimento.Name = "contRec_dataVencimento";
             this.contRec_dataVencimento.ReadOnly = true;
             // 
             // contRec_dataPagamento
             // 
+            this.contRec_dataPagamento.HeaderText = "contRec_dataPagamento";
             this.contRec_dataPagamento.Name = "contRec_dataPagamento";
             this.contRec_dataPagamento.ReadOnly = true;
             // 
             // contRec_valorTotal
             // 
+            this.contRec_valorTotal.DataPropertyName = "contRec_valorTotal";
+            this.contRec_valorTotal.HeaderText = "contRec_valorTotal";
             this.contRec_valorTotal.Name = "contRec_valorTotal";
             this.contRec_valorTotal.ReadOnly = true;
             // 
             // contRec_obs
             // 
+            this.contRec_obs.HeaderText = "contRec_obs";
             this.contRec_obs.Name = "contRec_obs";
             this.contRec_obs.ReadOnly = true;
             // 
-            // BtnCancelar
+            // ttbTotalPagar
             // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnCancelar.Location = new System.Drawing.Point(204, 12);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(90, 46);
-            this.BtnCancelar.TabIndex = 13;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
+            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 32);
+            this.ttbTotalPagar.Name = "ttbTotalPagar";
+            this.ttbTotalPagar.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPagar.TabIndex = 49;
+            this.ttbTotalPagar.Enter += new System.EventHandler(this.ttbTotalPagar_Enter_1);
+            this.ttbTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPagar_KeyPress);
+            this.ttbTotalPagar.Leave += new System.EventHandler(this.ttbTotalPagar_Leave);
             // 
-            // btnEstornar
+            // ttbTotalVencido
             // 
-            this.btnEstornar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEstornar.Location = new System.Drawing.Point(108, 12);
-            this.btnEstornar.Name = "btnEstornar";
-            this.btnEstornar.Size = new System.Drawing.Size(90, 46);
-            this.btnEstornar.TabIndex = 12;
-            this.btnEstornar.Text = "Estornar";
-            this.btnEstornar.UseVisualStyleBackColor = false;
-            this.btnEstornar.Click += new System.EventHandler(this.btnEstornar_Click);
+            this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
+            this.ttbTotalVencido.Location = new System.Drawing.Point(656, 32);
+            this.ttbTotalVencido.Name = "ttbTotalVencido";
+            this.ttbTotalVencido.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalVencido.TabIndex = 50;
+            this.ttbTotalVencido.Enter += new System.EventHandler(this.ttbTotalVencido_Enter);
+            this.ttbTotalVencido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalVencido_KeyPress);
+            this.ttbTotalVencido.Leave += new System.EventHandler(this.ttbTotalVencido_Leave);
             // 
-            // btnSair
+            // ttbTotalPago
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(704, 12);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 46);
-            this.btnSair.TabIndex = 11;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnQuitar
-            // 
-            this.btnQuitar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnQuitar.Location = new System.Drawing.Point(12, 12);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(90, 46);
-            this.btnQuitar.TabIndex = 6;
-            this.btnQuitar.Text = "Quitar";
-            this.btnQuitar.UseVisualStyleBackColor = false;
-            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
+            this.ttbTotalPago.Location = new System.Drawing.Point(540, 32);
+            this.ttbTotalPago.Name = "ttbTotalPago";
+            this.ttbTotalPago.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPago.TabIndex = 51;
+            this.ttbTotalPago.Enter += new System.EventHandler(this.ttbTotalPago_Enter);
+            this.ttbTotalPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPago_KeyPress);
+            this.ttbTotalPago.Leave += new System.EventHandler(this.ttbTotalPago_Leave);
             // 
             // QuitarContasReceber
             // 
@@ -539,9 +552,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox ttbTotalVencido;
-        private System.Windows.Forms.TextBox ttbTotalPago;
-        private System.Windows.Forms.TextBox ttbTotalPagar;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label3;
@@ -563,6 +573,13 @@
         private System.Windows.Forms.TextBox ttbNomeCliente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbOrdenacao;
+        public System.Windows.Forms.ComboBox cbbOrdenarPesquisa;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelVencido;
+        private System.Windows.Forms.Label labelPago;
+        private System.Windows.Forms.Label labelEmAberto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codContasPagar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codPessoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn pes_nome;
@@ -571,12 +588,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contRec_dataPagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn contRec_valorTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn contRec_obs;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox gbOrdenacao;
-        public System.Windows.Forms.ComboBox cbbOrdenarPesquisa;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label labelVencido;
-        private System.Windows.Forms.Label labelPago;
-        private System.Windows.Forms.Label labelEmAberto;
+        private System.Windows.Forms.MaskedTextBox ttbTotalPago;
+        private System.Windows.Forms.MaskedTextBox ttbTotalVencido;
+        private System.Windows.Forms.MaskedTextBox ttbTotalPagar;
     }
 }

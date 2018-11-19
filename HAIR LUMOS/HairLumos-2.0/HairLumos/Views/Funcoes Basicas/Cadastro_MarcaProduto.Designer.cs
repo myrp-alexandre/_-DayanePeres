@@ -82,7 +82,7 @@
             // 
             // btnSelecionar
             // 
-            this.btnSelecionar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSelecionar.BackColor = System.Drawing.Color.White;
             this.btnSelecionar.Location = new System.Drawing.Point(496, 175);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(72, 27);
@@ -160,7 +160,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(345, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 38);
@@ -171,7 +171,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(491, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 38);
@@ -182,7 +182,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluir.BackColor = System.Drawing.Color.White;
             this.btnExcluir.Location = new System.Drawing.Point(264, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 38);
@@ -193,7 +193,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterar.BackColor = System.Drawing.Color.White;
             this.btnAlterar.Location = new System.Drawing.Point(183, 12);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 38);
@@ -204,7 +204,7 @@
             // 
             // btnGravar
             // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGravar.BackColor = System.Drawing.Color.White;
             this.btnGravar.Location = new System.Drawing.Point(102, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 38);
@@ -215,7 +215,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.BackColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(21, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 38);

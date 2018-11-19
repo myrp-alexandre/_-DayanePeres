@@ -445,8 +445,8 @@ namespace HairLumos.Views
 
 
                         //FALTA VERIFICAR A DATA
-                        if (Convert.ToDateTime(dr["pac_datafim"].ToString()) == DateTime.MaxValue ||
-                                Convert.ToDateTime(dr["pac_datafim"].ToString()) == DateTime.MinValue)
+                        if (Convert.ToDateTime(dr["pac_datafim"].ToString()) != DateTime.MaxValue ||
+                                Convert.ToDateTime(dr["pac_datafim"].ToString()) != DateTime.MinValue)
                         {
                             dtpDataFim.Enabled = false;
                         }

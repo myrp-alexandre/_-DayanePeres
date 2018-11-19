@@ -16,6 +16,9 @@ namespace HairLumos.Views
         private int intCodigoProduto = 0;
         private int _indiceLinha = -1; //Indice da linha do DataGridView(começa de 0)
 
+        private decimal decPrecoCompra;
+        private decimal decPrecoVenda;
+
         public Cadastro_Produto()
         {
             InitializeComponent();
@@ -265,6 +268,8 @@ namespace HairLumos.Views
             }
             else
                 dgvProduto.Rows.Clear();
+
+            DGVMoeda();
         }
 
         public void selecionaProduto()
@@ -292,11 +297,19 @@ namespace HairLumos.Views
             }
         }
 
+        // Deixa campos de Valores formatados na grid
+        private void DGVMoeda()
+        {
+            this.dgvProduto.Columns["prod_precocusto"].DefaultCellStyle.Format = "c";
+            this.dgvProduto.Columns["prod_precovenda"].DefaultCellStyle.Format = "c";
+        }
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             _btnNovo();
         }
 
+     
         private void ttbCancelar_Click(object sender, EventArgs e)
         {
             _limpaCampos();
@@ -332,6 +345,8 @@ namespace HairLumos.Views
 
                
                 double custo = 0; // = Convert.ToDouble(mskPrecoCompra.Text);
+                //mskPrecoCompra.Text.Split('R');
+                //mskPrecoCompra.Text.Split('$');
                 double.TryParse(mskPrecoCompra.Text, out custo);
 
                 double venda = 0; //Convert.ToDouble(mskPrecoVenda.Text);
@@ -431,6 +446,44 @@ namespace HairLumos.Views
             selecionaProduto();
         }
 
-        
+        private void mskPrecoCompra_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void mskPrecoCompra_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskPrecoCompra);
+        }
+
+        private void mskPrecoCompra_Leave(object sender, EventArgs e)
+        {
+            mskPrecoCompra.Text = Convert.ToDouble(mskPrecoCompra.Text).ToString("###,###,##0.00");
+
+        }
+
+        private void mskPrecoVenda_Leave(object sender, EventArgs e)
+        {
+            mskPrecoVenda.Text = Convert.ToDouble(mskPrecoVenda.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskPrecoCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskPrecoCompra, e);
+        }
+
+        private void mskPrecoVenda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskPrecoVenda, e);
+        }
+
+        private void mskPrecoVenda_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskPrecoVenda);
+        }
     }
 }

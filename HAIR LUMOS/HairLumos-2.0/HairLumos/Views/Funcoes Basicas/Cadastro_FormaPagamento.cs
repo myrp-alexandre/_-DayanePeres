@@ -206,7 +206,7 @@ namespace HairLumos.Views
 
             if (intCod > 0)
             {
-                if (MessageBox.Show("Confirma exclusão da Marca?", "Categoria", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Confirma exclusão da Forma de Pagamento?", "Forma de Pagamento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     bool blnExcluiu = _ctlFormaPag.excluirFormaPagamento(intCod);
                     if (blnExcluiu)

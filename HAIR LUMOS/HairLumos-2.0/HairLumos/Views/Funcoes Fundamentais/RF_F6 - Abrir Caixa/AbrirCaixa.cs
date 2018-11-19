@@ -40,7 +40,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
             else
                 troco = Convert.ToDouble(mskTroco.Text.ToString());
 
-            if (mskAddValor.Text != null || mskAddValor.Text != "")
+            if (!string.IsNullOrWhiteSpace(mskAddValor.Text))
                addValor = Convert.ToDouble(mskAddValor.Text.ToString());
 
             if (erro == null || erro=="") {
