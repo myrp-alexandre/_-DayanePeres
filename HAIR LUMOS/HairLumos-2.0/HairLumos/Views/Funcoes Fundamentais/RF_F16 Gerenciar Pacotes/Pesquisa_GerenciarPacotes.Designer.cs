@@ -178,7 +178,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Pesquisa_GerenciarPacotes";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - PESQUISA PACOTES";
             this.Load += new System.EventHandler(this.Pesquisa_GerenciarPacotes_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

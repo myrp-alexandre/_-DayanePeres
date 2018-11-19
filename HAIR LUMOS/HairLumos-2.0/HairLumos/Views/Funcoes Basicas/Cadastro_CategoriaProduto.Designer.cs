@@ -36,21 +36,23 @@
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
-            this.ttbObservacao = new System.Windows.Forms.TextBox();
-            this.ttbCategoria = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ttbObservacao = new System.Windows.Forms.TextBox();
+            this.ttbCategoria = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatProduto)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -62,17 +64,15 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.dgvCatProduto);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbCategoria);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
@@ -151,40 +151,6 @@
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 7;
             // 
-            // ttbObservacao
-            // 
-            this.ttbObservacao.Location = new System.Drawing.Point(21, 147);
-            this.ttbObservacao.MaxLength = 200;
-            this.ttbObservacao.Name = "ttbObservacao";
-            this.ttbObservacao.Size = new System.Drawing.Size(547, 20);
-            this.ttbObservacao.TabIndex = 11;
-            // 
-            // ttbCategoria
-            // 
-            this.ttbCategoria.Location = new System.Drawing.Point(21, 81);
-            this.ttbCategoria.MaxLength = 100;
-            this.ttbCategoria.Name = "ttbCategoria";
-            this.ttbCategoria.Size = new System.Drawing.Size(468, 20);
-            this.ttbCategoria.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Observação";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Categoria";
-            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -251,18 +217,64 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ttbObservacao);
+            this.groupBox1.Controls.Add(this.ttbCategoria);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(21, 53);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(545, 156);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            // 
+            // ttbObservacao
+            // 
+            this.ttbObservacao.Location = new System.Drawing.Point(6, 109);
+            this.ttbObservacao.MaxLength = 200;
+            this.ttbObservacao.Name = "ttbObservacao";
+            this.ttbObservacao.Size = new System.Drawing.Size(518, 20);
+            this.ttbObservacao.TabIndex = 15;
+            // 
+            // ttbCategoria
+            // 
+            this.ttbCategoria.Location = new System.Drawing.Point(6, 43);
+            this.ttbCategoria.MaxLength = 100;
+            this.ttbCategoria.Name = "ttbCategoria";
+            this.ttbCategoria.Size = new System.Drawing.Size(518, 20);
+            this.ttbCategoria.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Observação";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Categoria";
+            // 
             // Cadastro_CategoriaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(607, 491);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.MinimizeBox = false;
             this.Name = "Cadastro_CategoriaProduto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CADASTRO DE CATEGORIA";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "H.L - CADASTRO DE CATEGORIA";
             this.Load += new System.EventHandler(this.Cadastro_CategoriaProduto_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -270,6 +282,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatProduto)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -285,14 +299,15 @@
         private System.Windows.Forms.DataGridView dgvCatProduto;
         public System.Windows.Forms.Label Código;
         public System.Windows.Forms.TextBox ttbCodigo;
-        public System.Windows.Forms.TextBox ttbObservacao;
-        public System.Windows.Forms.TextBox ttbCategoria;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_obsCategoria;
         public System.Windows.Forms.Button btnSelecionar;
         public System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TextBox ttbObservacao;
+        public System.Windows.Forms.TextBox ttbCategoria;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
     }
 }

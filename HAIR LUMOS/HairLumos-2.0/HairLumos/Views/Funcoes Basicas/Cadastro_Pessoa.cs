@@ -23,7 +23,7 @@ namespace HairLumos.Views
 
             _inicializa(false);
             carregaEstado();
-            
+            ttbCodigo.Enabled = false;
         }
 
         private void _inicializa(bool estado)
@@ -32,13 +32,13 @@ namespace HairLumos.Views
 
             btnNovo.Enabled = !estado;
             btnPesquisar.Enabled = !estado;
-            btnAlterar.Enabled = estado;
+            btnAlterar.Enabled = !estado;
             btnGravar.Enabled = estado;
             btnExcluir.Enabled = estado;
             btnCancelar.Enabled = estado;
             btnSair.Enabled = !estado;
 
-            ttbCodigo.Enabled = !estado;
+            //ttbCodigo.Enabled = !estado;
             rbAtivo.Enabled = estado;
             rbInativo.Enabled = estado;
             rbFisica.Enabled = estado;
@@ -149,6 +149,7 @@ namespace HairLumos.Views
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            _inicializa(false);
             int cod = 0;
 
             Views.Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa pesquisa_Pessoa = new Funcoes_Basicas.Pesquisas.Pesquisa_Pessoa();
@@ -161,6 +162,7 @@ namespace HairLumos.Views
                 {
                     DataRow drPessoa = dtPessoa.Rows[0];
                     ttbCodigo.Text = drPessoa["codpessoa"].ToString();
+
                     if (drPessoa["pes_tipopessoa"].ToString().Equals("Física"))
                     {
                         rbFisica.Checked = true;
@@ -238,6 +240,8 @@ namespace HairLumos.Views
                     ttbObservação.Text = drPessoa["pes_obs"].ToString();
                     ttbEmail.Text = drPessoa["pes_email"].ToString();
                     btnAlterar.Enabled = true;
+                    btnExcluir.Enabled = true;
+                    btnNovo.Enabled = false;
                 }
             }
 
@@ -405,6 +409,25 @@ namespace HairLumos.Views
         {
             if(!String.IsNullOrEmpty(ttbCodigo.Text))
                 _inicializa(true);
+
+            if (rbFisica.Checked)
+            {
+                ttbRazao.Enabled = false;
+                mskCNPJ.Enabled = false;
+                ttbRg.Enabled = true;
+                mskCPF.Enabled = true;
+                dtpDataNascimento.Enabled = true;
+                rbJuridica.Enabled = false;
+            }
+            else
+            {
+                ttbRg.Enabled = false;
+                mskCPF.Enabled = false;
+                dtpDataNascimento.Enabled = false;
+                ttbRazao.Enabled = true;
+                mskCNPJ.Enabled = true;
+                rbFisica.Enabled = false;
+            }
         }
     }
 }

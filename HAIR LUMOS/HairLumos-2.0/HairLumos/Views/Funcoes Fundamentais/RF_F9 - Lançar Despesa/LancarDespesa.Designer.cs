@@ -79,6 +79,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
@@ -108,7 +109,7 @@
             // dtpVencimento
             // 
             this.dtpVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVencimento.Location = new System.Drawing.Point(102, 113);
+            this.dtpVencimento.Location = new System.Drawing.Point(119, 113);
             this.dtpVencimento.Name = "dtpVencimento";
             this.dtpVencimento.Size = new System.Drawing.Size(113, 20);
             this.dtpVencimento.TabIndex = 22;
@@ -116,7 +117,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 119);
+            this.label3.Location = new System.Drawing.Point(18, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 21;
@@ -158,7 +159,7 @@
             // cbbDespesa
             // 
             this.cbbDespesa.FormattingEnabled = true;
-            this.cbbDespesa.Location = new System.Drawing.Point(77, 62);
+            this.cbbDespesa.Location = new System.Drawing.Point(77, 77);
             this.cbbDespesa.Name = "cbbDespesa";
             this.cbbDespesa.Size = new System.Drawing.Size(322, 21);
             this.cbbDespesa.TabIndex = 18;
@@ -191,7 +192,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 186);
+            this.label2.Location = new System.Drawing.Point(7, 183);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 10;
@@ -200,7 +201,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 65);
+            this.label1.Location = new System.Drawing.Point(18, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 8;
@@ -208,7 +209,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(358, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(81, 44);
@@ -219,7 +220,7 @@
             // 
             // btnGravar
             // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGravar.BackColor = System.Drawing.Color.White;
             this.btnGravar.Location = new System.Drawing.Point(97, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(81, 44);
@@ -230,7 +231,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluir.BackColor = System.Drawing.Color.White;
             this.btnExcluir.Location = new System.Drawing.Point(184, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(81, 44);
@@ -240,7 +241,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisar.BackColor = System.Drawing.Color.White;
             this.btnPesquisar.Location = new System.Drawing.Point(271, 12);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(81, 44);
@@ -250,7 +251,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(489, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(77, 44);
@@ -261,7 +262,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.BackColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(10, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(81, 44);
@@ -274,13 +275,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(606, 366);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "LancarDespesa";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "LANÇAR DESPESAS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "H.L - LANÇAR DESPESAS";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

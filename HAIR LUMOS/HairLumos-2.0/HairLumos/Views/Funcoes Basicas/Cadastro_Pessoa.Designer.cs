@@ -702,7 +702,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Cadastro_Pessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CADASTRO DE PESSOAS";
+            this.Text = "H.L - CADASTRO DE PESSOAS";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -48,5 +48,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento
                 }
             }
         }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

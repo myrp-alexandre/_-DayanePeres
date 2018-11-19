@@ -32,16 +32,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button8 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExcluirItem = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.dtpListaProdutosServicos = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,7 +55,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -75,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpListaProdutosServicos)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -120,19 +122,32 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Serviço/Produto";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // dataGridView2
             // 
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(11, 87);
+            this.dataGridView2.Location = new System.Drawing.Point(13, 83);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(629, 52);
+            this.dataGridView2.Size = new System.Drawing.Size(629, 60);
             this.dataGridView2.TabIndex = 37;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(159, 73);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(116, 35);
+            this.button8.TabIndex = 47;
+            this.button8.Text = "Sair";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(645, 118);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 25);
@@ -140,9 +155,20 @@
             this.button2.Text = "Excluir Produto";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(6, 73);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(121, 35);
+            this.button7.TabIndex = 46;
+            this.button7.Text = "Cancelar";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(645, 83);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 25);
@@ -150,9 +176,20 @@
             this.button3.Text = "Alterar Produto";
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(159, 23);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(116, 38);
+            this.button6.TabIndex = 45;
+            this.button6.Text = "PESQUISAR VENDA";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(645, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 25);
@@ -162,13 +199,24 @@
             // 
             // btnExcluirItem
             // 
-            this.btnExcluirItem.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluirItem.BackColor = System.Drawing.Color.White;
             this.btnExcluirItem.Location = new System.Drawing.Point(646, 14);
             this.btnExcluirItem.Name = "btnExcluirItem";
             this.btnExcluirItem.Size = new System.Drawing.Size(115, 25);
             this.btnExcluirItem.TabIndex = 33;
             this.btnExcluirItem.Text = "Alterar Serviço";
             this.btnExcluirItem.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(6, 23);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(121, 38);
+            this.btnCancelar.TabIndex = 43;
+            this.btnCancelar.Text = "FECHAR VENDA";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dtpListaProdutosServicos
             // 
@@ -191,11 +239,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button8);
-            this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.button6);
+            this.groupBox4.Controls.Add(this.groupBox3);
             this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.btnCancelar);
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.comboBox1);
@@ -213,36 +258,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Finalizar Venda";
             // 
-            // button8
+            // groupBox3
             // 
-            this.button8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.Location = new System.Drawing.Point(633, 309);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(131, 35);
-            this.button8.TabIndex = 47;
-            this.button8.Text = "Sair";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button7.Location = new System.Drawing.Point(468, 309);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(133, 35);
-            this.button7.TabIndex = 46;
-            this.button7.Text = "Cancelar";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.Location = new System.Drawing.Point(633, 259);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 38);
-            this.button6.TabIndex = 45;
-            this.button6.Text = "PESQUISAR VENDA";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.groupBox3.BackColor = System.Drawing.Color.Goldenrod;
+            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.btnCancelar);
+            this.groupBox3.Controls.Add(this.button6);
+            this.groupBox3.Controls.Add(this.button7);
+            this.groupBox3.Location = new System.Drawing.Point(468, 247);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(296, 114);
+            this.groupBox3.TabIndex = 48;
+            this.groupBox3.TabStop = false;
             // 
             // groupBox6
             // 
@@ -346,30 +373,20 @@
             this.label7.TabIndex = 43;
             this.label7.Text = "SUBTOTAL";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(468, 259);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(133, 38);
-            this.btnCancelar.TabIndex = 43;
-            this.btnCancelar.Text = "FECHAR VENDA";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.button5);
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Location = new System.Drawing.Point(11, 166);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(439, 178);
+            this.groupBox5.Size = new System.Drawing.Size(439, 195);
             this.groupBox5.TabIndex = 32;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Formas de Pagamentos Adicionadas";
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button5.BackColor = System.Drawing.Color.White;
             this.button5.Location = new System.Drawing.Point(341, 76);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(92, 29);
@@ -388,7 +405,7 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Location = new System.Drawing.Point(223, 123);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(129, 29);
@@ -507,6 +524,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpListaProdutosServicos)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -560,5 +578,6 @@
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button btnExcluirItem;
         private System.Windows.Forms.DataGridView dtpListaProdutosServicos;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

@@ -32,6 +32,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvContas = new System.Windows.Forms.DataGridView();
+            this.CodParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,9 +50,6 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.CodParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,6 +75,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnFinalizar);
@@ -120,6 +121,29 @@
             this.dgvContas.Size = new System.Drawing.Size(373, 162);
             this.dgvContas.TabIndex = 34;
             // 
+            // CodParcela
+            // 
+            this.CodParcela.DataPropertyName = "CodParcela";
+            this.CodParcela.HeaderText = "Parcela";
+            this.CodParcela.Name = "CodParcela";
+            this.CodParcela.ReadOnly = true;
+            // 
+            // ValorParcela
+            // 
+            this.ValorParcela.DataPropertyName = "ValorParcela";
+            this.ValorParcela.HeaderText = "Valor Parcela (R$)";
+            this.ValorParcela.Name = "ValorParcela";
+            this.ValorParcela.ReadOnly = true;
+            this.ValorParcela.Width = 125;
+            // 
+            // DataVencimento
+            // 
+            this.DataVencimento.DataPropertyName = "DataVencimento";
+            this.DataVencimento.HeaderText = "Data Vencimento";
+            this.DataVencimento.Name = "DataVencimento";
+            this.DataVencimento.ReadOnly = true;
+            this.DataVencimento.Width = 125;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.ttbObservacao);
@@ -158,7 +182,7 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluir.BackColor = System.Drawing.Color.White;
             this.btnIncluir.Location = new System.Drawing.Point(319, 34);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(67, 27);
@@ -266,39 +290,16 @@
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // CodParcela
-            // 
-            this.CodParcela.DataPropertyName = "CodParcela";
-            this.CodParcela.HeaderText = "Parcela";
-            this.CodParcela.Name = "CodParcela";
-            this.CodParcela.ReadOnly = true;
-            // 
-            // ValorParcela
-            // 
-            this.ValorParcela.DataPropertyName = "ValorParcela";
-            this.ValorParcela.HeaderText = "Valor Parcela (R$)";
-            this.ValorParcela.Name = "ValorParcela";
-            this.ValorParcela.ReadOnly = true;
-            this.ValorParcela.Width = 125;
-            // 
-            // DataVencimento
-            // 
-            this.DataVencimento.DataPropertyName = "DataVencimento";
-            this.DataVencimento.HeaderText = "Data Vencimento";
-            this.DataVencimento.Name = "DataVencimento";
-            this.DataVencimento.ReadOnly = true;
-            this.DataVencimento.Width = 125;
-            // 
             // GerarContaPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(438, 404);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "GerarContaPagar";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HL - GERAR CONTAS A PAGAR";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

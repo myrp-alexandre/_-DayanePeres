@@ -227,5 +227,29 @@ namespace HairLumos
             Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda agenda = new Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda();
             agenda.ShowDialog();
         }
+
+        private void agendaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda agenda = new Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda();
+            agenda.ShowDialog();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.QuitarDespesa quitarDespesa = new Views.Funcoes_Fundamentais.QuitarDespesa();
+            quitarDespesa.ShowDialog();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitarContasReceber = new Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber();
+            quitarContasReceber.ShowDialog();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao.GerenciarComissao gerenciarComissao = new Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao.GerenciarComissao();
+            gerenciarComissao.ShowDialog();
+        }
     }
 }

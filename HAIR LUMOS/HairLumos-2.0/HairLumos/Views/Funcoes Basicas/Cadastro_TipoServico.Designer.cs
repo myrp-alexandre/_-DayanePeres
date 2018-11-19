@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.mskValor = new System.Windows.Forms.MaskedTextBox();
-            this.mskTempoServiço = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.dgvServico = new System.Windows.Forms.DataGridView();
             this.codtiposervico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,21 +37,27 @@
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.Código = new System.Windows.Forms.Label();
             this.ttbCodigo = new System.Windows.Forms.TextBox();
-            this.ttbObservacao = new System.Windows.Forms.TextBox();
-            this.ttbServico = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mskValor = new System.Windows.Forms.MaskedTextBox();
+            this.mskTempoServiço = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ttbObservacao = new System.Windows.Forms.TextBox();
+            this.ttbServico = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -67,21 +69,15 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.mskValor);
-            this.splitContainer1.Panel1.Controls.Add(this.mskTempoServiço);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelecionar);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
-            this.splitContainer1.Panel1.Controls.Add(this.ttbServico);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
@@ -91,40 +87,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(584, 467);
             this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // mskValor
-            // 
-            this.mskValor.Location = new System.Drawing.Point(466, 76);
-            this.mskValor.Name = "mskValor";
-            this.mskValor.Size = new System.Drawing.Size(100, 20);
-            this.mskValor.TabIndex = 17;
-            // 
-            // mskTempoServiço
-            // 
-            this.mskTempoServiço.Location = new System.Drawing.Point(466, 147);
-            this.mskTempoServiço.Mask = "00:00";
-            this.mskTempoServiço.Name = "mskTempoServiço";
-            this.mskTempoServiço.Size = new System.Drawing.Size(100, 20);
-            this.mskTempoServiço.TabIndex = 16;
-            this.mskTempoServiço.ValidatingType = typeof(System.DateTime);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(381, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Tempo Serviço*";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(402, 84);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Valor (R$)*";
             // 
             // dgvServico
             // 
@@ -202,41 +164,6 @@
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 7;
             // 
-            // ttbObservacao
-            // 
-            this.ttbObservacao.Location = new System.Drawing.Point(21, 147);
-            this.ttbObservacao.MaxLength = 200;
-            this.ttbObservacao.Multiline = true;
-            this.ttbObservacao.Name = "ttbObservacao";
-            this.ttbObservacao.Size = new System.Drawing.Size(349, 42);
-            this.ttbObservacao.TabIndex = 11;
-            // 
-            // ttbServico
-            // 
-            this.ttbServico.Location = new System.Drawing.Point(21, 81);
-            this.ttbServico.MaxLength = 100;
-            this.ttbServico.Name = "ttbServico";
-            this.ttbServico.Size = new System.Drawing.Size(349, 20);
-            this.ttbServico.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 131);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Observação";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Serviço*";
-            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -303,17 +230,103 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.mskValor);
+            this.groupBox1.Controls.Add(this.mskTempoServiço);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.ttbObservacao);
+            this.groupBox1.Controls.Add(this.ttbServico);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(21, 65);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(547, 151);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informações do Serviço";
+            // 
+            // mskValor
+            // 
+            this.mskValor.Location = new System.Drawing.Point(447, 24);
+            this.mskValor.Name = "mskValor";
+            this.mskValor.Size = new System.Drawing.Size(94, 20);
+            this.mskValor.TabIndex = 25;
+            // 
+            // mskTempoServiço
+            // 
+            this.mskTempoServiço.Location = new System.Drawing.Point(447, 95);
+            this.mskTempoServiço.Mask = "00:00";
+            this.mskTempoServiço.Name = "mskTempoServiço";
+            this.mskTempoServiço.Size = new System.Drawing.Size(94, 20);
+            this.mskTempoServiço.TabIndex = 24;
+            this.mskTempoServiço.ValidatingType = typeof(System.DateTime);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(362, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Tempo Serviço*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(383, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Valor (R$)*";
+            // 
+            // ttbObservacao
+            // 
+            this.ttbObservacao.Location = new System.Drawing.Point(18, 95);
+            this.ttbObservacao.MaxLength = 200;
+            this.ttbObservacao.Multiline = true;
+            this.ttbObservacao.Name = "ttbObservacao";
+            this.ttbObservacao.Size = new System.Drawing.Size(327, 42);
+            this.ttbObservacao.TabIndex = 21;
+            // 
+            // ttbServico
+            // 
+            this.ttbServico.Location = new System.Drawing.Point(18, 29);
+            this.ttbServico.MaxLength = 100;
+            this.ttbServico.Name = "ttbServico";
+            this.ttbServico.Size = new System.Drawing.Size(327, 20);
+            this.ttbServico.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Observação";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Serviço*";
+            // 
             // Cadastro_TipoServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(607, 491);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Cadastro_TipoServico";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CADASTRO TIPO SERVIÇO ";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "H.L - CADASTRO TIPO SERVIÇO ";
             this.Load += new System.EventHandler(this.Cadastro_Servico_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -321,6 +334,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -328,27 +343,28 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        public System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvServico;
         public System.Windows.Forms.Button btnSelecionar;
         public System.Windows.Forms.Label Código;
         public System.Windows.Forms.TextBox ttbCodigo;
-        public System.Windows.Forms.TextBox ttbObservacao;
-        public System.Windows.Forms.TextBox ttbServico;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
         public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.MaskedTextBox mskTempoServiço;
-        public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox mskValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn codtiposervico;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_velor;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_temposervico;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MaskedTextBox mskValor;
+        private System.Windows.Forms.MaskedTextBox mskTempoServiço;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox ttbObservacao;
+        public System.Windows.Forms.TextBox ttbServico;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
     }
 }

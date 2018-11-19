@@ -84,6 +84,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnFecharVenda);
             this.splitContainer1.Panel2.Controls.Add(this.btnPesquisar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
@@ -136,7 +137,7 @@
             // 
             // btnExcluirItem
             // 
-            this.btnExcluirItem.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluirItem.BackColor = System.Drawing.Color.White;
             this.btnExcluirItem.Location = new System.Drawing.Point(616, 33);
             this.btnExcluirItem.Name = "btnExcluirItem";
             this.btnExcluirItem.Size = new System.Drawing.Size(78, 29);
@@ -203,7 +204,7 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluir.BackColor = System.Drawing.Color.White;
             this.btnIncluir.Location = new System.Drawing.Point(469, 53);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(78, 29);
@@ -246,7 +247,7 @@
             // 
             // btnPesquisarProduto
             // 
-            this.btnPesquisarProduto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisarProduto.BackColor = System.Drawing.Color.White;
             this.btnPesquisarProduto.Location = new System.Drawing.Point(589, 10);
             this.btnPesquisarProduto.Name = "btnPesquisarProduto";
             this.btnPesquisarProduto.Size = new System.Drawing.Size(105, 36);
@@ -304,7 +305,7 @@
             // 
             // btnPesquisarCliente
             // 
-            this.btnPesquisarCliente.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisarCliente.BackColor = System.Drawing.Color.White;
             this.btnPesquisarCliente.Location = new System.Drawing.Point(598, 44);
             this.btnPesquisarCliente.Name = "btnPesquisarCliente";
             this.btnPesquisarCliente.Size = new System.Drawing.Size(105, 36);
@@ -332,7 +333,7 @@
             // 
             // btnFecharVenda
             // 
-            this.btnFecharVenda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnFecharVenda.BackColor = System.Drawing.Color.White;
             this.btnFecharVenda.Location = new System.Drawing.Point(396, 9);
             this.btnFecharVenda.Name = "btnFecharVenda";
             this.btnFecharVenda.Size = new System.Drawing.Size(222, 38);
@@ -343,7 +344,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisar.BackColor = System.Drawing.Color.White;
             this.btnPesquisar.Location = new System.Drawing.Point(122, 9);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(90, 38);
@@ -354,7 +355,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(218, 9);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 38);
@@ -365,7 +366,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(692, 9);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(71, 38);
@@ -376,7 +377,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.BackColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(26, 9);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(90, 38);
@@ -389,12 +390,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(800, 497);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "VenderProduto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - VENDER PRODUTO";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

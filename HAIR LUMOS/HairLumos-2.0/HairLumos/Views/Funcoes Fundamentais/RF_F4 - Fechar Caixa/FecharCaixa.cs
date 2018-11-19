@@ -23,6 +23,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             carregaCbbPagamento();
             inicializa();
 
+            
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -193,6 +195,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             {
                 MessageBox.Show("Erro ao fechar o caixa!");
             }
+
+        }
+
+        private void FecharCaixa_Load(object sender, EventArgs e)
+        {
 
         }
     }

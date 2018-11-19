@@ -99,6 +99,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
@@ -196,7 +197,7 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluir.BackColor = System.Drawing.Color.White;
             this.btnIncluir.Location = new System.Drawing.Point(402, 35);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(80, 29);
@@ -334,7 +335,7 @@
             this.ttbUsuário.Location = new System.Drawing.Point(60, 43);
             this.ttbUsuário.MaxLength = 200;
             this.ttbUsuário.Name = "ttbUsuário";
-            this.ttbUsuário.Size = new System.Drawing.Size(166, 20);
+            this.ttbUsuário.Size = new System.Drawing.Size(516, 20);
             this.ttbUsuário.TabIndex = 33;
             // 
             // label5
@@ -399,12 +400,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(621, 522);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "FecharCaixa";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HL - FECHAMENTO DE CAIXA";
+            this.Load += new System.EventHandler(this.FecharCaixa_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

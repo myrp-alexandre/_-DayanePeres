@@ -155,7 +155,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Pesquisa_Pessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PESQUISA PESSOA";
+            this.Text = "H.L - PESQUISA PESSOA";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

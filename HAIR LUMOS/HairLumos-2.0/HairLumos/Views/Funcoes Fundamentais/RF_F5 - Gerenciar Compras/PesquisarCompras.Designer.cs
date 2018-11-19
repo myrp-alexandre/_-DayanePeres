@@ -154,13 +154,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(884, 478);
+            this.ControlBox = false;
             this.Controls.Add(this.dgvCompras);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.ttbDescricao);
             this.Name = "PesquisarCompras";
-            this.Text = "PesquisarCompras";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "H.L - PESQUISA DE COMPRAS";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

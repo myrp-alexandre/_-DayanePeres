@@ -102,6 +102,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnGerarCompra);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
@@ -202,7 +203,7 @@
             // 
             // btnExcluirCompra
             // 
-            this.btnExcluirCompra.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluirCompra.BackColor = System.Drawing.Color.White;
             this.btnExcluirCompra.Location = new System.Drawing.Point(800, 93);
             this.btnExcluirCompra.Name = "btnExcluirCompra";
             this.btnExcluirCompra.Size = new System.Drawing.Size(72, 37);
@@ -239,7 +240,7 @@
             // 
             // btnIncluirProduto
             // 
-            this.btnIncluirProduto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluirProduto.BackColor = System.Drawing.Color.White;
             this.btnIncluirProduto.Location = new System.Drawing.Point(767, 19);
             this.btnIncluirProduto.Name = "btnIncluirProduto";
             this.btnIncluirProduto.Size = new System.Drawing.Size(105, 37);
@@ -316,7 +317,7 @@
             // 
             // btnPesquisaProduto
             // 
-            this.btnPesquisaProduto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisaProduto.BackColor = System.Drawing.Color.White;
             this.btnPesquisaProduto.Location = new System.Drawing.Point(552, 57);
             this.btnPesquisaProduto.Name = "btnPesquisaProduto";
             this.btnPesquisaProduto.Size = new System.Drawing.Size(87, 31);
@@ -346,7 +347,7 @@
             // 
             // btnPesquisaFornecedor
             // 
-            this.btnPesquisaFornecedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisaFornecedor.BackColor = System.Drawing.Color.White;
             this.btnPesquisaFornecedor.Location = new System.Drawing.Point(812, 9);
             this.btnPesquisaFornecedor.Name = "btnPesquisaFornecedor";
             this.btnPesquisaFornecedor.Size = new System.Drawing.Size(87, 31);
@@ -411,7 +412,7 @@
             // 
             // btnGerarCompra
             // 
-            this.btnGerarCompra.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGerarCompra.BackColor = System.Drawing.Color.White;
             this.btnGerarCompra.Location = new System.Drawing.Point(519, 12);
             this.btnGerarCompra.Name = "btnGerarCompra";
             this.btnGerarCompra.Size = new System.Drawing.Size(221, 48);
@@ -422,7 +423,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(286, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 48);
@@ -433,7 +434,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(824, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 48);
@@ -444,7 +445,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluir.BackColor = System.Drawing.Color.White;
             this.btnExcluir.Location = new System.Drawing.Point(205, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 48);
@@ -455,7 +456,7 @@
             // 
             // btnLocalizar
             // 
-            this.btnLocalizar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLocalizar.BackColor = System.Drawing.Color.White;
             this.btnLocalizar.Location = new System.Drawing.Point(124, 12);
             this.btnLocalizar.Name = "btnLocalizar";
             this.btnLocalizar.Size = new System.Drawing.Size(75, 48);
@@ -466,7 +467,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.BackColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(43, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 48);
@@ -479,14 +480,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(940, 501);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "GerenciarCompra";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GERENCIAR COMPRA";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "H.L - GERENCIAR COMPRA";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

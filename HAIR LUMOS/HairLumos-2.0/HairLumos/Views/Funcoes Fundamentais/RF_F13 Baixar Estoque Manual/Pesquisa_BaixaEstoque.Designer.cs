@@ -154,9 +154,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(884, 478);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "Pesquisa_BaixaEstoque";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - PESQUISA DE BAIXA DE ESTOQUE MANUAL";
             this.Load += new System.EventHandler(this.Pesquisa_BaixaEstoque_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
