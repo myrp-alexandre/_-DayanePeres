@@ -30,9 +30,9 @@ namespace HairLumos.DAO
                 objConexao = new Conexao();
 
                 
-                //Fazer o Insert da pessoa
-                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao, \"contPag_valorParcela\", \"contPag_Parcela\")";
-                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao, @contPag_valorParcela, @contPag_Parcela);"; //SELECT MAX(codpessoa) FROM tbpessoa;";
+                
+                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao, \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\")";
+                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao, @contPag_valorParcela, @contPag_Parcela,@codContasPagar);";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -56,19 +56,14 @@ namespace HairLumos.DAO
                     objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", NpgsqlTypes.NpgsqlDbType.Integer, objContasPagar.Comissao.CodigoComissao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@contPag_valorParcela", objContasPagar.ValorParcela);
                 objConexao.SqlCmd.Parameters.AddWithValue("@contPag_Parcela", objContasPagar.CodParcela);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codContasPagar", objContasPagar.CodigoContasaPagar);
 
 
 
                 objConexao.iniciarTransacao();
                 objConexao.AutoConexao = false;
 
-                //int cod = (int)objConexao.executarScalar();
-                ////int cod = 0;
-                ////objConexao.executarComando();
-                //if (cod <= 0)
-                //{
-                //    return -1;
-                //}
+                
 
                 if (!objConexao.executarComando())
                     return -1;
@@ -115,6 +110,31 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public DataTable retornaContasPeriodo(DateTime datai, DateTime dataf)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
+                 + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\" desp_descricao FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento BETWEEN @datai AND @dataa;";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@datai", datai);
+                cmd.Parameters.AddWithValue("@dataa", dataf);
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return dt;
+        }
 
         public int GravarContasPagar(Entidades.ContasPagar contasPagar)
         {
@@ -163,6 +183,33 @@ namespace HairLumos.DAO
             {
                 return 0;
             }
+        }
+
+        public int max()
+        {
+            DataTable dt = new DataTable();
+            int cont = 0;
+
+            _sql = "SELECT max(\"codContasPagar\") FROM tbcontaspagar";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);
+                dr.Close();//Fecho o DataReader
+
+                DataRow dtr = dt.Rows[0];
+                cont = Convert.ToInt32(dtr[0].ToString());
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return cont;
         }
 
     }

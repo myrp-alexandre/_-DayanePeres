@@ -138,10 +138,21 @@ namespace HairLumos.Models
             _contas.FormaPagamento = _formaPagamento;
             _contas.Comissao = _comissao;
             _contas.Despesa = _despesa;
+            _contas.CodigoContasaPagar = contasPagar.CodigoContasaPagar;
 
             return ContasPagarDAO.GravaLancamentoDespesa(_contas);
 
             
+        }
+
+        public DataTable retornaPeriodo(DateTime datai, DateTime dataf)
+        {
+            return ContasPagarDAO.retornaContasPeriodo(datai, dataf);
+        }
+
+        public int retornaMax()
+        {
+            return ContasPagarDAO.max();
         }
 
     }

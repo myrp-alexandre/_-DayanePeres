@@ -36,22 +36,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.btnQuitarParcial = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.rdbReceber = new System.Windows.Forms.RadioButton();
-            this.rdbPagar = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvServico = new System.Windows.Forms.DataGridView();
+            this.dgvContas = new System.Windows.Forms.DataGridView();
             this.codContasPagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.despesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desp_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contpag_valortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdeParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contPag_Parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contpag_numparc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contPag_valorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contpag_valorpago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contpag_datapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contpag_datavencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,8 +61,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -85,7 +80,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvContas);
             // 
             // splitContainer1.Panel2
             // 
@@ -154,130 +149,86 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dtpFim);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpInicio);
             this.groupBox1.Controls.Add(this.btnQuitarParcial);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(21, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(758, 130);
+            this.groupBox1.Size = new System.Drawing.Size(758, 94);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
-            // dateTimePicker2
+            // dtpFim
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(20, 93);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker2.TabIndex = 38;
+            this.dtpFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFim.Location = new System.Drawing.Point(155, 37);
+            this.dtpFim.Name = "dtpFim";
+            this.dtpFim.Size = new System.Drawing.Size(97, 20);
+            this.dtpFim.TabIndex = 38;
+            this.dtpFim.ValueChanged += new System.EventHandler(this.dtpFim_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 76);
+            this.label2.Location = new System.Drawing.Point(152, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 37;
             this.label2.Text = "Até:";
             // 
-            // dateTimePicker1
+            // dtpInicio
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 35);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker1.TabIndex = 36;
+            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpInicio.Location = new System.Drawing.Point(21, 37);
+            this.dtpInicio.Name = "dtpInicio";
+            this.dtpInicio.Size = new System.Drawing.Size(97, 20);
+            this.dtpInicio.TabIndex = 36;
+            this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpInicio_ValueChanged);
             // 
             // btnQuitarParcial
             // 
             this.btnQuitarParcial.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnQuitarParcial.Location = new System.Drawing.Point(644, 52);
+            this.btnQuitarParcial.Location = new System.Drawing.Point(644, 32);
             this.btnQuitarParcial.Name = "btnQuitarParcial";
             this.btnQuitarParcial.Size = new System.Drawing.Size(97, 38);
             this.btnQuitarParcial.TabIndex = 14;
             this.btnQuitarParcial.Text = "Quitar Parcial";
             this.btnQuitarParcial.UseVisualStyleBackColor = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Controls.Add(this.rdbReceber);
-            this.groupBox2.Controls.Add(this.rdbPagar);
-            this.groupBox2.Location = new System.Drawing.Point(231, 35);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(293, 65);
-            this.groupBox2.TabIndex = 35;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Contas";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(206, 28);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(55, 17);
-            this.radioButton1.TabIndex = 25;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Todos";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // rdbReceber
-            // 
-            this.rdbReceber.AutoSize = true;
-            this.rdbReceber.Location = new System.Drawing.Point(105, 28);
-            this.rdbReceber.Name = "rdbReceber";
-            this.rdbReceber.Size = new System.Drawing.Size(66, 17);
-            this.rdbReceber.TabIndex = 24;
-            this.rdbReceber.TabStop = true;
-            this.rdbReceber.Text = "Receber";
-            this.rdbReceber.UseVisualStyleBackColor = true;
-            // 
-            // rdbPagar
-            // 
-            this.rdbPagar.AutoSize = true;
-            this.rdbPagar.Location = new System.Drawing.Point(17, 28);
-            this.rdbPagar.Name = "rdbPagar";
-            this.rdbPagar.Size = new System.Drawing.Size(53, 17);
-            this.rdbPagar.TabIndex = 23;
-            this.rdbPagar.TabStop = true;
-            this.rdbPagar.Text = "Pagar";
-            this.rdbPagar.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 18);
+            this.label1.Location = new System.Drawing.Point(18, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "De:";
             // 
-            // dgvServico
+            // dgvContas
             // 
-            this.dgvServico.AllowUserToAddRows = false;
-            this.dgvServico.AllowUserToDeleteRows = false;
-            this.dgvServico.BackgroundColor = System.Drawing.Color.White;
-            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvContas.AllowUserToAddRows = false;
+            this.dgvContas.AllowUserToDeleteRows = false;
+            this.dgvContas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codContasPagar,
-            this.despesa,
+            this.desp_descricao,
             this.contpag_valortotal,
-            this.parcela,
-            this.qtdeParcela,
-            this.valorParcela,
+            this.contPag_Parcela,
+            this.contpag_numparc,
+            this.contPag_valorParcela,
             this.contpag_valorpago,
             this.contpag_datapagamento,
             this.contpag_datavencimento,
             this.contpag_status});
-            this.dgvServico.Location = new System.Drawing.Point(21, 157);
-            this.dgvServico.Name = "dgvServico";
-            this.dgvServico.ReadOnly = true;
-            this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServico.Size = new System.Drawing.Size(758, 180);
-            this.dgvServico.TabIndex = 12;
+            this.dgvContas.Location = new System.Drawing.Point(21, 111);
+            this.dgvContas.Name = "dgvContas";
+            this.dgvContas.ReadOnly = true;
+            this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContas.Size = new System.Drawing.Size(758, 226);
+            this.dgvContas.TabIndex = 12;
             // 
             // codContasPagar
             // 
@@ -285,14 +236,15 @@
             this.codContasPagar.HeaderText = "Cód";
             this.codContasPagar.Name = "codContasPagar";
             this.codContasPagar.ReadOnly = true;
-            this.codContasPagar.Width = 50;
+            this.codContasPagar.Width = 35;
             // 
-            // despesa
+            // desp_descricao
             // 
-            this.despesa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.despesa.HeaderText = "Despesa";
-            this.despesa.Name = "despesa";
-            this.despesa.ReadOnly = true;
+            this.desp_descricao.DataPropertyName = "desp_descricao";
+            this.desp_descricao.HeaderText = "Despesa";
+            this.desp_descricao.Name = "desp_descricao";
+            this.desp_descricao.ReadOnly = true;
+            this.desp_descricao.Width = 80;
             // 
             // contpag_valortotal
             // 
@@ -300,36 +252,43 @@
             this.contpag_valortotal.HeaderText = "Valor Total (R$)";
             this.contpag_valortotal.Name = "contpag_valortotal";
             this.contpag_valortotal.ReadOnly = true;
+            this.contpag_valortotal.Width = 80;
             // 
-            // parcela
+            // contPag_Parcela
             // 
-            this.parcela.DataPropertyName = "parcela";
-            this.parcela.HeaderText = "Parc.";
-            this.parcela.Name = "parcela";
-            this.parcela.ReadOnly = true;
-            this.parcela.Width = 50;
+            this.contPag_Parcela.DataPropertyName = "contPag_Parcela";
+            this.contPag_Parcela.HeaderText = "Parc.";
+            this.contPag_Parcela.Name = "contPag_Parcela";
+            this.contPag_Parcela.ReadOnly = true;
+            this.contPag_Parcela.Width = 35;
             // 
-            // qtdeParcela
+            // contpag_numparc
             // 
-            this.qtdeParcela.HeaderText = "Qtde Parc.";
-            this.qtdeParcela.Name = "qtdeParcela";
-            this.qtdeParcela.ReadOnly = true;
-            this.qtdeParcela.Width = 50;
+            this.contpag_numparc.DataPropertyName = "contpag_numparc";
+            this.contpag_numparc.HeaderText = "Qtde Parc.";
+            this.contpag_numparc.Name = "contpag_numparc";
+            this.contpag_numparc.ReadOnly = true;
+            this.contpag_numparc.Width = 35;
             // 
-            // valorParcela
+            // contPag_valorParcela
             // 
-            this.valorParcela.HeaderText = "Valor Parcel. (R$)";
-            this.valorParcela.Name = "valorParcela";
-            this.valorParcela.ReadOnly = true;
+            this.contPag_valorParcela.DataPropertyName = "contPag_valorParcela";
+            this.contPag_valorParcela.HeaderText = "Valor Parcel. (R$)";
+            this.contPag_valorParcela.Name = "contPag_valorParcela";
+            this.contPag_valorParcela.ReadOnly = true;
+            this.contPag_valorParcela.Width = 90;
             // 
             // contpag_valorpago
             // 
+            this.contpag_valorpago.DataPropertyName = "contpag_valorpago";
             this.contpag_valorpago.HeaderText = "Valor Pago (R$)";
             this.contpag_valorpago.Name = "contpag_valorpago";
             this.contpag_valorpago.ReadOnly = true;
+            this.contpag_valorpago.Width = 90;
             // 
             // contpag_datapagamento
             // 
+            this.contpag_datapagamento.DataPropertyName = "contpag_datapagamento";
             this.contpag_datapagamento.HeaderText = "Data Pagam.";
             this.contpag_datapagamento.Name = "contpag_datapagamento";
             this.contpag_datapagamento.ReadOnly = true;
@@ -337,6 +296,7 @@
             // 
             // contpag_datavencimento
             // 
+            this.contpag_datavencimento.DataPropertyName = "contpag_datavencimento";
             this.contpag_datavencimento.HeaderText = "Data Venc.";
             this.contpag_datavencimento.Name = "contpag_datavencimento";
             this.contpag_datavencimento.ReadOnly = true;
@@ -344,6 +304,7 @@
             // 
             // contpag_status
             // 
+            this.contpag_status.DataPropertyName = "contpag_status";
             this.contpag_status.HeaderText = "Status";
             this.contpag_status.Name = "contpag_status";
             this.contpag_status.ReadOnly = true;
@@ -377,6 +338,7 @@
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnQuitar
             // 
@@ -405,9 +367,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -416,35 +376,31 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpFim;
         public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpInicio;
         public System.Windows.Forms.Button btnQuitarParcial;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton rdbReceber;
-        private System.Windows.Forms.RadioButton rdbPagar;
         public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvServico;
+        private System.Windows.Forms.DataGridView dgvContas;
         public System.Windows.Forms.Button BtnCancelar;
         public System.Windows.Forms.Button btnEstornar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnQuitar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codContasPagar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn despesa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_valortotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtdeParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_valorpago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datapagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datavencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_status;
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ttbTotalVencido;
         private System.Windows.Forms.TextBox ttbTotalPago;
         private System.Windows.Forms.TextBox ttbTotalPagar;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codContasPagar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desp_descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_valortotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contPag_Parcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_numparc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contPag_valorParcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_valorpago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datapagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_datavencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contpag_status;
     }
 }

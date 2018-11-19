@@ -58,14 +58,16 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             Controller.ContasPagarController contasPagarController = new Controller.ContasPagarController();
-
+            int cod = contasPagarController.retornaMax();
+            cod += 1;
             try
             {
                 int i = 0;
                 bool retur = false;
 
-                while (i < listacontasPagars.Count || !retur)
+                while (i < listacontasPagars.Count && !retur)
                 {
+                    listacontasPagars.ElementAt(i).CodigoContasaPagar = cod;
                     int res = contasPagarController.insereLancamento(listacontasPagars.ElementAt(i));
 
                     if (res < 0)
@@ -73,10 +75,17 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                         MessageBox.Show("Erro");
                         retur = true;
                     }
-                    i++;
+                    else { i++; }
+                    
+                }
+                if(listacontasPagars.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                {
+                    Close();
+                    Views.Funcoes_Fundamentais.QuitarDespesa quitarDespesas = new QuitarDespesa();
+                    quitarDespesas.ShowDialog();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
