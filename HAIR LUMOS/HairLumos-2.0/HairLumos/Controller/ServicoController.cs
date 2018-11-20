@@ -40,5 +40,15 @@ namespace HairLumos.Controller
         {
             return _MdlServ.excluirServico(intCod);
         }
+
+        public DataTable retornaServParc(int cod)
+        {
+            return _MdlServ.retornaServParc(cod);
+        }
+
+        public DataTable retornaServParc(int cod, int serv)
+        {
+            return _MdlServ.retornaServParc(cod, serv);
+        }
     }
 }

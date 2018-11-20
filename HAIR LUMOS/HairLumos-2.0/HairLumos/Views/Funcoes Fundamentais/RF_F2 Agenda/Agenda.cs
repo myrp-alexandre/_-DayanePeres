@@ -18,9 +18,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
         private Controller.AgendaController ac = new Controller.AgendaController();
         private Controller.ServicoController sc = new Controller.ServicoController();
         private List<Entidades.Agenda> listaAgendamentos = new List<Entidades.Agenda>();
-        private string data = "";
-        private int codFunc = 0;
-        private string hora = "";
+        public string Data { get; set; }
+        public int CodFunc { get; set; }
+        public string Horas { get; set; }
 
         public Agenda()
         {
@@ -41,7 +41,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            Views.Funcoes_Fundamentais.RF_F2_Agendamento.Agenda teste = new RF_F2_Agendamento.Agenda();
+            Views.Funcoes_Fundamentais.RF_F2_Agendamento.ControlarAgendamento teste = new RF_F2_Agendamento.ControlarAgendamento();
             teste.ShowDialog();
         }
 
@@ -87,24 +87,24 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 
         private void cbbFuncionario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(data))
+            if (!String.IsNullOrEmpty(Data))
             {
-                DataTable dtAgenda = ac.buscaAgenda(Convert.ToInt32(cbbFuncionario.ValueMember), data);
+                DataTable dtAgenda = ac.buscaAgenda(Convert.ToInt32(cbbFuncionario.ValueMember), Data);
             }
         }
 
         private void mtcData_DateChanged(object sender, DateRangeEventArgs e)
         {
-            data = mtcData.SelectionStart.ToString();
+            Data = mtcData.SelectionStart.ToString();
             int codigo = 0;
             codigo = Convert.ToInt32(cbbFuncionario.SelectedValue);
-            data = Convert.ToDateTime(data).ToString("dd/MM/yyyy");
+            Data = Convert.ToDateTime(Data).ToString("dd/MM/yyyy");
             Entidades.Pessoa p = new Entidades.Pessoa();
             Entidades.Servico s = new Entidades.Servico();
             Entidades.PessoaJuridica pj = new Entidades.PessoaJuridica();
             if (cbbFuncionario.ValueMember != null)
             {
-                DataTable dtAgenda = ac.buscaAgenda(codigo, data);
+                DataTable dtAgenda = ac.buscaAgenda(codigo, Data);
                 if(dtAgenda!=null && dtAgenda.Rows.Count > 0)
                 {
                     for(int i =0; i<dtAgenda.Rows.Count; i++)
@@ -168,12 +168,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
         private void dgvAgendamento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(cbbFuncionario.SelectedValue!=null)
-                codFunc = Convert.ToInt32(cbbFuncionario.SelectedValue);
-            data = Convert.ToDateTime(mtcData.SelectionStart.ToString()).ToString("dd/MM/yyyy");
+                this.CodFunc = Convert.ToInt32(cbbFuncionario.SelectedValue);
+            this.Data = Convert.ToDateTime(mtcData.SelectionStart.ToString()).ToString("dd/MM/yyyy");
             if (dgvAgendamento.SelectedRows.Count > 0)
-                hora = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Hora;
+                this.Horas = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Hora;
 
-            Views.Funcoes_Fundamentais.RF_F2_Agendamento.Agenda agendar = new RF_F2_Agendamento.Agenda();
+            Views.Funcoes_Fundamentais.RF_F2_Agendamento.ControlarAgendamento agendar = new RF_F2_Agendamento.ControlarAgendamento(this.CodFunc, this.Data, this.Horas);
             agendar.ShowDialog();
 
         }

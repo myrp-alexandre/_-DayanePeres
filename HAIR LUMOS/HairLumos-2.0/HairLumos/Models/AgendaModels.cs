@@ -15,5 +15,10 @@ namespace HairLumos.Models
         {
             return _DAOAgenda.retornaAgenda(codigo, data);
         }
+
+        public int gravarAgenda(Entidades.Agenda agenda)
+        {
+            return _DAOAgenda.gravarAgenda(agenda);
+        }
     }
 }

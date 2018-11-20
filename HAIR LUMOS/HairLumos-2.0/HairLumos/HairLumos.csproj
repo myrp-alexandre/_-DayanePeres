@@ -72,6 +72,7 @@
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
     <Compile Include="DAO\CaixaDAO.cs" />
+    <Compile Include="DAO\ComissaoDAO.cs" />
     <Compile Include="DAO\CompraDAO.cs" />
     <Compile Include="DAO\ContasPagarDAO.cs" />
     <Compile Include="DAO\ContasReceberDAO.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Entidades\VendaProduto.cs" />
     <Compile Include="Models\AgendaModels.cs" />
     <Compile Include="Models\CaixaModels.cs" />
+    <Compile Include="Models\ComissaoModel.cs" />
     <Compile Include="Models\CompraModels.cs" />
     <Compile Include="Models\ContasPagarModels.cs" />
     <Compile Include="Models\DespesaModels.cs" />

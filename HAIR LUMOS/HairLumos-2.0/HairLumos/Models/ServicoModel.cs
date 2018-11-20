@@ -53,5 +53,15 @@ namespace HairLumos.Models
             //Entidades.Servico _entServico= new Entidades.Servico();
             return _DAOServ.ExcluirServico(intCod);
         }
+
+        public DataTable retornaServParc(int cod)
+        {
+            return _DAOServ.RetornaServPrestador(cod);
+        }
+
+        public DataTable retornaServParc(int cod, int serv)
+        {
+            return _DAOServ.RetornaServPrestador(cod, serv);
+        }
     }
 }

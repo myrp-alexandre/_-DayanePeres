@@ -174,5 +174,65 @@ namespace HairLumos.DAO
             }
             return (_controle > 0);
         }
+
+        public DataTable RetornaServPrestador(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "select s.codtiposervico, s.tiposerv_descricao, s.tiposerv_valor, p.prestserv_valor, p.prestserv_percentual, p.prestser_pagrec  from tbprestadorservico p inner join tbtiposervico s on p.codtiposervico = s.codtiposervico where p.codpessoa = " + cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codtiposervico");
+                cmd.Parameters.AddWithValue("@tiposerv_descricao");
+                cmd.Parameters.AddWithValue("@tiposerv_valor");
+                cmd.Parameters.AddWithValue("@prestserv_valor");
+                cmd.Parameters.AddWithValue("@prestserv_percentual");
+                cmd.Parameters.AddWithValue("@prestser_pagrec");
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaServPrestador(int cod, int serv)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "select s.codtiposervico, s.tiposerv_descricao, s.tiposerv_valor, p.prestserv_valor, p.prestserv_percentual, p.prestser_pagrec  from tbprestadorservico p inner join tbtiposervico s on p.codtiposervico = s.codtiposervico where p.codpessoa = " + cod + " and p.codtiposervico = "+serv;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codtiposervico");
+                cmd.Parameters.AddWithValue("@tiposerv_descricao");
+                cmd.Parameters.AddWithValue("@tiposerv_valor");
+                cmd.Parameters.AddWithValue("@prestserv_valor");
+                cmd.Parameters.AddWithValue("@prestserv_percentual");
+                cmd.Parameters.AddWithValue("@prestser_pagrec");
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return dt;
+        }
     }
 }

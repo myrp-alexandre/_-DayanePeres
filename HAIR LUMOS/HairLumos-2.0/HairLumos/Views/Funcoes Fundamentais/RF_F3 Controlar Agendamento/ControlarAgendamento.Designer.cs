@@ -1,6 +1,6 @@
 ﻿namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento
 {
-    partial class Agenda
+    partial class ControlarAgendamento
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ttbFuncionario = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbNCompareceu = new System.Windows.Forms.RadioButton();
+            this.rbCancelado = new System.Windows.Forms.RadioButton();
+            this.rbConfirmado = new System.Windows.Forms.RadioButton();
+            this.rbAgendado = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cbbServicos = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbbFuncionario = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnPesquisaCliente = new System.Windows.Forms.Button();
@@ -82,16 +82,15 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(817, 355);
             this.splitContainer1.SplitterDistance = 283;
             this.splitContainer1.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ttbFuncionario);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox5);
-            this.groupBox1.Controls.Add(this.cbbFuncionario);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -102,12 +101,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "informações do Agendamento";
             // 
+            // ttbFuncionario
+            // 
+            this.ttbFuncionario.Enabled = false;
+            this.ttbFuncionario.Location = new System.Drawing.Point(410, 91);
+            this.ttbFuncionario.Name = "ttbFuncionario";
+            this.ttbFuncionario.Size = new System.Drawing.Size(388, 20);
+            this.ttbFuncionario.TabIndex = 10;
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Controls.Add(this.rbNCompareceu);
+            this.groupBox3.Controls.Add(this.rbCancelado);
+            this.groupBox3.Controls.Add(this.rbConfirmado);
+            this.groupBox3.Controls.Add(this.rbAgendado);
             this.groupBox3.Location = new System.Drawing.Point(345, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(453, 57);
@@ -115,57 +122,61 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Status de Atendimento";
             // 
-            // radioButton3
+            // rbNCompareceu
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.BackColor = System.Drawing.Color.Goldenrod;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(325, 23);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(122, 17);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Não Compareceu";
-            this.radioButton3.UseVisualStyleBackColor = false;
+            this.rbNCompareceu.AutoSize = true;
+            this.rbNCompareceu.BackColor = System.Drawing.Color.Goldenrod;
+            this.rbNCompareceu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNCompareceu.Location = new System.Drawing.Point(325, 23);
+            this.rbNCompareceu.Name = "rbNCompareceu";
+            this.rbNCompareceu.Size = new System.Drawing.Size(122, 17);
+            this.rbNCompareceu.TabIndex = 3;
+            this.rbNCompareceu.TabStop = true;
+            this.rbNCompareceu.Text = "Não Compareceu";
+            this.rbNCompareceu.UseVisualStyleBackColor = false;
+            this.rbNCompareceu.CheckedChanged += new System.EventHandler(this.rbNCompareceu_CheckedChanged);
             // 
-            // radioButton4
+            // rbCancelado
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.BackColor = System.Drawing.Color.IndianRed;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(221, 23);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 17);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Cancelado";
-            this.radioButton4.UseVisualStyleBackColor = false;
+            this.rbCancelado.AutoSize = true;
+            this.rbCancelado.BackColor = System.Drawing.Color.IndianRed;
+            this.rbCancelado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCancelado.Location = new System.Drawing.Point(221, 23);
+            this.rbCancelado.Name = "rbCancelado";
+            this.rbCancelado.Size = new System.Drawing.Size(85, 17);
+            this.rbCancelado.TabIndex = 2;
+            this.rbCancelado.TabStop = true;
+            this.rbCancelado.Text = "Cancelado";
+            this.rbCancelado.UseVisualStyleBackColor = false;
+            this.rbCancelado.CheckedChanged += new System.EventHandler(this.rbCancelado_CheckedChanged);
             // 
-            // radioButton2
+            // rbConfirmado
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.SeaGreen;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(108, 23);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(88, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Confirmado";
-            this.radioButton2.UseVisualStyleBackColor = false;
+            this.rbConfirmado.AutoSize = true;
+            this.rbConfirmado.BackColor = System.Drawing.Color.SeaGreen;
+            this.rbConfirmado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbConfirmado.Location = new System.Drawing.Point(108, 23);
+            this.rbConfirmado.Name = "rbConfirmado";
+            this.rbConfirmado.Size = new System.Drawing.Size(88, 17);
+            this.rbConfirmado.TabIndex = 1;
+            this.rbConfirmado.TabStop = true;
+            this.rbConfirmado.Text = "Confirmado";
+            this.rbConfirmado.UseVisualStyleBackColor = false;
+            this.rbConfirmado.CheckedChanged += new System.EventHandler(this.rbConfirmado_CheckedChanged);
             // 
-            // radioButton1
+            // rbAgendado
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.DarkCyan;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(6, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(82, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Agendado";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.rbAgendado.AutoSize = true;
+            this.rbAgendado.BackColor = System.Drawing.Color.DarkCyan;
+            this.rbAgendado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAgendado.Location = new System.Drawing.Point(6, 23);
+            this.rbAgendado.Name = "rbAgendado";
+            this.rbAgendado.Size = new System.Drawing.Size(82, 17);
+            this.rbAgendado.TabIndex = 0;
+            this.rbAgendado.TabStop = true;
+            this.rbAgendado.Text = "Agendado";
+            this.rbAgendado.UseVisualStyleBackColor = false;
+            this.rbAgendado.CheckedChanged += new System.EventHandler(this.rbAgendado_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -194,14 +205,6 @@
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Serviços*";
-            // 
-            // cbbFuncionario
-            // 
-            this.cbbFuncionario.FormattingEnabled = true;
-            this.cbbFuncionario.Location = new System.Drawing.Point(410, 90);
-            this.cbbFuncionario.Name = "cbbFuncionario";
-            this.cbbFuncionario.Size = new System.Drawing.Size(388, 21);
-            this.cbbFuncionario.TabIndex = 0;
             // 
             // label6
             // 
@@ -347,8 +350,9 @@
             this.btnGravar.TabIndex = 0;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // Agenda
+            // ControlarAgendamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -356,7 +360,7 @@
             this.ClientSize = new System.Drawing.Size(841, 379);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Agenda";
+            this.Name = "ControlarAgendamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - AGENDAMENTO";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -385,7 +389,6 @@
         public System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox cbbFuncionario;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -401,9 +404,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbServicos;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbNCompareceu;
+        private System.Windows.Forms.RadioButton rbCancelado;
+        private System.Windows.Forms.RadioButton rbConfirmado;
+        private System.Windows.Forms.RadioButton rbAgendado;
+        private System.Windows.Forms.TextBox ttbFuncionario;
     }
 }
