@@ -14,17 +14,15 @@ namespace HairLumos.Entidades
         private string hora;
         private string status;
         private double valor;
-        private PessoaJuridica funcionario;
         private Comissao comissao;
-        private Servico servico;
+        private ServicoParceiro servparc;
         private Fechamento fechamento;
 
         public Agenda()
         {
             pes = new Pessoa();
-            funcionario = new PessoaJuridica();
             comissao = new Comissao();
-            servico = new Servico();
+            servparc = new ServicoParceiro();
             fechamento = new Fechamento();
         }
 
@@ -34,9 +32,8 @@ namespace HairLumos.Entidades
         public string Hora { get; set; }
         public string Status { get; set; }
         public double Valor { get; set; }
-        public PessoaJuridica Funcionario { get; set; }
         public Comissao Comissao { get; set; }
-        public Servico Servico { get; set; }
+        public ServicoParceiro ServicoParceiro { get; set; }
         public Fechamento Fechamento { get; set; }
 
     }

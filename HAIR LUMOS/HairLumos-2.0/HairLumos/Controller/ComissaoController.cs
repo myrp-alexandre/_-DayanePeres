@@ -8,5 +8,16 @@ namespace HairLumos.Controller
 {
     class ComissaoController
     {
+        Models.ComissaoModel cm = new Models.ComissaoModel();
+
+        public int gravaComissao(Entidades.Comissao obj)
+        {
+            return cm.gravarComissao(obj);
+        }
+
+        public int retornaMax()
+        {
+            return cm.retornaMax();
+        }
     }
 }

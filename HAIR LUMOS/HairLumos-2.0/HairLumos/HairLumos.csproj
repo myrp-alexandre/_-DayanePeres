@@ -59,6 +59,7 @@
     <Compile Include="Banco\Conexao.cs" />
     <Compile Include="Controller\AgendaController.cs" />
     <Compile Include="Controller\CaixaController.cs" />
+    <Compile Include="Controller\ComissaoController.cs" />
     <Compile Include="Controller\CompraController.cs" />
     <Compile Include="Controller\ContasPagarController.cs" />
     <Compile Include="Controller\DespesaController.cs" />

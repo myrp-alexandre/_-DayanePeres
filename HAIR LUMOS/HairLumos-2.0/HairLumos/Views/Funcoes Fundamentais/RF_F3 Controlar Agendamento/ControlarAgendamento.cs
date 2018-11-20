@@ -83,7 +83,19 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento
             int comissao = 0;
             int fechamento = 0;
             int rest = ac.gravarAgenda(codigo, dtpData.Value, dtpHora.Value, status, valor, comissao, Convert.ToInt32(cbbServicos.SelectedValue), codPres, fechamento);
-
+            if (rest > 0)
+            {
+                MessageBox.Show("Horario agendado com sucesso!");
+                ttbNomeCliente.Text = "";
+                mskTelefone.Text = "";
+                Close();
+                Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda agenda = new RF_F2_Agenda.Agenda();
+                agenda.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao marcar horario!");
+            }
         }
 
         private void rbAgendado_CheckedChanged(object sender, EventArgs e)

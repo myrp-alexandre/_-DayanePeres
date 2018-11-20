@@ -2,6 +2,7 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,33 @@ namespace HairLumos.DAO
             {
                 return 0;
             }
+        }
+
+        public int retornaMax()
+        {
+            DataTable dt = new DataTable();
+            int cont = 0;
+
+            _sql = "SELECT max(codcomissao) FROM tbcomissao";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);
+                dr.Close();//Fecho o DataReader
+
+                DataRow dtr = dt.Rows[0];
+                cont = Convert.ToInt32(dtr[0].ToString());
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return cont;
         }
     }
 }

@@ -856,11 +856,6 @@
             Makes the file Read Write.
             </summary>
         </member>
-        <member name="T:Microsoft.AspNet.Scaffolding.INetCoreScaffolderFactory">
-            <summary>
-            Indicator interface for .NET Core scaffolders
-            </summary>
-        </member>
         <member name="T:Microsoft.AspNet.Scaffolding.IReflectedTypesService">
             <summary>
             Service for getting the types within a project.

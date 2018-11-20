@@ -21,6 +21,7 @@ namespace HairLumos.Controller
             Controller.PessoaController pc = new Controller.PessoaController();
             Controller.ServicoController sc = new Controller.ServicoController();
             Controller.ServicoParceiroController spc = new Controller.ServicoParceiroController();
+            Controller.ComissaoController cmc = new Controller.ComissaoController();
             Entidades.Agenda agenda = new Entidades.Agenda();
             Entidades.Pessoa cliente = new Entidades.Pessoa(); //ja foi
             Entidades.PessoaJuridica funcionario = new Entidades.PessoaJuridica(); //ja foi
@@ -100,8 +101,44 @@ namespace HairLumos.Controller
                 servparc.Estado = Convert.ToBoolean(drServParc["estado"].ToString());
             }
 
-            return _MdlAgenda.gravarAgenda(agenda);
+            if (!servparc.PagamentoRecebido.Equals("PAGAR"))
+            {
+                comis.ValorDevolver = servparc.Valor;
+                comis.StatusComissao = "RECEBER";
+            }
 
+            else
+            {
+                comis.ValorDevolver = 0;
+                comis.StatusComissao = "PAGAR";
+            }
+            comis.ValorTotal = servparc.Valor;
+            comis.ValorPago = 0;
+            comis.DataPagamento = DateTime.MaxValue;
+            comis.StatusPagamento = "";
+
+            //agenda.Comissao = comis;
+            agenda.DtAgendamento = data;
+            agenda.Hora = hora.ToString("hh:mm");
+            agenda.ServicoParceiro = servparc;
+            agenda.Pes = cliente;
+            agenda.Status = status;
+            agenda.Valor = serv.Valor;
+            agenda.Fechamento = new Entidades.Fechamento();
+
+            int result = cmc.gravaComissao(comis);
+            if (result > 0)
+            {
+                comis.CodigoComissao = cmc.retornaMax();
+                agenda.Comissao = comis;
+                int tes = _MdlAgenda.gravarAgenda(agenda);
+                if (tes > 0)
+                    return 1;
+                else
+                    return 0;
+            }
+            else
+                return 0;
         }
     }
 }

@@ -15,5 +15,10 @@ namespace HairLumos.Models
         {
             return _DAOComissao.gravarComissao(comissao);
         }
+
+        public int retornaMax()
+        {
+            return _DAOComissao.retornaMax();
+        }
     }
 }

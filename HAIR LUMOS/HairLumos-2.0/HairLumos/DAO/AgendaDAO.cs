@@ -29,8 +29,8 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@status", obj.Status);
                 cmd.Parameters.AddWithValue("@valor", obj.Valor);
                 cmd.Parameters.AddWithValue("@comissao", obj.Comissao.CodigoComissao);
-                cmd.Parameters.AddWithValue("@servico", obj.Servico.Codigo);
-                cmd.Parameters.AddWithValue("@func", obj.Funcionario.CNPJ);
+                cmd.Parameters.AddWithValue("@servico", obj.ServicoParceiro.Servico.Codigo);
+                cmd.Parameters.AddWithValue("@func", obj.ServicoParceiro.PessoaJuridica.CNPJ);
                 cmd.Parameters.AddWithValue("@fechamento", NpgsqlTypes.NpgsqlDbType.Integer, obj.Fechamento.Codigo);
 
 
