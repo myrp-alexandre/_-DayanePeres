@@ -12,7 +12,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 {
     public partial class LancarDespesa : Form
     {
-
+        private string tipoDespesa = "";
 
         public LancarDespesa()
         {
@@ -84,9 +84,21 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             DataTable dtDespesa = _ctrlDespe.retronaDespesa();
             if (dtDespesa != null && dtDespesa.Rows.Count > 0)
             {
+                DataRow dr = dtDespesa.Rows[0];
+
+                tipoDespesa = dr["desp_status"].ToString();
                 this.cbbDespesa.ValueMember = "coddespesa";
                 this.cbbDespesa.DisplayMember = "desp_descricao";
                 this.cbbDespesa.DataSource = dtDespesa;
+            }
+
+            if (tipoDespesa.Equals("FIXA"))
+            {
+                rbFixa.Checked = true;
+            }
+            else
+            {
+                rbVariavel.Checked = true;
             }
 
         }
@@ -98,36 +110,66 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            Controller.ContasPagarController _ctrlContas = new Controller.ContasPagarController();
+            try
+            {
+                Controller.ContasPagarController _ctrlContas = new Controller.ContasPagarController();
+                Entidades.ContasPagar contasPagar = new Entidades.ContasPagar();
 
-            int codigo = 0;
+                Controller.DespesaController despesaController = new Controller.DespesaController();
+                Entidades.Despesa despesa = new Entidades.Despesa();
 
-            if (!string.IsNullOrWhiteSpace(ttbCodigo.Text))
-                codigo = Convert.ToInt32(ttbCodigo.Text);
+                Controller.CaixaController caixaController = new Controller.CaixaController();
+                Entidades.Caixa caixa = new Entidades.Caixa();
 
-            string tipo;
-            if (rbFixa.Checked)
-                tipo = "Fixa";
-            else
-                tipo = "Variavel";
-            double valor = Convert.ToDouble(mskValor.Text);
-            //Entidades.Despesa _despesa = new Entidades.Despesa();
-            //_despesa = (Entidades.Despesa)cbbDespesa.SelectedValue;
+                int codigo = 0;
 
+                if (!string.IsNullOrWhiteSpace(ttbCodigo.Text))
+                    codigo = Convert.ToInt32(ttbCodigo.Text);
+
+                string tipo;
+                if (rbFixa.Checked)
+                    tipo = "FIXA";
+                else
+                    tipo = "VARIAVEL";
+
+                double valor = 0;
+                if (!string.IsNullOrWhiteSpace(mskValor.Text))
+                    valor = Convert.ToDouble(mskValor.Text);
+
+                // Preenchendo Campos obj Contas a Pagar
+                contasPagar.DataVencimento = dtpVencimento.Value;
+                contasPagar.DataPagamento = DateTime.MaxValue;
+                contasPagar.ValorTotal = valor;
+                contasPagar.ValorPago = 0;
+                contasPagar.Observacao = ttbObservacao.Text;
+                contasPagar.Status = false;
+                contasPagar.Parcela = 0;
+                contasPagar.Compra = new Entidades.Compra();
+                contasPagar.Despesa = new Entidades.Despesa();
+                contasPagar.Caixa = new Entidades.Caixa();
+                contasPagar.FormaPagamento = new Entidades.FormaPagamento();
+                contasPagar.Comissao = new Entidades.Comissao();
+                contasPagar.ValorParcela = 0;
+                           
+
+                int result = _ctrlContas.insereLancamento(contasPagar);
+                if (result > 0)
+                {
+                    MessageBox.Show("Gravado com sucesso");
+                    _limpaCampos();
+                    _inicializa();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao gravar!");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             
-
-            int codDespesa = Convert.ToInt32(cbbDespesa.SelectedValue.ToString());
-            //int result = _ctrlContas.insereLancamento(contasPagar);
-            //if (result > 0)
-            //{
-            //    MessageBox.Show("Gravado com sucesso");
-            //    _limpaCampos();
-            //    _inicializa();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Erro ao gravar!");
-            //}
         }
 
         private void btnSair_Click(object sender, EventArgs e)

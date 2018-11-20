@@ -31,8 +31,12 @@ namespace HairLumos.DAO
 
                 
                 
-                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, codformapag, codcomissao, \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\")";
-                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, @codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao, @contPag_valorParcela, @contPag_Parcela,@codContasPagar);";
+                strSQL = "INSERT INTO tbcontaspagar (contpag_datavencimento, contpag_datapagamento, contpag_valortotal, "+
+                    "contpag_valorpago, contpag_obs, contpag_status, contpag_numparc, codcompra, coddespesa, codcaixa, "+
+                    "codformapag, codcomissao, \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\")";
+
+                strSQL += " VALUES(@dtVencimento, @dtPagamento, @valorTotal, @valorPago, @obs, @status, @numParcela, "+
+                    "@codCompra, @codDespesa, @codCaixa, @codFormaPag, @codComissao, @contPag_valorParcela, @contPag_Parcela,@codContasPagar);";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -46,6 +50,7 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
+
                 if(objContasPagar.FormaPagamento!=null && objContasPagar.FormaPagamento.Codigo!=0)
                     objConexao.SqlCmd.Parameters.AddWithValue("@codFormaPag", objContasPagar.FormaPagamento.Codigo);
                 else 
@@ -54,6 +59,7 @@ namespace HairLumos.DAO
                     objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", objContasPagar.Comissao.CodigoComissao);
                 else
                     objConexao.SqlCmd.Parameters.AddWithValue("@codComissao", NpgsqlTypes.NpgsqlDbType.Integer, objContasPagar.Comissao.CodigoComissao);
+
                 objConexao.SqlCmd.Parameters.AddWithValue("@contPag_valorParcela", objContasPagar.ValorParcela);
                 objConexao.SqlCmd.Parameters.AddWithValue("@contPag_Parcela", objContasPagar.CodParcela);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codContasPagar", objContasPagar.CodigoContasaPagar);
