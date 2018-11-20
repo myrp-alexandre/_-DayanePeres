@@ -47,7 +47,10 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@obs", objContasPagar.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@status", objContasPagar.Status);
                 objConexao.SqlCmd.Parameters.AddWithValue("@numParcela", objContasPagar.Parcela);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
+                if(objContasPagar.Compra!=null  &&  objContasPagar.Compra.Codigo!=0)
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", objContasPagar.Compra.Codigo);
+                else
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codCompra", NpgsqlTypes.NpgsqlDbType.Integer, objContasPagar.Compra.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codDespesa", objContasPagar.Despesa.Codigo);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codCaixa", objContasPagar.Caixa.CodCaixa);
 

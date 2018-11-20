@@ -117,7 +117,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
                 Controller.DespesaController despesaController = new Controller.DespesaController();
                 Entidades.Despesa despesa = new Entidades.Despesa();
-
+                
                 Controller.CaixaController caixaController = new Controller.CaixaController();
                 Entidades.Caixa caixa = new Entidades.Caixa();
 
@@ -125,6 +125,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
                 if (!string.IsNullOrWhiteSpace(ttbCodigo.Text))
                     codigo = Convert.ToInt32(ttbCodigo.Text);
+
+                if(codigo == 0)
+                    codigo= _ctrlContas.retornaMax()+1;
 
                 string tipo;
                 if (rbFixa.Checked)
@@ -136,6 +139,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 if (!string.IsNullOrWhiteSpace(mskValor.Text))
                     valor = Convert.ToDouble(mskValor.Text);
 
+                despesa.Codigo = Convert.ToInt32(cbbDespesa.SelectedValue);
+
                 // Preenchendo Campos obj Contas a Pagar
                 contasPagar.DataVencimento = dtpVencimento.Value;
                 contasPagar.DataPagamento = DateTime.MaxValue;
@@ -143,13 +148,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 contasPagar.ValorPago = 0;
                 contasPagar.Observacao = ttbObservacao.Text;
                 contasPagar.Status = false;
-                contasPagar.Parcela = 0;
+                contasPagar.Parcela = 1;
                 contasPagar.Compra = new Entidades.Compra();
-                contasPagar.Despesa = new Entidades.Despesa();
+                contasPagar.Despesa = despesa;
                 contasPagar.Caixa = new Entidades.Caixa();
                 contasPagar.FormaPagamento = new Entidades.FormaPagamento();
                 contasPagar.Comissao = new Entidades.Comissao();
-                contasPagar.ValorParcela = 0;
+                contasPagar.ValorParcela = valor;
+                contasPagar.CodigoContasaPagar = codigo;
+                contasPagar.CodParcela = 1;
                            
 
                 int result = _ctrlContas.insereLancamento(contasPagar);
