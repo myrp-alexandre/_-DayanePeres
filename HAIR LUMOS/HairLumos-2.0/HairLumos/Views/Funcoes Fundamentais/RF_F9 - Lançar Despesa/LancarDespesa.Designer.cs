@@ -95,7 +95,10 @@
             this.mskValor.Location = new System.Drawing.Point(299, 113);
             this.mskValor.Name = "mskValor";
             this.mskValor.Size = new System.Drawing.Size(100, 20);
-            this.mskValor.TabIndex = 24;
+            this.mskValor.TabIndex = 2;
+            this.mskValor.Enter += new System.EventHandler(this.mskValor_Enter);
+            this.mskValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValor_KeyPress);
+            this.mskValor.Leave += new System.EventHandler(this.mskValor_Leave);
             // 
             // label4
             // 
@@ -112,7 +115,7 @@
             this.dtpVencimento.Location = new System.Drawing.Point(119, 113);
             this.dtpVencimento.Name = "dtpVencimento";
             this.dtpVencimento.Size = new System.Drawing.Size(113, 20);
-            this.dtpVencimento.TabIndex = 22;
+            this.dtpVencimento.TabIndex = 1;
             // 
             // label3
             // 
@@ -162,7 +165,7 @@
             this.cbbDespesa.Location = new System.Drawing.Point(77, 77);
             this.cbbDespesa.Name = "cbbDespesa";
             this.cbbDespesa.Size = new System.Drawing.Size(322, 21);
-            this.cbbDespesa.TabIndex = 18;
+            this.cbbDespesa.TabIndex = 0;
             // 
             // Código
             // 
@@ -175,6 +178,7 @@
             // 
             // ttbCodigo
             // 
+            this.ttbCodigo.Enabled = false;
             this.ttbCodigo.Location = new System.Drawing.Point(77, 18);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(83, 20);
@@ -187,7 +191,7 @@
             this.ttbObservacao.Multiline = true;
             this.ttbObservacao.Name = "ttbObservacao";
             this.ttbObservacao.Size = new System.Drawing.Size(489, 75);
-            this.ttbObservacao.TabIndex = 11;
+            this.ttbObservacao.TabIndex = 3;
             // 
             // label2
             // 
@@ -213,7 +217,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(358, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(81, 44);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -224,7 +228,7 @@
             this.btnGravar.Location = new System.Drawing.Point(97, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(81, 44);
-            this.btnGravar.TabIndex = 15;
+            this.btnGravar.TabIndex = 1;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -235,7 +239,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(184, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(81, 44);
-            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             // 
@@ -245,7 +249,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(271, 12);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(81, 44);
-            this.btnPesquisar.TabIndex = 13;
+            this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             // 
@@ -255,7 +259,7 @@
             this.btnSair.Location = new System.Drawing.Point(489, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(77, 44);
-            this.btnSair.TabIndex = 11;
+            this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -266,7 +270,7 @@
             this.btnNovo.Location = new System.Drawing.Point(10, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(81, 44);
-            this.btnNovo.TabIndex = 7;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);

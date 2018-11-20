@@ -91,5 +91,39 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
         {
             Close();
         }
+
+        private void mskTroco_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskTroco);
+        }
+
+        private void mskTroco_Leave(object sender, EventArgs e)
+        {
+            mskTroco.Text = Convert.ToDouble(mskTroco.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskTroco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskTroco, e);
+        }
+
+        private void mskAddValor_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskAddValor);
+        }
+
+        private void mskAddValor_Leave(object sender, EventArgs e)
+        {
+            mskAddValor.Text = Convert.ToDouble(mskAddValor.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskAddValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskAddValor, e);
+        }
     }
 }

@@ -186,17 +186,21 @@
             this.btnIncluir.Location = new System.Drawing.Point(319, 34);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(67, 27);
-            this.btnIncluir.TabIndex = 4;
+            this.btnIncluir.TabIndex = 2;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = false;
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // mskValorParcela
             // 
+            this.mskValorParcela.Enabled = false;
             this.mskValorParcela.Location = new System.Drawing.Point(165, 82);
             this.mskValorParcela.Name = "mskValorParcela";
             this.mskValorParcela.Size = new System.Drawing.Size(100, 20);
-            this.mskValorParcela.TabIndex = 3;
+            this.mskValorParcela.TabIndex = 4;
+            this.mskValorParcela.Enter += new System.EventHandler(this.mskValorParcela_Enter);
+            this.mskValorParcela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorParcela_KeyPress);
+            this.mskValorParcela.Leave += new System.EventHandler(this.mskValorParcela_Leave);
             // 
             // label2
             // 
@@ -226,17 +230,21 @@
             // 
             // mskValorTotal
             // 
+            this.mskValorTotal.Enabled = false;
             this.mskValorTotal.Location = new System.Drawing.Point(9, 82);
             this.mskValorTotal.Name = "mskValorTotal";
             this.mskValorTotal.Size = new System.Drawing.Size(100, 20);
-            this.mskValorTotal.TabIndex = 1;
+            this.mskValorTotal.TabIndex = 3;
+            this.mskValorTotal.Enter += new System.EventHandler(this.mskValorTotal_Enter);
+            this.mskValorTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorTotal_KeyPress);
+            this.mskValorTotal.Leave += new System.EventHandler(this.mskValorTotal_Leave);
             // 
             // ttbQtdeParcela
             // 
             this.ttbQtdeParcela.Location = new System.Drawing.Point(165, 34);
             this.ttbQtdeParcela.Name = "ttbQtdeParcela";
             this.ttbQtdeParcela.Size = new System.Drawing.Size(63, 20);
-            this.ttbQtdeParcela.TabIndex = 2;
+            this.ttbQtdeParcela.TabIndex = 1;
             this.ttbQtdeParcela.TextChanged += new System.EventHandler(this.ttbQtdeParcela_TextChanged);
             // 
             // label4
@@ -259,29 +267,29 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(334, 7);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(67, 38);
-            this.btnSair.TabIndex = 3;
+            this.btnSair.TabIndex = 2;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(101, 7);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(67, 38);
-            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnFinalizar
             // 
-            this.btnFinalizar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnFinalizar.BackColor = System.Drawing.Color.White;
             this.btnFinalizar.Location = new System.Drawing.Point(28, 7);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(67, 38);

@@ -289,5 +289,39 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         {
             _btnCancelar();
         }
+
+        private void mskValor_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskValor);
+        }
+
+        private void mskValor_Leave(object sender, EventArgs e)
+        {
+            mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskValor, e);
+        }
+
+        private void mskValorTotal_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskValorTotal);
+        }
+
+        private void mskValorTotal_Leave(object sender, EventArgs e)
+        {
+            mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskValorTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskValorTotal, e);
+        }
     }
 }

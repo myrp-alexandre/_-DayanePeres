@@ -27,6 +27,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
 
         }
 
+        private void DGVMoeda()
+        {
+            this.dgvFechaCaixa.Columns["valor"].DefaultCellStyle.Format = "c";
+        }
+
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
@@ -71,6 +76,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
                 this.cbbFormaPagamento.ValueMember = "codformapag";
                 this.cbbFormaPagamento.DisplayMember = "formpag_descricao";
                 this.cbbFormaPagamento.DataSource = dtFPgto;
+                DGVMoeda();
             }
         }
 
@@ -201,6 +207,91 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
         private void FecharCaixa_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void mskValor_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskValor);
+        }
+
+        private void mskValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskValor, e);
+        }
+
+        private void mskValor_Leave(object sender, EventArgs e)
+        {
+            mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskInicialCaixa_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskInicialCaixa);
+        }
+
+        private void mskInicialCaixa_Leave(object sender, EventArgs e)
+        {
+            mskInicialCaixa.Text = Convert.ToDouble(mskInicialCaixa.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskInicialCaixa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskInicialCaixa, e);
+        }
+
+        private void mskTotalRecebido_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskTotalRecebido);
+        }
+
+        private void mskTotalRecebido_Leave(object sender, EventArgs e)
+        {
+            mskTotalRecebido.Text = Convert.ToDouble(mskTotalRecebido.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskTotalRecebido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskTotalRecebido, e);
+        }
+
+        private void mskTotalGasto_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskTotalGasto);
+        }
+
+        private void mskTotalGasto_Leave(object sender, EventArgs e)
+        {
+            mskTotalGasto.Text = Convert.ToDouble(mskTotalGasto.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskTotalGasto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskTotalGasto, e);
+        }
+
+        private void mskRestante_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskTotalGasto);
+        }
+
+        private void mskRestante_Leave(object sender, EventArgs e)
+        {
+            mskTotalGasto.Text = Convert.ToDouble(mskTotalGasto.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskRestante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskTotalGasto, e);
         }
     }
 }

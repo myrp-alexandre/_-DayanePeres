@@ -516,6 +516,23 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F14_Contratar_Pacotes
             }
             
         }
+
+        private void ttbTotal_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(ttbTotal);
+        }
+
+        private void ttbTotal_Leave(object sender, EventArgs e)
+        {
+            ttbTotal.Text = Convert.ToDouble(ttbTotal.Text).ToString("###,###,##0.00");
+        }
+
+        private void ttbTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(ttbTotal, e);
+        }
     }
 
     

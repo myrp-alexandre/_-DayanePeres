@@ -48,7 +48,7 @@
             this.btnSair.Location = new System.Drawing.Point(772, 24);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(100, 30);
-            this.btnSair.TabIndex = 8;
+            this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -59,7 +59,7 @@
             this.btnSelecionar.Location = new System.Drawing.Point(593, 24);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(100, 30);
-            this.btnSelecionar.TabIndex = 7;
+            this.btnSelecionar.TabIndex = 2;
             this.btnSelecionar.Text = "Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = false;
             this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
@@ -70,7 +70,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(473, 24);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 30);
-            this.btnPesquisar.TabIndex = 6;
+            this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisa";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -80,7 +80,7 @@
             this.ttbDescricao.Location = new System.Drawing.Point(12, 29);
             this.ttbDescricao.Name = "ttbDescricao";
             this.ttbDescricao.Size = new System.Drawing.Size(400, 20);
-            this.ttbDescricao.TabIndex = 5;
+            this.ttbDescricao.TabIndex = 0;
             // 
             // dgvCompras
             // 

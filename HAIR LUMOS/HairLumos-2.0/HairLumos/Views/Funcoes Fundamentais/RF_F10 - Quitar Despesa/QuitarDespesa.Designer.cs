@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.ttbTotalPago = new System.Windows.Forms.MaskedTextBox();
+            this.ttbTotalVencido = new System.Windows.Forms.MaskedTextBox();
+            this.ttbTotalPagar = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,9 +56,6 @@
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.ttbTotalPagar = new System.Windows.Forms.MaskedTextBox();
-            this.ttbTotalVencido = new System.Windows.Forms.MaskedTextBox();
-            this.ttbTotalPago = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,6 +92,39 @@
             this.splitContainer1.Size = new System.Drawing.Size(792, 467);
             this.splitContainer1.SplitterDistance = 390;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // ttbTotalPago
+            // 
+            this.ttbTotalPago.Enabled = false;
+            this.ttbTotalPago.Location = new System.Drawing.Point(536, 362);
+            this.ttbTotalPago.Name = "ttbTotalPago";
+            this.ttbTotalPago.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPago.TabIndex = 47;
+            this.ttbTotalPago.Enter += new System.EventHandler(this.ttbTotalPago_Enter);
+            this.ttbTotalPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPago_KeyPress);
+            this.ttbTotalPago.Leave += new System.EventHandler(this.ttbTotalPago_Leave);
+            // 
+            // ttbTotalVencido
+            // 
+            this.ttbTotalVencido.Enabled = false;
+            this.ttbTotalVencido.Location = new System.Drawing.Point(647, 362);
+            this.ttbTotalVencido.Name = "ttbTotalVencido";
+            this.ttbTotalVencido.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalVencido.TabIndex = 46;
+            this.ttbTotalVencido.Enter += new System.EventHandler(this.ttbTotalVencido_Enter);
+            this.ttbTotalVencido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalVencido_KeyPress);
+            this.ttbTotalVencido.Leave += new System.EventHandler(this.ttbTotalVencido_Leave);
+            // 
+            // ttbTotalPagar
+            // 
+            this.ttbTotalPagar.Enabled = false;
+            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 362);
+            this.ttbTotalPagar.Name = "ttbTotalPagar";
+            this.ttbTotalPagar.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPagar.TabIndex = 45;
+            this.ttbTotalPagar.Enter += new System.EventHandler(this.ttbTotalPagar_Enter_1);
+            this.ttbTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPagar_KeyPress);
+            this.ttbTotalPagar.Leave += new System.EventHandler(this.ttbTotalPagar_Leave);
             // 
             // label5
             // 
@@ -142,7 +175,7 @@
             this.dtpFim.Location = new System.Drawing.Point(155, 37);
             this.dtpFim.Name = "dtpFim";
             this.dtpFim.Size = new System.Drawing.Size(97, 20);
-            this.dtpFim.TabIndex = 38;
+            this.dtpFim.TabIndex = 1;
             this.dtpFim.ValueChanged += new System.EventHandler(this.dtpFim_ValueChanged);
             // 
             // label2
@@ -160,7 +193,7 @@
             this.dtpInicio.Location = new System.Drawing.Point(21, 37);
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(97, 20);
-            this.dtpInicio.TabIndex = 36;
+            this.dtpInicio.TabIndex = 0;
             this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpInicio_ValueChanged);
             // 
             // btnQuitarParcial
@@ -169,7 +202,7 @@
             this.btnQuitarParcial.Location = new System.Drawing.Point(644, 32);
             this.btnQuitarParcial.Name = "btnQuitarParcial";
             this.btnQuitarParcial.Size = new System.Drawing.Size(97, 38);
-            this.btnQuitarParcial.TabIndex = 14;
+            this.btnQuitarParcial.TabIndex = 2;
             this.btnQuitarParcial.Text = "Quitar Parcial";
             this.btnQuitarParcial.UseVisualStyleBackColor = false;
             // 
@@ -291,7 +324,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(213, 12);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(90, 46);
-            this.BtnCancelar.TabIndex = 13;
+            this.BtnCancelar.TabIndex = 2;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
             // 
@@ -301,7 +334,7 @@
             this.btnEstornar.Location = new System.Drawing.Point(117, 12);
             this.btnEstornar.Name = "btnEstornar";
             this.btnEstornar.Size = new System.Drawing.Size(90, 46);
-            this.btnEstornar.TabIndex = 12;
+            this.btnEstornar.TabIndex = 1;
             this.btnEstornar.Text = "Estornar";
             this.btnEstornar.UseVisualStyleBackColor = false;
             // 
@@ -311,7 +344,7 @@
             this.btnSair.Location = new System.Drawing.Point(687, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 46);
-            this.btnSair.TabIndex = 11;
+            this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -322,39 +355,9 @@
             this.btnQuitar.Location = new System.Drawing.Point(21, 12);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(90, 46);
-            this.btnQuitar.TabIndex = 6;
+            this.btnQuitar.TabIndex = 0;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
-            // 
-            // ttbTotalPagar
-            // 
-            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 362);
-            this.ttbTotalPagar.Name = "ttbTotalPagar";
-            this.ttbTotalPagar.Size = new System.Drawing.Size(100, 20);
-            this.ttbTotalPagar.TabIndex = 45;
-            this.ttbTotalPagar.Enter += new System.EventHandler(this.ttbTotalPagar_Enter_1);
-            this.ttbTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPagar_KeyPress);
-            this.ttbTotalPagar.Leave += new System.EventHandler(this.ttbTotalPagar_Leave);
-            // 
-            // ttbTotalVencido
-            // 
-            this.ttbTotalVencido.Location = new System.Drawing.Point(647, 362);
-            this.ttbTotalVencido.Name = "ttbTotalVencido";
-            this.ttbTotalVencido.Size = new System.Drawing.Size(100, 20);
-            this.ttbTotalVencido.TabIndex = 46;
-            this.ttbTotalVencido.Enter += new System.EventHandler(this.ttbTotalVencido_Enter);
-            this.ttbTotalVencido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalVencido_KeyPress);
-            this.ttbTotalVencido.Leave += new System.EventHandler(this.ttbTotalVencido_Leave);
-            // 
-            // ttbTotalPago
-            // 
-            this.ttbTotalPago.Location = new System.Drawing.Point(536, 362);
-            this.ttbTotalPago.Name = "ttbTotalPago";
-            this.ttbTotalPago.Size = new System.Drawing.Size(100, 20);
-            this.ttbTotalPago.TabIndex = 47;
-            this.ttbTotalPago.Enter += new System.EventHandler(this.ttbTotalPago_Enter);
-            this.ttbTotalPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPago_KeyPress);
-            this.ttbTotalPago.Leave += new System.EventHandler(this.ttbTotalPago_Leave);
             // 
             // QuitarDespesa
             // 

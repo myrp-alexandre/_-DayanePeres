@@ -374,5 +374,56 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         {
 
         }
+
+        private void mskCusto_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskCusto);
+        }
+
+        private void mskCusto_Leave(object sender, EventArgs e)
+        {
+            mskCusto.Text = Convert.ToDouble(mskCusto.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskCusto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskCusto, e);
+        }
+
+        private void mskVenda_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskVenda);
+        }
+
+        private void mskVenda_Leave(object sender, EventArgs e)
+        {
+            mskVenda.Text = Convert.ToDouble(mskVenda.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskVenda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskVenda, e);
+        }
+
+        private void totalCompra_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(totalCompra);
+        }
+
+        private void totalCompra_Leave(object sender, EventArgs e)
+        {
+            totalCompra.Text = Convert.ToDouble(totalCompra.Text).ToString("###,###,##0.00");
+        }
+
+        private void totalCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(totalCompra, e);
+        }
     }
 }

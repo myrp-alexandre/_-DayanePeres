@@ -31,8 +31,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnListar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ttbTotalPago = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.ttbTotalVencido = new System.Windows.Forms.MaskedTextBox();
             this.labelVencido = new System.Windows.Forms.Label();
+            this.ttbTotalPagar = new System.Windows.Forms.MaskedTextBox();
             this.labelPago = new System.Windows.Forms.Label();
             this.labelEmAberto = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,10 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDataDe = new System.Windows.Forms.DateTimePicker();
             this.dgvServico = new System.Windows.Forms.DataGridView();
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.btnEstornar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnQuitar = new System.Windows.Forms.Button();
             this.codContasPagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codPessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pes_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,9 +64,10 @@
             this.contRec_dataPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contRec_valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contRec_obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttbTotalPagar = new System.Windows.Forms.MaskedTextBox();
-            this.ttbTotalVencido = new System.Windows.Forms.MaskedTextBox();
-            this.ttbTotalPago = new System.Windows.Forms.MaskedTextBox();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.btnEstornar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -113,7 +113,7 @@
             this.btnListar.Location = new System.Drawing.Point(614, 71);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(165, 40);
-            this.btnListar.TabIndex = 14;
+            this.btnListar.TabIndex = 0;
             this.btnListar.Text = "Listar recebimentos";
             this.btnListar.UseVisualStyleBackColor = false;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
@@ -136,6 +136,18 @@
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
+            // ttbTotalPago
+            // 
+            this.ttbTotalPago.Enabled = false;
+            this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
+            this.ttbTotalPago.Location = new System.Drawing.Point(540, 32);
+            this.ttbTotalPago.Name = "ttbTotalPago";
+            this.ttbTotalPago.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPago.TabIndex = 51;
+            this.ttbTotalPago.Enter += new System.EventHandler(this.ttbTotalPago_Enter);
+            this.ttbTotalPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPago_KeyPress);
+            this.ttbTotalPago.Leave += new System.EventHandler(this.ttbTotalPago_Leave);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -145,6 +157,18 @@
             this.label11.Size = new System.Drawing.Size(52, 13);
             this.label11.TabIndex = 45;
             this.label11.Text = "Legenda:";
+            // 
+            // ttbTotalVencido
+            // 
+            this.ttbTotalVencido.Enabled = false;
+            this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
+            this.ttbTotalVencido.Location = new System.Drawing.Point(656, 32);
+            this.ttbTotalVencido.Name = "ttbTotalVencido";
+            this.ttbTotalVencido.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalVencido.TabIndex = 50;
+            this.ttbTotalVencido.Enter += new System.EventHandler(this.ttbTotalVencido_Enter);
+            this.ttbTotalVencido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalVencido_KeyPress);
+            this.ttbTotalVencido.Leave += new System.EventHandler(this.ttbTotalVencido_Leave);
             // 
             // labelVencido
             // 
@@ -158,6 +182,18 @@
             this.labelVencido.TabIndex = 48;
             this.labelVencido.Text = "     Vencido";
             this.labelVencido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ttbTotalPagar
+            // 
+            this.ttbTotalPagar.Enabled = false;
+            this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
+            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 32);
+            this.ttbTotalPagar.Name = "ttbTotalPagar";
+            this.ttbTotalPagar.Size = new System.Drawing.Size(100, 20);
+            this.ttbTotalPagar.TabIndex = 49;
+            this.ttbTotalPagar.Enter += new System.EventHandler(this.ttbTotalPagar_Enter_1);
+            this.ttbTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPagar_KeyPress);
+            this.ttbTotalPagar.Leave += new System.EventHandler(this.ttbTotalPagar_Leave);
             // 
             // labelPago
             // 
@@ -262,7 +298,7 @@
             this.cbbVencido.Location = new System.Drawing.Point(147, 74);
             this.cbbVencido.Name = "cbbVencido";
             this.cbbVencido.Size = new System.Drawing.Size(65, 17);
-            this.cbbVencido.TabIndex = 47;
+            this.cbbVencido.TabIndex = 3;
             this.cbbVencido.Text = "Vencido";
             this.cbbVencido.UseVisualStyleBackColor = true;
             // 
@@ -272,7 +308,7 @@
             this.cbbPago.Location = new System.Drawing.Point(90, 74);
             this.cbbPago.Name = "cbbPago";
             this.cbbPago.Size = new System.Drawing.Size(51, 17);
-            this.cbbPago.TabIndex = 4;
+            this.cbbPago.TabIndex = 2;
             this.cbbPago.Text = "Pago";
             this.cbbPago.UseVisualStyleBackColor = true;
             // 
@@ -284,7 +320,7 @@
             this.cbbEmAberto.Location = new System.Drawing.Point(10, 74);
             this.cbbEmAberto.Name = "cbbEmAberto";
             this.cbbEmAberto.Size = new System.Drawing.Size(74, 17);
-            this.cbbEmAberto.TabIndex = 3;
+            this.cbbEmAberto.TabIndex = 1;
             this.cbbEmAberto.Text = "Em aberto";
             this.cbbEmAberto.UseVisualStyleBackColor = true;
             // 
@@ -304,7 +340,7 @@
             this.ttbNomeCliente.MaxLength = 100;
             this.ttbNomeCliente.Name = "ttbNomeCliente";
             this.ttbNomeCliente.Size = new System.Drawing.Size(456, 20);
-            this.ttbNomeCliente.TabIndex = 1;
+            this.ttbNomeCliente.TabIndex = 0;
             // 
             // label6
             // 
@@ -334,7 +370,7 @@
             this.dtpDataAte.Location = new System.Drawing.Point(9, 71);
             this.dtpDataAte.Name = "dtpDataAte";
             this.dtpDataAte.Size = new System.Drawing.Size(97, 20);
-            this.dtpDataAte.TabIndex = 38;
+            this.dtpDataAte.TabIndex = 1;
             // 
             // label1
             // 
@@ -360,7 +396,7 @@
             this.dtpDataDe.Location = new System.Drawing.Point(9, 32);
             this.dtpDataDe.Name = "dtpDataDe";
             this.dtpDataDe.Size = new System.Drawing.Size(97, 20);
-            this.dtpDataDe.TabIndex = 36;
+            this.dtpDataDe.TabIndex = 0;
             // 
             // dgvServico
             // 
@@ -389,50 +425,6 @@
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServico.Size = new System.Drawing.Size(767, 192);
             this.dgvServico.TabIndex = 12;
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(204, 12);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(90, 46);
-            this.BtnCancelar.TabIndex = 13;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
-            // btnEstornar
-            // 
-            this.btnEstornar.BackColor = System.Drawing.Color.White;
-            this.btnEstornar.Location = new System.Drawing.Point(108, 12);
-            this.btnEstornar.Name = "btnEstornar";
-            this.btnEstornar.Size = new System.Drawing.Size(90, 46);
-            this.btnEstornar.TabIndex = 12;
-            this.btnEstornar.Text = "Estornar";
-            this.btnEstornar.UseVisualStyleBackColor = false;
-            this.btnEstornar.Click += new System.EventHandler(this.btnEstornar_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(704, 12);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 46);
-            this.btnSair.TabIndex = 11;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnQuitar
-            // 
-            this.btnQuitar.BackColor = System.Drawing.Color.White;
-            this.btnQuitar.Location = new System.Drawing.Point(12, 12);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(90, 46);
-            this.btnQuitar.TabIndex = 6;
-            this.btnQuitar.Text = "Quitar";
-            this.btnQuitar.UseVisualStyleBackColor = false;
-            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // codContasPagar
             // 
@@ -489,38 +481,49 @@
             this.contRec_obs.Name = "contRec_obs";
             this.contRec_obs.ReadOnly = true;
             // 
-            // ttbTotalPagar
+            // BtnCancelar
             // 
-            this.ttbTotalPagar.ForeColor = System.Drawing.Color.Blue;
-            this.ttbTotalPagar.Location = new System.Drawing.Point(420, 32);
-            this.ttbTotalPagar.Name = "ttbTotalPagar";
-            this.ttbTotalPagar.Size = new System.Drawing.Size(100, 20);
-            this.ttbTotalPagar.TabIndex = 49;
-            this.ttbTotalPagar.Enter += new System.EventHandler(this.ttbTotalPagar_Enter_1);
-            this.ttbTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPagar_KeyPress);
-            this.ttbTotalPagar.Leave += new System.EventHandler(this.ttbTotalPagar_Leave);
+            this.BtnCancelar.BackColor = System.Drawing.Color.White;
+            this.BtnCancelar.Location = new System.Drawing.Point(204, 12);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(90, 46);
+            this.BtnCancelar.TabIndex = 2;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // ttbTotalVencido
+            // btnEstornar
             // 
-            this.ttbTotalVencido.ForeColor = System.Drawing.Color.Red;
-            this.ttbTotalVencido.Location = new System.Drawing.Point(656, 32);
-            this.ttbTotalVencido.Name = "ttbTotalVencido";
-            this.ttbTotalVencido.Size = new System.Drawing.Size(100, 20);
-            this.ttbTotalVencido.TabIndex = 50;
-            this.ttbTotalVencido.Enter += new System.EventHandler(this.ttbTotalVencido_Enter);
-            this.ttbTotalVencido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalVencido_KeyPress);
-            this.ttbTotalVencido.Leave += new System.EventHandler(this.ttbTotalVencido_Leave);
+            this.btnEstornar.BackColor = System.Drawing.Color.White;
+            this.btnEstornar.Location = new System.Drawing.Point(108, 12);
+            this.btnEstornar.Name = "btnEstornar";
+            this.btnEstornar.Size = new System.Drawing.Size(90, 46);
+            this.btnEstornar.TabIndex = 1;
+            this.btnEstornar.Text = "Estornar";
+            this.btnEstornar.UseVisualStyleBackColor = false;
+            this.btnEstornar.Click += new System.EventHandler(this.btnEstornar_Click);
             // 
-            // ttbTotalPago
+            // btnSair
             // 
-            this.ttbTotalPago.ForeColor = System.Drawing.Color.Green;
-            this.ttbTotalPago.Location = new System.Drawing.Point(540, 32);
-            this.ttbTotalPago.Name = "ttbTotalPago";
-            this.ttbTotalPago.Size = new System.Drawing.Size(100, 20);
-            this.ttbTotalPago.TabIndex = 51;
-            this.ttbTotalPago.Enter += new System.EventHandler(this.ttbTotalPago_Enter);
-            this.ttbTotalPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPago_KeyPress);
-            this.ttbTotalPago.Leave += new System.EventHandler(this.ttbTotalPago_Leave);
+            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(704, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 46);
+            this.btnSair.TabIndex = 3;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.BackColor = System.Drawing.Color.White;
+            this.btnQuitar.Location = new System.Drawing.Point(12, 12);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(90, 46);
+            this.btnQuitar.TabIndex = 0;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // QuitarContasReceber
             // 

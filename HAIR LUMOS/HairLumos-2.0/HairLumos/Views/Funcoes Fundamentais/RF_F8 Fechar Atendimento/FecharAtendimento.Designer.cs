@@ -32,40 +32,40 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnExcluirItem = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnExcluirProduto = new System.Windows.Forms.Button();
+            this.btnAlterarProduto = new System.Windows.Forms.Button();
+            this.btnExcluirServico = new System.Windows.Forms.Button();
+            this.btnAlterarServico = new System.Windows.Forms.Button();
             this.dtpListaProdutosServicos = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnFecharVenda = new System.Windows.Forms.Button();
+            this.btnPesquisarVenda = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
+            this.mskTroco = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
+            this.mskRestante = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
+            this.mskRecebido = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.mskTotal = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
+            this.mskSubtotal = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnExcluirForma = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnAdicionarPagamento = new System.Windows.Forms.Button();
+            this.cbbForma = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.mskValorPagar = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mskDesconto = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskAcrescimo = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -110,10 +110,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridView2);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.btnExcluirItem);
+            this.tabPage1.Controls.Add(this.btnExcluirProduto);
+            this.tabPage1.Controls.Add(this.btnAlterarProduto);
+            this.tabPage1.Controls.Add(this.btnExcluirServico);
+            this.tabPage1.Controls.Add(this.btnAlterarServico);
             this.tabPage1.Controls.Add(this.dtpListaProdutosServicos);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -134,89 +134,45 @@
             this.dataGridView2.TabIndex = 37;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // button8
+            // btnExcluirProduto
             // 
-            this.button8.BackColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(159, 73);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(116, 35);
-            this.button8.TabIndex = 47;
-            this.button8.Text = "Sair";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnExcluirProduto.BackColor = System.Drawing.Color.White;
+            this.btnExcluirProduto.Location = new System.Drawing.Point(645, 118);
+            this.btnExcluirProduto.Name = "btnExcluirProduto";
+            this.btnExcluirProduto.Size = new System.Drawing.Size(115, 25);
+            this.btnExcluirProduto.TabIndex = 3;
+            this.btnExcluirProduto.Text = "Excluir Produto";
+            this.btnExcluirProduto.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnAlterarProduto
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(645, 118);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 25);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Excluir Produto";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAlterarProduto.BackColor = System.Drawing.Color.White;
+            this.btnAlterarProduto.Location = new System.Drawing.Point(645, 83);
+            this.btnAlterarProduto.Name = "btnAlterarProduto";
+            this.btnAlterarProduto.Size = new System.Drawing.Size(115, 25);
+            this.btnAlterarProduto.TabIndex = 2;
+            this.btnAlterarProduto.Text = "Alterar Produto";
+            this.btnAlterarProduto.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnExcluirServico
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(6, 73);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(121, 35);
-            this.button7.TabIndex = 46;
-            this.button7.Text = "Cancelar";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnExcluirServico.BackColor = System.Drawing.Color.White;
+            this.btnExcluirServico.Location = new System.Drawing.Point(645, 41);
+            this.btnExcluirServico.Name = "btnExcluirServico";
+            this.btnExcluirServico.Size = new System.Drawing.Size(115, 25);
+            this.btnExcluirServico.TabIndex = 1;
+            this.btnExcluirServico.Text = "Excluir Serviço";
+            this.btnExcluirServico.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnAlterarServico
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(645, 83);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(115, 25);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Alterar Produto";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(159, 23);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(116, 38);
-            this.button6.TabIndex = 45;
-            this.button6.Text = "PESQUISAR VENDA";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(645, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 25);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Excluir Serviço";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnExcluirItem
-            // 
-            this.btnExcluirItem.BackColor = System.Drawing.Color.White;
-            this.btnExcluirItem.Location = new System.Drawing.Point(646, 14);
-            this.btnExcluirItem.Name = "btnExcluirItem";
-            this.btnExcluirItem.Size = new System.Drawing.Size(115, 25);
-            this.btnExcluirItem.TabIndex = 33;
-            this.btnExcluirItem.Text = "Alterar Serviço";
-            this.btnExcluirItem.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(6, 23);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(121, 38);
-            this.btnCancelar.TabIndex = 43;
-            this.btnCancelar.Text = "FECHAR VENDA";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnAlterarServico.BackColor = System.Drawing.Color.White;
+            this.btnAlterarServico.Location = new System.Drawing.Point(646, 14);
+            this.btnAlterarServico.Name = "btnAlterarServico";
+            this.btnAlterarServico.Size = new System.Drawing.Size(115, 25);
+            this.btnAlterarServico.TabIndex = 0;
+            this.btnAlterarServico.Text = "Alterar Serviço";
+            this.btnAlterarServico.UseVisualStyleBackColor = false;
             // 
             // dtpListaProdutosServicos
             // 
@@ -242,14 +198,14 @@
             this.groupBox4.Controls.Add(this.groupBox3);
             this.groupBox4.Controls.Add(this.groupBox6);
             this.groupBox4.Controls.Add(this.groupBox5);
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.btnAdicionarPagamento);
+            this.groupBox4.Controls.Add(this.cbbForma);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.maskedTextBox3);
+            this.groupBox4.Controls.Add(this.mskValorPagar);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.maskedTextBox2);
+            this.groupBox4.Controls.Add(this.mskDesconto);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.maskedTextBox1);
+            this.groupBox4.Controls.Add(this.mskAcrescimo);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Location = new System.Drawing.Point(13, 265);
             this.groupBox4.Name = "groupBox4";
@@ -261,27 +217,71 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Goldenrod;
-            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.btnSair);
+            this.groupBox3.Controls.Add(this.btnFecharVenda);
+            this.groupBox3.Controls.Add(this.btnPesquisarVenda);
             this.groupBox3.Controls.Add(this.btnCancelar);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Location = new System.Drawing.Point(468, 247);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(296, 114);
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(159, 73);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(116, 35);
+            this.btnSair.TabIndex = 3;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // btnFecharVenda
+            // 
+            this.btnFecharVenda.BackColor = System.Drawing.Color.White;
+            this.btnFecharVenda.Location = new System.Drawing.Point(6, 23);
+            this.btnFecharVenda.Name = "btnFecharVenda";
+            this.btnFecharVenda.Size = new System.Drawing.Size(121, 38);
+            this.btnFecharVenda.TabIndex = 0;
+            this.btnFecharVenda.Text = "FECHAR VENDA";
+            this.btnFecharVenda.UseVisualStyleBackColor = false;
+            this.btnFecharVenda.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnPesquisarVenda
+            // 
+            this.btnPesquisarVenda.BackColor = System.Drawing.Color.White;
+            this.btnPesquisarVenda.Location = new System.Drawing.Point(159, 23);
+            this.btnPesquisarVenda.Name = "btnPesquisarVenda";
+            this.btnPesquisarVenda.Size = new System.Drawing.Size(116, 38);
+            this.btnPesquisarVenda.TabIndex = 2;
+            this.btnPesquisarVenda.Text = "PESQUISAR VENDA";
+            this.btnPesquisarVenda.UseVisualStyleBackColor = false;
+            this.btnPesquisarVenda.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(6, 73);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(121, 35);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.button7_Click);
+            // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.maskedTextBox8);
+            this.groupBox6.Controls.Add(this.mskTroco);
             this.groupBox6.Controls.Add(this.label10);
-            this.groupBox6.Controls.Add(this.maskedTextBox6);
+            this.groupBox6.Controls.Add(this.mskRestante);
             this.groupBox6.Controls.Add(this.label8);
-            this.groupBox6.Controls.Add(this.maskedTextBox7);
+            this.groupBox6.Controls.Add(this.mskRecebido);
             this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.maskedTextBox4);
+            this.groupBox6.Controls.Add(this.mskTotal);
             this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.maskedTextBox5);
+            this.groupBox6.Controls.Add(this.mskSubtotal);
             this.groupBox6.Controls.Add(this.label7);
             this.groupBox6.Location = new System.Drawing.Point(468, 17);
             this.groupBox6.Name = "groupBox6";
@@ -290,13 +290,16 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Valores";
             // 
-            // maskedTextBox8
+            // mskTroco
             // 
-            this.maskedTextBox8.Enabled = false;
-            this.maskedTextBox8.Location = new System.Drawing.Point(151, 177);
-            this.maskedTextBox8.Name = "maskedTextBox8";
-            this.maskedTextBox8.Size = new System.Drawing.Size(115, 20);
-            this.maskedTextBox8.TabIndex = 52;
+            this.mskTroco.Enabled = false;
+            this.mskTroco.Location = new System.Drawing.Point(151, 177);
+            this.mskTroco.Name = "mskTroco";
+            this.mskTroco.Size = new System.Drawing.Size(115, 20);
+            this.mskTroco.TabIndex = 52;
+            this.mskTroco.Enter += new System.EventHandler(this.mskTroco_Enter);
+            this.mskTroco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTroco_KeyPress);
+            this.mskTroco.Leave += new System.EventHandler(this.mskTroco_Leave);
             // 
             // label10
             // 
@@ -307,13 +310,16 @@
             this.label10.TabIndex = 51;
             this.label10.Text = "TROCO";
             // 
-            // maskedTextBox6
+            // mskRestante
             // 
-            this.maskedTextBox6.Enabled = false;
-            this.maskedTextBox6.Location = new System.Drawing.Point(151, 137);
-            this.maskedTextBox6.Name = "maskedTextBox6";
-            this.maskedTextBox6.Size = new System.Drawing.Size(115, 20);
-            this.maskedTextBox6.TabIndex = 50;
+            this.mskRestante.Enabled = false;
+            this.mskRestante.Location = new System.Drawing.Point(151, 137);
+            this.mskRestante.Name = "mskRestante";
+            this.mskRestante.Size = new System.Drawing.Size(115, 20);
+            this.mskRestante.TabIndex = 50;
+            this.mskRestante.Enter += new System.EventHandler(this.mskRestante_Enter);
+            this.mskRestante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskRestante_KeyPress);
+            this.mskRestante.Leave += new System.EventHandler(this.mskRestante_Leave);
             // 
             // label8
             // 
@@ -324,12 +330,16 @@
             this.label8.TabIndex = 49;
             this.label8.Text = "RESTANTE";
             // 
-            // maskedTextBox7
+            // mskRecebido
             // 
-            this.maskedTextBox7.Location = new System.Drawing.Point(151, 95);
-            this.maskedTextBox7.Name = "maskedTextBox7";
-            this.maskedTextBox7.Size = new System.Drawing.Size(115, 20);
-            this.maskedTextBox7.TabIndex = 48;
+            this.mskRecebido.Enabled = false;
+            this.mskRecebido.Location = new System.Drawing.Point(151, 95);
+            this.mskRecebido.Name = "mskRecebido";
+            this.mskRecebido.Size = new System.Drawing.Size(115, 20);
+            this.mskRecebido.TabIndex = 48;
+            this.mskRecebido.Enter += new System.EventHandler(this.mskRecebido_Enter);
+            this.mskRecebido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskRecebido_KeyPress);
+            this.mskRecebido.Leave += new System.EventHandler(this.mskRecebido_Leave);
             // 
             // label9
             // 
@@ -340,12 +350,16 @@
             this.label9.TabIndex = 47;
             this.label9.Text = "RECEBIDO";
             // 
-            // maskedTextBox4
+            // mskTotal
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(151, 54);
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(115, 20);
-            this.maskedTextBox4.TabIndex = 46;
+            this.mskTotal.Enabled = false;
+            this.mskTotal.Location = new System.Drawing.Point(151, 54);
+            this.mskTotal.Name = "mskTotal";
+            this.mskTotal.Size = new System.Drawing.Size(115, 20);
+            this.mskTotal.TabIndex = 46;
+            this.mskTotal.Enter += new System.EventHandler(this.mskTotal_Enter);
+            this.mskTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTotal_KeyPress);
+            this.mskTotal.Leave += new System.EventHandler(this.mskTotal_Leave);
             // 
             // label6
             // 
@@ -356,13 +370,16 @@
             this.label6.TabIndex = 45;
             this.label6.Text = "TOTAL";
             // 
-            // maskedTextBox5
+            // mskSubtotal
             // 
-            this.maskedTextBox5.Enabled = false;
-            this.maskedTextBox5.Location = new System.Drawing.Point(151, 18);
-            this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.Size = new System.Drawing.Size(115, 20);
-            this.maskedTextBox5.TabIndex = 44;
+            this.mskSubtotal.Enabled = false;
+            this.mskSubtotal.Location = new System.Drawing.Point(151, 18);
+            this.mskSubtotal.Name = "mskSubtotal";
+            this.mskSubtotal.Size = new System.Drawing.Size(115, 20);
+            this.mskSubtotal.TabIndex = 44;
+            this.mskSubtotal.Enter += new System.EventHandler(this.mskSubtotal_Enter);
+            this.mskSubtotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskSubtotal_KeyPress);
+            this.mskSubtotal.Leave += new System.EventHandler(this.mskSubtotal_Leave);
             // 
             // label7
             // 
@@ -375,7 +392,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.btnExcluirForma);
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Location = new System.Drawing.Point(11, 166);
             this.groupBox5.Name = "groupBox5";
@@ -384,42 +401,42 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Formas de Pagamentos Adicionadas";
             // 
-            // button5
+            // btnExcluirForma
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(341, 76);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 29);
-            this.button5.TabIndex = 43;
-            this.button5.Text = "Excluir";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnExcluirForma.BackColor = System.Drawing.Color.White;
+            this.btnExcluirForma.Location = new System.Drawing.Point(341, 76);
+            this.btnExcluirForma.Name = "btnExcluirForma";
+            this.btnExcluirForma.Size = new System.Drawing.Size(92, 29);
+            this.btnExcluirForma.TabIndex = 0;
+            this.btnExcluirForma.Text = "Excluir";
+            this.btnExcluirForma.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 36);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(329, 136);
+            this.dataGridView1.Size = new System.Drawing.Size(329, 170);
             this.dataGridView1.TabIndex = 31;
             // 
-            // button4
+            // btnAdicionarPagamento
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(223, 123);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 29);
-            this.button4.TabIndex = 31;
-            this.button4.Text = "Adicionar Pagamento";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnAdicionarPagamento.BackColor = System.Drawing.Color.White;
+            this.btnAdicionarPagamento.Location = new System.Drawing.Point(223, 123);
+            this.btnAdicionarPagamento.Name = "btnAdicionarPagamento";
+            this.btnAdicionarPagamento.Size = new System.Drawing.Size(129, 29);
+            this.btnAdicionarPagamento.TabIndex = 4;
+            this.btnAdicionarPagamento.Text = "Adicionar Pagamento";
+            this.btnAdicionarPagamento.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // cbbForma
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbbForma.FormattingEnabled = true;
+            this.cbbForma.Location = new System.Drawing.Point(107, 91);
+            this.cbbForma.Name = "cbbForma";
+            this.cbbForma.Size = new System.Drawing.Size(245, 21);
+            this.cbbForma.TabIndex = 2;
             // 
             // label5
             // 
@@ -430,12 +447,15 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "FORMA";
             // 
-            // maskedTextBox3
+            // mskValorPagar
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(107, 128);
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(111, 20);
-            this.maskedTextBox3.TabIndex = 5;
+            this.mskValorPagar.Location = new System.Drawing.Point(107, 128);
+            this.mskValorPagar.Name = "mskValorPagar";
+            this.mskValorPagar.Size = new System.Drawing.Size(111, 20);
+            this.mskValorPagar.TabIndex = 3;
+            this.mskValorPagar.Enter += new System.EventHandler(this.mskValorPagar_Enter);
+            this.mskValorPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorPagar_KeyPress);
+            this.mskValorPagar.Leave += new System.EventHandler(this.mskValorPagar_Leave);
             // 
             // label4
             // 
@@ -446,12 +466,15 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "VALOR À PAGAR";
             // 
-            // maskedTextBox2
+            // mskDesconto
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(107, 59);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(111, 20);
-            this.maskedTextBox2.TabIndex = 3;
+            this.mskDesconto.Location = new System.Drawing.Point(107, 59);
+            this.mskDesconto.Name = "mskDesconto";
+            this.mskDesconto.Size = new System.Drawing.Size(111, 20);
+            this.mskDesconto.TabIndex = 1;
+            this.mskDesconto.Enter += new System.EventHandler(this.mskDesconto_Enter);
+            this.mskDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskDesconto_KeyPress);
+            this.mskDesconto.Leave += new System.EventHandler(this.mskDesconto_Leave);
             // 
             // label3
             // 
@@ -462,12 +485,15 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "DESCONTO";
             // 
-            // maskedTextBox1
+            // mskAcrescimo
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(107, 17);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(111, 20);
-            this.maskedTextBox1.TabIndex = 1;
+            this.mskAcrescimo.Location = new System.Drawing.Point(107, 17);
+            this.mskAcrescimo.Name = "mskAcrescimo";
+            this.mskAcrescimo.Size = new System.Drawing.Size(111, 20);
+            this.mskAcrescimo.TabIndex = 0;
+            this.mskAcrescimo.Enter += new System.EventHandler(this.mskAcrescimo_Enter);
+            this.mskAcrescimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskAcrescimo_KeyPress);
+            this.mskAcrescimo.Leave += new System.EventHandler(this.mskAcrescimo_Leave);
             // 
             // label2
             // 
@@ -510,7 +536,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(824, 660);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
@@ -542,41 +568,41 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
-        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button btnExcluirForma;
         private System.Windows.Forms.DataGridView dataGridView1;
-        public System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.Button btnAdicionarPagamento;
+        private System.Windows.Forms.ComboBox cbbForma;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.MaskedTextBox mskValorPagar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox mskDesconto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskAcrescimo;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Button button7;
-        public System.Windows.Forms.Button button6;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
-        private System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button btnCancelar;
-        public System.Windows.Forms.Button button8;
+        public System.Windows.Forms.Button btnPesquisarVenda;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.MaskedTextBox mskTroco;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.MaskedTextBox mskRestante;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox mskRecebido;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MaskedTextBox mskTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox mskSubtotal;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Button btnFecharVenda;
+        public System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button btnExcluirItem;
+        public System.Windows.Forms.Button btnExcluirProduto;
+        public System.Windows.Forms.Button btnAlterarProduto;
+        public System.Windows.Forms.Button btnExcluirServico;
+        public System.Windows.Forms.Button btnAlterarServico;
         private System.Windows.Forms.DataGridView dtpListaProdutosServicos;
         private System.Windows.Forms.GroupBox groupBox3;
     }

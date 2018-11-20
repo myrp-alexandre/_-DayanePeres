@@ -37,6 +37,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                 codCompra = Convert.ToInt32(dr["codcompra"].ToString());
                 mskValorTotal.Text = Convert.ToDouble(dr["comp_valortotal"]).ToString();
                 valorTotal = Convert.ToDouble(mskValorTotal.Text);
+                DGVMoeda();
             }
             
         }
@@ -54,6 +55,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
         {
             _inicializa();
         }
+
+        private void DGVMoeda()
+        {
+            this.dgvContas.Columns["ValorParcela"].DefaultCellStyle.Format = "c";
+        }
+        
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
@@ -249,6 +256,40 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void mskValorTotal_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskValorTotal);
+        }
+
+        private void mskValorTotal_Leave(object sender, EventArgs e)
+        {
+            mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskValorTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskValorTotal, e);
+        }
+
+        private void mskValorParcela_Enter(object sender, EventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._enterPropriedade(mskValorParcela);
+        }
+
+        private void mskValorParcela_Leave(object sender, EventArgs e)
+        {
+            mskValorParcela.Text = Convert.ToDouble(mskValorParcela.Text).ToString("###,###,##0.00");
+        }
+
+        private void mskValorParcela_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
+            enterPropriedades._keyPessPropriedade(mskValorParcela, e);
         }
     }
 }

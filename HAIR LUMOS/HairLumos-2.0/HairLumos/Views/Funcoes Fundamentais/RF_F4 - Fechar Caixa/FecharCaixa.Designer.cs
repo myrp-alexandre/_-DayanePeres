@@ -109,10 +109,14 @@
             // 
             // mskRestante
             // 
+            this.mskRestante.Enabled = false;
             this.mskRestante.Location = new System.Drawing.Point(453, 386);
             this.mskRestante.Name = "mskRestante";
             this.mskRestante.Size = new System.Drawing.Size(123, 20);
-            this.mskRestante.TabIndex = 47;
+            this.mskRestante.TabIndex = 4;
+            this.mskRestante.Enter += new System.EventHandler(this.mskRestante_Enter);
+            this.mskRestante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskRestante_KeyPress);
+            this.mskRestante.Leave += new System.EventHandler(this.mskRestante_Leave);
             // 
             // label10
             // 
@@ -125,10 +129,14 @@
             // 
             // mskTotalGasto
             // 
+            this.mskTotalGasto.Enabled = false;
             this.mskTotalGasto.Location = new System.Drawing.Point(453, 328);
             this.mskTotalGasto.Name = "mskTotalGasto";
             this.mskTotalGasto.Size = new System.Drawing.Size(123, 20);
-            this.mskTotalGasto.TabIndex = 45;
+            this.mskTotalGasto.TabIndex = 3;
+            this.mskTotalGasto.Enter += new System.EventHandler(this.mskTotalGasto_Enter);
+            this.mskTotalGasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTotalGasto_KeyPress);
+            this.mskTotalGasto.Leave += new System.EventHandler(this.mskTotalGasto_Leave);
             // 
             // label9
             // 
@@ -141,15 +149,19 @@
             // 
             // mskTotalRecebido
             // 
-            this.mskTotalRecebido.Location = new System.Drawing.Point(453, 278);
+            this.mskTotalRecebido.Enabled = false;
+            this.mskTotalRecebido.Location = new System.Drawing.Point(453, 273);
             this.mskTotalRecebido.Name = "mskTotalRecebido";
             this.mskTotalRecebido.Size = new System.Drawing.Size(123, 20);
-            this.mskTotalRecebido.TabIndex = 43;
+            this.mskTotalRecebido.TabIndex = 2;
+            this.mskTotalRecebido.Enter += new System.EventHandler(this.mskTotalRecebido_Enter);
+            this.mskTotalRecebido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTotalRecebido_KeyPress);
+            this.mskTotalRecebido.Leave += new System.EventHandler(this.mskTotalRecebido_Leave);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(355, 262);
+            this.label8.Location = new System.Drawing.Point(355, 257);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 13);
             this.label8.TabIndex = 42;
@@ -157,10 +169,14 @@
             // 
             // mskInicialCaixa
             // 
+            this.mskInicialCaixa.Enabled = false;
             this.mskInicialCaixa.Location = new System.Drawing.Point(453, 218);
             this.mskInicialCaixa.Name = "mskInicialCaixa";
             this.mskInicialCaixa.Size = new System.Drawing.Size(123, 20);
-            this.mskInicialCaixa.TabIndex = 41;
+            this.mskInicialCaixa.TabIndex = 1;
+            this.mskInicialCaixa.Enter += new System.EventHandler(this.mskInicialCaixa_Enter);
+            this.mskInicialCaixa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskInicialCaixa_KeyPress);
+            this.mskInicialCaixa.Leave += new System.EventHandler(this.mskInicialCaixa_Leave);
             // 
             // label7
             // 
@@ -201,7 +217,7 @@
             this.btnIncluir.Location = new System.Drawing.Point(402, 35);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(80, 29);
-            this.btnIncluir.TabIndex = 16;
+            this.btnIncluir.TabIndex = 2;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = false;
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
@@ -211,7 +227,10 @@
             this.mskValor.Location = new System.Drawing.Point(256, 41);
             this.mskValor.Name = "mskValor";
             this.mskValor.Size = new System.Drawing.Size(123, 20);
-            this.mskValor.TabIndex = 39;
+            this.mskValor.TabIndex = 1;
+            this.mskValor.Enter += new System.EventHandler(this.mskValor_Enter);
+            this.mskValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValor_KeyPress);
+            this.mskValor.Leave += new System.EventHandler(this.mskValor_Leave);
             // 
             // label2
             // 
@@ -228,7 +247,7 @@
             this.cbbFormaPagamento.Location = new System.Drawing.Point(13, 40);
             this.cbbFormaPagamento.Name = "cbbFormaPagamento";
             this.cbbFormaPagamento.Size = new System.Drawing.Size(223, 21);
-            this.cbbFormaPagamento.TabIndex = 37;
+            this.cbbFormaPagamento.TabIndex = 0;
             // 
             // label1
             // 
@@ -288,6 +307,7 @@
             // 
             // forma
             // 
+            this.forma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.forma.DataPropertyName = "forma";
             this.forma.HeaderText = "Forma de Pagamento";
             this.forma.Name = "forma";
@@ -296,7 +316,7 @@
             // valor
             // 
             this.valor.DataPropertyName = "valor";
-            this.valor.HeaderText = "Valor";
+            this.valor.HeaderText = "Valor (R$)";
             this.valor.Name = "valor";
             this.valor.ReadOnly = true;
             // 
@@ -332,11 +352,12 @@
             // 
             // ttbUsuário
             // 
+            this.ttbUsuário.Enabled = false;
             this.ttbUsuário.Location = new System.Drawing.Point(60, 43);
             this.ttbUsuário.MaxLength = 200;
             this.ttbUsuário.Name = "ttbUsuário";
             this.ttbUsuário.Size = new System.Drawing.Size(516, 20);
-            this.ttbUsuário.TabIndex = 33;
+            this.ttbUsuário.TabIndex = 0;
             // 
             // label5
             // 
@@ -358,6 +379,7 @@
             // 
             // ttbCodigo
             // 
+            this.ttbCodigo.Enabled = false;
             this.ttbCodigo.Location = new System.Drawing.Point(60, 12);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(83, 20);
@@ -369,7 +391,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(102, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 41);
-            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -380,7 +402,7 @@
             this.btnSair.Location = new System.Drawing.Point(496, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(80, 41);
-            this.btnSair.TabIndex = 14;
+            this.btnSair.TabIndex = 2;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -391,7 +413,7 @@
             this.btnGravar.Location = new System.Drawing.Point(16, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(80, 41);
-            this.btnGravar.TabIndex = 7;
+            this.btnGravar.TabIndex = 0;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);

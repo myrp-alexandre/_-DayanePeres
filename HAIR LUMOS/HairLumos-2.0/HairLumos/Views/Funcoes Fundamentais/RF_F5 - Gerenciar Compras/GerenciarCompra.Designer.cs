@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbSim = new System.Windows.Forms.RadioButton();
+            this.rbNao = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.totalCompra = new System.Windows.Forms.Label();
+            this.totalCompra = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Pedido = new System.Windows.Forms.TabPage();
@@ -38,7 +41,6 @@
             this.Observação = new System.Windows.Forms.TabPage();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.btnExcluirCompra = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnIncluirProduto = new System.Windows.Forms.Button();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
@@ -51,9 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnPesquisaProduto = new System.Windows.Forms.Button();
             this.ttbProduto = new System.Windows.Forms.TextBox();
-            this.rbNao = new System.Windows.Forms.RadioButton();
             this.btnPesquisaFornecedor = new System.Windows.Forms.Button();
-            this.rbSim = new System.Windows.Forms.RadioButton();
             this.ttbFornecedor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Código = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Pedido.SuspendLayout();
@@ -86,14 +87,12 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnPesquisaProduto);
             this.splitContainer1.Panel1.Controls.Add(this.ttbProduto);
-            this.splitContainer1.Panel1.Controls.Add(this.rbNao);
             this.splitContainer1.Panel1.Controls.Add(this.btnPesquisaFornecedor);
-            this.splitContainer1.Panel1.Controls.Add(this.rbSim);
             this.splitContainer1.Panel1.Controls.Add(this.ttbFornecedor);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.Código);
@@ -113,6 +112,39 @@
             this.splitContainer1.SplitterDistance = 408;
             this.splitContainer1.TabIndex = 1;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbSim);
+            this.groupBox2.Controls.Add(this.rbNao);
+            this.groupBox2.Location = new System.Drawing.Point(760, 46);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(139, 56);
+            this.groupBox2.TabIndex = 29;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Compra Consignado?";
+            // 
+            // rbSim
+            // 
+            this.rbSim.AutoSize = true;
+            this.rbSim.Location = new System.Drawing.Point(23, 25);
+            this.rbSim.Name = "rbSim";
+            this.rbSim.Size = new System.Drawing.Size(42, 17);
+            this.rbSim.TabIndex = 0;
+            this.rbSim.TabStop = true;
+            this.rbSim.Text = "Sim";
+            this.rbSim.UseVisualStyleBackColor = true;
+            // 
+            // rbNao
+            // 
+            this.rbNao.AutoSize = true;
+            this.rbNao.Location = new System.Drawing.Point(83, 25);
+            this.rbNao.Name = "rbNao";
+            this.rbNao.Size = new System.Drawing.Size(45, 17);
+            this.rbNao.TabIndex = 1;
+            this.rbNao.TabStop = true;
+            this.rbNao.Text = "Não";
+            this.rbNao.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.totalCompra);
@@ -127,14 +159,15 @@
             // 
             // totalCompra
             // 
-            this.totalCompra.AutoSize = true;
-            this.totalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCompra.ForeColor = System.Drawing.Color.DarkRed;
-            this.totalCompra.Location = new System.Drawing.Point(816, 176);
+            this.totalCompra.Enabled = false;
+            this.totalCompra.ForeColor = System.Drawing.Color.Red;
+            this.totalCompra.Location = new System.Drawing.Point(805, 180);
             this.totalCompra.Name = "totalCompra";
-            this.totalCompra.Size = new System.Drawing.Size(31, 15);
-            this.totalCompra.TabIndex = 18;
-            this.totalCompra.Text = "0,00";
+            this.totalCompra.Size = new System.Drawing.Size(67, 20);
+            this.totalCompra.TabIndex = 16;
+            this.totalCompra.Enter += new System.EventHandler(this.totalCompra_Enter);
+            this.totalCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalCompra_KeyPress);
+            this.totalCompra.Leave += new System.EventHandler(this.totalCompra_Leave);
             // 
             // label8
             // 
@@ -207,19 +240,10 @@
             this.btnExcluirCompra.Location = new System.Drawing.Point(800, 93);
             this.btnExcluirCompra.Name = "btnExcluirCompra";
             this.btnExcluirCompra.Size = new System.Drawing.Size(72, 37);
-            this.btnExcluirCompra.TabIndex = 16;
+            this.btnExcluirCompra.TabIndex = 0;
             this.btnExcluirCompra.Text = "Excluir Item";
             this.btnExcluirCompra.UseVisualStyleBackColor = false;
             this.btnExcluirCompra.Click += new System.EventHandler(this.btnExcluirCompra_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(785, 62);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 13);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Compra Consignado?";
             // 
             // groupBox1
             // 
@@ -244,7 +268,7 @@
             this.btnIncluirProduto.Location = new System.Drawing.Point(767, 19);
             this.btnIncluirProduto.Name = "btnIncluirProduto";
             this.btnIncluirProduto.Size = new System.Drawing.Size(105, 37);
-            this.btnIncluirProduto.TabIndex = 17;
+            this.btnIncluirProduto.TabIndex = 4;
             this.btnIncluirProduto.Text = "Incluir Produto";
             this.btnIncluirProduto.UseVisualStyleBackColor = false;
             this.btnIncluirProduto.Click += new System.EventHandler(this.btnIncluirProduto_Click);
@@ -253,10 +277,10 @@
             // 
             this.dtpData.CustomFormat = "dd/MM/YYYY";
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(215, 24);
+            this.dtpData.Location = new System.Drawing.Point(213, 25);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(103, 20);
-            this.dtpData.TabIndex = 26;
+            this.dtpData.TabIndex = 1;
             // 
             // label5
             // 
@@ -278,17 +302,20 @@
             // 
             // ttbQuantidade
             // 
-            this.ttbQuantidade.Location = new System.Drawing.Point(58, 27);
+            this.ttbQuantidade.Location = new System.Drawing.Point(58, 23);
             this.ttbQuantidade.Name = "ttbQuantidade";
             this.ttbQuantidade.Size = new System.Drawing.Size(100, 20);
-            this.ttbQuantidade.TabIndex = 24;
+            this.ttbQuantidade.TabIndex = 0;
             // 
             // mskVenda
             // 
-            this.mskVenda.Location = new System.Drawing.Point(652, 23);
+            this.mskVenda.Location = new System.Drawing.Point(644, 28);
             this.mskVenda.Name = "mskVenda";
             this.mskVenda.Size = new System.Drawing.Size(100, 20);
-            this.mskVenda.TabIndex = 25;
+            this.mskVenda.TabIndex = 3;
+            this.mskVenda.Enter += new System.EventHandler(this.mskVenda_Enter);
+            this.mskVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskVenda_KeyPress);
+            this.mskVenda.Leave += new System.EventHandler(this.mskVenda_Leave);
             // 
             // label6
             // 
@@ -304,7 +331,10 @@
             this.mskCusto.Location = new System.Drawing.Point(428, 24);
             this.mskCusto.Name = "mskCusto";
             this.mskCusto.Size = new System.Drawing.Size(100, 20);
-            this.mskCusto.TabIndex = 23;
+            this.mskCusto.TabIndex = 2;
+            this.mskCusto.Enter += new System.EventHandler(this.mskCusto_Enter);
+            this.mskCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskCusto_KeyPress);
+            this.mskCusto.Leave += new System.EventHandler(this.mskCusto_Leave);
             // 
             // label2
             // 
@@ -321,29 +351,19 @@
             this.btnPesquisaProduto.Location = new System.Drawing.Point(552, 57);
             this.btnPesquisaProduto.Name = "btnPesquisaProduto";
             this.btnPesquisaProduto.Size = new System.Drawing.Size(87, 31);
-            this.btnPesquisaProduto.TabIndex = 17;
+            this.btnPesquisaProduto.TabIndex = 1;
             this.btnPesquisaProduto.Text = "Pesquisa";
             this.btnPesquisaProduto.UseVisualStyleBackColor = false;
             this.btnPesquisaProduto.Click += new System.EventHandler(this.btnPesquisaProduto_Click);
             // 
             // ttbProduto
             // 
+            this.ttbProduto.Enabled = false;
             this.ttbProduto.Location = new System.Drawing.Point(79, 62);
             this.ttbProduto.MaxLength = 100;
             this.ttbProduto.Name = "ttbProduto";
             this.ttbProduto.Size = new System.Drawing.Size(448, 20);
             this.ttbProduto.TabIndex = 16;
-            // 
-            // rbNao
-            // 
-            this.rbNao.AutoSize = true;
-            this.rbNao.Location = new System.Drawing.Point(848, 85);
-            this.rbNao.Name = "rbNao";
-            this.rbNao.Size = new System.Drawing.Size(45, 17);
-            this.rbNao.TabIndex = 27;
-            this.rbNao.TabStop = true;
-            this.rbNao.Text = "Não";
-            this.rbNao.UseVisualStyleBackColor = true;
             // 
             // btnPesquisaFornecedor
             // 
@@ -351,24 +371,14 @@
             this.btnPesquisaFornecedor.Location = new System.Drawing.Point(812, 9);
             this.btnPesquisaFornecedor.Name = "btnPesquisaFornecedor";
             this.btnPesquisaFornecedor.Size = new System.Drawing.Size(87, 31);
-            this.btnPesquisaFornecedor.TabIndex = 15;
+            this.btnPesquisaFornecedor.TabIndex = 0;
             this.btnPesquisaFornecedor.Text = "Pesquisa";
             this.btnPesquisaFornecedor.UseVisualStyleBackColor = false;
             this.btnPesquisaFornecedor.Click += new System.EventHandler(this.btnPesquisaFornecedor_Click);
             // 
-            // rbSim
-            // 
-            this.rbSim.AutoSize = true;
-            this.rbSim.Location = new System.Drawing.Point(788, 85);
-            this.rbSim.Name = "rbSim";
-            this.rbSim.Size = new System.Drawing.Size(42, 17);
-            this.rbSim.TabIndex = 26;
-            this.rbSim.TabStop = true;
-            this.rbSim.Text = "Sim";
-            this.rbSim.UseVisualStyleBackColor = true;
-            // 
             // ttbFornecedor
             // 
+            this.ttbFornecedor.Enabled = false;
             this.ttbFornecedor.Location = new System.Drawing.Point(345, 15);
             this.ttbFornecedor.MaxLength = 100;
             this.ttbFornecedor.Name = "ttbFornecedor";
@@ -387,7 +397,7 @@
             // Código
             // 
             this.Código.AutoSize = true;
-            this.Código.Location = new System.Drawing.Point(18, 18);
+            this.Código.Location = new System.Drawing.Point(22, 15);
             this.Código.Name = "Código";
             this.Código.Size = new System.Drawing.Size(40, 13);
             this.Código.TabIndex = 6;
@@ -396,7 +406,7 @@
             // ttbCodigo
             // 
             this.ttbCodigo.Enabled = false;
-            this.ttbCodigo.Location = new System.Drawing.Point(64, 15);
+            this.ttbCodigo.Location = new System.Drawing.Point(79, 15);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
             this.ttbCodigo.TabIndex = 7;
@@ -416,7 +426,7 @@
             this.btnGerarCompra.Location = new System.Drawing.Point(519, 12);
             this.btnGerarCompra.Name = "btnGerarCompra";
             this.btnGerarCompra.Size = new System.Drawing.Size(221, 48);
-            this.btnGerarCompra.TabIndex = 14;
+            this.btnGerarCompra.TabIndex = 4;
             this.btnGerarCompra.Text = "Gerar Compra e Contas a Pagar";
             this.btnGerarCompra.UseVisualStyleBackColor = false;
             this.btnGerarCompra.Click += new System.EventHandler(this.btnGerarCompra_Click);
@@ -427,7 +437,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(286, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 48);
-            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -438,7 +448,7 @@
             this.btnSair.Location = new System.Drawing.Point(824, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 48);
-            this.btnSair.TabIndex = 11;
+            this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -449,7 +459,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(205, 12);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 48);
-            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -460,7 +470,7 @@
             this.btnLocalizar.Location = new System.Drawing.Point(124, 12);
             this.btnLocalizar.Name = "btnLocalizar";
             this.btnLocalizar.Size = new System.Drawing.Size(75, 48);
-            this.btnLocalizar.TabIndex = 8;
+            this.btnLocalizar.TabIndex = 1;
             this.btnLocalizar.Text = "Localizar";
             this.btnLocalizar.UseVisualStyleBackColor = false;
             this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
@@ -471,7 +481,7 @@
             this.btnNovo.Location = new System.Drawing.Point(43, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 48);
-            this.btnNovo.TabIndex = 6;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
@@ -493,6 +503,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -524,7 +536,6 @@
         private System.Windows.Forms.TabPage Observação;
         public System.Windows.Forms.TextBox ttbObservacao;
         public System.Windows.Forms.Button btnExcluirCompra;
-        public System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtpData;
         public System.Windows.Forms.Label label5;
@@ -544,6 +555,7 @@
         public System.Windows.Forms.Button btnGerarCompra;
         public System.Windows.Forms.Button btnIncluirProduto;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label totalCompra;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.MaskedTextBox totalCompra;
     }
 }

@@ -125,7 +125,7 @@
             this.btnExcluiBaixaProduto.Location = new System.Drawing.Point(456, 38);
             this.btnExcluiBaixaProduto.Name = "btnExcluiBaixaProduto";
             this.btnExcluiBaixaProduto.Size = new System.Drawing.Size(61, 27);
-            this.btnExcluiBaixaProduto.TabIndex = 15;
+            this.btnExcluiBaixaProduto.TabIndex = 0;
             this.btnExcluiBaixaProduto.Text = "Excluir";
             this.btnExcluiBaixaProduto.UseVisualStyleBackColor = false;
             this.btnExcluiBaixaProduto.Click += new System.EventHandler(this.btnExcluiBaixaProduto_Click);
@@ -202,7 +202,7 @@
             this.btnIncluir.Location = new System.Drawing.Point(376, 49);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(72, 27);
-            this.btnIncluir.TabIndex = 22;
+            this.btnIncluir.TabIndex = 3;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = false;
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
@@ -221,7 +221,7 @@
             this.ttbQtde.Location = new System.Drawing.Point(262, 53);
             this.ttbQtde.Name = "ttbQtde";
             this.ttbQtde.Size = new System.Drawing.Size(100, 20);
-            this.ttbQtde.TabIndex = 21;
+            this.ttbQtde.TabIndex = 2;
             // 
             // btnPesquisar
             // 
@@ -229,7 +229,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(463, 14);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(72, 27);
-            this.btnPesquisar.TabIndex = 19;
+            this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.button1_Click);
@@ -240,7 +240,7 @@
             this.ttbProduto.Location = new System.Drawing.Point(60, 18);
             this.ttbProduto.Name = "ttbProduto";
             this.ttbProduto.Size = new System.Drawing.Size(388, 20);
-            this.ttbProduto.TabIndex = 18;
+            this.ttbProduto.TabIndex = 0;
             // 
             // label1
             // 
@@ -257,7 +257,7 @@
             this.btnPesquisa.Location = new System.Drawing.Point(183, 12);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(75, 38);
-            this.btnPesquisa.TabIndex = 13;
+            this.btnPesquisa.TabIndex = 2;
             this.btnPesquisa.Text = "Pesquisar";
             this.btnPesquisa.UseVisualStyleBackColor = false;
             this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
@@ -268,7 +268,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(264, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 38);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -279,7 +279,7 @@
             this.btnSair.Location = new System.Drawing.Point(491, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 38);
-            this.btnSair.TabIndex = 11;
+            this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -290,7 +290,7 @@
             this.btnGravar.Location = new System.Drawing.Point(102, 12);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 38);
-            this.btnGravar.TabIndex = 7;
+            this.btnGravar.TabIndex = 1;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -301,7 +301,7 @@
             this.btnNovo.Location = new System.Drawing.Point(21, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 38);
-            this.btnNovo.TabIndex = 6;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);

@@ -149,68 +149,68 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(582, 11);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 57);
-            this.button2.TabIndex = 7;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Fechar Atendimento";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(463, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 57);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Vender Produto";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(333, 11);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 57);
-            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(737, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(77, 57);
-            this.btnSair.TabIndex = 5;
+            this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnPesquisa
             // 
-            this.btnPesquisa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.BackColor = System.Drawing.Color.White;
             this.btnPesquisa.Location = new System.Drawing.Point(227, 11);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(100, 57);
-            this.btnPesquisa.TabIndex = 3;
+            this.btnPesquisa.TabIndex = 2;
             this.btnPesquisa.Text = "Atender";
             this.btnPesquisa.UseVisualStyleBackColor = false;
             // 
             // btnAlterar
             // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterar.BackColor = System.Drawing.Color.White;
             this.btnAlterar.Location = new System.Drawing.Point(121, 12);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 57);
-            this.btnAlterar.TabIndex = 2;
-            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.TabIndex = 1;
+            this.btnAlterar.Text = "Alterar Agendamento";
             this.btnAlterar.UseVisualStyleBackColor = false;
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.BackColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(15, 12);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(100, 57);
@@ -229,7 +229,7 @@
             this.groupBox8.Location = new System.Drawing.Point(13, 12);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(251, 569);
-            this.groupBox8.TabIndex = 5;
+            this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Informações";
             // 
@@ -303,7 +303,7 @@
             this.cbbFuncionario.Location = new System.Drawing.Point(12, 80);
             this.cbbFuncionario.Name = "cbbFuncionario";
             this.cbbFuncionario.Size = new System.Drawing.Size(227, 21);
-            this.cbbFuncionario.TabIndex = 4;
+            this.cbbFuncionario.TabIndex = 0;
             this.cbbFuncionario.SelectedIndexChanged += new System.EventHandler(this.cbbFuncionario_SelectedIndexChanged);
             // 
             // label1

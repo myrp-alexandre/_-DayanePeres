@@ -134,6 +134,9 @@
             this.mskValorTotal.Name = "mskValorTotal";
             this.mskValorTotal.Size = new System.Drawing.Size(104, 20);
             this.mskValorTotal.TabIndex = 24;
+            this.mskValorTotal.Enter += new System.EventHandler(this.mskValorTotal_Enter);
+            this.mskValorTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorTotal_KeyPress);
+            this.mskValorTotal.Leave += new System.EventHandler(this.mskValorTotal_Leave);
             // 
             // btnExcluirItem
             // 
@@ -141,7 +144,7 @@
             this.btnExcluirItem.Location = new System.Drawing.Point(616, 33);
             this.btnExcluirItem.Name = "btnExcluirItem";
             this.btnExcluirItem.Size = new System.Drawing.Size(78, 29);
-            this.btnExcluirItem.TabIndex = 26;
+            this.btnExcluirItem.TabIndex = 0;
             this.btnExcluirItem.Text = "Excluir";
             this.btnExcluirItem.UseVisualStyleBackColor = false;
             this.btnExcluirItem.Click += new System.EventHandler(this.btnExcluirItem_Click);
@@ -208,7 +211,7 @@
             this.btnIncluir.Location = new System.Drawing.Point(469, 53);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(78, 29);
-            this.btnIncluir.TabIndex = 28;
+            this.btnIncluir.TabIndex = 3;
             this.btnIncluir.Text = "+ Incluir";
             this.btnIncluir.UseVisualStyleBackColor = false;
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
@@ -218,7 +221,7 @@
             this.mskQtde.Location = new System.Drawing.Point(301, 58);
             this.mskQtde.Name = "mskQtde";
             this.mskQtde.Size = new System.Drawing.Size(134, 20);
-            this.mskQtde.TabIndex = 27;
+            this.mskQtde.TabIndex = 2;
             // 
             // label4
             // 
@@ -234,7 +237,10 @@
             this.mskValor.Location = new System.Drawing.Point(92, 58);
             this.mskValor.Name = "mskValor";
             this.mskValor.Size = new System.Drawing.Size(134, 20);
-            this.mskValor.TabIndex = 25;
+            this.mskValor.TabIndex = 1;
+            this.mskValor.Enter += new System.EventHandler(this.mskValor_Enter);
+            this.mskValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValor_KeyPress);
+            this.mskValor.Leave += new System.EventHandler(this.mskValor_Leave);
             // 
             // label3
             // 
@@ -251,7 +257,7 @@
             this.btnPesquisarProduto.Location = new System.Drawing.Point(589, 10);
             this.btnPesquisarProduto.Name = "btnPesquisarProduto";
             this.btnPesquisarProduto.Size = new System.Drawing.Size(105, 36);
-            this.btnPesquisarProduto.TabIndex = 24;
+            this.btnPesquisarProduto.TabIndex = 0;
             this.btnPesquisarProduto.Text = "Pesquisar Produto";
             this.btnPesquisarProduto.UseVisualStyleBackColor = false;
             this.btnPesquisarProduto.Click += new System.EventHandler(this.btnPesquisarProduto_Click);
@@ -259,6 +265,7 @@
             // ttbProduto
             // 
             this.ttbProduto.BackColor = System.Drawing.SystemColors.Window;
+            this.ttbProduto.Enabled = false;
             this.ttbProduto.Location = new System.Drawing.Point(92, 19);
             this.ttbProduto.Name = "ttbProduto";
             this.ttbProduto.Size = new System.Drawing.Size(455, 20);
@@ -289,6 +296,7 @@
             // 
             // mskTelefone
             // 
+            this.mskTelefone.Enabled = false;
             this.mskTelefone.Location = new System.Drawing.Point(101, 53);
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(134, 20);
@@ -309,7 +317,7 @@
             this.btnPesquisarCliente.Location = new System.Drawing.Point(598, 44);
             this.btnPesquisarCliente.Name = "btnPesquisarCliente";
             this.btnPesquisarCliente.Size = new System.Drawing.Size(105, 36);
-            this.btnPesquisarCliente.TabIndex = 19;
+            this.btnPesquisarCliente.TabIndex = 0;
             this.btnPesquisarCliente.Text = "Pesquisar Cliente";
             this.btnPesquisarCliente.UseVisualStyleBackColor = false;
             this.btnPesquisarCliente.Click += new System.EventHandler(this.btnPesquisarCliente_Click);
@@ -317,6 +325,7 @@
             // ttbCliente
             // 
             this.ttbCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.ttbCliente.Enabled = false;
             this.ttbCliente.Location = new System.Drawing.Point(101, 18);
             this.ttbCliente.Name = "ttbCliente";
             this.ttbCliente.Size = new System.Drawing.Size(602, 20);
@@ -337,7 +346,7 @@
             this.btnFecharVenda.Location = new System.Drawing.Point(396, 9);
             this.btnFecharVenda.Name = "btnFecharVenda";
             this.btnFecharVenda.Size = new System.Drawing.Size(222, 38);
-            this.btnFecharVenda.TabIndex = 13;
+            this.btnFecharVenda.TabIndex = 3;
             this.btnFecharVenda.Text = "FECHAR VENDA";
             this.btnFecharVenda.UseVisualStyleBackColor = false;
             this.btnFecharVenda.Click += new System.EventHandler(this.btnFecharVenda_Click);
@@ -348,7 +357,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(122, 9);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(90, 38);
-            this.btnPesquisar.TabIndex = 12;
+            this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -359,7 +368,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(218, 9);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 38);
-            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -370,7 +379,7 @@
             this.btnSair.Location = new System.Drawing.Point(692, 9);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(71, 38);
-            this.btnSair.TabIndex = 11;
+            this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -381,7 +390,7 @@
             this.btnNovo.Location = new System.Drawing.Point(26, 9);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(90, 38);
-            this.btnNovo.TabIndex = 6;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);

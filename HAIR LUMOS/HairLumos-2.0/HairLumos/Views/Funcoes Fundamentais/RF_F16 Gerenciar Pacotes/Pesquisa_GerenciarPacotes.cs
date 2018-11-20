@@ -20,6 +20,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F16_Gerenciar_Pacotes
             dgvPacote.AutoGenerateColumns = false;
         }
 
+        private void DGVMoeda()
+        {
+            this.dgvPacote.Columns["pac_valor"].DefaultCellStyle.Format = "c";
+            
+        }
+
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             Controller.PacoteController pacoteController = new Controller.PacoteController();
@@ -29,6 +35,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F16_Gerenciar_Pacotes
             {
                 dgvPacote.DataSource = dtRetorno;
                 dgvPacote.ClearSelection();
+                DGVMoeda();
             }
             else
                 dgvPacote.Rows.Clear();

@@ -130,15 +130,21 @@
             // 
             // mskTotal
             // 
+            this.mskTotal.Enabled = false;
+            this.mskTotal.ForeColor = System.Drawing.Color.Blue;
             this.mskTotal.Location = new System.Drawing.Point(496, 17);
             this.mskTotal.Name = "mskTotal";
             this.mskTotal.Size = new System.Drawing.Size(100, 20);
             this.mskTotal.TabIndex = 5;
+            this.mskTotal.Enter += new System.EventHandler(this.mskTotal_Enter);
+            this.mskTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTotal_KeyPress);
+            this.mskTotal.Leave += new System.EventHandler(this.mskTotal_Leave);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(436, 20);
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(439, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 4;
@@ -146,14 +152,20 @@
             // 
             // mskTotalReceber
             // 
+            this.mskTotalReceber.Enabled = false;
+            this.mskTotalReceber.ForeColor = System.Drawing.Color.Green;
             this.mskTotalReceber.Location = new System.Drawing.Point(330, 17);
             this.mskTotalReceber.Name = "mskTotalReceber";
             this.mskTotalReceber.Size = new System.Drawing.Size(100, 20);
             this.mskTotalReceber.TabIndex = 3;
+            this.mskTotalReceber.Enter += new System.EventHandler(this.mskTotalReceber_Enter);
+            this.mskTotalReceber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTotalReceber_KeyPress);
+            this.mskTotalReceber.Leave += new System.EventHandler(this.mskTotalReceber_Leave);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Green;
             this.label5.Location = new System.Drawing.Point(217, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 13);
@@ -162,14 +174,20 @@
             // 
             // mskTotalPagar
             // 
+            this.mskTotalPagar.Enabled = false;
+            this.mskTotalPagar.ForeColor = System.Drawing.Color.Red;
             this.mskTotalPagar.Location = new System.Drawing.Point(107, 17);
             this.mskTotalPagar.Name = "mskTotalPagar";
             this.mskTotalPagar.Size = new System.Drawing.Size(100, 20);
             this.mskTotalPagar.TabIndex = 1;
+            this.mskTotalPagar.Enter += new System.EventHandler(this.mskTotalPagar_Enter);
+            this.mskTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskTotalPagar_KeyPress);
+            this.mskTotalPagar.Leave += new System.EventHandler(this.mskTotalPagar_Leave);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(7, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 13);
@@ -208,35 +226,38 @@
             // rbTodas
             // 
             this.rbTodas.AutoSize = true;
+            this.rbTodas.BackColor = System.Drawing.Color.Blue;
             this.rbTodas.Location = new System.Drawing.Point(331, 19);
             this.rbTodas.Name = "rbTodas";
             this.rbTodas.Size = new System.Drawing.Size(55, 17);
             this.rbTodas.TabIndex = 2;
             this.rbTodas.TabStop = true;
             this.rbTodas.Text = "Todas";
-            this.rbTodas.UseVisualStyleBackColor = true;
+            this.rbTodas.UseVisualStyleBackColor = false;
             // 
             // rbReceber
             // 
             this.rbReceber.AutoSize = true;
-            this.rbReceber.Location = new System.Drawing.Point(199, 20);
+            this.rbReceber.BackColor = System.Drawing.Color.Green;
+            this.rbReceber.Location = new System.Drawing.Point(178, 20);
             this.rbReceber.Name = "rbReceber";
             this.rbReceber.Size = new System.Drawing.Size(75, 17);
             this.rbReceber.TabIndex = 1;
             this.rbReceber.TabStop = true;
             this.rbReceber.Text = "a Receber";
-            this.rbReceber.UseVisualStyleBackColor = true;
+            this.rbReceber.UseVisualStyleBackColor = false;
             // 
             // rbPagar
             // 
             this.rbPagar.AutoSize = true;
+            this.rbPagar.BackColor = System.Drawing.Color.Red;
             this.rbPagar.Location = new System.Drawing.Point(20, 20);
             this.rbPagar.Name = "rbPagar";
             this.rbPagar.Size = new System.Drawing.Size(62, 17);
             this.rbPagar.TabIndex = 0;
             this.rbPagar.TabStop = true;
             this.rbPagar.Text = "a Pagar";
-            this.rbPagar.UseVisualStyleBackColor = true;
+            this.rbPagar.UseVisualStyleBackColor = false;
             // 
             // btnPesquisa
             // 
@@ -244,16 +265,17 @@
             this.btnPesquisa.Location = new System.Drawing.Point(811, 75);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(75, 29);
-            this.btnPesquisa.TabIndex = 13;
+            this.btnPesquisa.TabIndex = 3;
             this.btnPesquisa.Text = "Pesquisar";
             this.btnPesquisa.UseVisualStyleBackColor = false;
             // 
             // ttbParceiro
             // 
+            this.ttbParceiro.Enabled = false;
             this.ttbParceiro.Location = new System.Drawing.Point(271, 80);
             this.ttbParceiro.Name = "ttbParceiro";
             this.ttbParceiro.Size = new System.Drawing.Size(512, 20);
-            this.ttbParceiro.TabIndex = 5;
+            this.ttbParceiro.TabIndex = 2;
             // 
             // label3
             // 
@@ -270,7 +292,7 @@
             this.dtpDtAte.Location = new System.Drawing.Point(248, 30);
             this.dtpDtAte.Name = "dtpDtAte";
             this.dtpDtAte.Size = new System.Drawing.Size(114, 20);
-            this.dtpDtAte.TabIndex = 3;
+            this.dtpDtAte.TabIndex = 1;
             // 
             // dtpDtDe
             // 
@@ -278,7 +300,7 @@
             this.dtpDtDe.Location = new System.Drawing.Point(47, 30);
             this.dtpDtDe.Name = "dtpDtDe";
             this.dtpDtDe.Size = new System.Drawing.Size(114, 20);
-            this.dtpDtDe.TabIndex = 2;
+            this.dtpDtDe.TabIndex = 0;
             // 
             // label2
             // 
@@ -374,7 +396,7 @@
             this.btnVoltaTodos.Location = new System.Drawing.Point(539, 271);
             this.btnVoltaTodos.Name = "btnVoltaTodos";
             this.btnVoltaTodos.Size = new System.Drawing.Size(69, 27);
-            this.btnVoltaTodos.TabIndex = 23;
+            this.btnVoltaTodos.TabIndex = 3;
             this.btnVoltaTodos.Text = "<<";
             this.btnVoltaTodos.UseVisualStyleBackColor = false;
             // 
@@ -384,7 +406,7 @@
             this.btnVoltaUm.Location = new System.Drawing.Point(539, 238);
             this.btnVoltaUm.Name = "btnVoltaUm";
             this.btnVoltaUm.Size = new System.Drawing.Size(69, 27);
-            this.btnVoltaUm.TabIndex = 22;
+            this.btnVoltaUm.TabIndex = 2;
             this.btnVoltaUm.Text = "<";
             this.btnVoltaUm.UseVisualStyleBackColor = false;
             // 
@@ -394,7 +416,7 @@
             this.btnSelecionaTodos.Location = new System.Drawing.Point(539, 205);
             this.btnSelecionaTodos.Name = "btnSelecionaTodos";
             this.btnSelecionaTodos.Size = new System.Drawing.Size(69, 27);
-            this.btnSelecionaTodos.TabIndex = 21;
+            this.btnSelecionaTodos.TabIndex = 1;
             this.btnSelecionaTodos.Text = ">>";
             this.btnSelecionaTodos.UseVisualStyleBackColor = false;
             // 
@@ -474,7 +496,7 @@
             this.btnExcuirServico.Location = new System.Drawing.Point(539, 172);
             this.btnExcuirServico.Name = "btnExcuirServico";
             this.btnExcuirServico.Size = new System.Drawing.Size(69, 27);
-            this.btnExcuirServico.TabIndex = 14;
+            this.btnExcuirServico.TabIndex = 0;
             this.btnExcuirServico.Text = ">";
             this.btnExcuirServico.UseVisualStyleBackColor = false;
             // 
@@ -484,7 +506,7 @@
             this.btnSair.Location = new System.Drawing.Point(1053, 7);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 38);
-            this.btnSair.TabIndex = 11;
+            this.btnSair.TabIndex = 2;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             // 
@@ -493,8 +515,8 @@
             this.btnQuitarComissao.BackColor = System.Drawing.Color.White;
             this.btnQuitarComissao.Location = new System.Drawing.Point(565, 7);
             this.btnQuitarComissao.Name = "btnQuitarComissao";
-            this.btnQuitarComissao.Size = new System.Drawing.Size(136, 38);
-            this.btnQuitarComissao.TabIndex = 7;
+            this.btnQuitarComissao.Size = new System.Drawing.Size(173, 38);
+            this.btnQuitarComissao.TabIndex = 1;
             this.btnQuitarComissao.Text = "Gerar + Quitar";
             this.btnQuitarComissao.UseVisualStyleBackColor = false;
             // 
@@ -504,7 +526,7 @@
             this.btnGerarComissao.Location = new System.Drawing.Point(386, 7);
             this.btnGerarComissao.Name = "btnGerarComissao";
             this.btnGerarComissao.Size = new System.Drawing.Size(173, 38);
-            this.btnGerarComissao.TabIndex = 6;
+            this.btnGerarComissao.TabIndex = 0;
             this.btnGerarComissao.Text = "Gerar + Imprimir Comissão";
             this.btnGerarComissao.UseVisualStyleBackColor = false;
             // 

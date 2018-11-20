@@ -169,7 +169,7 @@
             this.dtpDataFim.Location = new System.Drawing.Point(198, 13);
             this.dtpDataFim.Name = "dtpDataFim";
             this.dtpDataFim.Size = new System.Drawing.Size(96, 20);
-            this.dtpDataFim.TabIndex = 34;
+            this.dtpDataFim.TabIndex = 1;
             // 
             // label6
             // 
@@ -177,7 +177,7 @@
             this.label6.Location = new System.Drawing.Point(140, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 36;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Data Fim:";
             // 
             // label7
@@ -195,14 +195,14 @@
             this.dtpDataInicio.Location = new System.Drawing.Point(81, 19);
             this.dtpDataInicio.Name = "dtpDataInicio";
             this.dtpDataInicio.Size = new System.Drawing.Size(97, 20);
-            this.dtpDataInicio.TabIndex = 33;
+            this.dtpDataInicio.TabIndex = 0;
             // 
             // ttbPacote
             // 
             this.ttbPacote.Location = new System.Drawing.Point(399, 19);
             this.ttbPacote.Name = "ttbPacote";
             this.ttbPacote.Size = new System.Drawing.Size(254, 20);
-            this.ttbPacote.TabIndex = 24;
+            this.ttbPacote.TabIndex = 2;
             // 
             // label5
             // 
@@ -220,14 +220,17 @@
             this.ttbObs.Multiline = true;
             this.ttbObs.Name = "ttbObs";
             this.ttbObs.Size = new System.Drawing.Size(254, 23);
-            this.ttbObs.TabIndex = 19;
+            this.ttbObs.TabIndex = 3;
             // 
             // mskValor
             // 
             this.mskValor.Location = new System.Drawing.Point(254, 19);
             this.mskValor.Name = "mskValor";
             this.mskValor.Size = new System.Drawing.Size(84, 20);
-            this.mskValor.TabIndex = 31;
+            this.mskValor.TabIndex = 1;
+            this.mskValor.Enter += new System.EventHandler(this.mskValor_Enter);
+            this.mskValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValor_KeyPress);
+            this.mskValor.Leave += new System.EventHandler(this.mskValor_Leave);
             // 
             // label4
             // 
@@ -269,7 +272,7 @@
             this.label8.Location = new System.Drawing.Point(265, 52);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 13);
-            this.label8.TabIndex = 39;
+            this.label8.TabIndex = 2;
             this.label8.Text = "Qtde do Servico*";
             // 
             // ttbQtdeServico
@@ -277,7 +280,7 @@
             this.ttbQtdeServico.Location = new System.Drawing.Point(359, 49);
             this.ttbQtdeServico.Name = "ttbQtdeServico";
             this.ttbQtdeServico.Size = new System.Drawing.Size(72, 20);
-            this.ttbQtdeServico.TabIndex = 40;
+            this.ttbQtdeServico.TabIndex = 3;
             // 
             // cbbServico
             // 
@@ -285,7 +288,7 @@
             this.cbbServico.Location = new System.Drawing.Point(117, 16);
             this.cbbServico.Name = "cbbServico";
             this.cbbServico.Size = new System.Drawing.Size(428, 21);
-            this.cbbServico.TabIndex = 38;
+            this.cbbServico.TabIndex = 0;
             // 
             // label1
             // 
@@ -298,11 +301,11 @@
             // 
             // btnIncluirServico
             // 
-            this.btnIncluirServico.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIncluirServico.BackColor = System.Drawing.Color.White;
             this.btnIncluirServico.Location = new System.Drawing.Point(476, 45);
             this.btnIncluirServico.Name = "btnIncluirServico";
             this.btnIncluirServico.Size = new System.Drawing.Size(69, 27);
-            this.btnIncluirServico.TabIndex = 28;
+            this.btnIncluirServico.TabIndex = 4;
             this.btnIncluirServico.Text = "Incluir";
             this.btnIncluirServico.UseVisualStyleBackColor = false;
             this.btnIncluirServico.Click += new System.EventHandler(this.btnIncluirServico_Click);
@@ -321,7 +324,7 @@
             this.ttbPeriodo.Location = new System.Drawing.Point(117, 49);
             this.ttbPeriodo.Name = "ttbPeriodo";
             this.ttbPeriodo.Size = new System.Drawing.Size(142, 20);
-            this.ttbPeriodo.TabIndex = 30;
+            this.ttbPeriodo.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -377,11 +380,11 @@
             // 
             // btnExcuirServico
             // 
-            this.btnExcuirServico.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcuirServico.BackColor = System.Drawing.Color.White;
             this.btnExcuirServico.Location = new System.Drawing.Point(584, 70);
             this.btnExcuirServico.Name = "btnExcuirServico";
             this.btnExcuirServico.Size = new System.Drawing.Size(69, 27);
-            this.btnExcuirServico.TabIndex = 14;
+            this.btnExcuirServico.TabIndex = 0;
             this.btnExcuirServico.Text = "Excluir";
             this.btnExcuirServico.UseVisualStyleBackColor = false;
             this.btnExcuirServico.Click += new System.EventHandler(this.btnExcuirServico_Click);
@@ -397,6 +400,7 @@
             // 
             // ttbCodigo
             // 
+            this.ttbCodigo.Enabled = false;
             this.ttbCodigo.Location = new System.Drawing.Point(64, 9);
             this.ttbCodigo.Name = "ttbCodigo";
             this.ttbCodigo.Size = new System.Drawing.Size(100, 20);
@@ -404,77 +408,77 @@
             // 
             // btnPesquisa
             // 
-            this.btnPesquisa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.BackColor = System.Drawing.Color.White;
             this.btnPesquisa.Location = new System.Drawing.Point(264, 7);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(75, 38);
-            this.btnPesquisa.TabIndex = 13;
+            this.btnPesquisa.TabIndex = 3;
             this.btnPesquisa.Text = "Pesquisa";
             this.btnPesquisa.UseVisualStyleBackColor = false;
             this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(426, 7);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 38);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSair.Location = new System.Drawing.Point(605, 3);
+            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(605, 7);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 38);
-            this.btnSair.TabIndex = 11;
+            this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click_1);
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluir.BackColor = System.Drawing.Color.White;
             this.btnExcluir.Location = new System.Drawing.Point(345, 7);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 38);
-            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click_1);
             // 
             // btnAlterar
             // 
-            this.btnAlterar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlterar.BackColor = System.Drawing.Color.White;
             this.btnAlterar.Location = new System.Drawing.Point(183, 7);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 38);
-            this.btnAlterar.TabIndex = 8;
+            this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click_1);
             // 
             // btnGravar
             // 
-            this.btnGravar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGravar.BackColor = System.Drawing.Color.White;
             this.btnGravar.Location = new System.Drawing.Point(102, 7);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 38);
-            this.btnGravar.TabIndex = 7;
+            this.btnGravar.TabIndex = 1;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click_1);
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.BackColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(21, 7);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 38);
-            this.btnNovo.TabIndex = 6;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
