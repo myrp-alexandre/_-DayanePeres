@@ -155,6 +155,12 @@
     <Compile Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_ServicoParceiro.Designer.cs">
       <DependentUpon>Pesquisa_ServicoParceiro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\PagarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\PagarDespesa.Designer.cs">
+      <DependentUpon>PagarDespesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F11 Quitar Contas a Receber\QuitarContasReceber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Basicas\Pesquisas\Pesquisa_ServicoParceiro.resx">
       <DependentUpon>Pesquisa_ServicoParceiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\PagarDespesa.resx">
+      <DependentUpon>PagarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F11 Quitar Contas a Receber\QuitarContasReceber.resx">
       <DependentUpon>QuitarContasReceber.cs</DependentUpon>
