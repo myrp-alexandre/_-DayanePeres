@@ -65,5 +65,28 @@ namespace HairLumos.DAO
             }
             return dt;
         }
+
+        public int atualizaStatus(Entidades.Agenda obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+
+                _sql = "update tbagenda set agen_status = @status where codagenda = @codigo";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@status", obj.Status);
+                cmd.Parameters.AddWithValue("@codigo", obj.Codigo);
+
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
     }
 }

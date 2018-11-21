@@ -186,6 +186,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                 listaAgendamentos.ElementAt(j).Funcionario = s.PessoaJuridica.RazaoSocial;
                                 listaAgendamentos.ElementAt(j).ServicoParceiro = s;
                                 listaAgendamentos.ElementAt(j).Fechamento = null;
+                                listaAgendamentos.ElementAt(j).Codigo = Convert.ToInt32(dr["codagenda"].ToString());
                             }
                             j++;
                         }
@@ -221,6 +222,44 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
             if (listaAgendamentos.ElementAt(e.RowIndex).Status == "Não Compareceu")
                 r.DefaultCellStyle.BackColor = Color.Goldenrod;
 
+        }
+
+        private void dgvAgendamento_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Controller.AgendaController ac = new Controller.AgendaController();
+            bool ultimo = false;
+            if (dgvAgendamento.CurrentRow.Cells[1].FormattedValue.ToString() != null)
+            {
+                Entidades.Agenda a = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index);
+                if (a.Status == "Agendado" && !ultimo)
+                {
+                    a.Status = "Confirmado";
+                    ac.atualizaStatus(a);
+                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Confirmado";
+                    ultimo = true;
+                }
+                if (a.Status == "Confirmado" && !ultimo)
+                {
+                    a.Status = "Cancelado";
+                    ac.atualizaStatus(a);
+                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Cancelado";
+                    ultimo = true;
+                }
+                if (a.Status == "Cancelado" && !ultimo)
+                {
+                    a.Status = "Não Compareceu";
+                    ac.atualizaStatus(a);
+                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Não Compareceu";
+                    ultimo = true;
+                }
+                if (a.Status == "Não Compareceu" && !ultimo)
+                {
+                    a.Status = "Agendado";
+                    ac.atualizaStatus(a);
+                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Agendado";
+                    ultimo = true;
+                }
+            }
         }
     }
 }

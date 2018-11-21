@@ -16,6 +16,11 @@ namespace HairLumos.Controller
             return _MdlAgenda.buscaData(cnpj, data);
         }
 
+        public int atualizaStatus(Entidades.Agenda agenda)
+        {
+            return _MdlAgenda.updateStatus(agenda);
+        }
+
         public int gravarAgenda(int codigo, DateTime data, DateTime hora, string status, int valor, int comissao, int servico, int prestador, int fechamento)
         {
             Controller.PessoaController pc = new Controller.PessoaController();
@@ -119,7 +124,7 @@ namespace HairLumos.Controller
 
             //agenda.Comissao = comis;
             agenda.DtAgendamento = data;
-            agenda.Hora = hora.ToString("hh:mm");
+            agenda.Hora = hora.ToString("HH:mm");
             agenda.ServicoParceiro = servparc;
             agenda.Pes = cliente;
             agenda.Status = status;
