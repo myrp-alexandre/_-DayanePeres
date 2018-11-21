@@ -114,6 +114,7 @@
             this.dgvAgendamento.Size = new System.Drawing.Size(708, 464);
             this.dgvAgendamento.TabIndex = 0;
             this.dgvAgendamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellDoubleClick);
+            this.dgvAgendamento.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAgendamento_CellFormatting);
             // 
             // Hora
             // 

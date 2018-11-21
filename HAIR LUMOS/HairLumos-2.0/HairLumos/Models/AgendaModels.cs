@@ -11,9 +11,9 @@ namespace HairLumos.Models
     {
         DAO.AgendaDAO _DAOAgenda = new DAO.AgendaDAO();
 
-        public DataTable buscaData(int codigo, string data)
+        public DataTable buscaData(string cnpj, string data)
         {
-            return _DAOAgenda.retornaAgenda(codigo, data);
+            return _DAOAgenda.retornaAgenda(cnpj, data);
         }
 
         public int gravarAgenda(Entidades.Agenda agenda)

@@ -44,10 +44,10 @@ namespace HairLumos.DAO
             }
         }
 
-        public DataTable retornaAgenda(int cod, string data)
+        public DataTable retornaAgenda(string cnpj, string data)
         {
             DataTable dt = new DataTable();
-            _sql = "select * from tbagenda where codpessoa = " + cod + " and agen_dataagendamento = '" + data+"'";
+            _sql = "select * from tbagenda where jur_cnpj = '" + cnpj + "' and agen_dataagendamento = '" + data+"'";
 
             try
             {

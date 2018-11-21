@@ -17,6 +17,8 @@ namespace HairLumos.Entidades
         private Comissao comissao;
         private ServicoParceiro servparc;
         private Fechamento fechamento;
+        private string funcionario;
+        private string servico;
 
         public Agenda()
         {
@@ -35,6 +37,8 @@ namespace HairLumos.Entidades
         public Comissao Comissao { get; set; }
         public ServicoParceiro ServicoParceiro { get; set; }
         public Fechamento Fechamento { get; set; }
+        public string Funcionario { get; set; }
+        public string Servico { get; set; }
 
     }
 }

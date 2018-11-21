@@ -87,14 +87,26 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 
         private void cbbFuncionario_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Entidades.PessoaJuridica pj = new Entidades.PessoaJuridica();
             if (!String.IsNullOrEmpty(Data))
             {
-                DataTable dtAgenda = ac.buscaAgenda(Convert.ToInt32(cbbFuncionario.ValueMember), Data);
+                DataTable dtP = pc.retornaPessoaJuridicaCod(Convert.ToInt32(cbbFuncionario.SelectedValue));
+                if (dtP != null && dtP.Rows.Count > 0)
+                {
+
+                    DataRow drPJuridica = dtP.Rows[0];
+                    pj.Codigo = Convert.ToInt32(drPJuridica["codpessoa"].ToString());
+                    pj.RazaoSocial = drPJuridica["jur_razaosocial"].ToString();
+                    pj.CNPJ = drPJuridica["jur_cnpj"].ToString();
+                }
+                DataTable dtAgenda = ac.buscaAgenda(pj.CNPJ, Data);
             }
         }
 
         private void mtcData_DateChanged(object sender, DateRangeEventArgs e)
         {
+            listaAgendamentos = new List<Entidades.Agenda>();
+            criaLista();
             Data = mtcData.SelectionStart.ToString();
             int codigo = 0;
             codigo = Convert.ToInt32(cbbFuncionario.SelectedValue);
@@ -102,9 +114,19 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
             Entidades.Pessoa p = new Entidades.Pessoa();
             Entidades.ServicoParceiro s = new Entidades.ServicoParceiro();
             Entidades.PessoaJuridica pj = new Entidades.PessoaJuridica();
+            DataTable dtP = pc.retornaPessoaJuridicaCod(Convert.ToInt32(cbbFuncionario.SelectedValue));
+            if (dtP != null && dtP.Rows.Count > 0)
+            {
+
+                DataRow drPJuridica = dtP.Rows[0];
+                pj.Codigo = Convert.ToInt32(drPJuridica["codpessoa"].ToString());
+                pj.RazaoSocial = drPJuridica["jur_razaosocial"].ToString();
+                pj.CNPJ = drPJuridica["jur_cnpj"].ToString();
+            }
+
             if (cbbFuncionario.ValueMember != null)
             {
-                DataTable dtAgenda = ac.buscaAgenda(codigo, Data);
+                DataTable dtAgenda = ac.buscaAgenda(pj.CNPJ, Data);
                 if(dtAgenda!=null && dtAgenda.Rows.Count > 0)
                 {
                     for(int i =0; i<dtAgenda.Rows.Count; i++)
@@ -135,22 +157,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                 listaAgendamentos.ElementAt(j).Status = dr["agen_status"].ToString();
                                 listaAgendamentos.ElementAt(j).Valor = Convert.ToDouble(dr["agen_valor"].ToString());
                                 listaAgendamentos.ElementAt(j).Comissao = null;
-                                DataTable dtServico = sc.retornaServParc(Convert.ToInt32(cbbFuncionario.SelectedValue), Convert.ToInt32(dr["codtiposervico"].ToString()));
+                                DataTable dtServico = sc.retornaServParc(pj.Codigo, Convert.ToInt32(dr["codtiposervico"].ToString()));
                                 if (dtServico!=null && dtServico.Rows.Count>0)
                                 {
                                     
                                     Entidades.Servico sv = new Entidades.Servico();
                                     Entidades.PessoaJuridica pes = new Entidades.PessoaJuridica();
                                     DataRow drServParc = dtServico.Rows[0];
-                                    DataTable dtP = pc.retornaPessoaJuridicaCod(Convert.ToInt32(drServParc["codpessoa"].ToString()));
-                                    if (dtP != null && dtP.Rows.Count > 0)
-                                    {
-
-                                        DataRow drPJuridica = dtP.Rows[0];
-                                        pes.Codigo = Convert.ToInt32(drPJuridica["codpessoa"].ToString());
-                                        pes.RazaoSocial = drPJuridica["jur_razaosocial"].ToString();
-                                        pes.CNPJ = drPJuridica["jur_cnpj"].ToString();
-                                    }
                                     DataTable dtS = sc.retornaServicoCod(Convert.ToInt32(dr["codtiposervico"].ToString()));
                                     if (dtS != null && dtS.Rows.Count > 0)
                                     {
@@ -162,13 +175,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                         sv.Valor = Convert.ToDouble(drS["tiposerv_valor"].ToString());
                                         sv.Tempo = drS["tiposerv_temposervico"].ToString();
                                     }
-                                    s.PessoaJuridica = pes;
+                                    s.PessoaJuridica = pj;
                                     s.Servico = sv;
                                     s.Valor = Convert.ToInt32(drServParc["prestserv_valor"].ToString());
                                     s.Percentual = Convert.ToDouble(drServParc["prestserv_percentual"].ToString());
                                     s.PagamentoRecebido = drServParc["prestser_pagrec"].ToString();
                                     s.Estado = Convert.ToBoolean(drServParc["estado"].ToString());
                                 }
+                                listaAgendamentos.ElementAt(j).Servico = s.Servico.ServicoNome;
+                                listaAgendamentos.ElementAt(j).Funcionario = s.PessoaJuridica.RazaoSocial;
                                 listaAgendamentos.ElementAt(j).ServicoParceiro = s;
                                 listaAgendamentos.ElementAt(j).Fechamento = null;
                             }
@@ -176,6 +191,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                         }
                     }
                 }
+                carregaDGV();
             }
         }
 
@@ -189,7 +205,21 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 
             Views.Funcoes_Fundamentais.RF_F2_Agendamento.ControlarAgendamento agendar = new RF_F2_Agendamento.ControlarAgendamento(this.CodFunc, this.Data, this.Horas);
             agendar.ShowDialog();
-            Close();
+            
+
+        }
+
+        private void dgvAgendamento_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DataGridViewRow r = dgvAgendamento.Rows[e.RowIndex];
+            if (listaAgendamentos.ElementAt(e.RowIndex).Status=="Agendado")
+                r.DefaultCellStyle.BackColor = Color.DarkCyan;
+            if (listaAgendamentos.ElementAt(e.RowIndex).Status == "Confirmado")
+                r.DefaultCellStyle.BackColor = Color.SeaGreen;
+            if (listaAgendamentos.ElementAt(e.RowIndex).Status == "Cancelado")
+                r.DefaultCellStyle.BackColor = Color.IndianRed;
+            if (listaAgendamentos.ElementAt(e.RowIndex).Status == "Não Compareceu")
+                r.DefaultCellStyle.BackColor = Color.Goldenrod;
 
         }
     }

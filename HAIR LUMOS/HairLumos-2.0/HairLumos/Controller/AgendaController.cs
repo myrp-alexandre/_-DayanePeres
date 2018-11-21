@@ -11,9 +11,9 @@ namespace HairLumos.Controller
     {
         private Models.AgendaModels _MdlAgenda = new Models.AgendaModels();
 
-        public DataTable buscaAgenda(int codigo, string data)
+        public DataTable buscaAgenda(string cnpj, string data)
         {
-            return _MdlAgenda.buscaData(codigo, data);
+            return _MdlAgenda.buscaData(cnpj, data);
         }
 
         public int gravarAgenda(int codigo, DateTime data, DateTime hora, string status, int valor, int comissao, int servico, int prestador, int fechamento)

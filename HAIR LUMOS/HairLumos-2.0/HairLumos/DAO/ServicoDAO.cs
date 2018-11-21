@@ -209,7 +209,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "select s.codtiposervico, s.tiposerv_descricao, s.tiposerv_valor, p.prestserv_valor, p.prestserv_percentual, p.prestser_pagrec  from tbprestadorservico p inner join tbtiposervico s on p.codtiposervico = s.codtiposervico where p.codpessoa = " + cod + " and p.codtiposervico = "+serv;
+            _sql = "select s.codtiposervico, s.tiposerv_descricao, s.tiposerv_valor, p.prestserv_valor, p.prestserv_percentual, p.prestser_pagrec, p.estado from tbprestadorservico p inner join tbtiposervico s on p.codtiposervico = s.codtiposervico where p.codpessoa = " + cod + " and p.codtiposervico = "+serv;
 
             try
             {
@@ -222,6 +222,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@prestserv_valor");
                 cmd.Parameters.AddWithValue("@prestserv_percentual");
                 cmd.Parameters.AddWithValue("@prestser_pagrec");
+                cmd.Parameters.AddWithValue("@estado");
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
