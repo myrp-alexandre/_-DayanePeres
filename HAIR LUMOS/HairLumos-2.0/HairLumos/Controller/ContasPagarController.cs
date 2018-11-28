@@ -42,5 +42,15 @@ namespace HairLumos.Controller
             return _MdlCont.retornaDespesasCodData(cod, data);
         }
 
+        public bool verificaDespesaPaga(int cod)
+        {
+            return _MdlCont.verificaDespesaPaga(cod);
+        }
+
+        public int excluirDespesa(int cod)
+        {
+            return _MdlCont.excluirDespesa(cod);
+        }
+
     }
 }

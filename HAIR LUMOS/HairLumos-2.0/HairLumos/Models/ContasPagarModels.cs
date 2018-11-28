@@ -175,5 +175,15 @@ namespace HairLumos.Models
             return ContasPagarDAO.retornaDespesasCodData(cod, data);
         }
 
+        public bool verificaDespesaPaga(int cod)
+        {
+            return ContasPagarDAO.verificaDespesaPaga(cod);
+        }
+
+        public int excluirDespesa(int cod)
+        {
+            return ContasPagarDAO.excluirDespesa(cod);
+        }
+
     }
 }

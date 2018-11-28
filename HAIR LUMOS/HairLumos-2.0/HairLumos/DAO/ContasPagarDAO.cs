@@ -314,7 +314,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa, ContasPagar.contpag_obs " +
+            _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa, ContasPagar.contpag_obs, ContasPagar.\"codContasPagar\" " +
                    "FROM tbcontaspagar as ContasPagar " +
                    "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa " +
                    "WHERE Despesa.coddespesa = " + cod+ " and ContasPagar.contpag_datavencimento = '" + data+"'";
@@ -328,7 +328,8 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@ContasPagar.contpag_valortotal");
                 cmd.Parameters.AddWithValue("@Despesa.desp_descricao");
                 cmd.Parameters.AddWithValue("@Despesa.coddespesa");
-                cmd.Parameters.AddWithValue("@ContasPagar.contpag_obs ");
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_obs");
+                cmd.Parameters.AddWithValue("@ContasPagar.\"codContasPagar\" ");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
@@ -341,6 +342,64 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public bool verificaDespesaPaga(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa,ContasPagar.contpag_obs " +
+                   "FROM tbcontaspagar as ContasPagar " +
+                   "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa " +
+                   "WHERE ContasPagar.\"codContasPagar\" = " + cod+ "AND ContasPagar.contpag_status = 'false' AND ContasPagar.contpag_valorpago = '0'";
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+
+                if (dt != null && dt.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return false;
+        }
+
+
+        public int excluirDespesa(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "DELETE FROM tbcontaspagar " +
+                   "WHERE tbcontaspagar.\"codContasPagar\" = " + cod;
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+                return cmd.ExecuteNonQuery(); //ExecuteReader para select retorna um DataReader
+                
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return -1;
+        }
     }
 
 }

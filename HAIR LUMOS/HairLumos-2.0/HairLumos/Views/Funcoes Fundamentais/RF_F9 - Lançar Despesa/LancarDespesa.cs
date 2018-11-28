@@ -13,6 +13,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
     public partial class LancarDespesa : Form
     {
         private string tipoDespesa = "";
+        int codContasPagar = 0;
 
         public LancarDespesa()
         {
@@ -197,6 +198,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         {
             try
             {
+                
                 Controller.ContasPagarController contasPagarController = new Controller.ContasPagarController();
 
                 Views.Funcoes_Fundamentais.RF_F9___Lançar_Despesa.Pesquisa_LançarDespesa pesquisa_LançarDespesa = new RF_F9___Lançar_Despesa.Pesquisa_LançarDespesa();
@@ -210,10 +212,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     {
                         DataRow dr = dt.Rows[0];
                         ttbCodigo.Text = dr["coddespesa"].ToString();
-                        cbbDespesa.SelectedIndex = Convert.ToInt32(dr["coddespesa"].ToString())-1;
+                        cbbDespesa.SelectedIndex = cbbDespesa.FindString(dr["desp_descricao"].ToString());
                         dtpVencimento.Value = Convert.ToDateTime(dr["contpag_datavencimento"].ToString());
                         mskValor.Text = dr["contpag_valortotal"].ToString();
                         ttbObservacao.Text = dr["contpag_obs"].ToString();
+                        codContasPagar = Convert.ToInt32(dr["codContasPagar"].ToString());
                     }
 
                 }
@@ -227,7 +230,41 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Controller.ContasPagarController contasPagarController = new Controller.ContasPagarController();
 
+                int codigo = 0;
+                bool rest;
+                int excluir = 0;
+                if (!String.IsNullOrEmpty(ttbCodigo.Text))
+                {
+                    codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
+
+                    rest = contasPagarController.verificaDespesaPaga(codContasPagar);
+
+
+                    if (rest)
+                    {
+                        excluir = contasPagarController.excluirDespesa(codContasPagar);
+                        MessageBox.Show("Despesa Excluída com Sucesso!");
+                        _limpaCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao excluir Despesa!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma pessoa para excluir!");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
