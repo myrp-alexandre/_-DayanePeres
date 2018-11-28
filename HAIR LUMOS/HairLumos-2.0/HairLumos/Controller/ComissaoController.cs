@@ -15,6 +15,11 @@ namespace HairLumos.Controller
             return cm.gravarComissao(obj);
         }
 
+        public int excluiComissao(Entidades.Comissao obj)
+        {
+            return cm.excluiComissao(obj);
+        }
+
         public int retornaMax()
         {
             return cm.retornaMax();

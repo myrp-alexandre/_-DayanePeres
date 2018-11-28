@@ -88,5 +88,32 @@ namespace HairLumos.DAO
                 return 0;
             }
         }
+
+        public int retornaComissao(Entidades.Agenda obj)
+        {
+            DataTable dt = new DataTable();
+            _sql = "select codcomissao from tbagenda where codagenda = @cod";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", obj.Codigo);
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+
+                DataRow drTeste = dt.Rows[0];
+                return Convert.ToInt32(drTeste["codcomissao"].ToString());
+
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesa");
+            }
+            return -1;
+        }
     }
 }

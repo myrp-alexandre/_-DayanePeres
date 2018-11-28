@@ -89,8 +89,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento
                 ttbNomeCliente.Text = "";
                 mskTelefone.Text = "";
                 Close();
-                Views.Funcoes_Fundamentais.RF_F2_Agenda.Agenda agenda = new RF_F2_Agenda.Agenda();
-                agenda.ShowDialog();
             }
             else
             {

@@ -21,6 +21,11 @@ namespace HairLumos.Controller
             return _MdlAgenda.updateStatus(agenda);
         }
 
+        public int retornaComissao(Entidades.Agenda agenda)
+        {
+            return _MdlAgenda.retornaComissao(agenda);
+        }
+
         public int gravarAgenda(int codigo, DateTime data, DateTime hora, string status, int valor, int comissao, int servico, int prestador, int fechamento)
         {
             Controller.PessoaController pc = new Controller.PessoaController();

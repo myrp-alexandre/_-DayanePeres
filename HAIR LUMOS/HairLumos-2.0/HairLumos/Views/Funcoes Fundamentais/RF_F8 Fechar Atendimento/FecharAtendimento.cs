@@ -55,7 +55,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
 
         private void mskAcrescimo_Leave(object sender, EventArgs e)
         {
-            mskAcrescimo.Text = Convert.ToDouble(mskAcrescimo.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskAcrescimo.Text) && mskAcrescimo.Equals("00,00"))
+                mskAcrescimo.Text = Convert.ToDouble(mskAcrescimo.Text).ToString("###,###,##0.00");
         }
 
         private void mskAcrescimo_KeyPress(object sender, KeyPressEventArgs e)
@@ -72,7 +73,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
 
         private void mskDesconto_Leave(object sender, EventArgs e)
         {
-            mskDesconto.Text = Convert.ToDouble(mskDesconto.Text).ToString("###,###,##0.00"); 
+            if (!string.IsNullOrWhiteSpace(mskDesconto.Text) && mskDesconto.Equals("00,00"))
+                mskDesconto.Text = Convert.ToDouble(mskDesconto.Text).ToString("###,###,##0.00"); 
         }
 
         private void mskDesconto_KeyPress(object sender, KeyPressEventArgs e)
@@ -89,7 +91,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
 
         private void mskValorPagar_Leave(object sender, EventArgs e)
         {
-            mskValorPagar.Text = Convert.ToDouble(mskValorPagar.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskValorPagar.Text) && mskValorPagar.Equals("00,00"))
+                mskValorPagar.Text = Convert.ToDouble(mskValorPagar.Text).ToString("###,###,##0.00");
         }
 
         private void mskValorPagar_KeyPress(object sender, KeyPressEventArgs e)

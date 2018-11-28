@@ -298,7 +298,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void mskValor_Leave(object sender, EventArgs e)
         {
-            mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskValor.Text) && mskValor.Equals("00,00"))
+                mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
         }
 
         private void mskValor_KeyPress(object sender, KeyPressEventArgs e)
@@ -315,7 +316,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void mskValorTotal_Leave(object sender, EventArgs e)
         {
-            mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskValorTotal.Text) && mskValorTotal.Equals("00,00"))
+                mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
         }
 
         private void mskValorTotal_KeyPress(object sender, KeyPressEventArgs e)

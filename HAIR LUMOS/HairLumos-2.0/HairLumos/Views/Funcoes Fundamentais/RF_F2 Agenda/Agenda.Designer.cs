@@ -35,22 +35,22 @@
             this.Pes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNComprareceu = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.btnPesquisa = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnAtender = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.rbStatusCancelado = new System.Windows.Forms.RadioButton();
             this.mtcData = new System.Windows.Forms.MonthCalendar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbFuncionario = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -75,13 +76,12 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
+            this.splitContainer1.Panel2.Controls.Add(this.btnNComprareceu);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
-            this.splitContainer1.Panel2.Controls.Add(this.btnPesquisa);
-            this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
-            this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAtender);
             this.splitContainer1.Size = new System.Drawing.Size(817, 570);
             this.splitContainer1.SplitterDistance = 485;
             this.splitContainer1.TabIndex = 4;
@@ -113,7 +113,6 @@
             this.dgvAgendamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAgendamento.Size = new System.Drawing.Size(708, 464);
             this.dgvAgendamento.TabIndex = 0;
-            this.dgvAgendamento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellClick);
             this.dgvAgendamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgendamento_CellDoubleClick);
             this.dgvAgendamento.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAgendamento_CellFormatting);
             // 
@@ -149,6 +148,17 @@
             this.Funcionario.ReadOnly = true;
             this.Funcionario.Width = 180;
             // 
+            // btnNComprareceu
+            // 
+            this.btnNComprareceu.BackColor = System.Drawing.Color.White;
+            this.btnNComprareceu.Location = new System.Drawing.Point(299, 12);
+            this.btnNComprareceu.Name = "btnNComprareceu";
+            this.btnNComprareceu.Size = new System.Drawing.Size(100, 57);
+            this.btnNComprareceu.TabIndex = 7;
+            this.btnNComprareceu.Text = "Não Compareceu";
+            this.btnNComprareceu.UseVisualStyleBackColor = false;
+            this.btnNComprareceu.Click += new System.EventHandler(this.btnNComprareceu_Click);
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
@@ -172,12 +182,13 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(333, 11);
+            this.btnCancelar.Location = new System.Drawing.Point(193, 11);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 57);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -190,40 +201,21 @@
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // btnPesquisa
+            // btnAtender
             // 
-            this.btnPesquisa.BackColor = System.Drawing.Color.White;
-            this.btnPesquisa.Location = new System.Drawing.Point(227, 11);
-            this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(100, 57);
-            this.btnPesquisa.TabIndex = 2;
-            this.btnPesquisa.Text = "Atender";
-            this.btnPesquisa.UseVisualStyleBackColor = false;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(121, 12);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(100, 57);
-            this.btnAlterar.TabIndex = 1;
-            this.btnAlterar.Text = "Alterar Agendamento";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(15, 12);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(100, 57);
-            this.btnNovo.TabIndex = 0;
-            this.btnNovo.Text = "Agendar";
-            this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.btnAtender.BackColor = System.Drawing.Color.White;
+            this.btnAtender.Location = new System.Drawing.Point(87, 11);
+            this.btnAtender.Name = "btnAtender";
+            this.btnAtender.Size = new System.Drawing.Size(100, 57);
+            this.btnAtender.TabIndex = 2;
+            this.btnAtender.Text = "Atender";
+            this.btnAtender.UseVisualStyleBackColor = false;
+            this.btnAtender.Click += new System.EventHandler(this.btnAtender_Click);
             // 
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.Color.White;
+            this.groupBox8.Controls.Add(this.groupBox3);
             this.groupBox8.Controls.Add(this.mtcData);
             this.groupBox8.Controls.Add(this.groupBox2);
             this.groupBox8.Controls.Add(this.cbbFuncionario);
@@ -235,9 +227,22 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Informações";
             // 
+            // rbStatusCancelado
+            // 
+            this.rbStatusCancelado.AutoSize = true;
+            this.rbStatusCancelado.BackColor = System.Drawing.Color.DarkRed;
+            this.rbStatusCancelado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbStatusCancelado.Location = new System.Drawing.Point(22, 35);
+            this.rbStatusCancelado.Name = "rbStatusCancelado";
+            this.rbStatusCancelado.Size = new System.Drawing.Size(145, 19);
+            this.rbStatusCancelado.TabIndex = 1;
+            this.rbStatusCancelado.TabStop = true;
+            this.rbStatusCancelado.Text = "Horário Cancelado";
+            this.rbStatusCancelado.UseVisualStyleBackColor = false;
+            // 
             // mtcData
             // 
-            this.mtcData.Location = new System.Drawing.Point(12, 150);
+            this.mtcData.Location = new System.Drawing.Point(12, 138);
             this.mtcData.Name = "mtcData";
             this.mtcData.TabIndex = 6;
             this.mtcData.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mtcData_DateChanged);
@@ -245,12 +250,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 396);
+            this.groupBox2.Location = new System.Drawing.Point(12, 421);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(227, 153);
+            this.groupBox2.Size = new System.Drawing.Size(227, 128);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Legenda";
@@ -260,29 +264,18 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Goldenrod;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 126);
+            this.label6.Location = new System.Drawing.Point(1, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 15);
             this.label6.TabIndex = 8;
             this.label6.Text = "Não Compareceu";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.IndianRed;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Horário Cancelado";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.SeaGreen;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 67);
+            this.label5.Location = new System.Drawing.Point(1, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(133, 15);
             this.label5.TabIndex = 6;
@@ -293,7 +286,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Gainsboro;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 33);
+            this.label2.Location = new System.Drawing.Point(6, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 15);
             this.label2.TabIndex = 5;
@@ -318,6 +311,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Listar Agendamento";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbStatusCancelado);
+            this.groupBox3.Location = new System.Drawing.Point(12, 326);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(227, 77);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Exibir agrndamentos cancelados?";
+            // 
             // Agenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,6 +343,8 @@
             this.groupBox8.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -352,15 +357,12 @@
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
-        public System.Windows.Forms.Button btnPesquisa;
-        public System.Windows.Forms.Button btnAlterar;
-        public System.Windows.Forms.Button btnNovo;
+        public System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbbFuncionario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvAgendamento;
@@ -369,5 +371,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Funcionario;
         private System.Windows.Forms.MonthCalendar mtcData;
+        public System.Windows.Forms.Button btnNComprareceu;
+        private System.Windows.Forms.RadioButton rbStatusCancelado;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

@@ -41,6 +41,25 @@ namespace HairLumos.DAO
             }
         }
 
+        public int excluiComissao(Entidades.Comissao obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+
+                _sql = "DELETE FROM tbcomissao WHERE codcomissao = @cod";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", obj.CodigoComissao);
+
+                return cmd.ExecuteNonQuery(); ;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
         public int retornaMax()
         {
             DataTable dt = new DataTable();

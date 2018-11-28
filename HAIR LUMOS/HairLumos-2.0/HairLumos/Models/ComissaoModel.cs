@@ -16,6 +16,11 @@ namespace HairLumos.Models
             return _DAOComissao.gravarComissao(comissao);
         }
 
+        public int excluiComissao(Entidades.Comissao comissao)
+        {
+            return _DAOComissao.excluiComissao(comissao);
+        }
+
         public int retornaMax()
         {
             return _DAOComissao.retornaMax();

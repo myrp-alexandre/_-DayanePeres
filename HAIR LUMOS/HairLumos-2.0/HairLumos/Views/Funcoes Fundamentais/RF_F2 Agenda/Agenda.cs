@@ -29,6 +29,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
             criaLista();
             carregaDGV();
             carregaFuncionario();
+            atualiza();
         }
 
         private void carregaFuncionario()
@@ -99,11 +100,16 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                     pj.RazaoSocial = drPJuridica["jur_razaosocial"].ToString();
                     pj.CNPJ = drPJuridica["jur_cnpj"].ToString();
                 }
-                DataTable dtAgenda = ac.buscaAgenda(pj.CNPJ, Data);
+                atualiza();
             }
         }
 
         private void mtcData_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            atualiza();
+        }
+
+        private void atualiza()
         {
             listaAgendamentos = new List<Entidades.Agenda>();
             criaLista();
@@ -127,18 +133,19 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
             if (cbbFuncionario.ValueMember != null)
             {
                 DataTable dtAgenda = ac.buscaAgenda(pj.CNPJ, Data);
-                if(dtAgenda!=null && dtAgenda.Rows.Count > 0)
+                if (dtAgenda != null && dtAgenda.Rows.Count > 0)
                 {
-                    for(int i =0; i<dtAgenda.Rows.Count; i++)
+                    for (int i = 0; i < dtAgenda.Rows.Count; i++)
                     {
                         DataRow dr = dtAgenda.Rows[i];
                         int j = 0;
-                        while (j < listaAgendamentos.Count) {
+                        while (j < listaAgendamentos.Count)
+                        {
                             if (Convert.ToDateTime(dr["agen_horaagendamento"].ToString()).ToString("HH:mm").Equals(listaAgendamentos.ElementAt(j).Hora))
                             {
                                 listaAgendamentos.ElementAt(j).Codigo = Convert.ToInt32(dr["codagenda"].ToString());
                                 DataTable dtPessoa = pc.retornaPessoaCod(dr["codpessoa"].ToString());
-                                if (dtPessoa!=null && dtPessoa.Rows.Count>0)
+                                if (dtPessoa != null && dtPessoa.Rows.Count > 0)
                                 {
                                     DataRow drPessoa = dtPessoa.Rows[0];
                                     p.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
@@ -158,9 +165,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                 listaAgendamentos.ElementAt(j).Valor = Convert.ToDouble(dr["agen_valor"].ToString());
                                 listaAgendamentos.ElementAt(j).Comissao = null;
                                 DataTable dtServico = sc.retornaServParc(pj.Codigo, Convert.ToInt32(dr["codtiposervico"].ToString()));
-                                if (dtServico!=null && dtServico.Rows.Count>0)
+                                if (dtServico != null && dtServico.Rows.Count > 0)
                                 {
-                                    
+
                                     Entidades.Servico sv = new Entidades.Servico();
                                     Entidades.PessoaJuridica pes = new Entidades.PessoaJuridica();
                                     DataRow drServParc = dtServico.Rows[0];
@@ -206,6 +213,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 
             Views.Funcoes_Fundamentais.RF_F2_Agendamento.ControlarAgendamento agendar = new RF_F2_Agendamento.ControlarAgendamento(this.CodFunc, this.Data, this.Horas);
             agendar.ShowDialog();
+
+            atualiza();
             
 
         }
@@ -224,42 +233,40 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 
         }
 
-        private void dgvAgendamento_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAtender_Click(object sender, EventArgs e)
         {
             Controller.AgendaController ac = new Controller.AgendaController();
-            bool ultimo = false;
-            if (dgvAgendamento.CurrentRow.Cells[1].FormattedValue.ToString() != null)
-            {
-                Entidades.Agenda a = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index);
-                if (a.Status == "Agendado" && !ultimo)
-                {
-                    a.Status = "Confirmado";
-                    ac.atualizaStatus(a);
-                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Confirmado";
-                    ultimo = true;
-                }
-                if (a.Status == "Confirmado" && !ultimo)
-                {
-                    a.Status = "Cancelado";
-                    ac.atualizaStatus(a);
-                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Cancelado";
-                    ultimo = true;
-                }
-                if (a.Status == "Cancelado" && !ultimo)
-                {
-                    a.Status = "Não Compareceu";
-                    ac.atualizaStatus(a);
-                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Não Compareceu";
-                    ultimo = true;
-                }
-                if (a.Status == "Não Compareceu" && !ultimo)
-                {
-                    a.Status = "Agendado";
-                    ac.atualizaStatus(a);
-                    listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Agendado";
-                    ultimo = true;
-                }
-            }
+            Entidades.Agenda a = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index);
+            a.Status = "Confirmado";
+            ac.atualizaStatus(a);
+            listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Confirmado";
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Controller.AgendaController ac = new Controller.AgendaController();
+            Controller.ComissaoController cc = new Controller.ComissaoController();
+            Entidades.Agenda a = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index);
+            a.Status = "Cancelado";
+            Entidades.Comissao com = new Entidades.Comissao();
+            com.CodigoComissao = ac.retornaComissao(a);
+            cc.excluiComissao(com);
+            a.Comissao = new Entidades.Comissao();
+            ac.atualizaStatus(a);
+            listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Cancelado";
+        }
+
+        private void btnNComprareceu_Click(object sender, EventArgs e)
+        {
+            Controller.AgendaController ac = new Controller.AgendaController();
+            Controller.ComissaoController cc = new Controller.ComissaoController();
+            Entidades.Agenda a = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index);
+            a.Status = "Não Compareceu";
+            cc.excluiComissao(a.Comissao);
+            a.Comissao = new Entidades.Comissao();
+            ac.atualizaStatus(a);
+            listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Não Compareceu";
+        }
+
     }
 }
