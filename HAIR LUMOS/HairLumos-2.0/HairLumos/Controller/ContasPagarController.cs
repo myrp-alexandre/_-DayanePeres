@@ -21,6 +21,26 @@ namespace HairLumos.Controller
         {
             return _MdlCont.retornaMax();
         }
-        
+
+        public DataTable retornaDespesa()
+        {
+            return _MdlCont.retornaDespesas();
+        }
+
+        public DataTable retornaDespesaL()
+        {
+            return _MdlCont.retornaDespesasL();
+        }
+
+        public DataTable retornaDespesaCod(int cod)
+        {
+            return _MdlCont.retornaDespesasCod (cod);
+        }
+
+        public DataTable retornaDespesaCodData(int cod, DateTime data)
+        {
+            return _MdlCont.retornaDespesasCodData(cod, data);
+        }
+
     }
 }

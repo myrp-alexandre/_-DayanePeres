@@ -336,6 +336,12 @@
     <Compile Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\QuitarDespesa.Designer.cs">
       <DependentUpon>QuitarDespesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\Pesquisa_LançarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\Pesquisa_LançarDespesa.Designer.cs">
+      <DependentUpon>Pesquisa_LançarDespesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -467,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F10 - Quitar Despesa\QuitarDespesa.resx">
       <DependentUpon>QuitarDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F9 - Lançar Despesa\Pesquisa_LançarDespesa.resx">
+      <DependentUpon>Pesquisa_LançarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

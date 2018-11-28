@@ -88,6 +88,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.dtpData);
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnPesquisaProduto);
@@ -160,10 +162,11 @@
             // totalCompra
             // 
             this.totalCompra.Enabled = false;
+            this.totalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCompra.ForeColor = System.Drawing.Color.Red;
             this.totalCompra.Location = new System.Drawing.Point(805, 180);
             this.totalCompra.Name = "totalCompra";
-            this.totalCompra.Size = new System.Drawing.Size(67, 20);
+            this.totalCompra.Size = new System.Drawing.Size(67, 21);
             this.totalCompra.TabIndex = 16;
             this.totalCompra.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.totalCompra_MaskInputRejected);
             this.totalCompra.Enter += new System.EventHandler(this.totalCompra_Enter);
@@ -249,8 +252,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnIncluirProduto);
-            this.groupBox1.Controls.Add(this.dtpData);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.ttbQuantidade);
             this.groupBox1.Controls.Add(this.mskVenda);
@@ -278,7 +279,7 @@
             // 
             this.dtpData.CustomFormat = "dd/MM/YYYY";
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(213, 25);
+            this.dtpData.Location = new System.Drawing.Point(627, 62);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(103, 20);
             this.dtpData.TabIndex = 1;
@@ -286,7 +287,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(174, 30);
+            this.label5.Location = new System.Drawing.Point(588, 65);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 25;
@@ -295,7 +296,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 30);
+            this.label4.Location = new System.Drawing.Point(11, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 23;
@@ -310,7 +311,7 @@
             // 
             // mskVenda
             // 
-            this.mskVenda.Location = new System.Drawing.Point(644, 28);
+            this.mskVenda.Location = new System.Drawing.Point(514, 23);
             this.mskVenda.Name = "mskVenda";
             this.mskVenda.Size = new System.Drawing.Size(100, 20);
             this.mskVenda.TabIndex = 3;
@@ -321,7 +322,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(550, 30);
+            this.label6.Location = new System.Drawing.Point(420, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 24;
@@ -329,7 +330,7 @@
             // 
             // mskCusto
             // 
-            this.mskCusto.Location = new System.Drawing.Point(428, 24);
+            this.mskCusto.Location = new System.Drawing.Point(281, 23);
             this.mskCusto.Name = "mskCusto";
             this.mskCusto.Size = new System.Drawing.Size(100, 20);
             this.mskCusto.TabIndex = 2;
@@ -340,7 +341,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(338, 30);
+            this.label2.Location = new System.Drawing.Point(191, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 22;
@@ -349,7 +350,7 @@
             // btnPesquisaProduto
             // 
             this.btnPesquisaProduto.BackColor = System.Drawing.Color.White;
-            this.btnPesquisaProduto.Location = new System.Drawing.Point(552, 57);
+            this.btnPesquisaProduto.Location = new System.Drawing.Point(492, 56);
             this.btnPesquisaProduto.Name = "btnPesquisaProduto";
             this.btnPesquisaProduto.Size = new System.Drawing.Size(87, 31);
             this.btnPesquisaProduto.TabIndex = 1;
@@ -363,7 +364,7 @@
             this.ttbProduto.Location = new System.Drawing.Point(79, 62);
             this.ttbProduto.MaxLength = 100;
             this.ttbProduto.Name = "ttbProduto";
-            this.ttbProduto.Size = new System.Drawing.Size(448, 20);
+            this.ttbProduto.Size = new System.Drawing.Size(389, 20);
             this.ttbProduto.TabIndex = 16;
             // 
             // btnPesquisaFornecedor

@@ -38,6 +38,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbManual = new System.Windows.Forms.CheckBox();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.mskValorParcela = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,7 +51,8 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.cbManual = new System.Windows.Forms.CheckBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +73,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.maskedTextBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
@@ -80,7 +84,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnFinalizar);
-            this.splitContainer1.Size = new System.Drawing.Size(414, 383);
+            this.splitContainer1.Size = new System.Drawing.Size(502, 383);
             this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -178,14 +182,25 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(15, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 109);
+            this.groupBox1.Size = new System.Drawing.Size(473, 109);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
+            // 
+            // cbManual
+            // 
+            this.cbManual.AutoSize = true;
+            this.cbManual.Location = new System.Drawing.Point(301, 39);
+            this.cbManual.Name = "cbManual";
+            this.cbManual.Size = new System.Drawing.Size(61, 17);
+            this.cbManual.TabIndex = 32;
+            this.cbManual.Text = "Manual";
+            this.cbManual.UseVisualStyleBackColor = true;
+            this.cbManual.CheckedChanged += new System.EventHandler(this.cbManual_CheckedChanged);
             // 
             // btnIncluir
             // 
             this.btnIncluir.BackColor = System.Drawing.Color.White;
-            this.btnIncluir.Location = new System.Drawing.Point(319, 73);
+            this.btnIncluir.Location = new System.Drawing.Point(391, 39);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(67, 27);
             this.btnIncluir.TabIndex = 2;
@@ -270,7 +285,7 @@
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(334, 7);
+            this.btnSair.Location = new System.Drawing.Point(421, 7);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(67, 38);
             this.btnSair.TabIndex = 2;
@@ -281,9 +296,9 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(101, 7);
+            this.btnCancelar.Location = new System.Drawing.Point(141, 7);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(67, 38);
+            this.btnCancelar.Size = new System.Drawing.Size(105, 38);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -294,35 +309,44 @@
             this.btnFinalizar.BackColor = System.Drawing.Color.White;
             this.btnFinalizar.Location = new System.Drawing.Point(28, 7);
             this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(67, 38);
+            this.btnFinalizar.Size = new System.Drawing.Size(105, 38);
             this.btnFinalizar.TabIndex = 0;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // cbManual
+            // maskedTextBox1
             // 
-            this.cbManual.AutoSize = true;
-            this.cbManual.Location = new System.Drawing.Point(319, 34);
-            this.cbManual.Name = "cbManual";
-            this.cbManual.Size = new System.Drawing.Size(61, 17);
-            this.cbManual.TabIndex = 32;
-            this.cbManual.Text = "Manual";
-            this.cbManual.UseVisualStyleBackColor = true;
-            this.cbManual.CheckedChanged += new System.EventHandler(this.cbManual_CheckedChanged);
+            this.maskedTextBox1.Enabled = false;
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.ForeColor = System.Drawing.Color.Red;
+            this.maskedTextBox1.Location = new System.Drawing.Point(421, 285);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(67, 21);
+            this.maskedTextBox1.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(413, 269);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Valor Total (R$)";
             // 
             // GerarContaPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-            this.ClientSize = new System.Drawing.Size(438, 404);
+            this.ClientSize = new System.Drawing.Size(526, 404);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "GerarContaPagar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HL - GERAR CONTAS A PAGAR";
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -362,5 +386,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
         private System.Windows.Forms.CheckBox cbManual;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        public System.Windows.Forms.Label label5;
     }
 }

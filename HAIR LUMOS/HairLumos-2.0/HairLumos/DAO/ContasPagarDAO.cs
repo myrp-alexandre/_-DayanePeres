@@ -221,6 +221,126 @@ namespace HairLumos.DAO
             return cont;
         }
 
+        public DataTable retornaDespesas()
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa " +
+                   "FROM tbcontaspagar as ContasPagar "+
+                   "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_datavencimento");
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_valortotal");
+                cmd.Parameters.AddWithValue("@Despesa.desp_descricao");
+                cmd.Parameters.AddWithValue("@Despesa.coddespesa");
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return dt;
+        }
+
+        public DataTable retornaDespesasL()
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa " +
+                   "FROM tbcontaspagar as ContasPagar " +
+                   "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa where Despesa.coddespesa <> 2";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_datavencimento");
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_valortotal");
+                cmd.Parameters.AddWithValue("@Despesa.desp_descricao");
+                cmd.Parameters.AddWithValue("@Despesa.coddespesa");
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return dt;
+        }
+
+        public DataTable retornaDespesasCod(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa, ContasPagar.contpag_obs " +
+                   "FROM tbcontaspagar as ContasPagar " +
+                   "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa " +
+                   "WHERE ContasPagar.\"codContasPagar\" = " + cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_datavencimento");
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_valortotal");
+                cmd.Parameters.AddWithValue("@Despesa.desp_descricao");
+                cmd.Parameters.AddWithValue("@Despesa.coddespesa");
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_obs ");
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return dt;
+        }
+
+        public DataTable retornaDespesasCodData(int cod, DateTime data)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa, ContasPagar.contpag_obs " +
+                   "FROM tbcontaspagar as ContasPagar " +
+                   "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa " +
+                   "WHERE Despesa.coddespesa = " + cod+ " and ContasPagar.contpag_datavencimento = '" + data+"'";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_datavencimento");
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_valortotal");
+                cmd.Parameters.AddWithValue("@Despesa.desp_descricao");
+                cmd.Parameters.AddWithValue("@Despesa.coddespesa");
+                cmd.Parameters.AddWithValue("@ContasPagar.contpag_obs ");
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return dt;
+        }
+
     }
 
 }

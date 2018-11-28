@@ -28,8 +28,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             // ttb
             ttbCodigo.Enabled = false;
             cbbDespesa.Enabled = false;
-            rbFixa.Enabled = false;
-            rbVariavel.Enabled = false;
             dtpVencimento.Enabled = false;
             mskValor.Enabled = false;
             ttbObservacao.Enabled = false;
@@ -37,7 +35,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             //btn
             btnNovo.Enabled = true;
             btnGravar.Enabled = false;
-            btnExcluir.Enabled = false;
             btnPesquisar.Enabled = true;
             btnSair.Enabled = true;
 
@@ -61,15 +58,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             cbbDespesa.Enabled = true;
             dtpVencimento.Enabled = true;
             mskValor.Enabled = true;
-            rbFixa.Enabled = true;
-            rbVariavel.Enabled = true;
-            rbFixa.Checked = true;
+            
             ttbObservacao.Enabled = true;
 
             //botões
             btnNovo.Enabled = false;
             btnGravar.Enabled = true;
-            btnExcluir.Enabled = false;
             btnPesquisar.Enabled = false;
             btnCancelar.Enabled = true;
             btnSair.Enabled = true;
@@ -92,14 +86,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 this.cbbDespesa.DataSource = dtDespesa;
             }
 
-            if (tipoDespesa.Equals("FIXA"))
-            {
-                rbFixa.Checked = true;
-            }
-            else
-            {
-                rbVariavel.Checked = true;
-            }
+            
 
         }
 
@@ -129,11 +116,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 if(codigo == 0)
                     codigo= _ctrlContas.retornaMax()+1;
 
-                string tipo;
-                if (rbFixa.Checked)
-                    tipo = "FIXA";
-                else
-                    tipo = "VARIAVEL";
 
                 double valor = 0;
                 if (!string.IsNullOrWhiteSpace(mskValor.Text))
@@ -209,6 +191,43 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
             enterPropriedades._keyPessPropriedade(mskValor, e);
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Controller.ContasPagarController contasPagarController = new Controller.ContasPagarController();
+
+                Views.Funcoes_Fundamentais.RF_F9___Lançar_Despesa.Pesquisa_LançarDespesa pesquisa_LançarDespesa = new RF_F9___Lançar_Despesa.Pesquisa_LançarDespesa();
+                pesquisa_LançarDespesa.ShowDialog();
+                
+                if(pesquisa_LançarDespesa.intCodDespesa > 0)
+                {
+                    DataTable dt = contasPagarController.retornaDespesaCodData(pesquisa_LançarDespesa.intCodDespesa, pesquisa_LançarDespesa.data);
+
+                    if(dt != null && dt.Rows.Count > 0)
+                    {
+                        DataRow dr = dt.Rows[0];
+                        ttbCodigo.Text = dr["coddespesa"].ToString();
+                        cbbDespesa.SelectedIndex = Convert.ToInt32(dr["coddespesa"].ToString())-1;
+                        dtpVencimento.Value = Convert.ToDateTime(dr["contpag_datavencimento"].ToString());
+                        mskValor.Text = dr["contpag_valortotal"].ToString();
+                        ttbObservacao.Text = dr["contpag_obs"].ToString();
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

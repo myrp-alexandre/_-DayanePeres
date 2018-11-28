@@ -155,5 +155,25 @@ namespace HairLumos.Models
             return ContasPagarDAO.max();
         }
 
+        public DataTable retornaDespesas()
+        {
+            return ContasPagarDAO.retornaDespesas();
+        }
+
+        public DataTable retornaDespesasL()
+        {
+            return ContasPagarDAO.retornaDespesasL();
+        }
+
+        public DataTable retornaDespesasCod(int cod)
+        {
+            return ContasPagarDAO.retornaDespesasCod(cod);
+        }
+
+        public DataTable retornaDespesasCodData(int cod, DateTime data)
+        {
+            return ContasPagarDAO.retornaDespesasCodData(cod, data);
+        }
+
     }
 }

@@ -20,12 +20,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5___Gerenciar_Compras
         {
             InitializeComponent();
             dgvCompras.AutoGenerateColumns = false;
-            DGVMoeda();
+            //DGVMoeda();
         }
 
         private void DGVMoeda()
         {
-            this.dgvCompras.Columns["comp_valortotal"].DefaultCellStyle.Format = "c";
+            if(dgvCompras.Rows.Count > 0)
+                this.dgvCompras.Columns["comp_valortotal"].DefaultCellStyle.Format = "c";
         }
 
         private void dgvCompras_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -63,7 +64,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5___Gerenciar_Compras
                 bd.DataSource = dt;
                 dgvCompras.DataSource = bd;
                 dgvCompras.Refresh();
-                DGVMoeda();
+                //DGVMoeda();
             }
         }
 

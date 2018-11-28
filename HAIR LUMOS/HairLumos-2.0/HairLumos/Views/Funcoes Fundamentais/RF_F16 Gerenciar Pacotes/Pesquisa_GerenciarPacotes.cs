@@ -35,7 +35,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F16_Gerenciar_Pacotes
             {
                 dgvPacote.DataSource = dtRetorno;
                 dgvPacote.ClearSelection();
-                DGVMoeda();
+                //DGVMoeda();
             }
             else
                 dgvPacote.Rows.Clear();
