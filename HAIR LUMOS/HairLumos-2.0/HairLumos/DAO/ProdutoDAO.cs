@@ -526,6 +526,23 @@ namespace HairLumos.DAO
             }
         }
 
+        public int excluiBaixa(Entidades.BaixaManual obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            _sql = "DELETE FROM tbBaixa WHERE codbaixa = @cod;";
+
+            try
+            {
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", obj.Codigo);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public int gravaBaixaManual(Entidades.BaixaManual obj)
         {
             NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
@@ -551,12 +568,12 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT Prod.codProduto, Prod.prod_produto, Baixa.codBaixa, Baixa.baix_data, Baixa.baix_qtde, Baixa.baix_obs" +
+            _sql = "SELECT Prod.codProduto, Prod.prod_produto, Prod.prod_qtde, Baixa.codBaixa, Baixa.baix_data, Baixa.baix_qtde, Baixa.baix_obs" +
                    " FROM tbProduto Prod" +
                    " INNER JOIN tbBaixa Baixa on Prod.CodProduto = Baixa.codProduto";
                 
             if(cod > 0)
-                _sql = " WHERE Prod.codProduto = "+cod;
+                _sql += " WHERE Baixa.codBaixa = "+cod;
 
             try
             {
@@ -565,6 +582,7 @@ namespace HairLumos.DAO
                 cmd.CommandText = _sql;
                 cmd.Parameters.AddWithValue("@Prod.codProduto");
                 cmd.Parameters.AddWithValue("@Prod.prod_produto");
+                cmd.Parameters.AddWithValue("@Prod.prod_qtde");
                 cmd.Parameters.AddWithValue("@Baixa.codBaixa");
                 cmd.Parameters.AddWithValue("@Baixa.baix_data");
                 cmd.Parameters.AddWithValue("@Baixa.baix_qtde");
@@ -575,7 +593,7 @@ namespace HairLumos.DAO
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;

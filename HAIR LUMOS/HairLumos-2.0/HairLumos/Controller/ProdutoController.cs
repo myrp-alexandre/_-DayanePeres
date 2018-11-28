@@ -100,6 +100,11 @@ namespace HairLumos.Controller
             return _MdlProd.gravaBaixa(baixa);
         }
 
+        public int excluiBaixa(Entidades.BaixaManual baixa)
+        {
+            return _MdlProd.excluiBaixa(baixa);
+        }
+
         public DataTable retornabaixaManual(int cod)
         {
             return _MdlProd.retornaBaixaManual(cod);

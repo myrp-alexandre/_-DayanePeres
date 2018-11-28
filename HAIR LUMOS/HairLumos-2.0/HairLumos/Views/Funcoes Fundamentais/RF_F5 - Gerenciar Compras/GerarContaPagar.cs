@@ -65,37 +65,46 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             Controller.ContasPagarController contasPagarController = new Controller.ContasPagarController();
-            int cod = contasPagarController.retornaMax();
-            cod += 1;
-            try
+            if (somaValor(listacontasPagars) == Convert.ToDouble(mskValorTotal.Text))
             {
-                int i = 0;
-                bool retur = false;
+                int cod = contasPagarController.retornaMax();
+                cod += 1;
 
-                while (i < listacontasPagars.Count && !retur)
+                try
                 {
-                    listacontasPagars.ElementAt(i).CodigoContasaPagar = cod;
-                    int res = contasPagarController.insereLancamento(listacontasPagars.ElementAt(i));
+                    int i = 0;
+                    bool retur = false;
 
-                    if (res < 0)
+                    while (i < listacontasPagars.Count && !retur)
                     {
-                        MessageBox.Show("Erro");
-                        retur = true;
+                        listacontasPagars.ElementAt(i).CodigoContasaPagar = cod;
+                        listacontasPagars.ElementAt(i).Parcela = listacontasPagars.Count;
+                        int res = contasPagarController.insereLancamento(listacontasPagars.ElementAt(i));
+
+                        if (res < 0)
+                        {
+                            MessageBox.Show("Erro");
+                            retur = true;
+                        }
+                        else { i++; }
+
                     }
-                    else { i++; }
-                    
+                    if (listacontasPagars.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                    {
+                        Close();
+                        Views.Funcoes_Fundamentais.QuitarDespesa quitarDespesas = new QuitarDespesa();
+                        quitarDespesas.ShowDialog();
+                    }
                 }
-                if(listacontasPagars.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                catch (Exception ex)
                 {
-                    Close();
-                    Views.Funcoes_Fundamentais.QuitarDespesa quitarDespesas = new QuitarDespesa();
-                    quitarDespesas.ShowDialog();
+
+                    throw;
                 }
             }
-            catch (Exception ex)
+            else
             {
-
-                throw;
+                MessageBox.Show("Valor total incluido inferior ao total da compra!");
             }
 
         }
@@ -115,110 +124,153 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
 
             Controller.CaixaController caixaController = new Controller.CaixaController();
             Entidades.Caixa caixa = new Entidades.Caixa();
-
-
             string codPessoa = "";
+            int k = listacontasPagars.Count;
+            DataTable dt = compraController.retornaCompra(codCompra);
 
-            try
+            if (dt != null && dt.Rows.Count > 0)
             {
-                if (string.IsNullOrWhiteSpace(ttbQtdeParcela.Text))
-                    MessageBox.Show("Informe uma valor para a parcela ou 0");
+                DataRow dr = dt.Rows[0];
+                compra = new Entidades.Compra();
+                compra.Codigo = Convert.ToInt32(dr["codcompra"].ToString());
 
-                if (dtpDataVencimento.Value >= DateTime.Now)
-                    MessageBox.Show("Data inválida.");
+                compra.Data = Convert.ToDateTime(dr["comp_datacompra"].ToString());
+                compra.Situacao = dr["comp_situacao"].ToString();
+                compra.Consignado = Convert.ToBoolean(dr["comp_statusconsignado"].ToString());
+                compra.ValorTotal = Convert.ToDouble(dr["comp_valortotal"].ToString());
+                compra.Obs = dr["comp_obs"].ToString();
 
-                double valorParc = Convert.ToDouble(mskValorTotal.Text) / Convert.ToInt32(ttbQtdeParcela.Text);
-                double resto = Convert.ToDouble(mskValorTotal.Text) - (Convert.ToInt32(ttbQtdeParcela.Text) * valorParc);
+                codPessoa = dr["codpessoa"].ToString();
+                compra.Pessoa.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
 
+                DataTable dtDespesa = despesaController.retornaObjDespesa("Compra");
 
-                DataTable dt = compraController.retornaCompra(codCompra);
-
-                if (dt != null && dt.Rows.Count > 0)
+                if (dtDespesa != null && dt.Rows.Count > 0)
                 {
-                    DataRow dr = dt.Rows[0];
-                    compra = new Entidades.Compra();
-                    compra.Codigo = Convert.ToInt32(dr["codcompra"].ToString());
-                    
-                    compra.Data = Convert.ToDateTime(dr["comp_datacompra"].ToString());
-                    compra.Situacao = dr["comp_situacao"].ToString();
-                    compra.Consignado = Convert.ToBoolean(dr["comp_statusconsignado"].ToString());
-                    compra.ValorTotal = Convert.ToDouble(dr["comp_valortotal"].ToString());
-                    compra.Obs = dr["comp_obs"].ToString();
-
-                    codPessoa = dr["codpessoa"].ToString();
-                    compra.Pessoa.Codigo =  Convert.ToInt32(dr["codpessoa"].ToString());
-
-                    DataTable dtDespesa = despesaController.retornaObjDespesa("Compra");
-
-                    if(dtDespesa != null && dt.Rows.Count > 0)
-                    {
-                        DataRow drDespesa = dtDespesa.Rows[0];
-                        despesa.Codigo = Convert.ToInt32(drDespesa["coddespesa"].ToString());
-                        despesa.Descricao = drDespesa["desp_descricao"].ToString();
-                        despesa.Status = drDespesa["desp_status"].ToString();
-
-                    }
-
-                    compra.Despesa = despesa;
-                    
-                    DataTable dtPessoa = pessoaController.retornaPessoaCod(codPessoa);
-
-                    if(dtPessoa != null && dtPessoa.Rows.Count > 0)
-                    {
-                        DataRow drPessoa = dtPessoa.Rows[0];
-                        pessoa.Codigo = Convert.ToInt32(drPessoa["codPessoa"].ToString());
-                        pessoa.Nome = drPessoa["pes_nome"].ToString();
-                    }
-
-                    compra.Pessoa = pessoa;
+                    DataRow drDespesa = dtDespesa.Rows[0];
+                    despesa.Codigo = Convert.ToInt32(drDespesa["coddespesa"].ToString());
+                    despesa.Descricao = drDespesa["desp_descricao"].ToString();
+                    despesa.Status = drDespesa["desp_status"].ToString();
 
                 }
+
+                compra.Despesa = despesa;
+
+                DataTable dtPessoa = pessoaController.retornaPessoaCod(codPessoa);
+
+                if (dtPessoa != null && dtPessoa.Rows.Count > 0)
+                {
+                    DataRow drPessoa = dtPessoa.Rows[0];
+                    pessoa.Codigo = Convert.ToInt32(drPessoa["codPessoa"].ToString());
+                    pessoa.Nome = drPessoa["pes_nome"].ToString();
+                }
+
+                compra.Pessoa = pessoa;
+
+            }
+
+            DataTable dtCaixa = caixaController.retornacaixaAbetoDia();
+
+            if (dtCaixa != null && dtCaixa.Rows.Count > 0)
+            {
+                DataRow drCaixa = dtCaixa.Rows[0];
+                caixa.DataAbertura = Convert.ToDateTime(drCaixa["caixa_datahoraabertura"].ToString());
+                caixa.DataFechamento = Convert.ToDateTime(drCaixa["caixa_datahorafecha"].ToString());
+                caixa.SaldoInicial = Convert.ToDouble(drCaixa["caixa_saldoinicial"].ToString());
+                caixa.Troco = Convert.ToDouble(drCaixa["caixa_troco"].ToString());
+                caixa.TotalEntrada = Convert.ToDouble(drCaixa["caixa_totalentra"].ToString());
+                caixa.TotalSaida = Convert.ToDouble(drCaixa["caixa_totalsaida"].ToString());
+
+            }
+            
+            if (!cbManual.Checked) {
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(ttbQtdeParcela.Text))
+                        MessageBox.Show("Informe uma valor para a parcela ou 0");
+
+                    if (dtpDataVencimento.Value >= DateTime.Now)
+                        MessageBox.Show("Data inválida.");
+
+                    double valorParc = Convert.ToDouble(mskValorTotal.Text) / Convert.ToInt32(ttbQtdeParcela.Text);
+                    double resto = Convert.ToDouble(mskValorTotal.Text) - (Convert.ToInt32(ttbQtdeParcela.Text) * valorParc);
+
+
+                    
+
+                    for (int i = 0; i < Convert.ToInt32(ttbQtdeParcela.Text); i++)
+                    {
+                        ContasPagar = new Entidades.ContasPagar();
+                        ContasPagar.Parcela = Convert.ToInt32(ttbQtdeParcela.Text);
+                        ContasPagar.ValorTotal = Convert.ToDouble(mskValorTotal.Text);
+                        ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(i * 30);
+                        ContasPagar.CodParcela = i + 1;
+                        if (i + 1 == Convert.ToInt32(ttbQtdeParcela.Text))
+                            ContasPagar.ValorParcela = valorParc + resto;
+                        else
+                            ContasPagar.ValorParcela = valorParc;
+                        ContasPagar.Status = false;
+                        ContasPagar.Compra = compra;
+                        ContasPagar.Despesa = despesa;
+                        ContasPagar.Caixa = caixa;
+                        ContasPagar.FormaPagamento = new Entidades.FormaPagamento();
+                        ContasPagar.Comissao = new Entidades.Comissao();
+
+
+                        listacontasPagars.Add(ContasPagar);
+
+                    }
+                    carregaDGV(listacontasPagars);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+            else
+            {
+                //insere parcela manual
                 
-                DataTable dtCaixa = caixaController.retornacaixaAbetoDia();
-
-                if(dtCaixa != null && dtCaixa.Rows.Count > 0)
-                {
-                    DataRow drCaixa = dtCaixa.Rows[0];
-                    caixa.DataAbertura = Convert.ToDateTime(drCaixa["caixa_datahoraabertura"].ToString());
-                    caixa.DataFechamento = Convert.ToDateTime(drCaixa["caixa_datahorafecha"].ToString());
-                    caixa.SaldoInicial = Convert.ToDouble(drCaixa["caixa_saldoinicial"].ToString());
-                    caixa.Troco = Convert.ToDouble(drCaixa["caixa_troco"].ToString());
-                    caixa.TotalEntrada = Convert.ToDouble(drCaixa["caixa_totalentra"].ToString());
-                    caixa.TotalSaida = Convert.ToDouble(drCaixa["caixa_totalsaida"].ToString());
-
-                }
-
-                for (int i = 0; i < Convert.ToInt32(ttbQtdeParcela.Text); i++)
+                
+                
+                double total = Convert.ToDouble(mskValorTotal.Text);
+                double parcela = Convert.ToDouble(mskValorParcela.Text);
+                if(total >= somaValor(listacontasPagars) + parcela)
                 {
                     ContasPagar = new Entidades.ContasPagar();
-                    ContasPagar.Parcela = Convert.ToInt32(ttbQtdeParcela.Text);
-                    ContasPagar.ValorTotal = Convert.ToDouble(mskValorTotal.Text);
-                    ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(i*30);
-                    ContasPagar.CodParcela = i + 1;
-                    if (i + 1 == Convert.ToInt32(ttbQtdeParcela.Text))
-                        ContasPagar.ValorParcela = valorParc + resto;
-                    else
-                        ContasPagar.ValorParcela = valorParc;
+                    ContasPagar.ValorTotal = total;
+                    ContasPagar.DataVencimento = dtpDataVencimento.Value;
+                    ContasPagar.CodParcela = k + 1;
+                    ContasPagar.ValorParcela = parcela;
                     ContasPagar.Status = false;
                     ContasPagar.Compra = compra;
                     ContasPagar.Despesa = despesa;
                     ContasPagar.Caixa = caixa;
                     ContasPagar.FormaPagamento = new Entidades.FormaPagamento();
                     ContasPagar.Comissao = new Entidades.Comissao();
-
-
                     listacontasPagars.Add(ContasPagar);
-                                        
+                    carregaDGV(listacontasPagars);
                 }
-                carregaDGV(listacontasPagars);
+                else
+                {
+                    MessageBox.Show("Valor ultrapassa o total");
+                }
+                               
 
             }
-            catch (Exception)
-            {
+            
 
-                throw;
-            }
+        }
 
+        private double somaValor(List<Entidades.ContasPagar> lista)
+        {
+            double total = 0;
+            for (int i = 0; i < lista.Count; i++)
+                total += lista.ElementAt(i).ValorParcela;
+
+            return total;
         }
 
         private void carregaDGV(List<Entidades.ContasPagar> list)
@@ -290,6 +342,20 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
             enterPropriedades._keyPessPropriedade(mskValorParcela, e);
+        }
+
+        private void cbManual_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbManual.Checked)
+            {
+                mskValorParcela.Enabled = true;
+                ttbQtdeParcela.Enabled = false;
+            }
+            else
+            {
+                mskValorParcela.Enabled = false;
+                ttbQtdeParcela.Enabled = true;
+            }
         }
     }
 }

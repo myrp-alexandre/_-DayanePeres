@@ -203,6 +203,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 total += lista.ElementAt(i).Qtde * lista.ElementAt(i).Valor;
 
             totalCompra.Text = (total.ToString());
+            totalCompra.Text = Convert.ToDouble(totalCompra.Text).ToString("###,###,##0.00");
+
 
         }
 
@@ -424,6 +426,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
             enterPropriedades._keyPessPropriedade(totalCompra, e);
+        }
+
+        private void totalCompra_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            totalCompra.Text = Convert.ToDouble(totalCompra.Text).ToString("###,###,##0.00");
         }
     }
 }

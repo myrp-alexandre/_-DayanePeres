@@ -34,6 +34,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.ttbDescricao = new System.Windows.Forms.TextBox();
             this.dgvPacote = new System.Windows.Forms.DataGridView();
+            this.codbaixa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baix_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baix_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +117,7 @@
             this.dgvPacote.BackgroundColor = System.Drawing.Color.White;
             this.dgvPacote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacote.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codbaixa,
             this.prod_produto,
             this.baix_qtde,
             this.baix_data});
@@ -125,6 +127,13 @@
             this.dgvPacote.Size = new System.Drawing.Size(860, 368);
             this.dgvPacote.TabIndex = 0;
             this.dgvPacote.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacote_CellDoubleClick);
+            // 
+            // codbaixa
+            // 
+            this.codbaixa.DataPropertyName = "codbaixa";
+            this.codbaixa.HeaderText = "Código Baixa";
+            this.codbaixa.Name = "codbaixa";
+            this.codbaixa.ReadOnly = true;
             // 
             // prod_produto
             // 
@@ -180,6 +189,7 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox ttbDescricao;
         private System.Windows.Forms.DataGridView dgvPacote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codbaixa;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn baix_qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn baix_data;

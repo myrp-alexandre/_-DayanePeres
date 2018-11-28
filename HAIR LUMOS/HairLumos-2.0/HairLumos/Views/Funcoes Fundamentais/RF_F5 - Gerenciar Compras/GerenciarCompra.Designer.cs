@@ -165,6 +165,7 @@
             this.totalCompra.Name = "totalCompra";
             this.totalCompra.Size = new System.Drawing.Size(67, 20);
             this.totalCompra.TabIndex = 16;
+            this.totalCompra.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.totalCompra_MaskInputRejected);
             this.totalCompra.Enter += new System.EventHandler(this.totalCompra_Enter);
             this.totalCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalCompra_KeyPress);
             this.totalCompra.Leave += new System.EventHandler(this.totalCompra_Leave);

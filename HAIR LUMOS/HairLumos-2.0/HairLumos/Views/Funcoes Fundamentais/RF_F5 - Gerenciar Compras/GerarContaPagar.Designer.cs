@@ -50,6 +50,7 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
+            this.cbManual = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbManual);
             this.groupBox1.Controls.Add(this.btnIncluir);
             this.groupBox1.Controls.Add(this.mskValorParcela);
             this.groupBox1.Controls.Add(this.label2);
@@ -183,7 +185,7 @@
             // btnIncluir
             // 
             this.btnIncluir.BackColor = System.Drawing.Color.White;
-            this.btnIncluir.Location = new System.Drawing.Point(319, 34);
+            this.btnIncluir.Location = new System.Drawing.Point(319, 73);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(67, 27);
             this.btnIncluir.TabIndex = 2;
@@ -298,6 +300,17 @@
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
+            // cbManual
+            // 
+            this.cbManual.AutoSize = true;
+            this.cbManual.Location = new System.Drawing.Point(319, 34);
+            this.cbManual.Name = "cbManual";
+            this.cbManual.Size = new System.Drawing.Size(61, 17);
+            this.cbManual.TabIndex = 32;
+            this.cbManual.Text = "Manual";
+            this.cbManual.UseVisualStyleBackColor = true;
+            this.cbManual.CheckedChanged += new System.EventHandler(this.cbManual_CheckedChanged);
+            // 
             // GerarContaPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,5 +361,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
+        private System.Windows.Forms.CheckBox cbManual;
     }
 }

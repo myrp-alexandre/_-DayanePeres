@@ -20,6 +20,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
             InitializeComponent();
             dgvProdutos.AutoGenerateColumns = false;
             inicializa(false);
+            btnExcluir.Enabled = false;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -75,6 +76,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
         {
             limpatela();
             inicializa(false);
+            btnExcluir.Enabled = false;
         }
 
         private void carregaDGV(List<Entidades.BaixaManual> lista)
@@ -111,9 +113,37 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
                 baixa.Qtde = Convert.ToInt32(ttbQtde.Text.ToString());
                 baixa.Data = DateTime.Now;
                 baixa.Obs = ttbObs.Text.ToString();
-                lista.Add(baixa);
+                if (verificaLista(lista, baixa) < 0)
+                {
+                    lista.Add(baixa);
+                }
+                else
+                {
+                    lista.ElementAt(verificaLista(lista, baixa)).Qtde += baixa.Qtde;
+                }
                 carregaDGV(lista);
+                ttbProduto.Text = "";
+                ttbQtde.Text = "";
             }
+        }
+
+        private int verificaLista(List<Entidades.BaixaManual> lista, Entidades.BaixaManual baixa)
+        {
+            int i = 0;
+            bool teste = false;
+            while (i < lista.Count && !teste)
+            {
+                if (lista.ElementAt(i).Prod.CodigoProduto != baixa.Prod.CodigoProduto)
+                    i++;
+                else
+                {
+                    teste = true;
+                }
+            }
+            if (i < lista.Count)
+                return i;
+            else
+                return -1;
         }
 
         private void btnExcluiBaixaProduto_Click(object sender, EventArgs e)
@@ -146,12 +176,16 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
                 MessageBox.Show("Estoque atualizado com sucesso!");
                 limpatela();
                 inicializa(false);
+                lista = new List<Entidades.BaixaManual>();
+                carregaDGV(lista);
             }
         }
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
-           
+            lista = new List<Entidades.BaixaManual>();
+            carregaDGV(lista);
+            btnExcluir.Enabled = true;
             try
             {
                 Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual.Pesquisa_BaixaEstoque pesquisa_BaixaEstoque = new Pesquisa_BaixaEstoque();
@@ -173,11 +207,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
                             Entidades.BaixaManual baixaManual = new Entidades.BaixaManual();
                             produto = new Entidades.Produto();
                             DataRow drProd = dtRetorno.Rows[i];
-                            produto.CodigoProduto = Convert.ToInt32(dr["codProd"].ToString());
+                            produto.CodigoProduto = Convert.ToInt32(dr["CodProduto"].ToString());
                             produto.NomeProduto = dr["prod_produto"].ToString();
-                            baixaManual.Qtde = Convert.ToInt32(dr["baixa_qtde"].ToString());
-                            baixaManual.Data = Convert.ToDateTime(dr["baixa_data"].ToString());
-
+                            produto.Quantidade = Convert.ToInt32(dr["prod_qtde"].ToString());
+                            baixaManual.Qtde = Convert.ToInt32(dr["baix_qtde"].ToString());
+                            baixaManual.Data = Convert.ToDateTime(dr["baix_data"].ToString());
+                            baixaManual.Prod = produto;
+                            baixaManual.Codigo = Convert.ToInt32(dr["codbaixa"].ToString());
                             lista.Add(baixaManual);
 
 
@@ -191,6 +227,43 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
             {
 
                 throw;
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Controller.ProdutoController pc = new ProdutoController();
+            if (lista.Count > 0)
+            {
+                int i = 0;
+                bool teste = false;
+                while(i<lista.Count && !teste)
+                {
+                    Entidades.Produto p = new Entidades.Produto();
+                    p = lista.ElementAt(i).Prod;
+                    p.Quantidade += lista.ElementAt(i).Qtde;
+                    int rest = pc.atualizaEstoque(p);
+                    int res = pc.excluiBaixa(lista.ElementAt(i));
+                    if (res > 0 && rest > 0)
+                        i++;
+                    else
+                        teste = true;
+                }
+                if (i < lista.Count)
+                {
+                    MessageBox.Show("Erro ao excluir Baixa!");
+                }
+                else
+                {
+                    MessageBox.Show("Baixa excluida com sucesso");
+                    lista = new List<Entidades.BaixaManual>();
+                    carregaDGV(lista);
+                    btnExcluir.Enabled = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione a baixa a Excluir!");
             }
         }
     }
