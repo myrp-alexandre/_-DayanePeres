@@ -32,6 +32,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbSim = new System.Windows.Forms.RadioButton();
             this.rbNao = new System.Windows.Forms.RadioButton();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.totalCompra = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -43,8 +45,6 @@
             this.btnExcluirCompra = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnIncluirProduto = new System.Windows.Forms.Button();
-            this.dtpData = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ttbQuantidade = new System.Windows.Forms.TextBox();
             this.mskVenda = new System.Windows.Forms.MaskedTextBox();
@@ -147,6 +147,24 @@
             this.rbNao.Text = "Não";
             this.rbNao.UseVisualStyleBackColor = true;
             // 
+            // dtpData
+            // 
+            this.dtpData.CustomFormat = "dd/MM/YYYY";
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(627, 62);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(103, 20);
+            this.dtpData.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(588, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Data:";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.totalCompra);
@@ -161,10 +179,11 @@
             // 
             // totalCompra
             // 
+            this.totalCompra.BackColor = System.Drawing.Color.White;
             this.totalCompra.Enabled = false;
             this.totalCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCompra.ForeColor = System.Drawing.Color.Red;
-            this.totalCompra.Location = new System.Drawing.Point(805, 180);
+            this.totalCompra.Location = new System.Drawing.Point(803, 188);
             this.totalCompra.Name = "totalCompra";
             this.totalCompra.Size = new System.Drawing.Size(67, 21);
             this.totalCompra.TabIndex = 16;
@@ -274,24 +293,6 @@
             this.btnIncluirProduto.Text = "Incluir Produto";
             this.btnIncluirProduto.UseVisualStyleBackColor = false;
             this.btnIncluirProduto.Click += new System.EventHandler(this.btnIncluirProduto_Click);
-            // 
-            // dtpData
-            // 
-            this.dtpData.CustomFormat = "dd/MM/YYYY";
-            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(627, 62);
-            this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(103, 20);
-            this.dtpData.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(588, 65);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Data:";
             // 
             // label4
             // 

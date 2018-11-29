@@ -45,12 +45,14 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.ttbProduto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnPesquisa = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ttbQtdeEstoque = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -184,6 +186,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.ttbQtdeEstoque);
             this.groupBox1.Controls.Add(this.btnIncluir);
             this.groupBox1.Controls.Add(this.Código);
             this.groupBox1.Controls.Add(this.ttbQtde);
@@ -201,7 +205,7 @@
             // btnIncluir
             // 
             this.btnIncluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIncluir.Location = new System.Drawing.Point(376, 49);
+            this.btnIncluir.Location = new System.Drawing.Point(458, 53);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(72, 27);
             this.btnIncluir.TabIndex = 3;
@@ -212,7 +216,7 @@
             // Código
             // 
             this.Código.AutoSize = true;
-            this.Código.Location = new System.Drawing.Point(182, 56);
+            this.Código.Location = new System.Drawing.Point(253, 53);
             this.Código.Name = "Código";
             this.Código.Size = new System.Drawing.Size(74, 13);
             this.Código.TabIndex = 20;
@@ -220,7 +224,7 @@
             // 
             // ttbQtde
             // 
-            this.ttbQtde.Location = new System.Drawing.Point(262, 53);
+            this.ttbQtde.Location = new System.Drawing.Point(348, 56);
             this.ttbQtde.Name = "ttbQtde";
             this.ttbQtde.Size = new System.Drawing.Size(100, 20);
             this.ttbQtde.TabIndex = 2;
@@ -252,6 +256,17 @@
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Produto*";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExcluir.Location = new System.Drawing.Point(346, 13);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 38);
+            this.btnExcluir.TabIndex = 5;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnPesquisa
             // 
@@ -308,16 +323,22 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // btnExcluir
+            // label2
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExcluir.Location = new System.Drawing.Point(346, 13);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 38);
-            this.btnExcluir.TabIndex = 5;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Qtde em estoque";
+            // 
+            // ttbQtdeEstoque
+            // 
+            this.ttbQtdeEstoque.Enabled = false;
+            this.ttbQtdeEstoque.Location = new System.Drawing.Point(100, 57);
+            this.ttbQtdeEstoque.Name = "ttbQtdeEstoque";
+            this.ttbQtdeEstoque.Size = new System.Drawing.Size(100, 20);
+            this.ttbQtdeEstoque.TabIndex = 21;
             // 
             // BaixarEstoqueManual
             // 
@@ -372,5 +393,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Prod;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
         public System.Windows.Forms.Button btnExcluir;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox ttbQtdeEstoque;
     }
 }

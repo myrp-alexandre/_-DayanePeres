@@ -130,9 +130,10 @@
             // 
             // mskValorTotal
             // 
+            this.mskValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskValorTotal.Location = new System.Drawing.Point(6, 40);
             this.mskValorTotal.Name = "mskValorTotal";
-            this.mskValorTotal.Size = new System.Drawing.Size(104, 20);
+            this.mskValorTotal.Size = new System.Drawing.Size(104, 21);
             this.mskValorTotal.TabIndex = 24;
             this.mskValorTotal.Enter += new System.EventHandler(this.mskValorTotal_Enter);
             this.mskValorTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorTotal_KeyPress);
@@ -292,7 +293,7 @@
             this.groupBox1.Size = new System.Drawing.Size(742, 89);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cliente";
+            this.groupBox1.Text = "informações de Cliente";
             // 
             // mskTelefone
             // 
