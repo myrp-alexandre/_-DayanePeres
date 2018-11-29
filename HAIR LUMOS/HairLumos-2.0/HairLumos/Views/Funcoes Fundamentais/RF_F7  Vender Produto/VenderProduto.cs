@@ -16,13 +16,22 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         List<Entidades.VendaProduto> listVendaProduto = new List<Entidades.VendaProduto>();
         Entidades.Produto prod = new Entidades.Produto();
 
+        int codPessoa = 0;
         int qtdeProdEstoque = 0;
+
+        bool statusFiado = false;
 
         public VenderProduto()
         {
             InitializeComponent();
             _inicializa();
             mskValorTotal.Enabled = false;
+        }
+
+        private void DGVMoeda()
+        {
+            this.dgvProdutos.Columns["Valor"].DefaultCellStyle.Format = "c";
+            
         }
 
         public void _inicializa()
@@ -105,9 +114,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                     DataRow dr = dtRetorno.Rows[0];
                     ttbCliente.Text = dr["pes_nome"].ToString();
                     Pessoa.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
+                    codPessoa = Pessoa.Codigo;
                     Pessoa.Nome = dr["pes_nome"].ToString();
                     mskTelefone.Text = dr["pes_fone"].ToString();
-
+                    statusFiado = Convert.ToBoolean(dr["pes_fiado"].ToString());
                 }
             }
 
@@ -163,10 +173,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                 DataTable dtRetorno = produtoController.retornaProduto(prod.CodigoProduto);
                 if (dtRetorno.Rows.Count > 0 && dtRetorno != null)
                 {
+                    
                     DataRow dr = dtRetorno.Rows[0];
                     prod.CodigoProduto = Convert.ToInt32(dr["codproduto"].ToString());
                     prod.NomeProduto = dr["prod_produto"].ToString();
                     prod.Venda = Convert.ToDouble(dr["prod_precoVenda"].ToString());
+                    prod.Quantidade = Convert.ToInt32(dr["prod_qtde"].ToString());
                     vep.Produto = prod;
                     vep.Valor = prod.Venda;
                     prod = new Entidades.Produto();
@@ -187,24 +199,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
                         if(qtdeProd <= qtdeProdEstoque)
                         {
-                            //if (!string.IsNullOrWhiteSpace(mskValorTotal.Text))
-                            //{
-
-                            //    multValor = qtdeProd * vep.Valor;
-                            //    soma = Convert.ToDouble(mskValorTotal.Text);
-                            //    soma += multValor;
-                            //    mskValorTotal.Text = Convert.ToString(soma);
-                            //}
-                            //else
-                            //{
-                            //    multValor = qtdeProd * vep.Valor;
-                            //    soma += multValor;
-                            //    mskValorTotal.Text = Convert.ToString(soma);
-                            //}
 
                             insereLista(listVendaProduto, vep);
                             carregaDgv(listVendaProduto);
                             mskValorTotal.Text = somaValorTotal(listVendaProduto) + "";
+                            mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
                         }
                         else
                         {
@@ -217,6 +216,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                 ttbProduto.Text = "";
                 mskValor.Text = "";
                 mskQtde.Text = "";
+
 
             }
             catch (Exception)
@@ -233,6 +233,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
             bd.DataSource = lista;
             dgvProdutos.DataSource = bd;
             dgvProdutos.Refresh();
+            DGVMoeda();
         }
 
         private void insereLista(List<Entidades.VendaProduto> lista, Entidades.VendaProduto vep)
@@ -241,7 +242,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
             bool achou = false;
             if (lista.Count > 0)
             {
-                while (i < lista.Count || achou)
+                while (i < lista.Count && !achou)
                 {
                     if (lista.ElementAt(i).Produto.CodigoProduto == vep.Produto.CodigoProduto)
                     {
@@ -293,8 +294,66 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void btnFecharVenda_Click(object sender, EventArgs e)
         {
-            Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.FecharAtendimento fecharAtendimento = new RF_F8_Fechar_Atendimento.FecharAtendimento();
-            fecharAtendimento.ShowDialog();
+
+            try
+            {
+                Controller.VendaController vendaController = new Controller.VendaController();
+            
+                if (!String.IsNullOrWhiteSpace(ttbCliente.Text))
+                {
+
+                    if (listVendaProduto.Count > 0)
+                    {
+                        
+                        int rest = vendaController.gravaVendaProduto(DateTime.Now, "", Convert.ToDouble(mskValorTotal.Text), "", codPessoa, listVendaProduto);
+
+                        if(rest > 0)
+                        {
+                            MessageBox.Show("Venda Gravada com Sucesso!");
+
+                            if(statusFiado == true)
+                            {
+                                DialogResult dialogResult = MessageBox.Show("Cliente habilitado para pagamento fiado. Deseja pagar no Fiado? ", "Aviso", MessageBoxButtons.YesNo);
+                                if (dialogResult == DialogResult.Yes)
+                                {
+                                    
+                                }
+                                else if (dialogResult == DialogResult.No)
+                                {
+                                    Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.FecharAtendimento fecharAtendimento = new RF_F8_Fechar_Atendimento.FecharAtendimento();
+                                    fecharAtendimento.ShowDialog();
+                                    fecharAtendimento.quemChamou = "VendaProduto";
+                                }
+                            }
+
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao Finalizar venda!");
+                        }
+
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insira Produto(s) para finalizar a venda.");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Informe o Cliente");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+
+            
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -315,7 +374,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         private void mskValor_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(mskValor.Text) && mskValor.Equals("00,00"))
+            if(!string.IsNullOrWhiteSpace(mskValor.Text))
                 mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
         }
 

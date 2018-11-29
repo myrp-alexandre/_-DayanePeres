@@ -312,18 +312,18 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(252, 158);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "CNPJ:";
+            this.label8.Text = "CNPJ*";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(434, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "CPF:";
+            this.label7.Text = "CPF*";
             // 
             // rbInativo
             // 

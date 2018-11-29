@@ -277,11 +277,20 @@ namespace HairLumos.Views
             Entidades.Endereco end = new Entidades.Endereco(mtbCEP.Text, ttbLogradouro.Text, ttbNumero.Text, ttbBairro.Text, ttbComplemento.Text, uf, cid);
             if (rbFisica.Checked)
             {
-                bool cpfVal = cpfCnpj.IsValid(cpf);
+                bool cpfVal;
+                
+
+                if (!cpf.Equals(", ."))
+                    cpfVal = cpfCnpj.IsValid(cpf);
+                else
+                {
+                    cpfVal = false;
+                }
+                    
 
                 if (!cpfVal)
                 {
-                    MessageBox.Show("Cpf Inválido!");
+                    MessageBox.Show("Cpf Inválido! Informe um CPF válido para cadastro de cliente");
                 }
                 else
                 {
@@ -324,7 +333,7 @@ namespace HairLumos.Views
 
                 if (!cnpjVal)
                 {
-                    MessageBox.Show("CNPJ Inválido!");
+                    MessageBox.Show("CNPJ Inválido! Informe um CNPJ válido para cadastro de Pessoa Jurídica!");
                 }
 
                 if (codigo == 0)

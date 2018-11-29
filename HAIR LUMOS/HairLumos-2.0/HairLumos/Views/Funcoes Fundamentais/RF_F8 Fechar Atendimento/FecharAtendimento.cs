@@ -12,41 +12,108 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
 {
     public partial class FecharAtendimento : Form
     {
+        //private List<Entidades.TabelaVendaProduto> listaVendaProduto;
+        //private List<Entidades.Venda> listaVenda;
+        //private List<Entidades.Produto> listaProduto;
+
+        public string quemChamou { get; set; }
+
         public FecharAtendimento()
         {
             InitializeComponent();
+            pesquisaVendaProduto();
+            CarregaFormasPagamento();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void CarregaFormasPagamento()
         {
+            Controller.PagamentoController objForma = new Controller.PagamentoController();
 
+            DataTable dtFormas = objForma.retornaFormaPagamento();
+            if (dtFormas != null && dtFormas.Rows.Count > 0)
+            {
+                this.cbbForma.ValueMember = "codformapag";
+                this.cbbForma.DisplayMember = "formpag_descricao";
+                this.cbbForma.DataSource = dtFormas;
+            }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+
+        private void DGVMoeda()
         {
+            if(dgvListaProdutos.Rows.Count > 0)
+                this.dgvListaProdutos.Columns["vendprod_valor"].DefaultCellStyle.Format = "c";
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void carregaGridProduto(DataTable dt)
         {
+            BindingSource bd = new BindingSource();
+            bd.DataSource = dt;
+            dgvListaProdutos.DataSource = bd;
+            dgvListaProdutos.Refresh();
+            //DGVMoeda();
+        }
+
+        private void pesquisaVendaProduto()
+        {
+            try
+            {
+                Controller.VendaController vendaController = new Controller.VendaController();
+                Entidades.VendaProduto vendaProduto = new Entidades.VendaProduto();
+
+                int intCodVendaProd = vendaController.retornaUltimaVendaProduto();
+
+                int codVenda = 0;
+
+                if(intCodVendaProd > 0)
+                {
+                    DataTable dtVenda = vendaController.retornaVendaCod(intCodVendaProd);
+
+
+                    if(dtVenda != null && dtVenda.Rows.Count > 0)
+                    {
+                        DataRow drVenda = dtVenda.Rows[0];
+                        codVenda = Convert.ToInt32(drVenda["codvenda"].ToString());
+
+                        DataTable dtVendProd = vendaController.retornaVendaProdutoCod(codVenda);
+
+                        if(dtVendProd != null && dtVendProd.Rows.Count > 0)
+                        {
+                            DataRow dr = dtVendProd.Rows[0];
+                            for (int i = 0; i < dtVendProd.Rows.Count; i++)
+                            {
+                                
+                                //Entidades.Venda venda = new Entidades.Venda();
+                                vendaProduto = new Entidades.VendaProduto();
+                                //DataRow drVendProd = dtVendProd.Rows[i];
+                                carregaGridProduto(dtVendProd);
+                                mskTotal.Text = dr["vend_valortotal"].ToString();
+                            }
+                            mskTotal.Text = dr["vend_valortotal"].ToString();
+                            mskTotal.Text = Convert.ToDouble(mskTotal.Text).ToString("###,###,##0.00");
+                        }
+                        
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            
 
         }
+       
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+       
         private void mskAcrescimo_Enter(object sender, EventArgs e)
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
@@ -185,6 +252,16 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
             enterPropriedades._keyPessPropriedade(mskTroco, e);
+        }
+
+        private void btnFecharVenda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluirForma_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,24 +13,25 @@ namespace HairLumos.Entidades
         private string _situacao;
         private double _valorTotal;
         private string _observacao;
-        private Entidades.PessoaFisica _pessoaFisica;
+        private Entidades.Pessoa _pessoa;
 
         private List<VendaProduto> listVendaProduto;
 
-        public Venda(int codigo, DateTime data, string situacao, double valorTotal, string observacao, PessoaFisica pessoaFisica, List<VendaProduto> listVendaProduto)
+        public Venda(int codigo, DateTime data, string situacao, 
+            double valorTotal, string observacao, Pessoa pessoa, List<VendaProduto> listVendaProduto)
         {
             _codigo = codigo;
             _data = data;
             _situacao = situacao;
             _valorTotal = valorTotal;
             _observacao = observacao;
-            _pessoaFisica = pessoaFisica;
+            _pessoa = pessoa;
             this.listVendaProduto = listVendaProduto;
         }
 
         public Venda()
         {
-            _pessoaFisica = new PessoaFisica();
+            _pessoa = new Pessoa();
             listVendaProduto = new List<VendaProduto>();
         }
 
@@ -39,7 +40,7 @@ namespace HairLumos.Entidades
         public string Situacao { get; set; }
         public double ValorTotal { get; set; }
         public string Observacao { get; set; }
-        public PessoaFisica PessoaFisica { get; set; }
+        public Pessoa Pessoa { get; set; }
         public List<VendaProduto> ListavendaProdutos { get; set; }
     }
 }

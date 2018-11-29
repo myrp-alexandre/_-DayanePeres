@@ -71,6 +71,7 @@
     <Compile Include="Controller\ServicoController.cs" />
     <Compile Include="Controller\ServicoParceiroController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="Controller\VendaController.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
     <Compile Include="DAO\CaixaDAO.cs" />
     <Compile Include="DAO\ComissaoDAO.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="DAO\ServicoDAO.cs" />
     <Compile Include="DAO\ServicoParceiroDAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
+    <Compile Include="DAO\VendaDAO.cs" />
     <Compile Include="Entidades\Agenda.cs" />
     <Compile Include="Entidades\BaixaManual.cs" />
     <Compile Include="Entidades\Caixa.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Entidades\Servico.cs" />
     <Compile Include="Entidades\ServicoParceiro.cs" />
     <Compile Include="Entidades\TabelaPacotes.cs" />
+    <Compile Include="Entidades\TabelaVendaProduto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Venda.cs" />
     <Compile Include="Entidades\VendaProduto.cs" />
@@ -131,6 +134,7 @@
     <Compile Include="Models\ServicoModel.cs" />
     <Compile Include="Models\ServicoParceiroModel.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
+    <Compile Include="Models\VendaModels.cs" />
     <Compile Include="Views\Funcoes Basicas\Cadastro_CategoriaProduto.cs">
       <SubType>Form</SubType>
     </Compile>

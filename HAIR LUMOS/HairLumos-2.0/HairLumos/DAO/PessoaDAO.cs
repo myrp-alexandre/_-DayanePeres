@@ -364,7 +364,9 @@ namespace HairLumos.DAO
 
 
                 //Fazer o Insert da pessoa
-                strSQL = "UPDATE tbPessoa SET pes_nome = @nomePessoa, pes_datacadastro =  @dataCadastro, pes_tipopessoa = @tipoPessoa, pes_statuspessoa = @statusPessoa, pes_obs = @obsPessoa, pes_fiado = @fiado, pes_email = @email, pes_fone = @telefone, pes_cel = @celular WHERE codpessoa = @codigo;";
+                strSQL = "UPDATE tbPessoa SET pes_nome = @nomePessoa, pes_datacadastro =  @dataCadastro, pes_tipopessoa = @tipoPessoa, " +
+                    "pes_statuspessoa = @statusPessoa, pes_obs = @obsPessoa, pes_fiado = @fiado, pes_email = @email, pes_fone = @telefone, pes_cel = @celular " +
+                    "WHERE codpessoa = @codigo;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -388,7 +390,8 @@ namespace HairLumos.DAO
 
                 //Fazer o insert da Fisica ou Juridica
 
-                strSQL = "UPDATE tbFisica SET fis_cpf = @cpf, fis_rg = @rg, fis_datanascimento = @dataNascimento where codpessoa = @codPessoa;";
+                strSQL = "UPDATE tbFisica SET fis_cpf = @cpf, fis_rg = @rg, fis_datanascimento = @dataNascimento " +
+                    "WHERE codpessoa = @codPessoa;";
 
                 objConexao.SqlCmd.Parameters.Clear();
                 objConexao.SqlCmd.CommandText = strSQL;

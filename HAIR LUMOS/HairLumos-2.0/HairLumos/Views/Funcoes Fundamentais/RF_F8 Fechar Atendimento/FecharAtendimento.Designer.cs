@@ -29,15 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.dgvListaProdutos = new System.Windows.Forms.DataGridView();
+            this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendprod_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendprod_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcluirProduto = new System.Windows.Forms.Button();
             this.btnAlterarProduto = new System.Windows.Forms.Button();
             this.btnExcluirServico = new System.Windows.Forms.Button();
             this.btnAlterarServico = new System.Windows.Forms.Button();
             this.dgvListaServicos = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -71,8 +76,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicos)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -86,7 +90,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.tabControl1);
+            this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
@@ -96,81 +100,110 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fechamento de Atendimento/Venda";
             // 
-            // tabControl1
+            // groupBox7
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(13, 77);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(780, 182);
-            this.tabControl1.TabIndex = 4;
+            this.groupBox7.Controls.Add(this.label12);
+            this.groupBox7.Controls.Add(this.label11);
+            this.groupBox7.Controls.Add(this.dgvListaProdutos);
+            this.groupBox7.Controls.Add(this.btnExcluirProduto);
+            this.groupBox7.Controls.Add(this.btnAlterarProduto);
+            this.groupBox7.Controls.Add(this.btnExcluirServico);
+            this.groupBox7.Controls.Add(this.btnAlterarServico);
+            this.groupBox7.Controls.Add(this.dgvListaServicos);
+            this.groupBox7.Location = new System.Drawing.Point(13, 72);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(780, 187);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Serviço/Produto";
             // 
-            // tabPage1
+            // label12
             // 
-            this.tabPage1.Controls.Add(this.dgvListaProdutos);
-            this.tabPage1.Controls.Add(this.btnExcluirProduto);
-            this.tabPage1.Controls.Add(this.btnAlterarProduto);
-            this.tabPage1.Controls.Add(this.btnExcluirServico);
-            this.tabPage1.Controls.Add(this.btnAlterarServico);
-            this.tabPage1.Controls.Add(this.dgvListaServicos);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(772, 156);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Serviço/Produto";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 101);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Produto";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Serviço";
             // 
             // dgvListaProdutos
             // 
             this.dgvListaProdutos.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaProdutos.Location = new System.Drawing.Point(13, 83);
+            this.dgvListaProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.prod_produto,
+            this.vendprod_qtde,
+            this.vendprod_valor});
+            this.dgvListaProdutos.Location = new System.Drawing.Point(17, 117);
             this.dgvListaProdutos.Name = "dgvListaProdutos";
             this.dgvListaProdutos.Size = new System.Drawing.Size(629, 60);
-            this.dgvListaProdutos.TabIndex = 37;
-            this.dgvListaProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dgvListaProdutos.TabIndex = 43;
+            // 
+            // prod_produto
+            // 
+            this.prod_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prod_produto.DataPropertyName = "prod_produto";
+            this.prod_produto.HeaderText = "Produto";
+            this.prod_produto.Name = "prod_produto";
+            // 
+            // vendprod_qtde
+            // 
+            this.vendprod_qtde.DataPropertyName = "vendprod_qtde";
+            this.vendprod_qtde.HeaderText = "Qtde";
+            this.vendprod_qtde.Name = "vendprod_qtde";
+            // 
+            // vendprod_valor
+            // 
+            this.vendprod_valor.DataPropertyName = "vendprod_valor";
+            this.vendprod_valor.HeaderText = "Valor (R$)";
+            this.vendprod_valor.Name = "vendprod_valor";
             // 
             // btnExcluirProduto
             // 
             this.btnExcluirProduto.BackColor = System.Drawing.Color.White;
-            this.btnExcluirProduto.Location = new System.Drawing.Point(645, 118);
+            this.btnExcluirProduto.Location = new System.Drawing.Point(649, 152);
             this.btnExcluirProduto.Name = "btnExcluirProduto";
             this.btnExcluirProduto.Size = new System.Drawing.Size(115, 25);
-            this.btnExcluirProduto.TabIndex = 3;
+            this.btnExcluirProduto.TabIndex = 41;
             this.btnExcluirProduto.Text = "Excluir Produto";
             this.btnExcluirProduto.UseVisualStyleBackColor = false;
             // 
             // btnAlterarProduto
             // 
             this.btnAlterarProduto.BackColor = System.Drawing.Color.White;
-            this.btnAlterarProduto.Location = new System.Drawing.Point(645, 83);
+            this.btnAlterarProduto.Location = new System.Drawing.Point(649, 117);
             this.btnAlterarProduto.Name = "btnAlterarProduto";
             this.btnAlterarProduto.Size = new System.Drawing.Size(115, 25);
-            this.btnAlterarProduto.TabIndex = 2;
+            this.btnAlterarProduto.TabIndex = 40;
             this.btnAlterarProduto.Text = "Alterar Produto";
             this.btnAlterarProduto.UseVisualStyleBackColor = false;
             // 
             // btnExcluirServico
             // 
             this.btnExcluirServico.BackColor = System.Drawing.Color.White;
-            this.btnExcluirServico.Location = new System.Drawing.Point(645, 41);
+            this.btnExcluirServico.Location = new System.Drawing.Point(649, 62);
             this.btnExcluirServico.Name = "btnExcluirServico";
             this.btnExcluirServico.Size = new System.Drawing.Size(115, 25);
-            this.btnExcluirServico.TabIndex = 1;
+            this.btnExcluirServico.TabIndex = 39;
             this.btnExcluirServico.Text = "Excluir Serviço";
             this.btnExcluirServico.UseVisualStyleBackColor = false;
             // 
             // btnAlterarServico
             // 
             this.btnAlterarServico.BackColor = System.Drawing.Color.White;
-            this.btnAlterarServico.Location = new System.Drawing.Point(646, 14);
+            this.btnAlterarServico.Location = new System.Drawing.Point(650, 35);
             this.btnAlterarServico.Name = "btnAlterarServico";
             this.btnAlterarServico.Size = new System.Drawing.Size(115, 25);
-            this.btnAlterarServico.TabIndex = 0;
+            this.btnAlterarServico.TabIndex = 38;
             this.btnAlterarServico.Text = "Alterar Serviço";
             this.btnAlterarServico.UseVisualStyleBackColor = false;
             // 
@@ -178,20 +211,24 @@
             // 
             this.dgvListaServicos.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaServicos.Location = new System.Drawing.Point(11, 14);
+            this.dgvListaServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column4,
+            this.Column5});
+            this.dgvListaServicos.Location = new System.Drawing.Point(15, 35);
             this.dgvListaServicos.Name = "dgvListaServicos";
             this.dgvListaServicos.Size = new System.Drawing.Size(629, 52);
-            this.dgvListaServicos.TabIndex = 32;
+            this.dgvListaServicos.TabIndex = 42;
             // 
-            // tabPage2
+            // Column4
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(772, 156);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Contrato Pacotes";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Serviço";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Valor (R$)";
+            this.Column5.Name = "Column5";
             // 
             // groupBox4
             // 
@@ -247,7 +284,7 @@
             this.btnFecharVenda.TabIndex = 0;
             this.btnFecharVenda.Text = "FECHAR VENDA";
             this.btnFecharVenda.UseVisualStyleBackColor = false;
-            this.btnFecharVenda.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnFecharVenda.Click += new System.EventHandler(this.btnFecharVenda_Click);
             // 
             // btnPesquisarVenda
             // 
@@ -258,7 +295,6 @@
             this.btnPesquisarVenda.TabIndex = 2;
             this.btnPesquisarVenda.Text = "PESQUISAR VENDA";
             this.btnPesquisarVenda.UseVisualStyleBackColor = false;
-            this.btnPesquisarVenda.Click += new System.EventHandler(this.button6_Click);
             // 
             // btnCancelar
             // 
@@ -269,7 +305,6 @@
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.button7_Click);
             // 
             // groupBox6
             // 
@@ -410,6 +445,7 @@
             this.btnExcluirForma.TabIndex = 0;
             this.btnExcluirForma.Text = "Excluir";
             this.btnExcluirForma.UseVisualStyleBackColor = false;
+            this.btnExcluirForma.Click += new System.EventHandler(this.btnExcluirForma_Click);
             // 
             // dgvformasPagamento
             // 
@@ -508,7 +544,7 @@
             // 
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(13, 19);
+            this.groupBox2.Location = new System.Drawing.Point(13, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(780, 51);
             this.groupBox2.TabIndex = 0;
@@ -544,8 +580,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - FECHAR ATENDIMENTO";
             this.groupBox1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicos)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -595,15 +631,20 @@
         public System.Windows.Forms.Button btnFecharVenda;
         public System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.DataGridView dgvListaProdutos;
         public System.Windows.Forms.Button btnExcluirProduto;
         public System.Windows.Forms.Button btnAlterarProduto;
         public System.Windows.Forms.Button btnExcluirServico;
         public System.Windows.Forms.Button btnAlterarServico;
         private System.Windows.Forms.DataGridView dgvListaServicos;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_valor;
     }
 }
