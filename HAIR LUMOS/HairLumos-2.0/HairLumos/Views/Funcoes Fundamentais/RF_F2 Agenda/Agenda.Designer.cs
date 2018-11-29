@@ -42,7 +42,7 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnAtender = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.rbStatusCancelado = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.mtcData = new System.Windows.Forms.MonthCalendar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbbFuncionario = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chbStatusCancelado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,8 +58,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).BeginInit();
             this.groupBox8.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -168,6 +168,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Fechar Atendimento";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -178,6 +179,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Vender Produto";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCancelar
             // 
@@ -227,18 +229,15 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Informações";
             // 
-            // rbStatusCancelado
+            // groupBox3
             // 
-            this.rbStatusCancelado.AutoSize = true;
-            this.rbStatusCancelado.BackColor = System.Drawing.Color.DarkRed;
-            this.rbStatusCancelado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbStatusCancelado.Location = new System.Drawing.Point(22, 35);
-            this.rbStatusCancelado.Name = "rbStatusCancelado";
-            this.rbStatusCancelado.Size = new System.Drawing.Size(145, 19);
-            this.rbStatusCancelado.TabIndex = 1;
-            this.rbStatusCancelado.TabStop = true;
-            this.rbStatusCancelado.Text = "Horário Cancelado";
-            this.rbStatusCancelado.UseVisualStyleBackColor = false;
+            this.groupBox3.Controls.Add(this.chbStatusCancelado);
+            this.groupBox3.Location = new System.Drawing.Point(12, 326);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(227, 77);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Exibir agrndamentos cancelados?";
             // 
             // mtcData
             // 
@@ -311,15 +310,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Listar Agendamento";
             // 
-            // groupBox3
+            // chbStatusCancelado
             // 
-            this.groupBox3.Controls.Add(this.rbStatusCancelado);
-            this.groupBox3.Location = new System.Drawing.Point(12, 326);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(227, 77);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Exibir agrndamentos cancelados?";
+            this.chbStatusCancelado.AutoSize = true;
+            this.chbStatusCancelado.BackColor = System.Drawing.Color.DarkRed;
+            this.chbStatusCancelado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbStatusCancelado.Location = new System.Drawing.Point(16, 34);
+            this.chbStatusCancelado.Name = "chbStatusCancelado";
+            this.chbStatusCancelado.Size = new System.Drawing.Size(111, 21);
+            this.chbStatusCancelado.TabIndex = 0;
+            this.chbStatusCancelado.Text = "Cancelados";
+            this.chbStatusCancelado.UseVisualStyleBackColor = false;
+            this.chbStatusCancelado.CheckedChanged += new System.EventHandler(this.chbStatusCancelado_CheckedChanged);
             // 
             // Agenda
             // 
@@ -341,10 +343,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgendamento)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -372,7 +374,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Funcionario;
         private System.Windows.Forms.MonthCalendar mtcData;
         public System.Windows.Forms.Button btnNComprareceu;
-        private System.Windows.Forms.RadioButton rbStatusCancelado;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox chbStatusCancelado;
     }
 }

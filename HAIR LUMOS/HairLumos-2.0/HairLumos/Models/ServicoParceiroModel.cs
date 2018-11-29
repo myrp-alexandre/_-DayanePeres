@@ -115,5 +115,11 @@ namespace HairLumos.Models
             //Entidades.Servico _entServico= new Entidades.Servico();
             return ServicoParceiroDAO.VerificaServico(intCodS, codPessoa);
         }
+
+        public bool verificaServicoDois(int intCodS, int codPessoa)
+        {
+            //Entidades.Servico _entServico= new Entidades.Servico();
+            return ServicoParceiroDAO.VerificaServicoDois(intCodS, codPessoa);
+        }
     }
 }

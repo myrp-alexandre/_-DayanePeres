@@ -262,6 +262,36 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
+            _sql = "select * from tbprestadorservico where codtiposervico = @cod and codpessoa = @codPessoa and estado <> 'FALSE'";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", codServico);
+                cmd.Parameters.AddWithValue("@codPessoa", cosPessoa);
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    return true; //ja existe serviço cadastrado pra esse prestador
+                }
+                else
+                    return false; //não existe vinculo entre este servico e estre prestador
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool VerificaServicoDois(int codServico, int cosPessoa)
+        {
+            DataTable dt = new DataTable();
+
             _sql = "select * from tbprestadorservico where codtiposervico = @cod and codpessoa = @codPessoa";
 
             try

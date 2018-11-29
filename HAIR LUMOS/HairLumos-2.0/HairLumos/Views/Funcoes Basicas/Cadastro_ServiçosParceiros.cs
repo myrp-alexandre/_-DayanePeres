@@ -185,6 +185,8 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private void btnSelecionaPessoa_Click(object sender, EventArgs e)
         {
+            servicoParceirosLista = new List<Entidades.ServicoParceiro>();
+            List<Entidades.ServicoParceiro> listaaux = new List<Entidades.ServicoParceiro>();
             try
             {
                 Views.Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor objPessoa = new Funcoes_Basicas.Pesquisas.Pesquisa_Fornecedor();
@@ -193,9 +195,11 @@ namespace HairLumos.Views.Funcoes_Basicas
                 if (objPessoa.intCodigoPessoa > 0)
                 {
                     Controller.PessoaController pessoaController = new Controller.PessoaController();
+                    Controller.ServicoParceiroController servicoPController = new Controller.ServicoParceiroController();
+                    Controller.ServicoController servicoController = new Controller.ServicoController();
 
                     DataTable dtRetorno = pessoaController.retornaPessoaJuridicaCod(objPessoa.intCodigoPessoa);//intPessoa);
-                    
+
                     if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                     {
                         DataRow dr = dtRetorno.Rows[0];
@@ -203,6 +207,55 @@ namespace HairLumos.Views.Funcoes_Basicas
                         intPessoa = intCodServicoParceiro;
                         ttbPessoa.Text = dr["jur_razaosocial"].ToString();
 
+                        DataTable dtServParc = servicoPController.retornaServicos(intCodServicoParceiro);
+
+                        if (dtServParc != null && dtServParc.Rows.Count > 0)
+                        {
+                            for (int i = 0; i < dtServParc.Rows.Count; i++)
+                            {
+                                DataRow drServPac = dtServParc.Rows[i];
+                                Entidades.PessoaJuridica pj = new Entidades.PessoaJuridica();
+                                DataTable dtPessoa = pessoaController.retornaPessoaJuridicaCnpj(drServPac["jur_cnpj"].ToString());
+                                if (dtPessoa != null && dtPessoa.Rows.Count > 0)
+                                {
+
+                                    DataRow drPessoa = dtPessoa.Rows[0];
+                                    pj.Codigo = Convert.ToInt32(drServPac["codpessoa"].ToString());
+                                    pj.CNPJ = drServPac["jur_cnpj"].ToString();
+                                    pj.Nome = drPessoa["pes_nome"].ToString();
+                                    pj.RazaoSocial = drPessoa["jur_razaosocial"].ToString();
+                                    ttbPessoa.Text = drPessoa["pes_nome"].ToString();
+                                }
+
+                                DataTable dtServico = servicoController.retornaObjServico(Convert.ToInt32(drServPac["codtiposervico"].ToString()));
+                                Entidades.Servico servico = new Entidades.Servico();
+                                if (dtServico != null && dtServico.Rows.Count > 0)
+                                {
+
+                                    DataRow drServico = dtServico.Rows[0];
+                                    servico.Codigo = Convert.ToInt32(drServico["codtiposervico"].ToString());
+                                    servico.ServicoNome = drServico["tiposerv_descricao"].ToString();
+                                    servico.Observacao = drServico["tiposerv_obs"].ToString();
+                                    servico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
+                                    servico.Tempo = drServico["tiposerv_temposervico"].ToString();
+                                }
+                                Entidades.ServicoParceiro servicoParceiro = new Entidades.ServicoParceiro();
+                                servicoParceiro.PessoaJuridica = pj;
+                                servicoParceiro.Servico = servico;
+                                servicoParceiro.Valor = Convert.ToDouble(drServPac["prestserv_valor"].ToString());
+                                servicoParceiro.Percentual = Convert.ToDouble(drServPac["prestserv_percentual"].ToString());
+                                servicoParceiro.PagamentoRecebido = drServPac["prestser_pagrec"].ToString();
+                                servicoParceiro.Estado = Convert.ToBoolean(drServPac["estado"].ToString());
+                                servicoParceirosLista.Add(servicoParceiro);
+                            }
+
+                            for (int i = 0; i < servicoParceirosLista.Count; i++)//carrega lista na tela, apenas com os elementos ativos - true
+                            {
+                                if (servicoParceirosLista.ElementAt(i).Estado != false)
+                                    listaaux.Add(servicoParceirosLista.ElementAt(i));
+                            }
+                            carregaDGV(listaaux);
+                        }
                     }
                 }
             }
@@ -237,7 +290,8 @@ namespace HairLumos.Views.Funcoes_Basicas
                     while(i < listaaux.Count && !fim)
                     {
                         int rest = 0;
-                        if (_ctrlServParceiro.verificaServico(listaaux.ElementAt(i).Servico.Codigo, listaaux.ElementAt(i).PessoaJuridica.Codigo))
+                        
+                        if (_ctrlServParceiro.verificaServicoDois(listaaux.ElementAt(i).Servico.Codigo, listaaux.ElementAt(i).PessoaJuridica.Codigo))
                         {
                             rest = _ctrlServParceiro.alteraServico(listaaux.ElementAt(i).PessoaJuridica.Codigo, listaaux.ElementAt(i).Servico.Codigo, listaaux.ElementAt(i).Valor, listaaux.ElementAt(i).Percentual, listaaux.ElementAt(i).PagamentoRecebido, true);
                             if (rest == 0)
@@ -283,6 +337,7 @@ namespace HairLumos.Views.Funcoes_Basicas
         
         private void btnIncluirServico_Click(object sender, EventArgs e)
         {
+            List<Entidades.ServicoParceiro> listaaux = new List<Entidades.ServicoParceiro>();
             try
             {
                 double valor = 0;
@@ -363,7 +418,12 @@ namespace HairLumos.Views.Funcoes_Basicas
                     else
                     {
                         servicoParceirosLista.Add(servicoParceiro);
-                        carregaDGV(servicoParceirosLista);
+                        for (int i = 0; i < servicoParceirosLista.Count; i++)//carrega lista na tela, apenas com os elementos ativos - true
+                        {
+                            if (servicoParceirosLista.ElementAt(i).Estado != false)
+                                listaaux.Add(servicoParceirosLista.ElementAt(i));
+                        }
+                        carregaDGV(listaaux);
                         mskPercentual.Text = "";
                         mskValorInformado.Text = "";
                     }
@@ -575,7 +635,8 @@ namespace HairLumos.Views.Funcoes_Basicas
 
         private void mskValorInformado_Leave(object sender, EventArgs e)
         {
-            mskValorInformado.Text = Convert.ToDouble(mskValorInformado.Text).ToString("###,###,##0.00");
+            if(!String.IsNullOrEmpty(mskValorInformado.Text))
+                mskValorInformado.Text = Convert.ToDouble(mskValorInformado.Text).ToString("###,###,##0.00");
         }
     }
 }
