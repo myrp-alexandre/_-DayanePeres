@@ -42,6 +42,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
                 {
                     DataRow dr = dtRetorno.Rows[0];
                     ttbProduto.Text = dr["prod_produto"].ToString();
+                    ttbQtdeEstoque.Text = dr["prod_qtde"].ToString();
 
                 }
             }
@@ -69,6 +70,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F13_Baixar_Estoque_Manual
         {
             ttbProduto.Text = "";
             ttbQtde.Text = "";
+            ttbQtdeEstoque.Text = "";
             dgvProdutos.DataSource = new List<Entidades.BaixaManual>();
         }
 

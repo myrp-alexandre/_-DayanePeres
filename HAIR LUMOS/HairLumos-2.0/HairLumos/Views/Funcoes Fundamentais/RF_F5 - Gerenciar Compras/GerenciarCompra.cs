@@ -25,6 +25,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             inicializa(false);
             lista = new List<CompraProduto>();
             //dgvGerenciarCompra.AutoGenerateColumns = false;
+            
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -88,9 +89,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void inicializa(Boolean estado)
         {
-            ttbFornecedor.Enabled = estado;
             btnPesquisaFornecedor.Enabled = estado;
-            ttbProduto.Enabled = estado;
             btnPesquisaProduto.Enabled = estado;
             rbSim.Checked = !estado;
             rbNao.Checked = estado;
@@ -146,6 +145,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             bd.DataSource = lista;
             dgvGerenciarCompra.DataSource = bd;
             dgvGerenciarCompra.Refresh();
+            
+            DGVMoeda();
         }
 
         private void btnIncluirProduto_Click(object sender, EventArgs e)
@@ -431,6 +432,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         private void totalCompra_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             totalCompra.Text = Convert.ToDouble(totalCompra.Text).ToString("###,###,##0.00");
+        }
+
+        private void DGVMoeda()
+        {
+            if(dgvGerenciarCompra.Columns.Count > 0)
+                this.dgvGerenciarCompra.Columns["Valor"].DefaultCellStyle.Format = "c";
+            
         }
     }
 }

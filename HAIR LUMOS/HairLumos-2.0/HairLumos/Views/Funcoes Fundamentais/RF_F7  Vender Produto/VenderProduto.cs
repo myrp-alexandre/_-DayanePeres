@@ -16,6 +16,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         List<Entidades.VendaProduto> listVendaProduto = new List<Entidades.VendaProduto>();
         Entidades.Produto prod = new Entidades.Produto();
 
+        int qtdeProdEstoque = 0;
+
         public VenderProduto()
         {
             InitializeComponent();
@@ -26,8 +28,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         public void _inicializa()
         {
 
-            ttbCliente.Enabled = false;
-            mskTelefone.Enabled = false;
             ttbProduto.Enabled = false;
             mskValor.Enabled = false;
             mskQtde.Enabled = false;
@@ -48,8 +48,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
         public void _btnNovo()
         {
-            ttbCliente.Enabled = true;
-            mskTelefone.Enabled = true;
             ttbProduto.Enabled = true;
             mskValor.Enabled = true;
             mskQtde.Enabled = true;
@@ -120,6 +118,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         {
             Views.Funcoes_Basicas.Pesquisas.Pesquisa_Produto objProduto = new Funcoes_Basicas.Pesquisas.Pesquisa_Produto();
 
+            
+
             objProduto.ShowDialog();
             if (objProduto.codProduto > 0)
             {
@@ -128,11 +128,21 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
 
                 if (dtRetorno != null && dtRetorno.Rows.Count > 0)
                 {
-                    DataRow dr = dtRetorno.Rows[0];
-                    ttbProduto.Text = dr["prod_produto"].ToString();
-                    mskValor.Text = dr["prod_precovenda"].ToString();
-                    prod.CodigoProduto = Convert.ToInt32(dr["codproduto"].ToString());
 
+                    DataRow dr = dtRetorno.Rows[0];
+                    qtdeProdEstoque = Convert.ToInt32(dr["prod_qtde"].ToString());
+
+                    if(qtdeProdEstoque > 0)
+                    {
+                        ttbProduto.Text = dr["prod_produto"].ToString();
+                        mskValor.Text = dr["prod_precovenda"].ToString();
+                        prod.CodigoProduto = Convert.ToInt32(dr["codproduto"].ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não há produto em estoque.");
+                    }
+                          
                 }
             }
         }
@@ -174,25 +184,32 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                         qtdeProd = Convert.ToInt32(mskQtde.Text.ToString());
                         vep.Quantidade = qtdeProd;
 
-                        //if (!string.IsNullOrWhiteSpace(mskValorTotal.Text))
-                        //{
 
-                        //    multValor = qtdeProd * vep.Valor;
-                        //    soma = Convert.ToDouble(mskValorTotal.Text);
-                        //    soma += multValor;
-                        //    mskValorTotal.Text = Convert.ToString(soma);
-                        //}
-                        //else
-                        //{
-                        //    multValor = qtdeProd * vep.Valor;
-                        //    soma += multValor;
-                        //    mskValorTotal.Text = Convert.ToString(soma);
-                        //}
+                        if(qtdeProd <= qtdeProdEstoque)
+                        {
+                            //if (!string.IsNullOrWhiteSpace(mskValorTotal.Text))
+                            //{
 
-                        insereLista(listVendaProduto, vep);
-                        carregaDgv(listVendaProduto);
-                        mskValorTotal.Text = somaValorTotal(listVendaProduto)+"";
+                            //    multValor = qtdeProd * vep.Valor;
+                            //    soma = Convert.ToDouble(mskValorTotal.Text);
+                            //    soma += multValor;
+                            //    mskValorTotal.Text = Convert.ToString(soma);
+                            //}
+                            //else
+                            //{
+                            //    multValor = qtdeProd * vep.Valor;
+                            //    soma += multValor;
+                            //    mskValorTotal.Text = Convert.ToString(soma);
+                            //}
 
+                            insereLista(listVendaProduto, vep);
+                            carregaDgv(listVendaProduto);
+                            mskValorTotal.Text = somaValorTotal(listVendaProduto) + "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Não há quantidade desejada em estoque");
+                        }
 
                     }
                     

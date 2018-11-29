@@ -37,6 +37,7 @@
             this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marc_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cat_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prod_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +91,8 @@
             this.codproduto,
             this.prod_produto,
             this.marc_nome,
-            this.cat_categoria});
+            this.cat_categoria,
+            this.prod_qtde});
             this.dgvProduto.Location = new System.Drawing.Point(12, 98);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
@@ -129,19 +131,28 @@
             this.cat_categoria.ReadOnly = true;
             this.cat_categoria.Width = 200;
             // 
+            // prod_qtde
+            // 
+            this.prod_qtde.DataPropertyName = "prod_qtde";
+            this.prod_qtde.HeaderText = "Qtde estoque";
+            this.prod_qtde.Name = "prod_qtde";
+            this.prod_qtde.ReadOnly = true;
+            // 
             // Pesquisa_Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(884, 478);
+            this.ControlBox = false;
             this.Controls.Add(this.dgvProduto);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.ttbDescricao);
             this.Name = "Pesquisa_Produto";
-            this.Text = "PESQUISA PRODUTOS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "H.L - PESQUISA PRODUTOS";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,5 +170,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn marc_nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prod_qtde;
     }
 }
