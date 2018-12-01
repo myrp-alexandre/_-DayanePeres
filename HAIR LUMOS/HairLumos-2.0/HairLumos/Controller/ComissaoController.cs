@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,11 @@ namespace HairLumos.Controller
         public int retornaMax()
         {
             return cm.retornaMax();
+        }
+
+        public DataTable retornaComissao(int cod)
+        {
+            return cm.retornaComissao(cod);
         }
     }
 }

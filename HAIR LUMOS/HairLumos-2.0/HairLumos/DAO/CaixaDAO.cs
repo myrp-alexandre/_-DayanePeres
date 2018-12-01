@@ -138,16 +138,11 @@ namespace HairLumos.DAO
             try
             {
                 DataTable dt = new DataTable();
-                string data = "0001-01-01";
-                DateTime datad = Convert.ToDateTime(data);
+               
 
-                _sql = " select caixa_datahoraabertura"+
-                       " from tbCaixa"+
-                       " where to_char(caixa_datahoraabertura, 'DD/MM/YYYY') = to_char(CURRENT_DATE, 'DD/MM/YYYY')" +
-                       " AND caixa_datahorafecha = @data";
+                _sql = " select * from tbcaixa where caixa_datahoraabertura > caixa_datahorafecha";
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@data", datad);
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader

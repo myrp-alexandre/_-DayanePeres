@@ -39,7 +39,6 @@
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.btnQuitarParcial = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvContas = new System.Windows.Forms.DataGridView();
             this.codContasPagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +55,7 @@
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.chbQuitadas = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -158,10 +158,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chbQuitadas);
             this.groupBox1.Controls.Add(this.dtpFim);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dtpInicio);
-            this.groupBox1.Controls.Add(this.btnQuitarParcial);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(21, 11);
             this.groupBox1.Name = "groupBox1";
@@ -195,16 +195,6 @@
             this.dtpInicio.Size = new System.Drawing.Size(97, 20);
             this.dtpInicio.TabIndex = 0;
             this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpInicio_ValueChanged);
-            // 
-            // btnQuitarParcial
-            // 
-            this.btnQuitarParcial.BackColor = System.Drawing.Color.White;
-            this.btnQuitarParcial.Location = new System.Drawing.Point(644, 32);
-            this.btnQuitarParcial.Name = "btnQuitarParcial";
-            this.btnQuitarParcial.Size = new System.Drawing.Size(97, 38);
-            this.btnQuitarParcial.TabIndex = 2;
-            this.btnQuitarParcial.Text = "Quitar Parcial";
-            this.btnQuitarParcial.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -358,6 +348,19 @@
             this.btnQuitar.TabIndex = 0;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
+            // chbQuitadas
+            // 
+            this.chbQuitadas.AutoSize = true;
+            this.chbQuitadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbQuitadas.Location = new System.Drawing.Point(353, 38);
+            this.chbQuitadas.Name = "chbQuitadas";
+            this.chbQuitadas.Size = new System.Drawing.Size(146, 19);
+            this.chbQuitadas.TabIndex = 38;
+            this.chbQuitadas.Text = "Exibir contas quitadas";
+            this.chbQuitadas.UseVisualStyleBackColor = true;
+            this.chbQuitadas.CheckedChanged += new System.EventHandler(this.chbQuitadas_CheckedChanged);
             // 
             // QuitarDespesa
             // 
@@ -388,7 +391,6 @@
         private System.Windows.Forms.DateTimePicker dtpFim;
         public System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpInicio;
-        public System.Windows.Forms.Button btnQuitarParcial;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvContas;
         public System.Windows.Forms.Button BtnCancelar;
@@ -411,5 +413,6 @@
         private System.Windows.Forms.MaskedTextBox ttbTotalPago;
         private System.Windows.Forms.MaskedTextBox ttbTotalVencido;
         private System.Windows.Forms.MaskedTextBox ttbTotalPagar;
+        private System.Windows.Forms.CheckBox chbQuitadas;
     }
 }

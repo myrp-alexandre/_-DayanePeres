@@ -14,13 +14,18 @@ namespace HairLumos.Views.Funcoes_Fundamentais
     public partial class QuitarDespesa : Form
     {
         private Controller.ContasPagarController contcon = new Controller.ContasPagarController();
+        public int CodigoConta { get; set; }
+        public int CodigoPrcela { get; set; }
 
         public QuitarDespesa()
         {
             InitializeComponent();
             dgvContas.AutoGenerateColumns = false;
             String datal = DateTime.Now.ToString("dd/MM/yyyy");
-            selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal));
+            if(chbQuitadas.Checked)
+                selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), false);
+            else
+                selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), true);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -30,33 +35,41 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void dtpInicio_ValueChanged(object sender, EventArgs e)
         {
-            if(dtpInicio.Value > dtpFim.Value)
+            if(dtpInicio.Value >= dtpFim.Value)
             {
                 MessageBox.Show("A data inicial deve ser menor que a final!");
             }
             else
             {
-                selecionaContas(dtpInicio.Value, dtpFim.Value);
+                if(chbQuitadas.Checked)
+                    selecionaContas(dtpInicio.Value, dtpFim.Value,false);
+                else
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, true);
             }
         }
 
         private void dtpFim_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpInicio.Value > dtpFim.Value)
+            if (dtpInicio.Value >= dtpFim.Value)
             {
                 MessageBox.Show("A data final deve ser maior que a inicial!");
             }
             else
             {
-                selecionaContas(dtpInicio.Value, dtpFim.Value);
+                if(chbQuitadas.Checked)
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, false);
+                else
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, true);
             }
         }
 
-        private void selecionaContas(DateTime datai, DateTime dataf)
+        private void selecionaContas(DateTime datai, DateTime dataf, bool estado)
         {
-            DataTable dtContas = contcon.retornaPeriodo(datai, dataf);
+            DataTable dtContas = contcon.retornaPeriodo(datai, dataf, estado);
             if(dtContas!=null && dtContas.Rows.Count > 0)
             {
+                DataRow dr = dtContas.Rows[0];
+                int cod = Convert.ToInt32(dr["codContasPagar"].ToString());
                 carregaDGV(dtContas);
                 ttbTotalPagar.Text = somavalorTotal(dtContas) + "";
                 ttbTotalPago.Text = somavalorPago(dtContas) + "";
@@ -108,9 +121,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 }
             }
             return total;
-        }
-
-        
+        }        
         private void ttbTotalPagar_Enter_1(object sender, EventArgs e)
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
@@ -168,6 +179,42 @@ namespace HairLumos.Views.Funcoes_Fundamentais
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
             enterPropriedades._keyPessPropriedade(ttbTotalVencido, e);
+        }
+
+        private void chbQuitadas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dtpInicio.Value >= dtpFim.Value)
+            {
+                MessageBox.Show("A data final deve ser maior que a inicial!");
+            }
+            else
+            {
+                if (chbQuitadas.Checked)
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, false);
+                else
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+            }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            int intCod = 0;
+            int.TryParse(dgvContas.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
+            this.CodigoConta = intCod;
+            int intCodP = 0;
+            int.TryParse(dgvContas.CurrentRow.Cells[3].FormattedValue.ToString(), out intCodP);
+            this.CodigoPrcela = intCodP;
+
+            if (this.CodigoConta > 0 && this.CodigoPrcela>0)
+            {
+                Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa.PagarDespesa pagar = new RF_F10___Quitar_Despesa.PagarDespesa(this.CodigoConta, this.CodigoPrcela);
+                pagar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma conta para quitar!");
+            }
+
         }
     }
 }

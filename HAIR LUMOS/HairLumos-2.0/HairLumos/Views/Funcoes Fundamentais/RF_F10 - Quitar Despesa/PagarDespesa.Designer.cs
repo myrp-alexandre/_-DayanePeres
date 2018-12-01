@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.ttbCodigo = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ttbDespesa = new System.Windows.Forms.TextBox();
+            this.dgvDespesas = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -57,16 +63,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mskAcrescimo = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dgvDespesas = new System.Windows.Forms.DataGridView();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormasPagamento)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -80,6 +87,67 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pagamento de Despesa";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.ttbCodigo);
+            this.groupBox7.Controls.Add(this.label11);
+            this.groupBox7.Controls.Add(this.label1);
+            this.groupBox7.Controls.Add(this.ttbDespesa);
+            this.groupBox7.Controls.Add(this.dgvDespesas);
+            this.groupBox7.Location = new System.Drawing.Point(13, 19);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(780, 240);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Itens Despesa";
+            // 
+            // ttbCodigo
+            // 
+            this.ttbCodigo.Enabled = false;
+            this.ttbCodigo.Location = new System.Drawing.Point(88, 35);
+            this.ttbCodigo.Name = "ttbCodigo";
+            this.ttbCodigo.Size = new System.Drawing.Size(78, 20);
+            this.ttbCodigo.TabIndex = 50;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(33, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "CÓDIGO";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(241, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "TIPO DESPESA:";
+            // 
+            // ttbDespesa
+            // 
+            this.ttbDespesa.Enabled = false;
+            this.ttbDespesa.Location = new System.Drawing.Point(335, 35);
+            this.ttbDespesa.Name = "ttbDespesa";
+            this.ttbDespesa.Size = new System.Drawing.Size(371, 20);
+            this.ttbDespesa.TabIndex = 34;
+            // 
+            // dgvDespesas
+            // 
+            this.dgvDespesas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDespesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDespesas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Produto,
+            this.Qtde,
+            this.Valor});
+            this.dgvDespesas.Location = new System.Drawing.Point(17, 79);
+            this.dgvDespesas.Name = "dgvDespesas";
+            this.dgvDespesas.Size = new System.Drawing.Size(747, 155);
+            this.dgvDespesas.TabIndex = 33;
             // 
             // groupBox4
             // 
@@ -123,6 +191,7 @@
             this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnpAGAMENTOdESPESA
             // 
@@ -353,24 +422,26 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ACRÉSCIMO";
             // 
-            // groupBox7
+            // Produto
             // 
-            this.groupBox7.Controls.Add(this.dgvDespesas);
-            this.groupBox7.Location = new System.Drawing.Point(13, 19);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(780, 240);
-            this.groupBox7.TabIndex = 4;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Itens Despesa";
+            this.Produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Produto.DataPropertyName = "Produto";
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
             // 
-            // dgvDespesas
+            // Qtde
             // 
-            this.dgvDespesas.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDespesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDespesas.Location = new System.Drawing.Point(17, 19);
-            this.dgvDespesas.Name = "dgvDespesas";
-            this.dgvDespesas.Size = new System.Drawing.Size(747, 215);
-            this.dgvDespesas.TabIndex = 33;
+            this.Qtde.DataPropertyName = "Qtde";
+            this.Qtde.HeaderText = "Quantidade";
+            this.Qtde.Name = "Qtde";
+            this.Qtde.Width = 180;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.Width = 180;
             // 
             // PagarDespesa
             // 
@@ -384,6 +455,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - PAGAMENTO DE DESPESAS";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -391,8 +465,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormasPagamento)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -430,5 +502,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.DataGridView dgvDespesas;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ttbDespesa;
+        private System.Windows.Forms.TextBox ttbCodigo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
     }
 }

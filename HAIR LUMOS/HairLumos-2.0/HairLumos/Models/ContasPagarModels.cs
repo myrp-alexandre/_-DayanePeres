@@ -145,9 +145,9 @@ namespace HairLumos.Models
             
         }
 
-        public DataTable retornaPeriodo(DateTime datai, DateTime dataf)
+        public DataTable retornaPeriodo(DateTime datai, DateTime dataf, bool estado)
         {
-            return ContasPagarDAO.retornaContasPeriodo(datai, dataf);
+            return ContasPagarDAO.retornaContasPeriodo(datai, dataf, estado);
         }
 
         public int retornaMax()
@@ -185,5 +185,14 @@ namespace HairLumos.Models
             return ContasPagarDAO.excluirDespesa(cod);
         }
 
+        public DataTable retornaContaCod(int cod)
+        {
+            return ContasPagarDAO.retornaContaCod(cod);
+        }
+
+        public DataTable retornaContaCodParc(int cod, int parc)
+        {
+            return ContasPagarDAO.retornaContaCodParc(cod, parc);
+        }
     }
 }

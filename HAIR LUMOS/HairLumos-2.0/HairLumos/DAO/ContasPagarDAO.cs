@@ -119,13 +119,15 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable retornaContasPeriodo(DateTime datai, DateTime dataf)
+        public DataTable retornaContasPeriodo(DateTime datai, DateTime dataf, bool estado)
         {
             DataTable dt = new DataTable();
-
-            _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
-                 + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\" desp_descricao FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento BETWEEN @datai AND @dataa;";
-
+            if(estado)
+                _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
+                     + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento BETWEEN @datai AND @dataa and t.contpag_valorpago = 0;";
+            else
+                _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
+                                 + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento BETWEEN @datai AND @dataa;";
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
@@ -399,6 +401,52 @@ namespace HairLumos.DAO
                 throw new SystemException(e + "Erro ao retronar Despesas");
             }
             return -1;
+        }
+
+        public DataTable retornaContaCod(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT * FROM tbcontaspagar WHERE \"codContasPagar\" = " + cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return dt;
+        }
+
+        public DataTable retornaContaCodParc(int cod, int parc)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT * FROM tbcontaspagar WHERE \"codContasPagar\" = " + cod+ " and \"contPag_Parcela\" = "+parc;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return dt;
         }
     }
 

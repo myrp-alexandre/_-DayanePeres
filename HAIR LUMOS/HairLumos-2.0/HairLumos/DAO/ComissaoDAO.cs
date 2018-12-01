@@ -86,5 +86,27 @@ namespace HairLumos.DAO
             }
             return cont;
         }
+
+        public DataTable retornaComissao(int cod)
+        {
+            DataTable dt = new DataTable();
+            _sql = "SELECT * FROM tbcomissao WHERE codcomissao = "+cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return dt;
+        }
     }
 }

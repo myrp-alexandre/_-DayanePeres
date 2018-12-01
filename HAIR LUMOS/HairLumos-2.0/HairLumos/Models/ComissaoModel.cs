@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,11 @@ namespace HairLumos.Models
         public int retornaMax()
         {
             return _DAOComissao.retornaMax();
+        }
+
+        public DataTable retornaComissao(int cod)
+        {
+            return _DAOComissao.retornaComissao(cod);
         }
     }
 }
