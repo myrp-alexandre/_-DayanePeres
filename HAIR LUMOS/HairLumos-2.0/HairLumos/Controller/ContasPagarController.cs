@@ -62,5 +62,9 @@ namespace HairLumos.Controller
             return _MdlCont.retornaContaCodParc(cod,parc);
         }
 
+        public int pagaConta(Entidades.ContasPagar cp)
+        {
+            return _MdlCont.pagaConta(cp);
+        }
     }
 }

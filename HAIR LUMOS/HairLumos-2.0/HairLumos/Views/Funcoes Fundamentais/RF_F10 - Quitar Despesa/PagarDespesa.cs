@@ -12,9 +12,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa
 {
     public partial class PagarDespesa : Form
     {
-        private int codConta = 0, codParcela = 0;
+        
         private Controller.ContasPagarController cpc = new Controller.ContasPagarController();
-
+        private List<Entidades.TabelaFormaPagamento> listapag = new List<Entidades.TabelaFormaPagamento>();
+        private Entidades.ContasPagar cpagar = new Entidades.ContasPagar();
 
         public PagarDespesa()
         {
@@ -26,7 +27,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa
         {
             InitializeComponent();
             dgvDespesas.AutoGenerateColumns = false;
+            dgvFormasPagamento.AutoGenerateColumns = false;
             carregaTela(codConta, codParcela);
+            carregaCBB();
         }
 
         private void carregaDGV(List<Entidades.CompraProduto> lista)
@@ -35,6 +38,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa
             bd.DataSource = lista;
             dgvDespesas.DataSource = bd;
             dgvDespesas.Refresh();
+        }
+
+        private void carregaDGVF(List<Entidades.TabelaFormaPagamento> lista)
+        {
+            BindingSource bd = new BindingSource();
+            bd.DataSource = lista;
+            dgvFormasPagamento.DataSource = bd;
+            dgvFormasPagamento.Refresh();
         }
 
         private void carregaTela(int cod, int parc)
@@ -180,9 +191,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa
                 cp.Comissao = comis;
                 cp.ValorParcela = Convert.ToDouble(drGeral["contPag_valorParcela"].ToString());
                 cp.CodParcela = Convert.ToInt32(drGeral["contPag_Parcela"].ToString());
-
+                this.cpagar = cp;
                 mskTotal.Text = cp.ValorParcela+"";
                 mskRestante.Text = cp.ValorParcela+"";
+                mskSubtotal.Text = cp.ValorParcela + "";
                 carregaDGV(listaItens);
             }
 
@@ -191,6 +203,153 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void mskAcrescimo_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(mskAcrescimo.Text.ToString()))
+            {
+                double acrescimo = Convert.ToDouble(mskAcrescimo.Text.ToString());
+                double total = Convert.ToDouble(mskTotal.Text.ToString());
+                total += acrescimo;
+                mskTotal.Text = total + "";
+            }
+        }
+
+        private void mskDesconto_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(mskDesconto.Text.ToString()))
+            {
+                double desconto = Convert.ToDouble(mskDesconto.Text.ToString());
+                double total = Convert.ToDouble(mskTotal.Text.ToString());
+                total -= desconto;
+                mskTotal.Text = total + "";
+            }
+        }
+
+        private void btnAdicionarPagamento_Click(object sender, EventArgs e)
+        {
+            Controller.PagamentoController pagc = new Controller.PagamentoController();
+            Entidades.FormaPagamento forma = new Entidades.FormaPagamento();
+            Entidades.TabelaFormaPagamento tforma = new Entidades.TabelaFormaPagamento();
+            if(Convert.ToInt32(cbbForma.SelectedValue)>0 && !String.IsNullOrEmpty(mskValorPagar.Text.ToString())){
+                DataTable dtForma = pagc.retornaObjFormaPagamento(Convert.ToInt32(cbbForma.SelectedValue));
+                if(dtForma!=null && dtForma.Rows.Count > 0)
+                {
+
+                    DataRow drForma = dtForma.Rows[0];
+                    forma.Codigo = Convert.ToInt32(drForma["codformapag"].ToString());
+                    forma.Forma = drForma["formpag_descricao"].ToString();
+                }
+                tforma.Forma = forma;
+                tforma.Valor = Convert.ToDouble(mskValorPagar.Text.ToString());
+                listapag.Add(tforma);
+                carregaDGVF(listapag);
+                mskValorPagar.Text = "";
+                double recebido = somaValor(listapag);
+                mskRecebido.Text = recebido + "";
+                double total = Convert.ToDouble(mskTotal.Text.ToString());
+                if (total - recebido > 0)
+                    mskRestante.Text = (total - recebido) + "";
+                else
+                {
+                    mskRestante.Text = "0.00";
+                    mskTroco.Text = (recebido - total) + "";
+                }
+            }
+            
+        }
+
+        private double somaValor(List<Entidades.TabelaFormaPagamento> lista)
+        {
+            double valor = 0;
+            for (int i = 0; i < lista.Count; i++)
+                valor += lista.ElementAt(i).Valor;
+            return valor;
+        }
+
+        private void carregaCBB()
+        {
+            Controller.PagamentoController pagc = new Controller.PagamentoController();
+            DataTable dtForma = pagc.retornaFormaPagamento();
+            cbbForma.DataSource = dtForma;
+            cbbForma.ValueMember = "codformapag";
+            cbbForma.DisplayMember = "formpag_descricao";
+        }
+
+        private void btnExcluirForma_Click(object sender, EventArgs e)
+        {
+            Controller.PagamentoController pagc = new Controller.PagamentoController();
+            Entidades.FormaPagamento forma = new Entidades.FormaPagamento();
+            Entidades.TabelaFormaPagamento tforma = new Entidades.TabelaFormaPagamento();
+            if (dgvFormasPagamento.CurrentRow.Index > -1)
+            {
+                tforma = listapag.ElementAt(dgvFormasPagamento.CurrentRow.Index);
+                listapag.Remove(listapag.ElementAt(dgvFormasPagamento.CurrentRow.Index));
+                double recebido = somaValor(listapag);
+                mskRecebido.Text = recebido + "";
+                double total = Convert.ToDouble(mskTotal.Text.ToString());
+                if (total - recebido > 0)
+                {
+                    mskRestante.Text = (total - recebido) + "";
+                    mskTroco.Text = "0.00";
+                }
+                else
+                {
+                    mskRestante.Text = "0.00";
+                    mskTroco.Text = (recebido - total) + "";
+                }
+            }
+        }
+
+        private void btnpAGAMENTOdESPESA_Click(object sender, EventArgs e)
+        {
+            Controller.ContasPagarController cpag = new Controller.ContasPagarController();
+            if (!String.IsNullOrEmpty(mskRecebido.Text.ToString()))
+            {
+                double recebido = somaValor(listapag);
+                double total = Convert.ToDouble(mskTotal.Text.ToString());
+                if (recebido < total)
+                {
+                    this.cpagar.Status = false;
+                    this.cpagar.ValorPago = recebido;
+                }
+                else
+                {
+                    this.cpagar.Status = true;
+                    this.cpagar.ValorPago = total;
+                }
+                this.cpagar.DataPagamento = DateTime.Now;
+                this.cpagar.FormaPagamento = listapag.ElementAt(0).Forma;
+                int rest = cpag.pagaConta(this.cpagar);
+                if (rest > 0)
+                {
+                    this.cpagar = new Entidades.ContasPagar();
+                    listapag = new List<Entidades.TabelaFormaPagamento>();
+                    limpatela();
+                    MessageBox.Show("Conta paga com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao realizar pagamento!");
+                }
+                
+            }
+
+        }
+
+        private void limpatela()
+        {
+            mskAcrescimo.Text = "0.00";
+            mskDesconto.Text = "0.00";
+            mskValorPagar.Text = "0.00";
+            mskRecebido.Text = "0.00";
+            mskRestante.Text = "0.00";
+            mskTotal.Text = "0.00";
+            mskTroco.Text = "0.00";
+            mskSubtotal.Text = "0.00";
+            dgvDespesas.Rows.Clear();
+            dgvFormasPagamento.Rows.Clear();
         }
     }
 }

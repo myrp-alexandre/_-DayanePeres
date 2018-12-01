@@ -448,6 +448,33 @@ namespace HairLumos.DAO
             }
             return dt;
         }
+
+        public int pagaConta(Entidades.ContasPagar obj)
+        {
+            _sql = "update tbcontaspagar set contpag_datapagamento = @data, contpag_valorpago = @valor, contpag_status = @status, codcaixa = @caixa, codformapag = @forma where \"contPag_Parcela\" = @parcela and \"codContasPagar\" = @codigo ";
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@data", obj.DataPagamento);
+                cmd.Parameters.AddWithValue("@valor", obj.ValorPago);
+                cmd.Parameters.AddWithValue("@status", obj.Status);
+                cmd.Parameters.AddWithValue("@caixa", obj.Caixa.CodCaixa);
+                cmd.Parameters.AddWithValue("@forma", obj.FormaPagamento.Codigo);
+                cmd.Parameters.AddWithValue("@parcela", obj.CodParcela);
+                cmd.Parameters.AddWithValue("@codigo", obj.CodigoContasaPagar);
+
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+        }
     }
 
 }

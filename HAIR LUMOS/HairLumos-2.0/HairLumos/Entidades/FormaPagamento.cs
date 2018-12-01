@@ -47,6 +47,12 @@ namespace HairLumos.Entidades
             this.Codigo = cod;
             this.Forma = forma;
         }
+
+        public override string ToString()
+        {
+            return Forma;
+        }
+
     }
 }
 

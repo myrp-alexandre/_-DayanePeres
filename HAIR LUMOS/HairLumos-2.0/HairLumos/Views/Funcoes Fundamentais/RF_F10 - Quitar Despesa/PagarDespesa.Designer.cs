@@ -35,6 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ttbDespesa = new System.Windows.Forms.TextBox();
             this.dgvDespesas = new System.Windows.Forms.DataGridView();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -63,9 +66,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mskAcrescimo = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.V = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).BeginInit();
@@ -149,6 +151,27 @@
             this.dgvDespesas.Size = new System.Drawing.Size(747, 155);
             this.dgvDespesas.TabIndex = 33;
             // 
+            // Produto
+            // 
+            this.Produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Produto.DataPropertyName = "Produto";
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            // 
+            // Qtde
+            // 
+            this.Qtde.DataPropertyName = "Qtde";
+            this.Qtde.HeaderText = "Quantidade";
+            this.Qtde.Name = "Qtde";
+            this.Qtde.Width = 180;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.Width = 180;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.groupBox3);
@@ -202,6 +225,7 @@
             this.btnpAGAMENTOdESPESA.TabIndex = 0;
             this.btnpAGAMENTOdESPESA.Text = "CONCLUIR PAGAMENTO DESPESA";
             this.btnpAGAMENTOdESPESA.UseVisualStyleBackColor = false;
+            this.btnpAGAMENTOdESPESA.Click += new System.EventHandler(this.btnpAGAMENTOdESPESA_Click);
             // 
             // btnCancelar
             // 
@@ -337,11 +361,15 @@
             this.btnExcluirForma.TabIndex = 0;
             this.btnExcluirForma.Text = "Excluir";
             this.btnExcluirForma.UseVisualStyleBackColor = false;
+            this.btnExcluirForma.Click += new System.EventHandler(this.btnExcluirForma_Click);
             // 
             // dgvFormasPagamento
             // 
             this.dgvFormasPagamento.BackgroundColor = System.Drawing.Color.White;
             this.dgvFormasPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFormasPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Forma,
+            this.V});
             this.dgvFormasPagamento.Location = new System.Drawing.Point(6, 19);
             this.dgvFormasPagamento.Name = "dgvFormasPagamento";
             this.dgvFormasPagamento.Size = new System.Drawing.Size(329, 170);
@@ -356,6 +384,7 @@
             this.btnAdicionarPagamento.TabIndex = 4;
             this.btnAdicionarPagamento.Text = "Adicionar Pagamento";
             this.btnAdicionarPagamento.UseVisualStyleBackColor = false;
+            this.btnAdicionarPagamento.Click += new System.EventHandler(this.btnAdicionarPagamento_Click);
             // 
             // cbbForma
             // 
@@ -396,6 +425,7 @@
             this.mskDesconto.Name = "mskDesconto";
             this.mskDesconto.Size = new System.Drawing.Size(111, 20);
             this.mskDesconto.TabIndex = 1;
+            this.mskDesconto.Leave += new System.EventHandler(this.mskDesconto_Leave);
             // 
             // label3
             // 
@@ -412,6 +442,7 @@
             this.mskAcrescimo.Name = "mskAcrescimo";
             this.mskAcrescimo.Size = new System.Drawing.Size(111, 20);
             this.mskAcrescimo.TabIndex = 0;
+            this.mskAcrescimo.Leave += new System.EventHandler(this.mskAcrescimo_Leave);
             // 
             // label2
             // 
@@ -422,26 +453,18 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ACRÉSCIMO";
             // 
-            // Produto
+            // Forma
             // 
-            this.Produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Produto.DataPropertyName = "Produto";
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
+            this.Forma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Forma.DataPropertyName = "Forma";
+            this.Forma.HeaderText = "Forma de Pagamento";
+            this.Forma.Name = "Forma";
             // 
-            // Qtde
+            // V
             // 
-            this.Qtde.DataPropertyName = "Qtde";
-            this.Qtde.HeaderText = "Quantidade";
-            this.Qtde.Name = "Qtde";
-            this.Qtde.Width = 180;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "Valor";
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.Width = 180;
+            this.V.DataPropertyName = "Valor";
+            this.V.HeaderText = "Valor";
+            this.V.Name = "V";
             // 
             // PagarDespesa
             // 
@@ -509,5 +532,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Forma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn V;
     }
 }

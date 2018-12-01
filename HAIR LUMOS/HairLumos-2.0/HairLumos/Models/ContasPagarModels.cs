@@ -194,5 +194,10 @@ namespace HairLumos.Models
         {
             return ContasPagarDAO.retornaContaCodParc(cod, parc);
         }
+
+        public int pagaConta(Entidades.ContasPagar cp)
+        {
+            return ContasPagarDAO.pagaConta(cp);
+        }
     }
 }
