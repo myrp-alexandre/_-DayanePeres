@@ -265,15 +265,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     if (rest > 0)
                     {
                         MessageBox.Show("Gravado com sucesso!");
-
-                        DialogResult result = MessageBox.Show("Gerar Contas a Pagar", "caption", MessageBoxButtons.YesNo);
-                        if (result == DialogResult.Yes)
-                        {
-                            Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar gerarContaPagar = new RF_F5.GerarContaPagar();
-                            gerarContaPagar.ShowDialog();
-                        }
-
-
+                        
+                        Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar gerarContaPagar = new RF_F5.GerarContaPagar();
+                        gerarContaPagar.ShowDialog();
+                        
                         limpaCampos();
                         inicializa(false);
                     }
@@ -291,15 +286,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 if (rest > 0)
                 {
                     MessageBox.Show("Gravado com sucesso!");
-
-                    DialogResult result = MessageBox.Show("Gerar Contas a Pagar", "caption", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
+                    
                         Views.Funcoes_Fundamentais.RF_F5.GerarContaPagar gerarContaPagar = new RF_F5.GerarContaPagar();
                         gerarContaPagar.ShowDialog();
-                    }
-
-
+                    
                     limpaCampos();
                     inicializa(false);
                 }

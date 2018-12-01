@@ -150,6 +150,7 @@
             // dtpData
             // 
             this.dtpData.CustomFormat = "dd/MM/YYYY";
+            this.dtpData.Enabled = false;
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpData.Location = new System.Drawing.Point(627, 62);
             this.dtpData.Name = "dtpData";
@@ -351,11 +352,11 @@
             // btnPesquisaProduto
             // 
             this.btnPesquisaProduto.BackColor = System.Drawing.Color.White;
-            this.btnPesquisaProduto.Location = new System.Drawing.Point(492, 56);
+            this.btnPesquisaProduto.Location = new System.Drawing.Point(474, 56);
             this.btnPesquisaProduto.Name = "btnPesquisaProduto";
-            this.btnPesquisaProduto.Size = new System.Drawing.Size(87, 31);
+            this.btnPesquisaProduto.Size = new System.Drawing.Size(105, 31);
             this.btnPesquisaProduto.TabIndex = 1;
-            this.btnPesquisaProduto.Text = "Pesquisa";
+            this.btnPesquisaProduto.Text = "Pesquisa Produto";
             this.btnPesquisaProduto.UseVisualStyleBackColor = false;
             this.btnPesquisaProduto.Click += new System.EventHandler(this.btnPesquisaProduto_Click);
             // 
@@ -371,11 +372,11 @@
             // btnPesquisaFornecedor
             // 
             this.btnPesquisaFornecedor.BackColor = System.Drawing.Color.White;
-            this.btnPesquisaFornecedor.Location = new System.Drawing.Point(812, 9);
+            this.btnPesquisaFornecedor.Location = new System.Drawing.Point(769, 9);
             this.btnPesquisaFornecedor.Name = "btnPesquisaFornecedor";
-            this.btnPesquisaFornecedor.Size = new System.Drawing.Size(87, 31);
+            this.btnPesquisaFornecedor.Size = new System.Drawing.Size(130, 31);
             this.btnPesquisaFornecedor.TabIndex = 0;
-            this.btnPesquisaFornecedor.Text = "Pesquisa";
+            this.btnPesquisaFornecedor.Text = "Pesquisa Fornecedor";
             this.btnPesquisaFornecedor.UseVisualStyleBackColor = false;
             this.btnPesquisaFornecedor.Click += new System.EventHandler(this.btnPesquisaFornecedor_Click);
             // 
@@ -385,7 +386,7 @@
             this.ttbFornecedor.Location = new System.Drawing.Point(345, 15);
             this.ttbFornecedor.MaxLength = 100;
             this.ttbFornecedor.Name = "ttbFornecedor";
-            this.ttbFornecedor.Size = new System.Drawing.Size(448, 20);
+            this.ttbFornecedor.Size = new System.Drawing.Size(418, 20);
             this.ttbFornecedor.TabIndex = 14;
             // 
             // label3
