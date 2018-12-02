@@ -206,7 +206,7 @@
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(97, 20);
             this.dtpInicio.TabIndex = 0;
-            this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpInicio_ValueChanged);
+            this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpFim_ValueChanged);
             // 
             // label1
             // 
@@ -329,6 +329,7 @@
             this.BtnCancelar.TabIndex = 2;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnEstornar
             // 
@@ -369,6 +370,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(816, 488);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "QuitarDespesa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

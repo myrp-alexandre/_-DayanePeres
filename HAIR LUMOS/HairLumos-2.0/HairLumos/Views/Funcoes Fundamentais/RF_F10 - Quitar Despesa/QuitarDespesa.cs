@@ -26,11 +26,38 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), false);
             else
                 selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), true);
+
+            atualizaCamposMoeda();
+            DGVMoeda();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DGVMoeda()
+        {
+
+            if(dgvContas.Rows.Count > 0)
+            {
+                this.dgvContas.Columns["contpag_valortotal"].DefaultCellStyle.Format = "c";
+                this.dgvContas.Columns["contPag_valorParcela"].DefaultCellStyle.Format = "c";
+                this.dgvContas.Columns["contpag_valorpago"].DefaultCellStyle.Format = "c";
+            }
+            
+        }
+
+        private void atualizaCamposMoeda()
+        {
+            if (!string.IsNullOrWhiteSpace(ttbTotalPagar.Text))
+                ttbTotalPagar.Text = Convert.ToDouble(ttbTotalPagar.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(ttbTotalPago.Text))
+                ttbTotalPago.Text = Convert.ToDouble(ttbTotalPago.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(ttbTotalVencido.Text))
+                ttbTotalVencido.Text = Convert.ToDouble(ttbTotalVencido.Text).ToString("###,###,##0.00");
+
+            DGVMoeda();
         }
 
         private void dtpInicio_ValueChanged(object sender, EventArgs e)
@@ -45,6 +72,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     selecionaContas(dtpInicio.Value, dtpFim.Value,false);
                 else
                     selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+
+                atualizaCamposMoeda();
             }
         }
 
@@ -60,6 +89,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     selecionaContas(dtpInicio.Value, dtpFim.Value, false);
                 else
                     selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+
+                atualizaCamposMoeda();
             }
         }
 
@@ -140,13 +171,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             ttbTotalPagar.Text = Convert.ToDouble(ttbTotalPagar.Text).ToString("###,###,##0.00");
         }
 
-        private void DGVMoeda()
-        {
-            this.dgvContas.Columns["contpag_valortotal"].DefaultCellStyle.Format = "c";
-            this.dgvContas.Columns["contPag_valorParcela"].DefaultCellStyle.Format = "c";
-            this.dgvContas.Columns["contpag_valorpago"].DefaultCellStyle.Format = "c";
-        }
-
         private void ttbTotalPago_Enter(object sender, EventArgs e)
         {
             Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
@@ -193,6 +217,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     selecionaContas(dtpInicio.Value, dtpFim.Value, false);
                 else
                     selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+
+                atualizaCamposMoeda();
             }
         }
 
@@ -258,9 +284,31 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                         MessageBox.Show("Erro ao extornar valor!");
                     }
 
+                    atualizaCamposMoeda();
+
                 }
             }
             
+        }
+
+        public void limpaCampos()
+        {
+            dtpInicio.Value = DateTime.Now;
+            dtpFim.Value = DateTime.Now;
+            chbQuitadas.Checked = false;
+            dgvContas.DataSource = null;
+            ttbTotalPagar.Text = "00,00";
+            ttbTotalPago.Text = "00,00";
+            ttbTotalVencido.Text = "00,00";
+            
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            limpaCampos();
+            atualizaCamposMoeda();
+            BtnCancelar.Enabled = false;
+            btnSair.Enabled = true;
         }
     }
 }

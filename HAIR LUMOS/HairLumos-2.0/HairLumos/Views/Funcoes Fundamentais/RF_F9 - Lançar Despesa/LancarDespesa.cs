@@ -185,7 +185,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void mskValor_Leave(object sender, EventArgs e)
         {
-            mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
+            if(!string.IsNullOrWhiteSpace(mskValor.Text))
+                mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
         }
 
         private void mskValor_KeyPress(object sender, KeyPressEventArgs e)
