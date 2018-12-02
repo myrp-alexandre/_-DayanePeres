@@ -475,6 +475,36 @@ namespace HairLumos.DAO
                 throw new SystemException(e + "Erro ao retronar Despesas");
             }
         }
+
+        public bool verificaConta(int cod)
+        {
+            DataTable dt = new DataTable();
+            _sql = "select sum(contpag_valorpago) as conta from tbcontaspagar where codcompra = " + cod;
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                if(dt!=null && dt.Rows.Count > 0)
+                {
+                    DataRow drR = dt.Rows[0];
+                    double val = Convert.ToDouble(drR["conta"].ToString());
+                    if (val > 0)
+                        return false;
+                    else
+                        return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+            return false;
+        }
     }
 
 }

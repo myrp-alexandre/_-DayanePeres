@@ -342,18 +342,24 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            Controller.ContasPagarController cpc = new ContasPagarController();
             int codigo = 0;
             if(ttbCodigo.Text!=null && ttbCodigo.Text != "")
             {
                 codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
-                int result = cc.excluirCompra(codigo);
-                if(result > 0)
+                if (cpc.verificaConta(codigo))
                 {
-                    MessageBox.Show("Excluido com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao Excluir!");
+                    int result = cc.excluirCompra(codigo);
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Excluido com sucesso!");
+                        limpaCampos();
+                        inicializa(false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao Excluir!");
+                    }
                 }
             }
         }

@@ -199,5 +199,10 @@ namespace HairLumos.Models
         {
             return ContasPagarDAO.pagaConta(cp);
         }
+
+        public bool verificaConta(int cod)
+        {
+            return ContasPagarDAO.verificaConta(cod);
+        }
     }
 }

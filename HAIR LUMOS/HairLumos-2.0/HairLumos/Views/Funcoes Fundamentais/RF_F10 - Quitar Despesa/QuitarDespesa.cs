@@ -183,7 +183,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void chbQuitadas_CheckedChanged(object sender, EventArgs e)
         {
-            if (dtpInicio.Value >= dtpFim.Value)
+            if (dtpInicio.Value > dtpFim.Value)
             {
                 MessageBox.Show("A data final deve ser maior que a inicial!");
             }
@@ -215,6 +215,52 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 MessageBox.Show("Selecione uma conta para quitar!");
             }
 
+        }
+
+        private void btnEstornar_Click(object sender, EventArgs e)
+        {
+            Controller.ContasPagarController cc = new Controller.ContasPagarController();
+            int intCod = 0;
+            int.TryParse(dgvContas.CurrentRow.Cells[0].FormattedValue.ToString(), out intCod);
+            int intCodP = 0;
+            int.TryParse(dgvContas.CurrentRow.Cells[3].FormattedValue.ToString(), out intCodP);
+            double valTotal = 0, pago = 0;
+            double.TryParse(dgvContas.CurrentRow.Cells[5].FormattedValue.ToString(), out valTotal);
+            double.TryParse(dgvContas.CurrentRow.Cells[6].FormattedValue.ToString(), out pago);
+
+            if (pago > 0 )
+            {
+                DialogResult resulta = MessageBox.Show("Deseja realmente fazer o estorno", "caption", MessageBoxButtons.YesNo);
+                if (resulta == DialogResult.Yes)
+                {
+                    Entidades.ContasPagar cp = new Entidades.ContasPagar();
+                    Entidades.Caixa caixa = new Entidades.Caixa();
+                    Entidades.FormaPagamento forma = new Entidades.FormaPagamento();
+                    cp.CodigoContasaPagar = intCod;
+                    cp.CodParcela = intCodP;
+                    cp.ValorPago = 0;
+                    cp.DataPagamento = DateTime.MinValue;
+                    cp.Status = false;
+                    cp.FormaPagamento = forma;
+                    caixa.CodCaixa = 1;
+                    cp.Caixa = caixa;
+                    int rest = cc.pagaConta(cp);
+                    if (rest > 0)
+                    {
+                        MessageBox.Show("Valor Estornado com sucesso!");
+                        if (chbQuitadas.Checked)
+                            selecionaContas(dtpInicio.Value, dtpFim.Value, false);
+                        else
+                            selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao extornar valor!");
+                    }
+
+                }
+            }
+            
         }
     }
 }

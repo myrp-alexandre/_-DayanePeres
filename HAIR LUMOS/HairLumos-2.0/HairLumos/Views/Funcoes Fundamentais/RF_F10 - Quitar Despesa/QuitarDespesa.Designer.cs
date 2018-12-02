@@ -36,6 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chbQuitadas = new System.Windows.Forms.CheckBox();
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
@@ -55,7 +56,6 @@
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.chbQuitadas = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -168,6 +168,18 @@
             this.groupBox1.Size = new System.Drawing.Size(758, 94);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
+            // 
+            // chbQuitadas
+            // 
+            this.chbQuitadas.AutoSize = true;
+            this.chbQuitadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbQuitadas.Location = new System.Drawing.Point(353, 38);
+            this.chbQuitadas.Name = "chbQuitadas";
+            this.chbQuitadas.Size = new System.Drawing.Size(146, 19);
+            this.chbQuitadas.TabIndex = 38;
+            this.chbQuitadas.Text = "Exibir contas quitadas";
+            this.chbQuitadas.UseVisualStyleBackColor = true;
+            this.chbQuitadas.CheckedChanged += new System.EventHandler(this.chbQuitadas_CheckedChanged);
             // 
             // dtpFim
             // 
@@ -327,6 +339,7 @@
             this.btnEstornar.TabIndex = 1;
             this.btnEstornar.Text = "Estornar";
             this.btnEstornar.UseVisualStyleBackColor = false;
+            this.btnEstornar.Click += new System.EventHandler(this.btnEstornar_Click);
             // 
             // btnSair
             // 
@@ -349,18 +362,6 @@
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
-            // 
-            // chbQuitadas
-            // 
-            this.chbQuitadas.AutoSize = true;
-            this.chbQuitadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbQuitadas.Location = new System.Drawing.Point(353, 38);
-            this.chbQuitadas.Name = "chbQuitadas";
-            this.chbQuitadas.Size = new System.Drawing.Size(146, 19);
-            this.chbQuitadas.TabIndex = 38;
-            this.chbQuitadas.Text = "Exibir contas quitadas";
-            this.chbQuitadas.UseVisualStyleBackColor = true;
-            this.chbQuitadas.CheckedChanged += new System.EventHandler(this.chbQuitadas_CheckedChanged);
             // 
             // QuitarDespesa
             // 

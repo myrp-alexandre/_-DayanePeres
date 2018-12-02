@@ -12,6 +12,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 {
     public partial class QuitarContasReceber : Form
     {
+        private Controller.ContasReceberController crc = new Controller.ContasReceberController();
+
         public QuitarContasReceber()
         {
             InitializeComponent();
@@ -20,10 +22,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 
         private void _inicializa()
         {
-            ttbNomeCliente.Text = "";
             cbbEmAberto.Checked = true;
             cbbPago.Checked = false;
-            cbbVencido.Checked = true;
+            cbbVencido.Checked = false;
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -48,7 +49,19 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 
         private void btnListar_Click(object sender, EventArgs e)
         {
+            
+            if(dtpDataDe.Value <= dtpDataAte.Value)
+            {
+                string situacao = "";
+                if (cbbPago.Checked)
+                    situacao = "Pago";
+                if (cbbVencido.Checked)
+                    situacao = "Vencido";
+                if (cbbEmAberto.Checked)
+                    situacao = "Em aberto";
+                DataTable dt = crc.retornaContasReceber(dtpDataDe.Value, dtpDataDe.Value, situacao);
 
+            }
         }
 
         private void ttbTotalPagar_Enter_1(object sender, EventArgs e)
@@ -107,5 +120,31 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             this.dgvServico.Columns["contRec_valorTotal"].DefaultCellStyle.Format = "c";
         }
 
+        private void cbbVencido_Click(object sender, EventArgs e)
+        {
+            if (cbbVencido.Checked)
+            {
+                cbbPago.Checked = false;
+                cbbEmAberto.Checked = false;
+            }
+        }
+
+        private void cbbPago_Click(object sender, EventArgs e)
+        {
+            if (cbbPago.Checked)
+            {
+                cbbVencido.Checked = false;
+                cbbEmAberto.Checked = false;
+            }
+        }
+
+        private void cbbEmAberto_Click(object sender, EventArgs e)
+        {
+            if (cbbEmAberto.Checked)
+            {
+                cbbVencido.Checked = false;
+                cbbPago.Checked = false;
+            }
+        }
     }
 }

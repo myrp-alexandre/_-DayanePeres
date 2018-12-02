@@ -13,8 +13,6 @@ namespace HairLumos.Entidades
         private DateTime dtpagamento;
         private double valortotal;
         private string obs;
-        //private Contrato contrato;
-        //private Venda venda;
         private Comissao comissao;
         private Caixa caixa;
         private int codfechamento;

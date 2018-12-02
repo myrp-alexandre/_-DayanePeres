@@ -66,5 +66,10 @@ namespace HairLumos.Controller
         {
             return _MdlCont.pagaConta(cp);
         }
+
+        public bool verificaConta(int cod)
+        {
+            return _MdlCont.verificaConta(cod);
+        }
     }
 }

@@ -229,7 +229,13 @@ namespace HairLumos.DAO
                 objConexao.executarComando();
 
                 objConexao.SqlCmd.Parameters.Clear();
-                
+
+                _sql = "DELETE FROM tbcontaspagar WHERE codcompra = " + codigo;
+                objConexao.SqlCmd.CommandText = _sql;
+                objConexao.executarComando();
+
+                objConexao.SqlCmd.Parameters.Clear();
+
                 _sql = "DELETE FROM tbcompra WHERE codcompra = " + codigo;
                 objConexao.SqlCmd.CommandText = _sql;
                 objConexao.executarComando();

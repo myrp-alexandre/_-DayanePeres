@@ -41,39 +41,33 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.gbOrdenacao = new System.Windows.Forms.GroupBox();
-            this.cbbOrdenarPesquisa = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cbbVencido = new System.Windows.Forms.CheckBox();
             this.cbbPago = new System.Windows.Forms.CheckBox();
             this.cbbEmAberto = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.ttbNomeCliente = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtpDataAte = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDataDe = new System.Windows.Forms.DateTimePicker();
             this.dgvServico = new System.Windows.Forms.DataGridView();
-            this.codContasPagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codPessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pes_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contRec_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contRec_dataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contRec_dataPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contRec_valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contRec_obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.gbOrdenacao.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
@@ -90,7 +84,6 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.btnListar);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.gbOrdenacao);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
@@ -110,7 +103,7 @@
             // btnListar
             // 
             this.btnListar.BackColor = System.Drawing.Color.White;
-            this.btnListar.Location = new System.Drawing.Point(614, 71);
+            this.btnListar.Location = new System.Drawing.Point(614, 43);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(165, 40);
             this.btnListar.TabIndex = 0;
@@ -251,42 +244,15 @@
             this.label3.TabIndex = 39;
             this.label3.Text = "Total a receber:";
             // 
-            // gbOrdenacao
-            // 
-            this.gbOrdenacao.Controls.Add(this.cbbOrdenarPesquisa);
-            this.gbOrdenacao.Location = new System.Drawing.Point(614, 11);
-            this.gbOrdenacao.Name = "gbOrdenacao";
-            this.gbOrdenacao.Size = new System.Drawing.Size(165, 52);
-            this.gbOrdenacao.TabIndex = 47;
-            this.gbOrdenacao.TabStop = false;
-            this.gbOrdenacao.Text = "Ordenar por";
-            // 
-            // cbbOrdenarPesquisa
-            // 
-            this.cbbOrdenarPesquisa.BackColor = System.Drawing.Color.White;
-            this.cbbOrdenarPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbOrdenarPesquisa.FormattingEnabled = true;
-            this.cbbOrdenarPesquisa.Items.AddRange(new object[] {
-            "Nome do cliente",
-            "Descrição da conta",
-            "Valor",
-            "Vencimento"});
-            this.cbbOrdenarPesquisa.Location = new System.Drawing.Point(6, 24);
-            this.cbbOrdenarPesquisa.Name = "cbbOrdenarPesquisa";
-            this.cbbOrdenarPesquisa.Size = new System.Drawing.Size(153, 21);
-            this.cbbOrdenarPesquisa.TabIndex = 0;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.cbbVencido);
             this.groupBox4.Controls.Add(this.cbbPago);
             this.groupBox4.Controls.Add(this.cbbEmAberto);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.ttbNomeCliente);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Location = new System.Drawing.Point(136, 11);
+            this.groupBox4.Location = new System.Drawing.Point(289, 11);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(472, 100);
+            this.groupBox4.Size = new System.Drawing.Size(319, 100);
             this.groupBox4.TabIndex = 46;
             this.groupBox4.TabStop = false;
             // 
@@ -295,61 +261,46 @@
             this.cbbVencido.AutoSize = true;
             this.cbbVencido.Checked = true;
             this.cbbVencido.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbbVencido.Location = new System.Drawing.Point(147, 74);
+            this.cbbVencido.Location = new System.Drawing.Point(197, 51);
             this.cbbVencido.Name = "cbbVencido";
             this.cbbVencido.Size = new System.Drawing.Size(65, 17);
             this.cbbVencido.TabIndex = 3;
             this.cbbVencido.Text = "Vencido";
             this.cbbVencido.UseVisualStyleBackColor = true;
+            this.cbbVencido.Click += new System.EventHandler(this.cbbVencido_Click);
             // 
             // cbbPago
             // 
             this.cbbPago.AutoSize = true;
-            this.cbbPago.Location = new System.Drawing.Point(90, 74);
+            this.cbbPago.Location = new System.Drawing.Point(140, 51);
             this.cbbPago.Name = "cbbPago";
             this.cbbPago.Size = new System.Drawing.Size(51, 17);
             this.cbbPago.TabIndex = 2;
             this.cbbPago.Text = "Pago";
             this.cbbPago.UseVisualStyleBackColor = true;
+            this.cbbPago.Click += new System.EventHandler(this.cbbPago_Click);
             // 
             // cbbEmAberto
             // 
             this.cbbEmAberto.AutoSize = true;
             this.cbbEmAberto.Checked = true;
             this.cbbEmAberto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbbEmAberto.Location = new System.Drawing.Point(10, 74);
+            this.cbbEmAberto.Location = new System.Drawing.Point(60, 51);
             this.cbbEmAberto.Name = "cbbEmAberto";
             this.cbbEmAberto.Size = new System.Drawing.Size(74, 17);
             this.cbbEmAberto.TabIndex = 1;
             this.cbbEmAberto.Text = "Em aberto";
             this.cbbEmAberto.UseVisualStyleBackColor = true;
+            this.cbbEmAberto.Click += new System.EventHandler(this.cbbEmAberto_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 55);
+            this.label7.Location = new System.Drawing.Point(57, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 13);
             this.label7.TabIndex = 2;
             this.label7.Text = "Situação da conta:";
-            // 
-            // ttbNomeCliente
-            // 
-            this.ttbNomeCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ttbNomeCliente.Location = new System.Drawing.Point(10, 32);
-            this.ttbNomeCliente.MaxLength = 100;
-            this.ttbNomeCliente.Name = "ttbNomeCliente";
-            this.ttbNomeCliente.Size = new System.Drawing.Size(456, 20);
-            this.ttbNomeCliente.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Nome do cliente:";
             // 
             // groupBox3
             // 
@@ -359,7 +310,7 @@
             this.groupBox3.Controls.Add(this.dtpDataDe);
             this.groupBox3.Location = new System.Drawing.Point(12, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(118, 100);
+            this.groupBox3.Size = new System.Drawing.Size(271, 100);
             this.groupBox3.TabIndex = 45;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Período";
@@ -367,7 +318,7 @@
             // dtpDataAte
             // 
             this.dtpDataAte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataAte.Location = new System.Drawing.Point(9, 71);
+            this.dtpDataAte.Location = new System.Drawing.Point(148, 48);
             this.dtpDataAte.Name = "dtpDataAte";
             this.dtpDataAte.Size = new System.Drawing.Size(97, 20);
             this.dtpDataAte.TabIndex = 1;
@@ -375,7 +326,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(19, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 26;
@@ -384,7 +335,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 55);
+            this.label2.Location = new System.Drawing.Point(145, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 37;
@@ -393,7 +344,7 @@
             // dtpDataDe
             // 
             this.dtpDataDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataDe.Location = new System.Drawing.Point(9, 32);
+            this.dtpDataDe.Location = new System.Drawing.Point(22, 48);
             this.dtpDataDe.Name = "dtpDataDe";
             this.dtpDataDe.Size = new System.Drawing.Size(97, 20);
             this.dtpDataDe.TabIndex = 0;
@@ -409,14 +360,13 @@
             this.dgvServico.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codContasPagar,
-            this.codPessoa,
-            this.pes_nome,
-            this.contRec_descricao,
-            this.contRec_dataVencimento,
-            this.contRec_dataPagamento,
-            this.contRec_valorTotal,
-            this.contRec_obs});
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             this.dgvServico.EnableHeadersVisualStyles = false;
             this.dgvServico.Location = new System.Drawing.Point(12, 117);
             this.dgvServico.Name = "dgvServico";
@@ -425,61 +375,6 @@
             this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServico.Size = new System.Drawing.Size(767, 192);
             this.dgvServico.TabIndex = 12;
-            // 
-            // codContasPagar
-            // 
-            this.codContasPagar.DataPropertyName = "codContaReceber";
-            this.codContasPagar.HeaderText = "Cód";
-            this.codContasPagar.Name = "codContasPagar";
-            this.codContasPagar.ReadOnly = true;
-            this.codContasPagar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.codContasPagar.Visible = false;
-            // 
-            // codPessoa
-            // 
-            this.codPessoa.DataPropertyName = "codPessoa";
-            this.codPessoa.HeaderText = "Cód. Pessoa";
-            this.codPessoa.Name = "codPessoa";
-            this.codPessoa.ReadOnly = true;
-            this.codPessoa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.codPessoa.Visible = false;
-            // 
-            // pes_nome
-            // 
-            this.pes_nome.HeaderText = "pes_nome";
-            this.pes_nome.Name = "pes_nome";
-            this.pes_nome.ReadOnly = true;
-            // 
-            // contRec_descricao
-            // 
-            this.contRec_descricao.HeaderText = "contRec_descricao";
-            this.contRec_descricao.Name = "contRec_descricao";
-            this.contRec_descricao.ReadOnly = true;
-            // 
-            // contRec_dataVencimento
-            // 
-            this.contRec_dataVencimento.HeaderText = "contRec_dataVencimento";
-            this.contRec_dataVencimento.Name = "contRec_dataVencimento";
-            this.contRec_dataVencimento.ReadOnly = true;
-            // 
-            // contRec_dataPagamento
-            // 
-            this.contRec_dataPagamento.HeaderText = "contRec_dataPagamento";
-            this.contRec_dataPagamento.Name = "contRec_dataPagamento";
-            this.contRec_dataPagamento.ReadOnly = true;
-            // 
-            // contRec_valorTotal
-            // 
-            this.contRec_valorTotal.DataPropertyName = "contRec_valorTotal";
-            this.contRec_valorTotal.HeaderText = "contRec_valorTotal";
-            this.contRec_valorTotal.Name = "contRec_valorTotal";
-            this.contRec_valorTotal.ReadOnly = true;
-            // 
-            // contRec_obs
-            // 
-            this.contRec_obs.HeaderText = "contRec_obs";
-            this.contRec_obs.Name = "contRec_obs";
-            this.contRec_obs.ReadOnly = true;
             // 
             // BtnCancelar
             // 
@@ -525,6 +420,48 @@
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Codigo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Parcela";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Valor Parcela";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Valor Pago";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Data de Vencimento";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Data Pagamento";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Forma Pagamento";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // QuitarContasReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,7 +479,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.gbOrdenacao.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -573,26 +509,21 @@
         private System.Windows.Forms.CheckBox cbbPago;
         private System.Windows.Forms.CheckBox cbbEmAberto;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox ttbNomeCliente;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox gbOrdenacao;
-        public System.Windows.Forms.ComboBox cbbOrdenarPesquisa;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelVencido;
         private System.Windows.Forms.Label labelPago;
         private System.Windows.Forms.Label labelEmAberto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codContasPagar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codPessoa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pes_nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contRec_descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contRec_dataVencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contRec_dataPagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contRec_valorTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contRec_obs;
         private System.Windows.Forms.MaskedTextBox ttbTotalPago;
         private System.Windows.Forms.MaskedTextBox ttbTotalVencido;
         private System.Windows.Forms.MaskedTextBox ttbTotalPagar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
