@@ -38,15 +38,55 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable retornaContasReceber(DateTime dataI, DateTime dataF, String situacao) 
+        public DataTable retornaContasReceber(DateTime dataI , DateTime dataF, String situacao) 
         {
-            DataTable dt = new DataTable();
-            DateTime dataA = DateTime.Now;
 
-            _sql = "SELECT p.codcontareceber, p.codparc, p.parc_valorpago, p.parc_datapagamento, "+
-                   "p.codformapag, p.codcaixa, p.parc_valor, p.parc_datavencimento, c.contrec_obs "+
-                   "FROM tbcontasreceber_parc p inner join tbcontasreceber c on c.codcontareceber = p.codcontareceber " +
-                   "WHERE p.parc_datavencimento between "+dataI+ " and "+dataF+" ";
+            dataI = dataI.Date;
+            dataF = dataF.Date;
+            DataTable dt = new DataTable();
+            DateTime dataA = DateTime.Now.Date;
+
+            string dataIni = Convert.ToString(dataI);
+            string DataFim = Convert.ToString(dataF);
+
+            dataIni.Split('/');
+            DataFim.Split('/');
+
+            string dia, mes, ano;
+
+            dia = mes = ano = "";
+            ano = dataIni.Substring(6, 4);
+            mes = dataIni.Substring(3, 2);
+            dia = dataIni.Substring(0,2);
+
+            dataIni = ano;
+            dataIni += "-";
+            dataIni += mes;
+            dataIni += "-";
+            dataIni += dia;
+
+            ano = DataFim.Substring(6, 4);
+            mes = DataFim.Substring(3, 2);
+            dia = DataFim.Substring(0, 2);
+
+            DataFim = ano;
+            DataFim += "-";
+            DataFim += mes;
+            DataFim += "-";
+            DataFim += dia;
+
+
+            dataI = Convert.ToDateTime(dataIni);
+            dataF = Convert.ToDateTime(DataFim);
+
+            //dataI = Convert.ToDateTime(dataIni);
+            // dataF = Convert.ToDateTime(DataFim);
+
+            _sql = "SELECT p.codcontareceber, p.codparc, p.parc_valorpago, p.parc_datapagamento, " +
+                   "p.codformapag, p.codcaixa, p.parc_valor, p.parc_datavencimento, c.contrec_obs " +
+                   "FROM tbcontasreceber_parc p " +
+                   "inner join tbcontasreceber c on c.codcontareceber = p.codcontareceber " +
+                   "WHERE p.parc_datavencimento between "+ dataI + " and "+ dataF + " "; //'2017-12-31' and '2018-12-02'";//
 
             if (!situacao.Equals("")) { 
                 if (situacao.Equals("Em aberto"))
@@ -61,6 +101,10 @@ namespace HairLumos.DAO
                 {
                     _sql += " and p.parc_datavencimento < " + dataA;
                 }
+            }
+            else
+            {
+                dt = null;
             }
 
             try

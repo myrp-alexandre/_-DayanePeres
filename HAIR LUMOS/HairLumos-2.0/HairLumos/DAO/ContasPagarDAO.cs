@@ -124,10 +124,15 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
             if(estado)
                 _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
-                     + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento BETWEEN @datai AND @dataa and t.contpag_valorpago = 0;";
+                     + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao " +
+                     "FROM tbcontaspagar t " +
+                     "inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento " +
+                     "BETWEEN @datai AND @dataa and t.contpag_valorpago = 0;";
             else
                 _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
-                                 + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento BETWEEN @datai AND @dataa;";
+                                 + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao " +
+                                 "FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento " +
+                                 "BETWEEN @datai AND @dataa;";
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());

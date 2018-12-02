@@ -71,23 +71,35 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            
-            if(dtpDataDe.Value <= dtpDataAte.Value)
+            try
             {
-                string situacao = "";
-                if (cbbPago.Checked)
-                    situacao = "Pago";
-                if (cbbVencido.Checked)
-                    situacao = "Vencido";
-                if (cbbEmAberto.Checked)
-                    situacao = "Em aberto";
-                DataTable dt = crc.retornaContasReceber(dtpDataDe.Value, dtpDataDe.Value, situacao);
-                if(dt!=null && dt.Rows.Count > 0)
+                if (dtpDataDe.Value <= dtpDataAte.Value)
                 {
-                    carregaDGV(dt);
-                }
+                    string situacao = "";
+                    if (cbbPago.Checked)
+                        situacao = "Pago";
+                    if (cbbVencido.Checked)
+                        situacao = "Vencido";
+                    if (cbbEmAberto.Checked)
+                        situacao = "Em aberto";
+                    DataTable dt = crc.retornaContasReceber(dtpDataDe.Value, dtpDataDe.Value, situacao);
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        carregaDGV(dt);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não há nenhuma conta a Receber");
+                    }
 
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex + "");
+            }
+           
         }
 
         private void ttbTotalPagar_Enter_1(object sender, EventArgs e)
