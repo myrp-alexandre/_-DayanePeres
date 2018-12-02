@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                 valorTotal = Convert.ToDouble(mskValorTotal.Text);
                 DGVMoeda();
             }
-            
+
+            if(!string.IsNullOrWhiteSpace(mskValorTotal.Text))
+                mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskValorParcela.Text))
+                mskValorParcela.Text = Convert.ToDouble(mskValorParcela.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskValorTotoalPagar.Text))
+                mskValorTotoalPagar.Text = Convert.ToDouble(mskValorTotoalPagar.Text).ToString("###,###,##0.00");
+
         }
 
         private void _inicializa()
@@ -128,6 +136,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
             int k = listacontasPagars.Count;
             DataTable dt = compraController.retornaCompra(codCompra);
 
+            double valorParcelasTotal = 0;
+
             if (dt != null && dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
@@ -189,38 +199,46 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     if (string.IsNullOrWhiteSpace(ttbQtdeParcela.Text))
                         MessageBox.Show("Informe uma valor para a parcela ou 0");
 
-                    if (dtpDataVencimento.Value >= DateTime.Now)
-                        MessageBox.Show("Data inválida.");
 
-                    double valorParc = Convert.ToDouble(mskValorTotal.Text) / Convert.ToInt32(ttbQtdeParcela.Text);
-                    double resto = Convert.ToDouble(mskValorTotal.Text) - (Convert.ToInt32(ttbQtdeParcela.Text) * valorParc);
+                    if (dtpDataVencimento.Value.Date >= DateTime.Now.Date)
+                    {
+                        double valorParc = Convert.ToDouble(mskValorTotal.Text) / Convert.ToInt32(ttbQtdeParcela.Text);
+                        double resto = Convert.ToDouble(mskValorTotal.Text) - (Convert.ToInt32(ttbQtdeParcela.Text) * valorParc);
+
+                        for (int i = 0; i < Convert.ToInt32(ttbQtdeParcela.Text); i++)
+                        {
+                            ContasPagar = new Entidades.ContasPagar();
+                            ContasPagar.Parcela = Convert.ToInt32(ttbQtdeParcela.Text);
+                            ContasPagar.ValorTotal = Convert.ToDouble(mskValorTotal.Text);
+                            ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(i * 30);
+                            ContasPagar.CodParcela = i + 1;
+                            if (i + 1 == Convert.ToInt32(ttbQtdeParcela.Text))
+                                ContasPagar.ValorParcela = valorParc + resto;
+                            else
+                                ContasPagar.ValorParcela = valorParc;
+                            ContasPagar.Status = false;
+                            ContasPagar.Compra = compra;
+                            ContasPagar.Despesa = despesa;
+                            ContasPagar.Caixa = caixa;
+                            ContasPagar.FormaPagamento = new Entidades.FormaPagamento();
+                            ContasPagar.Comissao = new Entidades.Comissao();
+
+
+                            listacontasPagars.Add(ContasPagar);
+
+                        }
+                        valorParcelasTotal += ContasPagar.Parcela * ContasPagar.ValorParcela;
+                        mskValorTotoalPagar.Text = Convert.ToString(valorParcelasTotal);
+                        mskValorTotoalPagar.Text = Convert.ToDouble(mskValorTotoalPagar.Text).ToString("###,###,##0.00");
+                        carregaDGV(listacontasPagars);
+                    }                        
+                    else
+                    {
+                        MessageBox.Show("Data inválida.");
+                    }
 
 
                     
-
-                    for (int i = 0; i < Convert.ToInt32(ttbQtdeParcela.Text); i++)
-                    {
-                        ContasPagar = new Entidades.ContasPagar();
-                        ContasPagar.Parcela = Convert.ToInt32(ttbQtdeParcela.Text);
-                        ContasPagar.ValorTotal = Convert.ToDouble(mskValorTotal.Text);
-                        ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(i * 30);
-                        ContasPagar.CodParcela = i + 1;
-                        if (i + 1 == Convert.ToInt32(ttbQtdeParcela.Text))
-                            ContasPagar.ValorParcela = valorParc + resto;
-                        else
-                            ContasPagar.ValorParcela = valorParc;
-                        ContasPagar.Status = false;
-                        ContasPagar.Compra = compra;
-                        ContasPagar.Despesa = despesa;
-                        ContasPagar.Caixa = caixa;
-                        ContasPagar.FormaPagamento = new Entidades.FormaPagamento();
-                        ContasPagar.Comissao = new Entidades.Comissao();
-
-
-                        listacontasPagars.Add(ContasPagar);
-
-                    }
-                    carregaDGV(listacontasPagars);
                 }
                 catch (Exception)
                 {
@@ -252,6 +270,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     ContasPagar.Comissao = new Entidades.Comissao();
                     listacontasPagars.Add(ContasPagar);
                     carregaDGV(listacontasPagars);
+                    valorParcelasTotal += ContasPagar.Parcela * ContasPagar.ValorParcela;
+                    mskValorTotoalPagar.Text = Convert.ToString(valorParcelasTotal);
+                    mskValorTotoalPagar.Text = Convert.ToDouble(mskValorTotoalPagar.Text).ToString("###,###,##0.00");
                 }
                 else
                 {
@@ -296,6 +317,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     qtdPar = Convert.ToInt32(ttbQtdeParcela.Text);
 
                 mskValorParcela.Text = Convert.ToString(valor / qtdPar); ;
+                mskValorParcela.Text = Convert.ToDouble(mskValorParcela.Text).ToString("###,###,##0.00");
+
             }
             catch (Exception)
             {
@@ -356,6 +379,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                 mskValorParcela.Enabled = false;
                 ttbQtdeParcela.Enabled = true;
             }
+        }
+
+        private void ttbQtdeParcela_Enter(object sender, EventArgs e)
+        {
+            mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
         }
     }
 }

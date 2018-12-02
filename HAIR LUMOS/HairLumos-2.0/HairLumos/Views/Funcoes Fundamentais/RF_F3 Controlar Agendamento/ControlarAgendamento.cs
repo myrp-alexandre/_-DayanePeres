@@ -16,6 +16,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento
         {
             InitializeComponent();
             carregaServicos(0);
+
+            rbAgendado.Checked = true;
             
         }
         

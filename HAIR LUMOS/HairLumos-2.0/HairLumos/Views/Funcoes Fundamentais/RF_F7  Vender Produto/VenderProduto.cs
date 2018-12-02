@@ -72,7 +72,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
             btnPesquisar.Enabled = true;
             btnCancelar.Enabled = true;
             btnFecharVenda.Enabled = true;
-            btnSair.Enabled = true;
+            btnSair.Enabled = false;
 
             ttbCliente.Focus();
 

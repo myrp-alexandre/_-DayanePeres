@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mskValorTotoalPagar = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvContas = new System.Windows.Forms.DataGridView();
@@ -51,8 +53,6 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,7 +73,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.maskedTextBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.mskValorTotoalPagar);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
@@ -87,6 +87,25 @@
             this.splitContainer1.Size = new System.Drawing.Size(502, 383);
             this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // mskValorTotoalPagar
+            // 
+            this.mskValorTotoalPagar.Enabled = false;
+            this.mskValorTotoalPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskValorTotoalPagar.ForeColor = System.Drawing.Color.Red;
+            this.mskValorTotoalPagar.Location = new System.Drawing.Point(421, 285);
+            this.mskValorTotoalPagar.Name = "mskValorTotoalPagar";
+            this.mskValorTotoalPagar.Size = new System.Drawing.Size(67, 21);
+            this.mskValorTotoalPagar.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(413, 269);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Valor Total (R$)";
             // 
             // tabControl1
             // 
@@ -263,6 +282,7 @@
             this.ttbQtdeParcela.Size = new System.Drawing.Size(63, 20);
             this.ttbQtdeParcela.TabIndex = 1;
             this.ttbQtdeParcela.TextChanged += new System.EventHandler(this.ttbQtdeParcela_TextChanged);
+            this.ttbQtdeParcela.Enter += new System.EventHandler(this.ttbQtdeParcela_Enter);
             // 
             // label4
             // 
@@ -314,25 +334,6 @@
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Enabled = false;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.ForeColor = System.Drawing.Color.Red;
-            this.maskedTextBox1.Location = new System.Drawing.Point(421, 285);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(67, 21);
-            this.maskedTextBox1.TabIndex = 33;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(413, 269);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 13);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Valor Total (R$)";
             // 
             // GerarContaPagar
             // 
@@ -386,7 +387,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
         private System.Windows.Forms.CheckBox cbManual;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskValorTotoalPagar;
         public System.Windows.Forms.Label label5;
     }
 }

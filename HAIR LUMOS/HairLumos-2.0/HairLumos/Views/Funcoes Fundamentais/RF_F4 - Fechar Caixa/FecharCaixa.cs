@@ -20,17 +20,19 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
         public FecharCaixa()
         {
             InitializeComponent();
-            carregaCbbPagamento();
             inicializa();
 
-            
+            if(!string.IsNullOrWhiteSpace(mskInicialCaixa.Text))
+                mskInicialCaixa.Text = Convert.ToDouble(mskInicialCaixa.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskTotalRecebido.Text))
+                mskTotalRecebido.Text = Convert.ToDouble(mskTotalRecebido.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskTotalGasto.Text))
+                mskTotalGasto.Text = Convert.ToDouble(mskTotalGasto.Text).ToString("###,###,##0.00");
+            if (!string.IsNullOrWhiteSpace(mskRestante.Text))
+                mskRestante.Text = Convert.ToDouble(mskRestante.Text).ToString("###,###,##0.00");
 
         }
-
-        private void DGVMoeda()
-        {
-            this.dgvFechaCaixa.Columns["valor"].DefaultCellStyle.Format = "c";
-        }
+        
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -65,20 +67,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             mskTotalGasto.Text = somaCredito() + "";
             mskRestante.Text = ((cc.retornaValCaixaAberto() + somaFatura()) - somaCredito()).ToString();
         }
-
-        public void carregaCbbPagamento()
-        {
-            Controller.PagamentoController _ctrlPgto = new Controller.PagamentoController();
-
-            DataTable dtFPgto = _ctrlPgto.retornaFormaPagamento();
-            if (dtFPgto != null && dtFPgto.Rows.Count > 0)
-            {
-                this.cbbFormaPagamento.ValueMember = "codformapag";
-                this.cbbFormaPagamento.DisplayMember = "formpag_descricao";
-                this.cbbFormaPagamento.DataSource = dtFPgto;
-                DGVMoeda();
-            }
-        }
+        
 
         public void limpatela()
         {
@@ -89,38 +78,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             mskTotalRecebido.Text = "";
             mskInicialCaixa.Text = "";
             mskTotalGasto.Text = "";
-            mskValor.Text = "";
-            dgvFechaCaixa.DataSource = new List<FechamentoTabela>();
         }
 
-        private void btnIncluir_Click(object sender, EventArgs e)
-        {
-            PagamentoController pc = new PagamentoController();
-            FechamentoTabela fc = new FechamentoTabela();
-            int codigo = Convert.ToInt32(cbbFormaPagamento.SelectedValue.ToString());
-            DataTable dtForma = pc.retornaObjFormaPagamento(codigo);
-            DataRow dr = dtForma.Rows[0];
-            FormaPagamento f = new FormaPagamento();
-            f.Codigo = Convert.ToInt32(dr["codformapag"].ToString());
-            f.Forma = dr["formpag_descricao"].ToString();
-            fc.Forma = f.Forma;
-            fc.Valor = Convert.ToDouble(mskValor.Text.ToString());
-            lista.Add(fc);
-            carregaDGV(lista);
-            mskValor.Text = "";
-            mskTotalRecebido.Text = somalista(lista).ToString();
-            double valor = Convert.ToDouble(mskInicialCaixa.Text.ToString());
-            mskTotalGasto.Text = ((valor) + somalista(lista)).ToString();
-            mskRestante.Text = (valor - somalista(lista)).ToString();
-        }
-
-        private void carregaDGV(List<FechamentoTabela> lista)
-        {
-            BindingSource bd = new BindingSource();
-            bd.DataSource = lista;
-            dgvFechaCaixa.DataSource = bd;
-            dgvFechaCaixa.Refresh();
-        }
+        
 
         private double somalista(List<FechamentoTabela> lista)
         {
@@ -209,22 +169,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
 
         }
 
-        private void mskValor_Enter(object sender, EventArgs e)
-        {
-            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
-            enterPropriedades._enterPropriedade(mskValor);
-        }
-
-        private void mskValor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Views.Outras_Fundamentais.EnterPropriedades enterPropriedades = new Outras_Fundamentais.EnterPropriedades();
-            enterPropriedades._keyPessPropriedade(mskValor, e);
-        }
-
-        private void mskValor_Leave(object sender, EventArgs e)
-        {
-            mskValor.Text = Convert.ToDouble(mskValor.Text).ToString("###,###,##0.00");
-        }
+        
 
         private void mskInicialCaixa_Enter(object sender, EventArgs e)
         {

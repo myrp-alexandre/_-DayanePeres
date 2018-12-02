@@ -22,6 +22,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
             trocoinicial = cc.retornaMaxCaixa();
             mskTroco.Text = trocoinicial + "";
 
+            if(!string.IsNullOrWhiteSpace(mskTroco.Text))
+                mskTroco.Text = Convert.ToDouble(mskTroco.Text).ToString("###,###,##0.00");
+
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -117,7 +120,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F6___Abrir_Caixa
 
         private void mskAddValor_Leave(object sender, EventArgs e)
         {
-            mskAddValor.Text = Convert.ToDouble(mskAddValor.Text).ToString("###,###,##0.00");
+            if(!string.IsNullOrWhiteSpace(mskAddValor.Text))
+                mskAddValor.Text = Convert.ToDouble(mskAddValor.Text).ToString("###,###,##0.00");
         }
 
         private void mskAddValor_KeyPress(object sender, KeyPressEventArgs e)

@@ -131,7 +131,6 @@
             this.rbNCompareceu.Name = "rbNCompareceu";
             this.rbNCompareceu.Size = new System.Drawing.Size(122, 17);
             this.rbNCompareceu.TabIndex = 3;
-            this.rbNCompareceu.TabStop = true;
             this.rbNCompareceu.Text = "Não Compareceu";
             this.rbNCompareceu.UseVisualStyleBackColor = false;
             this.rbNCompareceu.CheckedChanged += new System.EventHandler(this.rbNCompareceu_CheckedChanged);
@@ -145,7 +144,6 @@
             this.rbCancelado.Name = "rbCancelado";
             this.rbCancelado.Size = new System.Drawing.Size(85, 17);
             this.rbCancelado.TabIndex = 2;
-            this.rbCancelado.TabStop = true;
             this.rbCancelado.Text = "Cancelado";
             this.rbCancelado.UseVisualStyleBackColor = false;
             this.rbCancelado.CheckedChanged += new System.EventHandler(this.rbCancelado_CheckedChanged);
@@ -159,7 +157,6 @@
             this.rbConfirmado.Name = "rbConfirmado";
             this.rbConfirmado.Size = new System.Drawing.Size(88, 17);
             this.rbConfirmado.TabIndex = 1;
-            this.rbConfirmado.TabStop = true;
             this.rbConfirmado.Text = "Confirmado";
             this.rbConfirmado.UseVisualStyleBackColor = false;
             this.rbConfirmado.CheckedChanged += new System.EventHandler(this.rbConfirmado_CheckedChanged);
@@ -168,6 +165,7 @@
             // 
             this.rbAgendado.AutoSize = true;
             this.rbAgendado.BackColor = System.Drawing.Color.DarkCyan;
+            this.rbAgendado.Checked = true;
             this.rbAgendado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbAgendado.Location = new System.Drawing.Point(6, 23);
             this.rbAgendado.Name = "rbAgendado";
@@ -242,6 +240,7 @@
             // 
             // mskTelefone
             // 
+            this.mskTelefone.Enabled = false;
             this.mskTelefone.Location = new System.Drawing.Point(100, 46);
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(117, 20);
@@ -288,6 +287,7 @@
             // 
             // dtpHora
             // 
+            this.dtpHora.Enabled = false;
             this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHora.Location = new System.Drawing.Point(183, 37);
             this.dtpHora.Name = "dtpHora";
@@ -296,6 +296,7 @@
             // 
             // dtpData
             // 
+            this.dtpData.Enabled = false;
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpData.Location = new System.Drawing.Point(10, 37);
             this.dtpData.Name = "dtpData";

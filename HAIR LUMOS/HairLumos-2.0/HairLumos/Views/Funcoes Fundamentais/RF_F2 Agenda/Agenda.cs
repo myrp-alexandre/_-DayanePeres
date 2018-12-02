@@ -159,6 +159,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                 DataTable dtPessoa = pc.retornaPessoaCod(dr["codpessoa"].ToString());
                                 if (dtPessoa != null && dtPessoa.Rows.Count > 0)
                                 {
+                                    p = new Entidades.Pessoa();
                                     DataRow drPessoa = dtPessoa.Rows[0];
                                     p.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
                                     p.Nome = drPessoa["pes_nome"].ToString();
@@ -229,7 +230,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
             DataTable dtP = pc.retornaPessoaJuridicaCod(Convert.ToInt32(cbbFuncionario.SelectedValue));
             if (dtP != null && dtP.Rows.Count > 0)
             {
-
                 DataRow drPJuridica = dtP.Rows[0];
                 pj.Codigo = Convert.ToInt32(drPJuridica["codpessoa"].ToString());
                 pj.RazaoSocial = drPJuridica["jur_razaosocial"].ToString();
@@ -253,6 +253,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                 DataTable dtPessoa = pc.retornaPessoaCod(dr["codpessoa"].ToString());
                                 if (dtPessoa != null && dtPessoa.Rows.Count > 0)
                                 {
+                                    p = new Entidades.Pessoa();
                                     DataRow drPessoa = dtPessoa.Rows[0];
                                     p.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
                                     p.Nome = drPessoa["pes_nome"].ToString();
@@ -359,16 +360,25 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Controller.AgendaController ac = new Controller.AgendaController();
-            Controller.ComissaoController cc = new Controller.ComissaoController();
-            Entidades.Agenda a = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index);
-            a.Status = "Cancelado";
-            Entidades.Comissao com = new Entidades.Comissao();
-            com.CodigoComissao = ac.retornaComissao(a);
-            cc.excluiComissao(com);
-            a.Comissao = new Entidades.Comissao();
-            ac.atualizaStatus(a);
-            listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Cancelado";
+            try
+            {
+                Controller.AgendaController ac = new Controller.AgendaController();
+                Controller.ComissaoController cc = new Controller.ComissaoController();
+                Entidades.Agenda a = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index);
+                a.Status = "Cancelado";
+                Entidades.Comissao com = new Entidades.Comissao();
+                com.CodigoComissao = ac.retornaComissao(a);
+                cc.excluiComissao(com);
+                a.Comissao = new Entidades.Comissao();
+                ac.atualizaStatus(a);
+                listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Status = "Cancelado";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Selecione um cliente para cancelar agendamento");
+            }
+            
         }
 
         private void btnNComprareceu_Click(object sender, EventArgs e)
