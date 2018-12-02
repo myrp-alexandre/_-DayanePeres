@@ -15,6 +15,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
         Entidades.Pessoa Pessoa = new Entidades.Pessoa();
         List<Entidades.VendaProduto> listVendaProduto = new List<Entidades.VendaProduto>();
         Entidades.Produto prod = new Entidades.Produto();
+        public int codV { get; set; }
+        public double total { get; set; }
 
         int codPessoa = 0;
         int qtdeProdEstoque = 0;
@@ -51,7 +53,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
             btnPesquisarCliente.Enabled = false;
             btnCancelar.Enabled = false;
             btnFecharVenda.Enabled = false;
-            btnSair.Enabled = false;
 
         }
 
@@ -72,7 +73,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
             btnPesquisar.Enabled = true;
             btnCancelar.Enabled = true;
             btnFecharVenda.Enabled = true;
-            btnSair.Enabled = false;
 
             ttbCliente.Focus();
 
@@ -306,7 +306,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                     {
                         
                         int rest = vendaController.gravaVendaProduto(DateTime.Now, "", Convert.ToDouble(mskValorTotal.Text), "", codPessoa, listVendaProduto);
-
+                        this.codV = rest;
+                        this.total = somaValorTotal(listVendaProduto);
                         if(rest > 0)
                         {
                             MessageBox.Show("Venda Gravada com Sucesso!");
@@ -320,10 +321,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                                 }
                                 else if (dialogResult == DialogResult.No)
                                 {
-                                    Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.FecharAtendimento fecharAtendimento = new RF_F8_Fechar_Atendimento.FecharAtendimento();
-                                    fecharAtendimento.ShowDialog();
-                                    fecharAtendimento.quemChamou = "VendaProduto";
+                                    Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.GerarContasReceber gerarContas = new RF_F11_Quitar_Contas_a_Receber.GerarContasReceber(this.codV, this.total);
+                                    gerarContas.ShowDialog();
                                 }
+                            }
+                            else
+                            {
+                                Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.GerarContasReceber gerarContas = new RF_F11_Quitar_Contas_a_Receber.GerarContasReceber(this.codV, this.total);
+                                gerarContas.ShowDialog();
                             }
 
                             

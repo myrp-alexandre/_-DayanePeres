@@ -34,8 +34,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvContas = new System.Windows.Forms.DataGridView();
-            this.CodParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorReceber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ttbObservacao = new System.Windows.Forms.TextBox();
@@ -136,8 +136,8 @@
             this.dgvContas.BackgroundColor = System.Drawing.Color.White;
             this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodParcela,
-            this.ValorParcela,
+            this.Codigo,
+            this.ValorReceber,
             this.DataVencimento});
             this.dgvContas.Location = new System.Drawing.Point(9, 8);
             this.dgvContas.Name = "dgvContas";
@@ -146,20 +146,20 @@
             this.dgvContas.Size = new System.Drawing.Size(373, 162);
             this.dgvContas.TabIndex = 34;
             // 
-            // CodParcela
+            // Codigo
             // 
-            this.CodParcela.DataPropertyName = "CodParcela";
-            this.CodParcela.HeaderText = "Parcela";
-            this.CodParcela.Name = "CodParcela";
-            this.CodParcela.ReadOnly = true;
+            this.Codigo.DataPropertyName = "Codigo";
+            this.Codigo.HeaderText = "Parcela";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
-            // ValorParcela
+            // ValorReceber
             // 
-            this.ValorParcela.DataPropertyName = "ValorParcela";
-            this.ValorParcela.HeaderText = "Valor Parcela (R$)";
-            this.ValorParcela.Name = "ValorParcela";
-            this.ValorParcela.ReadOnly = true;
-            this.ValorParcela.Width = 125;
+            this.ValorReceber.DataPropertyName = "ValorReceber";
+            this.ValorReceber.HeaderText = "Valor Parcela (R$)";
+            this.ValorReceber.Name = "ValorReceber";
+            this.ValorReceber.ReadOnly = true;
+            this.ValorReceber.Width = 125;
             // 
             // DataVencimento
             // 
@@ -215,6 +215,7 @@
             this.cbManual.TabIndex = 32;
             this.cbManual.Text = "Manual";
             this.cbManual.UseVisualStyleBackColor = true;
+            this.cbManual.CheckedChanged += new System.EventHandler(this.cbManual_CheckedChanged);
             // 
             // btnIncluir
             // 
@@ -225,6 +226,7 @@
             this.btnIncluir.TabIndex = 2;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = false;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // mskValorParcela
             // 
@@ -302,6 +304,7 @@
             this.btnSair.TabIndex = 2;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnCancelar
             // 
@@ -322,6 +325,7 @@
             this.btnFinalizar.TabIndex = 0;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // GerarContasReceber
             // 
@@ -358,9 +362,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvContas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox ttbObservacao;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -377,5 +378,8 @@
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorReceber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
     }
 }
