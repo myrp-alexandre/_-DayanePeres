@@ -51,11 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDataDe = new System.Windows.Forms.DateTimePicker();
-            this.dgvServico = new System.Windows.Forms.DataGridView();
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.btnEstornar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnQuitar = new System.Windows.Forms.Button();
+            this.dgvParcelas = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +59,10 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.btnEstornar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,7 +70,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParcelas)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -86,7 +86,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvServico);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvParcelas);
             // 
             // splitContainer1.Panel2
             // 
@@ -349,17 +349,17 @@
             this.dtpDataDe.Size = new System.Drawing.Size(97, 20);
             this.dtpDataDe.TabIndex = 0;
             // 
-            // dgvServico
+            // dgvParcelas
             // 
-            this.dgvServico.AllowUserToAddRows = false;
-            this.dgvServico.AllowUserToDeleteRows = false;
-            this.dgvServico.AllowUserToResizeColumns = false;
-            this.dgvServico.AllowUserToResizeRows = false;
-            this.dgvServico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvServico.BackgroundColor = System.Drawing.Color.White;
-            this.dgvServico.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dgvServico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvParcelas.AllowUserToAddRows = false;
+            this.dgvParcelas.AllowUserToDeleteRows = false;
+            this.dgvParcelas.AllowUserToResizeColumns = false;
+            this.dgvParcelas.AllowUserToResizeRows = false;
+            this.dgvParcelas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvParcelas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvParcelas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -367,14 +367,56 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            this.dgvServico.EnableHeadersVisualStyles = false;
-            this.dgvServico.Location = new System.Drawing.Point(12, 117);
-            this.dgvServico.Name = "dgvServico";
-            this.dgvServico.ReadOnly = true;
-            this.dgvServico.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServico.Size = new System.Drawing.Size(767, 192);
-            this.dgvServico.TabIndex = 12;
+            this.dgvParcelas.EnableHeadersVisualStyles = false;
+            this.dgvParcelas.Location = new System.Drawing.Point(12, 117);
+            this.dgvParcelas.Name = "dgvParcelas";
+            this.dgvParcelas.ReadOnly = true;
+            this.dgvParcelas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvParcelas.Size = new System.Drawing.Size(767, 192);
+            this.dgvParcelas.TabIndex = 12;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Codigo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Parcela";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Valor Parcela";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Valor Pago";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Data de Vencimento";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Data Pagamento";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Forma Pagamento";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // BtnCancelar
             // 
@@ -420,48 +462,6 @@
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Codigo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Parcela";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Valor Parcela";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Valor Pago";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Data de Vencimento";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Data Pagamento";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Forma Pagamento";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
             // QuitarContasReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,7 +483,7 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParcelas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -499,7 +499,7 @@
         private System.Windows.Forms.DateTimePicker dtpDataDe;
         public System.Windows.Forms.Button btnListar;
         public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvServico;
+        private System.Windows.Forms.DataGridView dgvParcelas;
         public System.Windows.Forms.Button BtnCancelar;
         public System.Windows.Forms.Button btnEstornar;
         public System.Windows.Forms.Button btnSair;

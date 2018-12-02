@@ -27,6 +27,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             cbbVencido.Checked = false;
         }
 
+        private void carregaDGV(DataTable dt)
+        {
+            BindingSource bd = new BindingSource();
+            bd.DataSource = dt;
+            dgvParcelas.DataSource = bd;
+            dgvParcelas.Refresh();
+        }
+
         private void btnQuitar_Click(object sender, EventArgs e)
         {
 
@@ -60,6 +68,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
                 if (cbbEmAberto.Checked)
                     situacao = "Em aberto";
                 DataTable dt = crc.retornaContasReceber(dtpDataDe.Value, dtpDataDe.Value, situacao);
+                if(dt!=null && dt.Rows.Count > 0)
+                {
+                    carregaDGV(dt);
+                }
 
             }
         }
@@ -117,7 +129,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 
         private void DGVMoeda()
         {
-            this.dgvServico.Columns["contRec_valorTotal"].DefaultCellStyle.Format = "c";
+            this.dgvParcelas.Columns["contRec_valorTotal"].DefaultCellStyle.Format = "c";
         }
 
         private void cbbVencido_Click(object sender, EventArgs e)
