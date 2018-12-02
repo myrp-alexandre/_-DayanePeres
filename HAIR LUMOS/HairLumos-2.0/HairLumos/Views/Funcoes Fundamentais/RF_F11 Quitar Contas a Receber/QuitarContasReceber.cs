@@ -45,9 +45,23 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 
         }
 
+        public void limpaCampos()
+        {
+            dtpDataDe.Value = DateTime.Now;
+            dtpDataAte.Value = DateTime.Now;
+            cbbEmAberto.Checked = true;
+            cbbPago.Checked = false;
+            cbbVencido.Checked = false;
+            dgvParcelas.DataSource = null;
+            ttbTotalPagar.Text = "00,00";
+            ttbTotalPago.Text = "00,00";
+            ttbTotalVencido.Text = "00,00";
+
+        }
+
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-
+            limpaCampos();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

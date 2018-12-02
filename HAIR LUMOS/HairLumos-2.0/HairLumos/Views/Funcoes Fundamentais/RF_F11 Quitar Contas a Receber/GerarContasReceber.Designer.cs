@@ -1,6 +1,6 @@
-﻿namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
+﻿namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 {
-    partial class GerarContaPagar
+    partial class GerarContasReceber
     {
         /// <summary>
         /// Required designer variable.
@@ -67,7 +67,7 @@
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 11);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -86,7 +86,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnFinalizar);
             this.splitContainer1.Size = new System.Drawing.Size(502, 383);
             this.splitContainer1.SplitterDistance = 327;
-            this.splitContainer1.TabIndex = 3;
+            this.splitContainer1.TabIndex = 4;
             // 
             // mskValorTotoalPagar
             // 
@@ -215,7 +215,6 @@
             this.cbManual.TabIndex = 32;
             this.cbManual.Text = "Manual";
             this.cbManual.UseVisualStyleBackColor = true;
-            this.cbManual.CheckedChanged += new System.EventHandler(this.cbManual_CheckedChanged);
             // 
             // btnIncluir
             // 
@@ -226,7 +225,6 @@
             this.btnIncluir.TabIndex = 2;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = false;
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // mskValorParcela
             // 
@@ -235,9 +233,6 @@
             this.mskValorParcela.Name = "mskValorParcela";
             this.mskValorParcela.Size = new System.Drawing.Size(100, 20);
             this.mskValorParcela.TabIndex = 4;
-            this.mskValorParcela.Enter += new System.EventHandler(this.mskValorParcela_Enter);
-            this.mskValorParcela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorParcela_KeyPress);
-            this.mskValorParcela.Leave += new System.EventHandler(this.mskValorParcela_Leave);
             // 
             // label2
             // 
@@ -272,9 +267,6 @@
             this.mskValorTotal.Name = "mskValorTotal";
             this.mskValorTotal.Size = new System.Drawing.Size(100, 20);
             this.mskValorTotal.TabIndex = 3;
-            this.mskValorTotal.Enter += new System.EventHandler(this.mskValorTotal_Enter);
-            this.mskValorTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskValorTotal_KeyPress);
-            this.mskValorTotal.Leave += new System.EventHandler(this.mskValorTotal_Leave);
             // 
             // ttbQtdeParcela
             // 
@@ -282,8 +274,6 @@
             this.ttbQtdeParcela.Name = "ttbQtdeParcela";
             this.ttbQtdeParcela.Size = new System.Drawing.Size(63, 20);
             this.ttbQtdeParcela.TabIndex = 1;
-            this.ttbQtdeParcela.TextChanged += new System.EventHandler(this.ttbQtdeParcela_TextChanged);
-            this.ttbQtdeParcela.Enter += new System.EventHandler(this.ttbQtdeParcela_Enter);
             // 
             // label4
             // 
@@ -312,7 +302,6 @@
             this.btnSair.TabIndex = 2;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnCancelar
             // 
@@ -323,7 +312,6 @@
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnFinalizar
             // 
@@ -334,9 +322,8 @@
             this.btnFinalizar.TabIndex = 0;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // GerarContaPagar
+            // GerarContasReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -344,9 +331,9 @@
             this.ClientSize = new System.Drawing.Size(526, 404);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Name = "GerarContaPagar";
+            this.Name = "GerarContasReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HL - GERAR CONTAS A PAGAR";
+            this.Text = "H.L - GERAR CONTAS A RECEBER";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -366,29 +353,29 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        public System.Windows.Forms.TextBox ttbQtdeParcela;
-        public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox mskValorTotal;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Button btnFinalizar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dtpDataVencimento;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox mskValorParcela;
-        public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvContas;
-        public System.Windows.Forms.Button btnIncluir;
-        public System.Windows.Forms.Button btnSair;
-        public System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.MaskedTextBox mskValorTotoalPagar;
+        public System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox ttbObservacao;
+        private System.Windows.Forms.DataGridView dgvContas;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataVencimento;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox ttbObservacao;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbManual;
-        private System.Windows.Forms.MaskedTextBox mskValorTotoalPagar;
-        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Button btnIncluir;
+        private System.Windows.Forms.MaskedTextBox mskValorParcela;
+        public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtpDataVencimento;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox mskValorTotal;
+        public System.Windows.Forms.TextBox ttbQtdeParcela;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Button btnSair;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnFinalizar;
     }
 }
