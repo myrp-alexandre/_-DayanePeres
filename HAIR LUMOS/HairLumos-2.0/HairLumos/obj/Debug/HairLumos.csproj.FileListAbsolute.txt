@@ -827,3 +827,10 @@ D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLum
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agendamento.ControlarAgendamento.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F9___Lançar_Despesa.Pesquisa_LançarDespesa.resources
 D:\HAIR LUMUS\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.GerarContasReceber.resources
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa.PagarDespesa.resources
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.GerarContasReceber.resources
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F9___Lançar_Despesa.Pesquisa_LançarDespesa.resources
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Telemetry.dll
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.RemoteControl.dll
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.VisualStudio.Utilities.Internal.dll
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll

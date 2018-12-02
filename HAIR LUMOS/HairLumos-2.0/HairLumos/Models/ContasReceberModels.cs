@@ -15,5 +15,10 @@ namespace HairLumos.Models
         {
             return contaDAO.retornaContasReceber(dataI, dataF, situacao);
         }
+
+        public int gerarContasReceber(Entidades.ContasReceber cr)
+        {
+            return contaDAO.gravarContasReceber(cr);
+        }
     }
 }

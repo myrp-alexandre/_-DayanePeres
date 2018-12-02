@@ -53,7 +53,7 @@ namespace HairLumos.Controller
                     produtoController.atualizaEstoque(produto);
 
                 }
-                return 1;
+                return rest;
             }
             else
                 return -1;

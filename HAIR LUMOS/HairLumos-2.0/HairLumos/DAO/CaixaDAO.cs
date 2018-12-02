@@ -143,6 +143,16 @@ namespace HairLumos.DAO
                 _sql = " select * from tbcaixa where caixa_datahoraabertura > caixa_datahorafecha";
 
                 cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codcaixa");
+                cmd.Parameters.AddWithValue("@caixa_periodo");
+                cmd.Parameters.AddWithValue("@caixa_datahoraabertura");
+                cmd.Parameters.AddWithValue("@caixa_datahorafecha");
+                cmd.Parameters.AddWithValue("@caixa_saldoinicial");
+                cmd.Parameters.AddWithValue("@caixa_troco");
+                cmd.Parameters.AddWithValue("@caixa_totalentra");
+                cmd.Parameters.AddWithValue("@caixa_totalsaida");
+                cmd.Parameters.AddWithValue("@codusuario");
+                cmd.Parameters.AddWithValue("@codpessoa");
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader

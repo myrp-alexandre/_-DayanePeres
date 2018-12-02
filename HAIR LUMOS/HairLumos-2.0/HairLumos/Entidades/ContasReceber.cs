@@ -10,32 +10,35 @@ namespace HairLumos.Entidades
     {
         private int codigo;
         private DateTime dtvencimento;
-        private DateTime dtpagamento;
         private double valortotal;
         private string obs;
+        private Venda venda;
+        private Contrato contrato;
         private Comissao comissao;
-        private Caixa caixa;
         private int codfechamento;
-        private FormaPagamento forma;
-        private int pf;
+        private Pessoa pessoaf;
+
+        private List<Entidades.Parcela> listaParcelas;
 
         public ContasReceber()
         {
             comissao = new Comissao();
-            caixa = new Caixa();
-            forma = new FormaPagamento();
+            pessoaf = new Pessoa();
+            venda = new Venda();
+            contrato = new Contrato();
+            listaParcelas = new List<Parcela>();
         }
 
         public int Codigo { get; set; }
         public DateTime DtVencimento { get; set; }
-        public DateTime DtPagamento { get; set; }
         public double ValorTotal { get; set; }
         public string Obs { get; set; }
         public Comissao Comissao { get; set; }
-        public Caixa Caixa { get; set; }
         public int CodigoFechamento { get; set; }
-        public FormaPagamento Forma { get; set; }
-        public int CodigoPf { get; set; }
+        public Pessoa Pessoaf { get; set; }
+        public Venda Venda { get; set; }
+        public Contrato Contrato { get; set; }
+        public List<Entidades.Parcela> Lista { get; set; }
 
     }
 }
