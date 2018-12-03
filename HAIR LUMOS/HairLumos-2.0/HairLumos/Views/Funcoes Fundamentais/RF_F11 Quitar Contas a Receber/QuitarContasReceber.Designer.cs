@@ -52,17 +52,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDataDe = new System.Windows.Forms.DateTimePicker();
             this.dgvParcelas = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.codcontareceber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codparc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parc_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parc_valorpago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parc_datavencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parc_datapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -360,13 +359,12 @@
             this.dgvParcelas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
+            this.codcontareceber,
+            this.codparc,
+            this.parc_valor,
+            this.parc_valorpago,
+            this.parc_datavencimento,
+            this.parc_datapagamento});
             this.dgvParcelas.EnableHeadersVisualStyles = false;
             this.dgvParcelas.Location = new System.Drawing.Point(12, 117);
             this.dgvParcelas.Name = "dgvParcelas";
@@ -375,48 +373,6 @@
             this.dgvParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvParcelas.Size = new System.Drawing.Size(767, 192);
             this.dgvParcelas.TabIndex = 12;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Codigo";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Parcela";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Valor Parcela";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Valor Pago";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Data de Vencimento";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Data Pagamento";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Forma Pagamento";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
             // 
             // BtnCancelar
             // 
@@ -461,6 +417,48 @@
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
+            // codcontareceber
+            // 
+            this.codcontareceber.DataPropertyName = "codcontareceber";
+            this.codcontareceber.HeaderText = "Codigo";
+            this.codcontareceber.Name = "codcontareceber";
+            this.codcontareceber.ReadOnly = true;
+            // 
+            // codparc
+            // 
+            this.codparc.DataPropertyName = "codparc";
+            this.codparc.HeaderText = "Parcela";
+            this.codparc.Name = "codparc";
+            this.codparc.ReadOnly = true;
+            // 
+            // parc_valor
+            // 
+            this.parc_valor.DataPropertyName = "parc_valor";
+            this.parc_valor.HeaderText = "Valor Parcela";
+            this.parc_valor.Name = "parc_valor";
+            this.parc_valor.ReadOnly = true;
+            // 
+            // parc_valorpago
+            // 
+            this.parc_valorpago.DataPropertyName = "parc_valorpago";
+            this.parc_valorpago.HeaderText = "Valor Pago";
+            this.parc_valorpago.Name = "parc_valorpago";
+            this.parc_valorpago.ReadOnly = true;
+            // 
+            // parc_datavencimento
+            // 
+            this.parc_datavencimento.DataPropertyName = "parc_datavencimento";
+            this.parc_datavencimento.HeaderText = "Data de Vencimento";
+            this.parc_datavencimento.Name = "parc_datavencimento";
+            this.parc_datavencimento.ReadOnly = true;
+            // 
+            // parc_datapagamento
+            // 
+            this.parc_datapagamento.DataPropertyName = "parc_datapagamento";
+            this.parc_datapagamento.HeaderText = "Data Pagamento";
+            this.parc_datapagamento.Name = "parc_datapagamento";
+            this.parc_datapagamento.ReadOnly = true;
             // 
             // QuitarContasReceber
             // 
@@ -518,12 +516,11 @@
         private System.Windows.Forms.MaskedTextBox ttbTotalPago;
         private System.Windows.Forms.MaskedTextBox ttbTotalVencido;
         private System.Windows.Forms.MaskedTextBox ttbTotalPagar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codcontareceber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codparc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parc_valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parc_valorpago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parc_datavencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parc_datapagamento;
     }
 }

@@ -66,6 +66,11 @@ namespace HairLumos.Controller
             return _MdlPac.retornaContrato(Cod);
         }
 
+        public DataTable retornaContratoCod(int Cod)
+        {
+            return _MdlPac.retornaContratoCod(Cod);
+        }
+
         public DataTable retornaAdcionais(int cod)
         {
             return _MdlPac.retornaAdcionais(cod);

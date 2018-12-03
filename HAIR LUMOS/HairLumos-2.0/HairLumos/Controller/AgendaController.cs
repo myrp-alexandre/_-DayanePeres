@@ -150,5 +150,10 @@ namespace HairLumos.Controller
             else
                 return 0;
         }
+
+        public DataTable retornaServicosCliente(int codigo)
+        {
+            return _MdlAgenda.retornaServicosCliente(codigo);
+        }
     }
 }

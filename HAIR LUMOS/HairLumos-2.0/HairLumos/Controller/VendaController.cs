@@ -75,5 +75,15 @@ namespace HairLumos.Controller
         {
             return VendaModels.retornaVendaProdutoCod(cod);
         }
+
+        public DataTable retornaProdutos(int cod)
+        {
+            return VendaModels.retornaProdutos(cod);
+        }
+
+        public int atualizaStatus(int cod, string status)
+        {
+            return VendaModels.atualizaStatus(cod, status);
+        }
     }
 }

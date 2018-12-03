@@ -36,13 +36,10 @@
             this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendprod_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendprod_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExcluirProduto = new System.Windows.Forms.Button();
-            this.btnAlterarProduto = new System.Windows.Forms.Button();
             this.btnExcluirServico = new System.Windows.Forms.Button();
-            this.btnAlterarServico = new System.Windows.Forms.Button();
             this.dgvListaServicos = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agen_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -63,6 +60,8 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnExcluirForma = new System.Windows.Forms.Button();
             this.dgvformasPagamento = new System.Windows.Forms.DataGridView();
+            this.Forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdicionarPagamento = new System.Windows.Forms.Button();
             this.cbbForma = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -73,7 +72,7 @@
             this.mskAcrescimo = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ttbCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -105,10 +104,7 @@
             this.groupBox7.Controls.Add(this.label12);
             this.groupBox7.Controls.Add(this.label11);
             this.groupBox7.Controls.Add(this.dgvListaProdutos);
-            this.groupBox7.Controls.Add(this.btnExcluirProduto);
-            this.groupBox7.Controls.Add(this.btnAlterarProduto);
             this.groupBox7.Controls.Add(this.btnExcluirServico);
-            this.groupBox7.Controls.Add(this.btnAlterarServico);
             this.groupBox7.Controls.Add(this.dgvListaServicos);
             this.groupBox7.Location = new System.Drawing.Point(13, 72);
             this.groupBox7.Name = "groupBox7";
@@ -145,7 +141,7 @@
             this.vendprod_valor});
             this.dgvListaProdutos.Location = new System.Drawing.Point(17, 117);
             this.dgvListaProdutos.Name = "dgvListaProdutos";
-            this.dgvListaProdutos.Size = new System.Drawing.Size(629, 60);
+            this.dgvListaProdutos.Size = new System.Drawing.Size(747, 60);
             this.dgvListaProdutos.TabIndex = 43;
             // 
             // prod_produto
@@ -167,68 +163,41 @@
             this.vendprod_valor.HeaderText = "Valor (R$)";
             this.vendprod_valor.Name = "vendprod_valor";
             // 
-            // btnExcluirProduto
-            // 
-            this.btnExcluirProduto.BackColor = System.Drawing.Color.White;
-            this.btnExcluirProduto.Location = new System.Drawing.Point(649, 152);
-            this.btnExcluirProduto.Name = "btnExcluirProduto";
-            this.btnExcluirProduto.Size = new System.Drawing.Size(115, 25);
-            this.btnExcluirProduto.TabIndex = 41;
-            this.btnExcluirProduto.Text = "Excluir Produto";
-            this.btnExcluirProduto.UseVisualStyleBackColor = false;
-            // 
-            // btnAlterarProduto
-            // 
-            this.btnAlterarProduto.BackColor = System.Drawing.Color.White;
-            this.btnAlterarProduto.Location = new System.Drawing.Point(649, 117);
-            this.btnAlterarProduto.Name = "btnAlterarProduto";
-            this.btnAlterarProduto.Size = new System.Drawing.Size(115, 25);
-            this.btnAlterarProduto.TabIndex = 40;
-            this.btnAlterarProduto.Text = "Alterar Produto";
-            this.btnAlterarProduto.UseVisualStyleBackColor = false;
-            // 
             // btnExcluirServico
             // 
             this.btnExcluirServico.BackColor = System.Drawing.Color.White;
-            this.btnExcluirServico.Location = new System.Drawing.Point(649, 62);
+            this.btnExcluirServico.Location = new System.Drawing.Point(649, 46);
             this.btnExcluirServico.Name = "btnExcluirServico";
             this.btnExcluirServico.Size = new System.Drawing.Size(115, 25);
             this.btnExcluirServico.TabIndex = 39;
             this.btnExcluirServico.Text = "Excluir Serviço";
             this.btnExcluirServico.UseVisualStyleBackColor = false;
-            // 
-            // btnAlterarServico
-            // 
-            this.btnAlterarServico.BackColor = System.Drawing.Color.White;
-            this.btnAlterarServico.Location = new System.Drawing.Point(650, 35);
-            this.btnAlterarServico.Name = "btnAlterarServico";
-            this.btnAlterarServico.Size = new System.Drawing.Size(115, 25);
-            this.btnAlterarServico.TabIndex = 38;
-            this.btnAlterarServico.Text = "Alterar Serviço";
-            this.btnAlterarServico.UseVisualStyleBackColor = false;
+            this.btnExcluirServico.Click += new System.EventHandler(this.btnExcluirServico_Click);
             // 
             // dgvListaServicos
             // 
             this.dgvListaServicos.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column4,
-            this.Column5});
+            this.tiposerv_descricao,
+            this.agen_valor});
             this.dgvListaServicos.Location = new System.Drawing.Point(15, 35);
             this.dgvListaServicos.Name = "dgvListaServicos";
             this.dgvListaServicos.Size = new System.Drawing.Size(629, 52);
             this.dgvListaServicos.TabIndex = 42;
             // 
-            // Column4
+            // tiposerv_descricao
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Serviço";
-            this.Column4.Name = "Column4";
+            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
+            this.tiposerv_descricao.HeaderText = "Serviço";
+            this.tiposerv_descricao.Name = "tiposerv_descricao";
             // 
-            // Column5
+            // agen_valor
             // 
-            this.Column5.HeaderText = "Valor (R$)";
-            this.Column5.Name = "Column5";
+            this.agen_valor.DataPropertyName = "agen_valor";
+            this.agen_valor.HeaderText = "Valor (R$)";
+            this.agen_valor.Name = "agen_valor";
             // 
             // groupBox4
             // 
@@ -449,12 +418,33 @@
             // 
             // dgvformasPagamento
             // 
+            this.dgvformasPagamento.AllowUserToAddRows = false;
+            this.dgvformasPagamento.AllowUserToDeleteRows = false;
             this.dgvformasPagamento.BackgroundColor = System.Drawing.Color.White;
             this.dgvformasPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvformasPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Forma,
+            this.Valor});
             this.dgvformasPagamento.Location = new System.Drawing.Point(6, 19);
             this.dgvformasPagamento.Name = "dgvformasPagamento";
+            this.dgvformasPagamento.ReadOnly = true;
             this.dgvformasPagamento.Size = new System.Drawing.Size(329, 170);
             this.dgvformasPagamento.TabIndex = 31;
+            // 
+            // Forma
+            // 
+            this.Forma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Forma.DataPropertyName = "Forma";
+            this.Forma.HeaderText = "Forma de Pagamento";
+            this.Forma.Name = "Forma";
+            this.Forma.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
             // 
             // btnAdicionarPagamento
             // 
@@ -465,6 +455,7 @@
             this.btnAdicionarPagamento.TabIndex = 4;
             this.btnAdicionarPagamento.Text = "Adicionar Pagamento";
             this.btnAdicionarPagamento.UseVisualStyleBackColor = false;
+            this.btnAdicionarPagamento.Click += new System.EventHandler(this.btnAdicionarPagamento_Click);
             // 
             // cbbForma
             // 
@@ -542,7 +533,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.ttbCliente);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(13, 14);
             this.groupBox2.Name = "groupBox2";
@@ -551,13 +542,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
             // 
-            // textBox1
+            // ttbCliente
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(50, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(714, 20);
-            this.textBox1.TabIndex = 1;
+            this.ttbCliente.Enabled = false;
+            this.ttbCliente.Location = new System.Drawing.Point(50, 19);
+            this.ttbCliente.Name = "ttbCliente";
+            this.ttbCliente.Size = new System.Drawing.Size(714, 20);
+            this.ttbCliente.TabIndex = 1;
             // 
             // label1
             // 
@@ -601,7 +592,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ttbCliente;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         public System.Windows.Forms.Button btnExcluirForma;
@@ -634,17 +625,16 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.DataGridView dgvListaProdutos;
-        public System.Windows.Forms.Button btnExcluirProduto;
-        public System.Windows.Forms.Button btnAlterarProduto;
         public System.Windows.Forms.Button btnExcluirServico;
-        public System.Windows.Forms.Button btnAlterarServico;
         private System.Windows.Forms.DataGridView dgvListaServicos;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agen_valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Forma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
     }
 }

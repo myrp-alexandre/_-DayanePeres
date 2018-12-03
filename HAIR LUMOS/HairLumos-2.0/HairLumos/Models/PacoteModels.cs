@@ -83,6 +83,11 @@ namespace HairLumos.Models
             return _DAOPac.RetornaContrato(cod);
         }
 
+        public DataTable retornaContratoCod(int cod)
+        {
+            return _DAOPac.RetornaContratoCod(cod);
+        }
+
         public DataTable retornaAdcionais(int cod)
         {
             return _DAOPac.retornaAdcionais(cod);

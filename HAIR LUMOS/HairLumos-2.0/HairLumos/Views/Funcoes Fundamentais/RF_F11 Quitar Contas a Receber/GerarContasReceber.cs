@@ -31,6 +31,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
         private void carregaTela(int cod, double total)
         {
             mskValorTotal.Text = total + "";
+            mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -158,13 +159,22 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
                 if (rest > 0)
                 {
                     MessageBox.Show("Parcelas geradas com sucesso!");
-
+                    if(listaParcelas.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                    {
+                        Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
+                        quitar.ShowDialog();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Erro ao gerar parcelas!");
                 }
             }
+        }
+
+        private void mskValorParcela_Leave(object sender, EventArgs e)
+        {
+            mskValorParcela.Text = Convert.ToDouble(mskValorParcela.Text).ToString("###,###,##0.00");
         }
     }
 }

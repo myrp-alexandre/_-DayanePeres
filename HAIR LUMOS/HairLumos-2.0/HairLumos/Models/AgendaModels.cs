@@ -30,5 +30,10 @@ namespace HairLumos.Models
         {
             return _DAOAgenda.retornaComissao(agenda);
         }
+
+        public DataTable retornaServicosCliente(int codigo)
+        {
+            return _DAOAgenda.retornaServicosCliente(codigo);
+        }
     }
 }

@@ -115,5 +115,30 @@ namespace HairLumos.DAO
             }
             return -1;
         }
+
+        public DataTable retornaServicosCliente(int codigo)
+        {
+            _sql = "select a.codpessoa, a.agen_valor, ts.tiposerv_descricao, a.agen_status, a.codagenda " +
+                   " from tbagenda a inner join tbtiposervico ts on ts.codtiposervico = a.codtiposervico" +
+                   " where a.codpessoa = " + codigo+ " and a.agen_status = 'Confirmado'";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesa");
+            }
+            return dt;
+        }
+
+        
     }
 }

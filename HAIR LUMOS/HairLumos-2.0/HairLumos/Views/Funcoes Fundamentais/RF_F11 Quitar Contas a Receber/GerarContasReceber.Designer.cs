@@ -235,6 +235,7 @@
             this.mskValorParcela.Name = "mskValorParcela";
             this.mskValorParcela.Size = new System.Drawing.Size(100, 20);
             this.mskValorParcela.TabIndex = 4;
+            this.mskValorParcela.Leave += new System.EventHandler(this.mskValorParcela_Leave);
             // 
             // label2
             // 

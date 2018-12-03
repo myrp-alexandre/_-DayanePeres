@@ -192,5 +192,58 @@ namespace HairLumos.DAO
             }
             return dt;
         }
+
+        public DataTable retornaProdutos(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT v.codvenda, v.codproduto, v.vendprod_qtde, v.vendprod_valor, p.prod_produto " +
+                      "FROM tbvendaproduto v inner join tbproduto p on p.codproduto = v.codproduto "+
+                      "where v.codvenda = " + cod;
+
+            //Venda.codvenda, Prod.codProduto, 
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+               
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Vendas de Produto");
+            }
+            return dt;
+        }
+
+        public int atualizaStatus(int cod, string status)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+
+                _sql = "update tbvenda set vend_situacao = @status where codvenda = @codigo";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@codigo", cod);
+
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
     }
 }

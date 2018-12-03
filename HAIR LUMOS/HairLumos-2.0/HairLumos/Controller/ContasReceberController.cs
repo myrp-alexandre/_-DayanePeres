@@ -11,7 +11,7 @@ namespace HairLumos.Controller
     {
         private Models.ContasReceberModels cm = new Models.ContasReceberModels();
 
-        public DataTable retornaContasReceber(DateTime dataI, DateTime dataF, string situacao)
+        public DataTable retornaContasReceber(string dataI, string dataF, string situacao)
         {
             return cm.retornaContasReceber(dataI, dataF, situacao);
         }
@@ -58,12 +58,32 @@ namespace HairLumos.Controller
             cr.CodigoFechamento = 1;
             cr.DtVencimento = v.Data;
             cr.ValorTotal = v.ValorTotal;
-            cr.Obs = "";
+            cr.Obs = "aberta";
             cr.Venda = v;
             cr.Pessoaf = v.Pessoa;
             cr.Lista = listaP;
 
             return cm.gerarContasReceber(cr);
+        }
+
+        public int realizarRecebimento(Entidades.Parcela parcela, int codigo)
+        {
+            return cm.realizaRecebimento(parcela, codigo);
+        }
+
+        public int atualizaStatus(int codigo, string situacao)
+        {
+            return cm.atualizaStatus(codigo, situacao);
+        }
+
+        public DataTable retornaContasCod(int codigo)
+        {
+            return cm.retornaContasCod(codigo);
+        }
+
+        public DataTable retornaParcelaContaReceber(int codRe, int codP)
+        {
+            return cm.retornaParcelaContaReceber(codRe, codP);
         }
     }
 }

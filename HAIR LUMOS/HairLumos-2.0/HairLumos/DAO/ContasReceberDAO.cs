@@ -38,55 +38,18 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable retornaContasReceber(DateTime dataI , DateTime dataF, String situacao) 
+        public DataTable retornaContasReceber(string dataI , string dataF, String situacao) 
         {
 
-            dataI = dataI.Date;
-            dataF = dataF.Date;
+            
             DataTable dt = new DataTable();
-            DateTime dataA = DateTime.Now.Date;
-
-            string dataIni = Convert.ToString(dataI);
-            string DataFim = Convert.ToString(dataF);
-
-            dataIni.Split('/');
-            DataFim.Split('/');
-
-            string dia, mes, ano;
-
-            dia = mes = ano = "";
-            ano = dataIni.Substring(6, 4);
-            mes = dataIni.Substring(3, 2);
-            dia = dataIni.Substring(0,2);
-
-            dataIni = ano;
-            dataIni += "-";
-            dataIni += mes;
-            dataIni += "-";
-            dataIni += dia;
-
-            ano = DataFim.Substring(6, 4);
-            mes = DataFim.Substring(3, 2);
-            dia = DataFim.Substring(0, 2);
-
-            DataFim = ano;
-            DataFim += "-";
-            DataFim += mes;
-            DataFim += "-";
-            DataFim += dia;
-
-
-            dataI = Convert.ToDateTime(dataIni);
-            dataF = Convert.ToDateTime(DataFim);
-
-            //dataI = Convert.ToDateTime(dataIni);
-            // dataF = Convert.ToDateTime(DataFim);
+            string dataA = DateTime.Now.ToString("yyyy-MM-dd");
 
             _sql = "SELECT p.codcontareceber, p.codparc, p.parc_valorpago, p.parc_datapagamento, " +
                    "p.codformapag, p.codcaixa, p.parc_valor, p.parc_datavencimento, c.contrec_obs " +
                    "FROM tbcontasreceber_parc p " +
                    "inner join tbcontasreceber c on c.codcontareceber = p.codcontareceber " +
-                   "WHERE p.parc_datavencimento between "+ dataI + " and "+ dataF + " "; //'2017-12-31' and '2018-12-02'";//
+                   "WHERE p.parc_datavencimento between '"+ dataI + "' and '"+ dataF + "' "; //'2017-12-31' and '2018-12-02'";//
 
             if (!situacao.Equals("")) { 
                 if (situacao.Equals("Em aberto"))
@@ -99,7 +62,7 @@ namespace HairLumos.DAO
                 }
                 if (situacao.Equals("Vencido"))
                 {
-                    _sql += " and p.parc_datavencimento < " + dataA;
+                    _sql += " and p.parc_datavencimento < '" + dataA+"'";
                 }
             }
             else
@@ -221,6 +184,98 @@ namespace HairLumos.DAO
             }
 
             return intRetorno;
+        }
+
+        public int realizarRecebimento(Entidades.Parcela obj, int codigo)
+        {
+            _sql = "update tbcontasreceber_parc set parc_valorpago = @pago, parc_datapagamento = @data, codformapag = @forma, codcaixa = @caixa where codcontareceber = @cod and codparc = @parc ";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@pago", obj.ValorPago);
+                cmd.Parameters.AddWithValue("@data", obj.DataPagamento);
+                cmd.Parameters.AddWithValue("@forma", obj.Forma.Codigo);
+                cmd.Parameters.AddWithValue("@caixa", obj.Caixa.CodCaixa);
+                cmd.Parameters.AddWithValue("@cod", codigo);
+                cmd.Parameters.AddWithValue("@parc", obj.Codigo);
+
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao realizar recebimento");
+            }
+        }
+
+        public int atualizaStatus(int codigo, string status) 
+        {
+            _sql = "update tbcontasreceber set contrec_obs = @obs where codcontareceber = @cod";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@obs", status);
+                cmd.Parameters.AddWithValue("@cod", codigo);
+
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Despesas");
+            }
+        }
+
+        public DataTable retornaContasCod(int codigo)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT * FROM tbcontasreceber where codcontareceber = "+ codigo;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return dt;
+        }
+
+        public DataTable retornaParcelaContaReceber(int codRe, int codP)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT * FROM tbcontasreceber_parc where codcontareceber = " + codRe + " and codparc = " + codP ;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return dt;
         }
     }
 }
