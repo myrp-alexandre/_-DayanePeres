@@ -158,8 +158,8 @@ namespace HairLumos.DAO
                     foreach (var item in contrato.Lista)
                     {
 
-                        strSQL = "INSERT INTO tbpacotesadicionais(codcontrato,codtiposervico,pacadc_qtde, fis_cpf, pacadc_valor, pacadc_obs, pacadc_realizado) ";
-                        strSQL += "VALUES(@contrato, @codservico, @qtde, @pessoa, @valor, @obs, @realizado)";
+                        strSQL = "INSERT INTO tbpacotesadicionais(codcontrato,codtiposervico,pacadc_qtde, pacadc_valor, pacadc_obs, pacadc_realizado) ";
+                        strSQL += "VALUES(@contrato, @codservico, @qtde,  @valor, @obs, @realizado)";
 
                         objConexao.SqlCmd.Parameters.Clear();
                         objConexao.SqlCmd.CommandText = strSQL;
@@ -167,7 +167,6 @@ namespace HairLumos.DAO
                         objConexao.SqlCmd.Parameters.AddWithValue("@qtde", item.QtdeServico);
                         objConexao.SqlCmd.Parameters.AddWithValue("@contrato", cod);
                         objConexao.SqlCmd.Parameters.AddWithValue("@codServico", item.Servico.Codigo);
-                        objConexao.SqlCmd.Parameters.AddWithValue("@pessoa", contrato.CodigoPessoa.CPF);
                         objConexao.SqlCmd.Parameters.AddWithValue("@valor", contrato.Valor);
                         objConexao.SqlCmd.Parameters.AddWithValue("@obs", contrato.Observacao);
                         objConexao.SqlCmd.Parameters.AddWithValue("@realizado",false);

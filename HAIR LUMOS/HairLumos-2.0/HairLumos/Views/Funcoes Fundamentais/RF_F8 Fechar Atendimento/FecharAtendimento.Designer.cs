@@ -44,7 +44,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnFecharVenda = new System.Windows.Forms.Button();
-            this.btnPesquisarVenda = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.mskTroco = new System.Windows.Forms.MaskedTextBox();
@@ -225,7 +224,6 @@
             this.groupBox3.BackColor = System.Drawing.Color.Goldenrod;
             this.groupBox3.Controls.Add(this.btnSair);
             this.groupBox3.Controls.Add(this.btnFecharVenda);
-            this.groupBox3.Controls.Add(this.btnPesquisarVenda);
             this.groupBox3.Controls.Add(this.btnCancelar);
             this.groupBox3.Location = new System.Drawing.Point(468, 247);
             this.groupBox3.Name = "groupBox3";
@@ -249,21 +247,11 @@
             this.btnFecharVenda.BackColor = System.Drawing.Color.White;
             this.btnFecharVenda.Location = new System.Drawing.Point(6, 23);
             this.btnFecharVenda.Name = "btnFecharVenda";
-            this.btnFecharVenda.Size = new System.Drawing.Size(121, 38);
+            this.btnFecharVenda.Size = new System.Drawing.Size(269, 38);
             this.btnFecharVenda.TabIndex = 0;
             this.btnFecharVenda.Text = "FECHAR VENDA";
             this.btnFecharVenda.UseVisualStyleBackColor = false;
             this.btnFecharVenda.Click += new System.EventHandler(this.btnFecharVenda_Click);
-            // 
-            // btnPesquisarVenda
-            // 
-            this.btnPesquisarVenda.BackColor = System.Drawing.Color.White;
-            this.btnPesquisarVenda.Location = new System.Drawing.Point(159, 23);
-            this.btnPesquisarVenda.Name = "btnPesquisarVenda";
-            this.btnPesquisarVenda.Size = new System.Drawing.Size(116, 38);
-            this.btnPesquisarVenda.TabIndex = 2;
-            this.btnPesquisarVenda.Text = "PESQUISAR VENDA";
-            this.btnPesquisarVenda.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
@@ -274,6 +262,7 @@
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // groupBox6
             // 
@@ -607,7 +596,6 @@
         private System.Windows.Forms.MaskedTextBox mskAcrescimo;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnCancelar;
-        public System.Windows.Forms.Button btnPesquisarVenda;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.MaskedTextBox mskTroco;
         private System.Windows.Forms.Label label10;

@@ -31,5 +31,15 @@ namespace HairLumos.Models
         {
             return _DAOComissao.retornaComissao(cod);
         }
+
+        public DataTable retornaGeral(int cod, string status, string dataI, string dataF)
+        {
+            return _DAOComissao.retornaGeral(cod, status, dataI, dataF);
+        }
+
+        public int atualizaComissao(Entidades.Comissao obj)
+        {
+            return _DAOComissao.atualizaComissao(obj);
+        }
     }
 }

@@ -109,7 +109,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F4___Fechar_Caixa
             {
                 for (int i = 0; i < dtContas.Rows.Count; i++) {
                     DataRow dr = dtContas.Rows[i];
-                    total += Convert.ToDouble(dr["contrec_valortotal"].ToString());
+                    total += Convert.ToDouble(dr["parc_valorpago"].ToString());
                 }
             }
             return total;

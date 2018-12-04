@@ -30,5 +30,15 @@ namespace HairLumos.Controller
         {
             return cm.retornaComissao(cod);
         }
+
+        public DataTable retornaGeral(int cod, string status, string dataI, string dataF)
+        {
+            return cm.retornaGeral(cod, status, dataI, dataF);
+        }
+
+        public int atualizaComissao(Entidades.Comissao obj)
+        {
+            return cm.atualizaComissao(obj);
+        }
     }
 }

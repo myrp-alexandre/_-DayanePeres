@@ -125,7 +125,7 @@ namespace HairLumos.Controller
             comis.ValorTotal = servparc.Valor;
             comis.ValorPago = 0;
             comis.DataPagamento = DateTime.MaxValue;
-            comis.StatusPagamento = "";
+            comis.StatusPagamento = "aberta";
 
             //agenda.Comissao = comis;
             agenda.DtAgendamento = data;

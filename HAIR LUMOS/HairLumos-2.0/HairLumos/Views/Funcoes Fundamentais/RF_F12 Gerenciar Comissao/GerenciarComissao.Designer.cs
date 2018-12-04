@@ -37,40 +37,39 @@
             this.mskTotalPagar = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbbParceiro = new System.Windows.Forms.ComboBox();
             this.btnSelecionaUm = new System.Windows.Forms.GroupBox();
             this.rbTodas = new System.Windows.Forms.RadioButton();
             this.rbReceber = new System.Windows.Forms.RadioButton();
             this.rbPagar = new System.Windows.Forms.RadioButton();
             this.btnPesquisa = new System.Windows.Forms.Button();
-            this.ttbParceiro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpDtAte = new System.Windows.Forms.DateTimePicker();
             this.dtpDtDe = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtvParceirosSelecionados = new System.Windows.Forms.DataGridView();
+            this.dgvAux = new System.Windows.Forms.DataGridView();
+            this.btnVoltaTodos = new System.Windows.Forms.Button();
+            this.btnVoltaUm = new System.Windows.Forms.Button();
+            this.btnSelecionaTodos = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvComissaoListadas = new System.Windows.Forms.DataGridView();
+            this.btnExcuirServico = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnQuitarComissao = new System.Windows.Forms.Button();
+            this.CodComis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVoltaTodos = new System.Windows.Forms.Button();
-            this.btnVoltaUm = new System.Windows.Forms.Button();
-            this.btnSelecionaTodos = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvComissaoListadas = new System.Windows.Forms.DataGridView();
-            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Periodicidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExcuirServico = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnQuitarComissao = new System.Windows.Forms.Button();
-            this.btnGerarComissao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,7 +78,7 @@
             this.groupBox3.SuspendLayout();
             this.btnSelecionaUm.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtvParceirosSelecionados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAux)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComissaoListadas)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +106,6 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Goldenrod;
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnQuitarComissao);
-            this.splitContainer1.Panel2.Controls.Add(this.btnGerarComissao);
             this.splitContainer1.Size = new System.Drawing.Size(1145, 450);
             this.splitContainer1.SplitterDistance = 391;
             this.splitContainer1.SplitterWidth = 1;
@@ -196,9 +194,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbbParceiro);
             this.groupBox3.Controls.Add(this.btnSelecionaUm);
             this.groupBox3.Controls.Add(this.btnPesquisa);
-            this.groupBox3.Controls.Add(this.ttbParceiro);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.dtpDtAte);
             this.groupBox3.Controls.Add(this.dtpDtDe);
@@ -210,6 +208,14 @@
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Informações de Comissão";
+            // 
+            // cbbParceiro
+            // 
+            this.cbbParceiro.FormattingEnabled = true;
+            this.cbbParceiro.Location = new System.Drawing.Point(275, 80);
+            this.cbbParceiro.Name = "cbbParceiro";
+            this.cbbParceiro.Size = new System.Drawing.Size(509, 21);
+            this.cbbParceiro.TabIndex = 15;
             // 
             // btnSelecionaUm
             // 
@@ -234,6 +240,7 @@
             this.rbTodas.TabStop = true;
             this.rbTodas.Text = "Todas";
             this.rbTodas.UseVisualStyleBackColor = false;
+            this.rbTodas.CheckedChanged += new System.EventHandler(this.rbTodas_CheckedChanged);
             // 
             // rbReceber
             // 
@@ -246,6 +253,7 @@
             this.rbReceber.TabStop = true;
             this.rbReceber.Text = "a Receber";
             this.rbReceber.UseVisualStyleBackColor = false;
+            this.rbReceber.CheckedChanged += new System.EventHandler(this.rbReceber_CheckedChanged);
             // 
             // rbPagar
             // 
@@ -258,6 +266,7 @@
             this.rbPagar.TabStop = true;
             this.rbPagar.Text = "a Pagar";
             this.rbPagar.UseVisualStyleBackColor = false;
+            this.rbPagar.CheckedChanged += new System.EventHandler(this.rbPagar_CheckedChanged);
             // 
             // btnPesquisa
             // 
@@ -268,19 +277,12 @@
             this.btnPesquisa.TabIndex = 3;
             this.btnPesquisa.Text = "Pesquisar";
             this.btnPesquisa.UseVisualStyleBackColor = false;
-            // 
-            // ttbParceiro
-            // 
-            this.ttbParceiro.Enabled = false;
-            this.ttbParceiro.Location = new System.Drawing.Point(271, 80);
-            this.ttbParceiro.Name = "ttbParceiro";
-            this.ttbParceiro.Size = new System.Drawing.Size(512, 20);
-            this.ttbParceiro.TabIndex = 2;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(202, 83);
+            this.label3.Location = new System.Drawing.Point(213, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 4;
@@ -322,7 +324,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dtvParceirosSelecionados);
+            this.groupBox2.Controls.Add(this.dgvAux);
             this.groupBox2.Location = new System.Drawing.Point(622, 148);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(513, 191);
@@ -330,65 +332,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parceiro Selecionados";
             // 
-            // dtvParceirosSelecionados
+            // dgvAux
             // 
-            this.dtvParceirosSelecionados.AllowUserToAddRows = false;
-            this.dtvParceirosSelecionados.AllowUserToDeleteRows = false;
-            this.dtvParceirosSelecionados.BackgroundColor = System.Drawing.Color.White;
-            this.dtvParceirosSelecionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtvParceirosSelecionados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvAux.AllowUserToAddRows = false;
+            this.dgvAux.AllowUserToDeleteRows = false;
+            this.dgvAux.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAux.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAux.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dtvParceirosSelecionados.Location = new System.Drawing.Point(9, 24);
-            this.dtvParceirosSelecionados.Name = "dtvParceirosSelecionados";
-            this.dtvParceirosSelecionados.ReadOnly = true;
-            this.dtvParceirosSelecionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtvParceirosSelecionados.Size = new System.Drawing.Size(498, 161);
-            this.dtvParceirosSelecionados.TabIndex = 14;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Servico";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Cód";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantidade";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Parceiro";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Periodicidade";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Valor (R$)";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Comissão";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Data do Serviço";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dgvAux.Location = new System.Drawing.Point(9, 24);
+            this.dgvAux.Name = "dgvAux";
+            this.dgvAux.ReadOnly = true;
+            this.dgvAux.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAux.Size = new System.Drawing.Size(498, 161);
+            this.dgvAux.TabIndex = 14;
             // 
             // btnVoltaTodos
             // 
@@ -399,6 +361,7 @@
             this.btnVoltaTodos.TabIndex = 3;
             this.btnVoltaTodos.Text = "<<";
             this.btnVoltaTodos.UseVisualStyleBackColor = false;
+            this.btnVoltaTodos.Click += new System.EventHandler(this.btnVoltaTodos_Click);
             // 
             // btnVoltaUm
             // 
@@ -409,6 +372,7 @@
             this.btnVoltaUm.TabIndex = 2;
             this.btnVoltaUm.Text = "<";
             this.btnVoltaUm.UseVisualStyleBackColor = false;
+            this.btnVoltaUm.Click += new System.EventHandler(this.btnVoltaUm_Click);
             // 
             // btnSelecionaTodos
             // 
@@ -419,6 +383,7 @@
             this.btnSelecionaTodos.TabIndex = 1;
             this.btnSelecionaTodos.Text = ">>";
             this.btnSelecionaTodos.UseVisualStyleBackColor = false;
+            this.btnSelecionaTodos.Click += new System.EventHandler(this.btnSelecionaTodos_Click);
             // 
             // groupBox1
             // 
@@ -437,58 +402,18 @@
             this.dgvComissaoListadas.BackgroundColor = System.Drawing.Color.White;
             this.dgvComissaoListadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComissaoListadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Servico,
-            this.Quantidade,
-            this.Periodicidade,
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.CodComis,
+            this.Nome,
+            this.Valor,
+            this.Status,
+            this.Data,
+            this.Pagamento});
             this.dgvComissaoListadas.Location = new System.Drawing.Point(6, 23);
             this.dgvComissaoListadas.Name = "dgvComissaoListadas";
             this.dgvComissaoListadas.ReadOnly = true;
             this.dgvComissaoListadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComissaoListadas.Size = new System.Drawing.Size(498, 161);
             this.dgvComissaoListadas.TabIndex = 13;
-            // 
-            // Servico
-            // 
-            this.Servico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Servico.DataPropertyName = "Servico";
-            this.Servico.HeaderText = "Cód";
-            this.Servico.Name = "Servico";
-            this.Servico.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.DataPropertyName = "Quantidade";
-            this.Quantidade.HeaderText = "Parceiro";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // Periodicidade
-            // 
-            this.Periodicidade.DataPropertyName = "Periodicidade";
-            this.Periodicidade.HeaderText = "Valor (R$)";
-            this.Periodicidade.Name = "Periodicidade";
-            this.Periodicidade.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Comissão";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Data do Serviço";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Status";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // btnExcuirServico
             // 
@@ -499,6 +424,7 @@
             this.btnExcuirServico.TabIndex = 0;
             this.btnExcuirServico.Text = ">";
             this.btnExcuirServico.UseVisualStyleBackColor = false;
+            this.btnExcuirServico.Click += new System.EventHandler(this.btnExcuirServico_Click);
             // 
             // btnSair
             // 
@@ -509,26 +435,113 @@
             this.btnSair.TabIndex = 2;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnQuitarComissao
             // 
             this.btnQuitarComissao.BackColor = System.Drawing.Color.White;
-            this.btnQuitarComissao.Location = new System.Drawing.Point(565, 7);
+            this.btnQuitarComissao.Location = new System.Drawing.Point(458, 7);
             this.btnQuitarComissao.Name = "btnQuitarComissao";
-            this.btnQuitarComissao.Size = new System.Drawing.Size(173, 38);
+            this.btnQuitarComissao.Size = new System.Drawing.Size(280, 38);
             this.btnQuitarComissao.TabIndex = 1;
-            this.btnQuitarComissao.Text = "Gerar + Quitar";
+            this.btnQuitarComissao.Text = "Quitar";
             this.btnQuitarComissao.UseVisualStyleBackColor = false;
+            this.btnQuitarComissao.Click += new System.EventHandler(this.btnQuitarComissao_Click);
             // 
-            // btnGerarComissao
+            // CodComis
             // 
-            this.btnGerarComissao.BackColor = System.Drawing.Color.White;
-            this.btnGerarComissao.Location = new System.Drawing.Point(386, 7);
-            this.btnGerarComissao.Name = "btnGerarComissao";
-            this.btnGerarComissao.Size = new System.Drawing.Size(173, 38);
-            this.btnGerarComissao.TabIndex = 0;
-            this.btnGerarComissao.Text = "Gerar + Imprimir Comissão";
-            this.btnGerarComissao.UseVisualStyleBackColor = false;
+            this.CodComis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CodComis.DataPropertyName = "CodComis";
+            this.CodComis.HeaderText = "Cód";
+            this.CodComis.Name = "CodComis";
+            this.CodComis.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Parceiro";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor (R$)";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Comissão";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 80;
+            // 
+            // Data
+            // 
+            this.Data.DataPropertyName = "Data";
+            this.Data.HeaderText = "Data do Serviço";
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
+            this.Data.Width = 80;
+            // 
+            // Pagamento
+            // 
+            this.Pagamento.DataPropertyName = "Pagamento";
+            this.Pagamento.HeaderText = "Status";
+            this.Pagamento.Name = "Pagamento";
+            this.Pagamento.ReadOnly = true;
+            this.Pagamento.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CodComis";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Cód";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nome";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Parceiro";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Valor (R$)";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Comissão";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Data";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Data do Serviço";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pagamento";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 80;
             // 
             // GerenciarComissao
             // 
@@ -552,7 +565,7 @@
             this.btnSelecionaUm.ResumeLayout(false);
             this.btnSelecionaUm.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtvParceirosSelecionados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAux)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvComissaoListadas)).EndInit();
             this.ResumeLayout(false);
@@ -567,7 +580,6 @@
         public System.Windows.Forms.Button btnExcuirServico;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnQuitarComissao;
-        public System.Windows.Forms.Button btnGerarComissao;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.Button btnVoltaTodos;
         public System.Windows.Forms.Button btnVoltaUm;
@@ -585,24 +597,24 @@
         private System.Windows.Forms.RadioButton rbReceber;
         private System.Windows.Forms.RadioButton rbPagar;
         public System.Windows.Forms.Button btnPesquisa;
-        private System.Windows.Forms.TextBox ttbParceiro;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpDtAte;
         private System.Windows.Forms.DateTimePicker dtpDtDe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtvParceirosSelecionados;
+        private System.Windows.Forms.DataGridView dgvAux;
+        private System.Windows.Forms.ComboBox cbbParceiro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodComis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Periodicidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

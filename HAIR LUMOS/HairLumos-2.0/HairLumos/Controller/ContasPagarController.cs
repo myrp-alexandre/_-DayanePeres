@@ -71,5 +71,10 @@ namespace HairLumos.Controller
         {
             return _MdlCont.verificaConta(cod);
         }
+
+        public DataTable retornaDespesaNome(string nome)
+        {
+            return _MdlCont.retornaDespesaNome(nome);
+        }
     }
 }

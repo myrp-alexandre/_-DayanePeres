@@ -66,6 +66,12 @@ namespace HairLumos.Controller
             return cm.gerarContasReceber(cr);
         }
 
+        public int gerarContasReceber(Entidades.ContasReceber obj)
+        {
+
+            return cm.gerarContasReceber(obj);
+        }
+
         public int realizarRecebimento(Entidades.Parcela parcela, int codigo)
         {
             return cm.realizaRecebimento(parcela, codigo);
@@ -84,6 +90,16 @@ namespace HairLumos.Controller
         public DataTable retornaParcelaContaReceber(int codRe, int codP)
         {
             return cm.retornaParcelaContaReceber(codRe, codP);
+        }
+
+        public bool verificaParcelas(int cod)
+        {
+            return cm.verificaParcelas(cod);
+        }
+
+        public int retornaVenda(int cod)
+        {
+            return cm.retornaVenda(cod);
         }
     }
 }

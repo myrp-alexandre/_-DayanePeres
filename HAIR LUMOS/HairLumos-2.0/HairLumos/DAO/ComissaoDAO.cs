@@ -108,5 +108,74 @@ namespace HairLumos.DAO
             }
             return dt;
         }
+
+        public DataTable retornaGeral(int cod, string status, string dataI, string dataF)
+        {
+            DataTable dt = new DataTable();
+            _sql = "select a.agen_dataagendamento, pr.prestserv_valor, pr.prestser_pagrec, p.pes_nome, c.codcomissao, c.comis_statuspagamento from tbprestadorservico pr " +
+                "inner join tbagenda a on a.jur_cnpj = pr.jur_cnpj and a.codtiposervico = pr.codtiposervico " +
+                "inner join tbjuridica j on j.jur_cnpj = pr.jur_cnpj " +
+                "inner join tbpessoa p on p.codpessoa = j.codpessoa " +
+                "inner join tbcomissao c on c.codcomissao = a.codcomissao " +
+                "where p.codpessoa = " + cod +"";
+
+            
+            if(!String.IsNullOrEmpty(dataI) && !String.IsNullOrEmpty(dataF))
+            {
+                _sql += " and a.agen_dataagendamento between '" + dataI + "' and '" + dataF + "'";
+            }
+
+            if (!status.Equals("Todas"))
+            {
+                if (status.Equals("Pagar"))
+                {
+                   _sql += " and pr.prestser_pagrec = 'PAGAR'";
+                }
+                else
+                {
+                    _sql += " and pr.prestser_pagrec = 'RECEBER'";
+                }
+            }
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return dt;
+        }
+
+        public int atualizaComissao(Entidades.Comissao obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+
+                _sql = "update tbcomissao set comis_datapagamento = @data, comis_valorpago = @pago, comis_valordevedor = @devedor, comis_statuspagamento = @status where codcomissao = @cod";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@data", obj.DataPagamento);
+                cmd.Parameters.AddWithValue("@pago", obj.ValorPago);
+                cmd.Parameters.AddWithValue("@devedor", obj.ValorDevolver);
+                cmd.Parameters.AddWithValue("@status", obj.StatusPagamento);
+                cmd.Parameters.AddWithValue("@cod", obj.CodigoComissao);
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
     }
 }

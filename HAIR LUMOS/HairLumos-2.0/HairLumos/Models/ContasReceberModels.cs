@@ -40,5 +40,15 @@ namespace HairLumos.Models
         {
             return contaDAO.retornaParcelaContaReceber(codRe, codP);
         }
+
+        public bool verificaParcelas(int cod)
+        {
+            return contaDAO.verificaParcelas(cod);
+        }
+
+        public int retornaVenda(int cod)
+        {
+            return contaDAO.retornaVenda(cod);
+        }
     }
 }

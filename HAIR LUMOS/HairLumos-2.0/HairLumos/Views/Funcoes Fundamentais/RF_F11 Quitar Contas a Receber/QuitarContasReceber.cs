@@ -61,7 +61,110 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 
         private void btnEstornar_Click(object sender, EventArgs e)
         {
+            if (dgvParcelas.CurrentRow.Index > -1)
+            {
+                Controller.VendaController vc = new Controller.VendaController();
+                Entidades.Pessoa _pessoa = new Entidades.Pessoa();
+                Entidades.Parcela parc = new Entidades.Parcela();
+                Entidades.Caixa cx = new Entidades.Caixa();
+                Entidades.Usuario _usuario = new Entidades.Usuario();
 
+                double pago = 0;
+                double.TryParse(dgvParcelas.CurrentRow.Cells[3].FormattedValue.ToString(), out pago);
+                if (pago > 0)
+                {
+                    DialogResult resulta = MessageBox.Show("Deseja realmente fazer o estorno", "caption", MessageBoxButtons.YesNo);
+                    if (resulta == DialogResult.Yes)
+                    {
+                        int intcodc =0, intcodp = 0;
+                        int.TryParse(dgvParcelas.CurrentRow.Cells[0].FormattedValue.ToString(), out intcodc);
+                        int.TryParse(dgvParcelas.CurrentRow.Cells[1].FormattedValue.ToString(), out intcodp);
+                        if(intcodc>0 && intcodp > 0)
+                        {
+                            DataTable dt = crc.retornaParcelaContaReceber(intcodc, intcodp);
+                            if(dt!=null && dt.Rows.Count > 0)
+                            {
+                                DataRow drParcela = dt.Rows[0];
+                                parc.Codigo = intcodp;
+                                parc.DataPagamento = Convert.ToDateTime(drParcela["parc_datapagamento"].ToString());
+                                parc.DataVencimento = Convert.ToDateTime(drParcela["parc_datavencimento"].ToString());
+                                parc.ValorPago = Convert.ToDouble(drParcela["parc_valorpago"].ToString());
+                                parc.ValorReceber = Convert.ToDouble(drParcela["parc_valor"].ToString());
+
+                                DataTable dtCaixa = new Controller.CaixaController().retornacaixaAbetoDia();
+                                if (dtCaixa != null && dtCaixa.Rows.Count > 0)
+                                {
+                                    DataRow drCaixa = dtCaixa.Rows[0];
+                                    cx.CodCaixa = Convert.ToInt32(drCaixa["codcaixa"].ToString());
+                                    cx.DataAbertura = Convert.ToDateTime(drCaixa["caixa_datahoraabertura"].ToString());
+                                    cx.DataFechamento = Convert.ToDateTime(drCaixa["caixa_datahorafecha"].ToString());
+                                    cx.SaldoInicial = Convert.ToDouble(drCaixa["caixa_saldoinicial"].ToString());
+                                    cx.Troco = Convert.ToDouble(drCaixa["caixa_troco"].ToString());
+                                    cx.TotalEntrada = Convert.ToDouble(drCaixa["caixa_totalentra"].ToString());
+                                    cx.TotalSaida = Convert.ToDouble(drCaixa["caixa_totalsaida"].ToString());
+                                    DataTable dtP = new Controller.PessoaController().retornaPessoaCod(drCaixa["codpessoa"].ToString());
+                                    if (dtP != null && dtP.Rows.Count > 0)
+                                    {
+                                        DataRow drPessoa = dtP.Rows[0];
+                                        _pessoa.Codigo = Convert.ToInt32(drPessoa["codpessoa"].ToString());
+                                        _pessoa.Nome = drPessoa["pes_nome"].ToString();
+                                        _pessoa.DataCadastro = Convert.ToDateTime(drPessoa["pes_datacadastro"].ToString());
+                                        _pessoa.TipoPessoa = drPessoa["pes_tipopessoa"].ToString();
+                                        _pessoa.StatusPessoa = Convert.ToBoolean(drPessoa["pes_statuspessoa"].ToString());
+                                        _pessoa.Observacao = drPessoa["pes_obs"].ToString();
+                                        _pessoa.Fiado = Convert.ToBoolean(drPessoa["pes_fiado"].ToString());
+                                        _pessoa.Email = drPessoa["pes_email"].ToString();
+                                        _pessoa.Telefone = drPessoa["pes_fone"].ToString();
+                                        _pessoa.Celular = drPessoa["pes_cel"].ToString();
+                                    }
+                                    cx.Pessoa = _pessoa;
+                                    DataTable dtUsuario = new Controller.UsuarioController().retornaObjUsuario(Convert.ToInt32(drCaixa["codusuario"].ToString()));
+                                    if (dtUsuario != null && dtUsuario.Rows.Count > 0)
+                                    {
+                                        DataRow drUsuario = dtUsuario.Rows[0];
+                                        _usuario.UsuarioCodigo = Convert.ToInt32(drUsuario["codusuario"].ToString());
+                                        _usuario.Login = drUsuario["usu_usuario"].ToString();
+                                        _usuario.Senha = drUsuario["usu_senha"].ToString();
+                                        _usuario.Nivel = Convert.ToInt32(drUsuario["usu_nivel"].ToString());
+                                    }
+                                    cx.Usuario = _usuario;
+                                }
+                                parc.Caixa = cx;
+
+                            }
+
+                            parc.ValorPago = 0;
+                            parc.DataPagamento = DateTime.MinValue;
+                            parc.Forma = new Entidades.FormaPagamento();
+
+                            int res = crc.realizarRecebimento(parc, intcodc);
+                            if (res > 0)
+                            {
+                                int tes = crc.atualizaStatus(intcodc, "aberta");
+                                if (tes > 0)
+                                {
+                                    int cod = crc.retornaVenda(intcodc);
+                                    int p = vc.atualizaStatus(cod, "aberta");
+                                    if (p > 0)
+                                    {
+                                        MessageBox.Show("Valor estornado com sucesso!");
+                                        limpaCampos();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Erro ao realizar estorno!");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao realizar estorno!");
+                            }
+                        }
+                    }
+                }
+                
+            }
         }
 
         public void limpaCampos()

@@ -95,6 +95,8 @@
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cidade.cs" />
     <Compile Include="Entidades\Parcela.cs" />
+    <Compile Include="Entidades\TabelaComissao2 .cs" />
+    <Compile Include="Entidades\TabelaComissao.cs" />
     <Compile Include="Entidades\TabelaFormaPagamento.cs" />
     <Compile Include="Entidades\Comissao.cs" />
     <Compile Include="Entidades\Compra.cs" />

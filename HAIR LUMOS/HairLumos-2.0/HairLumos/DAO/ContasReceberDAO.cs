@@ -17,7 +17,7 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT * FROM tbcontasreceber where contrec_datapagamento BETWEEN @datai AND @dataa; ";
+            _sql = "SELECT * FROM tbcontasreceber_parc where parc_datapagamento BETWEEN @datai AND @dataa; ";
 
             try
             {
@@ -54,11 +54,11 @@ namespace HairLumos.DAO
             if (!situacao.Equals("")) { 
                 if (situacao.Equals("Em aberto"))
                 {
-                    _sql += " and c.contrec_obs = 'aberta'";
+                    _sql += " and c.contrec_obs = 'aberta' and p.parc_valor > p.parc_valorpago";
                 }
                 if (situacao.Equals("Pago"))
                 {
-                    _sql += " and c.contrec_obs = 'fechada'";
+                    _sql += " and p.parc_valor = p.parc_valorpago";
                 }
                 if (situacao.Equals("Vencido"))
                 {
@@ -276,6 +276,75 @@ namespace HairLumos.DAO
                 throw new SystemException(e + "Erro ao retronar Contas");
             }
             return dt;
+        }
+
+        public bool verificaParcelas(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT sum(parc_valorpago) as pago, sum(parc_valor) as receber FROM tbcontasreceber_parc WHERE codcontareceber = " + cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                if(dt!=null && dt.Rows.Count > 0)
+                {
+                    DataRow drP = dt.Rows[0];
+                    double pago = Convert.ToDouble(drP["pago"].ToString());
+                    double receber = Convert.ToDouble(drP["receber"].ToString());
+
+                    if (receber == pago)
+                        return true;
+                    else
+                        return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+        }
+
+        public int retornaVenda(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codvenda FROM tbcontasreceber WHERE codcontareceber = " + cod;
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    DataRow drP = dt.Rows[0];
+                    int codVenda = Convert.ToInt32(drP["codvenda"].ToString());
+                    return codVenda;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
         }
     }
 }

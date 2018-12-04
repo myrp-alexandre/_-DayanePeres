@@ -204,5 +204,10 @@ namespace HairLumos.Models
         {
             return ContasPagarDAO.verificaConta(cod);
         }
+
+        public DataTable retornaDespesaNome(string nome)
+        {
+            return ContasPagarDAO.retornaDespesaNome(nome);
+        }
     }
 }
