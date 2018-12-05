@@ -22,6 +22,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao
         {
             InitializeComponent();
             carregaFuncionario();
+            rbTodas.Checked = true;
+            rbPagar.Checked = false;
+            rbReceber.Checked = false;
 
         }
 
@@ -134,7 +137,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao
             }
             else
             {
-                DataTable dtGeral = cmc.retornaGeral(Convert.ToInt32(cbbParceiro.SelectedValue), status, dtpDtDe.Value.ToString("yyyy-MM-dd"), dtpDtAte.Value.ToString("yyyy-MM-dd"));
+                DateTime dataI = dtpDtDe.Value.AddDays(-1);
+                DataTable dtGeral = cmc.retornaGeral(Convert.ToInt32(cbbParceiro.SelectedValue), status, dataI.ToString("yyyy-MM-dd"), dtpDtAte.Value.ToString("yyyy-MM-dd"));
                 if(dtGeral!=null && dtGeral.Rows.Count > 0)
                 {
                     for(int i=0; i<dtGeral.Rows.Count; i++)
@@ -382,6 +386,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao
                         {
                             Entidades.ContasPagar cp = new Entidades.ContasPagar();
                             cp.DataPagamento = DateTime.Now;
+                            cp.CodigoContasaPagar = cpc.retornaMax() + 1;
                             cp.DataVencimento = listaaux.ElementAt(i).Data;
                             cp.ValorPago = listaaux.ElementAt(i).Valor;
                             cp.ValorTotal = listaaux.ElementAt(i).Valor;
@@ -390,7 +395,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao
                             cp.Status = true;
                             cp.Parcela = 1;
                             cp.Compra = new Entidades.Compra();
-                            cm.CodigoComissao = listaaux.ElementAt(i).CodComis;
                             cp.Comissao = cm;
                             cp.Caixa = _caixa;
                             cp.CodParcela = 1;
@@ -428,7 +432,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao
                             cr.Contrato = new Entidades.Contrato();
                             cr.Venda = new Entidades.Venda();
                             cr.CodigoFechamento = 0;
-                            cm.CodigoComissao = listaaux.ElementAt(i).CodComis;
                             cr.Comissao = cm;
                             cr.Lista = new List<Entidades.Parcela>();
                             int tes = crc.gerarContasReceber(cr);

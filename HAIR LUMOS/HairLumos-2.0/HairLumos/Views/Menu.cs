@@ -257,5 +257,11 @@ namespace HairLumos
             Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao.GerenciarComissao comissao = new Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao.GerenciarComissao();
             comissao.ShowDialog();
         }
+
+        private void pRODUTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatórios.Formularios.FrmRelProdutos produtos = new Relatórios.Formularios.FrmRelProdutos();
+            produtos.ShowDialog();
+        }
     }
 }

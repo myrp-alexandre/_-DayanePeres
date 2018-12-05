@@ -349,17 +349,22 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                 codigo = Convert.ToInt32(ttbCodigo.Text.ToString());
                 if (cpc.verificaConta(codigo))
                 {
-                    int result = cc.excluirCompra(codigo);
-                    if (result > 0)
+                    DialogResult resulta = MessageBox.Show("Deseja realmente excluir essa compra!", "caption", MessageBoxButtons.YesNo);
+                    if (resulta == DialogResult.Yes)
                     {
-                        MessageBox.Show("Excluido com sucesso!");
-                        limpaCampos();
-                        inicializa(false);
+                        int result = cc.excluirCompra(codigo);
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Excluido com sucesso!");
+                            limpaCampos();
+                            inicializa(false);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao Excluir!");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Erro ao Excluir!");
-                    }
+                   
                 }
             }
         }

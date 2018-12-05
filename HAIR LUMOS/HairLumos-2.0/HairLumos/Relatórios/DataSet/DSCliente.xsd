@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSCliente" targetNamespace="http://tempuri.org/DSCliente.xsd" xmlns:mstns="http://tempuri.org/DSCliente.xsd" xmlns="http://tempuri.org/DSCliente.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSCliente" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSCliente" msprop:Generator_UserDSName="DSCliente">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTCliente" msprop:Generator_TableClassName="DTClienteDataTable" msprop:Generator_TableVarName="tableDTCliente" msprop:Generator_TablePropName="DTCliente" msprop:Generator_RowDeletingName="DTClienteRowDeleting" msprop:Generator_RowChangingName="DTClienteRowChanging" msprop:Generator_RowEvHandlerName="DTClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="DTClienteRowDeleted" msprop:Generator_UserTableName="DTCliente" msprop:Generator_RowChangedName="DTClienteRowChanged" msprop:Generator_RowEvArgName="DTClienteRowChangeEvent" msprop:Generator_RowClassName="DTClienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codpessoa" msprop:Generator_ColumnVarNameInTable="columncodpessoa" msprop:Generator_ColumnPropNameInRow="codpessoa" msprop:Generator_ColumnPropNameInTable="codpessoaColumn" msprop:Generator_UserColumnName="codpessoa" type="xs:int" minOccurs="0" />
+              <xs:element name="pes_nome" msprop:Generator_ColumnVarNameInTable="columnpes_nome" msprop:Generator_ColumnPropNameInRow="pes_nome" msprop:Generator_ColumnPropNameInTable="pes_nomeColumn" msprop:Generator_UserColumnName="pes_nome" type="xs:string" minOccurs="0" />
+              <xs:element name="pes_tipopessoa" msprop:Generator_ColumnVarNameInTable="columnpes_tipopessoa" msprop:Generator_ColumnPropNameInRow="pes_tipopessoa" msprop:Generator_ColumnPropNameInTable="pes_tipopessoaColumn" msprop:Generator_UserColumnName="pes_tipopessoa" type="xs:string" minOccurs="0" />
+              <xs:element name="pes_email" msprop:Generator_ColumnVarNameInTable="columnpes_email" msprop:Generator_ColumnPropNameInRow="pes_email" msprop:Generator_ColumnPropNameInTable="pes_emailColumn" msprop:Generator_UserColumnName="pes_email" type="xs:string" minOccurs="0" />
+              <xs:element name="pes_fone" msprop:Generator_ColumnVarNameInTable="columnpes_fone" msprop:Generator_ColumnPropNameInRow="pes_fone" msprop:Generator_ColumnPropNameInTable="pes_foneColumn" msprop:Generator_UserColumnName="pes_fone" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

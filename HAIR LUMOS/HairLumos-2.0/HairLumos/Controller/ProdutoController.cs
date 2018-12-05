@@ -109,5 +109,10 @@ namespace HairLumos.Controller
         {
             return _MdlProd.retornaBaixaManual(cod);
         }
+
+        public DataTable retornaEstoque(string descricao)
+        {
+            return _MdlProd.retornaEstoque(descricao);
+        }
     }
 }

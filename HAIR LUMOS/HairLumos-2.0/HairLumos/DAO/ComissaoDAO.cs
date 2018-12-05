@@ -117,7 +117,7 @@ namespace HairLumos.DAO
                 "inner join tbjuridica j on j.jur_cnpj = pr.jur_cnpj " +
                 "inner join tbpessoa p on p.codpessoa = j.codpessoa " +
                 "inner join tbcomissao c on c.codcomissao = a.codcomissao " +
-                "where p.codpessoa = " + cod +"";
+                "where p.codpessoa = " + cod + " and c.comis_statuspagamento = 'aberta'";
 
             
             if(!String.IsNullOrEmpty(dataI) && !String.IsNullOrEmpty(dataF))

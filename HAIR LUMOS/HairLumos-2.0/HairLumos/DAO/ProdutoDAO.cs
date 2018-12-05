@@ -601,5 +601,43 @@ namespace HairLumos.DAO
             return dt;
         }
 
+        public DataTable retornaEstoque(string descricao)
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = @"SELECT p.codproduto, p.prod_produto, p.prod_precovenda, p.prod_qtde, m.marc_nome, ct.cat_categoria
+                     FROM tbproduto p inner join tbcategoria ct on ct.codcategoria = p.codcategoria
+                     inner join tbmarca m on m.codmarca = p.codmarca";
+
+            if (!String.IsNullOrEmpty(descricao))
+                _sql += " WHERE p.prod_produto like '%"+descricao+"%'";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@Prod.codProduto");
+                cmd.Parameters.AddWithValue("@Prod.prod_produto");
+                cmd.Parameters.AddWithValue("@Prod.prod_qtde");
+                cmd.Parameters.AddWithValue("@Baixa.codBaixa");
+                cmd.Parameters.AddWithValue("@Baixa.baix_data");
+                cmd.Parameters.AddWithValue("@Baixa.baix_qtde");
+                cmd.Parameters.AddWithValue("@Baixa.baix_obs");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
     }
 }

@@ -247,9 +247,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
                     if (rest)
                     {
-                        excluir = contasPagarController.excluirDespesa(codContasPagar);
-                        MessageBox.Show("Despesa Excluída com Sucesso!");
-                        _limpaCampos();
+                        DialogResult resulta = MessageBox.Show("Deseja fazer um novo pedido", "caption", MessageBoxButtons.YesNo);
+                        if (resulta == DialogResult.Yes)
+                        {
+                            excluir = contasPagarController.excluirDespesa(codContasPagar);
+                            MessageBox.Show("Despesa Excluída com Sucesso!");
+                            _limpaCampos();
+                        }
                     }
                     else
                     {

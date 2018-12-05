@@ -32,7 +32,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
 
             DataTable dt = CompraController.retornaCompraMAX();
 
-            if(dt != null && dt.Rows.Count > 0)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
                 codCompra = Convert.ToInt32(dr["codcompra"].ToString());
@@ -41,7 +41,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                 DGVMoeda();
             }
 
-            if(!string.IsNullOrWhiteSpace(mskValorTotal.Text))
+            if (!string.IsNullOrWhiteSpace(mskValorTotal.Text))
                 mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
             if (!string.IsNullOrWhiteSpace(mskValorParcela.Text))
                 mskValorParcela.Text = Convert.ToDouble(mskValorParcela.Text).ToString("###,###,##0.00");
@@ -61,7 +61,120 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            _inicializa();
+            DialogResult resulta = MessageBox.Show("Deseja mesmo cancelar, se cancelar, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
+            if (resulta == DialogResult.Yes)
+            {
+                cancelarClose(sender, e);
+                Close();
+            }
+        }
+
+        private void cancelarClose(object sender, EventArgs e)
+        {
+            Controller.ContasPagarController contasPagarController = new Controller.ContasPagarController();
+
+            Controller.CompraController compraController = new Controller.CompraController();
+            Entidades.Compra compra = new Entidades.Compra();
+
+            Controller.DespesaController despesaController = new Controller.DespesaController();
+            Entidades.Despesa despesa = new Entidades.Despesa();
+
+            Controller.PessoaController pessoaController = new Controller.PessoaController();
+            Entidades.Pessoa pessoa = new Entidades.Pessoa();
+
+            Controller.CaixaController caixaController = new Controller.CaixaController();
+            Entidades.Caixa caixa = new Entidades.Caixa();
+            string codPessoa = "";
+            double valorParcelasTotal = Convert.ToDouble(mskValorTotal.Text.ToString());
+
+            DataTable dt = compraController.retornaCompra(codCompra);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                compra = new Entidades.Compra();
+                compra.Codigo = Convert.ToInt32(dr["codcompra"].ToString());
+
+                compra.Data = Convert.ToDateTime(dr["comp_datacompra"].ToString());
+                compra.Situacao = dr["comp_situacao"].ToString();
+                compra.Consignado = Convert.ToBoolean(dr["comp_statusconsignado"].ToString());
+                compra.ValorTotal = Convert.ToDouble(dr["comp_valortotal"].ToString());
+                compra.Obs = dr["comp_obs"].ToString();
+
+                codPessoa = dr["codpessoa"].ToString();
+                compra.Pessoa.Codigo = Convert.ToInt32(dr["codpessoa"].ToString());
+
+                DataTable dtDespesa = despesaController.retornaObjDespesa("Compra");
+
+                if (dtDespesa != null && dt.Rows.Count > 0)
+                {
+                    DataRow drDespesa = dtDespesa.Rows[0];
+                    despesa.Codigo = Convert.ToInt32(drDespesa["coddespesa"].ToString());
+                    despesa.Descricao = drDespesa["desp_descricao"].ToString();
+                    despesa.Status = drDespesa["desp_status"].ToString();
+
+                }
+
+                compra.Despesa = despesa;
+
+                DataTable dtPessoa = pessoaController.retornaPessoaCod(codPessoa);
+
+                if (dtPessoa != null && dtPessoa.Rows.Count > 0)
+                {
+                    DataRow drPessoa = dtPessoa.Rows[0];
+                    pessoa.Codigo = Convert.ToInt32(drPessoa["codPessoa"].ToString());
+                    pessoa.Nome = drPessoa["pes_nome"].ToString();
+                }
+
+                compra.Pessoa = pessoa;
+
+            }
+
+            DataTable dtCaixa = caixaController.retornacaixaAbetoDia();
+
+            if (dtCaixa != null && dtCaixa.Rows.Count > 0)
+            {
+                DataRow drCaixa = dtCaixa.Rows[0];
+                caixa.DataAbertura = Convert.ToDateTime(drCaixa["caixa_datahoraabertura"].ToString());
+                caixa.DataFechamento = Convert.ToDateTime(drCaixa["caixa_datahorafecha"].ToString());
+                caixa.SaldoInicial = Convert.ToDouble(drCaixa["caixa_saldoinicial"].ToString());
+                caixa.Troco = Convert.ToDouble(drCaixa["caixa_troco"].ToString());
+                caixa.TotalEntrada = Convert.ToDouble(drCaixa["caixa_totalentra"].ToString());
+                caixa.TotalSaida = Convert.ToDouble(drCaixa["caixa_totalsaida"].ToString());
+
+            }
+
+            if (string.IsNullOrWhiteSpace(ttbQtdeParcela.Text))
+                MessageBox.Show("Informe uma valor para a parcela ou 0");
+
+
+            if (dtpDataVencimento.Value.Date >= DateTime.Now.Date)
+            {
+
+                for (int i = 0; i < 1; i++)
+                {
+                    ContasPagar = new Entidades.ContasPagar();
+                    ContasPagar.Parcela = 1;
+                    ContasPagar.ValorTotal = valorParcelasTotal;
+                    ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(i * 30);
+                    ContasPagar.CodParcela = i + 1;
+                    ContasPagar.ValorParcela = valorParcelasTotal;
+                    ContasPagar.Status = false;
+                    ContasPagar.Compra = compra;
+                    ContasPagar.Despesa = despesa;
+                    ContasPagar.Caixa = caixa;
+                    ContasPagar.FormaPagamento = new Entidades.FormaPagamento();
+                    ContasPagar.Comissao = new Entidades.Comissao();
+
+
+                    listacontasPagars.Add(ContasPagar);
+
+                }
+                mskValorTotoalPagar.Text = Convert.ToString(valorParcelasTotal);
+                mskValorTotoalPagar.Text = Convert.ToDouble(mskValorTotoalPagar.Text).ToString("###,###,##0.00");
+                carregaDGV(listacontasPagars);
+                Close();
+            }
+            btnFinalizar_Click(sender, e);
         }
 
         private void DGVMoeda()
@@ -102,6 +215,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                         Close();
                         Views.Funcoes_Fundamentais.QuitarDespesa quitarDespesas = new QuitarDespesa();
                         quitarDespesas.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Parcelas geradas com sucesso!");
+                        Close();
+
                     }
                 }
                 catch (Exception ex)
@@ -330,7 +449,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult resulta = MessageBox.Show("Deseja mesmo cancelar, se cancelar, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
+            if (resulta == DialogResult.Yes)
+            {
+                cancelarClose(sender, e);
+                Close();
+            }
         }
 
         private void mskValorTotal_Enter(object sender, EventArgs e)
@@ -384,6 +508,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
         private void ttbQtdeParcela_Enter(object sender, EventArgs e)
         {
             mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
+        }
+
+        private void GerarContaPagar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Uma conta a pagar foi gerada para a compra!");
+            cancelarClose(sender, e);
+            Close();
+            
         }
     }
 }

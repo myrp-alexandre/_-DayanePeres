@@ -175,6 +175,12 @@ namespace HairLumos.Models
             return _DAOProd.RetornaBaixas(cod);
         }
 
+        //Relatorio
+        public DataTable retornaEstoque(string descricao)
+        {
+            return _DAOProd.retornaEstoque(descricao);
+        }
+
     }
 
 

@@ -50,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnIncluirServico = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.ttbPeriodo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvPacote = new System.Windows.Forms.DataGridView();
             this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +65,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.cbbPeriodicidade = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -252,13 +252,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbbPeriodicidade);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.ttbQtdeServico);
             this.groupBox2.Controls.Add(this.cbbServico);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnIncluirServico);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.ttbPeriodo);
             this.groupBox2.Location = new System.Drawing.Point(21, 136);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(578, 84);
@@ -318,13 +318,6 @@
             this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 29;
             this.label3.Text = "Periodicidade*";
-            // 
-            // ttbPeriodo
-            // 
-            this.ttbPeriodo.Location = new System.Drawing.Point(117, 49);
-            this.ttbPeriodo.Name = "ttbPeriodo";
-            this.ttbPeriodo.Size = new System.Drawing.Size(142, 20);
-            this.ttbPeriodo.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -483,6 +476,19 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
             // 
+            // cbbPeriodicidade
+            // 
+            this.cbbPeriodicidade.FormattingEnabled = true;
+            this.cbbPeriodicidade.Items.AddRange(new object[] {
+            "UMA VEZ",
+            "SEMANAL",
+            "QUINZENAL",
+            "MENSAL"});
+            this.cbbPeriodicidade.Location = new System.Drawing.Point(116, 46);
+            this.cbbPeriodicidade.Name = "cbbPeriodicidade";
+            this.cbbPeriodicidade.Size = new System.Drawing.Size(143, 21);
+            this.cbbPeriodicidade.TabIndex = 38;
+            // 
             // Cadastro_Pacotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,7 +543,6 @@
         public System.Windows.Forms.Button btnIncluirServico;
         private System.Windows.Forms.MaskedTextBox mskValor;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox ttbPeriodo;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox ttbObs;
         public System.Windows.Forms.Label label4;
@@ -552,5 +557,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Periodicidade;
+        private System.Windows.Forms.ComboBox cbbPeriodicidade;
     }
 }

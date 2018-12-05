@@ -347,6 +347,7 @@
             this.Name = "GerarContaPagar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HL - GERAR CONTAS A PAGAR";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GerarContaPagar_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -90,6 +90,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -485,6 +486,8 @@
             // 
             // rELATÓRIOSToolStripMenuItem
             // 
+            this.rELATÓRIOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pRODUTOSToolStripMenuItem});
             this.rELATÓRIOSToolStripMenuItem.Name = "rELATÓRIOSToolStripMenuItem";
             this.rELATÓRIOSToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.rELATÓRIOSToolStripMenuItem.Text = "RELATÓRIOS";
@@ -580,6 +583,13 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(948, 629);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // pRODUTOSToolStripMenuItem
+            // 
+            this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
+            this.pRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.pRODUTOSToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -668,6 +678,7 @@
         private System.Windows.Forms.ToolStripMenuItem efetuarBackupDoSistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
+        private System.Windows.Forms.ToolStripMenuItem pRODUTOSToolStripMenuItem;
     }
 }
 

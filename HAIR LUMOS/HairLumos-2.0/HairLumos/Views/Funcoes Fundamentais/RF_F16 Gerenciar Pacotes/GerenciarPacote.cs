@@ -34,7 +34,7 @@ namespace HairLumos.Views
             ttbCodigo.Enabled = false;
             cbbServico.Enabled = false;
             mskValor.Enabled = false;
-            ttbPeriodo.Enabled = false;
+            cbbPeriodicidade.Enabled = false;
             ttbObs.Enabled = false;
             dgvPacote.Enabled = true;
             ttbPacote.Enabled = false;
@@ -65,7 +65,7 @@ namespace HairLumos.Views
         {
             ttbCodigo.Text = "";
             cbbServico.SelectedIndex = -1;
-            ttbPeriodo.Text = "";
+            cbbPeriodicidade.Text = "";
             ttbObs.Text = "";
             mskValor.Text = "";
             dgvPacote.Rows.Clear();
@@ -84,7 +84,7 @@ namespace HairLumos.Views
             ttbCodigo.Enabled = false;
             cbbServico.Enabled = true;
             mskValor.Enabled = true;
-            ttbPeriodo.Enabled = true;
+            cbbPeriodicidade.Enabled = true;
             ttbObs.Enabled = true;
             dgvPacote.Enabled = true;
             ttbPacote.Enabled = true;
@@ -109,7 +109,7 @@ namespace HairLumos.Views
         {
             ttbCodigo.Enabled = false;
             cbbServico.Enabled = true;
-            ttbPeriodo.Enabled = true;
+            cbbPeriodicidade.Enabled = true;
             mskValor.Enabled = true;
             ttbObs.Enabled = true;
             dgvPacote.Enabled = true;
@@ -197,7 +197,7 @@ namespace HairLumos.Views
                     if (string.IsNullOrWhiteSpace(mskValor.Text))
                         strMensagem += $"Informe o valor do pacote.";
 
-                    if (string.IsNullOrWhiteSpace(ttbPeriodo.Text))
+                    if (string.IsNullOrWhiteSpace(cbbPeriodicidade.Text))
                         strMensagem += $"Informe a periodicidade do pacote.";
 
                     if (rbSim.Checked == true)
@@ -231,7 +231,7 @@ namespace HairLumos.Views
                         double.TryParse(mskValor.Text, out valorPacote);
 
                         int intRetorno = _ctrlPac.gravarPacote(intCodigo, ttbPacote.Text.Trim(), lista, valorPacote, ttbObs.Text.Trim(),
-                            ttbPeriodo.Text.Trim(), dtpDataInicio.Value, data);//dtpDataFim.Value);
+                            cbbPeriodicidade.Text.Trim(), dtpDataInicio.Value, data);//dtpDataFim.Value);
 
                         if (intRetorno == 1)
                         {
@@ -379,11 +379,19 @@ namespace HairLumos.Views
                         servico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
                         servico.Tempo = drServico["tiposerv_temposervico"].ToString();
 
-                        pacoteServico.Periodicidade = ttbPeriodo.Text.Trim();
+                        pacoteServico.Periodicidade = cbbPeriodicidade.Text.Trim();
                         pacoteServico.Servico = servico;
                         pacoteServico.Quantidade = Convert.ToInt32(ttbQtdeServico.Text.Trim().ToString());
                         pacoteServico.Valor = Convert.ToDouble(drServico["tiposerv_valor"].ToString());
-                        lista.Add(pacoteServico);
+                        int v = verificaLista(lista, pacoteServico);
+                        if (v > -1)
+                        {
+                            lista.ElementAt(v).Quantidade += pacoteServico.Quantidade;
+                        }
+                        else
+                        {
+                            lista.Add(pacoteServico);
+                        }
                         carregaDGV(lista);
                     }
                     
@@ -403,6 +411,16 @@ namespace HairLumos.Views
 
             
 
+        }
+
+        private int verificaLista(List<Entidades.PacoteServico> lista, Entidades.PacoteServico obj)
+        {
+            for(int i=0;i<lista.Count; i++)
+            {
+                if (lista.ElementAt(i).Servico.Codigo == obj.Servico.Codigo)
+                    return i;
+            }
+            return -1;
         }
 
         private void carregaDGV(List<Entidades.PacoteServico> lista)
