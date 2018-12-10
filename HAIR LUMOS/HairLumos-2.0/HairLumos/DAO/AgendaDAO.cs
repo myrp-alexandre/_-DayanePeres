@@ -118,7 +118,7 @@ namespace HairLumos.DAO
 
         public DataTable retornaServicosCliente(int codigo)
         {
-            _sql = "select a.codpessoa, a.agen_valor, ts.tiposerv_descricao, a.agen_status, a.codagenda " +
+            _sql = "select a.codpessoa, a.agen_valor, a.agen_dataagendamento, ts.tiposerv_descricao, a.agen_status, a.codagenda " +
                    " from tbagenda a inner join tbtiposervico ts on ts.codtiposervico = a.codtiposervico" +
                    " where a.codpessoa = " + codigo+ " and a.agen_status = 'Confirmado'";
             DataTable dt = new DataTable();
@@ -139,6 +139,28 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        
+        public int atualizaFiado(Entidades.Agenda obj)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+
+                _sql = "update tbagenda set codfechamento = @cod where codagenda = @codigo";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@cod", obj.Fechamento.Codigo);
+                cmd.Parameters.AddWithValue("@codigo", obj.Codigo);
+
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
     }
 }

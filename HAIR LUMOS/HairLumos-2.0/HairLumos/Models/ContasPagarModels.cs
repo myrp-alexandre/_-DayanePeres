@@ -145,9 +145,9 @@ namespace HairLumos.Models
             
         }
 
-        public DataTable retornaPeriodo(DateTime datai, DateTime dataf, bool estado)
+        public DataTable retornaPeriodo(DateTime datai, DateTime dataf, bool estado, string tipo)
         {
-            return ContasPagarDAO.retornaContasPeriodo(datai, dataf, estado);
+            return ContasPagarDAO.retornaContasPeriodo(datai, dataf, estado, tipo);
         }
 
         public int retornaMax()

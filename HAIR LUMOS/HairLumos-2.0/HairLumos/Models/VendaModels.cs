@@ -45,5 +45,10 @@ namespace HairLumos.Models
         {
             return VendaDAO.retornaVendaPessoa(cod);
         }
+
+        public int atualizaFechamento(int cod, int codFechamento)
+        {
+            return VendaDAO.atualizaFechamento(cod, codFechamento);
+        }
     }
 }

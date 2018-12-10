@@ -22,10 +22,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             InitializeComponent();
             dgvContas.AutoGenerateColumns = false;
             String datal = DateTime.Now.ToString("dd/MM/yyyy");
-            if(chbQuitadas.Checked)
-                selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), false);
+            string tipo = "";
+            cbCompras.Checked = true;
+            cbDespesas.Checked = false;
+            if (cbCompras.Checked)
+                tipo = "Compra";
+            if (chbQuitadas.Checked)
+                selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), false, tipo);
             else
-                selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), true);
+                selecionaContas(Convert.ToDateTime(datal), Convert.ToDateTime(datal), true, tipo);
 
             atualizaCamposMoeda();
             DGVMoeda();
@@ -68,10 +73,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             }
             else
             {
-                if(chbQuitadas.Checked)
-                    selecionaContas(dtpInicio.Value, dtpFim.Value,false);
+                string tipo = "";
+                if (cbCompras.Checked)
+                    tipo = "Compra";
+                if (chbQuitadas.Checked)
+                    selecionaContas(dtpInicio.Value, dtpFim.Value,false, tipo);
                 else
-                    selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, true, tipo);
 
                 atualizaCamposMoeda();
             }
@@ -85,18 +93,21 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             }
             else
             {
+                string tipo = "";
+                if (cbCompras.Checked)
+                    tipo = "Compra";
                 if(chbQuitadas.Checked)
-                    selecionaContas(dtpInicio.Value, dtpFim.Value, false);
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, false, tipo);
                 else
-                    selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, true, tipo);
 
                 atualizaCamposMoeda();
             }
         }
 
-        private void selecionaContas(DateTime datai, DateTime dataf, bool estado)
+        private void selecionaContas(DateTime datai, DateTime dataf, bool estado, string tipo)
         {
-            DataTable dtContas = contcon.retornaPeriodo(datai, dataf, estado);
+            DataTable dtContas = contcon.retornaPeriodo(datai, dataf, estado,tipo);
             if(dtContas!=null && dtContas.Rows.Count > 0)
             {
                 DataRow dr = dtContas.Rows[0];
@@ -213,10 +224,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             }
             else
             {
+                string tipo = "";
+                if (cbCompras.Checked)
+                    tipo = "Compra";
                 if (chbQuitadas.Checked)
-                    selecionaContas(dtpInicio.Value, dtpFim.Value, false);
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, false, tipo);
                 else
-                    selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, true, tipo);
 
                 atualizaCamposMoeda();
             }
@@ -251,8 +265,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             int intCodP = 0;
             int.TryParse(dgvContas.CurrentRow.Cells[3].FormattedValue.ToString(), out intCodP);
             double valTotal = 0, pago = 0;
-            double.TryParse(dgvContas.CurrentRow.Cells[5].FormattedValue.ToString(), out valTotal);
-            double.TryParse(dgvContas.CurrentRow.Cells[6].FormattedValue.ToString(), out pago);
+            valTotal = Convert.ToDouble(dgvContas.CurrentRow.Cells[5].Value.ToString());
+            pago = Convert.ToDouble(dgvContas.CurrentRow.Cells[6].Value.ToString());
 
             if (pago > 0 )
             {
@@ -274,10 +288,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     if (rest > 0)
                     {
                         MessageBox.Show("Valor Estornado com sucesso!");
+                        string tipo = "";
+                        if (cbCompras.Checked)
+                            tipo = "Compra";
                         if (chbQuitadas.Checked)
-                            selecionaContas(dtpInicio.Value, dtpFim.Value, false);
+                            selecionaContas(dtpInicio.Value, dtpFim.Value, false, tipo);
                         else
-                            selecionaContas(dtpInicio.Value, dtpFim.Value, true);
+                            selecionaContas(dtpInicio.Value, dtpFim.Value, true, tipo);
                     }
                     else
                     {
@@ -287,6 +304,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                     atualizaCamposMoeda();
 
                 }
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma parcela onde ja teve um valor pago!");
             }
             
         }
@@ -309,6 +330,34 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             atualizaCamposMoeda();
             BtnCancelar.Enabled = false;
             btnSair.Enabled = true;
+        }
+
+        private void cbCompras_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbCompras.Checked)
+                cbDespesas.Checked = false;
+
+            string tipo = "";
+            if (cbCompras.Checked)
+                tipo = "Compra";
+            if (chbQuitadas.Checked)
+                selecionaContas(dtpInicio.Value, dtpFim.Value, false, tipo);
+            else
+                selecionaContas(dtpInicio.Value, dtpFim.Value, true, tipo);
+        }
+
+        private void cbDespesas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbDespesas.Checked)
+                cbCompras.Checked = false;
+
+            string tipo = "";
+            if (cbCompras.Checked)
+                tipo = "Compra";
+            if (chbQuitadas.Checked)
+                selecionaContas(dtpInicio.Value, dtpFim.Value, false, tipo);
+            else
+                selecionaContas(dtpInicio.Value, dtpFim.Value, true, tipo);
         }
     }
 }

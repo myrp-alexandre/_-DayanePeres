@@ -67,7 +67,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.ttbCodigo);
             this.splitContainer1.Panel1.Controls.Add(this.ttbObservacao);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 

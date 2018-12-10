@@ -14,6 +14,7 @@ namespace HairLumos.Entidades
         private double _valorTotal;
         private string _observacao;
         private Entidades.Pessoa _pessoa;
+        private int codfechamento;
 
         private List<VendaProduto> listVendaProduto;
 
@@ -36,6 +37,7 @@ namespace HairLumos.Entidades
         }
 
         public int Codigo { get; set; }
+        public int CodigoFechamento { get; set; }
         public DateTime Data { get; set; }
         public string Situacao { get; set; }
         public double ValorTotal { get; set; }

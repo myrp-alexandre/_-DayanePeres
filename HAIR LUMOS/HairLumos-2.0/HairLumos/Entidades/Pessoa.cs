@@ -47,17 +47,6 @@ namespace HairLumos.Entidades
 
         public Pessoa()
         {
-            this.Codigo = 0;
-            this.Nome = "";
-            this.DataCadastro = DateTime.Now;
-            this.TipoPessoa = "";
-            this.StatusPessoa = false;
-            this.Observacao = "";
-            this.Fiado = false;
-            this.Email = "";
-            this.Telefone = "";
-            this.Celular = "";
-
         }
 
         public string Erro

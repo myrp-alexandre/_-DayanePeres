@@ -19,6 +19,7 @@ namespace HairLumos.Controller
             venda.ValorTotal = total;
             venda.Observacao = obs;
             venda.ListavendaProdutos = vendaProdutos;
+            venda.CodigoFechamento = 0;
 
             Entidades.Pessoa _pessoa = new Entidades.Pessoa();
             DataTable dtPessoa = new Controller.PessoaController().retornaPessoaCod(codCliente + "");
@@ -89,6 +90,11 @@ namespace HairLumos.Controller
         public DataTable retornaVendaPessoa(int cod)
         {
             return VendaModels.retornaVendaPessoa(cod);
+        }
+
+        public int atualizaFechamento(int cod, int codFechamento)
+        {
+            return VendaModels.atualizaFechamento(cod, codFechamento);
         }
     }
 }

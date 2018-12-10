@@ -29,17 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dgvListaProdutos = new System.Windows.Forms.DataGridView();
-            this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendprod_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendprod_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExcluirServico = new System.Windows.Forms.Button();
-            this.dgvListaServicos = new System.Windows.Forms.DataGridView();
-            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agen_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -74,9 +63,6 @@
             this.ttbCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicos)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -88,115 +74,14 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(799, 636);
+            this.groupBox1.Size = new System.Drawing.Size(799, 452);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fechamento de Atendimento/Venda";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label12);
-            this.groupBox7.Controls.Add(this.label11);
-            this.groupBox7.Controls.Add(this.dgvListaProdutos);
-            this.groupBox7.Controls.Add(this.btnExcluirServico);
-            this.groupBox7.Controls.Add(this.dgvListaServicos);
-            this.groupBox7.Location = new System.Drawing.Point(13, 72);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(780, 187);
-            this.groupBox7.TabIndex = 4;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Serviço/Produto";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 101);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 45;
-            this.label12.Text = "Produto";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 13);
-            this.label11.TabIndex = 44;
-            this.label11.Text = "Serviço";
-            // 
-            // dgvListaProdutos
-            // 
-            this.dgvListaProdutos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvListaProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prod_produto,
-            this.vendprod_qtde,
-            this.vendprod_valor});
-            this.dgvListaProdutos.Location = new System.Drawing.Point(17, 117);
-            this.dgvListaProdutos.Name = "dgvListaProdutos";
-            this.dgvListaProdutos.Size = new System.Drawing.Size(747, 60);
-            this.dgvListaProdutos.TabIndex = 43;
-            // 
-            // prod_produto
-            // 
-            this.prod_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.prod_produto.DataPropertyName = "prod_produto";
-            this.prod_produto.HeaderText = "Produto";
-            this.prod_produto.Name = "prod_produto";
-            // 
-            // vendprod_qtde
-            // 
-            this.vendprod_qtde.DataPropertyName = "vendprod_qtde";
-            this.vendprod_qtde.HeaderText = "Qtde";
-            this.vendprod_qtde.Name = "vendprod_qtde";
-            // 
-            // vendprod_valor
-            // 
-            this.vendprod_valor.DataPropertyName = "vendprod_valor";
-            this.vendprod_valor.HeaderText = "Valor (R$)";
-            this.vendprod_valor.Name = "vendprod_valor";
-            // 
-            // btnExcluirServico
-            // 
-            this.btnExcluirServico.BackColor = System.Drawing.Color.White;
-            this.btnExcluirServico.Location = new System.Drawing.Point(649, 46);
-            this.btnExcluirServico.Name = "btnExcluirServico";
-            this.btnExcluirServico.Size = new System.Drawing.Size(115, 25);
-            this.btnExcluirServico.TabIndex = 39;
-            this.btnExcluirServico.Text = "Excluir Serviço";
-            this.btnExcluirServico.UseVisualStyleBackColor = false;
-            this.btnExcluirServico.Click += new System.EventHandler(this.btnExcluirServico_Click);
-            // 
-            // dgvListaServicos
-            // 
-            this.dgvListaServicos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvListaServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tiposerv_descricao,
-            this.agen_valor});
-            this.dgvListaServicos.Location = new System.Drawing.Point(15, 35);
-            this.dgvListaServicos.Name = "dgvListaServicos";
-            this.dgvListaServicos.Size = new System.Drawing.Size(629, 52);
-            this.dgvListaServicos.TabIndex = 42;
-            // 
-            // tiposerv_descricao
-            // 
-            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
-            this.tiposerv_descricao.HeaderText = "Serviço";
-            this.tiposerv_descricao.Name = "tiposerv_descricao";
-            // 
-            // agen_valor
-            // 
-            this.agen_valor.DataPropertyName = "agen_valor";
-            this.agen_valor.HeaderText = "Valor (R$)";
-            this.agen_valor.Name = "agen_valor";
             // 
             // groupBox4
             // 
@@ -212,7 +97,7 @@
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.mskAcrescimo);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(13, 265);
+            this.groupBox4.Location = new System.Drawing.Point(13, 71);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(780, 367);
             this.groupBox4.TabIndex = 3;
@@ -553,17 +438,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-            this.ClientSize = new System.Drawing.Size(824, 660);
+            this.ClientSize = new System.Drawing.Size(824, 477);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Name = "FecharAtendimento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "H.L - FECHAR ATENDIMENTO";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicos)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -611,17 +492,6 @@
         public System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.DataGridView dgvListaProdutos;
-        public System.Windows.Forms.Button btnExcluirServico;
-        private System.Windows.Forms.DataGridView dgvListaServicos;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_qtde;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agen_valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Forma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
     }

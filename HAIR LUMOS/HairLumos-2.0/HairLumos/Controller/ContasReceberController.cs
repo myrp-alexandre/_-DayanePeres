@@ -66,6 +66,28 @@ namespace HairLumos.Controller
             return cm.gerarContasReceber(cr);
         }
 
+
+        public int gerarContasReceberF(int cod, List<Entidades.Parcela> listaP, Entidades.Pessoa pes)
+        {
+            Controller.VendaController vc = new VendaController();
+            Controller.PessoaController pc = new PessoaController();
+
+            Entidades.Venda v = new Entidades.Venda();
+            Entidades.ContasReceber cr = new Entidades.ContasReceber();
+
+            cr.Comissao = new Entidades.Comissao();
+            cr.Contrato = new Entidades.Contrato();
+            cr.CodigoFechamento = cod;
+            cr.DtVencimento = v.Data;
+            cr.ValorTotal = v.ValorTotal;
+            cr.Obs = "aberta";
+            cr.Venda = v;
+            cr.Pessoaf = pes;
+            cr.Lista = listaP;
+
+            return cm.gerarContasReceber(cr);
+        }
+
         public int gerarContasReceber(Entidades.ContasReceber obj)
         {
 

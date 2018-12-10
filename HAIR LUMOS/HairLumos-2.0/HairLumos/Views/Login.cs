@@ -41,6 +41,11 @@ namespace HairLumos.Views
                 frmMenu menu = new frmMenu(usuarioLogado);
                 menu.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Login ou senha incorretos!");
+                ttbSenha.Text = "";
+            }
         }
 
         private void btnSair_Click_1(object sender, EventArgs e)

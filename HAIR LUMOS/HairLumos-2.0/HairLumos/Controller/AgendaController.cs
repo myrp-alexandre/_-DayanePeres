@@ -155,5 +155,10 @@ namespace HairLumos.Controller
         {
             return _MdlAgenda.retornaServicosCliente(codigo);
         }
+
+        public int atualizaFechamento(Entidades.Agenda agenda)
+        {
+            return _MdlAgenda.atualizaFechamento(agenda);
+        }
     }
 }

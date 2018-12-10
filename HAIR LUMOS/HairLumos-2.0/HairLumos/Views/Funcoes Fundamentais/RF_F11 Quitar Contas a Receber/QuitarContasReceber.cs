@@ -70,7 +70,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
                 Entidades.Usuario _usuario = new Entidades.Usuario();
 
                 double pago = 0;
-                double.TryParse(dgvParcelas.CurrentRow.Cells[3].FormattedValue.ToString(), out pago);
+                pago = Convert.ToDouble(dgvParcelas.CurrentRow.Cells[3].Value.ToString());
                 if (pago > 0)
                 {
                     DialogResult resulta = MessageBox.Show("Deseja realmente fazer o estorno", "caption", MessageBoxButtons.YesNo);

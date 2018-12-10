@@ -22,7 +22,7 @@ namespace HairLumos.Entidades
 
         public Comissao()
         {
-            this.carregaComissao(0, DateTime.Now, 0, 0, 0, string.Empty, string.Empty);
+            //this.carregaComissao(0, DateTime.Now, 0, 0, 0, string.Empty, string.Empty);
         }
 
         public string Erro

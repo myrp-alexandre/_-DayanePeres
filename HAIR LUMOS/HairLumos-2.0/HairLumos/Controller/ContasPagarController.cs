@@ -12,9 +12,9 @@ namespace HairLumos.Controller
             return _MdlCont.gravarLancamentoConta(contasPagar);
         }
 
-        public DataTable retornaPeriodo(DateTime datai, DateTime dataf, bool estado)
+        public DataTable retornaPeriodo(DateTime datai, DateTime dataf, bool estado, string tipo)
         {
-            return _MdlCont.retornaPeriodo(datai, dataf, estado);
+            return _MdlCont.retornaPeriodo(datai, dataf, estado, tipo);
         }
 
         public int retornaMax()

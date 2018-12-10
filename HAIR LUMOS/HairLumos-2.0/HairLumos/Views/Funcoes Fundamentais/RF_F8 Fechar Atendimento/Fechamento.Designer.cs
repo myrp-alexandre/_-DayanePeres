@@ -39,8 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mskTotalServico = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAdcProduto = new System.Windows.Forms.Button();
-            this.btnExcluirProduto = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvListaProdutos = new System.Windows.Forms.DataGridView();
@@ -49,11 +47,12 @@
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcluirServico = new System.Windows.Forms.Button();
             this.dgvListaServicos = new System.Windows.Forms.DataGridView();
-            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agen_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
+            this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agen_dataagendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agen_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -123,8 +122,6 @@
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Controls.Add(this.mskTotalServico);
             this.groupBox7.Controls.Add(this.label2);
-            this.groupBox7.Controls.Add(this.btnAdcProduto);
-            this.groupBox7.Controls.Add(this.btnExcluirProduto);
             this.groupBox7.Controls.Add(this.label12);
             this.groupBox7.Controls.Add(this.label11);
             this.groupBox7.Controls.Add(this.dgvListaProdutos);
@@ -186,26 +183,6 @@
             this.label2.TabIndex = 48;
             this.label2.Text = "Total Serviço R$";
             this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // btnAdcProduto
-            // 
-            this.btnAdcProduto.BackColor = System.Drawing.Color.White;
-            this.btnAdcProduto.Location = new System.Drawing.Point(649, 221);
-            this.btnAdcProduto.Name = "btnAdcProduto";
-            this.btnAdcProduto.Size = new System.Drawing.Size(104, 25);
-            this.btnAdcProduto.TabIndex = 47;
-            this.btnAdcProduto.Text = "Adicionar Produto";
-            this.btnAdcProduto.UseVisualStyleBackColor = false;
-            // 
-            // btnExcluirProduto
-            // 
-            this.btnExcluirProduto.BackColor = System.Drawing.Color.White;
-            this.btnExcluirProduto.Location = new System.Drawing.Point(649, 190);
-            this.btnExcluirProduto.Name = "btnExcluirProduto";
-            this.btnExcluirProduto.Size = new System.Drawing.Size(104, 25);
-            this.btnExcluirProduto.TabIndex = 46;
-            this.btnExcluirProduto.Text = "Excluir Produto";
-            this.btnExcluirProduto.UseVisualStyleBackColor = false;
             // 
             // label12
             // 
@@ -274,24 +251,12 @@
             this.dgvListaServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tiposerv_descricao,
+            this.agen_dataagendamento,
             this.agen_valor});
             this.dgvListaServicos.Location = new System.Drawing.Point(15, 35);
             this.dgvListaServicos.Name = "dgvListaServicos";
             this.dgvListaServicos.Size = new System.Drawing.Size(629, 127);
             this.dgvListaServicos.TabIndex = 42;
-            // 
-            // tiposerv_descricao
-            // 
-            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
-            this.tiposerv_descricao.HeaderText = "Serviço";
-            this.tiposerv_descricao.Name = "tiposerv_descricao";
-            // 
-            // agen_valor
-            // 
-            this.agen_valor.DataPropertyName = "agen_valor";
-            this.agen_valor.HeaderText = "Valor (R$)";
-            this.agen_valor.Name = "agen_valor";
             // 
             // btnSair
             // 
@@ -325,6 +290,26 @@
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
+            // tiposerv_descricao
+            // 
+            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
+            this.tiposerv_descricao.HeaderText = "Serviço";
+            this.tiposerv_descricao.Name = "tiposerv_descricao";
+            // 
+            // agen_dataagendamento
+            // 
+            this.agen_dataagendamento.DataPropertyName = "agen_dataagendamento";
+            this.agen_dataagendamento.HeaderText = "Data Serviço";
+            this.agen_dataagendamento.Name = "agen_dataagendamento";
+            this.agen_dataagendamento.Width = 120;
+            // 
+            // agen_valor
+            // 
+            this.agen_valor.DataPropertyName = "agen_valor";
+            this.agen_valor.HeaderText = "Valor (R$)";
+            this.agen_valor.Name = "agen_valor";
             // 
             // Fechamento
             // 
@@ -362,21 +347,20 @@
         private System.Windows.Forms.DataGridView dgvListaProdutos;
         public System.Windows.Forms.Button btnExcluirServico;
         private System.Windows.Forms.DataGridView dgvListaServicos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agen_valor;
         private System.Windows.Forms.TextBox ttbCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox mskTotalProduto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox mskTotalServico;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Button btnAdcProduto;
-        public System.Windows.Forms.Button btnExcluirProduto;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mskTotalGeral;
         public System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agen_dataagendamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agen_valor;
     }
 }

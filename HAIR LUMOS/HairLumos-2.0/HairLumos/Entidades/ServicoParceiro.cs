@@ -25,7 +25,7 @@ namespace HairLumos.Entidades
 
         public ServicoParceiro()
         {
-            this.CarregaServicoParceiro(null, null, 0, 0, string.Empty,false);
+            //this.CarregaServicoParceiro(null, null, 0, 0, string.Empty,false);
         }
 
         public PessoaJuridica PessoaJuridica

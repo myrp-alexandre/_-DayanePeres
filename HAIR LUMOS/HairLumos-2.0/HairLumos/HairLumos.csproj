@@ -71,6 +71,7 @@
     <Compile Include="Controller\ContasPagarController.cs" />
     <Compile Include="Controller\ContasReceberController.cs" />
     <Compile Include="Controller\DespesaController.cs" />
+    <Compile Include="Controller\FechamentoController.cs" />
     <Compile Include="Controller\PacoteController.cs" />
     <Compile Include="Controller\PagamentoController.cs" />
     <Compile Include="Controller\ParametrizacaoController.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Models\ContasPagarModels.cs" />
     <Compile Include="Models\ContasReceberModels.cs" />
     <Compile Include="Models\DespesaModels.cs" />
+    <Compile Include="Models\FechamentoModels.cs" />
     <Compile Include="Models\PacoteModels.cs" />
     <Compile Include="Models\PagamentoModels.cs" />
     <Compile Include="Models\ParametrizacaoModels.cs" />

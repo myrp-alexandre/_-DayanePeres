@@ -15,9 +15,18 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
         private List<Entidades.Parcela> listaParcelas = new List<Entidades.Parcela>();
         Controller.ContasReceberController crc = new Controller.ContasReceberController();
         private int cod = 0;
-        public GerarContasReceber()
+        private int codFechamento = 0;
+        private string tela = "";
+        private Entidades.Pessoa pes = new Entidades.Pessoa();
+
+        public GerarContasReceber(int codFechamento, double total, string tela, Entidades.Pessoa pessoa)
         {
             InitializeComponent();
+            carregaTelaF(codFechamento, total);
+            this.codFechamento = codFechamento;
+            mskValorTotoalPagar.Text = "0.00";
+            this.tela = tela;
+            this.pes = pessoa;
         }
 
         public GerarContasReceber(int cod, double total)
@@ -26,6 +35,12 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             carregaTela(cod, total);
             this.cod = cod;
             mskValorTotoalPagar.Text = "0.00";
+        }
+
+        private void carregaTelaF(int codFechamento, double total)
+        {
+            mskValorTotal.Text = total + "";
+            mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
         }
 
         private void carregaTela(int cod, double total)
@@ -153,28 +168,108 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            if (listaParcelas.Count > 0)
+            if (!String.IsNullOrEmpty(tela))
             {
-                int rest = crc.gerarContasReceber(this.cod, listaParcelas);
-                if (rest > 0)
+                if (listaParcelas.Count > 0)
                 {
-                    MessageBox.Show("Parcelas geradas com sucesso!");
-                    if(listaParcelas.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                    int rest = crc.gerarContasReceberF(this.codFechamento, listaParcelas, this.pes);
+                    if (rest > 0)
                     {
-                        Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
-                        quitar.ShowDialog();
+                        MessageBox.Show("Parcelas geradas com sucesso!");
+                        if (listaParcelas.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                        {
+                            Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
+                            quitar.ShowDialog();
+                            
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao gerar parcelas!");
                     }
                 }
-                else
+            }
+            else
+            {
+                if (listaParcelas.Count > 0)
                 {
-                    MessageBox.Show("Erro ao gerar parcelas!");
+                    int rest = crc.gerarContasReceber(this.cod, listaParcelas);
+                    if (rest > 0)
+                    {
+                        MessageBox.Show("Parcelas geradas com sucesso!");
+                        if (listaParcelas.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                        {
+                            Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
+                            quitar.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao gerar parcelas!");
+                    }
                 }
             }
+            
         }
 
         private void mskValorParcela_Leave(object sender, EventArgs e)
         {
             mskValorParcela.Text = Convert.ToDouble(mskValorParcela.Text).ToString("###,###,##0.00");
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult resulta = MessageBox.Show("Deseja mesmo cancelar, se cancelar, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
+            if (resulta == DialogResult.Yes)
+            {
+                cancelar(sender, e);
+                Close();
+            }
+        }
+
+        private void cancelar(object sender, EventArgs e)
+        {
+            double total = Convert.ToDouble(mskValorTotal.Text.ToString());
+            Controller.CaixaController cxc = new Controller.CaixaController();
+            Entidades.Caixa cx = new Entidades.Caixa();
+            Entidades.Parcela parc = new Entidades.Parcela();
+            DataTable dtCaixa = cxc.retornacaixaAbetoDia();
+
+            if (dtCaixa != null && dtCaixa.Rows.Count > 0)
+            {
+                DataRow drCaixa = dtCaixa.Rows[0];
+                cx.CodCaixa = Convert.ToInt32(drCaixa["codcaixa"].ToString());
+                cx.DataAbertura = Convert.ToDateTime(drCaixa["caixa_datahoraabertura"].ToString());
+                cx.DataFechamento = Convert.ToDateTime(drCaixa["caixa_datahorafecha"].ToString());
+                cx.SaldoInicial = Convert.ToDouble(drCaixa["caixa_saldoinicial"].ToString());
+                cx.Troco = Convert.ToDouble(drCaixa["caixa_troco"].ToString());
+                cx.TotalEntrada = Convert.ToDouble(drCaixa["caixa_totalentra"].ToString());
+                cx.TotalSaida = Convert.ToDouble(drCaixa["caixa_totalsaida"].ToString());
+
+            }      
+            parc = new Entidades.Parcela();
+            parc.Codigo = 1;
+            parc.DataPagamento = DateTime.MinValue;
+            parc.DataVencimento = dtpDataVencimento.Value.AddDays(30);
+            parc.ValorPago = 0;
+            parc.ValorReceber = total;
+            parc.Forma = new Entidades.FormaPagamento();
+            parc.Caixa = cx;
+            listaParcelas.Add(parc);
+            carregaDGV(listaParcelas);
+
+            btnFinalizar_Click(sender, e);
+            
+        }
+
+        private void GerarContasReceber_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult resulta = MessageBox.Show("Deseja mesmo sair, se sair, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
+            if (resulta == DialogResult.Yes)
+            {
+                cancelar(sender, e);
+                Close();
+            }
         }
     }
 }

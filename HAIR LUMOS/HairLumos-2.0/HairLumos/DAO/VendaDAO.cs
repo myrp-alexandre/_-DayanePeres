@@ -31,8 +31,8 @@ namespace HairLumos.DAO
 
 
                 //Fazer o Insert da pessoa
-                strSQL = "INSERT INTO tbvenda(vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa)";
-                strSQL += " VALUES (@vend_datavenda, @vend_situacao, @vend_valortotal, @vend_obs, @codpessoa); SELECT MAX(codvenda) FROM tbvenda;";
+                strSQL = "INSERT INTO tbvenda(vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa, codfechamento)";
+                strSQL += " VALUES (@vend_datavenda, @vend_situacao, @vend_valortotal, @vend_obs, @codpessoa, @codfechamento); SELECT MAX(codvenda) FROM tbvenda;";
                 //objConexao.SqlCmd = new NpgsqlCommand(strSQL);
 
                 objConexao.SqlCmd.CommandText = strSQL;
@@ -41,6 +41,8 @@ namespace HairLumos.DAO
                 objConexao.SqlCmd.Parameters.AddWithValue("@vend_valortotal", venda.ValorTotal);
                 objConexao.SqlCmd.Parameters.AddWithValue("@vend_obs", venda.Observacao);
                 objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", venda.Pessoa.Codigo);
+                objConexao.SqlCmd.Parameters.AddWithValue("@codfechamento", venda.CodigoFechamento);
+
 
 
                 objConexao.iniciarTransacao();
@@ -53,7 +55,7 @@ namespace HairLumos.DAO
                 {
                     return -1;
                 }
-                
+
                 if (venda.ListavendaProdutos != null)
                 {
 
@@ -74,7 +76,7 @@ namespace HairLumos.DAO
                             return -1;
                     }
 
-                    
+
 
                 }
 
@@ -100,7 +102,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
             int cont = 0;
 
-            _sql = "SELECT MAX (codvenda)"+
+            _sql = "SELECT MAX (codvenda)" +
                    " FROM tbvenda";
 
             try
@@ -126,9 +128,9 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codvenda, vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa "+
+            _sql = "SELECT codvenda, vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa, codfechamento " +
                     "FROM tbvenda " +
-                    "WHERE codvenda = "+ cod;
+                    "WHERE codvenda = " + cod;
 
 
             try
@@ -142,6 +144,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@vend_valortotal");
                 cmd.Parameters.AddWithValue("@vend_obs");
                 cmd.Parameters.AddWithValue("@codpessoa");
+                cmd.Parameters.AddWithValue("@codfechamento");
 
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
@@ -160,9 +163,9 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT Venda.vend_valortotal, Prod.prod_produto, VenProd.vendProd_qtde,VenProd.vendProd_valor "+
-                   "FROM tbvenda as Venda "+
-                   "INNER JOIN tbvendaproduto as VenProd on Venda.codVenda = VenProd.codvenda "+
+            _sql = "SELECT Venda.vend_valortotal, Prod.prod_produto, VenProd.vendProd_qtde,VenProd.vendProd_valor " +
+                   "FROM tbvenda as Venda " +
+                   "INNER JOIN tbvendaproduto as VenProd on Venda.codVenda = VenProd.codvenda " +
                    "INNER JOIN tbProduto as Prod on VenProd.codproduto = Prod.codproduto " +
                    "WHERE Venda.codVenda = " + cod;
 
@@ -198,7 +201,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
             _sql = "SELECT v.codvenda, v.codproduto, v.vendprod_qtde, v.vendprod_valor, p.prod_produto " +
-                      "FROM tbvendaproduto v inner join tbproduto p on p.codproduto = v.codproduto "+
+                      "FROM tbvendaproduto v inner join tbproduto p on p.codproduto = v.codproduto " +
                       "where v.codvenda = " + cod;
 
             //Venda.codvenda, Prod.codProduto, 
@@ -213,7 +216,7 @@ namespace HairLumos.DAO
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader
-               
+
             }
             catch (Exception e)
             {
@@ -250,9 +253,9 @@ namespace HairLumos.DAO
         {
             DataTable dt = new DataTable();
 
-            _sql = "SELECT codvenda, vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa " +
+            _sql = "SELECT codvenda, vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa, codfechamento " +
                     "FROM tbvenda " +
-                    "WHERE vend_situacao = 'aberta' and codpessoa = "+cod +" and codvenda not in (select codvenda from tbcontasreceber)";
+                    "WHERE vend_situacao = 'aberta' and codpessoa = " + cod + " and codvenda not in (select codvenda from tbcontasreceber)";
 
 
             try
@@ -266,6 +269,7 @@ namespace HairLumos.DAO
                 cmd.Parameters.AddWithValue("@vend_valortotal");
                 cmd.Parameters.AddWithValue("@vend_obs");
                 cmd.Parameters.AddWithValue("@codpessoa");
+                cmd.Parameters.AddWithValue("@codfechamento");
 
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
@@ -278,6 +282,29 @@ namespace HairLumos.DAO
                 throw new SystemException(e + "Erro ao retornar Venda");
             }
             return dt;
+        }
+
+        public int atualizaFechamento(int cod, int codFechamento)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+            try
+            {
+
+                _sql = "update tbvenda set codfechamento = @fechamento where codvenda = @codigo";
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@fechamento", codFechamento);
+                cmd.Parameters.AddWithValue("@codigo", cod);
+
+
+                cmd.ExecuteNonQuery();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
         }
     }
 }

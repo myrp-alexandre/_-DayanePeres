@@ -66,7 +66,7 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
             _sql = "SELECT coddespesa, desp_descricao, desp_status" +
-                        " FROM tbdespesa; ";
+                        " FROM tbdespesa WHERE desp_descricao <> 'Compra' and desp_descricao <> 'Comissão'; ";
 
             // int intCodigo = 0;
             //int intCodigo = 0;

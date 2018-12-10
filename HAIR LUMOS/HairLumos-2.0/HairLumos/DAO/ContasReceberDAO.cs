@@ -124,7 +124,10 @@ namespace HairLumos.DAO
                     objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", obj.Pessoaf.Codigo);
                 else
                     objConexao.SqlCmd.Parameters.AddWithValue("@codpessoa", NpgsqlTypes.NpgsqlDbType.Integer, 0);
-                objConexao.SqlCmd.Parameters.AddWithValue("@codfiado", NpgsqlTypes.NpgsqlDbType.Integer, 0);
+                if(obj.CodigoFechamento>0)
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codfiado", obj.CodigoFechamento);
+                else
+                    objConexao.SqlCmd.Parameters.AddWithValue("@codfiado", NpgsqlTypes.NpgsqlDbType.Integer, 0);
 
 
                 objConexao.iniciarTransacao();

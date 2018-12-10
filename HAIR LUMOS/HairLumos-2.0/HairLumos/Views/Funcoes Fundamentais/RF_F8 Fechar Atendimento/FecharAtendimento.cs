@@ -20,6 +20,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
         private List<Entidades.Agenda> listaAgenda = new List<Entidades.Agenda>();
         public int codConta = 0;
         public int codVenda = 0;
+        public int codFechamento = 0;
         private Entidades.Parcela parct = new Entidades.Parcela();
 
         public string quemChamou { get; set; }
@@ -34,8 +35,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
         public FecharAtendimento(int codC, int codP)
         {
             InitializeComponent();
-            dgvListaProdutos.AutoGenerateColumns = false;
-            dgvListaServicos.AutoGenerateColumns = false;
             dgvformasPagamento.AutoGenerateColumns = false;
             CarregaFormasPagamento();
             carregaTela(codC, codP);
@@ -98,12 +97,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
                     venda.Situacao = drVenda["vend_situacao"].ToString();
                     venda.ValorTotal = Convert.ToDouble(drVenda["vend_valortotal"].ToString());
                     venda.Observacao = drVenda["vend_obs"].ToString();
+                    venda.CodigoFechamento = Convert.ToInt32(drVenda["codfechamento"].ToString());
                     venda.Pessoa = _pessoa;
                     this.codVenda = venda.Codigo;
+                    this.codFechamento = venda.CodigoFechamento;
                 }
                 cr.Venda = venda;
                 DataTable dtProdutosVenda = vc.retornaProdutos(venda.Codigo);
-                carregaGridProduto(dtProdutosVenda);
+                // carregaGridProduto(dtProdutosVenda);
 
                 DataTable dtComissao = cmc.retornaComissao(Convert.ToInt32(drContasRec["codcomissao"].ToString()));
                 if(dtComissao!=null && dtComissao.Rows.Count > 0)
@@ -192,7 +193,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
                 if(dtServicos!=null && dtServicos.Rows.Count > 0)
                 {
                     convertLista(dtServicos);
-                    carregaGridServico(dtServicos);
+                    //carregaGridServico(dtServicos);
                 }
                 mskSubtotal.Text = somaSubtotal(dtServicos)+ this.parct.ValorReceber + "";
                 mskSubtotal.Text = Convert.ToDouble(mskSubtotal.Text).ToString("###,###,##0.00");
@@ -268,32 +269,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
                 this.cbbForma.DataSource = dtFormas;
             }
         }
-
-
-        private void DGVMoeda()
-        {
-            if(dgvListaProdutos.Rows.Count > 0)
-                this.dgvListaProdutos.Columns["vendprod_valor"].DefaultCellStyle.Format = "c";
-
-        }
-
-        private void carregaGridProduto(DataTable dt)
-        {
-            BindingSource bd = new BindingSource();
-            bd.DataSource = dt;
-            dgvListaProdutos.DataSource = bd;
-            dgvListaProdutos.Refresh();
-            //DGVMoeda();
-        }
-
-        private void carregaGridServico(DataTable dt)
-        {
-            BindingSource bd = new BindingSource();
-            bd.DataSource = dt;
-            dgvListaServicos.DataSource = bd;
-            dgvListaServicos.Refresh();
-            //DGVMoeda();
-        }
+        
 
         private void pesquisaVendaProduto()
         {
@@ -327,7 +303,6 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
                                 //Entidades.Venda venda = new Entidades.Venda();
                                 vendaProduto = new Entidades.VendaProduto();
                                 //DataRow drVendProd = dtVendProd.Rows[i];
-                                carregaGridProduto(dtVendProd);
                                 mskTotal.Text = dr["vend_valortotal"].ToString();
                             }
                             mskTotal.Text = dr["vend_valortotal"].ToString();
@@ -504,64 +479,131 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
                 int i = 0;
                 if (status.Equals("fechada"))
                 {
-                    
-                    if (listaAgenda!=null && listaAgenda.Count > 0)
+
+                    if (this.codFechamento > 0)
                     {
-                        
-                        bool teste = false;
-                        while (i<listaAgenda.Count && !teste)
+                        if (crc.verificaParcelas(this.codConta))
                         {
-                       
-                            listaAgenda.ElementAt(i).Status = status;
-                            int rest = ac.atualizaStatus(listaAgenda.ElementAt(i));
-                            if (rest > 0)
-                                i++;
+                            if (listaAgenda != null && listaAgenda.Count > 0)
+                            {
+
+                                bool teste = false;
+                                while (i < listaAgenda.Count && !teste)
+                                {
+
+                                    listaAgenda.ElementAt(i).Status = status;
+                                    int rest = ac.atualizaStatus(listaAgenda.ElementAt(i));
+                                    if (rest > 0)
+                                        i++;
+                                    else
+                                        teste = true;
+                                }
+                            }
+                            if (i < listaAgenda.Count)
+                            {
+                                MessageBox.Show("Erro ao atualizar serviços!");
+                            }
                             else
-                                teste = true;
+                            {
+
+                                this.parct.DataPagamento = DateTime.Now;
+                                if (tot > rec)
+                                    this.parct.ValorPago = rec;
+                                else
+                                    this.parct.ValorPago = tot;
+                                this.parct.Forma = listapag.ElementAt(0).Forma;
+                                int ver = crc.realizarRecebimento(this.parct, this.codConta);
+                                if (ver <= 0)
+                                {
+                                    MessageBox.Show("Erro ao receber parcela");
+                                }
+                                else
+                                {
+                                    //int per = crc.atualizaStatus(this.codConta, status);
+
+                                    if (crc.verificaParcelas(this.codConta))
+                                    {
+                                        int per = crc.atualizaStatus(this.codConta, status);
+                                        if (per > 0)
+                                        {
+                                            int tes = vc.atualizaStatus(this.codVenda, status);
+                                            if (tes > 0)
+                                            {
+                                                MessageBox.Show("Conta recebida com sucesso!");
+                                                limpatela();
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Erro ao receber conta!!!");
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
                         }
-                    }
-                    if (i < listaAgenda.Count)
-                    {
-                        MessageBox.Show("Erro ao atualizar serviços!");
                     }
                     else
                     {
-                        
-                        this.parct.DataPagamento = DateTime.Now;
-                        if (tot > rec)
-                            this.parct.ValorPago = rec;
-                        else
-                            this.parct.ValorPago = tot;
-                        this.parct.Forma = listapag.ElementAt(0).Forma;
-                        int ver = crc.realizarRecebimento(this.parct, this.codConta);
-                        if (ver <= 0)
+                        if (listaAgenda != null && listaAgenda.Count > 0)
                         {
-                            MessageBox.Show("Erro ao receber parcela");
+
+                            bool teste = false;
+                            while (i < listaAgenda.Count && !teste)
+                            {
+
+                                listaAgenda.ElementAt(i).Status = status;
+                                int rest = ac.atualizaStatus(listaAgenda.ElementAt(i));
+                                if (rest > 0)
+                                    i++;
+                                else
+                                    teste = true;
+                            }
+                        }
+                        if (i < listaAgenda.Count)
+                        {
+                            MessageBox.Show("Erro ao atualizar serviços!");
                         }
                         else
                         {
-                            //int per = crc.atualizaStatus(this.codConta, status);
-                            if (crc.verificaParcelas(this.codConta))
+
+                            this.parct.DataPagamento = DateTime.Now;
+                            if (tot > rec)
+                                this.parct.ValorPago = rec;
+                            else
+                                this.parct.ValorPago = tot;
+                            this.parct.Forma = listapag.ElementAt(0).Forma;
+                            int ver = crc.realizarRecebimento(this.parct, this.codConta);
+                            if (ver <= 0)
                             {
-                                int per = crc.atualizaStatus(this.codConta, status);
-                                if (per > 0)
+                                MessageBox.Show("Erro ao receber parcela");
+                            }
+                            else
+                            {
+                                //int per = crc.atualizaStatus(this.codConta, status);
+
+                                if (crc.verificaParcelas(this.codConta))
                                 {
-                                    int tes = vc.atualizaStatus(this.codVenda, status);
-                                    if (tes > 0)
+                                    int per = crc.atualizaStatus(this.codConta, status);
+                                    if (per > 0)
                                     {
-                                        MessageBox.Show("Conta recebida com sucesso!");
-                                        limpatela();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Erro ao receber conta!!!");
+                                        int tes = vc.atualizaStatus(this.codVenda, status);
+                                        if (tes > 0)
+                                        {
+                                            MessageBox.Show("Conta recebida com sucesso!");
+                                            limpatela();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Erro ao receber conta!!!");
+                                        }
                                     }
                                 }
                             }
+
                         }
-                        
                     }
-                }
+                } 
                 else
                 {
                     this.parct.DataPagamento = DateTime.Now;
@@ -590,10 +632,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
                     }
                 }
 
-                
-
-
-
+                MessageBox.Show("Fechamento realizado com sucesso!");
+                limpatela();
+                Close();
             }
         }
 
@@ -679,23 +720,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
             return valor;
         }
 
-        private void btnExcluirServico_Click(object sender, EventArgs e)
-        {
-            if (dgvListaServicos.CurrentRow.Index > -1)
-            {
-                listaAgenda.RemoveAt(dgvListaServicos.CurrentRow.Index);
-                double valor = Convert.ToDouble(dgvListaServicos.Rows[dgvListaServicos.CurrentRow.Index].Cells[1].Value);
-                double sub = Convert.ToDouble(mskSubtotal.Text.ToString());
-                double tot = Convert.ToDouble(mskTotal.Text.ToString());
-                dgvListaServicos.Rows.RemoveAt(dgvListaServicos.CurrentRow.Index);
-                mskSubtotal.Text = (sub - valor) + "";
-                mskSubtotal.Text = Convert.ToDouble(mskSubtotal.Text).ToString("###,###,##0.00");
-
-                mskTotal.Text = (tot - valor) + "";
-                mskTotal.Text = Convert.ToDouble(mskTotal.Text).ToString("###,###,##0.00");
-                
-            }
-        }
+        
 
         private void limpatela()
         {

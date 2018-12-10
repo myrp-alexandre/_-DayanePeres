@@ -35,5 +35,10 @@ namespace HairLumos.Models
         {
             return _DAOAgenda.retornaServicosCliente(codigo);
         }
+
+        public int atualizaFechamento(Entidades.Agenda agenda)
+        {
+            return _DAOAgenda.atualizaFiado(agenda);
+        }
     }
 }

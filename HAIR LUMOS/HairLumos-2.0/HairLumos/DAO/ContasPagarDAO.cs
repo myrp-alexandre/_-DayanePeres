@@ -119,7 +119,7 @@ namespace HairLumos.DAO
             return dt;
         }
 
-        public DataTable retornaContasPeriodo(DateTime datai, DateTime dataf, bool estado)
+        public DataTable retornaContasPeriodo(DateTime datai, DateTime dataf, bool estado, string tipo)
         {
             DataTable dt = new DataTable();
             if(estado)
@@ -127,18 +127,26 @@ namespace HairLumos.DAO
                      + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao " +
                      "FROM tbcontaspagar t " +
                      "inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento " +
-                     "BETWEEN @datai AND @dataa and t.contpag_valorpago = 0;";
+                     "BETWEEN @datai AND @dataa and t.contpag_valorpago = 0 and p.desp_descricao <> 'Comissão'";
             else
                 _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
                                  + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao " +
                                  "FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento " +
-                                 "BETWEEN @datai AND @dataa;";
+                                 "BETWEEN @datai AND @dataa and p.desp_descricao <> 'Comissão'";
+            if (tipo.Equals("Compra"))
+            {
+                _sql += " and p.desp_descricao = 'Compra'";
+            }
+            else
+            {
+                _sql += " and p.desp_descricao <> 'Compra'";
+            }
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@datai", datai);
+                cmd.Parameters.AddWithValue("@datai", datai.AddDays(-1));
                 cmd.Parameters.AddWithValue("@dataa", dataf);
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
@@ -272,7 +280,7 @@ namespace HairLumos.DAO
 
             _sql = "SELECT ContasPagar.contpag_datavencimento, ContasPagar.contpag_valortotal, Despesa.desp_descricao, Despesa.coddespesa " +
                    "FROM tbcontaspagar as ContasPagar " +
-                   "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa where Despesa.coddespesa <> 2";
+                   "INNER JOIN tbDespesa as Despesa on ContasPagar.coddespesa = Despesa.coddespesa where Despesa.desp_descricao <> 'Compra' and Despesa.desp_descricao <> 'Comissão'";
 
             try
             {

@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelVencido = new System.Windows.Forms.Label();
             this.ttbTotalPago = new System.Windows.Forms.MaskedTextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.ttbTotalVencido = new System.Windows.Forms.MaskedTextBox();
             this.ttbTotalPagar = new System.Windows.Forms.MaskedTextBox();
+            this.labelEmAberto = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.labelPago = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,18 +61,15 @@
             this.btnEstornar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.labelVencido = new System.Windows.Forms.Label();
-            this.labelPago = new System.Windows.Forms.Label();
-            this.labelEmAberto = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbCompras = new System.Windows.Forms.CheckBox();
+            this.cbDespesas = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -94,6 +96,37 @@
             this.splitContainer1.SplitterDistance = 390;
             this.splitContainer1.TabIndex = 3;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.labelVencido);
+            this.groupBox2.Controls.Add(this.ttbTotalPago);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.ttbTotalVencido);
+            this.groupBox2.Controls.Add(this.ttbTotalPagar);
+            this.groupBox2.Controls.Add(this.labelEmAberto);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.labelPago);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(20, 314);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(759, 65);
+            this.groupBox2.TabIndex = 53;
+            this.groupBox2.TabStop = false;
+            // 
+            // labelVencido
+            // 
+            this.labelVencido.AutoSize = true;
+            this.labelVencido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVencido.Image = global::HairLumos.Properties.Resources._vermelho;
+            this.labelVencido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelVencido.Location = new System.Drawing.Point(171, 39);
+            this.labelVencido.Name = "labelVencido";
+            this.labelVencido.Size = new System.Drawing.Size(66, 15);
+            this.labelVencido.TabIndex = 52;
+            this.labelVencido.Text = "     Vencido";
+            this.labelVencido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // ttbTotalPago
             // 
             this.ttbTotalPago.Enabled = false;
@@ -104,6 +137,16 @@
             this.ttbTotalPago.Enter += new System.EventHandler(this.ttbTotalPago_Enter);
             this.ttbTotalPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPago_KeyPress);
             this.ttbTotalPago.Leave += new System.EventHandler(this.ttbTotalPago_Leave);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Location = new System.Drawing.Point(10, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "Legenda:";
             // 
             // ttbTotalVencido
             // 
@@ -127,6 +170,19 @@
             this.ttbTotalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttbTotalPagar_KeyPress);
             this.ttbTotalPagar.Leave += new System.EventHandler(this.ttbTotalPagar_Leave);
             // 
+            // labelEmAberto
+            // 
+            this.labelEmAberto.AutoSize = true;
+            this.labelEmAberto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmAberto.Image = global::HairLumos.Properties.Resources._azul;
+            this.labelEmAberto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelEmAberto.Location = new System.Drawing.Point(10, 39);
+            this.labelEmAberto.Name = "labelEmAberto";
+            this.labelEmAberto.Size = new System.Drawing.Size(79, 15);
+            this.labelEmAberto.TabIndex = 50;
+            this.labelEmAberto.Text = "     Em aberto";
+            this.labelEmAberto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -136,6 +192,19 @@
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 41;
             this.label5.Text = "Total Vencido:";
+            // 
+            // labelPago
+            // 
+            this.labelPago.AutoSize = true;
+            this.labelPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPago.Image = global::HairLumos.Properties.Resources._verde;
+            this.labelPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelPago.Location = new System.Drawing.Point(97, 39);
+            this.labelPago.Name = "labelPago";
+            this.labelPago.Size = new System.Drawing.Size(51, 15);
+            this.labelPago.TabIndex = 51;
+            this.labelPago.Text = "     Pago";
+            this.labelPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -159,6 +228,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbDespesas);
+            this.groupBox1.Controls.Add(this.cbCompras);
             this.groupBox1.Controls.Add(this.chbQuitadas);
             this.groupBox1.Controls.Add(this.dtpFim);
             this.groupBox1.Controls.Add(this.label2);
@@ -365,72 +436,29 @@
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
-            // label11
+            // cbCompras
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(10, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 13);
-            this.label11.TabIndex = 49;
-            this.label11.Text = "Legenda:";
+            this.cbCompras.AutoSize = true;
+            this.cbCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCompras.Location = new System.Drawing.Point(505, 38);
+            this.cbCompras.Name = "cbCompras";
+            this.cbCompras.Size = new System.Drawing.Size(76, 19);
+            this.cbCompras.TabIndex = 39;
+            this.cbCompras.Text = "Compras";
+            this.cbCompras.UseVisualStyleBackColor = true;
+            this.cbCompras.CheckedChanged += new System.EventHandler(this.cbCompras_CheckedChanged);
             // 
-            // labelVencido
+            // cbDespesas
             // 
-            this.labelVencido.AutoSize = true;
-            this.labelVencido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVencido.Image = global::HairLumos.Properties.Resources._vermelho;
-            this.labelVencido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelVencido.Location = new System.Drawing.Point(171, 39);
-            this.labelVencido.Name = "labelVencido";
-            this.labelVencido.Size = new System.Drawing.Size(66, 15);
-            this.labelVencido.TabIndex = 52;
-            this.labelVencido.Text = "     Vencido";
-            this.labelVencido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelPago
-            // 
-            this.labelPago.AutoSize = true;
-            this.labelPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPago.Image = global::HairLumos.Properties.Resources._verde;
-            this.labelPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelPago.Location = new System.Drawing.Point(97, 39);
-            this.labelPago.Name = "labelPago";
-            this.labelPago.Size = new System.Drawing.Size(51, 15);
-            this.labelPago.TabIndex = 51;
-            this.labelPago.Text = "     Pago";
-            this.labelPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelEmAberto
-            // 
-            this.labelEmAberto.AutoSize = true;
-            this.labelEmAberto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmAberto.Image = global::HairLumos.Properties.Resources._azul;
-            this.labelEmAberto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelEmAberto.Location = new System.Drawing.Point(10, 39);
-            this.labelEmAberto.Name = "labelEmAberto";
-            this.labelEmAberto.Size = new System.Drawing.Size(79, 15);
-            this.labelEmAberto.TabIndex = 50;
-            this.labelEmAberto.Text = "     Em aberto";
-            this.labelEmAberto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.labelVencido);
-            this.groupBox2.Controls.Add(this.ttbTotalPago);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.ttbTotalVencido);
-            this.groupBox2.Controls.Add(this.ttbTotalPagar);
-            this.groupBox2.Controls.Add(this.labelEmAberto);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.labelPago);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(20, 314);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(759, 65);
-            this.groupBox2.TabIndex = 53;
-            this.groupBox2.TabStop = false;
+            this.cbDespesas.AutoSize = true;
+            this.cbDespesas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDespesas.Location = new System.Drawing.Point(587, 38);
+            this.cbDespesas.Name = "cbDespesas";
+            this.cbDespesas.Size = new System.Drawing.Size(120, 19);
+            this.cbDespesas.TabIndex = 40;
+            this.cbDespesas.Text = "Outras Despesas";
+            this.cbDespesas.UseVisualStyleBackColor = true;
+            this.cbDespesas.CheckedChanged += new System.EventHandler(this.cbDespesas_CheckedChanged);
             // 
             // QuitarDespesa
             // 
@@ -447,11 +475,11 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -491,5 +519,7 @@
         private System.Windows.Forms.Label labelPago;
         private System.Windows.Forms.Label labelEmAberto;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox cbDespesas;
+        private System.Windows.Forms.CheckBox cbCompras;
     }
 }
