@@ -300,5 +300,10 @@ namespace HairLumos
             Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.Fechamento fechamento = new Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.Fechamento();
             fechamento.ShowDialog();
         }
+
+        private void manualDoUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\Manual Usuario.pdf");
+        }
     }
 }

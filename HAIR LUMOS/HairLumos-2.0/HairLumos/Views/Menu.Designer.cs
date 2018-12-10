@@ -678,6 +678,7 @@
             this.manualDoUsuárioToolStripMenuItem.Name = "manualDoUsuárioToolStripMenuItem";
             this.manualDoUsuárioToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.manualDoUsuárioToolStripMenuItem.Text = "Manual do Usuário";
+            this.manualDoUsuárioToolStripMenuItem.Click += new System.EventHandler(this.manualDoUsuárioToolStripMenuItem_Click);
             // 
             // bACKUPToolStripMenuItem
             // 
