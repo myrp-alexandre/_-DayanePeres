@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnCliente = new System.Windows.Forms.Button();
             this.ttbCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -43,9 +44,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvListaProdutos = new System.Windows.Forms.DataGridView();
-            this.prod_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendprod_qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendprod_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcluirServico = new System.Windows.Forms.Button();
             this.dgvListaServicos = new System.Windows.Forms.DataGridView();
             this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +54,6 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.btnCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,6 +86,17 @@
             this.splitContainer1.Size = new System.Drawing.Size(776, 467);
             this.splitContainer1.SplitterDistance = 398;
             this.splitContainer1.TabIndex = 5;
+            // 
+            // btnCliente
+            // 
+            this.btnCliente.BackColor = System.Drawing.Color.White;
+            this.btnCliente.Location = new System.Drawing.Point(656, 15);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Size = new System.Drawing.Size(104, 25);
+            this.btnCliente.TabIndex = 54;
+            this.btnCliente.Text = "Pesquisar Cliente";
+            this.btnCliente.UseVisualStyleBackColor = false;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // ttbCliente
             // 
@@ -219,32 +230,32 @@
             this.dgvListaProdutos.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prod_produto,
-            this.vendprod_qtde,
-            this.vendprod_valor});
+            this.Produto,
+            this.Quantidade,
+            this.Valor});
             this.dgvListaProdutos.Location = new System.Drawing.Point(6, 190);
             this.dgvListaProdutos.Name = "dgvListaProdutos";
             this.dgvListaProdutos.Size = new System.Drawing.Size(638, 120);
             this.dgvListaProdutos.TabIndex = 43;
             // 
-            // prod_produto
+            // Produto
             // 
-            this.prod_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.prod_produto.DataPropertyName = "prod_produto";
-            this.prod_produto.HeaderText = "Produto";
-            this.prod_produto.Name = "prod_produto";
+            this.Produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Produto.DataPropertyName = "Produto";
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
             // 
-            // vendprod_qtde
+            // Quantidade
             // 
-            this.vendprod_qtde.DataPropertyName = "vendprod_qtde";
-            this.vendprod_qtde.HeaderText = "Qtde";
-            this.vendprod_qtde.Name = "vendprod_qtde";
+            this.Quantidade.DataPropertyName = "Quantidade";
+            this.Quantidade.HeaderText = "Qtde";
+            this.Quantidade.Name = "Quantidade";
             // 
-            // vendprod_valor
+            // Valor
             // 
-            this.vendprod_valor.DataPropertyName = "vendprod_valor";
-            this.vendprod_valor.HeaderText = "Valor (R$)";
-            this.vendprod_valor.Name = "vendprod_valor";
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor (R$)";
+            this.Valor.Name = "Valor";
             // 
             // btnExcluirServico
             // 
@@ -255,6 +266,7 @@
             this.btnExcluirServico.TabIndex = 39;
             this.btnExcluirServico.Text = "Excluir Serviço";
             this.btnExcluirServico.UseVisualStyleBackColor = false;
+            this.btnExcluirServico.Click += new System.EventHandler(this.btnExcluirServico_Click);
             // 
             // dgvListaServicos
             // 
@@ -301,6 +313,7 @@
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnFinalizar
             // 
@@ -311,17 +324,7 @@
             this.btnFinalizar.TabIndex = 0;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
-            // 
-            // btnCliente
-            // 
-            this.btnCliente.BackColor = System.Drawing.Color.White;
-            this.btnCliente.Location = new System.Drawing.Point(656, 15);
-            this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(104, 25);
-            this.btnCliente.TabIndex = 54;
-            this.btnCliente.Text = "Pesquisar Cliente";
-            this.btnCliente.UseVisualStyleBackColor = false;
-            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // Fechamento
             // 
@@ -357,9 +360,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvListaProdutos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prod_produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_qtde;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendprod_valor;
         public System.Windows.Forms.Button btnExcluirServico;
         private System.Windows.Forms.DataGridView dgvListaServicos;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiposerv_descricao;
@@ -375,5 +375,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mskTotalGeral;
         public System.Windows.Forms.Button btnCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
     }
 }

@@ -489,6 +489,7 @@
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(211, 22);
             this.toolStripMenuItem5.Text = "Fechamento de Contas";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -713,20 +714,20 @@
             // 
             this.sairToolStripMenuItem1.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.sairToolStripMenuItem1.Text = "Sair";
             this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
             // 
             // toolStripSeparator18
             // 
             this.toolStripSeparator18.Name = "toolStripSeparator18";
-            this.toolStripSeparator18.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator18.Size = new System.Drawing.Size(151, 6);
             // 
             // trocarUsuárioToolStripMenuItem
             // 
             this.trocarUsuárioToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
             this.trocarUsuárioToolStripMenuItem.Name = "trocarUsuárioToolStripMenuItem";
-            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trocarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.trocarUsuárioToolStripMenuItem.Text = "Trocar Usuário";
             this.trocarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.trocarUsuárioToolStripMenuItem_Click);
             // 

@@ -87,6 +87,7 @@
     <Compile Include="DAO\ContasPagarDAO.cs" />
     <Compile Include="DAO\ContasReceberDAO.cs" />
     <Compile Include="DAO\DespesaDAO.cs" />
+    <Compile Include="DAO\FechamentoDAO.cs" />
     <Compile Include="DAO\PacoteDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
     <Compile Include="DAO\ParametrizaçãoDAO.cs" />

@@ -294,5 +294,11 @@ namespace HairLumos
         {
 
         }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.Fechamento fechamento = new Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.Fechamento();
+            fechamento.ShowDialog();
+        }
     }
 }
