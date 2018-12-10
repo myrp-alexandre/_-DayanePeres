@@ -35,6 +35,10 @@ namespace HairLumos
                     rELATÓRIOSToolStripMenuItem.Visible = false;
                     iNFORMAÇÕESToolStripMenuItem.Visible = false;
                     bACKUPToolStripMenuItem.Visible = false;
+                    lançarDespesasToolStripMenuItem.Visible = false;
+                    toolStripMenuItem2.Visible = false;
+                    toolStripMenuItem4.Visible = false;
+                    gerenciarPacotesToolStripMenuItem.Visible = false;
                 }
             }
             else
@@ -44,9 +48,25 @@ namespace HairLumos
                 cadastroServiçoToolStripMenuItem.Visible = false;
                 cadastroDeDespesaToolStripMenuItem.Visible = false;
                 //cadastroDeParceiroToolStripMenuItem.Visible = false;
+                cadastroDeUsuárioToolStripMenuItem.Visible = false;
                 rELATÓRIOSToolStripMenuItem.Visible = false;
                 iNFORMAÇÕESToolStripMenuItem.Visible = false;
                 bACKUPToolStripMenuItem.Visible = false;
+                lançarDespesasToolStripMenuItem.Visible = false;
+                toolStripMenuItem2.Visible = false;
+                toolStripMenuItem4.Visible = false;
+                gerenciarPacotesToolStripMenuItem.Visible = false;
+            }
+
+            Controller.UsuarioController usuarioController = new UsuarioController();
+
+            dt = usuarioController.existeUsuarioLogado();
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+
+                lbUsuario.Text = dr["usu_usuario"].ToString();
             }
 
         }
@@ -262,6 +282,17 @@ namespace HairLumos
         {
             Relatórios.Formularios.FrmRelProdutos produtos = new Relatórios.Formularios.FrmRelProdutos();
             produtos.ShowDialog();
+        }
+
+        private void pESSOASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatórios.Formularios.FrmPessoa pessoa = new Relatórios.Formularios.FrmPessoa();
+            pessoa.ShowDialog();
+        }
+
+        private void pacotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

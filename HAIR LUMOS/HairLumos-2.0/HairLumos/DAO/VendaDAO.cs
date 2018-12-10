@@ -245,5 +245,39 @@ namespace HairLumos.DAO
                 return 0;
             }
         }
+
+        public DataTable retornaVendaPessoa(int cod)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "SELECT codvenda, vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa " +
+                    "FROM tbvenda " +
+                    "WHERE vend_situacao = 'aberta' and codpessoa = "+cod +" and codvenda not in (select codvenda from tbcontasreceber)";
+
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                cmd.Parameters.AddWithValue("@codvenda");
+                cmd.Parameters.AddWithValue("@vend_datavenda");
+                cmd.Parameters.AddWithValue("@vend_situacao");
+                cmd.Parameters.AddWithValue("@vend_valortotal");
+                cmd.Parameters.AddWithValue("@vend_obs");
+                cmd.Parameters.AddWithValue("@codpessoa");
+
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Venda");
+            }
+            return dt;
+        }
     }
 }

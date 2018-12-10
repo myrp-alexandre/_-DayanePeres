@@ -148,10 +148,10 @@
     <Compile Include="Models\ServicoParceiroModel.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Models\VendaModels.cs" />
-    <Compile Include="Relatórios\CrystalReport\CRPessoa.cs">
+    <Compile Include="Relatórios\CrystalReport\CRPessoarpt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CRPessoa.rpt</DependentUpon>
+      <DependentUpon>CRPessoarpt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Relatórios\CrystalReport\CRProdutos.cs">
@@ -387,6 +387,12 @@
     <Compile Include="Views\Funcoes Fundamentais\RF_F7  Vender Produto\VenderProduto.Designer.cs">
       <DependentUpon>VenderProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\Fechamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\Fechamento.Designer.cs">
+      <DependentUpon>Fechamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\FecharAtendimento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,9 +445,9 @@
     </Compile>
     <Compile Include="Views\Outras_Fundamentais\CpfCnpj.cs" />
     <Compile Include="Views\Outras_Fundamentais\EnterPropriedades.cs" />
-    <EmbeddedResource Include="Relatórios\CrystalReport\CRPessoa.rpt">
+    <EmbeddedResource Include="Relatórios\CrystalReport\CRPessoarpt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CRPessoa.cs</LastGenOutput>
+      <LastGenOutput>CRPessoarpt.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatórios\CrystalReport\CRProdutos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -553,6 +559,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F7  Vender Produto\VenderProduto.resx">
       <DependentUpon>VenderProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\Fechamento.resx">
+      <DependentUpon>Fechamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Funcoes Fundamentais\RF_F8 Fechar Atendimento\FecharAtendimento.resx">
       <DependentUpon>FecharAtendimento.cs</DependentUpon>

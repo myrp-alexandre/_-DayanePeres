@@ -23,7 +23,7 @@ namespace HairLumos.Relatórios.Formularios
         {
             DataTable dt = new DataTable();
             Controller.PessoaController pc = new Controller.PessoaController();
-            CRPessoa crpes = new CRPessoa();
+            CRPessoarpt crpes = new CRPessoarpt();
             DSCliente ds = new DSCliente();
             dt = pc.retornaPessoa(ttbNome.Text);
             if (dt != null && dt.Rows.Count > 0)

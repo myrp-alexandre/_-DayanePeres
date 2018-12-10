@@ -317,7 +317,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                                 DialogResult dialogResult = MessageBox.Show("Cliente habilitado para pagamento fiado. Deseja pagar no Fiado? ", "Aviso", MessageBoxButtons.YesNo);
                                 if (dialogResult == DialogResult.Yes)
                                 {
-                                    
+                                    //fiado
                                 }
                                 else if (dialogResult == DialogResult.No)
                                 {

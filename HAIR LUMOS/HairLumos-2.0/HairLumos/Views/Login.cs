@@ -30,11 +30,8 @@ namespace HairLumos.Views
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
             UsuarioController uc = new UsuarioController();
-
-
-            string login = "admin";
-            string senha = "admin";
-            DataTable usuarioLogado = uc.realizaLogin(login, senha);//ttbUsuario.Text, ttbSenha.Text);
+            
+            DataTable usuarioLogado = uc.realizaLogin(ttbUsuario.Text, ttbSenha.Text);
             if (usuarioLogado != null && usuarioLogado.Rows.Count > 0)
             {
                 DataRow dr = usuarioLogado.Rows[0];
