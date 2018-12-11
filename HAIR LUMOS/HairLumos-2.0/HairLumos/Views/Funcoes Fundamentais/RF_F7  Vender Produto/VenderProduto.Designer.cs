@@ -161,7 +161,6 @@
             this.Produto,
             this.Quantidade,
             this.Valor});
-            this.dgvProdutos.Enabled = false;
             this.dgvProdutos.Location = new System.Drawing.Point(13, 19);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;

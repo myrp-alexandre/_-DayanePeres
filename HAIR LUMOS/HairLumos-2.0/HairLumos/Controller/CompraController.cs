@@ -80,5 +80,10 @@ namespace HairLumos.Controller
         {
             return _MdlComp.excluirCompra(codigo);
         }
+
+        public DataTable retornaRelatorio(string dataI, string dataF, bool estado)
+        {
+            return _MdlComp.retornaRelatorio(dataI, dataF, estado);
+        }
     }
 }

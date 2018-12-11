@@ -213,9 +213,9 @@
             this.Produto,
             this.Quantidade,
             this.Valor});
-            this.dgvListaProdutos.Enabled = false;
             this.dgvListaProdutos.Location = new System.Drawing.Point(6, 190);
             this.dgvListaProdutos.Name = "dgvListaProdutos";
+            this.dgvListaProdutos.ReadOnly = true;
             this.dgvListaProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvListaProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaProdutos.Size = new System.Drawing.Size(638, 120);
@@ -227,18 +227,21 @@
             this.Produto.DataPropertyName = "Produto";
             this.Produto.HeaderText = "Produto";
             this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
             // 
             // Quantidade
             // 
             this.Quantidade.DataPropertyName = "Quantidade";
             this.Quantidade.HeaderText = "Qtde";
             this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
             // 
             // Valor
             // 
             this.Valor.DataPropertyName = "Valor";
             this.Valor.HeaderText = "Valor (R$)";
             this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
             // 
             // btnExcluirServico
             // 
@@ -259,9 +262,9 @@
             this.tiposerv_descricao,
             this.agen_dataagendamento,
             this.agen_valor});
-            this.dgvListaServicos.Enabled = false;
             this.dgvListaServicos.Location = new System.Drawing.Point(15, 35);
             this.dgvListaServicos.Name = "dgvListaServicos";
+            this.dgvListaServicos.ReadOnly = true;
             this.dgvListaServicos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvListaServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaServicos.Size = new System.Drawing.Size(629, 127);
@@ -273,12 +276,14 @@
             this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
             this.tiposerv_descricao.HeaderText = "Serviço";
             this.tiposerv_descricao.Name = "tiposerv_descricao";
+            this.tiposerv_descricao.ReadOnly = true;
             // 
             // agen_dataagendamento
             // 
             this.agen_dataagendamento.DataPropertyName = "agen_dataagendamento";
             this.agen_dataagendamento.HeaderText = "Data Serviço";
             this.agen_dataagendamento.Name = "agen_dataagendamento";
+            this.agen_dataagendamento.ReadOnly = true;
             this.agen_dataagendamento.Width = 120;
             // 
             // agen_valor
@@ -286,6 +291,7 @@
             this.agen_valor.DataPropertyName = "agen_valor";
             this.agen_valor.HeaderText = "Valor (R$)";
             this.agen_valor.Name = "agen_valor";
+            this.agen_valor.ReadOnly = true;
             // 
             // btnSair
             // 

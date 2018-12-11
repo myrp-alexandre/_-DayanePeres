@@ -248,5 +248,42 @@ namespace HairLumos.DAO
             return 0;
         }
 
+        public DataTable retornaRelatorio(string dataI, string dataF, bool estado)
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = @"select p.pes_nome, c.comp_datacompra, c.comp_valortotal, c.comp_situacao
+                   from tbcompra c inner join tbpessoa p on p.codpessoa = c.codpessoa";
+            bool ultimo = false;
+            if(!String.IsNullOrEmpty(dataI) && !String.IsNullOrEmpty(dataF))
+            {
+                _sql += " where c.comp_datacompra between '" + dataI + "' and '" + dataF + "'";
+                ultimo = true;
+            }
+            if (!estado)
+            {
+                if (ultimo)
+                    _sql += " and c.comp_situacao = 'fechada'";
+                else
+                    _sql += " where c.comp_situacao = 'fechada'";
+            }
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            return dt;
+        }
+
     }
 }

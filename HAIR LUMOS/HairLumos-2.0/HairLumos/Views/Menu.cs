@@ -305,5 +305,17 @@ namespace HairLumos
         {
             System.Diagnostics.Process.Start(@"D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\Manual Usuario.pdf");
         }
+
+        private void comissãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatórios.Formularios.FrmComissao frmComissao = new Relatórios.Formularios.FrmComissao();
+            frmComissao.ShowDialog();
+        }
+
+        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatórios.Formularios.FrmCompra frmCompra = new Relatórios.Formularios.FrmCompra();
+            frmCompra.ShowDialog();
+        }
     }
 }

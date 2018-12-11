@@ -24,6 +24,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
             InitializeComponent();
             dgvListaProdutos.AutoGenerateColumns = false;
             dgvListaServicos.AutoGenerateColumns = false;
+            dgvListaProdutos.ReadOnly = true;
+            dgvListaServicos.ReadOnly = true;
         }
 
         public Fechamento(Entidades.Pessoa pessoa)
@@ -31,6 +33,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
             InitializeComponent();
             dgvListaProdutos.AutoGenerateColumns = false;
             dgvListaServicos.AutoGenerateColumns = false;
+            dgvListaProdutos.ReadOnly = true;
+            dgvListaServicos.ReadOnly = true;
             this.pes = pessoa;
             carregaTela(pes.Codigo);
         }
@@ -40,6 +44,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
             InitializeComponent();
             dgvListaProdutos.AutoGenerateColumns = false;
             dgvListaServicos.AutoGenerateColumns = false;
+            dgvListaProdutos.ReadOnly = true;
+            dgvListaServicos.ReadOnly = true;
         }
 
         private void label2_Click(object sender, EventArgs e)

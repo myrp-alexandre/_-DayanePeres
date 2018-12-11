@@ -52,5 +52,10 @@ namespace HairLumos.Models
         {
             return _DAOComp.excluirCompra(codigo);
         }
+
+        public DataTable retornaRelatorio(string dataI, string dataF, bool estado)
+        {
+            return _DAOComp.retornaRelatorio(dataI, dataF, estado);
+        }
     }
 }

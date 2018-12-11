@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSComissao" targetNamespace="http://tempuri.org/DSComissao.xsd" xmlns:mstns="http://tempuri.org/DSComissao.xsd" xmlns="http://tempuri.org/DSComissao.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSComissao" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSComissao" msprop:Generator_UserDSName="DSComissao">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTComissao" msprop:Generator_TableClassName="DTComissaoDataTable" msprop:Generator_TableVarName="tableDTComissao" msprop:Generator_TablePropName="DTComissao" msprop:Generator_RowDeletingName="DTComissaoRowDeleting" msprop:Generator_RowChangingName="DTComissaoRowChanging" msprop:Generator_RowEvHandlerName="DTComissaoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTComissaoRowDeleted" msprop:Generator_UserTableName="DTComissao" msprop:Generator_RowChangedName="DTComissaoRowChanged" msprop:Generator_RowEvArgName="DTComissaoRowChangeEvent" msprop:Generator_RowClassName="DTComissaoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pes_nome" msprop:Generator_ColumnVarNameInTable="columnpes_nome" msprop:Generator_ColumnPropNameInRow="pes_nome" msprop:Generator_ColumnPropNameInTable="pes_nomeColumn" msprop:Generator_UserColumnName="pes_nome" type="xs:string" minOccurs="0" />
+              <xs:element name="comis_valortotal" msprop:Generator_ColumnVarNameInTable="columncomis_valortotal" msprop:Generator_ColumnPropNameInRow="comis_valortotal" msprop:Generator_ColumnPropNameInTable="comis_valortotalColumn" msprop:Generator_UserColumnName="comis_valortotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="comis_statuspagamento" msprop:Generator_ColumnVarNameInTable="columncomis_statuspagamento" msprop:Generator_ColumnPropNameInRow="comis_statuspagamento" msprop:Generator_ColumnPropNameInTable="comis_statuspagamentoColumn" msprop:Generator_UserColumnName="comis_statuspagamento" type="xs:string" minOccurs="0" />
+              <xs:element name="agen_dataagendamento" msprop:Generator_ColumnVarNameInTable="columnagen_dataagendamento" msprop:Generator_ColumnPropNameInRow="agen_dataagendamento" msprop:Generator_ColumnPropNameInTable="agen_dataagendamentoColumn" msprop:Generator_UserColumnName="agen_dataagendamento" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

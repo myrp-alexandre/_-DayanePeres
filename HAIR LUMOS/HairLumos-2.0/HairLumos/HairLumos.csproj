@@ -151,6 +151,18 @@
     <Compile Include="Models\ServicoParceiroModel.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Models\VendaModels.cs" />
+    <Compile Include="Relatórios\CrystalReport\CRComissao.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRComissao.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatórios\CrystalReport\CRCompras.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRCompras.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Relatórios\CrystalReport\CRPessoarpt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,6 +183,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSCliente.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Relatórios\DataSet\DSComissao.cs">
+      <DependentUpon>DSComissao.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatórios\DataSet\DSComissao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSComissao.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Relatórios\DataSet\DSCompras.cs">
       <DependentUpon>DSCompras.xsd</DependentUpon>
     </Compile>
@@ -186,6 +206,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSProdutos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatórios\Formularios\FrmComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatórios\Formularios\FrmComissao.Designer.cs">
+      <DependentUpon>FrmComissao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatórios\Formularios\FrmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatórios\Formularios\FrmCompra.Designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Relatórios\Formularios\FrmPessoa.cs">
       <SubType>Form</SubType>
@@ -456,6 +488,14 @@
     </Compile>
     <Compile Include="Views\Outras_Fundamentais\CpfCnpj.cs" />
     <Compile Include="Views\Outras_Fundamentais\EnterPropriedades.cs" />
+    <EmbeddedResource Include="Relatórios\CrystalReport\CRComissao.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRComissao.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatórios\CrystalReport\CRCompras.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRCompras.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatórios\CrystalReport\CRPessoarpt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRPessoarpt.cs</LastGenOutput>
@@ -463,6 +503,12 @@
     <EmbeddedResource Include="Relatórios\CrystalReport\CRProdutos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRProdutos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatórios\Formularios\FrmComissao.resx">
+      <DependentUpon>FrmComissao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatórios\Formularios\FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatórios\Formularios\FrmPessoa.resx">
       <DependentUpon>FrmPessoa.cs</DependentUpon>
@@ -638,6 +684,17 @@
     </None>
     <None Include="Relatórios\DataSet\DSCliente.xss">
       <DependentUpon>DSCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Relatórios\DataSet\DSComissao.xsc">
+      <DependentUpon>DSComissao.xsd</DependentUpon>
+    </None>
+    <None Include="Relatórios\DataSet\DSComissao.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSComissao.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatórios\DataSet\DSComissao.xss">
+      <DependentUpon>DSComissao.xsd</DependentUpon>
     </None>
     <None Include="Relatórios\DataSet\DSCompras.xsc">
       <DependentUpon>DSCompras.xsd</DependentUpon>

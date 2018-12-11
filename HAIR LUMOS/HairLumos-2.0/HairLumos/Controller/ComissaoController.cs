@@ -40,5 +40,10 @@ namespace HairLumos.Controller
         {
             return cm.atualizaComissao(obj);
         }
+
+        public DataTable retornaRelatorio(int codp, string dataI, string dataf)
+        {
+            return cm.retornaRelatorio(codp, dataI, dataf);
+        }
     }
 }

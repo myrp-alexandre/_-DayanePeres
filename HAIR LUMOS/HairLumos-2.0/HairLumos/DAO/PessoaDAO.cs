@@ -616,20 +616,18 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT codpessoa, pes_nome, pes_datacadastro, pes_tipopessoa, pes_statuspessoa," +
-                        "pes_obs, pes_fiado, pes_email, pes_fone, pes_cel" +
-                      " FROM tbpessoa";
+            _sql = "SELECT p.codpessoa, p.pes_nome, p.pes_datacadastro, p.pes_tipopessoa, p.pes_statuspessoa,p.pes_obs,"+ 
+                    " p.pes_fiado, p.pes_email, p.pes_fone, p.pes_cel "+
+                    " FROM tbpessoa p inner join tbjuridica j on j.codpessoa = p.codpessoa ";
 
             if (texto != null && texto != "")
-                _sql += $" WHERE UPPER(pes_nome) LIKE @pes_nome";
+                _sql += " WHERE j.jur_razaosocial = '"+texto+"'";
 
             try
             {
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                if (texto != null && texto != "")
-                    cmd.Parameters.AddWithValue("@pes_nome", texto.ToUpper());
 
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable

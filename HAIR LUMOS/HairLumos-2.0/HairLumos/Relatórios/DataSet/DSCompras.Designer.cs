@@ -24,7 +24,7 @@ namespace HairLumos.Relatórios.DataSet {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DSCompras : global::System.Data.DataSet {
         
-        private DTComprasDataTable tableDTCompras;
+        private DTCompraDataTable tableDTCompra;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace HairLumos.Relatórios.DataSet {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DTCompras"] != null)) {
-                    base.Tables.Add(new DTComprasDataTable(ds.Tables["DTCompras"]));
+                if ((ds.Tables["DTCompra"] != null)) {
+                    base.Tables.Add(new DTCompraDataTable(ds.Tables["DTCompra"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace HairLumos.Relatórios.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DTComprasDataTable DTCompras {
+        public DTCompraDataTable DTCompra {
             get {
-                return this.tableDTCompras;
+                return this.tableDTCompra;
             }
         }
         
@@ -152,8 +152,8 @@ namespace HairLumos.Relatórios.DataSet {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DTCompras"] != null)) {
-                    base.Tables.Add(new DTComprasDataTable(ds.Tables["DTCompras"]));
+                if ((ds.Tables["DTCompra"] != null)) {
+                    base.Tables.Add(new DTCompraDataTable(ds.Tables["DTCompra"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace HairLumos.Relatórios.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDTCompras = ((DTComprasDataTable)(base.Tables["DTCompras"]));
+            this.tableDTCompra = ((DTCompraDataTable)(base.Tables["DTCompra"]));
             if ((initTable == true)) {
-                if ((this.tableDTCompras != null)) {
-                    this.tableDTCompras.InitVars();
+                if ((this.tableDTCompra != null)) {
+                    this.tableDTCompra.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace HairLumos.Relatórios.DataSet {
             this.Namespace = "http://tempuri.org/DSCompras.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDTCompras = new DTComprasDataTable();
-            base.Tables.Add(this.tableDTCompras);
+            this.tableDTCompra = new DTCompraDataTable();
+            base.Tables.Add(this.tableDTCompra);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeDTCompras() {
+        private bool ShouldSerializeDTCompra() {
             return false;
         }
         
@@ -270,27 +270,27 @@ namespace HairLumos.Relatórios.DataSet {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void DTComprasRowChangeEventHandler(object sender, DTComprasRowChangeEvent e);
+        public delegate void DTCompraRowChangeEventHandler(object sender, DTCompraRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DTComprasDataTable : global::System.Data.TypedTableBase<DTComprasRow> {
+        public partial class DTCompraDataTable : global::System.Data.TypedTableBase<DTCompraRow> {
             
-            private global::System.Data.DataColumn columncodcompra;
+            private global::System.Data.DataColumn columnpes_nome;
             
             private global::System.Data.DataColumn columncomp_datacompra;
             
             private global::System.Data.DataColumn columncomp_valortotal;
             
-            private global::System.Data.DataColumn columnpes_nome;
+            private global::System.Data.DataColumn columncomp_situacao;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTComprasDataTable() {
-                this.TableName = "DTCompras";
+            public DTCompraDataTable() {
+                this.TableName = "DTCompra";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +298,7 @@ namespace HairLumos.Relatórios.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DTComprasDataTable(global::System.Data.DataTable table) {
+            internal DTCompraDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,16 +315,16 @@ namespace HairLumos.Relatórios.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected DTComprasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DTCompraDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn codcompraColumn {
+            public global::System.Data.DataColumn pes_nomeColumn {
                 get {
-                    return this.columncodcompra;
+                    return this.columnpes_nome;
                 }
             }
             
@@ -346,9 +346,9 @@ namespace HairLumos.Relatórios.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn pes_nomeColumn {
+            public global::System.Data.DataColumn comp_situacaoColumn {
                 get {
-                    return this.columnpes_nome;
+                    return this.columncomp_situacao;
                 }
             }
             
@@ -363,48 +363,48 @@ namespace HairLumos.Relatórios.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTComprasRow this[int index] {
+            public DTCompraRow this[int index] {
                 get {
-                    return ((DTComprasRow)(this.Rows[index]));
+                    return ((DTCompraRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTComprasRowChangeEventHandler DTComprasRowChanging;
+            public event DTCompraRowChangeEventHandler DTCompraRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTComprasRowChangeEventHandler DTComprasRowChanged;
+            public event DTCompraRowChangeEventHandler DTCompraRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTComprasRowChangeEventHandler DTComprasRowDeleting;
+            public event DTCompraRowChangeEventHandler DTCompraRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DTComprasRowChangeEventHandler DTComprasRowDeleted;
+            public event DTCompraRowChangeEventHandler DTCompraRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddDTComprasRow(DTComprasRow row) {
+            public void AddDTCompraRow(DTCompraRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTComprasRow AddDTComprasRow(string codcompra, string comp_datacompra, string comp_valortotal, string pes_nome) {
-                DTComprasRow rowDTComprasRow = ((DTComprasRow)(this.NewRow()));
+            public DTCompraRow AddDTCompraRow(string pes_nome, System.DateTime comp_datacompra, decimal comp_valortotal, string comp_situacao) {
+                DTCompraRow rowDTCompraRow = ((DTCompraRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        codcompra,
+                        pes_nome,
                         comp_datacompra,
                         comp_valortotal,
-                        pes_nome};
-                rowDTComprasRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDTComprasRow);
-                return rowDTComprasRow;
+                        comp_situacao};
+                rowDTCompraRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTCompraRow);
+                return rowDTCompraRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DTComprasDataTable cln = ((DTComprasDataTable)(base.Clone()));
+                DTCompraDataTable cln = ((DTCompraDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -412,55 +412,55 @@ namespace HairLumos.Relatórios.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DTComprasDataTable();
+                return new DTCompraDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columncodcompra = base.Columns["codcompra"];
+                this.columnpes_nome = base.Columns["pes_nome"];
                 this.columncomp_datacompra = base.Columns["comp_datacompra"];
                 this.columncomp_valortotal = base.Columns["comp_valortotal"];
-                this.columnpes_nome = base.Columns["pes_nome"];
+                this.columncomp_situacao = base.Columns["comp_situacao"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columncodcompra = new global::System.Data.DataColumn("codcompra", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncodcompra);
-                this.columncomp_datacompra = new global::System.Data.DataColumn("comp_datacompra", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncomp_datacompra);
-                this.columncomp_valortotal = new global::System.Data.DataColumn("comp_valortotal", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncomp_valortotal);
                 this.columnpes_nome = new global::System.Data.DataColumn("pes_nome", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpes_nome);
+                this.columncomp_datacompra = new global::System.Data.DataColumn("comp_datacompra", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomp_datacompra);
+                this.columncomp_valortotal = new global::System.Data.DataColumn("comp_valortotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomp_valortotal);
+                this.columncomp_situacao = new global::System.Data.DataColumn("comp_situacao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomp_situacao);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTComprasRow NewDTComprasRow() {
-                return ((DTComprasRow)(this.NewRow()));
+            public DTCompraRow NewDTCompraRow() {
+                return ((DTCompraRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DTComprasRow(builder);
+                return new DTCompraRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DTComprasRow);
+                return typeof(DTCompraRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DTComprasRowChanged != null)) {
-                    this.DTComprasRowChanged(this, new DTComprasRowChangeEvent(((DTComprasRow)(e.Row)), e.Action));
+                if ((this.DTCompraRowChanged != null)) {
+                    this.DTCompraRowChanged(this, new DTCompraRowChangeEvent(((DTCompraRow)(e.Row)), e.Action));
                 }
             }
             
@@ -468,8 +468,8 @@ namespace HairLumos.Relatórios.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DTComprasRowChanging != null)) {
-                    this.DTComprasRowChanging(this, new DTComprasRowChangeEvent(((DTComprasRow)(e.Row)), e.Action));
+                if ((this.DTCompraRowChanging != null)) {
+                    this.DTCompraRowChanging(this, new DTCompraRowChangeEvent(((DTCompraRow)(e.Row)), e.Action));
                 }
             }
             
@@ -477,8 +477,8 @@ namespace HairLumos.Relatórios.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DTComprasRowDeleted != null)) {
-                    this.DTComprasRowDeleted(this, new DTComprasRowChangeEvent(((DTComprasRow)(e.Row)), e.Action));
+                if ((this.DTCompraRowDeleted != null)) {
+                    this.DTCompraRowDeleted(this, new DTCompraRowChangeEvent(((DTCompraRow)(e.Row)), e.Action));
                 }
             }
             
@@ -486,14 +486,14 @@ namespace HairLumos.Relatórios.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DTComprasRowDeleting != null)) {
-                    this.DTComprasRowDeleting(this, new DTComprasRowChangeEvent(((DTComprasRow)(e.Row)), e.Action));
+                if ((this.DTCompraRowDeleting != null)) {
+                    this.DTCompraRowDeleting(this, new DTCompraRowChangeEvent(((DTCompraRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveDTComprasRow(DTComprasRow row) {
+            public void RemoveDTCompraRow(DTCompraRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -520,7 +520,7 @@ namespace HairLumos.Relatórios.DataSet {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DTComprasDataTable";
+                attribute2.FixedValue = "DTCompraDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -564,63 +564,15 @@ namespace HairLumos.Relatórios.DataSet {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DTComprasRow : global::System.Data.DataRow {
+        public partial class DTCompraRow : global::System.Data.DataRow {
             
-            private DTComprasDataTable tableDTCompras;
+            private DTCompraDataTable tableDTCompra;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DTComprasRow(global::System.Data.DataRowBuilder rb) : 
+            internal DTCompraRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDTCompras = ((DTComprasDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string codcompra {
-                get {
-                    try {
-                        return ((string)(this[this.tableDTCompras.codcompraColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'codcompra\' na tabela \'DTCompras\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDTCompras.codcompraColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string comp_datacompra {
-                get {
-                    try {
-                        return ((string)(this[this.tableDTCompras.comp_datacompraColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'comp_datacompra\' na tabela \'DTCompras\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDTCompras.comp_datacompraColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string comp_valortotal {
-                get {
-                    try {
-                        return ((string)(this[this.tableDTCompras.comp_valortotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'comp_valortotal\' na tabela \'DTCompras\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDTCompras.comp_valortotalColumn] = value;
-                }
+                this.tableDTCompra = ((DTCompraDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -628,63 +580,111 @@ namespace HairLumos.Relatórios.DataSet {
             public string pes_nome {
                 get {
                     try {
-                        return ((string)(this[this.tableDTCompras.pes_nomeColumn]));
+                        return ((string)(this[this.tableDTCompra.pes_nomeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pes_nome\' na tabela \'DTCompras\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pes_nome\' na tabela \'DTCompra\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTCompras.pes_nomeColumn] = value;
+                    this[this.tableDTCompra.pes_nomeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IscodcompraNull() {
-                return this.IsNull(this.tableDTCompras.codcompraColumn);
+            public System.DateTime comp_datacompra {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableDTCompra.comp_datacompraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'comp_datacompra\' na tabela \'DTCompra\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTCompra.comp_datacompraColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetcodcompraNull() {
-                this[this.tableDTCompras.codcompraColumn] = global::System.Convert.DBNull;
+            public decimal comp_valortotal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTCompra.comp_valortotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'comp_valortotal\' na tabela \'DTCompra\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTCompra.comp_valortotalColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Iscomp_datacompraNull() {
-                return this.IsNull(this.tableDTCompras.comp_datacompraColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setcomp_datacompraNull() {
-                this[this.tableDTCompras.comp_datacompraColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Iscomp_valortotalNull() {
-                return this.IsNull(this.tableDTCompras.comp_valortotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setcomp_valortotalNull() {
-                this[this.tableDTCompras.comp_valortotalColumn] = global::System.Convert.DBNull;
+            public string comp_situacao {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTCompra.comp_situacaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'comp_situacao\' na tabela \'DTCompra\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTCompra.comp_situacaoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Ispes_nomeNull() {
-                return this.IsNull(this.tableDTCompras.pes_nomeColumn);
+                return this.IsNull(this.tableDTCompra.pes_nomeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setpes_nomeNull() {
-                this[this.tableDTCompras.pes_nomeColumn] = global::System.Convert.DBNull;
+                this[this.tableDTCompra.pes_nomeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscomp_datacompraNull() {
+                return this.IsNull(this.tableDTCompra.comp_datacompraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcomp_datacompraNull() {
+                this[this.tableDTCompra.comp_datacompraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscomp_valortotalNull() {
+                return this.IsNull(this.tableDTCompra.comp_valortotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcomp_valortotalNull() {
+                this[this.tableDTCompra.comp_valortotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscomp_situacaoNull() {
+                return this.IsNull(this.tableDTCompra.comp_situacaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcomp_situacaoNull() {
+                this[this.tableDTCompra.comp_situacaoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -692,22 +692,22 @@ namespace HairLumos.Relatórios.DataSet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class DTComprasRowChangeEvent : global::System.EventArgs {
+        public class DTCompraRowChangeEvent : global::System.EventArgs {
             
-            private DTComprasRow eventRow;
+            private DTCompraRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTComprasRowChangeEvent(DTComprasRow row, global::System.Data.DataRowAction action) {
+            public DTCompraRowChangeEvent(DTCompraRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DTComprasRow Row {
+            public DTCompraRow Row {
                 get {
                     return this.eventRow;
                 }

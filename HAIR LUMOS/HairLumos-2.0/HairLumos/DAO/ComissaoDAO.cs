@@ -177,5 +177,42 @@ namespace HairLumos.DAO
                 return 0;
             }
         }
+
+        public DataTable retornaRelatorio(int codp, string dataI, string dataf)
+        {
+            DataTable dt = new DataTable();
+            _sql = @"select p.pes_nome, c.comis_valortotal, a.agen_dataagendamento , c.comis_statuspagamento
+                    from tbcomissao c inner join tbagenda a on a.codcomissao = c.codcomissao
+                    inner join tbjuridica j on j.jur_cnpj = a.jur_cnpj
+                    inner join tbpessoa p on p.codpessoa = j.codpessoa ";
+            bool ultimo = false;
+            if (codp > 0)
+            {
+                _sql += " where p.codpessoa = " + codp;
+                ultimo = true;
+            }
+            if(!String.IsNullOrEmpty(dataI) && !String.IsNullOrEmpty(dataf))
+            {
+                if(ultimo)
+                    _sql+=" and a.agen_dataagendamento between '"+ dataI + "' and '" + dataf + "'";
+                else
+                    _sql += " where a.agen_dataagendamento between '" + dataI + "' and '" + dataf + "'";
+            }
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+                cmd.CommandText = _sql;
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retronar Contas");
+            }
+            return dt;
+        }
     }
 }

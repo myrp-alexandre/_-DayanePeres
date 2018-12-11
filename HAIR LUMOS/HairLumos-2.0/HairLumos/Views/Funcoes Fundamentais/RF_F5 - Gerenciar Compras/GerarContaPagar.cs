@@ -370,7 +370,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                         double valorParc = Convert.ToDouble(mskValorTotal.Text) / Convert.ToInt32(ttbQtdeParcela.Text);
                         valorParc = Convert.ToDouble(valorParc.ToString("#.##"));
                         double resto = Convert.ToDouble(mskValorTotal.Text) - (Convert.ToInt32(ttbQtdeParcela.Text) * valorParc);
-                        resto = Convert.ToDouble(resto.ToString("#.##"));
+                        if(resto>0)
+                            resto = Convert.ToDouble(resto.ToString("#.##"));
 
                         for (int i = 0; i < Convert.ToInt32(ttbQtdeParcela.Text); i++)
                         {

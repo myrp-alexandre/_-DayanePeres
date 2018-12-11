@@ -569,6 +569,7 @@
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
             this.comprasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.comprasToolStripMenuItem.Text = "Compras";
+            this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
             // 
             // toolStripSeparator23
             // 
@@ -605,6 +606,7 @@
             this.comissãoToolStripMenuItem.Name = "comissãoToolStripMenuItem";
             this.comissãoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.comissãoToolStripMenuItem.Text = "Comissão";
+            this.comissãoToolStripMenuItem.Click += new System.EventHandler(this.comissãoToolStripMenuItem_Click);
             // 
             // toolStripSeparator26
             // 

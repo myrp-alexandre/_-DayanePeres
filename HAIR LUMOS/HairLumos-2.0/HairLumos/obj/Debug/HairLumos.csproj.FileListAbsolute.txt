@@ -880,3 +880,5 @@ E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\ShockwaveFl
 E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.Fechamento.resources
 D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.Fechamento.resources
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Relatórios.Formularios.FrmComissao.resources
+E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\obj\Debug\HairLumos.Relatórios.Formularios.FrmCompra.resources
