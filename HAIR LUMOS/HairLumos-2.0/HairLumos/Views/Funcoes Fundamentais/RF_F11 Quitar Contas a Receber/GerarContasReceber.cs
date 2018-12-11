@@ -106,7 +106,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
                 {
                     double tt = Convert.ToDouble(mskValorTotoalPagar.Text.ToString());
                     double valparc = Convert.ToDouble(mskValorParcela.Text.ToString());
-                    if(total>= tt + valparc)
+                    string parcv = valparc.ToString("#.##");
+                    valparc = Convert.ToDouble(parcv);
+                    if (total>= tt + valparc)
                     {
                         parc = new Entidades.Parcela();
                         parc.Codigo = k + 1;
@@ -134,10 +136,13 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             }
             else
             {
+                listaParcelas = new List<Entidades.Parcela>();
                 if (!String.IsNullOrEmpty(ttbQtdeParcela.Text.ToString()))
                 {
                     double nparcela = Convert.ToInt32(ttbQtdeParcela.Text.ToString());
                     double valParcela = total / nparcela;
+                    string parcv = valParcela.ToString("#.##");
+                    valParcela = Convert.ToDouble(parcv);
                     double tem = total;
                     for(int i=0; i<nparcela; i++)
                     {
@@ -148,7 +153,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
                         parc.DataVencimento = dtpDataVencimento.Value.AddDays(i * 30);
                         parc.ValorPago = 0;
                         if (i + 1 == nparcela)
-                            parc.ValorReceber = tem + valParcela;
+                        {
+                            double vl = tem + valParcela;
+                            parc.ValorReceber = Convert.ToDouble(vl.ToString("#.##"));
+                        } 
                         else
                             parc.ValorReceber = valParcela;
                         parc.Forma = new Entidades.FormaPagamento();
@@ -180,6 +188,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
                         {
                             Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
                             quitar.ShowDialog();
+                            mskValorTotal.Text = "";
+                            Close();
                             
                         }
                     }
@@ -201,6 +211,8 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
                         {
                             Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
                             quitar.ShowDialog();
+                            mskValorTotal.Text = "";
+                            Close();
                         }
                     }
                     else
@@ -222,12 +234,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             DialogResult resulta = MessageBox.Show("Deseja mesmo cancelar, se cancelar, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
             if (resulta == DialogResult.Yes)
             {
-                cancelar(sender, e);
-                Close();
+                cancelar();
             }
         }
 
-        private void cancelar(object sender, EventArgs e)
+        private void cancelar()
         {
             double total = Convert.ToDouble(mskValorTotal.Text.ToString());
             Controller.CaixaController cxc = new Controller.CaixaController();
@@ -256,20 +267,89 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             parc.Forma = new Entidades.FormaPagamento();
             parc.Caixa = cx;
             listaParcelas.Add(parc);
-            carregaDGV(listaParcelas);
 
-            btnFinalizar_Click(sender, e);
-            
+            if (!String.IsNullOrEmpty(tela))
+            {
+                if (listaParcelas.Count > 0)
+                {
+                    int rest = crc.gerarContasReceberF(this.codFechamento, listaParcelas, this.pes);
+                    if (rest > 0)
+                    {
+                        MessageBox.Show("Parcelas geradas com sucesso!");
+                        if (listaParcelas.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                        {
+                            mskValorTotal.Text = "";
+                            Close();
+                            Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
+                            quitar.ShowDialog();
+
+                        }
+                        else
+                        {
+                            mskValorTotal.Text = "";
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao gerar parcelas!");
+                    }
+                }
+            }
+            else
+            {
+                if (listaParcelas.Count > 0)
+                {
+                    int rest = crc.gerarContasReceber(this.cod, listaParcelas);
+                    if (rest > 0)
+                    {
+                        MessageBox.Show("Parcelas geradas com sucesso!");
+                        if (listaParcelas.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                        {
+                            mskValorTotal.Text = "";
+                            Close();
+                            Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.QuitarContasReceber quitar = new QuitarContasReceber();
+                            quitar.ShowDialog();
+
+                        }
+                        else
+                        {
+                            mskValorTotal.Text = "";
+                            Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao gerar parcelas!");
+                    }
+                }
+            }
+
         }
 
         private void GerarContasReceber_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult resulta = MessageBox.Show("Deseja mesmo sair, se sair, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
-            if (resulta == DialogResult.Yes)
+            if(mskValorTotal.Text == "")
             {
-                cancelar(sender, e);
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Uma conta foi gerada para a compra!");
+                cancelar();
+                Close();
+            }
+            
+        }
+
+        private void DGVMoeda()
+        {
+
+            if (dgvContas.Rows.Count > 0)
+            {
+                this.dgvContas.Columns[1].DefaultCellStyle.Format = "c";
+            }
+
         }
     }
 }

@@ -64,12 +64,11 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
             DialogResult resulta = MessageBox.Show("Deseja mesmo cancelar, se cancelar, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
             if (resulta == DialogResult.Yes)
             {
-                cancelarClose(sender, e);
-                Close();
+                cancelarClose();
             }
         }
 
-        private void cancelarClose(object sender, EventArgs e)
+        private void cancelarClose()
         {
             Controller.ContasPagarController contasPagarController = new Controller.ContasPagarController();
 
@@ -154,7 +153,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     ContasPagar = new Entidades.ContasPagar();
                     ContasPagar.Parcela = 1;
                     ContasPagar.ValorTotal = valorParcelasTotal;
-                    ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(i * 30);
+                    ContasPagar.DataVencimento = dtpDataVencimento.Value.AddDays(30);
                     ContasPagar.CodParcela = i + 1;
                     ContasPagar.ValorParcela = valorParcelasTotal;
                     ContasPagar.Status = false;
@@ -170,10 +169,56 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                 }
                 mskValorTotoalPagar.Text = Convert.ToString(valorParcelasTotal);
                 mskValorTotoalPagar.Text = Convert.ToDouble(mskValorTotoalPagar.Text).ToString("###,###,##0.00");
-                carregaDGV(listacontasPagars);
-                Close();
+                
+                
             }
-            btnFinalizar_Click(sender, e);
+
+
+            
+            int cod = contasPagarController.retornaMax();
+            cod += 1;
+
+            try
+            {
+                int i = 0;
+                bool retur = false;
+
+                while (i < listacontasPagars.Count && !retur)
+                {
+                    listacontasPagars.ElementAt(i).CodigoContasaPagar = cod;
+                    listacontasPagars.ElementAt(i).Parcela = listacontasPagars.Count;
+                    int res = contasPagarController.insereLancamento(listacontasPagars.ElementAt(i));
+
+                    if (res < 0)
+                    {
+                        MessageBox.Show("Erro");
+                        retur = true;
+                    }
+                    else { i++; }
+
+                }
+                if (listacontasPagars.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
+                {
+                    mskValorTotal.Text = "";
+                    Close();
+                    Views.Funcoes_Fundamentais.QuitarDespesa quitarDespesas = new QuitarDespesa();
+                    quitarDespesas.ShowDialog();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Parcelas geradas com sucesso!");
+                    mskValorTotal.Text = "";
+                    Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            } 
+
         }
 
         private void DGVMoeda()
@@ -211,6 +256,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     }
                     if (listacontasPagars.ElementAt(0).DataVencimento.ToString("dd/MM/yyyy").Equals(DateTime.Now.ToString("dd/MM/yyyy")))
                     {
+                        mskValorTotal.Text = "";
                         Close();
                         Views.Funcoes_Fundamentais.QuitarDespesa quitarDespesas = new QuitarDespesa();
                         quitarDespesas.ShowDialog();
@@ -218,6 +264,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     else
                     {
                         MessageBox.Show("Parcelas geradas com sucesso!");
+                        mskValorTotal.Text = "";
                         Close();
 
                     }
@@ -321,7 +368,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     if (dtpDataVencimento.Value.Date >= DateTime.Now.Date)
                     {
                         double valorParc = Convert.ToDouble(mskValorTotal.Text) / Convert.ToInt32(ttbQtdeParcela.Text);
+                        valorParc = Convert.ToDouble(valorParc.ToString("#.##"));
                         double resto = Convert.ToDouble(mskValorTotal.Text) - (Convert.ToInt32(ttbQtdeParcela.Text) * valorParc);
+                        resto = Convert.ToDouble(resto.ToString("#.##"));
 
                         for (int i = 0; i < Convert.ToInt32(ttbQtdeParcela.Text); i++)
                         {
@@ -369,10 +418,9 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
             {
                 //insere parcela manual
                 
-                
-                
                 double total = Convert.ToDouble(mskValorTotal.Text);
                 double parcela = Convert.ToDouble(mskValorParcela.Text);
+                parcela = Convert.ToDouble(parcela.ToString("#.##"));
                 if(total >= somaValor(listacontasPagars) + parcela)
                 {
                     ContasPagar = new Entidades.ContasPagar();
@@ -388,7 +436,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
                     ContasPagar.Comissao = new Entidades.Comissao();
                     listacontasPagars.Add(ContasPagar);
                     carregaDGV(listacontasPagars);
-                    valorParcelasTotal += ContasPagar.Parcela * ContasPagar.ValorParcela;
+                    valorParcelasTotal = somaValor(listacontasPagars);
                     mskValorTotoalPagar.Text = Convert.ToString(valorParcelasTotal);
                     mskValorTotoalPagar.Text = Convert.ToDouble(mskValorTotoalPagar.Text).ToString("###,###,##0.00");
                 }
@@ -451,7 +499,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
             DialogResult resulta = MessageBox.Show("Deseja mesmo cancelar, se cancelar, uma conta será gerada automaticamente", "caption", MessageBoxButtons.YesNo);
             if (resulta == DialogResult.Yes)
             {
-                cancelarClose(sender, e);
+                cancelarClose();
                 Close();
             }
         }
@@ -509,11 +557,19 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
             mskValorTotal.Text = Convert.ToDouble(mskValorTotal.Text).ToString("###,###,##0.00");
         }
 
-        private void GerarContaPagar_FormClosing(object sender, FormClosingEventArgs e)
+        private void GerarContaPagar_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MessageBox.Show("Uma conta a pagar foi gerada para a compra!");
-            cancelarClose(sender, e);
-            Close();
+            if(mskValorTotal.Text == "")
+            {
+                //sai fora
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Uma conta a pagar foi gerada para a compra!");
+                cancelarClose();
+                Close();
+            }
             
         }
     }

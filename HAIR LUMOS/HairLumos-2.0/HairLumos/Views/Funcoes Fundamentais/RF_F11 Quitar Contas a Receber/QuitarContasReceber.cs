@@ -191,6 +191,17 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             this.Close();
         }
 
+        private void DGVMoeda()
+        {
+
+            if (dgvParcelas.Rows.Count > 0)
+            {
+                this.dgvParcelas.Columns["parc_valor"].DefaultCellStyle.Format = "c";
+                this.dgvParcelas.Columns["parc_valorpago"].DefaultCellStyle.Format = "c";
+            }
+
+        }
+
         private double somaTotal(DataTable dt)
         {
             double total = 0;
@@ -316,10 +327,10 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber
             enterPropriedades._keyPessPropriedade(ttbTotalVencido, e);
         }
 
-        private void DGVMoeda()
-        {
-            this.dgvParcelas.Columns["contRec_valorTotal"].DefaultCellStyle.Format = "c";
-        }
+        //private void DGVMoeda()
+        //{
+        //    this.dgvParcelas.Columns["contRec_valorTotal"].DefaultCellStyle.Format = "c";
+        //}
 
         private void cbbVencido_Click(object sender, EventArgs e)
         {

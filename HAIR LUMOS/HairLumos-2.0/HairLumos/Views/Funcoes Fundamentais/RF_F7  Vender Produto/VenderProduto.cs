@@ -317,18 +317,21 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F7_Vender_Produto
                                 DialogResult dialogResult = MessageBox.Show("Cliente habilitado para pagamento fiado. Deseja pagar no Fiado? ", "Aviso", MessageBoxButtons.YesNo);
                                 if (dialogResult == DialogResult.Yes)
                                 {
-                                    //fiado
+                                    MessageBox.Show("Uma venda foi gerada para o cliente para acertar depois!");
+                                    _limpaCampos();
                                 }
                                 else if (dialogResult == DialogResult.No)
                                 {
                                     Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.GerarContasReceber gerarContas = new RF_F11_Quitar_Contas_a_Receber.GerarContasReceber(this.codV, this.total);
                                     gerarContas.ShowDialog();
+                                    _limpaCampos();
                                 }
                             }
                             else
                             {
                                 Views.Funcoes_Fundamentais.RF_F11_Quitar_Contas_a_Receber.GerarContasReceber gerarContas = new RF_F11_Quitar_Contas_a_Receber.GerarContasReceber(this.codV, this.total);
                                 gerarContas.ShowDialog();
+                                _limpaCampos();
                             }
 
                             

@@ -127,12 +127,12 @@ namespace HairLumos.DAO
                      + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao " +
                      "FROM tbcontaspagar t " +
                      "inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento " +
-                     "BETWEEN @datai AND @dataa and t.contpag_valorpago = 0 and p.desp_descricao <> 'Comissão'";
+                     "BETWEEN '" + datai.ToString("dd-MM-yyyy") + "' AND '" + dataf.ToString("dd-MM-yyyy") + "' and t.contpag_valorpago = 0 and p.desp_descricao <> 'Comissão'";
             else
                 _sql = "SELECT t.contpag_datavencimento, t.contpag_datapagamento, t.contpag_valortotal, t.contpag_valorpago, t.contpag_obs, t.contpag_status, t.contpag_numparc, t.codcompra, t.coddespesa, t.codcaixa, t.codformapag, t.codcomissao,"
                                  + " \"contPag_valorParcela\", \"contPag_Parcela\", \"codContasPagar\", desp_descricao " +
                                  "FROM tbcontaspagar t inner join tbdespesa p on p.coddespesa = t.coddespesa where t.contpag_datavencimento " +
-                                 "BETWEEN @datai AND @dataa and p.desp_descricao <> 'Comissão'";
+                                 "BETWEEN '"+ datai.ToString("dd-MM-yyyy") + "' AND '"+ dataf.ToString("dd-MM-yyyy") + "' and p.desp_descricao <> 'Comissão'";
             if (tipo.Equals("Compra"))
             {
                 _sql += " and p.desp_descricao = 'Compra'";
@@ -146,8 +146,6 @@ namespace HairLumos.DAO
                 NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
 
                 cmd.CommandText = _sql;
-                cmd.Parameters.AddWithValue("@datai", datai.AddDays(-1));
-                cmd.Parameters.AddWithValue("@dataa", dataf);
                 NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
                 dt.Load(dr);//Carrego o DataReader no meu DataTable
                 dr.Close();//Fecho o DataReader

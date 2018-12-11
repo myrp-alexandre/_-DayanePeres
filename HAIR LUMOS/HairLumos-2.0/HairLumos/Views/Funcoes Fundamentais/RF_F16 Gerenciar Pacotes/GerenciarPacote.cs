@@ -43,7 +43,6 @@ namespace HairLumos.Views
             //btn
             btnNovo.Enabled = true;
             btnGravar.Enabled = false;
-            btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
             btnCancelar.Enabled = false;
             btnSair.Enabled = true;
@@ -120,7 +119,6 @@ namespace HairLumos.Views
             //botões
             btnNovo.Enabled = false;
             btnGravar.Enabled = true;
-            btnAlterar.Enabled = false;
             btnPesquisa.Enabled = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = true;
@@ -164,7 +162,7 @@ namespace HairLumos.Views
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
-            btnAlterar.Enabled = true;
+            
             btnExcluir.Enabled = true;
             //selecionaServico();
         }
@@ -320,7 +318,7 @@ namespace HairLumos.Views
 
         private void dgvPacote_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            btnAlterar.Enabled = true;
+            
             btnExcluir.Enabled = true;
             //selecionaServico();
         }

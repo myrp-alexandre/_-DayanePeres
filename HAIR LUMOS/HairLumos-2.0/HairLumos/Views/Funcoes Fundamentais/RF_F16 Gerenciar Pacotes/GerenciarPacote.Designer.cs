@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbbPeriodicidade = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.ttbQtdeServico = new System.Windows.Forms.TextBox();
             this.cbbServico = new System.Windows.Forms.ComboBox();
@@ -62,10 +63,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.cbbPeriodicidade = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -99,7 +98,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnSair);
             this.splitContainer1.Panel2.Controls.Add(this.btnExcluir);
-            this.splitContainer1.Panel2.Controls.Add(this.btnAlterar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
             this.splitContainer1.Panel2.Controls.Add(this.btnNovo);
             this.splitContainer1.Size = new System.Drawing.Size(696, 418);
@@ -266,6 +264,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Serviços do Pacote";
             // 
+            // cbbPeriodicidade
+            // 
+            this.cbbPeriodicidade.FormattingEnabled = true;
+            this.cbbPeriodicidade.Items.AddRange(new object[] {
+            "UMA VEZ",
+            "SEMANAL",
+            "QUINZENAL",
+            "MENSAL"});
+            this.cbbPeriodicidade.Location = new System.Drawing.Point(116, 46);
+            this.cbbPeriodicidade.Name = "cbbPeriodicidade";
+            this.cbbPeriodicidade.Size = new System.Drawing.Size(143, 21);
+            this.cbbPeriodicidade.TabIndex = 38;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -402,7 +413,7 @@
             // btnPesquisa
             // 
             this.btnPesquisa.BackColor = System.Drawing.Color.White;
-            this.btnPesquisa.Location = new System.Drawing.Point(264, 7);
+            this.btnPesquisa.Location = new System.Drawing.Point(182, 7);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(75, 38);
             this.btnPesquisa.TabIndex = 3;
@@ -413,7 +424,7 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(426, 7);
+            this.btnCancelar.Location = new System.Drawing.Point(344, 7);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 38);
             this.btnCancelar.TabIndex = 5;
@@ -435,24 +446,13 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(345, 7);
+            this.btnExcluir.Location = new System.Drawing.Point(263, 7);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 38);
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click_1);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(183, 7);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 38);
-            this.btnAlterar.TabIndex = 2;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click_1);
             // 
             // btnGravar
             // 
@@ -475,19 +475,6 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
-            // 
-            // cbbPeriodicidade
-            // 
-            this.cbbPeriodicidade.FormattingEnabled = true;
-            this.cbbPeriodicidade.Items.AddRange(new object[] {
-            "UMA VEZ",
-            "SEMANAL",
-            "QUINZENAL",
-            "MENSAL"});
-            this.cbbPeriodicidade.Location = new System.Drawing.Point(116, 46);
-            this.cbbPeriodicidade.Name = "cbbPeriodicidade";
-            this.cbbPeriodicidade.Size = new System.Drawing.Size(143, 21);
-            this.cbbPeriodicidade.TabIndex = 38;
             // 
             // Cadastro_Pacotes
             // 
@@ -526,7 +513,6 @@
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnExcluir;
-        public System.Windows.Forms.Button btnAlterar;
         public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.GroupBox groupBox1;

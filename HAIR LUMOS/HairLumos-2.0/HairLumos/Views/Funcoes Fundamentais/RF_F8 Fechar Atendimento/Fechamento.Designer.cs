@@ -47,12 +47,12 @@
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcluirServico = new System.Windows.Forms.Button();
             this.dgvListaServicos = new System.Windows.Forms.DataGridView();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnFinalizar = new System.Windows.Forms.Button();
             this.tiposerv_descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agen_dataagendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agen_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -210,6 +210,7 @@
             this.Produto,
             this.Quantidade,
             this.Valor});
+            this.dgvListaProdutos.Enabled = false;
             this.dgvListaProdutos.Location = new System.Drawing.Point(6, 190);
             this.dgvListaProdutos.Name = "dgvListaProdutos";
             this.dgvListaProdutos.Size = new System.Drawing.Size(638, 120);
@@ -253,10 +254,31 @@
             this.tiposerv_descricao,
             this.agen_dataagendamento,
             this.agen_valor});
+            this.dgvListaServicos.Enabled = false;
             this.dgvListaServicos.Location = new System.Drawing.Point(15, 35);
             this.dgvListaServicos.Name = "dgvListaServicos";
             this.dgvListaServicos.Size = new System.Drawing.Size(629, 127);
             this.dgvListaServicos.TabIndex = 42;
+            // 
+            // tiposerv_descricao
+            // 
+            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
+            this.tiposerv_descricao.HeaderText = "Serviço";
+            this.tiposerv_descricao.Name = "tiposerv_descricao";
+            // 
+            // agen_dataagendamento
+            // 
+            this.agen_dataagendamento.DataPropertyName = "agen_dataagendamento";
+            this.agen_dataagendamento.HeaderText = "Data Serviço";
+            this.agen_dataagendamento.Name = "agen_dataagendamento";
+            this.agen_dataagendamento.Width = 120;
+            // 
+            // agen_valor
+            // 
+            this.agen_valor.DataPropertyName = "agen_valor";
+            this.agen_valor.HeaderText = "Valor (R$)";
+            this.agen_valor.Name = "agen_valor";
             // 
             // btnSair
             // 
@@ -290,26 +312,6 @@
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
-            // 
-            // tiposerv_descricao
-            // 
-            this.tiposerv_descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tiposerv_descricao.DataPropertyName = "tiposerv_descricao";
-            this.tiposerv_descricao.HeaderText = "Serviço";
-            this.tiposerv_descricao.Name = "tiposerv_descricao";
-            // 
-            // agen_dataagendamento
-            // 
-            this.agen_dataagendamento.DataPropertyName = "agen_dataagendamento";
-            this.agen_dataagendamento.HeaderText = "Data Serviço";
-            this.agen_dataagendamento.Name = "agen_dataagendamento";
-            this.agen_dataagendamento.Width = 120;
-            // 
-            // agen_valor
-            // 
-            this.agen_valor.DataPropertyName = "agen_valor";
-            this.agen_valor.HeaderText = "Valor (R$)";
-            this.agen_valor.Name = "agen_valor";
             // 
             // Fechamento
             // 

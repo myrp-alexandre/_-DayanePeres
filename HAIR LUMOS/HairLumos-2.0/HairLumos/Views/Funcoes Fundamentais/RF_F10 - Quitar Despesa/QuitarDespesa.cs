@@ -87,7 +87,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void dtpFim_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpInicio.Value >= dtpFim.Value)
+            if (dtpInicio.Value > dtpFim.Value)
             {
                 MessageBox.Show("A data final deve ser maior que a inicial!");
             }
@@ -218,7 +218,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
 
         private void chbQuitadas_CheckedChanged(object sender, EventArgs e)
         {
-            if (dtpInicio.Value > dtpFim.Value)
+            if (dtpInicio.Value > dtpFim.Value && !dtpInicio.Value.ToString("dd-MM-yyyy").Equals(dtpFim.Value.ToString("dd-MM-yyyy")))
             {
                 MessageBox.Show("A data final deve ser maior que a inicial!");
             }
@@ -249,6 +249,14 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             {
                 Views.Funcoes_Fundamentais.RF_F10___Quitar_Despesa.PagarDespesa pagar = new RF_F10___Quitar_Despesa.PagarDespesa(this.CodigoConta, this.CodigoPrcela);
                 pagar.ShowDialog();
+
+                string tipo = "";
+                if (cbCompras.Checked)
+                    tipo = "Compra";
+                if (chbQuitadas.Checked)
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, false, tipo);
+                else
+                    selecionaContas(dtpInicio.Value, dtpFim.Value, true, tipo);
             }
             else
             {

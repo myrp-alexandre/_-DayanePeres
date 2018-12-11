@@ -361,7 +361,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
                         }
                         else
                         {
-                            MessageBox.Show("Erro ao Excluir!");
+                            MessageBox.Show("Esta conta não pode ser excluida, pois possui parcelas ja paga!");
                         }
                     }
                    
