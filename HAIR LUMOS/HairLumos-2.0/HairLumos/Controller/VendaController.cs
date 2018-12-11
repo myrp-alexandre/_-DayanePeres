@@ -96,5 +96,10 @@ namespace HairLumos.Controller
         {
             return VendaModels.atualizaFechamento(cod, codFechamento);
         }
+
+        public DataTable retornaRelatorio(string dataI, string dataF, bool estado)
+        {
+            return VendaModels.retornaRelatorio(dataI, dataF, estado);
+        }
     }
 }

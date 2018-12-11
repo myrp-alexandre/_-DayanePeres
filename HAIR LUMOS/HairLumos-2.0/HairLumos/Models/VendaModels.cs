@@ -50,5 +50,10 @@ namespace HairLumos.Models
         {
             return VendaDAO.atualizaFechamento(cod, codFechamento);
         }
+
+        public DataTable retornaRelatorio(string dataI, string dataF, bool estado)
+        {
+            return VendaDAO.retornaRelatorio(dataI, dataF, estado);
+        }
     }
 }

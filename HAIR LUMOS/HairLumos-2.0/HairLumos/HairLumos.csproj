@@ -175,6 +175,12 @@
       <DependentUpon>CRProdutos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Relatórios\CrystalReport\CRVendas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRVendas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Relatórios\DataSet\DSVendas.cs">
       <DependentUpon>DSVendas.xsd</DependentUpon>
     </Compile>
@@ -518,6 +524,10 @@
     <EmbeddedResource Include="Relatórios\CrystalReport\CRProdutos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRProdutos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatórios\CrystalReport\CRVendas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRVendas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatórios\Formularios\FrmComissao.resx">
       <DependentUpon>FrmComissao.cs</DependentUpon>

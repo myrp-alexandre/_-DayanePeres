@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HairLumos.Relatórios.CrystalReport;
+using HairLumos.Relatórios.DataSet;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,8 +36,8 @@ namespace HairLumos.Relatórios.Formularios
         {
             DataTable dt = new DataTable();
             Controller.VendaController vc = new Controller.VendaController();
-            CRCompras crcompra = new CRCompras();
-            DSVendas ds = new DSVendas();
+            CRVendas crcompra = new CRVendas();
+            DataSet1 ds = new DataSet1();
             //fazer busca de acordo com filtros
             if (dtpInicio.Value > dtpFim.Value && !dtpInicio.Value.ToString("dd-MM-yyyy").Equals(dtpFim.Value.ToString("dd-MM-yyyy")))
             {

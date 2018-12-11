@@ -306,5 +306,42 @@ namespace HairLumos.DAO
                 return 0;
             }
         }
+
+        public DataTable retornaRelatorio(string dataI, string dataF, bool estado)
+        {
+            DataTable dt = new DataTable();
+
+            _sql = "select v.vend_datavenda, v.vend_situacao, v.vend_valortotal, p.pes_nome from tbvenda v inner join tbpessoa p on p.codpessoa = v.codpessoa";
+            bool ultimo = false;
+            if(!String.IsNullOrEmpty(dataI) && !String.IsNullOrEmpty(dataF))
+            {
+                _sql += " where v.vend_datavenda between '" + dataI + "' and '" + dataF + "'";
+                ultimo = true;
+            }
+            if (!estado)
+            {
+                if (ultimo)
+                    _sql += " and v.vend_situacao = 'fechada'";
+                else
+                    _sql += " where v.vend_situacao = 'fechada'";
+            }
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+                
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw new SystemException(e + "Erro ao retornar Venda");
+            }
+            return dt;
+        }
     }
 }

@@ -317,5 +317,11 @@ namespace HairLumos
             Relatórios.Formularios.FrmCompra frmCompra = new Relatórios.Formularios.FrmCompra();
             frmCompra.ShowDialog();
         }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatórios.Formularios.FrmVendas frmVendas = new Relatórios.Formularios.FrmVendas();
+            frmVendas.ShowDialog();
+        }
     }
 }
