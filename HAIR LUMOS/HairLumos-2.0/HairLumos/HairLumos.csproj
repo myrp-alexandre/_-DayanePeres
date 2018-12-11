@@ -171,6 +171,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSCliente.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Relatórios\DataSet\DSCompras.cs">
+      <DependentUpon>DSCompras.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatórios\DataSet\DSCompras.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSCompras.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Relatórios\DataSet\DSProdutos.cs">
       <DependentUpon>DSProdutos.xsd</DependentUpon>
     </Compile>
@@ -630,6 +638,17 @@
     </None>
     <None Include="Relatórios\DataSet\DSCliente.xss">
       <DependentUpon>DSCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Relatórios\DataSet\DSCompras.xsc">
+      <DependentUpon>DSCompras.xsd</DependentUpon>
+    </None>
+    <None Include="Relatórios\DataSet\DSCompras.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCompras.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatórios\DataSet\DSCompras.xss">
+      <DependentUpon>DSCompras.xsd</DependentUpon>
     </None>
     <None Include="Relatórios\DataSet\DSProdutos.xsc">
       <DependentUpon>DSProdutos.xsd</DependentUpon>

@@ -120,7 +120,7 @@ namespace HairLumos.DAO
         {
             _sql = "select a.codpessoa, a.agen_valor, a.agen_dataagendamento, ts.tiposerv_descricao, a.agen_status, a.codagenda " +
                    " from tbagenda a inner join tbtiposervico ts on ts.codtiposervico = a.codtiposervico" +
-                   " where a.codpessoa = " + codigo+ " and a.agen_status = 'Confirmado'";
+                   " where a.codpessoa = " + codigo+ " and a.agen_status = 'Confirmado' and a.codfechamento = 0";
             DataTable dt = new DataTable();
 
             try

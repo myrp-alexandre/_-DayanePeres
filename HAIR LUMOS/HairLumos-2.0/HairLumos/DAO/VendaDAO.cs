@@ -255,7 +255,7 @@ namespace HairLumos.DAO
 
             _sql = "SELECT codvenda, vend_datavenda, vend_situacao, vend_valortotal, vend_obs, codpessoa, codfechamento " +
                     "FROM tbvenda " +
-                    "WHERE vend_situacao = 'aberta' and codpessoa = " + cod + " and codvenda not in (select codvenda from tbcontasreceber)";
+                    "WHERE vend_situacao = 'aberta' and codfechamento = 0 and codpessoa = " + cod + " and codvenda not in (select codvenda from tbcontasreceber)";
 
 
             try

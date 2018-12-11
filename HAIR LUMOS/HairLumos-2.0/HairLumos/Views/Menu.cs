@@ -303,7 +303,7 @@ namespace HairLumos
 
         private void manualDoUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(@"E:\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\Manual Usuario.pdf");
+            System.Diagnostics.Process.Start(@"D:\Documentos\GitHub\_-DayanePeres\HAIR LUMOS\HairLumos-2.0\HairLumos\Manual Usuario.pdf");
         }
     }
 }

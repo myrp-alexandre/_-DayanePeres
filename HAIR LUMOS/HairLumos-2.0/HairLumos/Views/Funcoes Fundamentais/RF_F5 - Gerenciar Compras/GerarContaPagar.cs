@@ -143,8 +143,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F5
 
             }
 
-            if (string.IsNullOrWhiteSpace(ttbQtdeParcela.Text))
-                MessageBox.Show("Informe uma valor para a parcela ou 0");
+            
 
 
             if (dtpDataVencimento.Value.Date >= DateTime.Now.Date)
