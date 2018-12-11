@@ -139,6 +139,7 @@
             this.CodParcela,
             this.ValorParcela,
             this.DataVencimento});
+            this.dgvContas.Enabled = false;
             this.dgvContas.Location = new System.Drawing.Point(9, 8);
             this.dgvContas.Name = "dgvContas";
             this.dgvContas.ReadOnly = true;

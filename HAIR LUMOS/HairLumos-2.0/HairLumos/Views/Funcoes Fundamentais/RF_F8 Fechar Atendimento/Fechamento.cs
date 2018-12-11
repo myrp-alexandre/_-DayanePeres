@@ -26,6 +26,15 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
             dgvListaServicos.AutoGenerateColumns = false;
         }
 
+        public Fechamento(Entidades.Pessoa pessoa)
+        {
+            InitializeComponent();
+            dgvListaProdutos.AutoGenerateColumns = false;
+            dgvListaServicos.AutoGenerateColumns = false;
+            this.pes = pessoa;
+            carregaTela(pes.Codigo);
+        }
+
         public Fechamento(int codV)
         {
             InitializeComponent();
@@ -118,7 +127,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento
                     {
                         for(int k =0; k<dtItens.Rows.Count; k++)
                         {
-                            DataRow drItens = dtItens.Rows[i];
+                            DataRow drItens = dtItens.Rows[k];
                             vp = new Entidades.VendaProduto();
                             vp.Quantidade = Convert.ToInt32(drItens["vendprod_qtde"].ToString());
                             vp.Valor = Convert.ToDouble(drItens["vendprod_valor"].ToString());

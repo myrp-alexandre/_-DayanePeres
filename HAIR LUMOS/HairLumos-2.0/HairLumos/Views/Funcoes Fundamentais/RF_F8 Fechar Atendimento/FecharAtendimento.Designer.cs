@@ -299,9 +299,11 @@
             this.dgvformasPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Forma,
             this.Valor});
+            this.dgvformasPagamento.Enabled = false;
             this.dgvformasPagamento.Location = new System.Drawing.Point(6, 19);
             this.dgvformasPagamento.Name = "dgvformasPagamento";
             this.dgvformasPagamento.ReadOnly = true;
+            this.dgvformasPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvformasPagamento.Size = new System.Drawing.Size(329, 170);
             this.dgvformasPagamento.TabIndex = 31;
             // 

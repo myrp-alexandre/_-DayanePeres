@@ -95,6 +95,7 @@
             this.Situacao,
             this.Consignado,
             this.ValorTotal});
+            this.dgvCompras.Enabled = false;
             this.dgvCompras.Location = new System.Drawing.Point(12, 79);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.ReadOnly = true;

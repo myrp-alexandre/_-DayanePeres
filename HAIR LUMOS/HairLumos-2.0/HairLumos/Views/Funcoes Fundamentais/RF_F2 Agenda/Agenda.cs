@@ -412,7 +412,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
             if (!String.IsNullOrEmpty(dgvAgendamento.CurrentRow.Cells[1].ToString()))
             {
                 this.PesParam = listaAgendamentos.ElementAt(dgvAgendamento.CurrentRow.Index).Pes;
-                Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.FecharAtendimento fechar = new RF_F8_Fechar_Atendimento.FecharAtendimento();
+                Views.Funcoes_Fundamentais.RF_F8_Fechar_Atendimento.Fechamento fechar = new RF_F8_Fechar_Atendimento.Fechamento(this.PesParam);
                 fechar.ShowDialog();
             }
             

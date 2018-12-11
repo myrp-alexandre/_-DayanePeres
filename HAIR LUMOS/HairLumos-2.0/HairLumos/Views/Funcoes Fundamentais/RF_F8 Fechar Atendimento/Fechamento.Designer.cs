@@ -145,6 +145,7 @@
             // 
             // mskTotalGeral
             // 
+            this.mskTotalGeral.Enabled = false;
             this.mskTotalGeral.Location = new System.Drawing.Point(653, 322);
             this.mskTotalGeral.Name = "mskTotalGeral";
             this.mskTotalGeral.Size = new System.Drawing.Size(84, 20);
@@ -152,6 +153,7 @@
             // 
             // mskTotalProduto
             // 
+            this.mskTotalProduto.Enabled = false;
             this.mskTotalProduto.Location = new System.Drawing.Point(653, 270);
             this.mskTotalProduto.Name = "mskTotalProduto";
             this.mskTotalProduto.Size = new System.Drawing.Size(84, 20);
@@ -168,6 +170,7 @@
             // 
             // mskTotalServico
             // 
+            this.mskTotalServico.Enabled = false;
             this.mskTotalServico.Location = new System.Drawing.Point(653, 89);
             this.mskTotalServico.Name = "mskTotalServico";
             this.mskTotalServico.Size = new System.Drawing.Size(84, 20);
@@ -213,6 +216,8 @@
             this.dgvListaProdutos.Enabled = false;
             this.dgvListaProdutos.Location = new System.Drawing.Point(6, 190);
             this.dgvListaProdutos.Name = "dgvListaProdutos";
+            this.dgvListaProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvListaProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaProdutos.Size = new System.Drawing.Size(638, 120);
             this.dgvListaProdutos.TabIndex = 43;
             // 
@@ -257,6 +262,8 @@
             this.dgvListaServicos.Enabled = false;
             this.dgvListaServicos.Location = new System.Drawing.Point(15, 35);
             this.dgvListaServicos.Name = "dgvListaServicos";
+            this.dgvListaServicos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvListaServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaServicos.Size = new System.Drawing.Size(629, 127);
             this.dgvListaServicos.TabIndex = 42;
             // 

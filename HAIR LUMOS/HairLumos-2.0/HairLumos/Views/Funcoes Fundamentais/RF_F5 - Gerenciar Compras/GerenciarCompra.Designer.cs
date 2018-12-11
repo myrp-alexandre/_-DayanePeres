@@ -231,6 +231,7 @@
             this.dgvGerenciarCompra.AllowUserToDeleteRows = false;
             this.dgvGerenciarCompra.BackgroundColor = System.Drawing.Color.White;
             this.dgvGerenciarCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGerenciarCompra.Enabled = false;
             this.dgvGerenciarCompra.Location = new System.Drawing.Point(6, 6);
             this.dgvGerenciarCompra.Name = "dgvGerenciarCompra";
             this.dgvGerenciarCompra.ReadOnly = true;

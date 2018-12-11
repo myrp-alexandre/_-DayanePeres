@@ -130,6 +130,7 @@
             // 
             // mskValorTotal
             // 
+            this.mskValorTotal.Enabled = false;
             this.mskValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskValorTotal.Location = new System.Drawing.Point(6, 40);
             this.mskValorTotal.Name = "mskValorTotal";
@@ -160,6 +161,7 @@
             this.Produto,
             this.Quantidade,
             this.Valor});
+            this.dgvProdutos.Enabled = false;
             this.dgvProdutos.Location = new System.Drawing.Point(13, 19);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
