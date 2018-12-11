@@ -44,5 +44,10 @@ namespace HairLumos.Relatórios.Formularios
             tela.ShowDialog();
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
