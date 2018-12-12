@@ -616,12 +616,40 @@ namespace HairLumos.DAO
             DataTable dt = new DataTable();
 
 
-            _sql = "SELECT p.codpessoa, p.pes_nome, p.pes_datacadastro, p.pes_tipopessoa, p.pes_statuspessoa,p.pes_obs,"+ 
-                    " p.pes_fiado, p.pes_email, p.pes_fone, p.pes_cel "+
+            _sql = "Select * from tbpessoa ";
+
+            if (texto != null && texto != "")
+                _sql += " WHERE pes_nome = '"+texto+"'";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(_sql, Conexao.getIntancia().openConn());
+
+                cmd.CommandText = _sql;
+
+                NpgsqlDataReader dr = cmd.ExecuteReader(); //ExecuteReader para select retorna um DataReader
+                dt.Load(dr);//Carrego o DataReader no meu DataTable
+                dr.Close();//Fecho o DataReader
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return dt;
+        }
+
+        public DataTable RetornaPessoaCompra(string texto)
+        {
+            DataTable dt = new DataTable();
+
+
+            _sql = "SELECT p.codpessoa, p.pes_nome, p.pes_datacadastro, p.pes_tipopessoa, p.pes_statuspessoa,p.pes_obs," +
+                    " p.pes_fiado, p.pes_email, p.pes_fone, p.pes_cel " +
                     " FROM tbpessoa p inner join tbjuridica j on j.codpessoa = p.codpessoa ";
 
             if (texto != null && texto != "")
-                _sql += " WHERE j.jur_razaosocial = '"+texto+"'";
+                _sql += " WHERE j.jur_razaosocial = '" + texto + "'";
 
             try
             {

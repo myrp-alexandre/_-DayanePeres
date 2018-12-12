@@ -232,8 +232,14 @@ namespace HairLumos.DAO
                 dt.Load(dr);
                 dr.Close();//Fecho o DataReader
 
-                DataRow dtr = dt.Rows[0];
-                cont = Convert.ToInt32(dtr[0].ToString());
+                if(dt!=null && dt.Rows.Count > 0)
+                {
+                    int cod = 0;
+                    DataRow dtr = dt.Rows[0];
+                    int.TryParse(dtr[0].ToString(), out cod);
+                    return cod;
+                }
+                
             }
             catch (Exception e)
             {

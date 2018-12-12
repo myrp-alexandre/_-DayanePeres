@@ -65,6 +65,11 @@ namespace HairLumos.Models
             return _DAOPessoa.RetornaPessoa(texto);
         }
 
+        public DataTable retornaPessoaCompra(string texto)
+        {
+            return _DAOPessoa.RetornaPessoaCompra(texto);
+        }
+
         public DataTable retornaCpf(string cpf)
         {
             return _DAOPessoa.RetornaCPF(cpf);
