@@ -147,7 +147,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F12_Gerenciar_Comissao
                         Entidades.TabelaComissao tc = new Entidades.TabelaComissao();
                         tc.CodComis = Convert.ToInt32(drGeral["codcomissao"].ToString());
                         tc.Data = Convert.ToDateTime(drGeral["agen_dataagendamento"].ToString());
-                        tc.Valor = Convert.ToInt32(drGeral["prestserv_valor"].ToString());
+                        tc.Valor = Convert.ToDouble(drGeral["prestserv_valor"].ToString());
                         tc.Status = drGeral["prestser_pagrec"].ToString();
                         tc.Nome = drGeral["pes_nome"].ToString();
                         tc.Pagamento = drGeral["comis_statuspagamento"].ToString();

@@ -88,15 +88,11 @@
             this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator24 = new System.Windows.Forms.ToolStripSeparator();
-            this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
             this.comissãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
-            this.pacotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
-            this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
-            this.folhaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNFORMAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             this.parametrizaçãoDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -519,15 +515,11 @@
             this.toolStripSeparator23,
             this.vendasToolStripMenuItem,
             this.toolStripSeparator24,
-            this.serviçosToolStripMenuItem,
             this.toolStripSeparator25,
             this.comissãoToolStripMenuItem,
             this.toolStripSeparator26,
-            this.pacotasToolStripMenuItem,
             this.toolStripSeparator27,
-            this.agendaToolStripMenuItem,
-            this.toolStripSeparator28,
-            this.folhaDePagamentoToolStripMenuItem});
+            this.toolStripSeparator28});
             this.rELATÓRIOSToolStripMenuItem.Name = "rELATÓRIOSToolStripMenuItem";
             this.rELATÓRIOSToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.rELATÓRIOSToolStripMenuItem.Text = "RELATÓRIOS";
@@ -589,13 +581,6 @@
             this.toolStripSeparator24.Name = "toolStripSeparator24";
             this.toolStripSeparator24.Size = new System.Drawing.Size(183, 6);
             // 
-            // serviçosToolStripMenuItem
-            // 
-            this.serviçosToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.serviçosToolStripMenuItem.Text = "Serviços";
-            // 
             // toolStripSeparator25
             // 
             this.toolStripSeparator25.Name = "toolStripSeparator25";
@@ -614,37 +599,15 @@
             this.toolStripSeparator26.Name = "toolStripSeparator26";
             this.toolStripSeparator26.Size = new System.Drawing.Size(183, 6);
             // 
-            // pacotasToolStripMenuItem
-            // 
-            this.pacotasToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.pacotasToolStripMenuItem.Name = "pacotasToolStripMenuItem";
-            this.pacotasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.pacotasToolStripMenuItem.Text = "Pacotes";
-            this.pacotasToolStripMenuItem.Click += new System.EventHandler(this.pacotasToolStripMenuItem_Click);
-            // 
             // toolStripSeparator27
             // 
             this.toolStripSeparator27.Name = "toolStripSeparator27";
             this.toolStripSeparator27.Size = new System.Drawing.Size(183, 6);
             // 
-            // agendaToolStripMenuItem
-            // 
-            this.agendaToolStripMenuItem.BackColor = System.Drawing.Color.Goldenrod;
-            this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
-            this.agendaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.agendaToolStripMenuItem.Text = "Agenda";
-            // 
             // toolStripSeparator28
             // 
             this.toolStripSeparator28.Name = "toolStripSeparator28";
             this.toolStripSeparator28.Size = new System.Drawing.Size(183, 6);
-            // 
-            // folhaDePagamentoToolStripMenuItem
-            // 
-            this.folhaDePagamentoToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.folhaDePagamentoToolStripMenuItem.Name = "folhaDePagamentoToolStripMenuItem";
-            this.folhaDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.folhaDePagamentoToolStripMenuItem.Text = "Folha de Pagamento";
             // 
             // iNFORMAÇÕESToolStripMenuItem
             // 
@@ -767,9 +730,11 @@
             // lbUsuario
             // 
             this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Location = new System.Drawing.Point(125, 663);
+            this.lbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuario.ForeColor = System.Drawing.Color.Black;
+            this.lbUsuario.Location = new System.Drawing.Point(126, 661);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(35, 13);
+            this.lbUsuario.Size = new System.Drawing.Size(46, 17);
             this.lbUsuario.TabIndex = 2;
             this.lbUsuario.Text = "label1";
             // 
@@ -871,15 +836,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator24;
-        private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator25;
         private System.Windows.Forms.ToolStripMenuItem comissãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator26;
-        private System.Windows.Forms.ToolStripMenuItem pacotasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;
-        private System.Windows.Forms.ToolStripMenuItem agendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
-        private System.Windows.Forms.ToolStripMenuItem folhaDePagamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator29;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
         private System.Windows.Forms.ToolStripMenuItem manualDoUsuárioToolStripMenuItem;

@@ -30,6 +30,12 @@ namespace HairLumos.Views.Funcoes_Basicas
             carregaServicoCbb();
 
             ttbValorServico.Enabled = false;
+
+            if(!string.IsNullOrWhiteSpace(ttbValorServico.Text))
+                ttbValorServico.Text = Convert.ToDouble(ttbValorServico.Text).ToString("###,###,##0.00");
+
+            if (!string.IsNullOrWhiteSpace(mskValorInformado.Text))
+                mskValorInformado.Text = Convert.ToDouble(ttbValorServico.Text).ToString("###,###,##0.00");
         }
 
         public void _btnNovo()
@@ -340,6 +346,8 @@ namespace HairLumos.Views.Funcoes_Basicas
             List<Entidades.ServicoParceiro> listaaux = new List<Entidades.ServicoParceiro>();
             try
             {
+
+                mskValorInformado.Text = "00,00";
                 double valor = 0;
                 double valorServico = 0;
                 if (!String.IsNullOrWhiteSpace(ttbValorServico.Text))

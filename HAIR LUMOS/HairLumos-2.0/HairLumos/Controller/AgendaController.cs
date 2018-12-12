@@ -105,7 +105,7 @@ namespace HairLumos.Controller
                 }
                 servparc.PessoaJuridica = pes;
                 servparc.Servico = sv;
-                servparc.Valor = Convert.ToInt32(drServParc["prestserv_valor"].ToString());
+                servparc.Valor = Convert.ToDouble(drServParc["prestserv_valor"].ToString());
                 servparc.Percentual = Convert.ToDouble(drServParc["prestserv_percentual"].ToString());
                 servparc.PagamentoRecebido = drServParc["prestser_pagrec"].ToString();
                 servparc.Estado = Convert.ToBoolean(drServParc["estado"].ToString());

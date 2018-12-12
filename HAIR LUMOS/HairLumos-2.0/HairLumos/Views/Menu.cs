@@ -323,5 +323,15 @@ namespace HairLumos
             Relatórios.Formularios.FrmVendas frmVendas = new Relatórios.Formularios.FrmVendas();
             frmVendas.ShowDialog();
         }
+
+        private void folhaDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

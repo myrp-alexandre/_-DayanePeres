@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Npgsql.FSharp</name></assembly>
+<members>
+<member name="M:Npgsql.FSharp.SqlModule.executeScalarSafe(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query and returns a scalar value safely (does not throw)
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQuerySafeAsync(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query safely asynchronously (does not throw) and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQuerySafeTask(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query safely as task (does not throw) and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQuerySafeTaskCt(System.Threading.CancellationToken,Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query safely as task (does not throw) and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQueryAsync(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query as asynchronously and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQueryTask(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query as a task and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQueryTaskCt(System.Threading.CancellationToken,Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query as a task and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQuerySafe(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query safely (does not throw) and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeNonQuery(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes the query and returns the number of rows affected
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.executeMany(Npgsql.FSharp.SqlModule.SqlProps)">
+<summary>
+ Executes multiple queries and returns each result set as a distinct table
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.readRowAsync(Npgsql.NpgsqlDataReader)">
+<summary>
+ Reads a single row from the data reader asynchronously
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.readRowTask(Npgsql.NpgsqlDataReader)">
+<summary>
+ Reads a single row from the data reader asynchronously
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.readRowTaskCt(System.Threading.CancellationToken,Npgsql.NpgsqlDataReader)">
+<summary>
+ Reads a single row from the data reader asynchronously
+</summary>
+</member>
+<member name="M:Npgsql.FSharp.SqlModule.readRow(Npgsql.NpgsqlDataReader)">
+<summary>
+ Reads a single row from the data reader synchronously
+</summary>
+</member>
+</members>
+</doc>

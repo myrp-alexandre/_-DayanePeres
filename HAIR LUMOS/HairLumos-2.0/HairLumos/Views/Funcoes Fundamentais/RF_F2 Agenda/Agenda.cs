@@ -197,7 +197,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                     }
                                     s.PessoaJuridica = pj;
                                     s.Servico = sv;
-                                    s.Valor = Convert.ToInt32(drServParc["prestserv_valor"].ToString());
+                                    s.Valor = Convert.ToDouble(drServParc["prestserv_valor"].ToString());
                                     s.Percentual = Convert.ToDouble(drServParc["prestserv_percentual"].ToString());
                                     s.PagamentoRecebido = drServParc["prestser_pagrec"].ToString();
                                     s.Estado = Convert.ToBoolean(drServParc["estado"].ToString());
@@ -291,7 +291,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais.RF_F2_Agenda
                                     }
                                     s.PessoaJuridica = pj;
                                     s.Servico = sv;
-                                    s.Valor = Convert.ToInt32(drServParc["prestserv_valor"].ToString());
+                                    s.Valor = Convert.ToDouble(drServParc["prestserv_valor"].ToString());
                                     s.Percentual = Convert.ToDouble(drServParc["prestserv_percentual"].ToString());
                                     s.PagamentoRecebido = drServParc["prestser_pagrec"].ToString();
                                     s.Estado = Convert.ToBoolean(drServParc["estado"].ToString());
