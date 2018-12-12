@@ -240,7 +240,7 @@ namespace HairLumos.Views.Funcoes_Fundamentais
             }
             //retorna pessoa pelo nome
             Controller.PessoaController pc = new PessoaController();
-            DataTable dtPessoa = pc.retornaPessoa(ttbFornecedor.Text.ToString());
+            DataTable dtPessoa = pc.retornaPessoaCompra(ttbFornecedor.Text.ToString());
             if(dtPessoa!=null && dtPessoa.Rows.Count > 0)
             {
                 DataRow drPessoa = dtPessoa.Rows[0];

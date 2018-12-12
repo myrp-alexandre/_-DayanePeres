@@ -48,7 +48,7 @@ namespace HairLumos
                 cadastroServiçoToolStripMenuItem.Visible = false;
                 cadastroDeDespesaToolStripMenuItem.Visible = false;
                 //cadastroDeParceiroToolStripMenuItem.Visible = false;
-                cadastroDeUsuárioToolStripMenuItem.Visible = false;
+                //cadastroDeUsuárioToolStripMenuItem.Visible = false;
                 rELATÓRIOSToolStripMenuItem.Visible = false;
                 iNFORMAÇÕESToolStripMenuItem.Visible = false;
                 bACKUPToolStripMenuItem.Visible = false;
